@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+	<extension
+       id="BLESSPackage"
+       name="BLESS Package"
+       point="org.eclipse.emf.ecore.generated_package">
+		<package 
+			uri = "http://www.multitude.com/aadl/bless/BLESS"
+			class = "com.multitude.aadl.bless.bLESS.BLESSPackage"
+			genModel = "model/generated/BLESS.genmodel" />
+	</extension>
+   <extension
+        point="org.osate.pluginsupport.aadlcontribution">
+     <aadlcontribution
+           file="resources/packages/BLESS_Types.aadl"
+           id="com.multitude.aadl.bless.BLESS_Types"
+           name="BLESS_Types.aadl">
+     </aadlcontribution>
+     <aadlcontribution
+           file="resources/properties/BLESS_Properties.aadl"
+           id="com.multitude.aadl.bless.BLESS_Properties"
+           name="BLESS_Properties.aadl">
+     </aadlcontribution>
+     <aadlcontribution
+           file="resources/properties/BLESS.aadl"
+           id="com.multitude.aadl.bless.BLESS"
+           name="BLESS.aadl">
+     </aadlcontribution>
+     <aadlcontribution
+           file="resources/packages/SI.aadl"
+           id="com.multitude.aadl.bless.aadlcontribution.si"
+           name="Standard International Units">
+     </aadlcontribution>
+  </extension>
+ <extension
+       point="org.osate.annexsupport.parser">
+    <parser
+          annexName="Unit"
+          class="com.multitude.aadl.bless.parsing.UnitAnnexParser"
+          id="com.multitude.aadl.bless.unitparser"
+          name="Unit Annex Parser">
+    </parser>
+    <parser
+          annexName="Assertion"
+          class="com.multitude.aadl.bless.parsing.AssertionAnnexParser"
+          id="com.multitude.aadl.bless.parser.assertion"
+          name="Assertion Annex Parser">
+    </parser>
+    <parser
+          annexName="BLESS"
+          class="com.multitude.aadl.bless.parsing.BlessAnnexParser"
+          id="com.multitude.aadl.bless.parser.bless"
+          name="BLESS Annex Parser">
+    </parser>
+    <parser
+          annexName="Exception"
+          class="com.multitude.aadl.bless.parsing.ExceptionAnnexParser"
+          id="com.multitude.aadl.bless.parser.exception"
+          name="Exception Annex Parser">
+    </parser>
+    <parser
+          annexName="Typedef"
+          class="com.multitude.aadl.bless.parsing.TypeAnnexParser"
+          id="com.multitude.aadl.bless.parser.type"
+          name="Type Annex Parser">
+    </parser>
+    <parser
+          annexName="Action"
+          class="com.multitude.aadl.bless.parsing.ActionAnnexParser"
+          id="com.multitude.aadl.bless.parser.Action"
+          name="Action Annex Parser">
+    </parser>
+ </extension>
+ <extension
+       point="org.osate.annexsupport.unparser">
+    <unparser
+          annexName="Unit"
+          class="com.multitude.aadl.bless.parsing.UnitAnnexUnparser"
+          id="com.multitude.aadl.bless.unitunparser"
+          name="Unit Annex Unparser">
+    </unparser>
+    <unparser
+          annexName="Typedef"
+          class="com.multitude.aadl.bless.parsing.TypeAnnexUnparser"
+          id="com.multitude.aadl.bless.unparser.type"
+          name="Type Annex Unparser">
+    </unparser>
+    <unparser
+          annexName="BLESS"
+          class="com.multitude.aadl.bless.parsing.BlessAnnexUnparser"
+          id="com.multitude.aadl.bless.unparser.bless"
+          name="BLESS Annex Unparser">
+    </unparser>
+    <unparser
+          annexName="Assertion"
+          class="com.multitude.aadl.bless.parsing.AssertionAnnexUnparser"
+          id="com.multitude.aadl.bless.unparser.assertion"
+          name="Assertion Annex Unparser">
+    </unparser>
+    <unparser
+          annexName="Exception"
+          class="com.multitude.aadl.bless.parsing.ExceptionAnnexUnparser"
+          id="com.multitude.aadl.bless.unparser.exception"
+          name="Exception Annex Unparser">
+    </unparser>
+    <unparser
+          annexName="Action"
+          class="com.multitude.aadl.bless.parsing.ActionAnnexUnparser"
+          id="com.multitude.aadl.bless.unparser.Action"
+          name="Action Annex Unparser">
+    </unparser>
+ </extension>
+ <extension
+       point="org.osate.annexsupport.linkingservice">
+    <linkingservice
+          annexName="BLESS"
+          class="com.multitude.aadl.bless.linking.BlessAnnexLinkingService"
+          id="com.multitude.aadl.bless.BLESSlinkingservice"
+          name="BLESS Annex Linking Service">
+    </linkingservice>
+    <linkingservice
+          annexName="Typedef"
+          class="com.multitude.aadl.bless.linking.TypeAnnexLinkingService"
+          id="com.multitude.aadl.bless.TypeLinkingservice"
+          name="Type Annex Linking Service">
+    </linkingservice>
+    <linkingservice
+          annexName="Unit"
+          class="com.multitude.aadl.bless.linking.UnitAnnexLinkingService"
+          id="com.multitude.aadl.bless.UnitLinkingservice"
+          name="Unit Annex Linking Service">
+    </linkingservice>
+    <linkingservice
+          annexName="Assertion"
+          class="com.multitude.aadl.bless.linking.AssertionAnnexLinkingService"
+          id="com.multitude.aadl.bless.AssertionLinkingservice"
+          name="Assertion Annex Linking Service">
+    </linkingservice>
+    <linkingservice
+          annexName="Action"
+          class="com.multitude.aadl.bless.linking.ActionAnnexLinkingService"
+          id="com.multitude.aadl.bless.ActionLinkingService"
+          name="Action Annex Linking Service">
+    </linkingservice>
+ </extension>
+</plugin>

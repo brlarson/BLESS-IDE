@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>com.multitude.aadl.bless.feature</name>
+	<comment></comment>
+	<projects>
+		<project>com.multitude.aadl.bless</project>
+		<project>com.multitude.aadl.bless.ide</project>
+		<project>com.multitude.aadl.bless.ui</project>
+		<project>com.multitude.bless.help</project>
+		<project>com.multitude.bless.proof</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.pde.FeatureBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.pde.FeatureNature</nature>
+	</natures>
+</projectDescription>

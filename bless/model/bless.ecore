@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bless" nsURI="http://bless/1.0" nsPrefix="bless">
+  <eClassifiers xsi:type="ecore:EClass" name="AST" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionAnnexSubclause" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tree" lowerBound="1" eType="#//AST"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BLESSAnnexSubclause" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tree" lowerBound="1" eType="#//AST"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubBLESSAnnexSubclause" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tree" lowerBound="1" eType="#//AST"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionAnnexLibrary" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tree" lowerBound="1" eType="#//AST"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" lowerBound="1" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//String"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Marker" eSuperTypes="../../org.osate.aadl2/model/aadl2.ecore#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isError" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//Boolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWarning" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//Boolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isInfo" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//Boolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType ../../org.osate.aadl2/model/aadl2.ecore#//Integer"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+</ecore:EPackage>

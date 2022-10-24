@@ -1,0 +1,109 @@
+package BLESS_Types public
+with Base_Types, BLESS_Properties, BLESS;
+
+annex Typedef 
+{**
+type time is quantity s 
+type Complex is record ( re:quantity scalar im:quantity scalar )
+type Integer is quantity whole
+type Integer_8 is quantity whole representation BLESS_Properties::Int_8
+type Integer_16 is quantity whole representation BLESS_Properties::Int_16
+type Integer_32 is quantity whole representation BLESS_Properties::Int_32
+type Integer_64 is quantity whole representation BLESS_Properties::Int_64
+type Unsigned_8 is quantity whole representation BLESS_Properties::Uns_8
+type Unsigned_16 is quantity whole representation BLESS_Properties::Uns_16
+type Unsigned_32 is quantity whole representation BLESS_Properties::Uns_32
+type Unsigned_64 is quantity whole representation BLESS_Properties::Uns_64
+type Natural is quantity whole representation BLESS_Properties::Natural
+type Float is quantity scalar representation BLESS_Properties::Float
+type Float_32 is quantity scalar representation BLESS_Properties::Float_32
+type Float_64 is quantity scalar representation BLESS_Properties::Float_64
+**};
+
+data flag extends Base_Types::Boolean --boolean flag
+  properties
+    BLESS::Typed=>"boolean";
+end flag;
+
+data Boolean extends Base_Types::Boolean --boolean flag
+  properties
+    BLESS::Typed=>"boolean";
+end Boolean;
+
+data Integer extends Base_Types::Integer
+  properties 
+    BLESS::Typed => "Integer";
+end Integer;    
+
+data Integer_8 extends Base_Types::Integer_8
+  properties
+    BLESS::Typed => "Integer_8";
+end Integer_8;
+
+data Integer_16 extends Base_Types::Integer_16
+  properties
+    BLESS::Typed => "Integer_16";
+end Integer_16;
+
+data Integer_32 extends Base_Types::Integer_32
+  properties
+    BLESS::Typed => "Integer_32";
+end Integer_32;
+
+data Integer_64 extends Base_Types::Integer_64
+  properties
+    BLESS::Typed => "Integer_64";
+end Integer_64;
+
+data Unsigned_8 extends Base_Types::Unsigned_8
+  properties
+    BLESS::Typed => "Unsigned_8";
+end Unsigned_8;
+
+data Unsigned_16 extends Base_Types::Unsigned_16
+  properties
+    BLESS::Typed => "Unsigned_16";
+end Unsigned_16;
+
+data Unsigned_32 extends Base_Types::Unsigned_32
+  properties
+    BLESS::Typed => "Unsigned_32";
+end Unsigned_32;
+
+data Unsigned_64 extends Base_Types::Unsigned_64
+  properties
+    BLESS::Typed => "Unsigned_64";
+end Unsigned_64;
+
+data Natural extends Base_Types::Natural
+  properties 
+    BLESS::Typed => "Natural";
+end Natural;
+
+data Float extends Base_Types::Float
+  properties 
+    BLESS::Typed => "Float";
+end Float;
+
+data Float_32 extends Base_Types::Float_32
+  properties 
+    BLESS::Typed => "Float_32";
+end Float_32;
+
+data Float_64 extends Base_Types::Float_64
+  properties 
+    BLESS::Typed => "Float_64";
+end Float_64;
+
+data Complex
+  properties  
+    BLESS::Typed => "Complex";
+end Complex;
+
+data Time 
+  properties  
+    BLESS::Typed => "time";
+end Time;
+	
+    
+end BLESS_Types;

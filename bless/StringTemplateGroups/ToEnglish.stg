@@ -1,0 +1,526 @@
+//ToEnglish.stg
+group Java;
+//these are string templates used to generate English text from BLESS ASTs
+   
+property_set(psi,ids,ptd,pdd,pcon)::= ""
+
+import_declaration(pnopsi) ::= ""
+
+alias_declaration(i,pn) ::= ""
+
+property_type_declaration(ty,pt)::= ""
+ 
+property_constant(dpc,ptd,pe,ll)  ::= ""
+
+property_list_value(pvs) ::= ""
+
+assertion_function(a,lv,e) ::=
+<<\<\<<if(a)>The value of <a><endif><if(lv)> given <lv; separator=" "><else> <endif> is <e>. \>\> >>
+ 
+conditional_assertion_function(cvp) ::=
+<<
+  <cvp; separator=", else\n">
+>>
+
+
+condition_value_pair(pp,pe) ::= "if <pp> then <pe>" 
+ 
+ 
+assertion_enumeration(a,lv1,ae) ::=
+<<\<\<The meaning of labels defined by <a> is <ae>. \>\> >>
+ 
+assertion_enumeration2(ae) ::=
+<<\<\<The meaning of labels is <ae>. \>\> >>
+ 
+assertion_enumeration_predicate_invocation(pi) ::=
+"defined by <pi>. " 
+
+assertion_enumeration_pairs(ep) ::=
+"defined as<\n><ep; wrap, separator=\",\n  \">"
+
+enumeration_pair(i,pe) ::=
+"<i> when <pe>"
+ 
+alternative(gf) ::=
+<<if 
+<gf; separator="\n[]\n">
+fi>>
+
+asserted_action(p,s,q) ::= 
+  "<if(p)><p><\n><endif><s><if(q)><\n><q><endif>"
+//  "<if(p)>  <p> <endif><s><if(q)>  <q>  <endif>"
+
+
+behavior_transition(btl,ssi,bc,dsi,ba,btq) ::=
+<<<if(btl)><btl>: <endif><ssi; separator=",">-[<bc>]-\><dsi>
+<if(ba)>  { <ba; anchor> }<\n><else>  {}<endif> <if(btq)><btq><endif>;<if(btl)>  --end of <btl><endif>
+>>
+
+behavior_state(bsi,i,com,finl,a) ::=
+    "<bsi> : <if(i)><i> <endif><if(com)><com> <endif><if(finl)><finl> <endif>state<if(a)><\n>  <a><endif>;"
+
+guarded_action(be,ba) ::=
+ <<(<be>)~> 
+  <ba> >>
+
+
+thread_behavior(sv,bs,tran,ac,inv) ::=
+<<
+<ac><inv><sv>
+states
+  <bs; separator="\n">
+<tran>
+>>
+
+skip() ::= "skip" 
+
+function_call(f,pl,p) ::= 
+<<<if(p)><p; separator="::">::<endif><f>(<pl>)>>
+
+procedure_call(p,spb) ::= 
+	"<p>(<spb>)"
+
+port_output(o,be) ::= "<o>!(<be>)"
+
+event_port_output(o) ::= "<o>!"
+
+port_input(i,n) ::= "<i>?(<n>)"
+
+elq(v,ba,cc) ::=
+<<
+<v>
+{
+<ba; anchor>
+}<if(cc)><\n><cc><endif> >>
+
+quantified_variables(bv) ::=
+<<declare 
+  <bv; anchor, separator="\n">
+>>
+
+do_until(be,ba,bd,inv) ::=
+<<do <if(inv)><\n>  invariant <inv><endif><if(bd)><\n>  bound <bd><endif>
+  <ba; anchor>
+until (<be>)>>  
+  
+  
+for_loop(a,lb,ub,ba,inv) ::=
+<<for (<a> in <lb>..<ub>)<if(inv)>
+  invariant <inv><endif>
+  <ba> >>
+
+
+ulq(lv,ir,elq) ::=
+<<
+forall <lv> in <ir>
+  <elq> >>
+ 
+while_loop(be,elq,bd,inv) ::= 
+<<while (<be>)<if(inv)> 
+  invariant <inv> <endif>
+  bound <bd>
+  <elq> >>
+ 
+behavior_variable_type(d,t,p,s,con,sp,e,ass) ::=
+<<
+<d>:<p><s><con><sp> <t><if(e)>:=<e><endif><ass>;
+>>
+
+ 
+assertion(a,lv,p)::=
+   "\<\<<if(a)>The meaning of <a><if(lv)> applied to <lv; separator=\" \"><endif> is <endif><p> \>\>"
+//<<
+//\<\<<if(a)><a>:<lv; separator=" "> :<endif><p>\>\> >>
+
+ 
+// assertion(a,lv,p)::="\<\<<assertion2(a=a,lv=lv,p=p); anchor>"
+ 
+// assertion2(a,lv,p)::=
+//<<<if(a)><a>:<lv; separator=" ">:<endif><p>\>\> >>
+
+invariant_clause(a) ::=
+<<invariant <a>
+>>
+
+
+subprogram_behavior(ac,p1,p2,elq) ::=
+<<
+--start of subBLESS annex subclause
+<ac><if(p1)><\n>pre <p1><endif><if(p2)><\n>post <p2><endif>
+<elq>
+--end of subBLESS annex subclause
+>>
+
+record_type(rf) ::= 
+<<record 
+  (<rf;anchor, separator="\n">)>>		
+ 
+record_field(df,ptd,t) ::=
+		"<df>:<if(t)>list of <endif><ptd>;"
+ 
+variant_type(vf)::= 
+ <<variant 
+  (<vf;anchor, separator="\n">)>>		
+
+variant_field(df,ptd,t) ::=
+		"<df>:<if(t)>list of <endif><ptd>;"
+ 
+type_declaration(i,t)::=
+<<<i>: type <t>;
+>>
+
+type_operator(i,param,t)::=
+<<<i>[<param; separator=" ">] : type <t>;
+>>
+
+type_operator_invocation(o,ty)::=
+<<<o>[<ty; separator=", ">]
+>>
+
+units_declaration(i,ul)::=
+<<<i> : units <ul>;
+>>
+
+//changed name 5/29/2010
+local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
+ 
+concurrent_composition(g)::="<g; separator=\"\n&\n\">" 
+ 
+sequential_composition(f)::="<f; separator=\"\n;\n\">" 
+ 
+assignment(nt,eort)::="<nt> := <eort>"
+
+////////SAME TEMPLATES BLESS.stg & BA.stg BELOW HERE/////////////
+
+
+declarator(i,lit) ::=   
+  "<i>[<lit; separator=\"][\">]"
+
+declarators(d,ds) ::=
+  "<d>,<ds; separator=\",\">"
+
+//me(i) ::= "<i>"
+
+variables(bv) ::=
+<<
+variables
+  <bv; separator="\n"> >>
+
+universal_quantification(a,lv,d,p)::=
+<<
+for all values of <lv>
+  <d> 
+  are <p; anchor> >>	
+
+logic_variables(t,i) ::= "<i; separator=\",\"> of <t> type," 
+
+logic_variable_domain(i,l,h,rs) ::=
+"in range of <l><rs><h>,"
+
+logic_variable_domain2(i2,p) ::=
+"when <p>"
+
+existential_quantification(e,lv2,d2,p2)::=
+<<
+there exist values of <lv2>
+  <d2> 
+  that <p2; anchor> >>
+
+array_range(l,r)::="<l>..<r>"
+
+enumeration_type(id,et)::=
+  "enumeration (<id; wrap, anchor, separator=\", \">)"
+
+number_type_plain(n)::="<n>"
+
+unique_component_classifier_reference(p,ii) ::=
+  "<p; separator=\"::\"><if(ii)>.<ii><endif>"
+
+ 
+ 
+//at parameter not used in BLESS.stg
+array_type(arl,t,at)::=	"array[<arl>] of <t>"
+
+array_range_list(r) ::=
+	 "<r; separator=\", \">"
+
+
+natural()::="natural"
+
+integer()::="integer"
+
+real()::="real"
+
+rational()::="rational"
+
+complex()::="complex"
+
+boolean()::="boolean"
+
+string()::="string"
+
+//////////AADL Component////////////////
+
+component_type(cc,dcti,ext,as,p,f)::=
+<<
+<cc> <dcti> <if(ext)>extends <ext><endif> 
+<if(f)>  features
+    <f; separator="\n"><endif>
+<if(p)>  properties
+    <p; separator="\n"><endif>
+<if(as)><as; separator="\n"><endif>
+end <dcti>;
+
+>>
+
+component_implementation(ccx,dctix,desx,extx,subx,conx,pcx,subx,asx)::=
+<<
+<ccx> implementation <dctix>.<desx> <if(extx)> extends <extx><endif>
+  <subx><conx><pcx><if(asx)><asx; separator="\n"><endif>
+end <dctix>.<desx>;\n
+>>
+
+component_implementation_short(ccx,dctix,desx)::=
+<<
+<ccx> implementation <dctix>.<desx>
+end <dctix>.<desx>;\n
+>>
+
+subcomp(sub)::=
+<<
+subcomponents
+  <sub; separator="\n">  >>
+  
+connections_clause(cons)::=
+<<  
+connections
+  <cons; separator="\n">  >>  
+
+connection(dcid,prtc,propa,inm)::=
+<<<dcid>: <prtc><if(propa)><\n>  {<propa; separator="\n">}<endif><inm>;  >>
+
+connection_short(dcid,prtc,propa,inm)::=
+<<<dcid>: <prtc><if(inm)><\n> <inm><endif>;  >>
+
+port_connection(direction,source, dest)::=
+<<port <source>
+  <direction> <dest> >>
+
+properties_clause(pa)::=
+<<  
+properties
+  <pa; separator="\n">
+>>
+  
+aadl_package(pi,pub,pri)::=
+<<
+package <pi>
+<pub>
+<pri>
+end <pi>;\n
+>>
+
+public_declarations(nv,ad)::=
+<<
+public <if(nv)><nv; separator=" "><\n><endif>
+<ad; separator="\n">
+>>  
+
+private_declarations(pnv,pad)::=
+<<
+private <if(pnv)><pnv; separator="\n"><\n><endif>
+<pad; separator="\n">
+>>  
+
+port_spec(dpi,io,pt,mpa)::=
+  "<dpi>: <io> <pt> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
+
+parameter_spec(dpi,io,uccr,mpa)::=
+  "<dpi>: <io> parameter <uccr> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
+
+subcomponent(i,cc,uccr,ad,aeil,sbpa,sbim)::=
+ 	"<i>: <cc> <uccr><ad><aeil><if(sbpa)>(<sbpa; separator=\",\">)<endif><sbim>;"
+
+annex_subclause_bless(tb) ::=
+    "annex BLESS <\n>{**<\n><tb><\n>**};  --end of BLESS annex<\n>"
+
+annex_subclause_subbless(sb) ::=
+    "annex subBLESS <\n>{**<\n><sb><\n>**};  --end of subBLESS annex<\n>"
+
+annex_subclause_assertion(a) ::=
+    "annex Assertion <\n>{**<a>**};  --end of Assertion annex<\n>"
+
+annex_library_assertion(ass) ::=
+<<
+annex Assertion 
+  {**
+  <ass; separator="\n">
+  **};  --end of Assertion annex library
+>>  
+    
+transitions(bt) ::=
+<<transitions
+  <bt; separator="\n\n">
+>>
+
+
+units_type(ul)::=
+	"units <ul>"
+	
+range_type(rt)::=	
+  "range of <rt>"
+	
+property_number_type(kind,range,units,designator) ::=
+  "<kind> <range><if(units)> <units> <designator><endif>"	
+	
+range(lb,ub)::=
+	"<lb>..<ub>"	
+	
+not(bt) ::=
+	"not <bt>"	
+
+parentheses(be) ::=
+	"( <be> )"	
+	
+conjunction(bopt) ::=
+	"<bopt; separator=\" and \">"
+	
+disjunction(bopt) ::=
+	"<bopt; separator=\" or \">"
+	
+component_classifier_term(uccr) ::=
+	"classifier(<uccr>)"
+
+property_record_term(recf) ::=
+	"( <recf; separator=\"\n\"> )"
+
+property_record_value(rfi,pv) ::=
+	"<rfi> =\> <pv>;"
+	
+access_connection(bord,source,con,dest) ::=
+  "<bord> access <source> <con> <dest>"
+
+feature_group_connection(source,con,dest) ::=
+  "feature group <source> <con> <dest>"
+  
+feature_group_type(pi,fc,ic,pc) ::=
+<<
+featue group <pi><fc><ic><pc>
+end <pi>;
+>>  
+
+features_clause(feat) ::=
+<<
+  features 
+    <feat; separator="\n"> >>
+
+inverse_clause(uftg) ::=
+<<
+  inverse of <uftg> >>
+
+bus_access_spec(b,a,i,pr,uccr) ::=
+	"<i>: <pr> <b> <a> <uccr>;"
+
+data_access_spec(dat,a,i,pr,uccr) ::=
+	"<i>: <pr> <dat> <a> <uccr>;"	
+	
+id_dot_id(fst,snd) ::=
+	"<fst>.<snd>"	
+	
+id_cc_id(fst,snd) ::=
+	"<fst>::<snd>"	
+	
+id_cc_id_dot_id(fst,snd,thr) ::=
+	"<fst>::<snd>.<thr>"	
+
+feature_connection(con,source,dest) ::=
+	"feature <source> <con> <dest>"  
+		
+property_definition_declaration(dpni,prop,puccr,inh)::=
+<<\n
+  <dpni> : <prop> <inh>  
+    applies to (<puccr; wrap, anchor, separator=", ">);
+>>	
+
+single_valued_property(ptd,dpe) ::=
+	"<ptd> =\> <dpe>"
+
+multi_valued_property(ll,pvs,ptd) ::=
+	"list of <if(ll)><ll; separator=\" of \"> of <endif><ptd><if(pvs)> =\> (<pvs; separator=\",\">) <endif>"
+
+property_association(ar,upi,propv,const) ::=
+	"<upi> <ar><const> <propv>;"
+    
+bless_property_association(bpa,ass) ::=
+	"BLESS::<bpa> =\> \"<ass>\";"   
+	
+units_list(fu,au) ::=
+		"(<fu><if(au)>,<\n>     <au; separator=\",\n     \"><endif>)"
+	
+two_element_expression(op,l,r) ::=
+  "<l><op><r>"	
+  
+two_element_expression_spaced(op,l,r) ::=
+  "<l> <op> <r>"	
+
+mod(l,r) ::= "<l> mod <r>"
+
+rem(l,r) ::= "<l> rem <r>"
+
+exp(l,r) ::= "<l>**<r>"
+
+cor(l,r) ::= "<l> or else <r>"  //change from cand  29JUN2015
+
+cand(l,r) ::= "<l> and then <r>" //change from cor  29JUN2015
+  
+multiply(terms) ::=
+  "<terms; wrap, separator=\"*\">" 
+  
+add(terms) ::=
+  "<terms; wrap, separator=\"+\">" 
+  
+and(terms) ::=
+  "<terms; wrap, separator=\" and \">" 
+  
+or(terms) ::=
+  "<terms; wrap, separator=\" or \">" 
+  
+xor(terms) ::=
+  "<terms; wrap, separator=\" xor \">" 
+  
+	
+sum(s,lv,d,pe) ::=
+<<
+<s> <lv>
+  <d> 
+  of <pe; anchor> >>
+	
+product(p,lv,d,pe) ::=
+<<
+<p> <lv>
+  <d> 
+  of <pe; anchor> >>
+  
+numberof(lv,d,pe) ::=
+<<
+numberof <lv>
+  <d> 
+  that <pe; anchor> >>
+  
+classifier_type(i) ::=
+	"classifier (<i; wrap, anchor, separator=\", \">)"   
+  
+reference_type(i) ::=
+	"reference (<i; wrap, anchor, separator=\", \">)"   
+  
+in_port_value(pn)::="<pn>?"  
+  
+formal_actual(f,ap) ::= "<f>:<ap>"	
+
+formal_actual_list(ns) ::= "<ns; separator=\",\">"
+
+unique_component_classifier_reference(p,ii) ::=
+"<p; separator=\"::\"><if(ii)>.<ii><endif>"
+
+
+

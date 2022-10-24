@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Getting Started with BLESS" link_to="toc.xml#gettingstarted"> 
+	<topic label="What is BLESS?" href="html/gettingstarted/whatis.html">
+	</topic> 
+	<topic label="Generating Verification Conditions"  href="html/gettingstarted/generatevc.html"> 
+	</topic>
+	<topic label="Choose System Implementation"  href="html/gettingstarted/choose.html"> 
+	</topic>
+</toc>

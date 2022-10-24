@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="bLESS" nsURI="http://www.multitude.com/aadl/bless/BLESS" nsPrefix="bLESS">
+  <eClassifiers xsi:type="ecore:EClass" name="BLESSGrammarRoots">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit_library" eType="#//UnitLibrary"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type_library" eType="#//TypeLibrary"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assertion_library" eType="#//AssertionLibrary"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action_subclause" eType="#//ActionSubclause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exception_library" eType="#//ExceptionLibrary"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bless_subclause" eType="#//BLESSSubclause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BLESSSubclause" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assert_clause" eType="#//AssertClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" eType="#//InvariantClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//VariablesSection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statesSection" eType="#//StatesSection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" eType="#//Transitions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitLibrary" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unitDeclarations" upperBound="-1"
+        eType="#//UnitDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionLibrary" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ghosts" eType="#//GhostVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assertion_list" upperBound="-1"
+        eType="#//NamedAssertion" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExceptionLibrary" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptiondefinitions" upperBound="-1"
+        eType="#//Exception" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionSubclause" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexSubclause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="throws_clause" eType="#//ThrowsClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assert_clause" eType="#//AssertClause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//Assertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" eType="#//Assertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invariant" eType="#//Assertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elq" eType="#//ExistentialLatticeQuantification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InvariantClause" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inv" eType="#//Assertion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariablesSection" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="behavior_variables" upperBound="-1"
+        eType="#//VariableDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatesSection" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="st" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//BehaviorState" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorState" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="complete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state_assertion" eType="#//Assertion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transitions" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bt" upperBound="-1" eType="#//BehaviorTransition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorTransition" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="priority" eType="#//Priority"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sources" unique="false"
+        upperBound="-1" eType="#//BehaviorState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dispatch" eType="#//DispatchCondition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="execute" eType="#//ExecuteCondition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mode" eType="#//ModeCondition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="internal" eType="#//InternalCondition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" eType="#//BehaviorState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ass" eType="#//Assertion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DispatchCondition" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dispatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="de" eType="#//DispatchExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frozen" eType="#//FreezePort"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DispatchExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dc" upperBound="-1" eType="#//DispatchConjunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="or" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subprogramaccessdispatch"
+        eType="#//SubprogramAccessDispatch" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubprogramAccessDispatch" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="access" eType="ecore:EClass http://aadl.info/AADL/2.0#//SubprogramAccess"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DispatchConjunction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" upperBound="-1"
+        eType="#//DispatchTrigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="and" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DispatchTrigger" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stop" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="#//PortName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" unique="false" upperBound="-1"
+        eType="ecore:EClass http://aadl.info/AADL/2.0#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//BehaviorTime"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortName">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="ecore:EClass http://aadl.info/AADL/2.0#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecuteCondition" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eor" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="otherwise" eType="#//Otherwise"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecuteTimeout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="t" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Otherwise" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="o" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeCondition" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tle" eType="#//TriggerLogicalExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TriggerLogicalExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//EventTrigger"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="op" eType="#//LogicalOperator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trigger" upperBound="-1"
+        eType="#//EventTrigger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ops" upperBound="-1" eType="#//LogicalOperator"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventTrigger" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sub" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="ecore:EClass http://aadl.info/AADL/2.0#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tle" eType="#//TriggerLogicalExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicalOperator" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InternalCondition" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="ecore:EClass http://aadl.info/AADL/2.0#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" unique="false" upperBound="-1"
+        eType="ecore:EClass http://aadl.info/AADL/2.0#//Port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertClause" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assertions" upperBound="-1"
+        eType="#//NamedAssertion" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExistentialLatticeQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantified_variables" eType="#//QuantifiedVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeout" eType="#//ActionTimeout"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="catch_clause" eType="#//CatchClause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantifiedVariables" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//VariableDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UniversalLatticeQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//ForallVariable" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lower_bound" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upper_bound" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elq" eType="#//ExistentialLatticeQuantification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForallVariable" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nonvolatile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shared" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="spread" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="final" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assign" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assertion" eType="#//Assertion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionParameters" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//FormalExpressionPair" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormalExpressionPair" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actual" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorActions" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
+        eType="#//AssertedAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="semi" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertedAction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//Assertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//Action"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" eType="#//Assertion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="basic" eType="#//BasicAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if_fi" eType="#//Alternative"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wl" eType="#//WhileLoop"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fl" eType="#//ForLoop"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="du" eType="#//DoUntilLoop"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elq" eType="#//ExistentialLatticeQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ulq" eType="#//UniversalLatticeQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="la" eType="#//LockingAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BasicAction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assign" eType="#//Assignment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mode" eType="ecore:EClass http://aadl.info/AADL/2.0#//Mode"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="when" eType="#//WhenThrow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comb" eType="#//CombinableOperation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communication" eType="#//CommunicationAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="computation" eType="#//Computation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multi_assign" eType="#//SimultaneousAssignment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exc" eType="#//IssueException"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CombinableOperation" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f_add" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arithmetic" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="result" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f_or" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f_and" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f_xor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bool" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sw" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//Variable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationAction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pc" eType="#//SubprogramCall"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="po" eType="#//PortOutput"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pi" eType="#//PortInput"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fp" eType="#//FreezePort"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pause" eType="#//Pause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubprogramCall" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="procedure" eType="ecore:EClass http://aadl.info/AADL/2.0#//CalledSubprogram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" eType="#//FormalActualList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormalActualList" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//FormalActual" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FormalActual" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formal" eType="ecore:EClass http://aadl.info/AADL/2.0#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actual" eType="#//SubProgramParameter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubProgramParameter" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constant" eType="#//Constant"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//ParenthesizedSubexpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortOutput" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="ecore:EClass http://aadl.info/AADL/2.0#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eor" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortInput" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="ecore:EClass http://aadl.info/AADL/2.0#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//ValueName"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" eType="#//NameTick"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asgn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" eType="#//ExpressionOrAny"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameTick" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionOrAny" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="any" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimultaneousAssignment" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" upperBound="-1" eType="#//NameTick"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asgn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" upperBound="-1" eType="#//ExpressionOrAny"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blessalt" eType="#//BLESSAlternative"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baalt" eType="#//BAAlternative"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BLESSAlternative" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//AssertedAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternative" upperBound="-1"
+        eType="#//GuardedAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GuardedAction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//AssertedAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WhileLoop" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inv" eType="#//NamelessAssertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bound_function" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elq" eType="#//ExistentialLatticeQuantification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForLoop" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//ForallVariable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lower_bound" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upper_bound" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inv" eType="#//NamelessAssertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//BehaviorActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoUntilLoop" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="invariant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inv" eType="#//NamelessAssertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bound" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bnd" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="guard" eType="#//BooleanExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ThrowsClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" unique="false"
+        upperBound="-1" eType="#//Exception"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatchClause" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="catches" upperBound="-1"
+        eType="#//CatchClauseTerm" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CatchClauseTerm" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" unique="false"
+        upperBound="-1" eType="#//Exception"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="all" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//BasicAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WhenThrow" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exception" eType="#//Exception"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Computation" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lb" eType="#//BehaviorTime"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ub" eType="#//BehaviorTime"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" unique="false"
+        upperBound="-1" eType="ecore:EClass http://aadl.info/AADL/2.0#//ComponentClassifier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAAlternative" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseifalt" upperBound="-1"
+        eType="#//ElseifAlternative" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elsealt" eType="#//ElseAlternative"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElseifAlternative" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElseAlternative" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" eType="#//BehaviorActions"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueException" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exception" eType="#//Exception"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LockingAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entercritical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="leavecritical" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="required_data_access" eType="ecore:EClass http://aadl.info/AADL/2.0#//DataAccess"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unlock" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FreezePort">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="frozen" unique="false"
+        upperBound="-1" eType="ecore:EClass http://aadl.info/AADL/2.0#//Port"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pause" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionTimeout" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//BehaviorTime"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BehaviorTime" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantity" eType="#//Quantity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//ParenthesizedSubexpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exception" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GhostVariables" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="gv" upperBound="-1" eType="#//GhostVariable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GhostVariable" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tod" eType="#//TypeOrReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Assertion" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedassertion" eType="#//NamedAssertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namelessassertion" eType="#//NamelessAssertion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namelessfunction" eType="#//NamelessFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namelessenumeration" eType="#//NamelessEnumeration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedAssertion" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formals" eType="#//VariableList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pred" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tod" eType="#//TypeOrReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionvalue" eType="#//AssertionFunctionValue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="assertionvariable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumerationType" eType="#//TypeDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="#//AssertionEnumeration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamelessAssertion" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamelessFunction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tod" eType="#//TypeOrReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="func" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functionvalue" eType="#//AssertionFunctionValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamelessEnumeration" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" eType="#//Invocation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Predicate" eSuperTypes="http://aadl.info/AADL/2.0#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionNumericExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumericExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression" eSuperTypes="#//Predicate #//AssertionNumericExpression #//BooleanExpression #//NumericExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="all" eType="#//UniversalQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exists" eType="#//ExistentialQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sum" eType="#//SumQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="product" eType="#//ProductQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numberof" eType="#//CountingQuantification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Disjunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//Disjunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Disjunction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Conjunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//Conjunction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conjunction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Relation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//Relation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//AddSub" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//AddSub" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddSub" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//MultDiv" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//MultDiv"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultDiv" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Exp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//Exp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exp" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//Subexpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//Subexpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subexpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unary" eType="#//UnaryOperator"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timed_expression" eType="#//TimedExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimedExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subject" eType="#//TimedSubject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="time" eType="#//Subexpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="caret" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shift" eType="#//PeriodShift"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimedSubject" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ps" eType="#//ParenthesizedSubexpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditional" eType="#//ConditionalExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record" eType="#//RecordTerm"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="invocation" eType="#//Invocation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParenthesizedSubexpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="f" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="caseexpression" eType="#//CaseExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="not" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unary_minus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="absolute_value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="truncate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="round" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Range" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lower_bound" eType="#//Subexpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="upper_bound" eType="#//Subexpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pred" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="f" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value_name" eType="#//ValueName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constant" eType="#//Constant"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="now" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tops" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum_val" eType="#//EnumerationValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationValue" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration_type" eType="#//TypeDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeration_value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numeric_constant" eType="#//Quantity"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string_literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="t" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="f" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nul" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tod" eType="#//TypeOrReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueName" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="id" eType="ecore:EClass http://aadl.info/AADL/2.0#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pr" eType="#//FunctionParameters"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lb" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array_index" upperBound="-1"
+        eType="#//IndexExpressionOrRange" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pn" upperBound="-1" eType="#//PartialName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="q" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fresh" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="updated" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PartialName" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="record_id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lb" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array_index" upperBound="-1"
+        eType="#//IndexExpressionOrRange" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexExpressionOrRange" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left_hand_side" eType="#//IndexExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right_hand_side" eType="#//IndexExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PeriodShift" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unary_minus" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="v" eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="index_expression" eType="#//IndexExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IndexExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="l" eType="#//PeriodShift"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sym" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//PeriodShift"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CaseExpression" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cc" upperBound="-1" eType="#//CaseChoice"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CaseChoice" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="be" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LogicVariables" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lv" upperBound="-1" eType="#//Variable"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SumQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//LogicVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="which" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numeric_expression" eType="#//NumericExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProductQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//LogicVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="which" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="numeric_expression" eType="#//NumericExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountingQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//LogicVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="which" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="counted" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UniversalQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//LogicVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="which" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExistentialQuantification" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" eType="#//LogicVariables"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="in" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//Range"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="which" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordTerm" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record_type" eType="#//TypeDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="record_value" upperBound="-1"
+        eType="#//RecordValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordValue" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aval" eType="#//Value"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Invocation" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//NamedAssertion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
+        eType="#//ActualParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actual_parameter" eType="#//NumericExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActualParameter" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="formal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actual" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableList" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="first" eType="#//Variable"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Variable" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionFunctionValue" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cexp" eType="#//ConditionalAssertionFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pexp" eType="#//AssertionNumericExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionalAssertionFunction" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cvp" upperBound="-1" eType="#//ConditionValuePair"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConditionValuePair" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Predicate"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//AssertionNumericExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AssertionEnumeration" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pred" eType="#//Invocation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pair" upperBound="-1" eType="#//EnumerationPair"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationPair" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeration_literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" eType="#//Predicate"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeLibrary" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexLibrary">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="decs" upperBound="-1" eType="#//TypeDeclaration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeDeclaration" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeOrReference" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ty" eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//TypeDeclaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="s" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NullType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defining_enumeration_literal"
+        unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantityType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lb" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ub" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representation" eType="ecore:EClass http://aadl.info/AADL/2.0#//PropertyConstant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ANumber" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//PropertyReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyConstant" eType="ecore:EClass http://aadl.info/AADL/2.0#//PropertyConstant"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="array_ranges" eType="#//ArrayRangeList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typ" eType="#//TypeOrReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayRangeList" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="range" upperBound="-1"
+        eType="#//ArrayRange" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comma" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayRange" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lb" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ub" eType="#//ANumber"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="record" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//RecordField" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecordField" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typ" eType="#//TypeOrReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyReference" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pname" eType="ecore:EClass http://aadl.info/AADL/2.0#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
+        eType="#//PropertyField" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="self" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="spname" eType="ecore:EClass http://aadl.info/AADL/2.0#//Property"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="ecore:EClass http://aadl.info/AADL/2.0#//ComponentClassifier"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cpname" eType="ecore:EClass http://aadl.info/AADL/2.0#//Property"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyField" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitName" eSuperTypes="http://aadl.info/AADL/2.0#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="longname" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitFormula" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="top" unique="false" upperBound="-1"
+        eType="#//UnitName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="slash" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bottom" unique="false"
+        upperBound="-1" eType="#//UnitName"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitDeclaration" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="factors" upperBound="-1"
+        eType="#//UnitFactor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDeclaration" eSuperTypes="#//UnitDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formula" eType="#//UnitFormula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kindWords" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unitName" eType="#//UnitName"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitExtension" eSuperTypes="#//UnitDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="#//UnitName"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnitFactor" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Quantity" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+</ecore:EPackage>

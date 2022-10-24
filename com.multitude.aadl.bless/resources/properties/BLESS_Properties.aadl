@@ -1,0 +1,101 @@
+property set BLESS_Properties is
+	Quantity_Type_Representation : type
+	record (
+		Data_Size: Size;
+      -- The Data_Size property specifies the size of the readable and writeable data that results when the
+      -- associated source text is compiled, linked, bound and loaded in the final system.  In the case of data types, it
+      -- specifies the maximum size required to hold a value of an instance of the data type.
+      -- The property type is Size.  The standard units are bits, Bytes (bytes), KByte (kilobytes), MByte (megabytes)
+      -- and GByte (gigabytes). 
+    Data_Representation : enumeration (Float, Fixed, Integer); 		
+      --  The Data_Representation property may be used to specify the
+      --  representation of quantity types within the
+      --  programming language source code.  
+    Data_Digits : aadlinteger;
+      --  The Data_Digits property specifies the total number of digits
+      --  of the fixed point type.
+    Data_Scale : aadlinteger;
+      --  The Data_Scale property defines the scale of the fixed point
+      --  types (10**(-scale) is the precision).
+	  Initial_Value : aadlreal;
+      --  Initial_Value specifies a list of initial values for a data
+      --  component or port in string form. For a subprogram parameter,
+      --  it defines a default value.
+    Integer_Range : range of aadlinteger;
+      --  Integer_Range specifies a range of integer values that apply to
+      --  the data component.  This property is used to represent integer
+      --  range constraints on data that is of some integer type.
+    Number_Representation : enumeration (Signed, Unsigned);
+     --  Number_Representation specifies whether an integer data
+     --  component is signed or unsigned.
+    Real_Range: range of aadlreal;
+     --  Real_Range specifies a range of real values that apply to the
+     --  data component.  This property is used to represent real range
+     --  constraints on data that is of some real type.
+   IEEE754_Precision : enumeration ( Simple, Double );
+     --  The IEEE754_Precision property indicates, for a float data
+     --  component type, the precision used. This property is derived
+     --  from the notion of precision per the 754-1985 IEEE Standard for
+     --  Binary Floating-Point Arithmetic.
+	);
+	
+	Int : constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;];
+	  
+  Int_8	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Signed;	
+	  Data_Size => 1 Bytes;];  
+	  
+  Int_16	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Signed;	
+	  Data_Size => 2 Bytes;];  
+	  
+  Int_32	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Signed;	
+	  Data_Size => 4 Bytes;];  
+	  
+  Int_64	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Signed;	
+	  Data_Size => 8 Bytes;];  
+	  
+  Uns_8	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Unsigned;	
+	  Data_Size => 1 Bytes;];  
+	  
+  Uns_16	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Unsigned;	
+	  Data_Size => 2 Bytes;];  
+	  
+  Uns_32	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Unsigned;	
+	  Data_Size => 4 Bytes;];  
+	  
+  Uns_64	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Integer;
+	  Number_Representation => Unsigned;	
+	  Data_Size => 8 Bytes;];  
+	  
+  Natural	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Integer_Range => 0 .. Max_Target_Integer;];  
+	  
+  Float	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Float;];  
+	  
+  Float_32	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Float;
+	  IEEE754_Precision => Simple; 
+    Data_Size => 4 Bytes;];  
+	  
+  Float_64	: constant BLESS_Properties::Quantity_Type_Representation =>
+	  [Data_Representation => Float;
+	  IEEE754_Precision => Double; 
+    Data_Size => 4 Bytes;];  
+
+end BLESS_Properties;

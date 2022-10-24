@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.multitude.aadl.bless.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: BLESS user interface
+Bundle-Vendor: Multitude Corporation
+Bundle-Version: 3.1.5.qualifier
+Bundle-SymbolicName: com.multitude.aadl.bless.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: com.multitude.aadl.bless,
+ com.multitude.aadl.bless.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare;bundle-version="[3.7.0,4.0.0)",
+ org.eclipse.xtext.builder,
+ org.eclipse.xtend.lib;bundle-version="2.14.0";resolution:=optional,
+ org.eclipse.xtext.common.types.ui,
+ org.osate.annexsupport,
+ org.osate.aadl2.modelsupport,
+ org.osate.xtext.aadl2.properties,
+ org.osate.xtext.aadl2.properties.ui,
+ org.osate.xtext.aadl2.ui,
+ org.eclipse.e4.ui.workbench;bundle-version="1.11.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+Import-Package: org.apache.log4j
+Export-Package: com.multitude.aadl.bless.ui.contentassist,
+ com.multitude.aadl.bless.ui.internal,
+ com.multitude.aadl.bless.ui.quickfix
+Bundle-Activator: com.multitude.aadl.bless.ui.internal.BlessActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-17

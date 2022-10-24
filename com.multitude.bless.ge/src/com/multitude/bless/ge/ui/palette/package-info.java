@@ -1,0 +1,1 @@
+package com.multitude.bless.ge.ui.palette;

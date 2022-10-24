@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Behavior Language for Embedded Systems with Software (BLESS)</title>
+</head>
+
+<body>
+<h1>Behavior Language for Embedded Systems with Software (BLESS)</h1>
+
+<p>
+The Architecture Analysis and Design Language (AADL) expresses systems-engineering models of embedded computer systems.  
+AADL models computer systems that control machines, particularly safety-critical machines such as aircraft, medical devices, and automobiles.
+More can be found about AADL at 
+<a href="http://aadl.info">AADL.info</a>.
+</p>
+
+<p>
+AADL supports extension of the core architecture language with definition of properties
+and annex sublanguages.  AADL properties define values for architectural entities.
+AADL annex subclauses attach text in a domain-specific language (DSL) to AADL components.
+AADL annex libraries contain DSL text not bound to any particular component.
+</p>
+
+<p>
+BLESS defines five annex sublanguages:
+<dl>
+	<dt><strong>Unit</strong></dt>
+		<dd>defining globally-visible units</dd>
+	<dt><strong>Typedef</strong></dt>
+		<dd>defining globally-visible data types</dd>
+	<dt><strong>Assertion</strong></dt>
+		<dd>defining globally-visible temporal logic predicates</dd>
+	<dt><strong>Action</strong></dt>
+		<dd>defining behavior of passive subprograms</dd>
+	<dt><strong>BLESS</strong></dt>
+		<dd>defining behavior of active components (i.e. threads and devices)
+		which can initiate and respond to events</dd>
+</dl>
+</p>
+
+<p>
+The <strong>BLESS Editor</strong> is a plug-in to the Open-Source AADL Tool Environment (OSATE), which is 
+a plug-in to Eclipse.  If you are reading this, you have both OSATE and BLESS installed.
+The BLESS editor checks grammar, highlights grammar, resolves names, and checks types+units.
+(BLESS v3 unifies type and unit checking.)
+</p>
+
+<p>
+The <strong>BLESS Proof Assistant</strong> transforms Action and BLESS annex subclauses into deductive proofs 
+given human guidance.  Action and BLESS behaviors must have non-executed assertions interspersed
+between active constructs which express what's true about the program or system at particular
+moments in time.
+</p>
+
+<p>
+Many examples of AADL models having BLESS 
+specifications, behaviors, and proofs can be found at 
+<a href="http://multitude.net">multitude.net</a>.
+</p>
+
+<p>
+The BLESS language reference manual (LRM) can be found at 
+<a href="http://multitude.net/documentation/">BLESS Manual</a>.
+</p>
+
+
+<p>
+<a href="credits/whoweare.html">License Information</a>
+</p>
+
+<p>
+<a href="gettingstarted/whatis.html">Getting Started with BLESS</a>
+</p>
+
+<p>
+<a href="using/select.html">Using the BLESS Proof assistant</a>
+</p>
+
+
+</body>
+</html>

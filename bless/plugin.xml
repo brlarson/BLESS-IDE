@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+     <command
+            defaultHandler="com.multitude.bless.handlers.PrayingHands"
+            description="Behavior Language for Embedded Systems with Software"
+            id="bless.prayinghands"
+            name="BLESS">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+       <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="bless.toolbar.prayinghands">
+            <command
+                  commandId="bless.prayinghands"
+                  icon="icons/meditation16.png"
+                  label="BLESS"
+                  style="push"
+                  tooltip="Start BLESS Proof ">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         id="com.multitude.bless.BLESSErrorMarker"
+         name="Error discovered by the BLESS tool"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.multitude.bless.ui.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="com.multitude.aadl.bless.BLESS"
+            class="com.multitude.bless.ui.preferences.ConfigurationPreferencePage"
+            id="com.multitude.bless.proof.preferences"
+            name="BLESS Preferences">
+      </page>
+   </extension>
+</plugin>

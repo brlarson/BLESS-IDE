@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="com.multitude.aadl.bless.feature">
+      <category name="com.multitude.bless.category"/>
+   </feature>
+   <feature id="com.multitude.bless.feature">
+      <category name="com.multitude.bless.category"/>
+   </feature>
+   <feature id="com.adventium.design.exploration.feature">
+      <category name="com.adventium.category"/>
+   </feature>
+   <category-def name="com.multitude.bless.category" label="BLESS">
+      <description>
+         Behavior Language for Embedded Systems with Software
+      </description>
+   </category-def>
+   <category-def name="com.adventium.category" label="Adventium Enterprises, LLC"/>
+   <repository-reference location="http://multitude.net/p2/repository/" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/releases/latest" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/releases/2021-03" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/mylyn/releases/latest" enabled="true" />
+</site>

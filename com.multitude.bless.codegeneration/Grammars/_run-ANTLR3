@@ -1,0 +1,3 @@
+if BLESStoAST.tokens have been regenerated, copy it to com.multitude.bless.codegeneration.antlr3generated
+copy the following line to the command line to generate .java files from .g files
+java -cp "/Applications/ANTLR/antlr-3.5.2-complete.jar:$CLASSPATH" org.antlr.Tool -o /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/src/com/multitude/bless/codegeneration/antlr3generated /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/*.g

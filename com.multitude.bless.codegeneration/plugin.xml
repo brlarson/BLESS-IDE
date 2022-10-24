@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.multitude.bless.codegeneration.handlers.GenerateSlang"
+            id="BLESS.generateslang"
+            name="generate Slang">
+      </command>
+      <command
+            defaultHandler="com.multitude.bless.codegeneration.handlers.GeneratePortAssertionJSON"
+            id="BLESS.generateportjason"
+            name="generate port assertion JSON">
+      </command>
+      <command
+            defaultHandler="com.multitude.bless.codegeneration.handlers.GenerateISOSCELES"
+            id="BLESS.generateisosceles"
+            name="generate ISOSCELES">
+      </command>
+      <command
+            defaultHandler="com.multitude.bless.codegeneration.handlers.GenerateBA"
+            id="BLESS.generateba"
+            name="generate BA">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:com.multitude.aadl.blessmenu?after=com.multitude.aadl.bless.distribute">
+         <menu
+               id="com.multitude.aadl.bless.codegen"
+               label="Code Generation">
+            <command
+                  commandId="BLESS.generateslang"
+                  label="generate Slang"
+                  style="push">
+            </command>
+            <command
+                  commandId="BLESS.generateisosceles"
+                  label="generate C++"
+                  style="push"
+                  tooltip="generate C++ using Genode implementation of AADL runtime services">
+            </command>
+                  <command
+                        commandId="BLESS.generateportjason"
+                        label="generate JSON"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="BLESS.generateba"
+                        label="generate BA"
+                        style="push">
+                  </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,212 @@
+group Java;
+
+//DataModel.stg to translate BLESS type expressions into DataModel equivalents
+//removed everything else that wasn't a type
+//created 9/17/2009 brl
+
+///////TEMPLATES THAT DIFFER BETWEEN BLESS.stg & DataModel.stg UP FRONT
+
+alternative(gf,av) ::="<gf; separator=\" \">"
+
+
+thread_behavior(sv,bs,av,tran,ac,inv) ::=
+<<
+
+--start of DataModel thread_behavior output
+
+<sv>
+
+--end of DataModel thread_behavior output
+
+>>
+
+ 
+subprogram_behavior(av,ac,p1,p2,elq) ::=
+<<
+--start of DataModel subprogram_behavior output
+  <elq>
+--end of DataModel subprogram_behavior output
+>>
+
+unique_component_classifier_reference(p,ii)::="<p; separator=\"::\"><if(ii)>.<ii><endif>"  
+ 
+//behavior_variable_uccr(d,t,p,s,con,e) ::= ""
+
+behavior_variable_type(d,t,p,s,con,sp,e,ass) ::= "<t>"
+
+number_type_plain(n)::=""
+
+variables(bv) ::=
+<<
+>>
+
+
+units_declaration(i,ul)::=<<
+property set UnitsPropertySet_<i> is
+  <i> : type units <ul>;
+end UnitsPropertySet_<i>;
+>>
+
+
+enumeration_type(id,et)::=
+<<
+  Data_Model::Data_Representation =\> Enum;
+  Data_Model::Enumerators =\> ("<id; separator="\", \"">");
+>>
+
+array_type(ar,t,at)::=	
+<<  Data_Model::Data_Representation => Array;
+  Data_Model::Base_Type => (classifier (<t>));
+  Data_Model::Dimension => (<ar;  separator=", ">); >>
+//"array [<ar; separator=\" \">] of <t>"
+
+natural()::="Base_Types::Natural"
+
+integer()::="Base_Types::Integer"
+
+real()::="Base_Types::Float"
+
+rational()::="BLESS_Types::Rational"
+
+complex()::="BLESS_Types::Complex"
+
+type_declaration(i,t)::=//"<i>: type <t>;"
+<<
+data <i>
+  properties
+  <t>
+end <i>;
+>>
+
+type_operator(i,param,t)::="<i>[<param; separator=\" \">] : type <t>;"
+
+type_operator_invocation(o,ty)::="<o>[<ty; separator=\", \">]"
+
+record_type(df,ptd)::= 
+<<Data_Model::Data_Representation =\> Struct; 
+Data_Model::Base_Type =\> (classifier (<ptd; separator="), classifier (">) ); 
+Data_Model::Element_Names =\> ("<df; separator="\", \"">"); 
+>>		
+ 
+variant_type(di,df,ptd)::= 
+<<Data_Model::Data_Representation =\> Union; 
+Data_Model::Base_Type =\> (classifier (<ptd; separator="), classifier (">) ); 
+Data_Model::Element_Names =\> ("<df; separator="\", \"">"); 
+>>		
+
+asserted_action(p,s,q) ::= 
+  "<s>"
+
+
+behavior_transition(btl,ssi,bc,dsi,ba,btq) ::="<ba>"
+
+behavior_state(bsi,i,com,finl,a) ::=""
+//    "<bsi; separator=\",\"> : <if(i)><i> <endif><if(com)><com> <endif><if(finl)><finl> <endif>state<a>;"
+
+guarded_action(be,ba) ::="<ba>"
+
+
+skip() ::= "" 
+
+function_call(f,pl,p) ::= ""
+
+procedure_call(p,spb) ::= ""
+
+//elq(v,ba,cc) ::="<v><ba>"
+
+ do_until(be,ba,av,bd,inv) ::="<ba>"
+//  <<do <\n><if(av)>  <av><endif><if(inv)>  invariant <inv><\n><endif><if(bd)>  bound <bd><\n><endif>  <ba><\n>until (<be>)>>  
+  
+  
+for_loop(a,ty,lb,ub,elq,av,inv) ::="<elq>"
+
+
+ulq(lv,ir,elq,av) ::="<lv><elq>"
+
+
+assertion(a,lv,p)::=""
+//<<\<\<<if(a)><a>:<lv; separator=" ">: <endif><p>\>\><endif> >>
+
+invariant_clause(a) ::=""
+ 
+ 
+assertion_function(a,lv,e)::=""
+//<<\<\<<a>:<lv; separator=" ">:= <e>\>\><endif> >>
+ 
+declarator(i,lit) ::=   
+  "<i>[<lit; separator=\"][\">]"
+
+declarators(d,ds) ::=
+  "<d>,<ds; separator=\",\">"
+
+me(i) ::= "<i>"
+
+universal_quantification(a,lv,d,p)::=""
+
+existential_quantification(e,lv2,d2,p2)::=""
+
+array_range(l,r)::="<l>..<r>" //replaced by makeDimensionFromRange
+
+local_name( n,imp,pn)::="<pn>::<n><if(imp)>.<imp><endif>"
+ 
+quantified_variables(bv)::=""
+
+concurrent_composition(g)::="<g>" 
+ 
+sequential_composition(f)::="<f>" 
+ 
+ /////////AADL Component////////////////
+
+
+component_type(cc,dcti,as,p,f)::=
+<<
+<cc> <dcti>
+<if(f)>  features
+    <f; separator="\n"><endif>
+<if(p)>  properties
+    <p; separator="\n"><endif>
+<if(as)><as; separator="\n"><endif>
+end <dcti>;
+>>
+
+
+component_implementation(cc,dcti,des,as,p,f)::=
+<<
+<cc> implementation <dcti>.<des>
+<if(f)>  features
+    <f; separator="\n"><endif>
+<if(p)>  properties
+    <p; separator="\n"><endif>
+<if(as)><as; separator="\n"><endif>
+end <dcti>;
+>>
+
+
+aadl_package(pi,pub,imdec,ct,co)::=
+<<
+package <pi> <if(pub)>public<endif>
+<imdec; separator="\n">
+<ct; separator="\n">
+<co; separator="\n"> 
+end package <pi>;
+>>
+
+
+port_spec(dpi,io,pt,fpa,mpa)::=
+  "<dpi> : <io> <pt> <if(fpa)>{ <fpa> <mpa; separator=\" \">}<endif>;"
+
+parameter_spec(dpi,io,uccr,fpa,mpa)::=
+  "<dpi> : <io> parameter <uccr> <if(fpa)>{ <fpa> <mpa; separator=\" \">}<endif>;"
+
+
+annex_subclause_bless(tb) ::=
+    "<\n>annex BLESS <\n>{**<\n><tb><\n>**};  --end of annex<\n>"
+
+annex_subclause_subbless(sb) ::=
+    "<\n>annex subBLESS <\n>{**<\n><sb><\n>**};  --end of annex<\n>"
+
+annex_subclause_assertion(a) ::=
+    "<\n>annex Assertion <\n>{**<a>**};<\n>"
+
+transitions(bt) ::= ""
+

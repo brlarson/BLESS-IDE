@@ -1,0 +1,239 @@
+//Coq.stg
+group Java;
+//these are string templates used to generate Coq text from BLESS assertions
+   
+
+assertion_function(a,lv,e) ::=
+<<\<\<<if(a)><a>:<endif><if(lv)><lv; separator=" "><else> <endif>:= <e>\>\> >>
+ 
+conditional_assertion_function(cvp) ::=
+<<
+  <cvp; wrap, anchor, separator=", ">
+>>
+
+condition_value_pair(pp,pe) ::= "<pp> -> <pe>" 
+    
+assertion_enumeration(a,lv1,ae) ::=
+<<\<\<<a>:<lv1><ae>\>\> >>
+ 
+assertion_enumeration2(ae) ::=
+<<\<\< <ae>\>\> >>
+
+ 
+assertion_enumeration_predicate_invocation(pi) ::=
+"+=\> <pi>" 
+
+assertion_enumeration_pairs(ep) ::=
+"+=\> <ep; separator=\", \">"
+ 
+enumeration_pair(i,pe) ::=
+"<i> -\> <pe>"
+ 
+
+ 
+assertion(a,lv,p)::= "( <p> ) "
+//   "\<\<<if(a)><a>:<lv; separator=\" \"> :<endif><p>\>\>"
+//<<
+//\<\<<if(a)><a>:<lv; separator=" "> :<endif><p>\>\> >>
+
+ 
+// assertion(a,lv,p)::="\<\<<assertion2(a=a,lv=lv,p=p); anchor>"
+ 
+// assertion2(a,lv,p)::=
+//<<<if(a)><a>:<lv; separator=" ">:<endif><p>\>\> >>
+
+
+//changed name 5/29/2010
+local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
+ 
+
+////////SAME TEMPLATES BLESS.stg & BA.stg BELOW HERE/////////////
+
+
+declarator(i,lit) ::=   
+  "<i>[<lit; separator=\"][\">]"
+
+declarators(d,ds) ::=
+  "<d>,<ds; separator=\",\">"
+
+//me(i) ::= "<i>"
+
+variables(bv) ::=
+<<
+
+variables
+  <bv; separator="\n"> >>
+
+universal_quantification(a,lv,d,p)::= "forall <lv> : <d> , <p> "
+//<<
+//<a> <lv>
+//  <d> 
+//  are <p; anchor> >>	
+
+logic_variables(t,i) ::= "<i; separator=\",\"> : <t> " 
+
+logic_variable_domain(i,l,h,rs) ::=
+"<l> <rs> <h> "
+
+logic_variable_domain2(i2,p) ::=
+"<p> "
+
+existential_quantification(e,lv2,d2,p2)::= "exists <lv2> : <d2> , <p2> "
+//<<
+//<e> <lv2>
+//  <d2> 
+//  that <p2; anchor> >>
+
+array_range(l,r)::="<l>..<r>"
+
+enumeration_type(id,et)::=
+  "enumeration (<id; wrap, anchor, separator=\", \">)"
+
+number_type_plain(n)::="<n>"
+
+unique_component_classifier_reference(p,ii) ::=
+  "<p; separator=\"::\"><if(ii)>.<ii><endif>"
+
+ 
+ 
+//at parameter not used in BLESS.stg
+array_type(arl,t,at)::=	"array[<arl>] of <t>"
+
+array_range_list(r) ::=
+	 "<r; separator=\", \">"
+
+
+natural()::="natural "
+
+integer()::="integer "
+
+real()::="real "
+
+rational()::="rational "
+
+complex()::="complex "
+
+boolean()::="boolean "
+
+string()::="string "
+
+
+units_type(ul)::=
+	"units <ul> "
+	
+range_type(rt)::=	
+  "range of <rt> "
+	
+property_number_type(kind,range,units,designator) ::=
+  "<kind> <range> <if(units)> <units> <designator><endif> "	
+	
+range(lb,ub)::=
+	"<lb> .. <ub> "	
+	
+not(bt) ::=
+	"~ <bt> "	
+
+parentheses(be) ::=
+	"( <be> ) "	
+	
+conjunction(bopt) ::=
+	"<bopt; separator=\" /\\ \">"
+	
+disjunction(bopt) ::=
+	"<bopt; separator=\" \\/ \">"
+	
+component_classifier_term(uccr) ::=
+	"classifier ( <uccr> ) "
+
+property_record_term(recf) ::=
+	"( <recf; separator=\" , \"> )"
+
+property_record_value(rfi,pv) ::=
+	"<rfi> =\> <pv>;"
+	
+	
+id_dot_id(fst,snd) ::=
+	"<fst> . <snd> "	
+	
+id_cc_id(fst,snd) ::=
+	"<fst> :: <snd> "	
+	
+id_cc_id_dot_id(fst,snd,thr) ::=
+	"<fst> :: <snd> . <thr> "	
+
+	
+units_list(fu,au) ::=
+		"(<fu><if(au)>,<\n>     <au; separator=\",\n     \"><endif>)"
+	
+two_element_expression(op,l,r) ::=
+  "<l><op><r>"	
+  
+two_element_expression_spaced(op,l,r) ::=
+  "<l> <op> <r>"	
+
+mod(l,r) ::= "mod <l> <r>"
+
+rem(l,r) ::= "rem <l> <r>"
+
+exp(l,r) ::= "exp <l> <r>"
+
+cor(l,r) ::= "<l> \\/ <r>"  //change from cand  29JUN2015
+
+cand(l,r) ::= "<l> /\\ <r>" //change from cor  29JUN2015
+  
+multiply(terms) ::=
+  "<terms; separator=\" * \"> " 
+  
+add(terms) ::=
+  "<terms; separator=\" + \"> " 
+  
+and(terms) ::=
+  "<terms; separator=\" /\\ \">" 
+  
+or(terms) ::=
+  "<terms; separator=\" \\/ \">" 
+  
+xor(terms) ::=
+  "<terms; separator=\" xor \">" 
+ 
+ 
+implies(s,c) ::= "<s> -\> <c>"  
+
+iff(l,r) ::= "<l> \<-\> <r>"
+  
+	
+sum(s,lv,d,pe) ::=
+<<<s> <lv> <d> , <pe> >>
+	
+product(p,lv,d,pe) ::=
+<<<p> <lv> <d> , <pe> >>
+  
+numberof(lv,d,pe) ::=
+<<numberof <lv> <d> , <pe> >>
+  
+classifier_type(i) ::=
+	"classifier (<i; separator=\", \">)"   
+  
+reference_type(i) ::=
+	"reference (<i; separator=\", \">)"   
+  
+in_port_value(pn)::="<pn>?"  
+  
+formal_actual(f,ap) ::= "<f>:<ap>"	
+
+formal_actual_list(ns) ::= "<ns; separator=\",\">"
+
+simultaneous_assignment(l,r) ::=
+<<( --begining of simultaneous assignment
+ <l; wrap, separator=",\n">
+:=
+ <r; wrap, separator=",\n">
+) --end of simultaneous assignment
+>>    
+
+number_type(nw,nr,ud)  ::= 
+"<nw> <if(nr)>[<nr>] <endif><if(ud)>units <ud><endif>"
+
+conditional_expression(be,t,f)  ::= "(<be>??<t>:<f>)"
+
+dispatch_condition(dle) ::= "on dispatch <dle>"
