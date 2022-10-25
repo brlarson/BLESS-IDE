@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g 2022-10-06 08:43:32
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2022-10-25 14:32:01
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -415,7 +415,7 @@ public class ASTtoAST extends TreeParser {
 		return adaptor;
 	}
 	@Override public String[] getTokenNames() { return ASTtoAST.tokenNames; }
-	@Override public String getGrammarFileName() { return "/Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g"; }
+	@Override public String getGrammarFileName() { return "/Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g"; }
 
 
 	public ASTtoAST(BAST useThisASTforRoot)
@@ -510,7 +510,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "makeAnAllAreTree"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:123:1: makeAnAllAreTree[Tree a, Tree t, Tree r, Tree p1] : -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:123:1: makeAnAllAreTree[Tree a, Tree t, Tree r, Tree p1] : -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) ;
 	public final ASTtoAST.makeAnAllAreTree_return makeAnAllAreTree(Tree a, Tree t, Tree r, Tree p1) throws RecognitionException {
 		ASTtoAST.makeAnAllAreTree_return retval = new ASTtoAST.makeAnAllAreTree_return();
 		retval.start = input.LT(1);
@@ -522,8 +522,8 @@ public class ASTtoAST extends TreeParser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:124:3: ( -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:125:3: 
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:124:3: ( -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:125:3: 
 			{
 			// AST REWRITE
 			// elements: 
@@ -539,7 +539,7 @@ public class ASTtoAST extends TreeParser {
 			root_0 = (BAST)adaptor.nil();
 			// 125:3: -> ^( LITERAL_all COLON LITERAL_in LITERAL_are )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:125:6: ^( LITERAL_all COLON LITERAL_in LITERAL_are )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:125:6: ^( LITERAL_all COLON LITERAL_in LITERAL_are )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_all, "LITERAL_all"), root_1);
@@ -583,7 +583,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPredicateFromAssertion"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:128:1: getPredicateFromAssertion : ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:128:1: getPredicateFromAssertion : ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->;
 	public final ASTtoAST.getPredicateFromAssertion_return getPredicateFromAssertion() throws RecognitionException {
 		ASTtoAST.getPredicateFromAssertion_return retval = new ASTtoAST.getPredicateFromAssertion_return();
 		retval.start = input.LT(1);
@@ -613,8 +613,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:129:3: ( ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:3: ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:129:3: ( ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:3: ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -627,7 +627,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_ASSERTION.add(ASSERTION1);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:17: ( ^( LABEL ID ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:17: ( ^( LABEL ID ) )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==LABEL) ) {
@@ -647,7 +647,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt1) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:18: ^( LABEL ID )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:18: ^( LABEL ID )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -679,12 +679,12 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:34: ( ^( PARAMETERS ( ID )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:34: ( ^( PARAMETERS ( ID )+ ) )?
 			int alt3=2;
 			alt3 = dfa3.predict(input);
 			switch (alt3) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:35: ^( PARAMETERS ( ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:35: ^( PARAMETERS ( ID )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -697,7 +697,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS4);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:48: ( ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:48: ( ID )+
 					int cnt2=0;
 					loop2:
 					while (true) {
@@ -709,7 +709,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt2) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:130:48: ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:48: ID
 							{
 							_last = (BAST)input.LT(1);
 							ID5=(BAST)match(input,ID,FOLLOW_ID_in_getPredicateFromAssertion120); if (state.failed) return retval;
@@ -805,7 +805,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getBehaviorActionsFromELQ"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:135:1: getBehaviorActionsFromELQ : ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:135:1: getBehaviorActionsFromELQ : ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->;
 	public final ASTtoAST.getBehaviorActionsFromELQ_return getBehaviorActionsFromELQ() throws RecognitionException {
 		ASTtoAST.getBehaviorActionsFromELQ_return retval = new ASTtoAST.getBehaviorActionsFromELQ_return();
 		retval.start = input.LT(1);
@@ -832,8 +832,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_RCURLY=new RewriteRuleNodeStream(adaptor,"token RCURLY");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:136:3: ( ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:137:3: ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:136:3: ( ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:3: ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -846,12 +846,12 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY6);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:137:12: ( ^( LITERAL_declare ( . )* ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:12: ( ^( LITERAL_declare ( . )* ) )?
 			int alt5=2;
 			alt5 = dfa5.predict(input);
 			switch (alt5) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:137:13: ^( LITERAL_declare ( . )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:13: ^( LITERAL_declare ( . )* )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -865,7 +865,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:137:31: ( . )*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:31: ( . )*
 						loop4:
 						while (true) {
 							int alt4=2;
@@ -879,7 +879,7 @@ public class ASTtoAST extends TreeParser {
 
 							switch (alt4) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:137:31: .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:31: .
 								{
 								_last = (BAST)input.LT(1);
 								wildcard8=(BAST)input.LT(1);
@@ -980,7 +980,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPreconditionFromBehaviorActionsInELQ"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:142:1: getPreconditionFromBehaviorActionsInELQ : ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:142:1: getPreconditionFromBehaviorActionsInELQ : ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY ) ->;
 	public final ASTtoAST.getPreconditionFromBehaviorActionsInELQ_return getPreconditionFromBehaviorActionsInELQ() throws RecognitionException {
 		ASTtoAST.getPreconditionFromBehaviorActionsInELQ_return retval = new ASTtoAST.getPreconditionFromBehaviorActionsInELQ_return();
 		retval.start = input.LT(1);
@@ -1004,8 +1004,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleSubtreeStream stream_getPreconditionFromBehaviorActions=new RewriteRuleSubtreeStream(adaptor,"rule getPreconditionFromBehaviorActions");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:143:3: ( ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY ) ->)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:144:3: ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:143:3: ( ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:3: ^( LCURLY (v= . )? ba= getPreconditionFromBehaviorActions RCURLY )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -1018,7 +1018,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY10);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:144:13: (v= . )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:13: (v= . )?
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==ACTION) ) {
@@ -1257,7 +1257,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt6) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:144:13: v= .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:13: v= .
 					{
 					_last = (BAST)input.LT(1);
 					v=(BAST)input.LT(1);
@@ -1339,7 +1339,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPreconditionFromBehaviorActions"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:149:1: getPreconditionFromBehaviorActions returns [BAST pre = null] options {backtrack=true; } : ( ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) ) | ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ ) | ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ ) |elq= getPreconditionFromBehaviorActionsInELQ ->);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:149:1: getPreconditionFromBehaviorActions returns [BAST pre = null] options {backtrack=true; } : ( ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) ) | ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ ) | ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ ) |elq= getPreconditionFromBehaviorActionsInELQ ->);
 	public final ASTtoAST.getPreconditionFromBehaviorActions_return getPreconditionFromBehaviorActions() throws RecognitionException {
 		ASTtoAST.getPreconditionFromBehaviorActions_return retval = new ASTtoAST.getPreconditionFromBehaviorActions_return();
 		retval.start = input.LT(1);
@@ -1391,7 +1391,7 @@ public class ASTtoAST extends TreeParser {
 
 		ArrayList<BAST> andTerms = new ArrayList<BAST>();
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:152:3: ( ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) ) | ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ ) | ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ ) |elq= getPreconditionFromBehaviorActionsInELQ ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:152:3: ( ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) ) | ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ ) | ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ ) |elq= getPreconditionFromBehaviorActionsInELQ ->)
 			int alt13=4;
 			switch ( input.LA(1) ) {
 			case ACTION:
@@ -1422,7 +1422,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt13) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:153:3: ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:3: ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -1458,7 +1458,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
 						int alt7=2;
 						int LA7_0 = input.LA(1);
 						if ( ((LA7_0 >= AADL_STRING_LITERAL && LA7_0 <= LITERAL_BLESS)) ) {
@@ -1466,7 +1466,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt7) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:153:17: p= .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: p= .
 								{
 								_last = (BAST)input.LT(1);
 								p=(BAST)input.LT(1);
@@ -1536,7 +1536,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:153:34: ( . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: ( . )?
 						int alt8=2;
 						int LA8_0 = input.LA(1);
 						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= LITERAL_BLESS)) ) {
@@ -1544,7 +1544,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt8) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:153:34: .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: .
 								{
 								_last = (BAST)input.LT(1);
 								wildcard17=(BAST)input.LT(1);
@@ -1582,7 +1582,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:3: ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:3: ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -1633,7 +1633,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
 						int alt9=2;
 						int LA9_0 = input.LA(1);
 						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= LITERAL_BLESS)) ) {
@@ -1641,7 +1641,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt9) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:30: p2= .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: p2= .
 								{
 								_last = (BAST)input.LT(1);
 								p2=(BAST)input.LT(1);
@@ -1711,7 +1711,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:47: ( . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: ( . )?
 						int alt10=2;
 						int LA10_0 = input.LA(1);
 						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= LITERAL_BLESS)) ) {
@@ -1719,7 +1719,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt10) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:47: .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: .
 								{
 								_last = (BAST)input.LT(1);
 								wildcard24=(BAST)input.LT(1);
@@ -1750,7 +1750,7 @@ public class ASTtoAST extends TreeParser {
 					}
 
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:54: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:54: ( . )+
 					int cnt11=0;
 					loop11:
 					while (true) {
@@ -1765,7 +1765,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt11) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:156:54: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:54: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard25=(BAST)input.LT(1);
@@ -1803,7 +1803,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:160:3: ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:160:3: ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -1823,7 +1823,7 @@ public class ASTtoAST extends TreeParser {
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:161:6: (prc= getPreconditionFromBehaviorActions )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:161:6: (prc= getPreconditionFromBehaviorActions )+
 					int cnt12=0;
 					loop12:
 					while (true) {
@@ -1835,7 +1835,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt12) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:161:8: prc= getPreconditionFromBehaviorActions
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:161:8: prc= getPreconditionFromBehaviorActions
 							{
 							_last = (BAST)input.LT(1);
 							pushFollow(FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions368);
@@ -1884,7 +1884,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:179:3: elq= getPreconditionFromBehaviorActionsInELQ
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:179:3: elq= getPreconditionFromBehaviorActionsInELQ
 					{
 					_last = (BAST)input.LT(1);
 					pushFollow(FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions410);
@@ -1940,7 +1940,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPostconditionFromBehaviorActionsInELQ"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:183:1: getPostconditionFromBehaviorActionsInELQ : ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:183:1: getPostconditionFromBehaviorActionsInELQ : ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY ) ->;
 	public final ASTtoAST.getPostconditionFromBehaviorActionsInELQ_return getPostconditionFromBehaviorActionsInELQ() throws RecognitionException {
 		ASTtoAST.getPostconditionFromBehaviorActionsInELQ_return retval = new ASTtoAST.getPostconditionFromBehaviorActionsInELQ_return();
 		retval.start = input.LT(1);
@@ -1964,8 +1964,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleSubtreeStream stream_getPostconditionFromBehaviorActions=new RewriteRuleSubtreeStream(adaptor,"rule getPostconditionFromBehaviorActions");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:184:3: ( ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY ) ->)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:185:3: ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:184:3: ( ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:3: ^( LCURLY ( . )? b= getPostconditionFromBehaviorActions RCURLY )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -1978,7 +1978,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY26);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:185:12: ( . )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:12: ( . )?
 			int alt14=2;
 			int LA14_0 = input.LA(1);
 			if ( (LA14_0==ACTION) ) {
@@ -2217,7 +2217,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt14) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:185:12: .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:12: .
 					{
 					_last = (BAST)input.LT(1);
 					wildcard27=(BAST)input.LT(1);
@@ -2303,7 +2303,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "anAssertion"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:195:1: anAssertion : ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:195:1: anAssertion : ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) );
 	public final ASTtoAST.anAssertion_return anAssertion() throws RecognitionException {
 		ASTtoAST.anAssertion_return retval = new ASTtoAST.anAssertion_return();
 		retval.start = input.LT(1);
@@ -2334,12 +2334,12 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:196:3: ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:196:3: ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) )
 			int alt16=3;
 			alt16 = dfa16.predict(input);
 			switch (alt16) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:197:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -2385,7 +2385,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(par);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:197:58: (lv+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:58: (lv+= ID )+
 					int cnt15=0;
 					loop15:
 					while (true) {
@@ -2397,7 +2397,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt15) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:197:58: lv+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:58: lv+= ID
 							{
 							_last = (BAST)input.LT(1);
 							lv=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion515); if (state.failed) return retval;
@@ -2442,7 +2442,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, lv, l, a, ass, par
+					// elements: a, l, p, ass, lv, par
 					// token labels: ass, par, a, l
 					// rule labels: retval
 					// token list labels: lv
@@ -2461,11 +2461,11 @@ public class ASTtoAST extends TreeParser {
 					root_0 = (BAST)adaptor.nil();
 					// 198:5: -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:198:8: ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:8: ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:198:15: ^( $l $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:15: ^( $l $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_l.nextNode(), root_2);
@@ -2473,7 +2473,7 @@ public class ASTtoAST extends TreeParser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:198:24: ^( $par ( $lv)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:24: ^( $par ( $lv)+ )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_par.nextNode(), root_2);
@@ -2501,7 +2501,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:200:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:200:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -2551,7 +2551,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, l, ass, a
+					// elements: l, a, p, ass
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -2568,11 +2568,11 @@ public class ASTtoAST extends TreeParser {
 					root_0 = (BAST)adaptor.nil();
 					// 201:5: -> ^( $ass ^( $l $a) $p)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:201:8: ^( $ass ^( $l $a) $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:201:8: ^( $ass ^( $l $a) $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:201:15: ^( $l $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:201:15: ^( $l $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_l.nextNode(), root_2);
@@ -2593,7 +2593,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:203:3: ^(ass= ASSERTION p= . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:203:3: ^(ass= ASSERTION p= . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -2621,7 +2621,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p
+					// elements: p, ass
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -2636,7 +2636,7 @@ public class ASTtoAST extends TreeParser {
 					root_0 = (BAST)adaptor.nil();
 					// 204:5: -> ^( $ass $p)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:204:8: ^( $ass $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:204:8: ^( $ass $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
@@ -2678,7 +2678,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPostconditionFromBehaviorActions"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:207:1: getPostconditionFromBehaviorActions returns [BAST post = null] options {backtrack=true; } : ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:207:1: getPostconditionFromBehaviorActions returns [BAST post = null] options {backtrack=true; } : ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->);
 	public final ASTtoAST.getPostconditionFromBehaviorActions_return getPostconditionFromBehaviorActions() throws RecognitionException {
 		ASTtoAST.getPostconditionFromBehaviorActions_return retval = new ASTtoAST.getPostconditionFromBehaviorActions_return();
 		retval.start = input.LT(1);
@@ -2728,7 +2728,7 @@ public class ASTtoAST extends TreeParser {
 
 		ArrayList<BAST> ampersandPostconditions = new ArrayList<BAST>();
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:210:3: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:210:3: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->)
 			int alt23=4;
 			switch ( input.LA(1) ) {
 			case ACTION:
@@ -2759,7 +2759,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt23) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:211:3: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:3: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -2795,7 +2795,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:211:16: ( . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:16: ( . )?
 						int alt17=2;
 						int LA17_0 = input.LA(1);
 						if ( ((LA17_0 >= AADL_STRING_LITERAL && LA17_0 <= LITERAL_BLESS)) ) {
@@ -2803,7 +2803,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt17) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:211:16: .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:16: .
 								{
 								_last = (BAST)input.LT(1);
 								wildcard31=(BAST)input.LT(1);
@@ -2873,7 +2873,7 @@ public class ASTtoAST extends TreeParser {
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:211:33: (q= . )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:33: (q= . )?
 						int alt18=2;
 						int LA18_0 = input.LA(1);
 						if ( ((LA18_0 >= AADL_STRING_LITERAL && LA18_0 <= LITERAL_BLESS)) ) {
@@ -2881,7 +2881,7 @@ public class ASTtoAST extends TreeParser {
 						}
 						switch (alt18) {
 							case 1 :
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:211:33: q= .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:33: q= .
 								{
 								_last = (BAST)input.LT(1);
 								q=(BAST)input.LT(1);
@@ -2919,7 +2919,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:214:3: ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:214:3: ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -2939,7 +2939,7 @@ public class ASTtoAST extends TreeParser {
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:215:5: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:215:5: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+
 					int cnt21=0;
 					loop21:
 					while (true) {
@@ -2951,7 +2951,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt21) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:215:7: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:215:7: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) )
 							{
 							_last = (BAST)input.LT(1);
 							{
@@ -2984,7 +2984,7 @@ public class ASTtoAST extends TreeParser {
 
 							if ( input.LA(1)==Token.DOWN ) {
 								match(input, Token.DOWN, null); if (state.failed) return retval;
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:216:11: ( . )?
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:216:11: ( . )?
 								int alt19=2;
 								int LA19_0 = input.LA(1);
 								if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= LITERAL_BLESS)) ) {
@@ -2992,7 +2992,7 @@ public class ASTtoAST extends TreeParser {
 								}
 								switch (alt19) {
 									case 1 :
-										// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:216:11: .
+										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:216:11: .
 										{
 										_last = (BAST)input.LT(1);
 										wildcard38=(BAST)input.LT(1);
@@ -3062,7 +3062,7 @@ public class ASTtoAST extends TreeParser {
 
 							if ( input.LA(1)==Token.DOWN ) {
 								match(input, Token.DOWN, null); if (state.failed) return retval;
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:218:13: (q2= . )?
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:218:13: (q2= . )?
 								int alt20=2;
 								int LA20_0 = input.LA(1);
 								if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= LITERAL_BLESS)) ) {
@@ -3070,7 +3070,7 @@ public class ASTtoAST extends TreeParser {
 								}
 								switch (alt20) {
 									case 1 :
-										// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:218:13: q2= .
+										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:218:13: q2= .
 										{
 										_last = (BAST)input.LT(1);
 										q2=(BAST)input.LT(1);
@@ -3129,7 +3129,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:223:3: ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:3: ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -3149,7 +3149,7 @@ public class ASTtoAST extends TreeParser {
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:224:6: (prc= getPostconditionFromBehaviorActions )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:224:6: (prc= getPostconditionFromBehaviorActions )+
 					int cnt22=0;
 					loop22:
 					while (true) {
@@ -3161,7 +3161,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt22) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:224:8: prc= getPostconditionFromBehaviorActions
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:224:8: prc= getPostconditionFromBehaviorActions
 							{
 							_last = (BAST)input.LT(1);
 							pushFollow(FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions828);
@@ -3210,7 +3210,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:239:3: elq= getPostconditionFromBehaviorActionsInELQ
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:239:3: elq= getPostconditionFromBehaviorActionsInELQ
 					{
 					_last = (BAST)input.LT(1);
 					pushFollow(FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions866);
@@ -3271,7 +3271,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "get_invariant_from_thread_behavior"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:262:1: get_invariant_from_thread_behavior : ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:262:1: get_invariant_from_thread_behavior : ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) ;
 	public final ASTtoAST.get_invariant_from_thread_behavior_return get_invariant_from_thread_behavior() throws RecognitionException {
 		ASTtoAST.get_invariant_from_thread_behavior_return retval = new ASTtoAST.get_invariant_from_thread_behavior_return();
 		retval.start = input.LT(1);
@@ -3375,8 +3375,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:263:3: ( ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:264:3: ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:263:3: ( ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:264:3: ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -3397,7 +3397,7 @@ public class ASTtoAST extends TreeParser {
 			adaptor.addChild(root_1, cc_tree);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:265:5: ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:265:5: ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID )
 			int alt24=2;
 			int LA24_0 = input.LA(1);
 			if ( (LA24_0==LITERAL_implementation) ) {
@@ -3416,7 +3416,7 @@ public class ASTtoAST extends TreeParser {
 
 			switch (alt24) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:265:6: LITERAL_implementation ^( PERIOD dcti= ID des= ID )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:265:6: LITERAL_implementation ^( PERIOD dcti= ID des= ID )
 					{
 					_last = (BAST)input.LT(1);
 					LITERAL_implementation42=(BAST)match(input,LITERAL_implementation,FOLLOW_LITERAL_implementation_in_get_invariant_from_thread_behavior923); if (state.failed) return retval;
@@ -3456,7 +3456,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:266:9: ID
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:266:9: ID
 					{
 					_last = (BAST)input.LT(1);
 					ID44=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior945); if (state.failed) return retval;
@@ -3471,7 +3471,7 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:267:5: ( ^( LITERAL_features ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:5: ( ^( LITERAL_features ( . )+ ) )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( (LA26_0==LITERAL_features) ) {
@@ -3479,7 +3479,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt26) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:267:7: ^( LITERAL_features ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:7: ^( LITERAL_features ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3492,7 +3492,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_features.add(LITERAL_features45);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:267:26: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:26: ( . )+
 					int cnt25=0;
 					loop25:
 					while (true) {
@@ -3507,7 +3507,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt25) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:267:26: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:26: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard46=(BAST)input.LT(1);
@@ -3546,7 +3546,7 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:268:5: ( ^( LITERAL_properties ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:5: ( ^( LITERAL_properties ( . )+ ) )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
 			if ( (LA28_0==LITERAL_properties) ) {
@@ -3554,7 +3554,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt28) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:268:7: ^( LITERAL_properties ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:7: ^( LITERAL_properties ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3567,7 +3567,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_properties.add(LITERAL_properties47);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:268:29: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:29: ( . )+
 					int cnt27=0;
 					loop27:
 					while (true) {
@@ -3582,7 +3582,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt27) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:268:29: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:29: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard48=(BAST)input.LT(1);
@@ -3659,7 +3659,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LITERAL_states.add(LITERAL_states52);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:271:24: ( . )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:271:24: ( . )+
 			int cnt29=0;
 			loop29:
 			while (true) {
@@ -3674,7 +3674,7 @@ public class ASTtoAST extends TreeParser {
 
 				switch (alt29) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:271:24: .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:271:24: .
 					{
 					_last = (BAST)input.LT(1);
 					wildcard53=(BAST)input.LT(1);
@@ -3705,7 +3705,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:272:7: ( ^( LITERAL_availability . ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:272:7: ( ^( LITERAL_availability . ) )?
 			int alt30=2;
 			int LA30_0 = input.LA(1);
 			if ( (LA30_0==LITERAL_availability) ) {
@@ -3713,7 +3713,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt30) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:272:8: ^( LITERAL_availability . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:272:8: ^( LITERAL_availability . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3748,7 +3748,7 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:273:7: ( ^( LITERAL_assert ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:7: ( ^( LITERAL_assert ( . )+ ) )?
 			int alt32=2;
 			int LA32_0 = input.LA(1);
 			if ( (LA32_0==LITERAL_assert) ) {
@@ -3756,7 +3756,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt32) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:273:8: ^( LITERAL_assert ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:8: ^( LITERAL_assert ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3769,7 +3769,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert56);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:273:25: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:25: ( . )+
 					int cnt31=0;
 					loop31:
 					while (true) {
@@ -3784,7 +3784,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt31) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:273:25: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:25: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard57=(BAST)input.LT(1);
@@ -3845,7 +3845,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:46: ( ^( LABEL a= ID ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:46: ( ^( LABEL a= ID ) )?
 			int alt33=2;
 			int LA33_0 = input.LA(1);
 			if ( (LA33_0==LABEL) ) {
@@ -3865,7 +3865,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt33) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:47: ^( LABEL a= ID )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:47: ^( LABEL a= ID )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3897,12 +3897,12 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
 			int alt35=2;
 			alt35 = dfa35.predict(input);
 			switch (alt35) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:68: ^( PARAMETERS (lv+= ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:68: ^( PARAMETERS (lv+= ID )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -3915,7 +3915,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS60);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:83: (lv+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: (lv+= ID )+
 					int cnt34=0;
 					loop34:
 					while (true) {
@@ -3927,7 +3927,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt34) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:274:83: lv+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: lv+= ID
 							{
 							_last = (BAST)input.LT(1);
 							lv=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior1090); if (state.failed) return retval;
@@ -3985,7 +3985,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:275:7: ( ^( LITERAL_variables ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:7: ( ^( LITERAL_variables ( . )+ ) )?
 			int alt37=2;
 			int LA37_0 = input.LA(1);
 			if ( (LA37_0==LITERAL_variables) ) {
@@ -3993,7 +3993,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt37) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:275:8: ^( LITERAL_variables ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:8: ^( LITERAL_variables ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4006,7 +4006,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_variables.add(LITERAL_variables61);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:275:28: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:28: ( . )+
 					int cnt36=0;
 					loop36:
 					while (true) {
@@ -4021,7 +4021,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt36) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:275:28: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:28: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard62=(BAST)input.LT(1);
@@ -4071,7 +4071,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LITERAL_transitions.add(LITERAL_transitions63);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:276:29: ( . )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:29: ( . )+
 			int cnt38=0;
 			loop38:
 			while (true) {
@@ -4086,7 +4086,7 @@ public class ASTtoAST extends TreeParser {
 
 				switch (alt38) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:276:29: .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:29: .
 					{
 					_last = (BAST)input.LT(1);
 					wildcard64=(BAST)input.LT(1);
@@ -4117,7 +4117,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:278:7: ( DO_NOT_PROVE )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:7: ( DO_NOT_PROVE )?
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( (LA39_0==DO_NOT_PROVE) ) {
@@ -4125,7 +4125,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt39) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:278:7: DO_NOT_PROVE
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:7: DO_NOT_PROVE
 					{
 					_last = (BAST)input.LT(1);
 					DO_NOT_PROVE65=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_thread_behavior1144); if (state.failed) return retval;
@@ -4169,7 +4169,7 @@ public class ASTtoAST extends TreeParser {
 
 
 			// AST REWRITE
-			// elements: predicate, ass
+			// elements: ass, predicate
 			// token labels: ass
 			// rule labels: retval
 			// token list labels: 
@@ -4184,7 +4184,7 @@ public class ASTtoAST extends TreeParser {
 			root_0 = (BAST)adaptor.nil();
 			// 284:5: -> ^( $ass $predicate)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:284:8: ^( $ass $predicate)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:284:8: ^( $ass $predicate)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
@@ -4227,7 +4227,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "get_invariant_from_bless_subclause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:290:1: get_invariant_from_bless_subclause : ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:290:1: get_invariant_from_bless_subclause : ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) ;
 	public final ASTtoAST.get_invariant_from_bless_subclause_return get_invariant_from_bless_subclause() throws RecognitionException {
 		ASTtoAST.get_invariant_from_bless_subclause_return retval = new ASTtoAST.get_invariant_from_bless_subclause_return();
 		retval.start = input.LT(1);
@@ -4295,8 +4295,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:291:3: ( ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:292:7: ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:291:3: ( ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:292:7: ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -4320,7 +4320,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LITERAL_states.add(LITERAL_states68);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:293:24: ( . )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:293:24: ( . )+
 			int cnt40=0;
 			loop40:
 			while (true) {
@@ -4335,7 +4335,7 @@ public class ASTtoAST extends TreeParser {
 
 				switch (alt40) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:293:24: .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:293:24: .
 					{
 					_last = (BAST)input.LT(1);
 					wildcard69=(BAST)input.LT(1);
@@ -4366,7 +4366,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:294:7: ( ^( LITERAL_availability . ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:294:7: ( ^( LITERAL_availability . ) )?
 			int alt41=2;
 			int LA41_0 = input.LA(1);
 			if ( (LA41_0==LITERAL_availability) ) {
@@ -4374,7 +4374,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt41) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:294:8: ^( LITERAL_availability . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:294:8: ^( LITERAL_availability . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4409,7 +4409,7 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:295:7: ( ^( LITERAL_assert ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:7: ( ^( LITERAL_assert ( . )+ ) )?
 			int alt43=2;
 			int LA43_0 = input.LA(1);
 			if ( (LA43_0==LITERAL_assert) ) {
@@ -4417,7 +4417,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt43) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:295:8: ^( LITERAL_assert ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:8: ^( LITERAL_assert ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4430,7 +4430,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert72);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:295:25: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:25: ( . )+
 					int cnt42=0;
 					loop42:
 					while (true) {
@@ -4445,7 +4445,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt42) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:295:25: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:25: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard73=(BAST)input.LT(1);
@@ -4506,7 +4506,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:46: ( ^( LABEL a= ID ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:46: ( ^( LABEL a= ID ) )?
 			int alt44=2;
 			int LA44_0 = input.LA(1);
 			if ( (LA44_0==LABEL) ) {
@@ -4526,7 +4526,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt44) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:47: ^( LABEL a= ID )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:47: ^( LABEL a= ID )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4558,12 +4558,12 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
 			int alt46=2;
 			alt46 = dfa46.predict(input);
 			switch (alt46) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:68: ^( PARAMETERS (lv+= ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:68: ^( PARAMETERS (lv+= ID )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4576,7 +4576,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS76);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:83: (lv+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: (lv+= ID )+
 					int cnt45=0;
 					loop45:
 					while (true) {
@@ -4588,7 +4588,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt45) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:296:83: lv+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: lv+= ID
 							{
 							_last = (BAST)input.LT(1);
 							lv=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_bless_subclause1325); if (state.failed) return retval;
@@ -4646,7 +4646,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:297:7: ( ^( LITERAL_variables ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:7: ( ^( LITERAL_variables ( . )+ ) )?
 			int alt48=2;
 			int LA48_0 = input.LA(1);
 			if ( (LA48_0==LITERAL_variables) ) {
@@ -4654,7 +4654,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt48) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:297:8: ^( LITERAL_variables ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:8: ^( LITERAL_variables ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4667,7 +4667,7 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_LITERAL_variables.add(LITERAL_variables77);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:297:28: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:28: ( . )+
 					int cnt47=0;
 					loop47:
 					while (true) {
@@ -4682,7 +4682,7 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt47) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:297:28: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:28: .
 							{
 							_last = (BAST)input.LT(1);
 							wildcard78=(BAST)input.LT(1);
@@ -4732,7 +4732,7 @@ public class ASTtoAST extends TreeParser {
 			if ( state.backtracking==0 ) stream_LITERAL_transitions.add(LITERAL_transitions79);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:298:29: ( . )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:298:29: ( . )+
 			int cnt49=0;
 			loop49:
 			while (true) {
@@ -4747,7 +4747,7 @@ public class ASTtoAST extends TreeParser {
 
 				switch (alt49) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:298:29: .
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:298:29: .
 					{
 					_last = (BAST)input.LT(1);
 					wildcard80=(BAST)input.LT(1);
@@ -4778,7 +4778,7 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:300:7: ( DO_NOT_PROVE )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:300:7: ( DO_NOT_PROVE )?
 			int alt50=2;
 			int LA50_0 = input.LA(1);
 			if ( (LA50_0==DO_NOT_PROVE) ) {
@@ -4786,7 +4786,7 @@ public class ASTtoAST extends TreeParser {
 			}
 			switch (alt50) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:300:7: DO_NOT_PROVE
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:300:7: DO_NOT_PROVE
 					{
 					_last = (BAST)input.LT(1);
 					DO_NOT_PROVE81=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1379); if (state.failed) return retval;
@@ -4828,7 +4828,7 @@ public class ASTtoAST extends TreeParser {
 			root_0 = (BAST)adaptor.nil();
 			// 303:5: -> ^( $ass $predicate)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/ASTtoAST.g:303:8: ^( $ass $predicate)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:303:8: ^( $ass $predicate)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);

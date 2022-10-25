@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g 2022-10-06 08:43:31
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g 2022-10-25 14:32:00
 
 //copyright 2020 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -422,7 +422,7 @@ public class BLESStoASTParser extends Parser {
 		return adaptor;
 	}
 	@Override public String[] getTokenNames() { return BLESStoASTParser.tokenNames; }
-	@Override public String getGrammarFileName() { return "/Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g"; }
+	@Override public String getGrammarFileName() { return "/Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g"; }
 
 
 	/** Map variable name to Integer object holding value */
@@ -573,7 +573,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "rational_literal"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:720:1: rational_literal : LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( RATIONAL ^( $up $dividend) ^( $down $divisor) ) -> {up!=null}? ^( RATIONAL ^( $up $dividend) $divisor) -> {down!=null}? ^( RATIONAL $dividend ^( $down $divisor) ) -> ^( RATIONAL $dividend $divisor) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:720:1: rational_literal : LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( RATIONAL ^( $up $dividend) ^( $down $divisor) ) -> {up!=null}? ^( RATIONAL ^( $up $dividend) $divisor) -> {down!=null}? ^( RATIONAL $dividend ^( $down $divisor) ) -> ^( RATIONAL $dividend $divisor) ;
 	public final BLESStoASTParser.rational_literal_return rational_literal() throws RecognitionException {
 		BLESStoASTParser.rational_literal_return retval = new BLESStoASTParser.rational_literal_return();
 		retval.start = input.LT(1);
@@ -602,13 +602,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:721:3: ( LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( RATIONAL ^( $up $dividend) ^( $down $divisor) ) -> {up!=null}? ^( RATIONAL ^( $up $dividend) $divisor) -> {down!=null}? ^( RATIONAL $dividend ^( $down $divisor) ) -> ^( RATIONAL $dividend $divisor) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:722:3: LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:721:3: ( LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( RATIONAL ^( $up $dividend) ^( $down $divisor) ) -> {up!=null}? ^( RATIONAL ^( $up $dividend) $divisor) -> {down!=null}? ^( RATIONAL $dividend ^( $down $divisor) ) -> ^( RATIONAL $dividend $divisor) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:722:3: LBRACKET (up= MINUS )? dividend= INTEGER_LIT '|' (down= MINUS )? divisor= INTEGER_LIT RBRACKET
 			{
 			LBRACKET1=(Token)match(input,LBRACKET,FOLLOW_LBRACKET_in_rational_literal2624); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LBRACKET.add(LBRACKET1);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:722:14: (up= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:722:14: (up= MINUS )?
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==MINUS) ) {
@@ -616,7 +616,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt1) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:722:14: up= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:722:14: up= MINUS
 					{
 					up=(Token)match(input,MINUS,FOLLOW_MINUS_in_rational_literal2628); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(up);
@@ -632,7 +632,7 @@ public class BLESStoASTParser extends Parser {
 			char_literal2=(Token)match(input,303,FOLLOW_303_in_rational_literal2635); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_303.add(char_literal2);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:722:51: (down= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:722:51: (down= MINUS )?
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0==MINUS) ) {
@@ -640,7 +640,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt2) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:722:51: down= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:722:51: down= MINUS
 					{
 					down=(Token)match(input,MINUS,FOLLOW_MINUS_in_rational_literal2639); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(down);
@@ -674,11 +674,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 723:3: -> {(up!=null)&&(down!=null)}? ^( RATIONAL ^( $up $dividend) ^( $down $divisor) )
 			if ((up!=null)&&(down!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:723:34: ^( RATIONAL ^( $up $dividend) ^( $down $divisor) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:723:34: ^( RATIONAL ^( $up $dividend) ^( $down $divisor) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(RATIONAL, "RATIONAL"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:723:45: ^( $up $dividend)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:723:45: ^( $up $dividend)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_up.nextNode(), root_2);
@@ -686,7 +686,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:723:62: ^( $down $divisor)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:723:62: ^( $down $divisor)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_down.nextNode(), root_2);
@@ -701,11 +701,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 724:3: -> {up!=null}? ^( RATIONAL ^( $up $dividend) $divisor)
 			if (up!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:724:18: ^( RATIONAL ^( $up $dividend) $divisor)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:724:18: ^( RATIONAL ^( $up $dividend) $divisor)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(RATIONAL, "RATIONAL"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:724:29: ^( $up $dividend)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:724:29: ^( $up $dividend)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_up.nextNode(), root_2);
@@ -721,12 +721,12 @@ public class BLESStoASTParser extends Parser {
 
 			else // 725:3: -> {down!=null}? ^( RATIONAL $dividend ^( $down $divisor) )
 			if (down!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:725:20: ^( RATIONAL $dividend ^( $down $divisor) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:725:20: ^( RATIONAL $dividend ^( $down $divisor) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(RATIONAL, "RATIONAL"), root_1);
 				adaptor.addChild(root_1, stream_dividend.nextNode());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:725:41: ^( $down $divisor)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:725:41: ^( $down $divisor)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_down.nextNode(), root_2);
@@ -741,7 +741,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 726:3: -> ^( RATIONAL $dividend $divisor)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:726:6: ^( RATIONAL $dividend $divisor)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:726:6: ^( RATIONAL $dividend $divisor)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(RATIONAL, "RATIONAL"), root_1);
@@ -786,7 +786,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "complex_literal"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:729:1: complex_literal : LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( COMPLEX ^( $up $real) ^( $down $im) ) -> {up!=null}? ^( COMPLEX ^( $up $real) $im) -> {down!=null}? ^( COMPLEX $real ^( $down $im) ) -> ^( COMPLEX $real $im) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:729:1: complex_literal : LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( COMPLEX ^( $up $real) ^( $down $im) ) -> {up!=null}? ^( COMPLEX ^( $up $real) $im) -> {down!=null}? ^( COMPLEX $real ^( $down $im) ) -> ^( COMPLEX $real $im) ;
 	public final BLESStoASTParser.complex_literal_return complex_literal() throws RecognitionException {
 		BLESStoASTParser.complex_literal_return retval = new BLESStoASTParser.complex_literal_return();
 		retval.start = input.LT(1);
@@ -815,13 +815,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:730:3: ( LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( COMPLEX ^( $up $real) ^( $down $im) ) -> {up!=null}? ^( COMPLEX ^( $up $real) $im) -> {down!=null}? ^( COMPLEX $real ^( $down $im) ) -> ^( COMPLEX $real $im) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:731:3: LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:730:3: ( LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET -> {(up!=null)&&(down!=null)}? ^( COMPLEX ^( $up $real) ^( $down $im) ) -> {up!=null}? ^( COMPLEX ^( $up $real) $im) -> {down!=null}? ^( COMPLEX $real ^( $down $im) ) -> ^( COMPLEX $real $im) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:731:3: LBRACKET (up= MINUS )? real= REAL_LIT COLON (down= MINUS )? im= REAL_LIT RBRACKET
 			{
 			LBRACKET4=(Token)match(input,LBRACKET,FOLLOW_LBRACKET_in_complex_literal2743); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LBRACKET.add(LBRACKET4);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:731:14: (up= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:731:14: (up= MINUS )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==MINUS) ) {
@@ -829,7 +829,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt3) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:731:14: up= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:731:14: up= MINUS
 					{
 					up=(Token)match(input,MINUS,FOLLOW_MINUS_in_complex_literal2747); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(up);
@@ -845,7 +845,7 @@ public class BLESStoASTParser extends Parser {
 			COLON5=(Token)match(input,COLON,FOLLOW_COLON_in_complex_literal2754); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COLON.add(COLON5);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:731:46: (down= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:731:46: (down= MINUS )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0==MINUS) ) {
@@ -853,7 +853,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt4) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:731:46: down= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:731:46: down= MINUS
 					{
 					down=(Token)match(input,MINUS,FOLLOW_MINUS_in_complex_literal2758); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(down);
@@ -887,11 +887,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 732:3: -> {(up!=null)&&(down!=null)}? ^( COMPLEX ^( $up $real) ^( $down $im) )
 			if ((up!=null)&&(down!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:732:34: ^( COMPLEX ^( $up $real) ^( $down $im) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:732:34: ^( COMPLEX ^( $up $real) ^( $down $im) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(COMPLEX, "COMPLEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:732:44: ^( $up $real)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:732:44: ^( $up $real)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_up.nextNode(), root_2);
@@ -899,7 +899,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:732:57: ^( $down $im)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:732:57: ^( $down $im)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_down.nextNode(), root_2);
@@ -914,11 +914,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 733:3: -> {up!=null}? ^( COMPLEX ^( $up $real) $im)
 			if (up!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:733:18: ^( COMPLEX ^( $up $real) $im)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:733:18: ^( COMPLEX ^( $up $real) $im)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(COMPLEX, "COMPLEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:733:28: ^( $up $real)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:733:28: ^( $up $real)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_up.nextNode(), root_2);
@@ -934,12 +934,12 @@ public class BLESStoASTParser extends Parser {
 
 			else // 734:3: -> {down!=null}? ^( COMPLEX $real ^( $down $im) )
 			if (down!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:734:20: ^( COMPLEX $real ^( $down $im) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:734:20: ^( COMPLEX $real ^( $down $im) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(COMPLEX, "COMPLEX"), root_1);
 				adaptor.addChild(root_1, stream_real.nextNode());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:734:36: ^( $down $im)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:734:36: ^( $down $im)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_down.nextNode(), root_2);
@@ -954,7 +954,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 735:3: -> ^( COMPLEX $real $im)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:735:6: ^( COMPLEX $real $im)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:735:6: ^( COMPLEX $real $im)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(COMPLEX, "COMPLEX"), root_1);
@@ -999,7 +999,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "relation_symbol"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:738:1: relation_symbol : ( EQ | NEQ | LT | AM | AL | GT );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:738:1: relation_symbol : ( EQ | NEQ | LT | AM | AL | GT );
 	public final BLESStoASTParser.relation_symbol_return relation_symbol() throws RecognitionException {
 		BLESStoASTParser.relation_symbol_return retval = new BLESStoASTParser.relation_symbol_return();
 		retval.start = input.LT(1);
@@ -1011,8 +1011,8 @@ public class BLESStoASTParser extends Parser {
 		BAST set7_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:739:3: ( EQ | NEQ | LT | AM | AL | GT )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:739:3: ( EQ | NEQ | LT | AM | AL | GT )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -1059,7 +1059,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "range_symbol"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:744:1: range_symbol : ( DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:744:1: range_symbol : ( DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA );
 	public final BLESStoASTParser.range_symbol_return range_symbol() throws RecognitionException {
 		BLESStoASTParser.range_symbol_return retval = new BLESStoASTParser.range_symbol_return();
 		retval.start = input.LT(1);
@@ -1071,8 +1071,8 @@ public class BLESStoASTParser extends Parser {
 		BAST set8_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:744:14: ( DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:744:14: ( DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -1119,7 +1119,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "identifier"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:746:1: identifier : ID ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:746:1: identifier : ID ;
 	public final BLESStoASTParser.identifier_return identifier() throws RecognitionException {
 		BLESStoASTParser.identifier_return retval = new BLESStoASTParser.identifier_return();
 		retval.start = input.LT(1);
@@ -1131,8 +1131,8 @@ public class BLESStoASTParser extends Parser {
 		BAST ID9_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:747:3: ( ID )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:747:5: ID
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:747:3: ( ID )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:747:5: ID
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -1173,7 +1173,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "annex_library_assertions"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1081:1: annex_library_assertions[HashMap<String,BAST> assertions_in_library] returns [BAST newRoot] : ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1081:1: annex_library_assertions[HashMap<String,BAST> assertions_in_library] returns [BAST newRoot] : ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )? ;
 	public final BLESStoASTParser.annex_library_assertions_return annex_library_assertions(HashMap<String,BAST> assertions_in_library) throws RecognitionException {
 		BLESStoASTParser.annex_library_assertions_return retval = new BLESStoASTParser.annex_library_assertions_return();
 		retval.start = input.LT(1);
@@ -1188,14 +1188,14 @@ public class BLESStoASTParser extends Parser {
 		BAST ANNEX_END11_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1083:3: ( ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1084:3: ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1083:3: ( ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1084:3: ( ANNEX_START )? (ala= assertion )+ ( ANNEX_END )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
 
 			if ( state.backtracking==0 ) {retval.newRoot = new BAST("ASSERTION_ANNEX",BLESStoASTLexer.ASSERTION_ANNEX,getStartingLine());}
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1085:3: ( ANNEX_START )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1085:3: ( ANNEX_START )?
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0==ANNEX_START) ) {
@@ -1203,7 +1203,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt5) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1085:3: ANNEX_START
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1085:3: ANNEX_START
 					{
 					ANNEX_START10=(Token)match(input,ANNEX_START,FOLLOW_ANNEX_START_in_annex_library_assertions3294); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -1216,7 +1216,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1086:5: (ala= assertion )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1086:5: (ala= assertion )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -1228,7 +1228,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt6) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1086:6: ala= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1086:6: ala= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_annex_library_assertions3304);
 					ala=assertion();
@@ -1254,7 +1254,7 @@ public class BLESStoASTParser extends Parser {
 				cnt6++;
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1094:3: ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1094:3: ( ANNEX_END )?
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0==ANNEX_END) ) {
@@ -1262,7 +1262,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt7) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1094:3: ANNEX_END
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1094:3: ANNEX_END
 					{
 					ANNEX_END11=(Token)match(input,ANNEX_END,FOLLOW_ANNEX_END_in_annex_library_assertions3324); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -1305,7 +1305,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "thread_behavior"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1674:1: thread_behavior : ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )? -> ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1674:1: thread_behavior : ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )? -> ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP ) ;
 	public final BLESStoASTParser.thread_behavior_return thread_behavior() throws RecognitionException {
 		BLESStoASTParser.thread_behavior_return retval = new BLESStoASTParser.thread_behavior_return();
 		retval.start = input.LT(1);
@@ -1339,10 +1339,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_transitions=new RewriteRuleSubtreeStream(adaptor,"rule transitions");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1675:3: ( ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )? -> ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1676:3: ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1675:3: ( ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )? -> ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1676:3: ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (av= availability )? (ac= assert_clause )? (inv= invariant_clause )? (sv= variables )? s= LITERAL_states (bs+= behavior_state )+ tran= transitions ( ANNEX_END )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1676:3: ( ANNEX_START )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1676:3: ( ANNEX_START )?
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0==ANNEX_START) ) {
@@ -1350,7 +1350,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1676:3: ANNEX_START
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1676:3: ANNEX_START
 					{
 					ANNEX_START12=(Token)match(input,ANNEX_START,FOLLOW_ANNEX_START_in_thread_behavior3999); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_START.add(ANNEX_START12);
@@ -1360,7 +1360,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1677:11: (no_proof= DO_NOT_PROVE )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1677:11: (no_proof= DO_NOT_PROVE )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0==DO_NOT_PROVE) ) {
@@ -1368,7 +1368,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt9) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1677:11: no_proof= DO_NOT_PROVE
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1677:11: no_proof= DO_NOT_PROVE
 					{
 					no_proof=(Token)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_thread_behavior4006); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(no_proof);
@@ -1378,7 +1378,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1678:5: (av= availability )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1678:5: (av= availability )?
 			int alt10=2;
 			int LA10_0 = input.LA(1);
 			if ( (LA10_0==LITERAL_availability) ) {
@@ -1386,7 +1386,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt10) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1678:5: av= availability
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1678:5: av= availability
 					{
 					pushFollow(FOLLOW_availability_in_thread_behavior4013);
 					av=availability();
@@ -1398,7 +1398,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1679:5: (ac= assert_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1679:5: (ac= assert_clause )?
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0==LITERAL_assert) ) {
@@ -1406,7 +1406,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt11) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1679:5: ac= assert_clause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1679:5: ac= assert_clause
 					{
 					pushFollow(FOLLOW_assert_clause_in_thread_behavior4020);
 					ac=assert_clause();
@@ -1418,7 +1418,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1680:6: (inv= invariant_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1680:6: (inv= invariant_clause )?
 			int alt12=2;
 			int LA12_0 = input.LA(1);
 			if ( (LA12_0==LITERAL_invariant) ) {
@@ -1426,7 +1426,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt12) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1680:6: inv= invariant_clause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1680:6: inv= invariant_clause
 					{
 					pushFollow(FOLLOW_invariant_clause_in_thread_behavior4027);
 					inv=invariant_clause();
@@ -1438,7 +1438,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1681:5: (sv= variables )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1681:5: (sv= variables )?
 			int alt13=2;
 			int LA13_0 = input.LA(1);
 			if ( (LA13_0==LITERAL_variables) ) {
@@ -1446,7 +1446,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt13) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1681:5: sv= variables
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1681:5: sv= variables
 					{
 					pushFollow(FOLLOW_variables_in_thread_behavior4034);
 					sv=variables();
@@ -1461,7 +1461,7 @@ public class BLESStoASTParser extends Parser {
 			s=(Token)match(input,LITERAL_states,FOLLOW_LITERAL_states_in_thread_behavior4041); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_states.add(s);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1682:20: (bs+= behavior_state )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1682:20: (bs+= behavior_state )+
 			int cnt14=0;
 			loop14:
 			while (true) {
@@ -1473,7 +1473,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt14) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1682:22: bs+= behavior_state
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1682:22: bs+= behavior_state
 					{
 					pushFollow(FOLLOW_behavior_state_in_thread_behavior4047);
 					bs=behavior_state();
@@ -1499,7 +1499,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_transitions.add(tran.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1684:3: ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1684:3: ( ANNEX_END )?
 			int alt15=2;
 			int LA15_0 = input.LA(1);
 			if ( (LA15_0==ANNEX_END) ) {
@@ -1507,7 +1507,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt15) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1684:3: ANNEX_END
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1684:3: ANNEX_END
 					{
 					ANNEX_END13=(Token)match(input,ANNEX_END,FOLLOW_ANNEX_END_in_thread_behavior4060); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_END.add(ANNEX_END13);
@@ -1536,11 +1536,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1685:5: -> ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1685:8: ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1685:8: ^( THREAD_ANNEX[$s,\"THREAD_ANNEX\"+(startingLine>0?\"[\"+startingLine+\"]\":\"\")] ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ ) ( $ac)? ( $inv)? ( $sv)? $tran ( $no_proof)? STOP )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(THREAD_ANNEX, s, "THREAD_ANNEX"+(startingLine>0?"["+startingLine+"]":"")), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1686:9: ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1686:9: ^( LITERAL_states[$s,\"states[\"+Integer.toString($s.getLine()+startingLine)+\"]\"] ( $bs)+ )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_states, s, "states["+Integer.toString(s.getLine()+startingLine)+"]"), root_2);
@@ -1555,26 +1555,26 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1687:10: ( $ac)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1687:10: ( $ac)?
 				if ( stream_ac.hasNext() ) {
 					adaptor.addChild(root_1, stream_ac.nextTree());
 				}
 				stream_ac.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1687:15: ( $inv)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1687:15: ( $inv)?
 				if ( stream_inv.hasNext() ) {
 					adaptor.addChild(root_1, stream_inv.nextTree());
 				}
 				stream_inv.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1687:21: ( $sv)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1687:21: ( $sv)?
 				if ( stream_sv.hasNext() ) {
 					adaptor.addChild(root_1, stream_sv.nextTree());
 				}
 				stream_sv.reset();
 
 				adaptor.addChild(root_1, stream_tran.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1687:32: ( $no_proof)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1687:32: ( $no_proof)?
 				if ( stream_no_proof.hasNext() ) {
 					adaptor.addChild(root_1, stream_no_proof.nextNode());
 				}
@@ -1626,7 +1626,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assert_clause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1698:1: assert_clause : la= LITERAL_assert (ass+= assertion )+ -> ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1698:1: assert_clause : la= LITERAL_assert (ass+= assertion )+ -> ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ ) ;
 	public final BLESStoASTParser.assert_clause_return assert_clause() throws RecognitionException {
 		BLESStoASTParser.assert_clause_return retval = new BLESStoASTParser.assert_clause_return();
 		retval.start = input.LT(1);
@@ -1641,13 +1641,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1699:3: (la= LITERAL_assert (ass+= assertion )+ -> ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1700:3: la= LITERAL_assert (ass+= assertion )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1699:3: (la= LITERAL_assert (ass+= assertion )+ -> ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1700:3: la= LITERAL_assert (ass+= assertion )+
 			{
 			la=(Token)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_assert_clause4149); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_assert.add(la);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1700:24: (ass+= assertion )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1700:24: (ass+= assertion )+
 			int cnt16=0;
 			loop16:
 			while (true) {
@@ -1659,7 +1659,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt16) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1700:24: ass+= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1700:24: ass+= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_assert_clause4153);
 					ass=assertion();
@@ -1694,7 +1694,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1701:5: -> ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1701:8: ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1701:8: ^( LITERAL_assert[$la,\"assert[\"+Integer.toString($la.getLine()+startingLine)+\"]\"] ( $ass)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_assert, la, "assert["+Integer.toString(la.getLine()+startingLine)+"]"), root_1);
@@ -1745,7 +1745,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "invariant_clause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1706:1: invariant_clause : li= LITERAL_invariant inv= assertion -> ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1706:1: invariant_clause : li= LITERAL_invariant inv= assertion -> ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv) ;
 	public final BLESStoASTParser.invariant_clause_return invariant_clause() throws RecognitionException {
 		BLESStoASTParser.invariant_clause_return retval = new BLESStoASTParser.invariant_clause_return();
 		retval.start = input.LT(1);
@@ -1760,8 +1760,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1707:3: (li= LITERAL_invariant inv= assertion -> ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1708:3: li= LITERAL_invariant inv= assertion
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1707:3: (li= LITERAL_invariant inv= assertion -> ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1708:3: li= LITERAL_invariant inv= assertion
 			{
 			li=(Token)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_invariant_clause4197); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_invariant.add(li);
@@ -1786,7 +1786,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1709:5: -> ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1709:8: ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1709:8: ^( LITERAL_invariant[$li,\"invariant[\"+Integer.toString($li.getLine()+startingLine)+\"]\"] $inv)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_invariant, li, "invariant["+Integer.toString(li.getLine()+startingLine)+"]"), root_1);
@@ -1830,7 +1830,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "variables"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1714:1: variables : v= LITERAL_variables (bv+= behavior_variable )+ -> ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1714:1: variables : v= LITERAL_variables (bv+= behavior_variable )+ -> ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* ) ;
 	public final BLESStoASTParser.variables_return variables() throws RecognitionException {
 		BLESStoASTParser.variables_return retval = new BLESStoASTParser.variables_return();
 		retval.start = input.LT(1);
@@ -1845,13 +1845,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_behavior_variable=new RewriteRuleSubtreeStream(adaptor,"rule behavior_variable");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1715:3: (v= LITERAL_variables (bv+= behavior_variable )+ -> ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1716:3: v= LITERAL_variables (bv+= behavior_variable )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1715:3: (v= LITERAL_variables (bv+= behavior_variable )+ -> ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1716:3: v= LITERAL_variables (bv+= behavior_variable )+
 			{
 			v=(Token)match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_variables4244); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_variables.add(v);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1716:23: (bv+= behavior_variable )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1716:23: (bv+= behavior_variable )+
 			int cnt17=0;
 			loop17:
 			while (true) {
@@ -1863,7 +1863,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt17) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1716:25: bv+= behavior_variable
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1716:25: bv+= behavior_variable
 					{
 					pushFollow(FOLLOW_behavior_variable_in_variables4250);
 					bv=behavior_variable();
@@ -1898,11 +1898,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1717:5: -> ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1717:8: ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1717:8: ^( LITERAL_variables[$v,\"variables[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)* )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_variables, v, "variables["+Integer.toString(v.getLine()+startingLine)+"]"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1717:95: ( $bv)*
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1717:95: ( $bv)*
 				while ( stream_bv.hasNext() ) {
 					adaptor.addChild(root_1, stream_bv.nextTree());
 				}
@@ -1947,7 +1947,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "quantified_variables"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1724:1: quantified_variables : v= LITERAL_declare (bv+= behavior_variable )+ -> ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1724:1: quantified_variables : v= LITERAL_declare (bv+= behavior_variable )+ -> ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ ) ;
 	public final BLESStoASTParser.quantified_variables_return quantified_variables() throws RecognitionException {
 		BLESStoASTParser.quantified_variables_return retval = new BLESStoASTParser.quantified_variables_return();
 		retval.start = input.LT(1);
@@ -1962,13 +1962,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_behavior_variable=new RewriteRuleSubtreeStream(adaptor,"rule behavior_variable");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1725:3: (v= LITERAL_declare (bv+= behavior_variable )+ -> ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1726:3: v= LITERAL_declare (bv+= behavior_variable )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1725:3: (v= LITERAL_declare (bv+= behavior_variable )+ -> ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1726:3: v= LITERAL_declare (bv+= behavior_variable )+
 			{
 			v=(Token)match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_quantified_variables4302); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_declare.add(v);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1726:21: (bv+= behavior_variable )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1726:21: (bv+= behavior_variable )+
 			int cnt18=0;
 			loop18:
 			while (true) {
@@ -1980,7 +1980,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt18) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1726:23: bv+= behavior_variable
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1726:23: bv+= behavior_variable
 					{
 					pushFollow(FOLLOW_behavior_variable_in_quantified_variables4308);
 					bv=behavior_variable();
@@ -2015,7 +2015,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1727:5: -> ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1727:8: ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1727:8: ^( LITERAL_declare[$v,\"declare[\"+Integer.toString($v.getLine()+startingLine)+\"]\"] ( $bv)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_declare, v, "declare["+Integer.toString(v.getLine()+startingLine)+"]"), root_1);
@@ -2066,7 +2066,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_variable"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1742:1: behavior_variable : dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON -> {e!=null}? ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) -> ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1742:1: behavior_variable : dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON -> {e!=null}? ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) -> ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) ;
 	public final BLESStoASTParser.behavior_variable_return behavior_variable() throws RecognitionException {
 		BLESStoASTParser.behavior_variable_return retval = new BLESStoASTParser.behavior_variable_return();
 		retval.start = input.LT(1);
@@ -2108,8 +2108,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1743:3: (dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON -> {e!=null}? ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) -> ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1744:3: dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1743:3: (dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON -> {e!=null}? ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) -> ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1744:3: dec= declarators c= COLON (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )? t= type (agn= ASSIGN e= expression )? (ass= assertion )? semi= SEMICOLON
 			{
 			pushFollow(FOLLOW_declarators_in_behavior_variable4368);
 			dec=declarators();
@@ -2119,7 +2119,7 @@ public class BLESStoASTParser extends Parser {
 			c=(Token)match(input,COLON,FOLLOW_COLON_in_behavior_variable4372); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COLON.add(c);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1745:3: (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1745:3: (p= LITERAL_nonvolatile |s= LITERAL_shared |con= LITERAL_constant |sp= LITERAL_spread |finl= LITERAL_final )?
 			int alt19=6;
 			switch ( input.LA(1) ) {
 				case LITERAL_nonvolatile:
@@ -2150,7 +2150,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt19) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1745:5: p= LITERAL_nonvolatile
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1745:5: p= LITERAL_nonvolatile
 					{
 					p=(Token)match(input,LITERAL_nonvolatile,FOLLOW_LITERAL_nonvolatile_in_behavior_variable4381); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_nonvolatile.add(p);
@@ -2158,7 +2158,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1745:29: s= LITERAL_shared
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1745:29: s= LITERAL_shared
 					{
 					s=(Token)match(input,LITERAL_shared,FOLLOW_LITERAL_shared_in_behavior_variable4387); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_shared.add(s);
@@ -2166,7 +2166,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1745:48: con= LITERAL_constant
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1745:48: con= LITERAL_constant
 					{
 					con=(Token)match(input,LITERAL_constant,FOLLOW_LITERAL_constant_in_behavior_variable4393); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_constant.add(con);
@@ -2174,7 +2174,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1745:71: sp= LITERAL_spread
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1745:71: sp= LITERAL_spread
 					{
 					sp=(Token)match(input,LITERAL_spread,FOLLOW_LITERAL_spread_in_behavior_variable4399); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_spread.add(sp);
@@ -2182,7 +2182,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1746:5: finl= LITERAL_final
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1746:5: finl= LITERAL_final
 					{
 					finl=(Token)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behavior_variable4407); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_final.add(finl);
@@ -2197,7 +2197,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_type.add(t.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1747:10: (agn= ASSIGN e= expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1747:10: (agn= ASSIGN e= expression )?
 			int alt20=2;
 			int LA20_0 = input.LA(1);
 			if ( (LA20_0==ASSIGN) ) {
@@ -2205,7 +2205,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt20) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1747:12: agn= ASSIGN e= expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1747:12: agn= ASSIGN e= expression
 					{
 					agn=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_behavior_variable4423); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ASSIGN.add(agn);
@@ -2220,7 +2220,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1748:6: (ass= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1748:6: (ass= assertion )?
 			int alt21=2;
 			int LA21_0 = input.LA(1);
 			if ( (LA21_0==LASS) ) {
@@ -2228,7 +2228,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt21) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1748:6: ass= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1748:6: ass= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_behavior_variable4437);
 					ass=assertion();
@@ -2269,12 +2269,12 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1750:5: -> {e!=null}? ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
 			if (e!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:19: ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:19: ^( $c $dec ^( TYPE[\"TYPE\"] $t) ^( $agn $e) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_dec.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:29: ^( TYPE[\"TYPE\"] $t)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:29: ^( TYPE[\"TYPE\"] $t)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(TYPE, "TYPE"), root_2);
@@ -2282,7 +2282,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:48: ^( $agn $e)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:48: ^( $agn $e)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_agn.nextNode(), root_2);
@@ -2290,37 +2290,37 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:62: ( $ass)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:62: ( $ass)?
 				if ( stream_ass.hasNext() ) {
 					adaptor.addChild(root_1, stream_ass.nextTree());
 				}
 				stream_ass.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:68: ( $p)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:68: ( $p)?
 				if ( stream_p.hasNext() ) {
 					adaptor.addChild(root_1, stream_p.nextNode());
 				}
 				stream_p.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:72: ( $s)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:72: ( $s)?
 				if ( stream_s.hasNext() ) {
 					adaptor.addChild(root_1, stream_s.nextNode());
 				}
 				stream_s.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:76: ( $con)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:76: ( $con)?
 				if ( stream_con.hasNext() ) {
 					adaptor.addChild(root_1, stream_con.nextNode());
 				}
 				stream_con.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:82: ( $sp)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:82: ( $sp)?
 				if ( stream_sp.hasNext() ) {
 					adaptor.addChild(root_1, stream_sp.nextNode());
 				}
 				stream_sp.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1750:87: ( $finl)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1750:87: ( $finl)?
 				if ( stream_finl.hasNext() ) {
 					adaptor.addChild(root_1, stream_finl.nextNode());
 				}
@@ -2334,12 +2334,12 @@ public class BLESStoASTParser extends Parser {
 
 			else // 1751:5: -> ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:8: ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:8: ^( $c $dec ^( TYPE[\"TYPE\"] $t) ( $ass)? ( $p)? ( $s)? ( $con)? ( $sp)? ( $finl)? $semi)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_dec.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:18: ^( TYPE[\"TYPE\"] $t)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:18: ^( TYPE[\"TYPE\"] $t)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(TYPE, "TYPE"), root_2);
@@ -2347,37 +2347,37 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:38: ( $ass)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:38: ( $ass)?
 				if ( stream_ass.hasNext() ) {
 					adaptor.addChild(root_1, stream_ass.nextTree());
 				}
 				stream_ass.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:44: ( $p)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:44: ( $p)?
 				if ( stream_p.hasNext() ) {
 					adaptor.addChild(root_1, stream_p.nextNode());
 				}
 				stream_p.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:48: ( $s)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:48: ( $s)?
 				if ( stream_s.hasNext() ) {
 					adaptor.addChild(root_1, stream_s.nextNode());
 				}
 				stream_s.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:52: ( $con)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:52: ( $con)?
 				if ( stream_con.hasNext() ) {
 					adaptor.addChild(root_1, stream_con.nextNode());
 				}
 				stream_con.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:58: ( $sp)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:58: ( $sp)?
 				if ( stream_sp.hasNext() ) {
 					adaptor.addChild(root_1, stream_sp.nextNode());
 				}
 				stream_sp.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1751:63: ( $finl)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1751:63: ( $finl)?
 				if ( stream_finl.hasNext() ) {
 					adaptor.addChild(root_1, stream_finl.nextNode());
 				}
@@ -2423,7 +2423,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "declarators"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1756:1: declarators : d= ID (c= COMMA ds+= ID )* -> {ds!=null}? ^( $c $d ( $ds)+ ) -> $d;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1756:1: declarators : d= ID (c= COMMA ds+= ID )* -> {ds!=null}? ^( $c $d ( $ds)+ ) -> $d;
 	public final BLESStoASTParser.declarators_return declarators() throws RecognitionException {
 		BLESStoASTParser.declarators_return retval = new BLESStoASTParser.declarators_return();
 		retval.start = input.LT(1);
@@ -2442,13 +2442,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1757:3: (d= ID (c= COMMA ds+= ID )* -> {ds!=null}? ^( $c $d ( $ds)+ ) -> $d)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1758:24: d= ID (c= COMMA ds+= ID )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1757:3: (d= ID (c= COMMA ds+= ID )* -> {ds!=null}? ^( $c $d ( $ds)+ ) -> $d)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1758:24: d= ID (c= COMMA ds+= ID )*
 			{
 			d=(Token)match(input,ID,FOLLOW_ID_in_declarators4583); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ID.add(d);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1758:29: (c= COMMA ds+= ID )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1758:29: (c= COMMA ds+= ID )*
 			loop22:
 			while (true) {
 				int alt22=2;
@@ -2459,7 +2459,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt22) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1758:30: c= COMMA ds+= ID
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1758:30: c= COMMA ds+= ID
 					{
 					c=(Token)match(input,COMMA,FOLLOW_COMMA_in_declarators4588); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(c);
@@ -2494,7 +2494,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1759:5: -> {ds!=null}? ^( $c $d ( $ds)+ )
 			if (ds!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1759:20: ^( $c $d ( $ds)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1759:20: ^( $c $d ( $ds)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -2551,7 +2551,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_state"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1790:1: behavior_state : i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON -> ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1790:1: behavior_state : i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON -> ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? ) ;
 	public final BLESStoASTParser.behavior_state_return behavior_state() throws RecognitionException {
 		BLESStoASTParser.behavior_state_return retval = new BLESStoASTParser.behavior_state_return();
 		retval.start = input.LT(1);
@@ -2583,8 +2583,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1791:3: (i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON -> ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1792:3: i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1791:3: (i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON -> ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1792:3: i= identifier COLON (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )? st= LITERAL_state (a= assertion )? SEMICOLON
 			{
 			pushFollow(FOLLOW_identifier_in_behavior_state4677);
 			i=identifier();
@@ -2594,7 +2594,7 @@ public class BLESStoASTParser extends Parser {
 			COLON14=(Token)match(input,COLON,FOLLOW_COLON_in_behavior_state4682); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COLON.add(COLON14);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:9: (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:9: (init= LITERAL_initial |com= LITERAL_complete |finl= LITERAL_final )?
 			int alt23=4;
 			switch ( input.LA(1) ) {
 				case LITERAL_initial:
@@ -2615,7 +2615,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt23) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:10: init= LITERAL_initial
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:10: init= LITERAL_initial
 					{
 					init=(Token)match(input,LITERAL_initial,FOLLOW_LITERAL_initial_in_behavior_state4687); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_initial.add(init);
@@ -2623,7 +2623,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:33: com= LITERAL_complete
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:33: com= LITERAL_complete
 					{
 					com=(Token)match(input,LITERAL_complete,FOLLOW_LITERAL_complete_in_behavior_state4693); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_complete.add(com);
@@ -2631,7 +2631,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:56: finl= LITERAL_final
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:56: finl= LITERAL_final
 					{
 					finl=(Token)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behavior_state4699); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_final.add(finl);
@@ -2644,7 +2644,7 @@ public class BLESStoASTParser extends Parser {
 			st=(Token)match(input,LITERAL_state,FOLLOW_LITERAL_state_in_behavior_state4705); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_state.add(st);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:95: (a= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:95: (a= assertion )?
 			int alt24=2;
 			int LA24_0 = input.LA(1);
 			if ( (LA24_0==LASS) ) {
@@ -2652,7 +2652,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt24) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1793:95: a= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1793:95: a= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_behavior_state4709);
 					a=assertion();
@@ -2686,30 +2686,30 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1794:5: -> ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1794:8: ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1794:8: ^( LITERAL_state[$st,\"state[\"+Integer.toString($st.getLine()+startingLine)+\"]\"] ( $init)? ( $com)? ( $finl)? $i ( $a)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_state, st, "state["+Integer.toString(st.getLine()+startingLine)+"]"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1794:89: ( $init)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1794:89: ( $init)?
 				if ( stream_init.hasNext() ) {
 					adaptor.addChild(root_1, stream_init.nextNode());
 				}
 				stream_init.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1794:96: ( $com)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1794:96: ( $com)?
 				if ( stream_com.hasNext() ) {
 					adaptor.addChild(root_1, stream_com.nextNode());
 				}
 				stream_com.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1794:102: ( $finl)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1794:102: ( $finl)?
 				if ( stream_finl.hasNext() ) {
 					adaptor.addChild(root_1, stream_finl.nextNode());
 				}
 				stream_finl.reset();
 
 				adaptor.addChild(root_1, stream_i.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1794:112: ( $a)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1794:112: ( $a)?
 				if ( stream_a.hasNext() ) {
 					adaptor.addChild(root_1, stream_a.nextTree());
 				}
@@ -2754,7 +2754,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "transitions"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1799:1: transitions : t= LITERAL_transitions (bt+= behavior_transition )+ -> ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1799:1: transitions : t= LITERAL_transitions (bt+= behavior_transition )+ -> ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ ) ;
 	public final BLESStoASTParser.transitions_return transitions() throws RecognitionException {
 		BLESStoASTParser.transitions_return retval = new BLESStoASTParser.transitions_return();
 		retval.start = input.LT(1);
@@ -2769,13 +2769,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_behavior_transition=new RewriteRuleSubtreeStream(adaptor,"rule behavior_transition");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1800:3: (t= LITERAL_transitions (bt+= behavior_transition )+ -> ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1801:3: t= LITERAL_transitions (bt+= behavior_transition )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1800:3: (t= LITERAL_transitions (bt+= behavior_transition )+ -> ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1801:3: t= LITERAL_transitions (bt+= behavior_transition )+
 			{
 			t=(Token)match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_transitions4772); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_transitions.add(t);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1801:27: (bt+= behavior_transition )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1801:27: (bt+= behavior_transition )+
 			int cnt25=0;
 			loop25:
 			while (true) {
@@ -2787,7 +2787,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt25) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1801:27: bt+= behavior_transition
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1801:27: bt+= behavior_transition
 					{
 					pushFollow(FOLLOW_behavior_transition_in_transitions4776);
 					bt=behavior_transition();
@@ -2822,7 +2822,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1802:5: -> ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1802:8: ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1802:8: ^( LITERAL_transitions[$t,\"transitions[\"+Integer.toString($t.getLine()+startingLine)+\"]\"] ( $bt)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_transitions, t, "transitions["+Integer.toString(t.getLine()+startingLine)+"]"), root_1);
@@ -2876,7 +2876,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_transition"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1810:1: behavior_transition : (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON -> ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1810:1: behavior_transition : (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON -> ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) ) ;
 	public final BLESStoASTParser.behavior_transition_return behavior_transition() throws RecognitionException {
 		BLESStoASTParser.behavior_transition_return retval = new BLESStoASTParser.behavior_transition_return();
 		retval.start = input.LT(1);
@@ -2921,10 +2921,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_behavior_condition=new RewriteRuleSubtreeStream(adaptor,"rule behavior_condition");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1811:3: ( (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON -> ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1812:3: (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1811:3: ( (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON -> ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1812:3: (btl= behavior_transition_label COLON )? ssi+= identifier ( COMMA ssi+= identifier )* x= LCON (bc= behavior_condition )? RCON dsi= identifier ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY ) (q= assertion )? semi= SEMICOLON
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1812:3: (btl= behavior_transition_label COLON )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1812:3: (btl= behavior_transition_label COLON )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( (LA26_0==ID) ) {
@@ -2935,7 +2935,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt26) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1812:5: btl= behavior_transition_label COLON
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1812:5: btl= behavior_transition_label COLON
 					{
 					pushFollow(FOLLOW_behavior_transition_label_in_behavior_transition4823);
 					btl=behavior_transition_label();
@@ -2957,7 +2957,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_identifier.add(ssi.getTree());
 			if (list_ssi==null) list_ssi=new ArrayList<Object>();
 			list_ssi.add(ssi.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1813:36: ( COMMA ssi+= identifier )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1813:36: ( COMMA ssi+= identifier )*
 			loop27:
 			while (true) {
 				int alt27=2;
@@ -2968,7 +2968,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt27) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1813:38: COMMA ssi+= identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1813:38: COMMA ssi+= identifier
 					{
 					COMMA17=(Token)match(input,COMMA,FOLLOW_COMMA_in_behavior_transition4839); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA17);
@@ -2991,7 +2991,7 @@ public class BLESStoASTParser extends Parser {
 			x=(Token)match(input,LCON,FOLLOW_LCON_in_behavior_transition4853); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LCON.add(x);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1814:12: (bc= behavior_condition )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1814:12: (bc= behavior_condition )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
 			if ( (LA28_0==AADL_STRING_LITERAL||LA28_0==ID||LA28_0==INTEGER_LIT||LA28_0==LBRACKET||LA28_0==LITERAL_complex||LA28_0==LITERAL_false||LA28_0==LITERAL_in||LA28_0==LITERAL_integer||LA28_0==LITERAL_natural||(LA28_0 >= LITERAL_not && LA28_0 <= LITERAL_now)||LA28_0==LITERAL_null||LA28_0==LITERAL_on||(LA28_0 >= LITERAL_rational && LA28_0 <= LITERAL_real)||LA28_0==LITERAL_self||(LA28_0 >= LITERAL_time && LA28_0 <= LITERAL_timeout)||LA28_0==LITERAL_tops||LA28_0==LITERAL_true||LA28_0==LPAREN||LA28_0==MINUS||LA28_0==OCTOTHORPE||LA28_0==REAL_LIT) ) {
@@ -2999,7 +2999,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt28) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1814:12: bc= behavior_condition
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1814:12: bc= behavior_condition
 					{
 					pushFollow(FOLLOW_behavior_condition_in_behavior_transition4857);
 					bc=behavior_condition();
@@ -3019,7 +3019,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_identifier.add(dsi.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1816:3: ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1816:3: ( LCURLY s= behavior_actions RCURLY | EMPTY_CURLY )
 			int alt29=2;
 			int LA29_0 = input.LA(1);
 			if ( (LA29_0==LCURLY) ) {
@@ -3038,7 +3038,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt29) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1816:5: LCURLY s= behavior_actions RCURLY
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1816:5: LCURLY s= behavior_actions RCURLY
 					{
 					LCURLY19=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_behavior_transition4874); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY19);
@@ -3054,7 +3054,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1816:40: EMPTY_CURLY
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1816:40: EMPTY_CURLY
 					{
 					EMPTY_CURLY21=(Token)match(input,EMPTY_CURLY,FOLLOW_EMPTY_CURLY_in_behavior_transition4884); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_EMPTY_CURLY.add(EMPTY_CURLY21);
@@ -3064,7 +3064,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1817:4: (q= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1817:4: (q= assertion )?
 			int alt30=2;
 			int LA30_0 = input.LA(1);
 			if ( (LA30_0==LASS) ) {
@@ -3072,7 +3072,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt30) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1817:4: q= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1817:4: q= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_behavior_transition4892);
 					q=assertion();
@@ -3106,15 +3106,15 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1818:5: -> ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1819:7: ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1819:7: ^( TRANSITION[$x,\"TRANSITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? ) ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ ) ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? ) ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi) ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? ) ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? ) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(TRANSITION, x, "TRANSITION["+Integer.toString(x.getLine()+startingLine)+"]"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1820:7: ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1820:7: ^( LABEL[$x,\"LABEL[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $btl)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, x, "LABEL["+Integer.toString(x.getLine()+startingLine)+"]"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1820:78: ( $btl)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1820:78: ( $btl)?
 				if ( stream_btl.hasNext() ) {
 					adaptor.addChild(root_2, stream_btl.nextTree());
 				}
@@ -3123,7 +3123,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1821:7: ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1821:7: ^( SOURCE[$x,\"SOURCE[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $ssi)+ )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(SOURCE, x, "SOURCE["+Integer.toString(x.getLine()+startingLine)+"]"), root_2);
@@ -3138,11 +3138,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1822:7: ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1822:7: ^( CONDITION[$x,\"CONDITION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $bc)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITION, x, "CONDITION["+Integer.toString(x.getLine()+startingLine)+"]"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1822:86: ( $bc)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1822:86: ( $bc)?
 				if ( stream_bc.hasNext() ) {
 					adaptor.addChild(root_2, stream_bc.nextTree());
 				}
@@ -3151,7 +3151,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1823:7: ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1823:7: ^( DESTINATION[$x,\"DESTINATION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] $dsi)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(DESTINATION, x, "DESTINATION["+Integer.toString(x.getLine()+startingLine)+"]"), root_2);
@@ -3159,11 +3159,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1824:7: ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1824:7: ^( ACTION[$x,\"ACTION[\"+Integer.toString($x.getLine()+startingLine)+\"]\"] ( $s)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ACTION, x, "ACTION["+Integer.toString(x.getLine()+startingLine)+"]"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1824:80: ( $s)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1824:80: ( $s)?
 				if ( stream_s.hasNext() ) {
 					adaptor.addChild(root_2, stream_s.nextTree());
 				}
@@ -3172,11 +3172,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1825:7: ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1825:7: ^( Q[$semi,\"Q[\"+Integer.toString($semi.getLine()+startingLine)+\"]\"] ( $q)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(Q, semi, "Q["+Integer.toString(semi.getLine()+startingLine)+"]"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1825:76: ( $q)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1825:76: ( $q)?
 				if ( stream_q.hasNext() ) {
 					adaptor.addChild(root_2, stream_q.nextTree());
 				}
@@ -3229,7 +3229,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_transition_label"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1837:1: behavior_transition_label : id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )? -> ^( $id ( $lit)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1837:1: behavior_transition_label : id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )? -> ^( $id ( $lit)? ) ;
 	public final BLESStoASTParser.behavior_transition_label_return behavior_transition_label() throws RecognitionException {
 		BLESStoASTParser.behavior_transition_label_return retval = new BLESStoASTParser.behavior_transition_label_return();
 		retval.start = input.LT(1);
@@ -3250,15 +3250,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_identifier=new RewriteRuleSubtreeStream(adaptor,"rule identifier");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1838:3: (id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )? -> ^( $id ( $lit)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1839:3: id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1838:3: (id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )? -> ^( $id ( $lit)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1839:3: id= identifier ( LBRACKET lit= INTEGER_LIT RBRACKET )?
 			{
 			pushFollow(FOLLOW_identifier_in_behavior_transition_label5061);
 			id=identifier();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_identifier.add(id.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1839:17: ( LBRACKET lit= INTEGER_LIT RBRACKET )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1839:17: ( LBRACKET lit= INTEGER_LIT RBRACKET )?
 			int alt31=2;
 			int LA31_0 = input.LA(1);
 			if ( (LA31_0==LBRACKET) ) {
@@ -3266,7 +3266,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt31) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1839:19: LBRACKET lit= INTEGER_LIT RBRACKET
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1839:19: LBRACKET lit= INTEGER_LIT RBRACKET
 					{
 					LBRACKET22=(Token)match(input,LBRACKET,FOLLOW_LBRACKET_in_behavior_transition_label5065); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LBRACKET.add(LBRACKET22);
@@ -3298,11 +3298,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1840:5: -> ^( $id ( $lit)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1840:8: ^( $id ( $lit)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1840:8: ^( $id ( $lit)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_id.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1840:16: ( $lit)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1840:16: ( $lit)?
 				if ( stream_lit.hasNext() ) {
 					adaptor.addChild(root_1, stream_lit.nextNode());
 				}
@@ -3347,7 +3347,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_condition"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1843:1: behavior_condition : ( dispatch_condition | execute_condition | mode_condition );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1843:1: behavior_condition : ( dispatch_condition | execute_condition | mode_condition );
 	public final BLESStoASTParser.behavior_condition_return behavior_condition() throws RecognitionException {
 		BLESStoASTParser.behavior_condition_return retval = new BLESStoASTParser.behavior_condition_return();
 		retval.start = input.LT(1);
@@ -3360,7 +3360,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1844:3: ( dispatch_condition | execute_condition | mode_condition )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1844:3: ( dispatch_condition | execute_condition | mode_condition )
 			int alt32=3;
 			int LA32_0 = input.LA(1);
 			if ( (LA32_0==LITERAL_on) ) {
@@ -3399,7 +3399,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt32) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1845:3: dispatch_condition
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1845:3: dispatch_condition
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -3413,7 +3413,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1845:24: execute_condition
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1845:24: execute_condition
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -3427,7 +3427,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1845:44: mode_condition
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1845:44: mode_condition
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -3470,7 +3470,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "execute_condition"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1848:1: execute_condition : expression_or_relation ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1848:1: execute_condition : expression_or_relation ;
 	public final BLESStoASTParser.execute_condition_return execute_condition() throws RecognitionException {
 		BLESStoASTParser.execute_condition_return retval = new BLESStoASTParser.execute_condition_return();
 		retval.start = input.LT(1);
@@ -3481,8 +3481,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1849:3: ( expression_or_relation )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1850:15: expression_or_relation
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1849:3: ( expression_or_relation )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1850:15: expression_or_relation
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -3523,7 +3523,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "mode_condition"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1853:1: mode_condition : LITERAL_on ^ trigger_logical_expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1853:1: mode_condition : LITERAL_on ^ trigger_logical_expression ;
 	public final BLESStoASTParser.mode_condition_return mode_condition() throws RecognitionException {
 		BLESStoASTParser.mode_condition_return retval = new BLESStoASTParser.mode_condition_return();
 		retval.start = input.LT(1);
@@ -3536,8 +3536,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_on28_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1854:3: ( LITERAL_on ^ trigger_logical_expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1855:3: LITERAL_on ^ trigger_logical_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1854:3: ( LITERAL_on ^ trigger_logical_expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1855:3: LITERAL_on ^ trigger_logical_expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -3584,7 +3584,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "trigger_logical_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1859:1: trigger_logical_expression : first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )? -> {op1!=null}? ^( $op1 $first ( $et)+ ) -> $first;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1859:1: trigger_logical_expression : first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )? -> {op1!=null}? ^( $op1 $first ( $et)+ ) -> $first;
 	public final BLESStoASTParser.trigger_logical_expression_return trigger_logical_expression() throws RecognitionException {
 		BLESStoASTParser.trigger_logical_expression_return retval = new BLESStoASTParser.trigger_logical_expression_return();
 		retval.start = input.LT(1);
@@ -3600,15 +3600,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_logical_operator=new RewriteRuleSubtreeStream(adaptor,"rule logical_operator");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1860:3: (first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )? -> {op1!=null}? ^( $op1 $first ( $et)+ ) -> $first)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1861:3: first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1860:3: (first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )? -> {op1!=null}? ^( $op1 $first ( $et)+ ) -> $first)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1861:3: first= event_trigger (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )?
 			{
 			pushFollow(FOLLOW_event_trigger_in_trigger_logical_expression5172);
 			first=event_trigger();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_event_trigger.add(first.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1861:23: (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1861:23: (op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)* )?
 			int alt34=2;
 			int LA34_0 = input.LA(1);
 			if ( (LA34_0==LITERAL_and||LA34_0==LITERAL_cand||LA34_0==LITERAL_cor||LA34_0==LITERAL_or||LA34_0==LITERAL_xor) ) {
@@ -3616,7 +3616,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt34) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1861:25: op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1861:25: op1= logical_operator et+= event_trigger (op2= logical_operator et+= event_trigger {...}?)*
 					{
 					pushFollow(FOLLOW_logical_operator_in_trigger_logical_expression5178);
 					op1=logical_operator();
@@ -3630,7 +3630,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_event_trigger.add(et.getTree());
 					if (list_et==null) list_et=new ArrayList<Object>();
 					list_et.add(et.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1862:5: (op2= logical_operator et+= event_trigger {...}?)*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1862:5: (op2= logical_operator et+= event_trigger {...}?)*
 					loop33:
 					while (true) {
 						int alt33=2;
@@ -3641,7 +3641,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt33) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1862:6: op2= logical_operator et+= event_trigger {...}?
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1862:6: op2= logical_operator et+= event_trigger {...}?
 							{
 							pushFollow(FOLLOW_logical_operator_in_trigger_logical_expression5192);
 							op2=logical_operator();
@@ -3688,7 +3688,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1863:5: -> {op1!=null}? ^( $op1 $first ( $et)+ )
 			if (op1!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1863:21: ^( $op1 $first ( $et)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1863:21: ^( $op1 $first ( $et)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_op1.nextNode(), root_1);
@@ -3746,7 +3746,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "event_trigger"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1871:1: event_trigger : ( (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID | LPAREN ^ trigger_logical_expression RPAREN );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1871:1: event_trigger : ( (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID | LPAREN ^ trigger_logical_expression RPAREN );
 	public final BLESStoASTParser.event_trigger_return event_trigger() throws RecognitionException {
 		BLESStoASTParser.event_trigger_return retval = new BLESStoASTParser.event_trigger_return();
 		retval.start = input.LT(1);
@@ -3770,7 +3770,7 @@ public class BLESStoASTParser extends Parser {
 		BAST sub_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1872:3: ( (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID | LPAREN ^ trigger_logical_expression RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1872:3: ( (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID | LPAREN ^ trigger_logical_expression RPAREN )
 			int alt37=2;
 			int LA37_0 = input.LA(1);
 			if ( (LA37_0==ID) ) {
@@ -3789,12 +3789,12 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt37) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1873:3: (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1873:3: (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )? port= ID
 					{
 					root_0 = (BAST)adaptor.nil();
 
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1873:3: (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1873:3: (sub+= ID PERIOD ^ (sub+= ID PERIOD )* )?
 					int alt36=2;
 					int LA36_0 = input.LA(1);
 					if ( (LA36_0==ID) ) {
@@ -3805,7 +3805,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt36) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1873:5: sub+= ID PERIOD ^ (sub+= ID PERIOD )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1873:5: sub+= ID PERIOD ^ (sub+= ID PERIOD )*
 							{
 							sub=(Token)match(input,ID,FOLLOW_ID_in_event_trigger5267); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -3821,7 +3821,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.becomeRoot(PERIOD30_tree, root_0);
 							}
 
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1873:21: (sub+= ID PERIOD )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1873:21: (sub+= ID PERIOD )*
 							loop35:
 							while (true) {
 								int alt35=2;
@@ -3836,7 +3836,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt35) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1873:23: sub+= ID PERIOD
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1873:23: sub+= ID PERIOD
 									{
 									sub=(Token)match(input,ID,FOLLOW_ID_in_event_trigger5276); if (state.failed) return retval;
 									if ( state.backtracking==0 ) {
@@ -3874,7 +3874,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1874:5: LPAREN ^ trigger_logical_expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1874:5: LPAREN ^ trigger_logical_expression RPAREN
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -3929,7 +3929,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "logical_operator"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1877:1: logical_operator : ( LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1877:1: logical_operator : ( LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor );
 	public final BLESStoASTParser.logical_operator_return logical_operator() throws RecognitionException {
 		BLESStoASTParser.logical_operator_return retval = new BLESStoASTParser.logical_operator_return();
 		retval.start = input.LT(1);
@@ -3941,8 +3941,8 @@ public class BLESStoASTParser extends Parser {
 		BAST set35_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1878:3: ( LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1878:3: ( LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -3989,7 +3989,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "subprogram_behavior"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1888:1: subprogram_behavior : ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )? -> {pr==null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? ) -> {pr!=null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? ) -> {pr==null & po!=null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? ) -> ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1888:1: subprogram_behavior : ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )? -> {pr==null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? ) -> {pr!=null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? ) -> {pr==null & po!=null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? ) -> ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? ) ;
 	public final BLESStoASTParser.subprogram_behavior_return subprogram_behavior() throws RecognitionException {
 		BLESStoASTParser.subprogram_behavior_return retval = new BLESStoASTParser.subprogram_behavior_return();
 		retval.start = input.LT(1);
@@ -4021,10 +4021,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1889:3: ( ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )? -> {pr==null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? ) -> {pr!=null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? ) -> {pr==null & po!=null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? ) -> ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1890:3: ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1889:3: ( ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )? -> {pr==null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? ) -> {pr!=null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? ) -> {pr==null & po!=null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? ) -> ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1890:3: ( ANNEX_START )? (no_proof= DO_NOT_PROVE )? (ac= assert_clause )? (pr= LITERAL_pre p1= assertion )? (po= LITERAL_post p2= assertion )? elq= existential_lattice_quantification ( ANNEX_END )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1890:3: ( ANNEX_START )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1890:3: ( ANNEX_START )?
 			int alt38=2;
 			int LA38_0 = input.LA(1);
 			if ( (LA38_0==ANNEX_START) ) {
@@ -4032,7 +4032,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt38) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1890:3: ANNEX_START
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1890:3: ANNEX_START
 					{
 					ANNEX_START36=(Token)match(input,ANNEX_START,FOLLOW_ANNEX_START_in_subprogram_behavior5361); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_START.add(ANNEX_START36);
@@ -4042,7 +4042,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1891:11: (no_proof= DO_NOT_PROVE )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1891:11: (no_proof= DO_NOT_PROVE )?
 			int alt39=2;
 			int LA39_0 = input.LA(1);
 			if ( (LA39_0==DO_NOT_PROVE) ) {
@@ -4050,7 +4050,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt39) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1891:11: no_proof= DO_NOT_PROVE
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1891:11: no_proof= DO_NOT_PROVE
 					{
 					no_proof=(Token)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_subprogram_behavior5368); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(no_proof);
@@ -4060,7 +4060,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1893:5: (ac= assert_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1893:5: (ac= assert_clause )?
 			int alt40=2;
 			int LA40_0 = input.LA(1);
 			if ( (LA40_0==LITERAL_assert) ) {
@@ -4068,7 +4068,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt40) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1893:5: ac= assert_clause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1893:5: ac= assert_clause
 					{
 					pushFollow(FOLLOW_assert_clause_in_subprogram_behavior5376);
 					ac=assert_clause();
@@ -4080,7 +4080,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1894:3: (pr= LITERAL_pre p1= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1894:3: (pr= LITERAL_pre p1= assertion )?
 			int alt41=2;
 			int LA41_0 = input.LA(1);
 			if ( (LA41_0==LITERAL_pre) ) {
@@ -4088,7 +4088,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt41) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1894:5: pr= LITERAL_pre p1= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1894:5: pr= LITERAL_pre p1= assertion
 					{
 					pr=(Token)match(input,LITERAL_pre,FOLLOW_LITERAL_pre_in_subprogram_behavior5385); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_pre.add(pr);
@@ -4103,7 +4103,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1895:3: (po= LITERAL_post p2= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1895:3: (po= LITERAL_post p2= assertion )?
 			int alt42=2;
 			int LA42_0 = input.LA(1);
 			if ( (LA42_0==LITERAL_post) ) {
@@ -4111,7 +4111,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt42) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1895:5: po= LITERAL_post p2= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1895:5: po= LITERAL_post p2= assertion
 					{
 					po=(Token)match(input,LITERAL_post,FOLLOW_LITERAL_post_in_subprogram_behavior5400); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_post.add(po);
@@ -4131,7 +4131,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_existential_lattice_quantification.add(elq.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1897:3: ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1897:3: ( ANNEX_END )?
 			int alt43=2;
 			int LA43_0 = input.LA(1);
 			if ( (LA43_0==ANNEX_END) ) {
@@ -4139,7 +4139,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt43) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1897:3: ANNEX_END
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1897:3: ANNEX_END
 					{
 					ANNEX_END37=(Token)match(input,ANNEX_END,FOLLOW_ANNEX_END_in_subprogram_behavior5417); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_END.add(ANNEX_END37);
@@ -4170,18 +4170,18 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1899:5: -> {pr==null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? )
 			if (pr==null & po==null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1899:31: ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1899:31: ^( SUBPROGRAM_ANNEX ( $ac)? $elq ( $no_proof)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(SUBPROGRAM_ANNEX, "SUBPROGRAM_ANNEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1899:51: ( $ac)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1899:51: ( $ac)?
 				if ( stream_ac.hasNext() ) {
 					adaptor.addChild(root_1, stream_ac.nextTree());
 				}
 				stream_ac.reset();
 
 				adaptor.addChild(root_1, stream_elq.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1899:61: ( $no_proof)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1899:61: ( $no_proof)?
 				if ( stream_no_proof.hasNext() ) {
 					adaptor.addChild(root_1, stream_no_proof.nextNode());
 				}
@@ -4194,17 +4194,17 @@ public class BLESStoASTParser extends Parser {
 
 			else // 1900:5: -> {pr!=null & po==null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? )
 			if (pr!=null & po==null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1900:31: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1900:31: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) $elq ( $no_proof)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(SUBPROGRAM_ANNEX, "SUBPROGRAM_ANNEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1900:51: ( $ac)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1900:51: ( $ac)?
 				if ( stream_ac.hasNext() ) {
 					adaptor.addChild(root_1, stream_ac.nextTree());
 				}
 				stream_ac.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1900:55: ^( $pr $p1)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1900:55: ^( $pr $p1)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_pr.nextNode(), root_2);
@@ -4213,7 +4213,7 @@ public class BLESStoASTParser extends Parser {
 				}
 
 				adaptor.addChild(root_1, stream_elq.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1900:73: ( $no_proof)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1900:73: ( $no_proof)?
 				if ( stream_no_proof.hasNext() ) {
 					adaptor.addChild(root_1, stream_no_proof.nextNode());
 				}
@@ -4226,17 +4226,17 @@ public class BLESStoASTParser extends Parser {
 
 			else // 1901:5: -> {pr==null & po!=null}? ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? )
 			if (pr==null & po!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1901:31: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1901:31: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $po $p2) $elq ( $no_proof)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(SUBPROGRAM_ANNEX, "SUBPROGRAM_ANNEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1901:51: ( $ac)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1901:51: ( $ac)?
 				if ( stream_ac.hasNext() ) {
 					adaptor.addChild(root_1, stream_ac.nextTree());
 				}
 				stream_ac.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1901:55: ^( $po $p2)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1901:55: ^( $po $p2)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_po.nextNode(), root_2);
@@ -4245,7 +4245,7 @@ public class BLESStoASTParser extends Parser {
 				}
 
 				adaptor.addChild(root_1, stream_elq.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1901:72: ( $no_proof)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1901:72: ( $no_proof)?
 				if ( stream_no_proof.hasNext() ) {
 					adaptor.addChild(root_1, stream_no_proof.nextNode());
 				}
@@ -4258,17 +4258,17 @@ public class BLESStoASTParser extends Parser {
 
 			else // 1902:5: -> ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1902:8: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1902:8: ^( SUBPROGRAM_ANNEX ( $ac)? ^( $pr $p1) ^( $po $p2) $elq ( $no_proof)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(SUBPROGRAM_ANNEX, "SUBPROGRAM_ANNEX"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1902:28: ( $ac)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1902:28: ( $ac)?
 				if ( stream_ac.hasNext() ) {
 					adaptor.addChild(root_1, stream_ac.nextTree());
 				}
 				stream_ac.reset();
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1902:32: ^( $pr $p1)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1902:32: ^( $pr $p1)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_pr.nextNode(), root_2);
@@ -4276,7 +4276,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1902:43: ^( $po $p2)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1902:43: ^( $po $p2)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_po.nextNode(), root_2);
@@ -4285,7 +4285,7 @@ public class BLESStoASTParser extends Parser {
 				}
 
 				adaptor.addChild(root_1, stream_elq.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1902:60: ( $no_proof)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1902:60: ( $no_proof)?
 				if ( stream_no_proof.hasNext() ) {
 					adaptor.addChild(root_1, stream_no_proof.nextNode());
 				}
@@ -4330,7 +4330,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "asserted_action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1907:1: asserted_action : (pre= assertion )? s= action (post= assertion )? -> ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1907:1: asserted_action : (pre= assertion )? s= action (post= assertion )? -> ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) ) ;
 	public final BLESStoASTParser.asserted_action_return asserted_action() throws RecognitionException {
 		BLESStoASTParser.asserted_action_return retval = new BLESStoASTParser.asserted_action_return();
 		retval.start = input.LT(1);
@@ -4345,10 +4345,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1909:3: ( (pre= assertion )? s= action (post= assertion )? -> ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1910:3: (pre= assertion )? s= action (post= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1909:3: ( (pre= assertion )? s= action (post= assertion )? -> ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1910:3: (pre= assertion )? s= action (post= assertion )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1910:6: (pre= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1910:6: (pre= assertion )?
 			int alt44=2;
 			int LA44_0 = input.LA(1);
 			if ( (LA44_0==LASS) ) {
@@ -4356,7 +4356,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt44) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1910:6: pre= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1910:6: pre= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_asserted_action5577);
 					pre=assertion();
@@ -4373,7 +4373,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_action.add(s.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1912:7: (post= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1912:7: (post= assertion )?
 			int alt45=2;
 			int LA45_0 = input.LA(1);
 			if ( (LA45_0==LASS) ) {
@@ -4381,7 +4381,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt45) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1912:7: post= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1912:7: post= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_asserted_action5592);
 					post=assertion();
@@ -4410,15 +4410,15 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1913:5: -> ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1914:5: ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1914:5: ^( ACTION[$s.tree.getToken(),\"ACTION[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] ^( P[\"P\"] ( $pre)? ) ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s) ^( Q[\"Q\"] ( $post)? ) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ACTION, (s!=null?((BAST)s.getTree()):null).getToken(), "ACTION["+Integer.toString((s!=null?((BAST)s.getTree()):null).getLine()+startingLine)+"]"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1915:9: ^( P[\"P\"] ( $pre)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1915:9: ^( P[\"P\"] ( $pre)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(P, "P"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1915:20: ( $pre)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1915:20: ( $pre)?
 				if ( stream_pre.hasNext() ) {
 					adaptor.addChild(root_2, stream_pre.nextTree());
 				}
@@ -4427,7 +4427,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1916:9: ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1916:9: ^( S[$s.tree.getToken(),\"S[\"+Integer.toString($s.tree.getLine()+startingLine)+\"]\"] $s)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(S, (s!=null?((BAST)s.getTree()):null).getToken(), "S["+Integer.toString((s!=null?((BAST)s.getTree()):null).getLine()+startingLine)+"]"), root_2);
@@ -4435,11 +4435,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1917:9: ^( Q[\"Q\"] ( $post)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1917:9: ^( Q[\"Q\"] ( $post)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(Q, "Q"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1917:20: ( $post)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1917:20: ( $post)?
 				if ( stream_post.hasNext() ) {
 					adaptor.addChild(root_2, stream_post.nextTree());
 				}
@@ -4488,7 +4488,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1923:1: action : ( basic_action | alternative | while_loop | for_loop | do_until_loop | existential_lattice_quantification | universal_lattice_quantification );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1923:1: action : ( basic_action | alternative | while_loop | for_loop | do_until_loop | existential_lattice_quantification | universal_lattice_quantification );
 	public final BLESStoASTParser.action_return action() throws RecognitionException {
 		BLESStoASTParser.action_return retval = new BLESStoASTParser.action_return();
 		retval.start = input.LT(1);
@@ -4505,7 +4505,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1924:3: ( basic_action | alternative | while_loop | for_loop | do_until_loop | existential_lattice_quantification | universal_lattice_quantification )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1924:3: ( basic_action | alternative | while_loop | for_loop | do_until_loop | existential_lattice_quantification | universal_lattice_quantification )
 			int alt46=7;
 			switch ( input.LA(1) ) {
 			case ID:
@@ -4564,7 +4564,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt46) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1925:3: basic_action
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1925:3: basic_action
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4578,7 +4578,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1926:5: alternative
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1926:5: alternative
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4592,7 +4592,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1927:5: while_loop
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1927:5: while_loop
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4606,7 +4606,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1928:5: for_loop
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1928:5: for_loop
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4620,7 +4620,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1929:5: do_until_loop
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1929:5: do_until_loop
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4634,7 +4634,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1930:5: existential_lattice_quantification
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1930:5: existential_lattice_quantification
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4648,7 +4648,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1931:5: universal_lattice_quantification
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1931:5: universal_lattice_quantification
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4691,7 +4691,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "alternative"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1936:1: alternative : lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi -> ^( $lif ( $alt)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1936:1: alternative : lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi -> ^( $lif ( $alt)+ ) ;
 	public final BLESStoASTParser.alternative_return alternative() throws RecognitionException {
 		BLESStoASTParser.alternative_return retval = new BLESStoASTParser.alternative_return();
 		retval.start = input.LT(1);
@@ -4712,8 +4712,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_guarded_action=new RewriteRuleSubtreeStream(adaptor,"rule guarded_action");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1937:3: (lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi -> ^( $lif ( $alt)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1938:3: lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1937:3: (lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi -> ^( $lif ( $alt)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1938:3: lif= LITERAL_if alt+= guarded_action ( '[]' alt+= guarded_action )+ LITERAL_fi
 			{
 			lif=(Token)match(input,LITERAL_if,FOLLOW_LITERAL_if_in_alternative5776); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_if.add(lif);
@@ -4725,7 +4725,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_guarded_action.add(alt.getTree());
 			if (list_alt==null) list_alt=new ArrayList<Object>();
 			list_alt.add(alt.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1941:3: ( '[]' alt+= guarded_action )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1941:3: ( '[]' alt+= guarded_action )+
 			int cnt47=0;
 			loop47:
 			while (true) {
@@ -4737,7 +4737,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt47) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1941:5: '[]' alt+= guarded_action
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1941:5: '[]' alt+= guarded_action
 					{
 					string_literal45=(Token)match(input,BOX,FOLLOW_BOX_in_alternative5790); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_BOX.add(string_literal45);
@@ -4779,7 +4779,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1943:5: -> ^( $lif ( $alt)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1943:8: ^( $lif ( $alt)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1943:8: ^( $lif ( $alt)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lif.nextNode(), root_1);
@@ -4830,7 +4830,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "guarded_action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1949:1: guarded_action : LPAREN ! expression_or_relation GUARD ^ asserted_action ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1949:1: guarded_action : LPAREN ! expression_or_relation GUARD ^ asserted_action ;
 	public final BLESStoASTParser.guarded_action_return guarded_action() throws RecognitionException {
 		BLESStoASTParser.guarded_action_return retval = new BLESStoASTParser.guarded_action_return();
 		retval.start = input.LT(1);
@@ -4846,8 +4846,8 @@ public class BLESStoASTParser extends Parser {
 		BAST GUARD49_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1950:3: ( LPAREN ! expression_or_relation GUARD ^ asserted_action )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1951:3: LPAREN ! expression_or_relation GUARD ^ asserted_action
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1950:3: ( LPAREN ! expression_or_relation GUARD ^ asserted_action )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1951:3: LPAREN ! expression_or_relation GUARD ^ asserted_action
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -4901,7 +4901,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "universal_lattice_quantification"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1956:1: universal_lattice_quantification : lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification -> ^( $lf $lv ^( $li $r) $elq) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1956:1: universal_lattice_quantification : lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification -> ^( $lf $lv ^( $li $r) $elq) ;
 	public final BLESStoASTParser.universal_lattice_quantification_return universal_lattice_quantification() throws RecognitionException {
 		BLESStoASTParser.universal_lattice_quantification_return retval = new BLESStoASTParser.universal_lattice_quantification_return();
 		retval.start = input.LT(1);
@@ -4923,8 +4923,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_range=new RewriteRuleSubtreeStream(adaptor,"rule range");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1957:3: (lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification -> ^( $lf $lv ^( $li $r) $elq) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1958:3: lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1957:3: (lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification -> ^( $lf $lv ^( $li $r) $elq) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1958:3: lf= LITERAL_forall lv= lattice_variables li= LITERAL_in r= range elq= existential_lattice_quantification
 			{
 			lf=(Token)match(input,LITERAL_forall,FOLLOW_LITERAL_forall_in_universal_lattice_quantification5881); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_forall.add(lf);
@@ -4966,12 +4966,12 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1962:5: -> ^( $lf $lv ^( $li $r) $elq)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1962:8: ^( $lf $lv ^( $li $r) $elq)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1962:8: ^( $lf $lv ^( $li $r) $elq)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lf.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_lv.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1962:18: ^( $li $r)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1962:18: ^( $li $r)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_li.nextNode(), root_2);
@@ -5019,7 +5019,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "lattice_variables"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1967:1: lattice_variables : i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )? -> {com!=null}? ^( $com $i1 ( $i)+ ) -> $i1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1967:1: lattice_variables : i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )? -> {com!=null}? ^( $com $i1 ( $i)+ ) -> $i1;
 	public final BLESStoASTParser.lattice_variables_return lattice_variables() throws RecognitionException {
 		BLESStoASTParser.lattice_variables_return retval = new BLESStoASTParser.lattice_variables_return();
 		retval.start = input.LT(1);
@@ -5037,15 +5037,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_identifier=new RewriteRuleSubtreeStream(adaptor,"rule identifier");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1968:3: (i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )? -> {com!=null}? ^( $com $i1 ( $i)+ ) -> $i1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1969:3: i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1968:3: (i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )? -> {com!=null}? ^( $com $i1 ( $i)+ ) -> $i1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1969:3: i1= identifier (com= COMMA i+= identifier ( COMMA i+= identifier )* )?
 			{
 			pushFollow(FOLLOW_identifier_in_lattice_variables5958);
 			i1=identifier();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_identifier.add(i1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1969:17: (com= COMMA i+= identifier ( COMMA i+= identifier )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1969:17: (com= COMMA i+= identifier ( COMMA i+= identifier )* )?
 			int alt49=2;
 			int LA49_0 = input.LA(1);
 			if ( (LA49_0==COMMA) ) {
@@ -5053,7 +5053,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt49) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1969:18: com= COMMA i+= identifier ( COMMA i+= identifier )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1969:18: com= COMMA i+= identifier ( COMMA i+= identifier )*
 					{
 					com=(Token)match(input,COMMA,FOLLOW_COMMA_in_lattice_variables5963); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(com);
@@ -5065,7 +5065,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_identifier.add(i.getTree());
 					if (list_i==null) list_i=new ArrayList<Object>();
 					list_i.add(i.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1969:42: ( COMMA i+= identifier )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1969:42: ( COMMA i+= identifier )*
 					loop48:
 					while (true) {
 						int alt48=2;
@@ -5076,7 +5076,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt48) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1969:43: COMMA i+= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1969:43: COMMA i+= identifier
 							{
 							COMMA51=(Token)match(input,COMMA,FOLLOW_COMMA_in_lattice_variables5970); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_COMMA.add(COMMA51);
@@ -5117,7 +5117,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1970:5: -> {com!=null}? ^( $com $i1 ( $i)+ )
 			if (com!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1970:20: ^( $com $i1 ( $i)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1970:20: ^( $com $i1 ( $i)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_com.nextNode(), root_1);
@@ -5174,7 +5174,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "while_loop"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1976:1: while_loop : lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification -> ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1976:1: while_loop : lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification -> ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq) ;
 	public final BLESStoASTParser.while_loop_return while_loop() throws RecognitionException {
 		BLESStoASTParser.while_loop_return retval = new BLESStoASTParser.while_loop_return();
 		retval.start = input.LT(1);
@@ -5207,8 +5207,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_relation=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_relation");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1977:3: (lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification -> ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1978:3: lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1977:3: (lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification -> ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1978:3: lw= LITERAL_while LPAREN be= expression_or_relation RPAREN ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? elq= existential_lattice_quantification
 			{
 			lw=(Token)match(input,LITERAL_while,FOLLOW_LITERAL_while_in_while_loop6036); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_while.add(lw);
@@ -5224,7 +5224,7 @@ public class BLESStoASTParser extends Parser {
 			RPAREN53=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_while_loop6049); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN53);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1981:3: ( LITERAL_invariant inv= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1981:3: ( LITERAL_invariant inv= assertion )?
 			int alt50=2;
 			int LA50_0 = input.LA(1);
 			if ( (LA50_0==LITERAL_invariant) ) {
@@ -5232,7 +5232,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt50) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1981:5: LITERAL_invariant inv= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1981:5: LITERAL_invariant inv= assertion
 					{
 					LITERAL_invariant54=(Token)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_while_loop6056); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_invariant.add(LITERAL_invariant54);
@@ -5247,7 +5247,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1982:3: ( LITERAL_bound bd= expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1982:3: ( LITERAL_bound bd= expression )?
 			int alt51=2;
 			int LA51_0 = input.LA(1);
 			if ( (LA51_0==LITERAL_bound) ) {
@@ -5255,7 +5255,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt51) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1982:5: LITERAL_bound bd= expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1982:5: LITERAL_bound bd= expression
 					{
 					LITERAL_bound55=(Token)match(input,LITERAL_bound,FOLLOW_LITERAL_bound_in_while_loop6069); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_bound.add(LITERAL_bound55);
@@ -5294,16 +5294,16 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1984:5: -> ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1984:8: ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1984:8: ^( $lw $be ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$lw,\"BOUND\"] ( $bd)? ) $elq)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lw.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_be.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1984:18: ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1984:18: ^( INVARIANT[$lw,\"INVARIANT\"] ( $inv)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVARIANT, lw, "INVARIANT"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1984:48: ( $inv)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1984:48: ( $inv)?
 				if ( stream_inv.hasNext() ) {
 					adaptor.addChild(root_2, stream_inv.nextTree());
 				}
@@ -5312,11 +5312,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1984:54: ^( BOUND[$lw,\"BOUND\"] ( $bd)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1984:54: ^( BOUND[$lw,\"BOUND\"] ( $bd)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(BOUND, lw, "BOUND"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1984:76: ( $bd)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1984:76: ( $bd)?
 				if ( stream_bd.hasNext() ) {
 					adaptor.addChild(root_2, stream_bd.nextTree());
 				}
@@ -5365,7 +5365,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "for_loop"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1989:1: for_loop : lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY -> ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1989:1: for_loop : lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY -> ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act) ;
 	public final BLESStoASTParser.for_loop_return for_loop() throws RecognitionException {
 		BLESStoASTParser.for_loop_return retval = new BLESStoASTParser.for_loop_return();
 		retval.start = input.LT(1);
@@ -5402,8 +5402,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1990:3: (lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY -> ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1991:3: lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1990:3: (lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY -> ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1991:3: lf= LITERAL_for a= identifier li= LITERAL_in lb= expression DOTDOT ub= expression ( LITERAL_invariant inv= assertion )? LCURLY act= behavior_actions RCURLY
 			{
 			lf=(Token)match(input,LITERAL_for,FOLLOW_LITERAL_for_in_for_loop6150); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_for.add(lf);
@@ -5429,7 +5429,7 @@ public class BLESStoASTParser extends Parser {
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_expression.add(ub.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1996:3: ( LITERAL_invariant inv= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1996:3: ( LITERAL_invariant inv= assertion )?
 			int alt52=2;
 			int LA52_0 = input.LA(1);
 			if ( (LA52_0==LITERAL_invariant) ) {
@@ -5437,7 +5437,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt52) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1996:5: LITERAL_invariant inv= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1996:5: LITERAL_invariant inv= assertion
 					{
 					LITERAL_invariant57=(Token)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_for_loop6184); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_invariant.add(LITERAL_invariant57);
@@ -5484,12 +5484,12 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 1999:5: -> ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1999:7: ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1999:7: ^( $lf $a ^( $li $lb $ub) ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? ) $act)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lf.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_a.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1999:16: ^( $li $lb $ub)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1999:16: ^( $li $lb $ub)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_li.nextNode(), root_2);
@@ -5498,11 +5498,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1999:31: ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1999:31: ^( INVARIANT[$lf,\"INVARIANT\"] ( $inv)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVARIANT, lf, "INVARIANT"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:1999:61: ( $inv)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1999:61: ( $inv)?
 				if ( stream_inv.hasNext() ) {
 					adaptor.addChild(root_2, stream_inv.nextTree());
 				}
@@ -5551,7 +5551,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "do_until_loop"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2004:1: do_until_loop : ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN -> ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2004:1: do_until_loop : ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN -> ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba) ;
 	public final BLESStoASTParser.do_until_loop_return do_until_loop() throws RecognitionException {
 		BLESStoASTParser.do_until_loop_return retval = new BLESStoASTParser.do_until_loop_return();
 		retval.start = input.LT(1);
@@ -5587,13 +5587,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_relation=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_relation");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2005:3: (ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN -> ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2006:3: ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2005:3: (ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN -> ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2006:3: ld= LITERAL_do ( LITERAL_invariant inv= assertion )? ( LITERAL_bound bd= expression )? ba= behavior_actions lu= LITERAL_until LPAREN be= expression_or_relation RPAREN
 			{
 			ld=(Token)match(input,LITERAL_do,FOLLOW_LITERAL_do_in_do_until_loop6272); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_do.add(ld);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2008:3: ( LITERAL_invariant inv= assertion )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2008:3: ( LITERAL_invariant inv= assertion )?
 			int alt53=2;
 			int LA53_0 = input.LA(1);
 			if ( (LA53_0==LITERAL_invariant) ) {
@@ -5601,7 +5601,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt53) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2008:5: LITERAL_invariant inv= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2008:5: LITERAL_invariant inv= assertion
 					{
 					LITERAL_invariant60=(Token)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_do_until_loop6280); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_invariant.add(LITERAL_invariant60);
@@ -5616,7 +5616,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2009:3: ( LITERAL_bound bd= expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2009:3: ( LITERAL_bound bd= expression )?
 			int alt54=2;
 			int LA54_0 = input.LA(1);
 			if ( (LA54_0==LITERAL_bound) ) {
@@ -5624,7 +5624,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt54) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2009:5: LITERAL_bound bd= expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2009:5: LITERAL_bound bd= expression
 					{
 					LITERAL_bound61=(Token)match(input,LITERAL_bound,FOLLOW_LITERAL_bound_in_do_until_loop6293); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_bound.add(LITERAL_bound61);
@@ -5678,11 +5678,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2012:5: -> ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:7: ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:7: ^( $ld ^( $lu $be) ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? ) ^( BOUND[$ld,\"BOUND\"] ( $bd)? ) $ba)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ld.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:13: ^( $lu $be)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:13: ^( $lu $be)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_lu.nextNode(), root_2);
@@ -5690,11 +5690,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:24: ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:24: ^( INVARIANT[$ld,\"INVARIANT\"] ( $inv)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVARIANT, ld, "INVARIANT"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:54: ( $inv)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:54: ( $inv)?
 				if ( stream_inv.hasNext() ) {
 					adaptor.addChild(root_2, stream_inv.nextTree());
 				}
@@ -5703,11 +5703,11 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:60: ^( BOUND[$ld,\"BOUND\"] ( $bd)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:60: ^( BOUND[$ld,\"BOUND\"] ( $bd)? )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(BOUND, ld, "BOUND"), root_2);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2012:82: ( $bd)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2012:82: ( $bd)?
 				if ( stream_bd.hasNext() ) {
 					adaptor.addChild(root_2, stream_bd.nextTree());
 				}
@@ -5756,7 +5756,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "basic_action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2017:1: basic_action : ( LITERAL_skip | assignment | communication_action | computation_action | LITERAL_setmode identifier | when_throw | combinable_operation | simultaneous_assignment | issue_exception );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2017:1: basic_action : ( LITERAL_skip | assignment | communication_action | computation_action | LITERAL_setmode identifier | when_throw | combinable_operation | simultaneous_assignment | issue_exception );
 	public final BLESStoASTParser.basic_action_return basic_action() throws RecognitionException {
 		BLESStoASTParser.basic_action_return retval = new BLESStoASTParser.basic_action_return();
 		retval.start = input.LT(1);
@@ -5778,12 +5778,12 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_setmode68_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2018:3: ( LITERAL_skip | assignment | communication_action | computation_action | LITERAL_setmode identifier | when_throw | combinable_operation | simultaneous_assignment | issue_exception )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2018:3: ( LITERAL_skip | assignment | communication_action | computation_action | LITERAL_setmode identifier | when_throw | combinable_operation | simultaneous_assignment | issue_exception )
 			int alt55=9;
 			alt55 = dfa55.predict(input);
 			switch (alt55) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2019:3: LITERAL_skip
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2019:3: LITERAL_skip
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5797,7 +5797,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2020:5: assignment
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2020:5: assignment
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5811,7 +5811,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2022:5: communication_action
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2022:5: communication_action
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5825,7 +5825,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2023:5: computation_action
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2023:5: computation_action
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5839,7 +5839,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2024:5: LITERAL_setmode identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2024:5: LITERAL_setmode identifier
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5859,7 +5859,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2025:5: when_throw
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2025:5: when_throw
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5873,7 +5873,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2026:5: combinable_operation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2026:5: combinable_operation
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5887,7 +5887,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2027:5: simultaneous_assignment
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2027:5: simultaneous_assignment
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5901,7 +5901,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 9 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2028:5: issue_exception
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2028:5: issue_exception
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -5944,7 +5944,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assignment"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2033:1: assignment : nt= name_tick a= ASSIGN eort= expression_or_record_term -> ^( $a $nt $eort) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2033:1: assignment : nt= name_tick a= ASSIGN eort= expression_or_record_term -> ^( $a $nt $eort) ;
 	public final BLESStoASTParser.assignment_return assignment() throws RecognitionException {
 		BLESStoASTParser.assignment_return retval = new BLESStoASTParser.assignment_return();
 		retval.start = input.LT(1);
@@ -5961,8 +5961,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_name_tick=new RewriteRuleSubtreeStream(adaptor,"rule name_tick");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2034:3: (nt= name_tick a= ASSIGN eort= expression_or_record_term -> ^( $a $nt $eort) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2035:2: nt= name_tick a= ASSIGN eort= expression_or_record_term
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2034:3: (nt= name_tick a= ASSIGN eort= expression_or_record_term -> ^( $a $nt $eort) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2035:2: nt= name_tick a= ASSIGN eort= expression_or_record_term
 			{
 			pushFollow(FOLLOW_name_tick_in_assignment6474);
 			nt=name_tick();
@@ -5994,7 +5994,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2036:5: -> ^( $a $nt $eort)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2036:8: ^( $a $nt $eort)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2036:8: ^( $a $nt $eort)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_a.nextNode(), root_1);
@@ -6039,7 +6039,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "name_tick"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2044:1: name_tick : name ( TICK ^)? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2044:1: name_tick : name ( TICK ^)? ;
 	public final BLESStoASTParser.name_tick_return name_tick() throws RecognitionException {
 		BLESStoASTParser.name_tick_return retval = new BLESStoASTParser.name_tick_return();
 		retval.start = input.LT(1);
@@ -6052,8 +6052,8 @@ public class BLESStoASTParser extends Parser {
 		BAST TICK75_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2045:3: ( name ( TICK ^)? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2046:17: name ( TICK ^)?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2045:3: ( name ( TICK ^)? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2046:17: name ( TICK ^)?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -6064,7 +6064,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, name74.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2046:22: ( TICK ^)?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2046:22: ( TICK ^)?
 			int alt56=2;
 			int LA56_0 = input.LA(1);
 			if ( (LA56_0==TICK) ) {
@@ -6072,7 +6072,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt56) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2046:24: TICK ^
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2046:24: TICK ^
 					{
 					TICK75=(Token)match(input,TICK,FOLLOW_TICK_in_name_tick6530); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -6115,7 +6115,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "expression_or_record_term"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2049:1: expression_or_record_term : (e= expression |rt= record_term |any= LITERAL_any );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2049:1: expression_or_record_term : (e= expression |rt= record_term |any= LITERAL_any );
 	public final BLESStoASTParser.expression_or_record_term_return expression_or_record_term() throws RecognitionException {
 		BLESStoASTParser.expression_or_record_term_return retval = new BLESStoASTParser.expression_or_record_term_return();
 		retval.start = input.LT(1);
@@ -6129,7 +6129,7 @@ public class BLESStoASTParser extends Parser {
 		BAST any_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2050:3: (e= expression |rt= record_term |any= LITERAL_any )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2050:3: (e= expression |rt= record_term |any= LITERAL_any )
 			int alt57=3;
 			switch ( input.LA(1) ) {
 			case AADL_STRING_LITERAL:
@@ -6218,7 +6218,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt57) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2051:3: e= expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2051:3: e= expression
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -6232,7 +6232,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2051:18: rt= record_term
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2051:18: rt= record_term
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -6246,7 +6246,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2051:35: any= LITERAL_any
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2051:35: any= LITERAL_any
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -6289,7 +6289,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "record_term"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2054:1: record_term : LPAREN ^ (prv+= record_value )+ RPAREN ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2054:1: record_term : LPAREN ^ (prv+= record_value )+ RPAREN ;
 	public final BLESStoASTParser.record_term_return record_term() throws RecognitionException {
 		BLESStoASTParser.record_term_return retval = new BLESStoASTParser.record_term_return();
 		retval.start = input.LT(1);
@@ -6304,8 +6304,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN77_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2055:3: ( LPAREN ^ (prv+= record_value )+ RPAREN )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2056:3: LPAREN ^ (prv+= record_value )+ RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2055:3: ( LPAREN ^ (prv+= record_value )+ RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2056:3: LPAREN ^ (prv+= record_value )+ RPAREN
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -6316,7 +6316,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.becomeRoot(LPAREN76_tree, root_0);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2056:14: (prv+= record_value )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2056:14: (prv+= record_value )+
 			int cnt58=0;
 			loop58:
 			while (true) {
@@ -6328,7 +6328,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt58) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2056:14: prv+= record_value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2056:14: prv+= record_value
 					{
 					pushFollow(FOLLOW_record_value_in_record_term6586);
 					prv=record_value();
@@ -6386,7 +6386,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "record_value"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2059:1: record_value : identifier ARROW ^ value SEMICOLON !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2059:1: record_value : identifier ARROW ^ value SEMICOLON !;
 	public final BLESStoASTParser.record_value_return record_value() throws RecognitionException {
 		BLESStoASTParser.record_value_return retval = new BLESStoASTParser.record_value_return();
 		retval.start = input.LT(1);
@@ -6402,8 +6402,8 @@ public class BLESStoASTParser extends Parser {
 		BAST SEMICOLON81_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2060:3: ( identifier ARROW ^ value SEMICOLON !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2061:20: identifier ARROW ^ value SEMICOLON !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2060:3: ( identifier ARROW ^ value SEMICOLON !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2061:20: identifier ARROW ^ value SEMICOLON !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -6457,7 +6457,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "simultaneous_assignment"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2064:1: simultaneous_assignment : LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN -> ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2064:1: simultaneous_assignment : LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN -> ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) ) ;
 	public final BLESStoASTParser.simultaneous_assignment_return simultaneous_assignment() throws RecognitionException {
 		BLESStoASTParser.simultaneous_assignment_return retval = new BLESStoASTParser.simultaneous_assignment_return();
 		retval.start = input.LT(1);
@@ -6486,8 +6486,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_name_tick=new RewriteRuleSubtreeStream(adaptor,"rule name_tick");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2083:3: ( LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN -> ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2084:3: LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2083:3: ( LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN -> ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2084:3: LPAREN lhs+= name_tick (left_comma= COMMA lhs+= name_tick )+ a= ASSIGN rhs+= expression_or_record_term (right_comma= COMMA rhs+= expression_or_record_term )+ RPAREN
 			{
 			LPAREN82=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_simultaneous_assignment6640); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN82);
@@ -6499,7 +6499,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_name_tick.add(lhs.getTree());
 			if (list_lhs==null) list_lhs=new ArrayList<Object>();
 			list_lhs.add(lhs.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2084:25: (left_comma= COMMA lhs+= name_tick )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2084:25: (left_comma= COMMA lhs+= name_tick )+
 			int cnt59=0;
 			loop59:
 			while (true) {
@@ -6511,7 +6511,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt59) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2084:27: left_comma= COMMA lhs+= name_tick
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2084:27: left_comma= COMMA lhs+= name_tick
 					{
 					left_comma=(Token)match(input,COMMA,FOLLOW_COMMA_in_simultaneous_assignment6650); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(left_comma);
@@ -6545,7 +6545,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_expression_or_record_term.add(rhs.getTree());
 			if (list_rhs==null) list_rhs=new ArrayList<Object>();
 			list_rhs.add(rhs.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2085:43: (right_comma= COMMA rhs+= expression_or_record_term )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2085:43: (right_comma= COMMA rhs+= expression_or_record_term )+
 			int cnt60=0;
 			loop60:
 			while (true) {
@@ -6557,7 +6557,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt60) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2085:45: right_comma= COMMA rhs+= expression_or_record_term
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2085:45: right_comma= COMMA rhs+= expression_or_record_term
 					{
 					right_comma=(Token)match(input,COMMA,FOLLOW_COMMA_in_simultaneous_assignment6674); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(right_comma);
@@ -6602,11 +6602,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2086:5: -> ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2086:8: ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2086:8: ^( $a ^( $left_comma ( $lhs)+ ) ^( $right_comma ( $rhs)+ ) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_a.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2086:13: ^( $left_comma ( $lhs)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2086:13: ^( $left_comma ( $lhs)+ )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_left_comma.nextNode(), root_2);
@@ -6621,7 +6621,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2086:36: ^( $right_comma ( $rhs)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2086:36: ^( $right_comma ( $rhs)+ )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_right_comma.nextNode(), root_2);
@@ -6692,7 +6692,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "issue_exception"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2090:1: issue_exception : LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2090:1: issue_exception : LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !;
 	public final BLESStoASTParser.issue_exception_return issue_exception() throws RecognitionException {
 		BLESStoASTParser.issue_exception_return retval = new BLESStoASTParser.issue_exception_return();
 		retval.start = input.LT(1);
@@ -6713,8 +6713,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN87_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2091:3: ( LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2092:3: LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2091:3: ( LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2092:3: LITERAL_exception ^ LPAREN ! (exception_state= identifier COMMA !)? message= AADL_STRING_LITERAL RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -6726,7 +6726,7 @@ public class BLESStoASTParser extends Parser {
 			}
 
 			LPAREN85=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_issue_exception6748); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2093:3: (exception_state= identifier COMMA !)?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2093:3: (exception_state= identifier COMMA !)?
 			int alt61=2;
 			int LA61_0 = input.LA(1);
 			if ( (LA61_0==ID) ) {
@@ -6734,7 +6734,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt61) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2093:5: exception_state= identifier COMMA !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2093:5: exception_state= identifier COMMA !
 					{
 					pushFollow(FOLLOW_identifier_in_issue_exception6758);
 					exception_state=identifier();
@@ -6785,7 +6785,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "computation_action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2097:1: computation_action : LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2097:1: computation_action : LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !;
 	public final BLESStoASTParser.computation_action_return computation_action() throws RecognitionException {
 		BLESStoASTParser.computation_action_return retval = new BLESStoASTParser.computation_action_return();
 		retval.start = input.LT(1);
@@ -6805,8 +6805,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN93_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2098:3: ( LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2099:3: LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2098:3: ( LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2099:3: LITERAL_computation ^ LPAREN ! behavior_time ( COMMA ! behavior_time )? RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -6824,7 +6824,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, behavior_time90.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2101:25: ( COMMA ! behavior_time )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2101:25: ( COMMA ! behavior_time )?
 			int alt62=2;
 			int LA62_0 = input.LA(1);
 			if ( (LA62_0==COMMA) ) {
@@ -6832,7 +6832,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt62) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2101:27: COMMA ! behavior_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2101:27: COMMA ! behavior_time
 					{
 					COMMA91=(Token)match(input,COMMA,FOLLOW_COMMA_in_computation_action6813); if (state.failed) return retval;
 					pushFollow(FOLLOW_behavior_time_in_computation_action6816);
@@ -6877,7 +6877,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_time"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2109:1: behavior_time : duration= expression u= time_unit -> ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2109:1: behavior_time : duration= expression u= time_unit -> ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u) ;
 	public final BLESStoASTParser.behavior_time_return behavior_time() throws RecognitionException {
 		BLESStoASTParser.behavior_time_return retval = new BLESStoASTParser.behavior_time_return();
 		retval.start = input.LT(1);
@@ -6891,8 +6891,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_time_unit=new RewriteRuleSubtreeStream(adaptor,"rule time_unit");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2111:3: (duration= expression u= time_unit -> ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2112:3: duration= expression u= time_unit
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2111:3: (duration= expression u= time_unit -> ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2112:3: duration= expression u= time_unit
 			{
 			pushFollow(FOLLOW_expression_in_behavior_time6855);
 			duration=expression();
@@ -6920,7 +6920,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2113:5: -> ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2113:8: ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2113:8: ^( BEHAVIOR_TIME[\"BEHAVIOR_TIME\"] $duration $u)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(BEHAVIOR_TIME, "BEHAVIOR_TIME"), root_1);
@@ -6966,7 +6966,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "time_unit"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2118:1: time_unit : ( LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2118:1: time_unit : ( LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr );
 	public final BLESStoASTParser.time_unit_return time_unit() throws RecognitionException {
 		BLESStoASTParser.time_unit_return retval = new BLESStoASTParser.time_unit_return();
 		retval.start = input.LT(1);
@@ -6978,8 +6978,8 @@ public class BLESStoASTParser extends Parser {
 		BAST set94_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2119:3: ( LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2119:3: ( LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -7026,7 +7026,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "communication_action"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2123:1: communication_action : (pc= procedure_call -> $pc|po= port_output -> $po|pi= port_input -> $pi|pause= LITERAL_pause -> $pause);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2123:1: communication_action : (pc= procedure_call -> $pc|po= port_output -> $po|pi= port_input -> $pi|pause= LITERAL_pause -> $pause);
 	public final BLESStoASTParser.communication_action_return communication_action() throws RecognitionException {
 		BLESStoASTParser.communication_action_return retval = new BLESStoASTParser.communication_action_return();
 		retval.start = input.LT(1);
@@ -7045,12 +7045,12 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_procedure_call=new RewriteRuleSubtreeStream(adaptor,"rule procedure_call");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2124:3: (pc= procedure_call -> $pc|po= port_output -> $po|pi= port_input -> $pi|pause= LITERAL_pause -> $pause)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2124:3: (pc= procedure_call -> $pc|po= port_output -> $po|pi= port_input -> $pi|pause= LITERAL_pause -> $pause)
 			int alt63=4;
 			alt63 = dfa63.predict(input);
 			switch (alt63) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2125:3: pc= procedure_call
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2125:3: pc= procedure_call
 					{
 					pushFollow(FOLLOW_procedure_call_in_communication_action6950);
 					pc=procedure_call();
@@ -7082,7 +7082,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2128:3: po= port_output
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2128:3: po= port_output
 					{
 					pushFollow(FOLLOW_port_output_in_communication_action6968);
 					po=port_output();
@@ -7114,7 +7114,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2131:3: pi= port_input
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2131:3: pi= port_input
 					{
 					pushFollow(FOLLOW_port_input_in_communication_action6986);
 					pi=port_input();
@@ -7146,7 +7146,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2134:3: pause= LITERAL_pause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2134:3: pause= LITERAL_pause
 					{
 					pause=(Token)match(input,LITERAL_pause,FOLLOW_LITERAL_pause_in_communication_action7004); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_pause.add(pause);
@@ -7205,7 +7205,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "procedure_call"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2138:1: procedure_call : p= identifier LPAREN (spb= formal_actual_list )? RPAREN -> ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2138:1: procedure_call : p= identifier LPAREN (spb= formal_actual_list )? RPAREN -> ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? ) ;
 	public final BLESStoASTParser.procedure_call_return procedure_call() throws RecognitionException {
 		BLESStoASTParser.procedure_call_return retval = new BLESStoASTParser.procedure_call_return();
 		retval.start = input.LT(1);
@@ -7225,8 +7225,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_formal_actual_list=new RewriteRuleSubtreeStream(adaptor,"rule formal_actual_list");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2140:3: (p= identifier LPAREN (spb= formal_actual_list )? RPAREN -> ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2141:27: p= identifier LPAREN (spb= formal_actual_list )? RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2140:3: (p= identifier LPAREN (spb= formal_actual_list )? RPAREN -> ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2141:27: p= identifier LPAREN (spb= formal_actual_list )? RPAREN
 			{
 			pushFollow(FOLLOW_identifier_in_procedure_call7041);
 			p=identifier();
@@ -7236,7 +7236,7 @@ public class BLESStoASTParser extends Parser {
 			LPAREN95=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_procedure_call7045); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN95);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2141:61: (spb= formal_actual_list )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2141:61: (spb= formal_actual_list )?
 			int alt64=2;
 			int LA64_0 = input.LA(1);
 			if ( (LA64_0==AADL_STRING_LITERAL||LA64_0==ID||LA64_0==INTEGER_LIT||LA64_0==LBRACKET||LA64_0==LITERAL_false||LA64_0==LITERAL_self||LA64_0==LITERAL_true||LA64_0==LPAREN||LA64_0==OCTOTHORPE||LA64_0==REAL_LIT) ) {
@@ -7244,7 +7244,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt64) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2141:61: spb= formal_actual_list
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2141:61: spb= formal_actual_list
 					{
 					pushFollow(FOLLOW_formal_actual_list_in_procedure_call7049);
 					spb=formal_actual_list();
@@ -7275,12 +7275,12 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2142:5: -> ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2142:8: ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2142:8: ^( PROCEDURE_CALL[$p.tree.getToken(),\n \"PROCEDURE_CALL[\"+Integer.toString($p.tree.getLine() //+startingLine\n )+\"]\"] $p ( $spb)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PROCEDURE_CALL, (p!=null?((BAST)p.getTree()):null).getToken(), "PROCEDURE_CALL["+Integer.toString((p!=null?((BAST)p.getTree()):null).getLine()       )+"]"), root_1);
 				adaptor.addChild(root_1, stream_p.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2144:18: ( $spb)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2144:18: ( $spb)?
 				if ( stream_spb.hasNext() ) {
 					adaptor.addChild(root_1, stream_spb.nextTree());
 				}
@@ -7330,7 +7330,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "port_output"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2153:1: port_output : pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )? -> ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2153:1: port_output : pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )? -> ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? ) ;
 	public final BLESStoASTParser.port_output_return port_output() throws RecognitionException {
 		BLESStoASTParser.port_output_return retval = new BLESStoASTParser.port_output_return();
 		retval.start = input.LT(1);
@@ -7353,8 +7353,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_relation=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_relation");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2155:3: (pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )? -> ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2156:5: pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2155:3: (pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )? -> ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2156:5: pn= port_name EXCLAMATION ( LPAREN be= expression_or_relation RPAREN )?
 			{
 			pushFollow(FOLLOW_port_name_in_port_output7109);
 			pn=port_name();
@@ -7364,7 +7364,7 @@ public class BLESStoASTParser extends Parser {
 			EXCLAMATION97=(Token)match(input,EXCLAMATION,FOLLOW_EXCLAMATION_in_port_output7111); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_EXCLAMATION.add(EXCLAMATION97);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2156:30: ( LPAREN be= expression_or_relation RPAREN )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2156:30: ( LPAREN be= expression_or_relation RPAREN )?
 			int alt65=2;
 			int LA65_0 = input.LA(1);
 			if ( (LA65_0==LPAREN) ) {
@@ -7372,7 +7372,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt65) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2156:32: LPAREN be= expression_or_relation RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2156:32: LPAREN be= expression_or_relation RPAREN
 					{
 					LPAREN98=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_port_output7115); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN98);
@@ -7406,12 +7406,12 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2157:5: -> ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2157:8: ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2157:8: ^( PORT_OUTPUT[$pn.tree.getToken(),\n \"PORT_OUTPUT[\"+Integer.toString($pn.tree.getLine() //+startingLine\n )+\"]\"] $pn ( $be)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PORT_OUTPUT, (pn!=null?((BAST)pn.getTree()):null).getToken(), "PORT_OUTPUT["+Integer.toString((pn!=null?((BAST)pn.getTree()):null).getLine()       )+"]"), root_1);
 				adaptor.addChild(root_1, stream_pn.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2159:19: ( $be)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2159:19: ( $be)?
 				if ( stream_be.hasNext() ) {
 					adaptor.addChild(root_1, stream_be.nextTree());
 				}
@@ -7457,7 +7457,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "port_input"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2163:1: port_input : pn2= port_name QUESTION LPAREN n= name RPAREN -> ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2163:1: port_input : pn2= port_name QUESTION LPAREN n= name RPAREN -> ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n) ;
 	public final BLESStoASTParser.port_input_return port_input() throws RecognitionException {
 		BLESStoASTParser.port_input_return retval = new BLESStoASTParser.port_input_return();
 		retval.start = input.LT(1);
@@ -7480,8 +7480,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_name=new RewriteRuleSubtreeStream(adaptor,"rule name");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2165:3: (pn2= port_name QUESTION LPAREN n= name RPAREN -> ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2166:5: pn2= port_name QUESTION LPAREN n= name RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2165:3: (pn2= port_name QUESTION LPAREN n= name RPAREN -> ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2166:5: pn2= port_name QUESTION LPAREN n= name RPAREN
 			{
 			pushFollow(FOLLOW_port_name_in_port_input7179);
 			pn2=port_name();
@@ -7518,7 +7518,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2167:6: -> ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2167:9: ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2167:9: ^( PORT_INPUT[$pn2.tree.getToken(),\n \"PORT_INPUT[\"+Integer.toString($pn2.tree.getLine() //+startingLine\n )+\"]\"] $pn2 $n)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PORT_INPUT, (pn2!=null?((BAST)pn2.getTree()):null).getToken(), "PORT_INPUT["+Integer.toString((pn2!=null?((BAST)pn2.getTree()):null).getLine()       )+"]"), root_1);
@@ -7564,7 +7564,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "port_name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2174:1: port_name : ( identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )? | identifier LBRACKET ^ INTEGER_LIT RBRACKET );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2174:1: port_name : ( identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )? | identifier LBRACKET ^ INTEGER_LIT RBRACKET );
 	public final BLESStoASTParser.port_name_return port_name() throws RecognitionException {
 		BLESStoASTParser.port_name_return retval = new BLESStoASTParser.port_name_return();
 		retval.start = input.LT(1);
@@ -7588,7 +7588,7 @@ public class BLESStoASTParser extends Parser {
 		BAST RBRACKET111_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2175:3: ( identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )? | identifier LBRACKET ^ INTEGER_LIT RBRACKET )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2175:3: ( identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )? | identifier LBRACKET ^ INTEGER_LIT RBRACKET )
 			int alt68=2;
 			int LA68_0 = input.LA(1);
 			if ( (LA68_0==ID) ) {
@@ -7624,7 +7624,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt68) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2176:12: identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2176:12: identifier ( PERIOD ^ identifier ( PERIOD ! identifier )* )?
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -7635,7 +7635,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, identifier103.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2176:23: ( PERIOD ^ identifier ( PERIOD ! identifier )* )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2176:23: ( PERIOD ^ identifier ( PERIOD ! identifier )* )?
 					int alt67=2;
 					int LA67_0 = input.LA(1);
 					if ( (LA67_0==PERIOD) ) {
@@ -7643,7 +7643,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt67) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2176:24: PERIOD ^ identifier ( PERIOD ! identifier )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2176:24: PERIOD ^ identifier ( PERIOD ! identifier )*
 							{
 							PERIOD104=(Token)match(input,PERIOD,FOLLOW_PERIOD_in_port_name7236); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -7657,7 +7657,7 @@ public class BLESStoASTParser extends Parser {
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) adaptor.addChild(root_0, identifier105.getTree());
 
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2176:43: ( PERIOD ! identifier )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2176:43: ( PERIOD ! identifier )*
 							loop66:
 							while (true) {
 								int alt66=2;
@@ -7668,7 +7668,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt66) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2176:44: PERIOD ! identifier
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2176:44: PERIOD ! identifier
 									{
 									PERIOD106=(Token)match(input,PERIOD,FOLLOW_PERIOD_in_port_name7242); if (state.failed) return retval;
 									pushFollow(FOLLOW_identifier_in_port_name7245);
@@ -7693,7 +7693,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2178:12: identifier LBRACKET ^ INTEGER_LIT RBRACKET
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2178:12: identifier LBRACKET ^ INTEGER_LIT RBRACKET
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -7754,7 +7754,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "formal_actual_list"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2181:1: formal_actual_list : fa= formal_actual (c= COMMA fa2+= formal_actual )* -> {c!=null}? ^( $c $fa ( $fa2)+ ) -> $fa;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2181:1: formal_actual_list : fa= formal_actual (c= COMMA fa2+= formal_actual )* -> {c!=null}? ^( $c $fa ( $fa2)+ ) -> $fa;
 	public final BLESStoASTParser.formal_actual_list_return formal_actual_list() throws RecognitionException {
 		BLESStoASTParser.formal_actual_list_return retval = new BLESStoASTParser.formal_actual_list_return();
 		retval.start = input.LT(1);
@@ -7770,15 +7770,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_formal_actual=new RewriteRuleSubtreeStream(adaptor,"rule formal_actual");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2182:3: (fa= formal_actual (c= COMMA fa2+= formal_actual )* -> {c!=null}? ^( $c $fa ( $fa2)+ ) -> $fa)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2183:3: fa= formal_actual (c= COMMA fa2+= formal_actual )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2182:3: (fa= formal_actual (c= COMMA fa2+= formal_actual )* -> {c!=null}? ^( $c $fa ( $fa2)+ ) -> $fa)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2183:3: fa= formal_actual (c= COMMA fa2+= formal_actual )*
 			{
 			pushFollow(FOLLOW_formal_actual_in_formal_actual_list7286);
 			fa=formal_actual();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_formal_actual.add(fa.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2183:20: (c= COMMA fa2+= formal_actual )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2183:20: (c= COMMA fa2+= formal_actual )*
 			loop69:
 			while (true) {
 				int alt69=2;
@@ -7789,7 +7789,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt69) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2183:22: c= COMMA fa2+= formal_actual
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2183:22: c= COMMA fa2+= formal_actual
 					{
 					c=(Token)match(input,COMMA,FOLLOW_COMMA_in_formal_actual_list7292); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(c);
@@ -7825,7 +7825,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2184:5: -> {c!=null}? ^( $c $fa ( $fa2)+ )
 			if (c!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2184:19: ^( $c $fa ( $fa2)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2184:19: ^( $c $fa ( $fa2)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -7882,7 +7882,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "formal_actual"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2188:1: formal_actual : ( identifier COLON ^)? actual_parameter ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2188:1: formal_actual : ( identifier COLON ^)? actual_parameter ;
 	public final BLESStoASTParser.formal_actual_return formal_actual() throws RecognitionException {
 		BLESStoASTParser.formal_actual_return retval = new BLESStoASTParser.formal_actual_return();
 		retval.start = input.LT(1);
@@ -7896,13 +7896,13 @@ public class BLESStoASTParser extends Parser {
 		BAST COLON113_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2189:3: ( ( identifier COLON ^)? actual_parameter )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2190:3: ( identifier COLON ^)? actual_parameter
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2189:3: ( ( identifier COLON ^)? actual_parameter )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2190:3: ( identifier COLON ^)? actual_parameter
 			{
 			root_0 = (BAST)adaptor.nil();
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2190:3: ( identifier COLON ^)?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2190:3: ( identifier COLON ^)?
 			int alt70=2;
 			int LA70_0 = input.LA(1);
 			if ( (LA70_0==ID) ) {
@@ -7913,7 +7913,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt70) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2190:26: identifier COLON ^
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2190:26: identifier COLON ^
 					{
 					pushFollow(FOLLOW_identifier_in_formal_actual7351);
 					identifier112=identifier();
@@ -7968,7 +7968,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "actual_parameter"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2193:1: actual_parameter : ( name | value_constant | parenthesized_subexpression );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2193:1: actual_parameter : ( name | value_constant | parenthesized_subexpression );
 	public final BLESStoASTParser.actual_parameter_return actual_parameter() throws RecognitionException {
 		BLESStoASTParser.actual_parameter_return retval = new BLESStoASTParser.actual_parameter_return();
 		retval.start = input.LT(1);
@@ -7981,7 +7981,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2194:3: ( name | value_constant | parenthesized_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2194:3: ( name | value_constant | parenthesized_subexpression )
 			int alt71=3;
 			switch ( input.LA(1) ) {
 			case ID:
@@ -8086,7 +8086,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt71) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2195:17: name
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2195:17: name
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8100,7 +8100,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2196:6: value_constant
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2196:6: value_constant
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8114,7 +8114,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2197:6: parenthesized_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2197:6: parenthesized_subexpression
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8157,7 +8157,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "existential_lattice_quantification"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2200:1: existential_lattice_quantification : ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2200:1: existential_lattice_quantification : ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )? ;
 	public final BLESStoASTParser.existential_lattice_quantification_return existential_lattice_quantification() throws RecognitionException {
 		BLESStoASTParser.existential_lattice_quantification_return retval = new BLESStoASTParser.existential_lattice_quantification_return();
 		retval.start = input.LT(1);
@@ -8175,13 +8175,13 @@ public class BLESStoASTParser extends Parser {
 		BAST RCURLY121_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2201:3: ( ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2202:3: ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2201:3: ( ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2202:3: ( quantified_variables )? LCURLY ^ behavior_actions RCURLY ( timeout_clause )? ( catch_clause )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2202:3: ( quantified_variables )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2202:3: ( quantified_variables )?
 			int alt72=2;
 			int LA72_0 = input.LA(1);
 			if ( (LA72_0==LITERAL_declare) ) {
@@ -8189,7 +8189,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt72) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2202:3: quantified_variables
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2202:3: quantified_variables
 					{
 					pushFollow(FOLLOW_quantified_variables_in_existential_lattice_quantification7420);
 					quantified_variables118=quantified_variables();
@@ -8220,7 +8220,7 @@ public class BLESStoASTParser extends Parser {
 			adaptor.addChild(root_0, RCURLY121_tree);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2204:3: ( timeout_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2204:3: ( timeout_clause )?
 			int alt73=2;
 			int LA73_0 = input.LA(1);
 			if ( (LA73_0==LITERAL_timeout) ) {
@@ -8228,7 +8228,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt73) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2204:3: timeout_clause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2204:3: timeout_clause
 					{
 					pushFollow(FOLLOW_timeout_clause_in_existential_lattice_quantification7437);
 					timeout_clause122=timeout_clause();
@@ -8241,7 +8241,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2205:3: ( catch_clause )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2205:3: ( catch_clause )?
 			int alt74=2;
 			int LA74_0 = input.LA(1);
 			if ( (LA74_0==LITERAL_catch) ) {
@@ -8249,7 +8249,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt74) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2205:3: catch_clause
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2205:3: catch_clause
 					{
 					pushFollow(FOLLOW_catch_clause_in_existential_lattice_quantification7442);
 					catch_clause123=catch_clause();
@@ -8292,7 +8292,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "catch_clause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2210:1: catch_clause : LITERAL_catch ^ ( catch_clause_term )+ ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2210:1: catch_clause : LITERAL_catch ^ ( catch_clause_term )+ ;
 	public final BLESStoASTParser.catch_clause_return catch_clause() throws RecognitionException {
 		BLESStoASTParser.catch_clause_return retval = new BLESStoASTParser.catch_clause_return();
 		retval.start = input.LT(1);
@@ -8305,8 +8305,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_catch124_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2211:3: ( LITERAL_catch ^ ( catch_clause_term )+ )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2212:3: LITERAL_catch ^ ( catch_clause_term )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2211:3: ( LITERAL_catch ^ ( catch_clause_term )+ )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2212:3: LITERAL_catch ^ ( catch_clause_term )+
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -8317,7 +8317,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.becomeRoot(LITERAL_catch124_tree, root_0);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2212:18: ( catch_clause_term )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2212:18: ( catch_clause_term )+
 			int cnt75=0;
 			loop75:
 			while (true) {
@@ -8329,7 +8329,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt75) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2212:18: catch_clause_term
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2212:18: catch_clause_term
 					{
 					pushFollow(FOLLOW_catch_clause_term_in_catch_clause7469);
 					catch_clause_term125=catch_clause_term();
@@ -8379,7 +8379,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "timeout_clause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2215:1: timeout_clause : LITERAL_timeout ^ behavior_time ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2215:1: timeout_clause : LITERAL_timeout ^ behavior_time ;
 	public final BLESStoASTParser.timeout_clause_return timeout_clause() throws RecognitionException {
 		BLESStoASTParser.timeout_clause_return retval = new BLESStoASTParser.timeout_clause_return();
 		retval.start = input.LT(1);
@@ -8392,8 +8392,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_timeout126_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2216:3: ( LITERAL_timeout ^ behavior_time )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2217:3: LITERAL_timeout ^ behavior_time
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2216:3: ( LITERAL_timeout ^ behavior_time )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2217:3: LITERAL_timeout ^ behavior_time
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -8440,7 +8440,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "catch_clause_term"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2220:1: catch_clause_term : LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN -> {a!=null}? ^( $c $a $ba) -> ^( $c ( $ei)+ $ba) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2220:1: catch_clause_term : LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN -> {a!=null}? ^( $c $a $ba) -> ^( $c ( $ei)+ $ba) ;
 	public final BLESStoASTParser.catch_clause_term_return catch_clause_term() throws RecognitionException {
 		BLESStoASTParser.catch_clause_term_return retval = new BLESStoASTParser.catch_clause_term_return();
 		retval.start = input.LT(1);
@@ -8466,13 +8466,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_basic_action=new RewriteRuleSubtreeStream(adaptor,"rule basic_action");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2221:3: ( LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN -> {a!=null}? ^( $c $a $ba) -> ^( $c ( $ei)+ $ba) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:3: LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2221:3: ( LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN -> {a!=null}? ^( $c $a $ba) -> ^( $c ( $ei)+ $ba) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:3: LPAREN ( (ei+= identifier )+ |a= LITERAL_all ) c= COLON ba= basic_action RPAREN
 			{
 			LPAREN128=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_catch_clause_term7509); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN128);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:10: ( (ei+= identifier )+ |a= LITERAL_all )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:10: ( (ei+= identifier )+ |a= LITERAL_all )
 			int alt77=2;
 			int LA77_0 = input.LA(1);
 			if ( (LA77_0==ID) ) {
@@ -8491,9 +8491,9 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt77) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:12: (ei+= identifier )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:12: (ei+= identifier )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:14: (ei+= identifier )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:14: (ei+= identifier )+
 					int cnt76=0;
 					loop76:
 					while (true) {
@@ -8505,7 +8505,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt76) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:14: ei+= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:14: ei+= identifier
 							{
 							pushFollow(FOLLOW_identifier_in_catch_clause_term7516);
 							ei=identifier();
@@ -8529,7 +8529,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2222:44: a= LITERAL_all
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2222:44: a= LITERAL_all
 					{
 					a=(Token)match(input,LITERAL_all,FOLLOW_LITERAL_all_in_catch_clause_term7523); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_all.add(a);
@@ -8567,7 +8567,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2223:5: -> {a!=null}? ^( $c $a $ba)
 			if (a!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2223:19: ^( $c $a $ba)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2223:19: ^( $c $a $ba)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -8580,7 +8580,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2224:5: -> ^( $c ( $ei)+ $ba)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2224:8: ^( $c ( $ei)+ $ba)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2224:8: ^( $c ( $ei)+ $ba)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -8632,7 +8632,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "when_throw"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2227:1: when_throw : LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2227:1: when_throw : LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier ;
 	public final BLESStoASTParser.when_throw_return when_throw() throws RecognitionException {
 		BLESStoASTParser.when_throw_return retval = new BLESStoASTParser.when_throw_return();
 		retval.start = input.LT(1);
@@ -8652,8 +8652,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_throw134_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2228:3: ( LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2229:3: LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2228:3: ( LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2229:3: LITERAL_when ^ LPAREN ! expression RPAREN ! LITERAL_throw identifier
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -8714,7 +8714,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "combinable_operation"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2232:1: combinable_operation : ( LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2232:1: combinable_operation : ( LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !);
 	public final BLESStoASTParser.combinable_operation_return combinable_operation() throws RecognitionException {
 		BLESStoASTParser.combinable_operation_return retval = new BLESStoASTParser.combinable_operation_return();
 		retval.start = input.LT(1);
@@ -8789,7 +8789,7 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN175_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2233:3: ( LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2233:3: ( LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !| LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !)
 			int alt83=5;
 			switch ( input.LA(1) ) {
 			case LITERAL_fetchadd:
@@ -8825,7 +8825,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt83) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2234:3: LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2234:3: LITERAL_fetchadd ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8850,7 +8850,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression140.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2235:32: ( COMMA ! identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2235:32: ( COMMA ! identifier )?
 					int alt78=2;
 					int LA78_0 = input.LA(1);
 					if ( (LA78_0==COMMA) ) {
@@ -8858,7 +8858,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt78) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2235:34: COMMA ! identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2235:34: COMMA ! identifier
 							{
 							COMMA141=(Token)match(input,COMMA,FOLLOW_COMMA_in_combinable_operation7645); if (state.failed) return retval;
 							pushFollow(FOLLOW_identifier_in_combinable_operation7649);
@@ -8876,7 +8876,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2237:3: LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2237:3: LITERAL_fetchor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8901,7 +8901,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression148.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2238:30: ( COMMA ! identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2238:30: ( COMMA ! identifier )?
 					int alt79=2;
 					int LA79_0 = input.LA(1);
 					if ( (LA79_0==COMMA) ) {
@@ -8909,7 +8909,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt79) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2238:32: COMMA ! identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2238:32: COMMA ! identifier
 							{
 							COMMA149=(Token)match(input,COMMA,FOLLOW_COMMA_in_combinable_operation7687); if (state.failed) return retval;
 							pushFollow(FOLLOW_identifier_in_combinable_operation7691);
@@ -8927,7 +8927,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2240:3: LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2240:3: LITERAL_fetchand ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -8952,7 +8952,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression156.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2241:30: ( COMMA ! identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2241:30: ( COMMA ! identifier )?
 					int alt80=2;
 					int LA80_0 = input.LA(1);
 					if ( (LA80_0==COMMA) ) {
@@ -8960,7 +8960,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt80) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2241:32: COMMA ! identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2241:32: COMMA ! identifier
 							{
 							COMMA157=(Token)match(input,COMMA,FOLLOW_COMMA_in_combinable_operation7729); if (state.failed) return retval;
 							pushFollow(FOLLOW_identifier_in_combinable_operation7733);
@@ -8978,7 +8978,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2243:3: LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2243:3: LITERAL_fetchxor ^ LPAREN ! variable_name COMMA ! expression ( COMMA ! identifier )? RPAREN !
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -9003,7 +9003,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, expression164.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2244:30: ( COMMA ! identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2244:30: ( COMMA ! identifier )?
 					int alt81=2;
 					int LA81_0 = input.LA(1);
 					if ( (LA81_0==COMMA) ) {
@@ -9011,7 +9011,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt81) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2244:32: COMMA ! identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2244:32: COMMA ! identifier
 							{
 							COMMA165=(Token)match(input,COMMA,FOLLOW_COMMA_in_combinable_operation7771); if (state.failed) return retval;
 							pushFollow(FOLLOW_identifier_in_combinable_operation7775);
@@ -9029,7 +9029,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2246:3: LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2246:3: LITERAL_swap ^ LPAREN ! variable_name COMMA ! variable_name ( COMMA ! identifier )? RPAREN !
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -9054,7 +9054,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, variable_name172.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2247:35: ( COMMA ! identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2247:35: ( COMMA ! identifier )?
 					int alt82=2;
 					int LA82_0 = input.LA(1);
 					if ( (LA82_0==COMMA) ) {
@@ -9062,7 +9062,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt82) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2247:37: COMMA ! identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2247:37: COMMA ! identifier
 							{
 							COMMA173=(Token)match(input,COMMA,FOLLOW_COMMA_in_combinable_operation7814); if (state.failed) return retval;
 							pushFollow(FOLLOW_identifier_in_combinable_operation7818);
@@ -9109,7 +9109,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "behavior_actions"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2250:1: behavior_actions : aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )? -> {c!=null}? ^( $c $aa ( $as)+ ) -> {amp!=null}? ^( $amp $aa ( $ac)+ ) -> $aa;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2250:1: behavior_actions : aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )? -> {c!=null}? ^( $c $aa ( $as)+ ) -> {amp!=null}? ^( $amp $aa ( $ac)+ ) -> $aa;
 	public final BLESStoASTParser.behavior_actions_return behavior_actions() throws RecognitionException {
 		BLESStoASTParser.behavior_actions_return retval = new BLESStoASTParser.behavior_actions_return();
 		retval.start = input.LT(1);
@@ -9134,15 +9134,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_asserted_action=new RewriteRuleSubtreeStream(adaptor,"rule asserted_action");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2251:3: (aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )? -> {c!=null}? ^( $c $aa ( $as)+ ) -> {amp!=null}? ^( $amp $aa ( $ac)+ ) -> $aa)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2252:3: aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2251:3: (aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )? -> {c!=null}? ^( $c $aa ( $as)+ ) -> {amp!=null}? ^( $amp $aa ( $ac)+ ) -> $aa)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2252:3: aa= asserted_action ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )?
 			{
 			pushFollow(FOLLOW_asserted_action_in_behavior_actions7846);
 			aa=asserted_action();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_asserted_action.add(aa.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2253:5: ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2253:5: ( (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* ) | (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* ) )?
 			int alt86=3;
 			int LA86_0 = input.LA(1);
 			if ( (LA86_0==SEMICOLON) ) {
@@ -9153,10 +9153,10 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt86) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2254:5: (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2254:5: (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2254:5: (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2254:7: c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2254:5: (c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2254:7: c= SEMICOLON as+= asserted_action ( SEMICOLON as+= asserted_action )*
 					{
 					c=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behavior_actions7862); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_SEMICOLON.add(c);
@@ -9168,7 +9168,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_asserted_action.add(as.getTree());
 					if (list_as==null) list_as=new ArrayList<Object>();
 					list_as.add(as.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2254:39: ( SEMICOLON as+= asserted_action )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2254:39: ( SEMICOLON as+= asserted_action )*
 					loop84:
 					while (true) {
 						int alt84=2;
@@ -9179,7 +9179,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt84) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2254:41: SEMICOLON as+= asserted_action
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2254:41: SEMICOLON as+= asserted_action
 							{
 							SEMICOLON176=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behavior_actions7870); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_SEMICOLON.add(SEMICOLON176);
@@ -9204,10 +9204,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2256:5: (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2256:5: (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2256:5: (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2256:7: amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2256:5: (amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2256:7: amp= AMPERSAND ac+= asserted_action ( AMPERSAND ac+= asserted_action )*
 					{
 					amp=(Token)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behavior_actions7895); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_AMPERSAND.add(amp);
@@ -9219,7 +9219,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_asserted_action.add(ac.getTree());
 					if (list_ac==null) list_ac=new ArrayList<Object>();
 					list_ac.add(ac.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2256:41: ( AMPERSAND ac+= asserted_action )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2256:41: ( AMPERSAND ac+= asserted_action )*
 					loop85:
 					while (true) {
 						int alt85=2;
@@ -9230,7 +9230,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt85) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2256:43: AMPERSAND ac+= asserted_action
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2256:43: AMPERSAND ac+= asserted_action
 							{
 							AMPERSAND177=(Token)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behavior_actions7903); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_AMPERSAND.add(AMPERSAND177);
@@ -9275,7 +9275,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2258:5: -> {c!=null}? ^( $c $aa ( $as)+ )
 			if (c!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2258:19: ^( $c $aa ( $as)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2258:19: ^( $c $aa ( $as)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -9295,7 +9295,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2259:5: -> {amp!=null}? ^( $amp $aa ( $ac)+ )
 			if (amp!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2259:21: ^( $amp $aa ( $ac)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2259:21: ^( $amp $aa ( $ac)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_amp.nextNode(), root_1);
@@ -9352,7 +9352,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2269:1: name : pn1= partial_name (d= PERIOD pn2+= partial_name )* -> {d!=null}? ^( $d $pn1 ( $pn2)+ ) -> $pn1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2269:1: name : pn1= partial_name (d= PERIOD pn2+= partial_name )* -> {d!=null}? ^( $d $pn1 ( $pn2)+ ) -> $pn1;
 	public final BLESStoASTParser.name_return name() throws RecognitionException {
 		BLESStoASTParser.name_return retval = new BLESStoASTParser.name_return();
 		retval.start = input.LT(1);
@@ -9368,15 +9368,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_partial_name=new RewriteRuleSubtreeStream(adaptor,"rule partial_name");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2270:3: (pn1= partial_name (d= PERIOD pn2+= partial_name )* -> {d!=null}? ^( $d $pn1 ( $pn2)+ ) -> $pn1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2270:5: pn1= partial_name (d= PERIOD pn2+= partial_name )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2270:3: (pn1= partial_name (d= PERIOD pn2+= partial_name )* -> {d!=null}? ^( $d $pn1 ( $pn2)+ ) -> $pn1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2270:5: pn1= partial_name (d= PERIOD pn2+= partial_name )*
 			{
 			pushFollow(FOLLOW_partial_name_in_name8002);
 			pn1=partial_name();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_partial_name.add(pn1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2270:22: (d= PERIOD pn2+= partial_name )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2270:22: (d= PERIOD pn2+= partial_name )*
 			loop87:
 			while (true) {
 				int alt87=2;
@@ -9387,7 +9387,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt87) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2270:24: d= PERIOD pn2+= partial_name
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2270:24: d= PERIOD pn2+= partial_name
 					{
 					d=(Token)match(input,PERIOD,FOLLOW_PERIOD_in_name8008); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_PERIOD.add(d);
@@ -9423,7 +9423,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2272:5: -> {d!=null}? ^( $d $pn1 ( $pn2)+ )
 			if (d!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2272:19: ^( $d $pn1 ( $pn2)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2272:19: ^( $d $pn1 ( $pn2)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_d.nextNode(), root_1);
@@ -9480,7 +9480,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "partial_name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2278:1: partial_name : identifier ( LBRACKET index+= expression_or_range RBRACKET )* -> {index!=null}? ^( identifier ( $index)+ ) -> identifier ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2278:1: partial_name : identifier ( LBRACKET index+= expression_or_range RBRACKET )* -> {index!=null}? ^( identifier ( $index)+ ) -> identifier ;
 	public final BLESStoASTParser.partial_name_return partial_name() throws RecognitionException {
 		BLESStoASTParser.partial_name_return retval = new BLESStoASTParser.partial_name_return();
 		retval.start = input.LT(1);
@@ -9500,15 +9500,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_range=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_range");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2279:3: ( identifier ( LBRACKET index+= expression_or_range RBRACKET )* -> {index!=null}? ^( identifier ( $index)+ ) -> identifier )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2280:3: identifier ( LBRACKET index+= expression_or_range RBRACKET )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2279:3: ( identifier ( LBRACKET index+= expression_or_range RBRACKET )* -> {index!=null}? ^( identifier ( $index)+ ) -> identifier )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2280:3: identifier ( LBRACKET index+= expression_or_range RBRACKET )*
 			{
 			pushFollow(FOLLOW_identifier_in_partial_name8079);
 			identifier178=identifier();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_identifier.add(identifier178.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2281:3: ( LBRACKET index+= expression_or_range RBRACKET )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2281:3: ( LBRACKET index+= expression_or_range RBRACKET )*
 			loop88:
 			while (true) {
 				int alt88=2;
@@ -9519,7 +9519,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt88) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2281:5: LBRACKET index+= expression_or_range RBRACKET
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2281:5: LBRACKET index+= expression_or_range RBRACKET
 					{
 					LBRACKET179=(Token)match(input,LBRACKET,FOLLOW_LBRACKET_in_partial_name8088); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LBRACKET.add(LBRACKET179);
@@ -9556,7 +9556,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2282:3: -> {index!=null}? ^( identifier ( $index)+ )
 			if (index!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2282:21: ^( identifier ( $index)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2282:21: ^( identifier ( $index)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_identifier.nextNode(), root_1);
@@ -9612,7 +9612,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "parameter_list"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2286:1: parameter_list : e1= expression_or_range (c= COMMA e2+= expression_or_range )* -> {c!=null}? ^( $c $e1 ( $e2)+ ) -> $e1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2286:1: parameter_list : e1= expression_or_range (c= COMMA e2+= expression_or_range )* -> {c!=null}? ^( $c $e1 ( $e2)+ ) -> $e1;
 	public final BLESStoASTParser.parameter_list_return parameter_list() throws RecognitionException {
 		BLESStoASTParser.parameter_list_return retval = new BLESStoASTParser.parameter_list_return();
 		retval.start = input.LT(1);
@@ -9628,15 +9628,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_range=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_range");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2287:3: (e1= expression_or_range (c= COMMA e2+= expression_or_range )* -> {c!=null}? ^( $c $e1 ( $e2)+ ) -> $e1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2288:3: e1= expression_or_range (c= COMMA e2+= expression_or_range )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2287:3: (e1= expression_or_range (c= COMMA e2+= expression_or_range )* -> {c!=null}? ^( $c $e1 ( $e2)+ ) -> $e1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2288:3: e1= expression_or_range (c= COMMA e2+= expression_or_range )*
 			{
 			pushFollow(FOLLOW_expression_or_range_in_parameter_list8143);
 			e1=expression_or_range();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_expression_or_range.add(e1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2289:3: (c= COMMA e2+= expression_or_range )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2289:3: (c= COMMA e2+= expression_or_range )*
 			loop89:
 			while (true) {
 				int alt89=2;
@@ -9647,7 +9647,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt89) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2289:5: c= COMMA e2+= expression_or_range
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2289:5: c= COMMA e2+= expression_or_range
 					{
 					c=(Token)match(input,COMMA,FOLLOW_COMMA_in_parameter_list8152); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(c);
@@ -9683,7 +9683,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2290:5: -> {c!=null}? ^( $c $e1 ( $e2)+ )
 			if (c!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2290:19: ^( $c $e1 ( $e2)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2290:19: ^( $c $e1 ( $e2)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_c.nextNode(), root_1);
@@ -9740,7 +9740,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "expression_or_range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2296:1: expression_or_range : expression ( range_symbol ^ expression )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2296:1: expression_or_range : expression ( range_symbol ^ expression )? ;
 	public final BLESStoASTParser.expression_or_range_return expression_or_range() throws RecognitionException {
 		BLESStoASTParser.expression_or_range_return retval = new BLESStoASTParser.expression_or_range_return();
 		retval.start = input.LT(1);
@@ -9753,8 +9753,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2297:3: ( expression ( range_symbol ^ expression )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2298:3: expression ( range_symbol ^ expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2297:3: ( expression ( range_symbol ^ expression )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2298:3: expression ( range_symbol ^ expression )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -9765,7 +9765,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, expression181.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2298:14: ( range_symbol ^ expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2298:14: ( range_symbol ^ expression )?
 			int alt90=2;
 			int LA90_0 = input.LA(1);
 			if ( ((LA90_0 >= COMMACOMMA && LA90_0 <= COMMADOT)||(LA90_0 >= DOTCOMMA && LA90_0 <= DOTDOT)) ) {
@@ -9773,7 +9773,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt90) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2298:16: range_symbol ^ expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2298:16: range_symbol ^ expression
 					{
 					pushFollow(FOLLOW_range_symbol_in_expression_or_range8222);
 					range_symbol182=range_symbol();
@@ -9821,7 +9821,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "variable_name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2303:1: variable_name : name ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2303:1: variable_name : name ;
 	public final BLESStoASTParser.variable_name_return variable_name() throws RecognitionException {
 		BLESStoASTParser.variable_name_return retval = new BLESStoASTParser.variable_name_return();
 		retval.start = input.LT(1);
@@ -9832,8 +9832,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2304:3: ( name )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2304:5: name
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2304:3: ( name )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2304:5: name
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -9874,7 +9874,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2312:1: expression : a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2312:1: expression : a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
 	public final BLESStoASTParser.expression_return expression() throws RecognitionException {
 		BLESStoASTParser.expression_return retval = new BLESStoASTParser.expression_return();
 		retval.start = input.LT(1);
@@ -9901,15 +9901,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2314:3: (a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2315:3: a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2314:3: (a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2315:3: a1= subexpression ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |)
 			{
 			pushFollow(FOLLOW_subexpression_in_expression8278);
 			a1=subexpression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_subexpression.add(a1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2316:3: ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2316:3: ( (o= PLUS a+= subexpression )+ | (o= TIMES a+= subexpression )+ |o= MINUS a+= subexpression |o= DIVIDE a+= subexpression |o= LITERAL_mod a+= subexpression |o= LITERAL_rem a+= subexpression |o= EXP a+= subexpression | (o= LITERAL_and a+= subexpression )+ | (o= LITERAL_or a+= subexpression )+ | (o= LITERAL_xor a+= subexpression )+ |o= LITERAL_cand a+= subexpression |o= LITERAL_cor a+= subexpression |)
 			int alt96=13;
 			switch ( input.LA(1) ) {
 			case PLUS:
@@ -10031,9 +10031,9 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt96) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2318:3: (o= PLUS a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2318:3: (o= PLUS a+= subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2318:3: (o= PLUS a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2318:3: (o= PLUS a+= subexpression )+
 					int cnt91=0;
 					loop91:
 					while (true) {
@@ -10045,7 +10045,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt91) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2318:5: o= PLUS a+= subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2318:5: o= PLUS a+= subexpression
 							{
 							o=(Token)match(input,PLUS,FOLLOW_PLUS_in_expression8294); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_PLUS.add(o);
@@ -10072,9 +10072,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2320:3: (o= TIMES a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2320:3: (o= TIMES a+= subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2320:3: (o= TIMES a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2320:3: (o= TIMES a+= subexpression )+
 					int cnt92=0;
 					loop92:
 					while (true) {
@@ -10086,7 +10086,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt92) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2320:5: o= TIMES a+= subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2320:5: o= TIMES a+= subexpression
 							{
 							o=(Token)match(input,TIMES,FOLLOW_TIMES_in_expression8314); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TIMES.add(o);
@@ -10113,7 +10113,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2322:3: o= MINUS a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2322:3: o= MINUS a+= subexpression
 					{
 					o=(Token)match(input,MINUS,FOLLOW_MINUS_in_expression8332); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(o);
@@ -10128,7 +10128,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2324:3: o= DIVIDE a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2324:3: o= DIVIDE a+= subexpression
 					{
 					o=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_expression8347); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DIVIDE.add(o);
@@ -10143,7 +10143,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2326:3: o= LITERAL_mod a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2326:3: o= LITERAL_mod a+= subexpression
 					{
 					o=(Token)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_expression8362); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_mod.add(o);
@@ -10158,7 +10158,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2328:3: o= LITERAL_rem a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2328:3: o= LITERAL_rem a+= subexpression
 					{
 					o=(Token)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_expression8377); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_rem.add(o);
@@ -10173,7 +10173,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2330:3: o= EXP a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2330:3: o= EXP a+= subexpression
 					{
 					o=(Token)match(input,EXP,FOLLOW_EXP_in_expression8392); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_EXP.add(o);
@@ -10188,9 +10188,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2332:3: (o= LITERAL_and a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2332:3: (o= LITERAL_and a+= subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2332:3: (o= LITERAL_and a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2332:3: (o= LITERAL_and a+= subexpression )+
 					int cnt93=0;
 					loop93:
 					while (true) {
@@ -10202,7 +10202,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt93) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2332:5: o= LITERAL_and a+= subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2332:5: o= LITERAL_and a+= subexpression
 							{
 							o=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_expression8409); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_and.add(o);
@@ -10229,9 +10229,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 9 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2334:3: (o= LITERAL_or a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2334:3: (o= LITERAL_or a+= subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2334:3: (o= LITERAL_or a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2334:3: (o= LITERAL_or a+= subexpression )+
 					int cnt94=0;
 					loop94:
 					while (true) {
@@ -10243,7 +10243,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt94) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2334:5: o= LITERAL_or a+= subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2334:5: o= LITERAL_or a+= subexpression
 							{
 							o=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_expression8429); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_or.add(o);
@@ -10270,9 +10270,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 10 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2336:3: (o= LITERAL_xor a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2336:3: (o= LITERAL_xor a+= subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2336:3: (o= LITERAL_xor a+= subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2336:3: (o= LITERAL_xor a+= subexpression )+
 					int cnt95=0;
 					loop95:
 					while (true) {
@@ -10284,7 +10284,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt95) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2336:5: o= LITERAL_xor a+= subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2336:5: o= LITERAL_xor a+= subexpression
 							{
 							o=(Token)match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_expression8449); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_xor.add(o);
@@ -10311,7 +10311,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 11 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2338:3: o= LITERAL_cand a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2338:3: o= LITERAL_cand a+= subexpression
 					{
 					o=(Token)match(input,LITERAL_cand,FOLLOW_LITERAL_cand_in_expression8467); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_cand.add(o);
@@ -10326,7 +10326,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 12 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2340:3: o= LITERAL_cor a+= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2340:3: o= LITERAL_cor a+= subexpression
 					{
 					o=(Token)match(input,LITERAL_cor,FOLLOW_LITERAL_cor_in_expression8482); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_cor.add(o);
@@ -10341,7 +10341,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 13 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2342:3: 
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2342:3: 
 					{
 					}
 					break;
@@ -10364,7 +10364,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2344:3: -> {$o!=null}? ^( $o $a1 ( $a)+ )
 			if (o!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2344:18: ^( $o $a1 ( $a)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2344:18: ^( $o $a1 ( $a)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_o.nextNode(), root_1);
@@ -10421,7 +10421,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2351:1: subexpression : ( (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps|tc= type_conversion -> $tc|fc= function_call -> $fc);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2351:1: subexpression : ( (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps|tc= type_conversion -> $tc|fc= function_call -> $fc);
 	public final BLESStoASTParser.subexpression_return subexpression() throws RecognitionException {
 		BLESStoASTParser.subexpression_return retval = new BLESStoASTParser.subexpression_return();
 		retval.start = input.LT(1);
@@ -10445,14 +10445,14 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2353:3: ( (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps|tc= type_conversion -> $tc|fc= function_call -> $fc)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2353:3: ( (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps|tc= type_conversion -> $tc|fc= function_call -> $fc)
 			int alt99=3;
 			alt99 = dfa99.predict(input);
 			switch (alt99) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2354:3: (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2354:3: (m= MINUS |n= LITERAL_not )? (v= value |ps= parenthesized_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2354:3: (m= MINUS |n= LITERAL_not )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2354:3: (m= MINUS |n= LITERAL_not )?
 					int alt97=3;
 					int LA97_0 = input.LA(1);
 					if ( (LA97_0==MINUS) ) {
@@ -10463,7 +10463,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt97) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2354:5: m= MINUS
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2354:5: m= MINUS
 							{
 							m=(Token)match(input,MINUS,FOLLOW_MINUS_in_subexpression8558); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_MINUS.add(m);
@@ -10471,7 +10471,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2354:15: n= LITERAL_not
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2354:15: n= LITERAL_not
 							{
 							n=(Token)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_subexpression8564); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_not.add(n);
@@ -10481,7 +10481,7 @@ public class BLESStoASTParser extends Parser {
 
 					}
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2355:3: (v= value |ps= parenthesized_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2355:3: (v= value |ps= parenthesized_subexpression )
 					int alt98=2;
 					int LA98_0 = input.LA(1);
 					if ( (LA98_0==AADL_STRING_LITERAL||LA98_0==ID||LA98_0==INTEGER_LIT||LA98_0==LBRACKET||LA98_0==LITERAL_false||LA98_0==LITERAL_in||LA98_0==LITERAL_now||LA98_0==LITERAL_null||LA98_0==LITERAL_self||LA98_0==LITERAL_timeout||LA98_0==LITERAL_tops||LA98_0==LITERAL_true||LA98_0==OCTOTHORPE||LA98_0==REAL_LIT) ) {
@@ -10500,7 +10500,7 @@ public class BLESStoASTParser extends Parser {
 
 					switch (alt98) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2355:5: v= value
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2355:5: v= value
 							{
 							pushFollow(FOLLOW_value_in_subexpression8576);
 							v=value();
@@ -10510,7 +10510,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2355:15: ps= parenthesized_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2355:15: ps= parenthesized_subexpression
 							{
 							pushFollow(FOLLOW_parenthesized_subexpression_in_subexpression8582);
 							ps=parenthesized_subexpression();
@@ -10539,7 +10539,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2356:5: -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v)
 					if (m!=null&&v!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2356:28: ^( UNARY_MINUS[$m] $v)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2356:28: ^( UNARY_MINUS[$m] $v)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m), root_1);
@@ -10551,7 +10551,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2357:5: -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps)
 					if (m!=null&&ps!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2357:29: ^( UNARY_MINUS[$m] $ps)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2357:29: ^( UNARY_MINUS[$m] $ps)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m), root_1);
@@ -10563,7 +10563,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2358:5: -> {n!=null&&v!=null}? ^( $n $v)
 					if (n!=null&&v!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2358:28: ^( $n $v)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2358:28: ^( $n $v)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -10575,7 +10575,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2359:5: -> {n!=null&&ps!=null}? ^( $n $ps)
 					if (n!=null&&ps!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2359:29: ^( $n $ps)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2359:29: ^( $n $ps)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -10602,7 +10602,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2362:5: tc= type_conversion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2362:5: tc= type_conversion
 					{
 					pushFollow(FOLLOW_type_conversion_in_subexpression8682);
 					tc=type_conversion();
@@ -10634,7 +10634,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2365:3: fc= function_call
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2365:3: fc= function_call
 					{
 					pushFollow(FOLLOW_function_call_in_subexpression8702);
 					fc=function_call();
@@ -10695,7 +10695,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "type_conversion"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2370:1: type_conversion : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression -> ^( $n $ps) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2370:1: type_conversion : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression -> ^( $n $ps) ;
 	public final BLESStoASTParser.type_conversion_return type_conversion() throws RecognitionException {
 		BLESStoASTParser.type_conversion_return retval = new BLESStoASTParser.type_conversion_return();
 		retval.start = input.LT(1);
@@ -10715,10 +10715,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_parenthesized_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule parenthesized_subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2371:2: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression -> ^( $n $ps) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2372:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2371:2: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression -> ^( $n $ps) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2372:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_subexpression
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2372:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2372:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
 			int alt100=6;
 			switch ( input.LA(1) ) {
 			case LITERAL_natural:
@@ -10759,7 +10759,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt100) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2372:4: n= LITERAL_natural
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2372:4: n= LITERAL_natural
 					{
 					n=(Token)match(input,LITERAL_natural,FOLLOW_LITERAL_natural_in_type_conversion8732); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_natural.add(n);
@@ -10767,7 +10767,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2373:3: n= LITERAL_integer
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2373:3: n= LITERAL_integer
 					{
 					n=(Token)match(input,LITERAL_integer,FOLLOW_LITERAL_integer_in_type_conversion8741); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_integer.add(n);
@@ -10775,7 +10775,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2374:3: n= LITERAL_rational
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2374:3: n= LITERAL_rational
 					{
 					n=(Token)match(input,LITERAL_rational,FOLLOW_LITERAL_rational_in_type_conversion8750); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_rational.add(n);
@@ -10783,7 +10783,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2375:3: n= LITERAL_real
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2375:3: n= LITERAL_real
 					{
 					n=(Token)match(input,LITERAL_real,FOLLOW_LITERAL_real_in_type_conversion8759); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_real.add(n);
@@ -10791,7 +10791,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2376:3: n= LITERAL_complex
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2376:3: n= LITERAL_complex
 					{
 					n=(Token)match(input,LITERAL_complex,FOLLOW_LITERAL_complex_in_type_conversion8768); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_complex.add(n);
@@ -10799,7 +10799,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2377:3: n= LITERAL_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2377:3: n= LITERAL_time
 					{
 					n=(Token)match(input,LITERAL_time,FOLLOW_LITERAL_time_in_type_conversion8776); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_time.add(n);
@@ -10830,7 +10830,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2379:5: -> ^( $n $ps)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2379:8: ^( $n $ps)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2379:8: ^( $n $ps)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -10874,7 +10874,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_type_conversion"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2383:1: assertion_type_conversion : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression -> ^( $n $ps) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2383:1: assertion_type_conversion : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression -> ^( $n $ps) ;
 	public final BLESStoASTParser.assertion_type_conversion_return assertion_type_conversion() throws RecognitionException {
 		BLESStoASTParser.assertion_type_conversion_return retval = new BLESStoASTParser.assertion_type_conversion_return();
 		retval.start = input.LT(1);
@@ -10894,10 +10894,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_parenthesized_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule parenthesized_assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2384:2: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression -> ^( $n $ps) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2385:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2384:2: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression -> ^( $n $ps) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2385:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) ps= parenthesized_assertion_expression
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2385:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2385:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
 			int alt101=6;
 			switch ( input.LA(1) ) {
 			case LITERAL_natural:
@@ -10938,7 +10938,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt101) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2385:4: n= LITERAL_natural
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2385:4: n= LITERAL_natural
 					{
 					n=(Token)match(input,LITERAL_natural,FOLLOW_LITERAL_natural_in_assertion_type_conversion8816); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_natural.add(n);
@@ -10946,7 +10946,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2386:3: n= LITERAL_integer
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2386:3: n= LITERAL_integer
 					{
 					n=(Token)match(input,LITERAL_integer,FOLLOW_LITERAL_integer_in_assertion_type_conversion8825); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_integer.add(n);
@@ -10954,7 +10954,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2387:3: n= LITERAL_rational
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2387:3: n= LITERAL_rational
 					{
 					n=(Token)match(input,LITERAL_rational,FOLLOW_LITERAL_rational_in_assertion_type_conversion8834); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_rational.add(n);
@@ -10962,7 +10962,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2388:3: n= LITERAL_real
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2388:3: n= LITERAL_real
 					{
 					n=(Token)match(input,LITERAL_real,FOLLOW_LITERAL_real_in_assertion_type_conversion8843); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_real.add(n);
@@ -10970,7 +10970,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2389:3: n= LITERAL_complex
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2389:3: n= LITERAL_complex
 					{
 					n=(Token)match(input,LITERAL_complex,FOLLOW_LITERAL_complex_in_assertion_type_conversion8852); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_complex.add(n);
@@ -10978,7 +10978,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2390:3: n= LITERAL_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2390:3: n= LITERAL_time
 					{
 					n=(Token)match(input,LITERAL_time,FOLLOW_LITERAL_time_in_assertion_type_conversion8860); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_time.add(n);
@@ -11009,7 +11009,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2392:5: -> ^( $n $ps)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2392:8: ^( $n $ps)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2392:8: ^( $n $ps)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -11053,7 +11053,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "boolean_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2396:1: boolean_expression : a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2396:1: boolean_expression : a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
 	public final BLESStoASTParser.boolean_expression_return boolean_expression() throws RecognitionException {
 		BLESStoASTParser.boolean_expression_return retval = new BLESStoASTParser.boolean_expression_return();
 		retval.start = input.LT(1);
@@ -11073,15 +11073,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_boolean_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule boolean_subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2398:3: (a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2399:3: a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2398:3: (a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2399:3: a1= boolean_subexpression ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |)
 			{
 			pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression8904);
 			a1=boolean_subexpression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_boolean_subexpression.add(a1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2400:3: ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2400:3: ( (o= LITERAL_and a+= boolean_subexpression )+ | (o= LITERAL_or a+= boolean_subexpression )+ | (o= LITERAL_xor a+= boolean_subexpression )+ |o= LITERAL_cand a+= boolean_subexpression |o= LITERAL_cor a+= boolean_subexpression |)
 			int alt105=6;
 			switch ( input.LA(1) ) {
 			case LITERAL_and:
@@ -11124,9 +11124,9 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt105) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2402:3: (o= LITERAL_and a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2402:3: (o= LITERAL_and a+= boolean_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2402:3: (o= LITERAL_and a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2402:3: (o= LITERAL_and a+= boolean_subexpression )+
 					int cnt102=0;
 					loop102:
 					while (true) {
@@ -11138,7 +11138,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt102) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2402:5: o= LITERAL_and a+= boolean_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2402:5: o= LITERAL_and a+= boolean_subexpression
 							{
 							o=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_boolean_expression8920); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_and.add(o);
@@ -11165,9 +11165,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2404:3: (o= LITERAL_or a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2404:3: (o= LITERAL_or a+= boolean_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2404:3: (o= LITERAL_or a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2404:3: (o= LITERAL_or a+= boolean_subexpression )+
 					int cnt103=0;
 					loop103:
 					while (true) {
@@ -11179,7 +11179,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt103) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2404:5: o= LITERAL_or a+= boolean_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2404:5: o= LITERAL_or a+= boolean_subexpression
 							{
 							o=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_boolean_expression8940); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_or.add(o);
@@ -11206,9 +11206,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2406:3: (o= LITERAL_xor a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2406:3: (o= LITERAL_xor a+= boolean_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2406:3: (o= LITERAL_xor a+= boolean_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2406:3: (o= LITERAL_xor a+= boolean_subexpression )+
 					int cnt104=0;
 					loop104:
 					while (true) {
@@ -11220,7 +11220,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt104) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2406:5: o= LITERAL_xor a+= boolean_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2406:5: o= LITERAL_xor a+= boolean_subexpression
 							{
 							o=(Token)match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_boolean_expression8960); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_xor.add(o);
@@ -11247,7 +11247,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2408:3: o= LITERAL_cand a+= boolean_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2408:3: o= LITERAL_cand a+= boolean_subexpression
 					{
 					o=(Token)match(input,LITERAL_cand,FOLLOW_LITERAL_cand_in_boolean_expression8978); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_cand.add(o);
@@ -11262,7 +11262,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2410:3: o= LITERAL_cor a+= boolean_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2410:3: o= LITERAL_cor a+= boolean_subexpression
 					{
 					o=(Token)match(input,LITERAL_cor,FOLLOW_LITERAL_cor_in_boolean_expression8993); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_cor.add(o);
@@ -11277,7 +11277,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2412:3: 
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2412:3: 
 					{
 					}
 					break;
@@ -11300,7 +11300,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2414:3: -> {$o!=null}? ^( $o $a1 ( $a)+ )
 			if (o!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2414:18: ^( $o $a1 ( $a)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2414:18: ^( $o $a1 ( $a)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_o.nextNode(), root_1);
@@ -11357,7 +11357,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "boolean_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2421:1: boolean_subexpression : (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2421:1: boolean_subexpression : (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps;
 	public final BLESStoASTParser.boolean_subexpression_return boolean_subexpression() throws RecognitionException {
 		BLESStoASTParser.boolean_subexpression_return retval = new BLESStoASTParser.boolean_subexpression_return();
 		retval.start = input.LT(1);
@@ -11374,10 +11374,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2423:3: ( (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2424:3: (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2423:3: ( (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression ) -> {n!=null&&v!=null}? ^( $n $v) -> {n!=null&&ps!=null}? ^( $n $ps) -> {v!=null}? $v -> $ps)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2424:3: (n= LITERAL_not )? (v= value |ps= parenthesized_subexpression )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2424:3: (n= LITERAL_not )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2424:3: (n= LITERAL_not )?
 			int alt106=2;
 			int LA106_0 = input.LA(1);
 			if ( (LA106_0==LITERAL_not) ) {
@@ -11385,7 +11385,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt106) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2424:5: n= LITERAL_not
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2424:5: n= LITERAL_not
 					{
 					n=(Token)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_boolean_subexpression9069); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_not.add(n);
@@ -11395,7 +11395,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2425:3: (v= value |ps= parenthesized_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2425:3: (v= value |ps= parenthesized_subexpression )
 			int alt107=2;
 			int LA107_0 = input.LA(1);
 			if ( (LA107_0==AADL_STRING_LITERAL||LA107_0==ID||LA107_0==INTEGER_LIT||LA107_0==LBRACKET||LA107_0==LITERAL_false||LA107_0==LITERAL_in||LA107_0==LITERAL_now||LA107_0==LITERAL_null||LA107_0==LITERAL_self||LA107_0==LITERAL_timeout||LA107_0==LITERAL_tops||LA107_0==LITERAL_true||LA107_0==OCTOTHORPE||LA107_0==REAL_LIT) ) {
@@ -11414,7 +11414,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt107) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2425:5: v= value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2425:5: v= value
 					{
 					pushFollow(FOLLOW_value_in_boolean_subexpression9081);
 					v=value();
@@ -11424,7 +11424,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2425:15: ps= parenthesized_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2425:15: ps= parenthesized_subexpression
 					{
 					pushFollow(FOLLOW_parenthesized_subexpression_in_boolean_subexpression9087);
 					ps=parenthesized_subexpression();
@@ -11453,7 +11453,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2426:5: -> {n!=null&&v!=null}? ^( $n $v)
 			if (n!=null&&v!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2426:28: ^( $n $v)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2426:28: ^( $n $v)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -11465,7 +11465,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2427:5: -> {n!=null&&ps!=null}? ^( $n $ps)
 			if (n!=null&&ps!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2427:29: ^( $n $ps)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2427:29: ^( $n $ps)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -11519,7 +11519,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "numeric_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2434:1: numeric_expression : a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2434:1: numeric_expression : a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1;
 	public final BLESStoASTParser.numeric_expression_return numeric_expression() throws RecognitionException {
 		BLESStoASTParser.numeric_expression_return retval = new BLESStoASTParser.numeric_expression_return();
 		retval.start = input.LT(1);
@@ -11541,15 +11541,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_numeric_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule numeric_subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2436:3: (a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2437:3: a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2436:3: (a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |) -> {$o!=null}? ^( $o $a1 ( $a)+ ) -> $a1)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2437:3: a1= numeric_subexpression ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |)
 			{
 			pushFollow(FOLLOW_numeric_subexpression_in_numeric_expression9172);
 			a1=numeric_subexpression();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_numeric_subexpression.add(a1.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2438:3: ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2438:3: ( (o= PLUS a+= numeric_subexpression )+ | (o= TIMES a+= numeric_subexpression )+ |o= MINUS a+= numeric_subexpression |o= DIVIDE a+= numeric_subexpression |o= LITERAL_mod a+= numeric_subexpression |o= LITERAL_rem a+= numeric_subexpression |o= EXP a+= numeric_subexpression |)
 			int alt110=8;
 			switch ( input.LA(1) ) {
 			case PLUS:
@@ -11605,9 +11605,9 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt110) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2440:3: (o= PLUS a+= numeric_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2440:3: (o= PLUS a+= numeric_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2440:3: (o= PLUS a+= numeric_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2440:3: (o= PLUS a+= numeric_subexpression )+
 					int cnt108=0;
 					loop108:
 					while (true) {
@@ -11619,7 +11619,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt108) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2440:5: o= PLUS a+= numeric_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2440:5: o= PLUS a+= numeric_subexpression
 							{
 							o=(Token)match(input,PLUS,FOLLOW_PLUS_in_numeric_expression9188); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_PLUS.add(o);
@@ -11646,9 +11646,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2442:3: (o= TIMES a+= numeric_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2442:3: (o= TIMES a+= numeric_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2442:3: (o= TIMES a+= numeric_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2442:3: (o= TIMES a+= numeric_subexpression )+
 					int cnt109=0;
 					loop109:
 					while (true) {
@@ -11660,7 +11660,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt109) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2442:5: o= TIMES a+= numeric_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2442:5: o= TIMES a+= numeric_subexpression
 							{
 							o=(Token)match(input,TIMES,FOLLOW_TIMES_in_numeric_expression9208); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TIMES.add(o);
@@ -11687,7 +11687,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2444:3: o= MINUS a+= numeric_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2444:3: o= MINUS a+= numeric_subexpression
 					{
 					o=(Token)match(input,MINUS,FOLLOW_MINUS_in_numeric_expression9226); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(o);
@@ -11702,7 +11702,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2446:3: o= DIVIDE a+= numeric_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2446:3: o= DIVIDE a+= numeric_subexpression
 					{
 					o=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_numeric_expression9241); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_DIVIDE.add(o);
@@ -11717,7 +11717,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2448:3: o= LITERAL_mod a+= numeric_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2448:3: o= LITERAL_mod a+= numeric_subexpression
 					{
 					o=(Token)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_numeric_expression9256); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_mod.add(o);
@@ -11732,7 +11732,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2450:3: o= LITERAL_rem a+= numeric_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2450:3: o= LITERAL_rem a+= numeric_subexpression
 					{
 					o=(Token)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_numeric_expression9271); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_rem.add(o);
@@ -11747,7 +11747,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2452:3: o= EXP a+= numeric_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2452:3: o= EXP a+= numeric_subexpression
 					{
 					o=(Token)match(input,EXP,FOLLOW_EXP_in_numeric_expression9286); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_EXP.add(o);
@@ -11762,7 +11762,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2454:3: 
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2454:3: 
 					{
 					}
 					break;
@@ -11785,7 +11785,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2456:3: -> {$o!=null}? ^( $o $a1 ( $a)+ )
 			if (o!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2456:18: ^( $o $a1 ( $a)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2456:18: ^( $o $a1 ( $a)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_o.nextNode(), root_1);
@@ -11843,7 +11843,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "numeric_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2464:1: numeric_subexpression : (m= MINUS )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {v!=null}? $v -> $ps;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2464:1: numeric_subexpression : (m= MINUS )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {v!=null}? $v -> $ps;
 	public final BLESStoASTParser.numeric_subexpression_return numeric_subexpression() throws RecognitionException {
 		BLESStoASTParser.numeric_subexpression_return retval = new BLESStoASTParser.numeric_subexpression_return();
 		retval.start = input.LT(1);
@@ -11860,10 +11860,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2466:3: ( (m= MINUS )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {v!=null}? $v -> $ps)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2467:3: (m= MINUS )? (v= value |ps= parenthesized_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2466:3: ( (m= MINUS )? (v= value |ps= parenthesized_subexpression ) -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v) -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps) -> {v!=null}? $v -> $ps)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2467:3: (m= MINUS )? (v= value |ps= parenthesized_subexpression )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2467:3: (m= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2467:3: (m= MINUS )?
 			int alt111=2;
 			int LA111_0 = input.LA(1);
 			if ( (LA111_0==MINUS) ) {
@@ -11871,7 +11871,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt111) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2467:5: m= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2467:5: m= MINUS
 					{
 					m=(Token)match(input,MINUS,FOLLOW_MINUS_in_numeric_subexpression9362); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(m);
@@ -11881,7 +11881,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2468:3: (v= value |ps= parenthesized_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2468:3: (v= value |ps= parenthesized_subexpression )
 			int alt112=2;
 			int LA112_0 = input.LA(1);
 			if ( (LA112_0==AADL_STRING_LITERAL||LA112_0==ID||LA112_0==INTEGER_LIT||LA112_0==LBRACKET||LA112_0==LITERAL_false||LA112_0==LITERAL_in||LA112_0==LITERAL_now||LA112_0==LITERAL_null||LA112_0==LITERAL_self||LA112_0==LITERAL_timeout||LA112_0==LITERAL_tops||LA112_0==LITERAL_true||LA112_0==OCTOTHORPE||LA112_0==REAL_LIT) ) {
@@ -11900,7 +11900,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt112) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2468:5: v= value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2468:5: v= value
 					{
 					pushFollow(FOLLOW_value_in_numeric_subexpression9374);
 					v=value();
@@ -11910,7 +11910,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2468:15: ps= parenthesized_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2468:15: ps= parenthesized_subexpression
 					{
 					pushFollow(FOLLOW_parenthesized_subexpression_in_numeric_subexpression9380);
 					ps=parenthesized_subexpression();
@@ -11938,7 +11938,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2469:5: -> {m!=null&&v!=null}? ^( UNARY_MINUS[$m] $v)
 			if (m!=null&&v!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2469:28: ^( UNARY_MINUS[$m] $v)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2469:28: ^( UNARY_MINUS[$m] $v)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m), root_1);
@@ -11950,7 +11950,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2470:5: -> {m!=null&&ps!=null}? ^( UNARY_MINUS[$m] $ps)
 			if (m!=null&&ps!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2470:29: ^( UNARY_MINUS[$m] $ps)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2470:29: ^( UNARY_MINUS[$m] $ps)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m), root_1);
@@ -12005,7 +12005,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "parenthesized_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2478:1: parenthesized_subexpression : ( ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression -> $ce| ( LPAREN case_choice )=>ce= case_expression -> $ce|lp= LPAREN eor= expression_or_relation rp= RPAREN -> ^( $lp $eor $rp) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2478:1: parenthesized_subexpression : ( ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression -> $ce| ( LPAREN case_choice )=>ce= case_expression -> $ce|lp= LPAREN eor= expression_or_relation rp= RPAREN -> ^( $lp $eor $rp) );
 	public final BLESStoASTParser.parenthesized_subexpression_return parenthesized_subexpression() throws RecognitionException {
 		BLESStoASTParser.parenthesized_subexpression_return retval = new BLESStoASTParser.parenthesized_subexpression_return();
 		retval.start = input.LT(1);
@@ -12026,7 +12026,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_expression_or_relation=new RewriteRuleSubtreeStream(adaptor,"rule expression_or_relation");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2480:3: ( ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression -> $ce| ( LPAREN case_choice )=>ce= case_expression -> $ce|lp= LPAREN eor= expression_or_relation rp= RPAREN -> ^( $lp $eor $rp) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2480:3: ( ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression -> $ce| ( LPAREN case_choice )=>ce= case_expression -> $ce|lp= LPAREN eor= expression_or_relation rp= RPAREN -> ^( $lp $eor $rp) )
 			int alt113=3;
 			int LA113_0 = input.LA(1);
 			if ( (LA113_0==LPAREN) ) {
@@ -12052,7 +12052,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt113) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2481:3: ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2481:3: ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )=>ce= conditional_expression
 					{
 					pushFollow(FOLLOW_conditional_expression_in_parenthesized_subexpression9482);
 					ce=conditional_expression();
@@ -12084,7 +12084,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2485:3: ( LPAREN case_choice )=>ce= case_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2485:3: ( LPAREN case_choice )=>ce= case_expression
 					{
 					pushFollow(FOLLOW_case_expression_in_parenthesized_subexpression9512);
 					ce=case_expression();
@@ -12116,7 +12116,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2489:3: lp= LPAREN eor= expression_or_relation rp= RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2489:3: lp= LPAREN eor= expression_or_relation rp= RPAREN
 					{
 					lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_subexpression9531); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(lp);
@@ -12146,7 +12146,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2490:5: -> ^( $lp $eor $rp)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2490:8: ^( $lp $eor $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2490:8: ^( $lp $eor $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
@@ -12193,7 +12193,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "case_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2493:1: case_expression : lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN -> ^( CASE_EXPRESSION ( $cc)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2493:1: case_expression : lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN -> ^( CASE_EXPRESSION ( $cc)+ ) ;
 	public final BLESStoASTParser.case_expression_return case_expression() throws RecognitionException {
 		BLESStoASTParser.case_expression_return retval = new BLESStoASTParser.case_expression_return();
 		retval.start = input.LT(1);
@@ -12216,8 +12216,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_case_choice=new RewriteRuleSubtreeStream(adaptor,"rule case_choice");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2494:3: (lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN -> ^( CASE_EXPRESSION ( $cc)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2495:3: lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2494:3: (lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN -> ^( CASE_EXPRESSION ( $cc)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2495:3: lp= LPAREN cc+= case_choice (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* ) RPAREN
 			{
 			lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_case_expression9576); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(lp);
@@ -12229,8 +12229,8 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_case_choice.add(cc.getTree());
 			if (list_cc==null) list_cc=new ArrayList<Object>();
 			list_cc.add(cc.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2495:29: (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2495:31: c= COMMA cc+= case_choice ( COMMA cc+= case_choice )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2495:29: (c= COMMA cc+= case_choice ( COMMA cc+= case_choice )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2495:31: c= COMMA cc+= case_choice ( COMMA cc+= case_choice )*
 			{
 			c=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_expression9586); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COMMA.add(c);
@@ -12242,7 +12242,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_case_choice.add(cc.getTree());
 			if (list_cc==null) list_cc=new ArrayList<Object>();
 			list_cc.add(cc.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2495:55: ( COMMA cc+= case_choice )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2495:55: ( COMMA cc+= case_choice )*
 			loop114:
 			while (true) {
 				int alt114=2;
@@ -12253,7 +12253,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt114) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2495:57: COMMA cc+= case_choice
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2495:57: COMMA cc+= case_choice
 					{
 					COMMA185=(Token)match(input,COMMA,FOLLOW_COMMA_in_case_expression9594); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA185);
@@ -12292,7 +12292,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2496:5: -> ^( CASE_EXPRESSION ( $cc)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2496:8: ^( CASE_EXPRESSION ( $cc)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2496:8: ^( CASE_EXPRESSION ( $cc)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CASE_EXPRESSION, "CASE_EXPRESSION"), root_1);
@@ -12343,7 +12343,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "case_choice"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2500:1: case_choice : LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2500:1: case_choice : LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression ;
 	public final BLESStoASTParser.case_choice_return case_choice() throws RecognitionException {
 		BLESStoASTParser.case_choice_return retval = new BLESStoASTParser.case_choice_return();
 		retval.start = input.LT(1);
@@ -12361,8 +12361,8 @@ public class BLESStoASTParser extends Parser {
 		BAST IMP189_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2501:3: ( LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2502:3: LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2501:3: ( LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2502:3: LPAREN !be= boolean_expression_or_relation RPAREN ! IMP ^exp= expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -12417,7 +12417,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "conditional_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2505:1: conditional_expression : ( LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN -> ^( CONDITIONAL[$then] $be $t $f) | LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN -> ^( CONDITIONAL[$q] $be $t $f) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2505:1: conditional_expression : ( LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN -> ^( CONDITIONAL[$then] $be $t $f) | LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN -> ^( CONDITIONAL[$q] $be $t $f) );
 	public final BLESStoASTParser.conditional_expression_return conditional_expression() throws RecognitionException {
 		BLESStoASTParser.conditional_expression_return retval = new BLESStoASTParser.conditional_expression_return();
 		retval.start = input.LT(1);
@@ -12457,7 +12457,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_boolean_expression_or_relation=new RewriteRuleSubtreeStream(adaptor,"rule boolean_expression_or_relation");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2506:3: ( LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN -> ^( CONDITIONAL[$then] $be $t $f) | LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN -> ^( CONDITIONAL[$q] $be $t $f) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2506:3: ( LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN -> ^( CONDITIONAL[$then] $be $t $f) | LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN -> ^( CONDITIONAL[$q] $be $t $f) )
 			int alt115=2;
 			int LA115_0 = input.LA(1);
 			if ( (LA115_0==LPAREN) ) {
@@ -12493,7 +12493,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt115) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2507:3: LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2507:3: LPAREN LITERAL_if be= boolean_expression_or_relation then= LITERAL_then t= expression LITERAL_else f= expression RPAREN
 					{
 					LPAREN190=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_conditional_expression9672); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN190);
@@ -12542,7 +12542,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2508:5: -> ^( CONDITIONAL[$then] $be $t $f)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2508:8: ^( CONDITIONAL[$then] $be $t $f)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2508:8: ^( CONDITIONAL[$then] $be $t $f)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITIONAL, then), root_1);
@@ -12561,7 +12561,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2510:3: LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2510:3: LPAREN be= boolean_expression_or_relation q= QQ t= expression COLON f= expression RPAREN
 					{
 					LPAREN194=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_conditional_expression9726); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN194);
@@ -12607,7 +12607,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2511:5: -> ^( CONDITIONAL[$q] $be $t $f)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2511:8: ^( CONDITIONAL[$q] $be $t $f)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2511:8: ^( CONDITIONAL[$q] $be $t $f)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITIONAL, q), root_1);
@@ -12655,7 +12655,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2514:1: value : (vc= value_constant -> $vc| ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated ) -> {$f!=null}? ^( $tf $pn $f) -> {$c!=null}? ^( $tc $pn $c) -> {$u!=null}? ^( $tc $pn $u) -> ^( $q $pn) |nam= name -> $nam|li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN -> ^( INMODE[$li,\"in mode\"] ( $i)+ ) |timeout= LITERAL_timeout -> $timeout|nu= LITERAL_null -> $nu|now= LITERAL_now -> $now|tops= LITERAL_tops -> $tops);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2514:1: value : (vc= value_constant -> $vc| ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated ) -> {$f!=null}? ^( $tf $pn $f) -> {$c!=null}? ^( $tc $pn $c) -> {$u!=null}? ^( $tc $pn $u) -> ^( $q $pn) |nam= name -> $nam|li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN -> ^( INMODE[$li,\"in mode\"] ( $i)+ ) |timeout= LITERAL_timeout -> $timeout|nu= LITERAL_null -> $nu|now= LITERAL_now -> $now|tops= LITERAL_tops -> $tops);
 	public final BLESStoASTParser.value_return value() throws RecognitionException {
 		BLESStoASTParser.value_return retval = new BLESStoASTParser.value_return();
 		retval.start = input.LT(1);
@@ -12714,12 +12714,12 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value_constant=new RewriteRuleSubtreeStream(adaptor,"rule value_constant");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2515:3: (vc= value_constant -> $vc| ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated ) -> {$f!=null}? ^( $tf $pn $f) -> {$c!=null}? ^( $tc $pn $c) -> {$u!=null}? ^( $tc $pn $u) -> ^( $q $pn) |nam= name -> $nam|li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN -> ^( INMODE[$li,\"in mode\"] ( $i)+ ) |timeout= LITERAL_timeout -> $timeout|nu= LITERAL_null -> $nu|now= LITERAL_now -> $now|tops= LITERAL_tops -> $tops)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2515:3: (vc= value_constant -> $vc| ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated ) -> {$f!=null}? ^( $tf $pn $f) -> {$c!=null}? ^( $tc $pn $c) -> {$u!=null}? ^( $tc $pn $u) -> ^( $q $pn) |nam= name -> $nam|li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN -> ^( INMODE[$li,\"in mode\"] ( $i)+ ) |timeout= LITERAL_timeout -> $timeout|nu= LITERAL_null -> $nu|now= LITERAL_now -> $now|tops= LITERAL_tops -> $tops)
 			int alt118=8;
 			alt118 = dfa118.predict(input);
 			switch (alt118) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2516:3: vc= value_constant
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2516:3: vc= value_constant
 					{
 					pushFollow(FOLLOW_value_constant_in_value9788);
 					vc=value_constant();
@@ -12751,14 +12751,14 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:3: ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:3: ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )=>pn= port_name (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated )
 					{
 					pushFollow(FOLLOW_port_name_in_value9840);
 					pn=port_name();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_port_name.add(pn.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2521:16: (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2521:16: (q= QUESTION |tf= TICK f= LITERAL_fresh |tc= TICK c= LITERAL_count |tc= TICK u= LITERAL_updated )
 					int alt116=4;
 					int LA116_0 = input.LA(1);
 					if ( (LA116_0==QUESTION) ) {
@@ -12804,7 +12804,7 @@ public class BLESStoASTParser extends Parser {
 
 					switch (alt116) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2521:18: q= QUESTION
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2521:18: q= QUESTION
 							{
 							q=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_value9846); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_QUESTION.add(q);
@@ -12812,7 +12812,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2521:31: tf= TICK f= LITERAL_fresh
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2521:31: tf= TICK f= LITERAL_fresh
 							{
 							tf=(Token)match(input,TICK,FOLLOW_TICK_in_value9852); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TICK.add(tf);
@@ -12823,7 +12823,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 3 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2521:57: tc= TICK c= LITERAL_count
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2521:57: tc= TICK c= LITERAL_count
 							{
 							tc=(Token)match(input,TICK,FOLLOW_TICK_in_value9862); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TICK.add(tc);
@@ -12834,7 +12834,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 4 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2521:84: tc= TICK u= LITERAL_updated
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2521:84: tc= TICK u= LITERAL_updated
 							{
 							tc=(Token)match(input,TICK,FOLLOW_TICK_in_value9873); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TICK.add(tc);
@@ -12868,7 +12868,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2522:5: -> {$f!=null}? ^( $tf $pn $f)
 					if (f!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2522:20: ^( $tf $pn $f)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2522:20: ^( $tf $pn $f)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_tf.nextNode(), root_1);
@@ -12881,7 +12881,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2523:5: -> {$c!=null}? ^( $tc $pn $c)
 					if (c!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2523:20: ^( $tc $pn $c)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2523:20: ^( $tc $pn $c)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_tc.nextNode(), root_1);
@@ -12894,7 +12894,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2524:5: -> {$u!=null}? ^( $tc $pn $u)
 					if (u!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2524:20: ^( $tc $pn $u)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2524:20: ^( $tc $pn $u)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_tc.nextNode(), root_1);
@@ -12907,7 +12907,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2525:5: -> ^( $q $pn)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2525:8: ^( $q $pn)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2525:8: ^( $q $pn)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_q.nextNode(), root_1);
@@ -12924,7 +12924,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2530:3: nam= name
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2530:3: nam= name
 					{
 					pushFollow(FOLLOW_name_in_value9972);
 					nam=name();
@@ -12956,7 +12956,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2532:3: li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2532:3: li= LITERAL_in 'mode' LPAREN (i+= identifier )+ RPAREN
 					{
 					li=(Token)match(input,LITERAL_in,FOLLOW_LITERAL_in_in_value9987); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_in.add(li);
@@ -12967,7 +12967,7 @@ public class BLESStoASTParser extends Parser {
 					LPAREN198=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_value9991); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN198);
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2532:41: (i+= identifier )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2532:41: (i+= identifier )+
 					int cnt117=0;
 					loop117:
 					while (true) {
@@ -12979,7 +12979,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt117) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2532:41: i+= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2532:41: i+= identifier
 							{
 							pushFollow(FOLLOW_identifier_in_value9996);
 							i=identifier();
@@ -13017,7 +13017,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2533:5: -> ^( INMODE[$li,\"in mode\"] ( $i)+ )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2533:8: ^( INMODE[$li,\"in mode\"] ( $i)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2533:8: ^( INMODE[$li,\"in mode\"] ( $i)+ )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INMODE, li, "in mode"), root_1);
@@ -13041,7 +13041,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2535:3: timeout= LITERAL_timeout
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2535:3: timeout= LITERAL_timeout
 					{
 					timeout=(Token)match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_value10025); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_timeout.add(timeout);
@@ -13071,7 +13071,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2537:3: nu= LITERAL_null
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2537:3: nu= LITERAL_null
 					{
 					nu=(Token)match(input,LITERAL_null,FOLLOW_LITERAL_null_in_value10040); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_null.add(nu);
@@ -13101,7 +13101,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2539:3: now= LITERAL_now
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2539:3: now= LITERAL_now
 					{
 					now=(Token)match(input,LITERAL_now,FOLLOW_LITERAL_now_in_value10055); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_now.add(now);
@@ -13131,7 +13131,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2541:3: tops= LITERAL_tops
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2541:3: tops= LITERAL_tops
 					{
 					tops=(Token)match(input,LITERAL_tops,FOLLOW_LITERAL_tops_in_value10070); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_tops.add(tops);
@@ -13190,7 +13190,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "value_constant"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2546:1: value_constant : ( LITERAL_true | LITERAL_false | numeric_constant | AADL_STRING_LITERAL | enumeration_value );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2546:1: value_constant : ( LITERAL_true | LITERAL_false | numeric_constant | AADL_STRING_LITERAL | enumeration_value );
 	public final BLESStoASTParser.value_constant_return value_constant() throws RecognitionException {
 		BLESStoASTParser.value_constant_return retval = new BLESStoASTParser.value_constant_return();
 		retval.start = input.LT(1);
@@ -13208,7 +13208,7 @@ public class BLESStoASTParser extends Parser {
 		BAST AADL_STRING_LITERAL203_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2547:3: ( LITERAL_true | LITERAL_false | numeric_constant | AADL_STRING_LITERAL | enumeration_value )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2547:3: ( LITERAL_true | LITERAL_false | numeric_constant | AADL_STRING_LITERAL | enumeration_value )
 			int alt119=5;
 			switch ( input.LA(1) ) {
 			case LITERAL_true:
@@ -13268,7 +13268,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt119) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2548:3: LITERAL_true
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2548:3: LITERAL_true
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13282,7 +13282,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2548:18: LITERAL_false
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2548:18: LITERAL_false
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13296,7 +13296,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2549:5: numeric_constant
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2549:5: numeric_constant
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13310,7 +13310,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2550:5: AADL_STRING_LITERAL
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2550:5: AADL_STRING_LITERAL
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13324,7 +13324,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2551:5: enumeration_value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2551:5: enumeration_value
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13367,7 +13367,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "enumeration_value"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2557:1: enumeration_value : enum_type= identifier tick= TICK enum_value= identifier -> ^( $tick $enum_type $enum_value) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2557:1: enumeration_value : enum_type= identifier tick= TICK enum_value= identifier -> ^( $tick $enum_type $enum_value) ;
 	public final BLESStoASTParser.enumeration_value_return enumeration_value() throws RecognitionException {
 		BLESStoASTParser.enumeration_value_return retval = new BLESStoASTParser.enumeration_value_return();
 		retval.start = input.LT(1);
@@ -13383,8 +13383,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_identifier=new RewriteRuleSubtreeStream(adaptor,"rule identifier");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2558:3: (enum_type= identifier tick= TICK enum_value= identifier -> ^( $tick $enum_type $enum_value) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2559:3: enum_type= identifier tick= TICK enum_value= identifier
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2558:3: (enum_type= identifier tick= TICK enum_value= identifier -> ^( $tick $enum_type $enum_value) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2559:3: enum_type= identifier tick= TICK enum_value= identifier
 			{
 			pushFollow(FOLLOW_identifier_in_enumeration_value10151);
 			enum_type=identifier();
@@ -13416,7 +13416,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2560:5: -> ^( $tick $enum_type $enum_value)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2560:8: ^( $tick $enum_type $enum_value)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2560:8: ^( $tick $enum_type $enum_value)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_tick.nextNode(), root_1);
@@ -13461,7 +13461,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "property"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2563:1: property : ( property_constant | property_reference );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2563:1: property : ( property_constant | property_reference );
 	public final BLESStoASTParser.property_return property() throws RecognitionException {
 		BLESStoASTParser.property_return retval = new BLESStoASTParser.property_return();
 		retval.start = input.LT(1);
@@ -13473,7 +13473,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2564:3: ( property_constant | property_reference )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2564:3: ( property_constant | property_reference )
 			int alt120=2;
 			int LA120_0 = input.LA(1);
 			if ( (LA120_0==ID) ) {
@@ -13553,7 +13553,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt120) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2565:3: property_constant
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2565:3: property_constant
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13567,7 +13567,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2565:23: property_reference
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2565:23: property_reference
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -13610,7 +13610,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "property_constant"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2568:1: property_constant : ps= identifier dc= DOUBLE_COLON ^p= identifier ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2568:1: property_constant : ps= identifier dc= DOUBLE_COLON ^p= identifier ;
 	public final BLESStoASTParser.property_constant_return property_constant() throws RecognitionException {
 		BLESStoASTParser.property_constant_return retval = new BLESStoASTParser.property_constant_return();
 		retval.start = input.LT(1);
@@ -13624,8 +13624,8 @@ public class BLESStoASTParser extends Parser {
 		BAST dc_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2569:3: (ps= identifier dc= DOUBLE_COLON ^p= identifier )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2570:3: ps= identifier dc= DOUBLE_COLON ^p= identifier
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2569:3: (ps= identifier dc= DOUBLE_COLON ^p= identifier )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2570:3: ps= identifier dc= DOUBLE_COLON ^p= identifier
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -13678,7 +13678,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "property_reference"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2573:1: property_reference : (oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $pname ( $field)* ) |self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $self $pname ( $field)* ) |component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $component $pname ( $field)* ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2573:1: property_reference : (oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $pname ( $field)* ) |self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $self $pname ( $field)* ) |component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $component $pname ( $field)* ) );
 	public final BLESStoASTParser.property_reference_return property_reference() throws RecognitionException {
 		BLESStoASTParser.property_reference_return retval = new BLESStoASTParser.property_reference_return();
 		retval.start = input.LT(1);
@@ -13700,7 +13700,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_property_name=new RewriteRuleSubtreeStream(adaptor,"rule property_name");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2574:3: (oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $pname ( $field)* ) |self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $self $pname ( $field)* ) |component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $component $pname ( $field)* ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2574:3: (oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $pname ( $field)* ) |self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $self $pname ( $field)* ) |component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )* -> ^( $oc $component $pname ( $field)* ) )
 			int alt124=3;
 			switch ( input.LA(1) ) {
 			case OCTOTHORPE:
@@ -13726,7 +13726,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt124) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2575:3: oc= OCTOTHORPE pname= property_name (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2575:3: oc= OCTOTHORPE pname= property_name (field+= property_field )*
 					{
 					oc=(Token)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference10244); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_OCTOTHORPE.add(oc);
@@ -13736,7 +13736,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_property_name.add(pname.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2577:5: (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2577:5: (field+= property_field )*
 					loop121:
 					while (true) {
 						int alt121=2;
@@ -13747,7 +13747,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt121) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2577:7: field+= property_field
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2577:7: field+= property_field
 							{
 							pushFollow(FOLLOW_property_field_in_property_reference10263);
 							field=property_field();
@@ -13780,12 +13780,12 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2578:5: -> ^( $oc $pname ( $field)* )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2578:8: ^( $oc $pname ( $field)* )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2578:8: ^( $oc $pname ( $field)* )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_oc.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_pname.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2578:22: ( $field)*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2578:22: ( $field)*
 						while ( stream_field.hasNext() ) {
 							adaptor.addChild(root_1, stream_field.nextTree());
 						}
@@ -13803,7 +13803,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2580:5: self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2580:5: self= LITERAL_self oc= OCTOTHORPE pname= property_name (field+= property_field )*
 					{
 					self=(Token)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_property_reference10293); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_self.add(self);
@@ -13816,7 +13816,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_property_name.add(pname.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2580:57: (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2580:57: (field+= property_field )*
 					loop122:
 					while (true) {
 						int alt122=2;
@@ -13827,7 +13827,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt122) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2580:59: field+= property_field
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2580:59: field+= property_field
 							{
 							pushFollow(FOLLOW_property_field_in_property_reference10307);
 							field=property_field();
@@ -13861,13 +13861,13 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2581:5: -> ^( $oc $self $pname ( $field)* )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2581:8: ^( $oc $self $pname ( $field)* )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2581:8: ^( $oc $self $pname ( $field)* )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_oc.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_self.nextNode());
 						adaptor.addChild(root_1, stream_pname.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2581:28: ( $field)*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2581:28: ( $field)*
 						while ( stream_field.hasNext() ) {
 							adaptor.addChild(root_1, stream_field.nextTree());
 						}
@@ -13885,7 +13885,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2584:5: component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2584:5: component= unique_component_classifier_reference oc= OCTOTHORPE pname= property_name (field+= property_field )*
 					{
 					pushFollow(FOLLOW_unique_component_classifier_reference_in_property_reference10341);
 					component=unique_component_classifier_reference();
@@ -13900,7 +13900,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_property_name.add(pname.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2585:5: (field+= property_field )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2585:5: (field+= property_field )*
 					loop123:
 					while (true) {
 						int alt123=2;
@@ -13911,7 +13911,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt123) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2585:7: field+= property_field
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2585:7: field+= property_field
 							{
 							pushFollow(FOLLOW_property_field_in_property_reference10359);
 							field=property_field();
@@ -13945,13 +13945,13 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2586:5: -> ^( $oc $component $pname ( $field)* )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2586:8: ^( $oc $component $pname ( $field)* )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2586:8: ^( $oc $component $pname ( $field)* )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_oc.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_component.nextTree());
 						adaptor.addChild(root_1, stream_pname.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2586:33: ( $field)*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2586:33: ( $field)*
 						while ( stream_field.hasNext() ) {
 							adaptor.addChild(root_1, stream_field.nextTree());
 						}
@@ -13998,7 +13998,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "property_field"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2589:1: property_field : ( LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET | PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2589:1: property_field : ( LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET | PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound ) );
 	public final BLESStoASTParser.property_field_return property_field() throws RecognitionException {
 		BLESStoASTParser.property_field_return retval = new BLESStoASTParser.property_field_return();
 		retval.start = input.LT(1);
@@ -14018,7 +14018,7 @@ public class BLESStoASTParser extends Parser {
 		BAST set211_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2590:3: ( LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET | PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2590:3: ( LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET | PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound ) )
 			int alt125=2;
 			int LA125_0 = input.LA(1);
 			if ( (LA125_0==LBRACKET) ) {
@@ -14037,7 +14037,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt125) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2591:3: LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2591:3: LBRACKET ^ ( INTEGER_LIT | ID ) RBRACKET
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14069,7 +14069,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2593:3: PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2593:3: PERIOD ^ ( ID | LITERAL_upper_bound | LITERAL_lower_bound )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14124,7 +14124,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "property_name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2596:1: property_name : ps= identifier dc= DOUBLE_COLON p= identifier -> ^( $dc $ps $p) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2596:1: property_name : ps= identifier dc= DOUBLE_COLON p= identifier -> ^( $dc $ps $p) ;
 	public final BLESStoASTParser.property_name_return property_name() throws RecognitionException {
 		BLESStoASTParser.property_name_return retval = new BLESStoASTParser.property_name_return();
 		retval.start = input.LT(1);
@@ -14140,8 +14140,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_identifier=new RewriteRuleSubtreeStream(adaptor,"rule identifier");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2597:3: (ps= identifier dc= DOUBLE_COLON p= identifier -> ^( $dc $ps $p) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2598:3: ps= identifier dc= DOUBLE_COLON p= identifier
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2597:3: (ps= identifier dc= DOUBLE_COLON p= identifier -> ^( $dc $ps $p) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2598:3: ps= identifier dc= DOUBLE_COLON p= identifier
 			{
 			pushFollow(FOLLOW_identifier_in_property_name10447);
 			ps=identifier();
@@ -14173,7 +14173,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2599:5: -> ^( $dc $ps $p)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2599:8: ^( $dc $ps $p)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2599:8: ^( $dc $ps $p)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dc.nextNode(), root_1);
@@ -14218,7 +14218,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "numeric_constant"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2603:1: numeric_constant : ( INTEGER_LIT | REAL_LIT | rational_literal | complex_literal | property );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2603:1: numeric_constant : ( INTEGER_LIT | REAL_LIT | rational_literal | complex_literal | property );
 	public final BLESStoASTParser.numeric_constant_return numeric_constant() throws RecognitionException {
 		BLESStoASTParser.numeric_constant_return retval = new BLESStoASTParser.numeric_constant_return();
 		retval.start = input.LT(1);
@@ -14235,7 +14235,7 @@ public class BLESStoASTParser extends Parser {
 		BAST REAL_LIT213_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2604:3: ( INTEGER_LIT | REAL_LIT | rational_literal | complex_literal | property )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2604:3: ( INTEGER_LIT | REAL_LIT | rational_literal | complex_literal | property )
 			int alt126=5;
 			switch ( input.LA(1) ) {
 			case INTEGER_LIT:
@@ -14317,7 +14317,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt126) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2605:3: INTEGER_LIT
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2605:3: INTEGER_LIT
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14331,7 +14331,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2606:5: REAL_LIT
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2606:5: REAL_LIT
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14345,7 +14345,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2608:3: rational_literal
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2608:3: rational_literal
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14359,7 +14359,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2608:22: complex_literal
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2608:22: complex_literal
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14373,7 +14373,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2609:5: property
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2609:5: property
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -14416,7 +14416,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "expression_or_relation"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2612:1: expression_or_relation : ( ( LPAREN ID ARROW )=>rt= record_term -> $rt| ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= expression -> $e);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2612:1: expression_or_relation : ( ( LPAREN ID ARROW )=>rt= record_term -> $rt| ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= expression -> $e);
 	public final BLESStoASTParser.expression_or_relation_return expression_or_relation() throws RecognitionException {
 		BLESStoASTParser.expression_or_relation_return retval = new BLESStoASTParser.expression_or_relation_return();
 		retval.start = input.LT(1);
@@ -14435,7 +14435,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2614:3: ( ( LPAREN ID ARROW )=>rt= record_term -> $rt| ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= expression -> $e)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2614:3: ( ( LPAREN ID ARROW )=>rt= record_term -> $rt| ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= expression -> $e)
 			int alt127=3;
 			switch ( input.LA(1) ) {
 			case LPAREN:
@@ -14725,7 +14725,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt127) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2615:3: ( LPAREN ID ARROW )=>rt= record_term
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2615:3: ( LPAREN ID ARROW )=>rt= record_term
 					{
 					pushFollow(FOLLOW_record_term_in_expression_or_relation10552);
 					rt=record_term();
@@ -14757,7 +14757,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2619:3: ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2619:3: ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression
 					{
 					pushFollow(FOLLOW_subexpression_in_expression_or_relation10582);
 					e1=subexpression();
@@ -14791,7 +14791,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2622:5: -> ^( $rs $e1 $e2)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2622:8: ^( $rs $e1 $e2)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2622:8: ^( $rs $e1 $e2)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_rs.nextNode(), root_1);
@@ -14809,7 +14809,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2624:3: e= expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2624:3: e= expression
 					{
 					pushFollow(FOLLOW_expression_in_expression_or_relation10623);
 					e=expression();
@@ -14870,7 +14870,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "boolean_expression_or_relation"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2631:1: boolean_expression_or_relation : ( ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= boolean_expression -> $e);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2631:1: boolean_expression_or_relation : ( ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= boolean_expression -> $e);
 	public final BLESStoASTParser.boolean_expression_or_relation_return boolean_expression_or_relation() throws RecognitionException {
 		BLESStoASTParser.boolean_expression_or_relation_return retval = new BLESStoASTParser.boolean_expression_or_relation_return();
 		retval.start = input.LT(1);
@@ -14887,7 +14887,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2633:3: ( ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= boolean_expression -> $e)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2633:3: ( ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression -> ^( $rs $e1 $e2) |e= boolean_expression -> $e)
 			int alt128=2;
 			int LA128_0 = input.LA(1);
 			if ( (LA128_0==MINUS) && (synpred6_BLESStoAST())) {
@@ -15074,7 +15074,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt128) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2634:3: ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2634:3: ( subexpression relation_symbol )=>e1= subexpression rs= relation_symbol e2= subexpression
 					{
 					pushFollow(FOLLOW_subexpression_in_boolean_expression_or_relation10672);
 					e1=subexpression();
@@ -15108,7 +15108,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2639:3: -> ^( $rs $e1 $e2)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2639:6: ^( $rs $e1 $e2)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2639:6: ^( $rs $e1 $e2)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_rs.nextNode(), root_1);
@@ -15126,7 +15126,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2641:3: e= boolean_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2641:3: e= boolean_expression
 					{
 					pushFollow(FOLLOW_boolean_expression_in_boolean_expression_or_relation10713);
 					e=boolean_expression();
@@ -15188,7 +15188,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "function_call"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2649:1: function_call : (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN -> ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2649:1: function_call : (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN -> ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? ) ;
 	public final BLESStoASTParser.function_call_return function_call() throws RecognitionException {
 		BLESStoASTParser.function_call_return retval = new BLESStoASTParser.function_call_return();
 		retval.start = input.LT(1);
@@ -15212,10 +15212,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_function_parameters=new RewriteRuleSubtreeStream(adaptor,"rule function_parameters");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2651:3: ( (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN -> ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2652:3: (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2651:3: ( (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN -> ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2652:3: (p+= identifier DOUBLE_COLON )+ id= identifier lp= LPAREN (fp= function_parameters )? RPAREN
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2652:3: (p+= identifier DOUBLE_COLON )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2652:3: (p+= identifier DOUBLE_COLON )+
 			int cnt129=0;
 			loop129:
 			while (true) {
@@ -15231,7 +15231,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt129) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2652:17: p+= identifier DOUBLE_COLON
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2652:17: p+= identifier DOUBLE_COLON
 					{
 					pushFollow(FOLLOW_identifier_in_function_call10762);
 					p=identifier();
@@ -15263,7 +15263,7 @@ public class BLESStoASTParser extends Parser {
 			lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_function_call10778); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(lp);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2653:42: (fp= function_parameters )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2653:42: (fp= function_parameters )?
 			int alt130=2;
 			int LA130_0 = input.LA(1);
 			if ( (LA130_0==ID) ) {
@@ -15271,7 +15271,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt130) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2653:42: fp= function_parameters
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2653:42: fp= function_parameters
 					{
 					pushFollow(FOLLOW_function_parameters_in_function_call10782);
 					fp=function_parameters();
@@ -15302,11 +15302,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2654:3: -> ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2654:6: ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2654:6: ^( FUNCTION_CALL[$lp,\"FUNCTION_CALL\"] ^( DOUBLE_COLON ( $p)+ ) $id ( $fp)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(FUNCTION_CALL, lp, "FUNCTION_CALL"), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2654:43: ^( DOUBLE_COLON ( $p)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2654:43: ^( DOUBLE_COLON ( $p)+ )
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_DOUBLE_COLON.nextNode(), root_2);
@@ -15322,7 +15322,7 @@ public class BLESStoASTParser extends Parser {
 				}
 
 				adaptor.addChild(root_1, stream_id.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2654:68: ( $fp)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2654:68: ( $fp)?
 				if ( stream_fp.hasNext() ) {
 					adaptor.addChild(root_1, stream_fp.nextTree());
 				}
@@ -15368,7 +15368,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "function_parameters"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2663:1: function_parameters :param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2663:1: function_parameters :param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )? ;
 	public final BLESStoASTParser.function_parameters_return function_parameters() throws RecognitionException {
 		BLESStoASTParser.function_parameters_return retval = new BLESStoASTParser.function_parameters_return();
 		retval.start = input.LT(1);
@@ -15383,8 +15383,8 @@ public class BLESStoASTParser extends Parser {
 		BAST COMMA220_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2664:3: (param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2665:3: param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2664:3: (param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2665:3: param+= formal_expression_pair ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -15397,7 +15397,7 @@ public class BLESStoASTParser extends Parser {
 
 			if (list_param==null) list_param=new ArrayList<Object>();
 			list_param.add(param.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2665:33: ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2665:33: ( COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )* )?
 			int alt132=2;
 			int LA132_0 = input.LA(1);
 			if ( (LA132_0==COMMA) ) {
@@ -15405,7 +15405,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt132) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2665:35: COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2665:35: COMMA ^param+= formal_expression_pair ( COMMA param+= formal_expression_pair )*
 					{
 					COMMA219=(Token)match(input,COMMA,FOLLOW_COMMA_in_function_parameters10848); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -15421,7 +15421,7 @@ public class BLESStoASTParser extends Parser {
 
 					if (list_param==null) list_param=new ArrayList<Object>();
 					list_param.add(param.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2666:5: ( COMMA param+= formal_expression_pair )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2666:5: ( COMMA param+= formal_expression_pair )*
 					loop131:
 					while (true) {
 						int alt131=2;
@@ -15432,7 +15432,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt131) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2666:7: COMMA param+= formal_expression_pair
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2666:7: COMMA param+= formal_expression_pair
 							{
 							COMMA220=(Token)match(input,COMMA,FOLLOW_COMMA_in_function_parameters10864); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -15491,7 +15491,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "formal_expression_pair"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2669:1: formal_expression_pair : formal= ID COLON ^actual= expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2669:1: formal_expression_pair : formal= ID COLON ^actual= expression ;
 	public final BLESStoASTParser.formal_expression_pair_return formal_expression_pair() throws RecognitionException {
 		BLESStoASTParser.formal_expression_pair_return retval = new BLESStoASTParser.formal_expression_pair_return();
 		retval.start = input.LT(1);
@@ -15506,8 +15506,8 @@ public class BLESStoASTParser extends Parser {
 		BAST COLON221_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2670:3: (formal= ID COLON ^actual= expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2671:3: formal= ID COLON ^actual= expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2670:3: (formal= ID COLON ^actual= expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2671:3: formal= ID COLON ^actual= expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -15560,7 +15560,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2676:1: type : (tn= type_name -> $tn|et= enumeration_type -> $et|nt= number_type -> $nt|at= array_type -> $at|rt= record_type -> $rt|vt= variant_type -> $vt|b= LITERAL_boolean -> $b|s= LITERAL_string -> $s);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2676:1: type : (tn= type_name -> $tn|et= enumeration_type -> $et|nt= number_type -> $nt|at= array_type -> $at|rt= record_type -> $rt|vt= variant_type -> $vt|b= LITERAL_boolean -> $b|s= LITERAL_string -> $s);
 	public final BLESStoASTParser.type_return type() throws RecognitionException {
 		BLESStoASTParser.type_return retval = new BLESStoASTParser.type_return();
 		retval.start = input.LT(1);
@@ -15588,7 +15588,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_record_type=new RewriteRuleSubtreeStream(adaptor,"rule record_type");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2677:3: (tn= type_name -> $tn|et= enumeration_type -> $et|nt= number_type -> $nt|at= array_type -> $at|rt= record_type -> $rt|vt= variant_type -> $vt|b= LITERAL_boolean -> $b|s= LITERAL_string -> $s)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2677:3: (tn= type_name -> $tn|et= enumeration_type -> $et|nt= number_type -> $nt|at= array_type -> $at|rt= record_type -> $rt|vt= variant_type -> $vt|b= LITERAL_boolean -> $b|s= LITERAL_string -> $s)
 			int alt133=8;
 			switch ( input.LA(1) ) {
 			case ID:
@@ -15644,7 +15644,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt133) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2679:3: tn= type_name
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2679:3: tn= type_name
 					{
 					pushFollow(FOLLOW_type_name_in_type10923);
 					tn=type_name();
@@ -15676,7 +15676,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2682:3: et= enumeration_type
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2682:3: et= enumeration_type
 					{
 					pushFollow(FOLLOW_enumeration_type_in_type10942);
 					et=enumeration_type();
@@ -15708,7 +15708,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2685:3: nt= number_type
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2685:3: nt= number_type
 					{
 					pushFollow(FOLLOW_number_type_in_type10961);
 					nt=number_type();
@@ -15740,7 +15740,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2688:3: at= array_type
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2688:3: at= array_type
 					{
 					pushFollow(FOLLOW_array_type_in_type10980);
 					at=array_type();
@@ -15772,7 +15772,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2691:3: rt= record_type
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2691:3: rt= record_type
 					{
 					pushFollow(FOLLOW_record_type_in_type10999);
 					rt=record_type();
@@ -15804,7 +15804,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2694:3: vt= variant_type
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2694:3: vt= variant_type
 					{
 					pushFollow(FOLLOW_variant_type_in_type11018);
 					vt=variant_type();
@@ -15836,7 +15836,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2700:3: b= LITERAL_boolean
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2700:3: b= LITERAL_boolean
 					{
 					b=(Token)match(input,LITERAL_boolean,FOLLOW_LITERAL_boolean_in_type11040); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_boolean.add(b);
@@ -15866,7 +15866,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2702:3: s= LITERAL_string
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2702:3: s= LITERAL_string
 					{
 					s=(Token)match(input,LITERAL_string,FOLLOW_LITERAL_string_in_type11055); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_string.add(s);
@@ -15933,7 +15933,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "enumeration_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2715:1: enumeration_type : LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2715:1: enumeration_type : LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !;
 	public final BLESStoASTParser.enumeration_type_return enumeration_type() throws RecognitionException {
 		BLESStoASTParser.enumeration_type_return retval = new BLESStoASTParser.enumeration_type_return();
 		retval.start = input.LT(1);
@@ -15953,8 +15953,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN227_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2716:3: ( LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2717:2: LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2716:3: ( LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2717:2: LITERAL_enumeration ^ LPAREN ! identifier ( COMMA ! identifier )* RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -15972,7 +15972,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, identifier224.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2718:4: ( COMMA ! identifier )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2718:4: ( COMMA ! identifier )*
 			loop134:
 			while (true) {
 				int alt134=2;
@@ -15983,7 +15983,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt134) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2718:5: COMMA ! identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2718:5: COMMA ! identifier
 					{
 					COMMA225=(Token)match(input,COMMA,FOLLOW_COMMA_in_enumeration_type11098); if (state.failed) return retval;
 					pushFollow(FOLLOW_identifier_in_enumeration_type11101);
@@ -16032,7 +16032,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "number_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2748:1: number_type : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )? -> {u!=null}? ^( $n ^( $u $ud) ( $r)? ) -> ^( $n ( $r)? ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2748:1: number_type : (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )? -> {u!=null}? ^( $n ^( $u $ud) ( $r)? ) -> ^( $n ( $r)? ) ;
 	public final BLESStoASTParser.number_type_return number_type() throws RecognitionException {
 		BLESStoASTParser.number_type_return retval = new BLESStoASTParser.number_type_return();
 		retval.start = input.LT(1);
@@ -16057,10 +16057,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_units_designator=new RewriteRuleSubtreeStream(adaptor,"rule units_designator");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2749:3: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )? -> {u!=null}? ^( $n ^( $u $ud) ( $r)? ) -> ^( $n ( $r)? ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2750:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2749:3: ( (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )? -> {u!=null}? ^( $n ^( $u $ud) ( $r)? ) -> ^( $n ( $r)? ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2750:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time ) (r= number_range )? (u= LITERAL_units ud= units_designator )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2750:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2750:3: (n= LITERAL_natural |n= LITERAL_integer |n= LITERAL_rational |n= LITERAL_real |n= LITERAL_complex |n= LITERAL_time )
 			int alt135=6;
 			switch ( input.LA(1) ) {
 			case LITERAL_natural:
@@ -16101,7 +16101,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt135) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2750:4: n= LITERAL_natural
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2750:4: n= LITERAL_natural
 					{
 					n=(Token)match(input,LITERAL_natural,FOLLOW_LITERAL_natural_in_number_type11160); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_natural.add(n);
@@ -16109,7 +16109,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2751:3: n= LITERAL_integer
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2751:3: n= LITERAL_integer
 					{
 					n=(Token)match(input,LITERAL_integer,FOLLOW_LITERAL_integer_in_number_type11169); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_integer.add(n);
@@ -16117,7 +16117,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2752:3: n= LITERAL_rational
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2752:3: n= LITERAL_rational
 					{
 					n=(Token)match(input,LITERAL_rational,FOLLOW_LITERAL_rational_in_number_type11178); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_rational.add(n);
@@ -16125,7 +16125,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2753:3: n= LITERAL_real
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2753:3: n= LITERAL_real
 					{
 					n=(Token)match(input,LITERAL_real,FOLLOW_LITERAL_real_in_number_type11187); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_real.add(n);
@@ -16133,7 +16133,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2754:3: n= LITERAL_complex
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2754:3: n= LITERAL_complex
 					{
 					n=(Token)match(input,LITERAL_complex,FOLLOW_LITERAL_complex_in_number_type11196); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_complex.add(n);
@@ -16141,7 +16141,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2755:3: n= LITERAL_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2755:3: n= LITERAL_time
 					{
 					n=(Token)match(input,LITERAL_time,FOLLOW_LITERAL_time_in_number_type11204); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_time.add(n);
@@ -16151,7 +16151,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2756:4: (r= number_range )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2756:4: (r= number_range )?
 			int alt136=2;
 			int LA136_0 = input.LA(1);
 			if ( (LA136_0==LBRACKET) ) {
@@ -16159,7 +16159,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt136) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2756:4: r= number_range
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2756:4: r= number_range
 					{
 					pushFollow(FOLLOW_number_range_in_number_type11212);
 					r=number_range();
@@ -16171,7 +16171,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2756:19: (u= LITERAL_units ud= units_designator )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2756:19: (u= LITERAL_units ud= units_designator )?
 			int alt137=2;
 			int LA137_0 = input.LA(1);
 			if ( (LA137_0==LITERAL_units) ) {
@@ -16179,7 +16179,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt137) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2756:21: u= LITERAL_units ud= units_designator
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2756:21: u= LITERAL_units ud= units_designator
 					{
 					u=(Token)match(input,LITERAL_units,FOLLOW_LITERAL_units_in_number_type11219); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_units.add(u);
@@ -16212,11 +16212,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2757:4: -> {u!=null}? ^( $n ^( $u $ud) ( $r)? )
 			if (u!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2757:18: ^( $n ^( $u $ud) ( $r)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2757:18: ^( $n ^( $u $ud) ( $r)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2757:23: ^( $u $ud)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2757:23: ^( $u $ud)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_u.nextNode(), root_2);
@@ -16224,7 +16224,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2757:34: ( $r)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2757:34: ( $r)?
 				if ( stream_r.hasNext() ) {
 					adaptor.addChild(root_1, stream_r.nextTree());
 				}
@@ -16237,11 +16237,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2758:4: -> ^( $n ( $r)? )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2758:7: ^( $n ( $r)? )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2758:7: ^( $n ( $r)? )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2758:13: ( $r)?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2758:13: ( $r)?
 				if ( stream_r.hasNext() ) {
 					adaptor.addChild(root_1, stream_r.nextTree());
 				}
@@ -16286,7 +16286,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "number_range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2763:1: number_range : LBRACKET ! constant_number_range RBRACKET !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2763:1: number_range : LBRACKET ! constant_number_range RBRACKET !;
 	public final BLESStoASTParser.number_range_return number_range() throws RecognitionException {
 		BLESStoASTParser.number_range_return retval = new BLESStoASTParser.number_range_return();
 		retval.start = input.LT(1);
@@ -16301,8 +16301,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RBRACKET230_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2764:3: ( LBRACKET ! constant_number_range RBRACKET !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2765:3: LBRACKET ! constant_number_range RBRACKET !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2764:3: ( LBRACKET ! constant_number_range RBRACKET !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2765:3: LBRACKET ! constant_number_range RBRACKET !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -16345,7 +16345,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "constant_number_range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2768:1: constant_number_range : (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant -> {(lb_um!=null)&&(ub_um!=null)}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) ) -> {lb_um!=null}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub) -> {ub_um!=null}? ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) ) -> ^( $dd $lb $ub) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2768:1: constant_number_range : (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant -> {(lb_um!=null)&&(ub_um!=null)}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) ) -> {lb_um!=null}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub) -> {ub_um!=null}? ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) ) -> ^( $dd $lb $ub) ;
 	public final BLESStoASTParser.constant_number_range_return constant_number_range() throws RecognitionException {
 		BLESStoASTParser.constant_number_range_return retval = new BLESStoASTParser.constant_number_range_return();
 		retval.start = input.LT(1);
@@ -16366,10 +16366,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_numeric_constant=new RewriteRuleSubtreeStream(adaptor,"rule numeric_constant");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2769:3: ( (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant -> {(lb_um!=null)&&(ub_um!=null)}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) ) -> {lb_um!=null}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub) -> {ub_um!=null}? ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) ) -> ^( $dd $lb $ub) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2770:3: (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2769:3: ( (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant -> {(lb_um!=null)&&(ub_um!=null)}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) ) -> {lb_um!=null}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub) -> {ub_um!=null}? ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) ) -> ^( $dd $lb $ub) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2770:3: (lb_um= MINUS )? lb= numeric_constant dd= DOTDOT (ub_um= MINUS )? ub= numeric_constant
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2770:8: (lb_um= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2770:8: (lb_um= MINUS )?
 			int alt138=2;
 			int LA138_0 = input.LA(1);
 			if ( (LA138_0==MINUS) ) {
@@ -16377,7 +16377,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt138) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2770:8: lb_um= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2770:8: lb_um= MINUS
 					{
 					lb_um=(Token)match(input,MINUS,FOLLOW_MINUS_in_constant_number_range11311); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(lb_um);
@@ -16395,7 +16395,7 @@ public class BLESStoASTParser extends Parser {
 			dd=(Token)match(input,DOTDOT,FOLLOW_DOTDOT_in_constant_number_range11320); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_DOTDOT.add(dd);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2770:51: (ub_um= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2770:51: (ub_um= MINUS )?
 			int alt139=2;
 			int LA139_0 = input.LA(1);
 			if ( (LA139_0==MINUS) ) {
@@ -16403,7 +16403,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt139) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2770:51: ub_um= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2770:51: ub_um= MINUS
 					{
 					ub_um=(Token)match(input,MINUS,FOLLOW_MINUS_in_constant_number_range11324); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(ub_um);
@@ -16435,11 +16435,11 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2771:3: -> {(lb_um!=null)&&(ub_um!=null)}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) )
 			if ((lb_um!=null)&&(ub_um!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2771:38: ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2771:38: ^( $dd ^( UNARY_MINUS[$lb_um] $lb) ^( UNARY_MINUS[$ub_um] $ub) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dd.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2771:44: ^( UNARY_MINUS[$lb_um] $lb)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2771:44: ^( UNARY_MINUS[$lb_um] $lb)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, lb_um), root_2);
@@ -16447,7 +16447,7 @@ public class BLESStoASTParser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2771:71: ^( UNARY_MINUS[$ub_um] $ub)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2771:71: ^( UNARY_MINUS[$ub_um] $ub)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, ub_um), root_2);
@@ -16462,11 +16462,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2772:3: -> {lb_um!=null}? ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub)
 			if (lb_um!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2772:21: ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2772:21: ^( $dd ^( UNARY_MINUS[$lb_um] $lb) $ub)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dd.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2772:27: ^( UNARY_MINUS[$lb_um] $lb)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2772:27: ^( UNARY_MINUS[$lb_um] $lb)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, lb_um), root_2);
@@ -16482,12 +16482,12 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2773:3: -> {ub_um!=null}? ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) )
 			if (ub_um!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2773:21: ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2773:21: ^( $dd $lb ^( UNARY_MINUS[$ub_um] $ub) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dd.nextNode(), root_1);
 				adaptor.addChild(root_1, stream_lb.nextTree());
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2773:31: ^( UNARY_MINUS[$ub_um] $ub)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2773:31: ^( UNARY_MINUS[$ub_um] $ub)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, ub_um), root_2);
@@ -16502,7 +16502,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 2774:3: -> ^( $dd $lb $ub)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2774:6: ^( $dd $lb $ub)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2774:6: ^( $dd $lb $ub)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dd.nextNode(), root_1);
@@ -16547,7 +16547,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "units_designator"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2777:1: units_designator : ( identifier | time_unit );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2777:1: units_designator : ( identifier | time_unit );
 	public final BLESStoASTParser.units_designator_return units_designator() throws RecognitionException {
 		BLESStoASTParser.units_designator_return retval = new BLESStoASTParser.units_designator_return();
 		retval.start = input.LT(1);
@@ -16559,7 +16559,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2778:3: ( identifier | time_unit )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2778:3: ( identifier | time_unit )
 			int alt140=2;
 			int LA140_0 = input.LA(1);
 			if ( (LA140_0==ID) ) {
@@ -16578,7 +16578,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt140) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2779:34: identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2779:34: identifier
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -16592,7 +16592,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2780:5: time_unit
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2780:5: time_unit
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -16635,7 +16635,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "unique_component_classifier_reference"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2795:1: unique_component_classifier_reference : (p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )? -> {ii!=null}? ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) ) -> ^( DOUBLE_COLON ( $p)+ ) |dci= identifier ( PERIOD ii= identifier )? -> {ii!=null}? ^( PERIOD $dci $ii) -> $dci);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2795:1: unique_component_classifier_reference : (p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )? -> {ii!=null}? ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) ) -> ^( DOUBLE_COLON ( $p)+ ) |dci= identifier ( PERIOD ii= identifier )? -> {ii!=null}? ^( PERIOD $dci $ii) -> $dci);
 	public final BLESStoASTParser.unique_component_classifier_reference_return unique_component_classifier_reference() throws RecognitionException {
 		BLESStoASTParser.unique_component_classifier_reference_return retval = new BLESStoASTParser.unique_component_classifier_reference_return();
 		retval.start = input.LT(1);
@@ -16657,7 +16657,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_identifier=new RewriteRuleSubtreeStream(adaptor,"rule identifier");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2796:3: (p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )? -> {ii!=null}? ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) ) -> ^( DOUBLE_COLON ( $p)+ ) |dci= identifier ( PERIOD ii= identifier )? -> {ii!=null}? ^( PERIOD $dci $ii) -> $dci)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2796:3: (p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )? -> {ii!=null}? ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) ) -> ^( DOUBLE_COLON ( $p)+ ) |dci= identifier ( PERIOD ii= identifier )? -> {ii!=null}? ^( PERIOD $dci $ii) -> $dci)
 			int alt144=2;
 			int LA144_0 = input.LA(1);
 			if ( (LA144_0==ID) ) {
@@ -16693,7 +16693,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt144) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2797:3: p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2797:3: p+= identifier ( DOUBLE_COLON p+= identifier )+ ( PERIOD ii= identifier )?
 					{
 					pushFollow(FOLLOW_identifier_in_unique_component_classifier_reference11489);
 					p=identifier();
@@ -16702,7 +16702,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_identifier.add(p.getTree());
 					if (list_p==null) list_p=new ArrayList<Object>();
 					list_p.add(p.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2797:29: ( DOUBLE_COLON p+= identifier )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2797:29: ( DOUBLE_COLON p+= identifier )+
 					int cnt141=0;
 					loop141:
 					while (true) {
@@ -16714,7 +16714,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt141) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2797:31: DOUBLE_COLON p+= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2797:31: DOUBLE_COLON p+= identifier
 							{
 							DOUBLE_COLON233=(Token)match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_unique_component_classifier_reference11493); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_DOUBLE_COLON.add(DOUBLE_COLON233);
@@ -16738,7 +16738,7 @@ public class BLESStoASTParser extends Parser {
 						cnt141++;
 					}
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2798:5: ( PERIOD ii= identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2798:5: ( PERIOD ii= identifier )?
 					int alt142=2;
 					int LA142_0 = input.LA(1);
 					if ( (LA142_0==PERIOD) ) {
@@ -16746,7 +16746,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt142) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2798:7: PERIOD ii= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2798:7: PERIOD ii= identifier
 							{
 							PERIOD234=(Token)match(input,PERIOD,FOLLOW_PERIOD_in_unique_component_classifier_reference11510); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_PERIOD.add(PERIOD234);
@@ -16776,7 +16776,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2799:5: -> {ii!=null}? ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) )
 					if (ii!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2799:20: ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2799:20: ^( DOUBLE_COLON ( $p)+ ^( PERIOD $ii) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_DOUBLE_COLON.nextNode(), root_1);
@@ -16788,7 +16788,7 @@ public class BLESStoASTParser extends Parser {
 						}
 						stream_p.reset();
 
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2799:40: ^( PERIOD $ii)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2799:40: ^( PERIOD $ii)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_PERIOD.nextNode(), root_2);
@@ -16803,7 +16803,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2800:5: -> ^( DOUBLE_COLON ( $p)+ )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2800:8: ^( DOUBLE_COLON ( $p)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2800:8: ^( DOUBLE_COLON ( $p)+ )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_DOUBLE_COLON.nextNode(), root_1);
@@ -16827,14 +16827,14 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2805:3: dci= identifier ( PERIOD ii= identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2805:3: dci= identifier ( PERIOD ii= identifier )?
 					{
 					pushFollow(FOLLOW_identifier_in_unique_component_classifier_reference11573);
 					dci=identifier();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_identifier.add(dci.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2806:5: ( PERIOD ii= identifier )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2806:5: ( PERIOD ii= identifier )?
 					int alt143=2;
 					int LA143_0 = input.LA(1);
 					if ( (LA143_0==PERIOD) ) {
@@ -16842,7 +16842,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt143) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2806:7: PERIOD ii= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2806:7: PERIOD ii= identifier
 							{
 							PERIOD235=(Token)match(input,PERIOD,FOLLOW_PERIOD_in_unique_component_classifier_reference11581); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_PERIOD.add(PERIOD235);
@@ -16873,7 +16873,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2807:5: -> {ii!=null}? ^( PERIOD $dci $ii)
 					if (ii!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2807:20: ^( PERIOD $dci $ii)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2807:20: ^( PERIOD $dci $ii)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_PERIOD.nextNode(), root_1);
@@ -16928,7 +16928,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "type_name"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2816:1: type_name : p= ID (dc= DOUBLE_COLON ^x= ID )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2816:1: type_name : p= ID (dc= DOUBLE_COLON ^x= ID )? ;
 	public final BLESStoASTParser.type_name_return type_name() throws RecognitionException {
 		BLESStoASTParser.type_name_return retval = new BLESStoASTParser.type_name_return();
 		retval.start = input.LT(1);
@@ -16944,8 +16944,8 @@ public class BLESStoASTParser extends Parser {
 		BAST x_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2817:3: (p= ID (dc= DOUBLE_COLON ^x= ID )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2819:3: p= ID (dc= DOUBLE_COLON ^x= ID )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2817:3: (p= ID (dc= DOUBLE_COLON ^x= ID )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2819:3: p= ID (dc= DOUBLE_COLON ^x= ID )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -16956,7 +16956,7 @@ public class BLESStoASTParser extends Parser {
 			adaptor.addChild(root_0, p_tree);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2819:8: (dc= DOUBLE_COLON ^x= ID )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2819:8: (dc= DOUBLE_COLON ^x= ID )?
 			int alt145=2;
 			int LA145_0 = input.LA(1);
 			if ( (LA145_0==DOUBLE_COLON) ) {
@@ -16964,7 +16964,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt145) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2819:9: dc= DOUBLE_COLON ^x= ID
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2819:9: dc= DOUBLE_COLON ^x= ID
 					{
 					dc=(Token)match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_type_name11667); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -17013,7 +17013,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "array_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2824:1: array_type : LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2824:1: array_type : LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type ;
 	public final BLESStoASTParser.array_type_return array_type() throws RecognitionException {
 		BLESStoASTParser.array_type_return retval = new BLESStoASTParser.array_type_return();
 		retval.start = input.LT(1);
@@ -17033,8 +17033,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_of240_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2825:3: ( LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2826:3: LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2825:3: ( LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2826:3: LITERAL_array ^ LBRACKET ! array_range_list RBRACKET ! LITERAL_of type
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -17095,7 +17095,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "record_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2832:1: record_type : LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2832:1: record_type : LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !;
 	public final BLESStoASTParser.record_type_return record_type() throws RecognitionException {
 		BLESStoASTParser.record_type_return retval = new BLESStoASTParser.record_type_return();
 		retval.start = input.LT(1);
@@ -17112,8 +17112,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN245_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2833:3: ( LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2834:3: LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2833:3: ( LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2834:3: LITERAL_record ^ LPAREN ! ( record_field )+ RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -17125,7 +17125,7 @@ public class BLESStoASTParser extends Parser {
 			}
 
 			LPAREN243=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_record_type11742); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2834:27: ( record_field )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2834:27: ( record_field )+
 			int cnt146=0;
 			loop146:
 			while (true) {
@@ -17137,7 +17137,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt146) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2834:27: record_field
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2834:27: record_field
 					{
 					pushFollow(FOLLOW_record_field_in_record_type11745);
 					record_field244=record_field();
@@ -17188,7 +17188,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "record_field"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2839:1: record_field : identifier COLON ^ type SEMICOLON !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2839:1: record_field : identifier COLON ^ type SEMICOLON !;
 	public final BLESStoASTParser.record_field_return record_field() throws RecognitionException {
 		BLESStoASTParser.record_field_return retval = new BLESStoASTParser.record_field_return();
 		retval.start = input.LT(1);
@@ -17204,8 +17204,8 @@ public class BLESStoASTParser extends Parser {
 		BAST SEMICOLON249_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2840:3: ( identifier COLON ^ type SEMICOLON !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2841:22: identifier COLON ^ type SEMICOLON !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2840:3: ( identifier COLON ^ type SEMICOLON !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2841:22: identifier COLON ^ type SEMICOLON !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -17260,7 +17260,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "array_range_list"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2851:1: array_range_list : natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2851:1: array_range_list : natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )? ;
 	public final BLESStoASTParser.array_range_list_return array_range_list() throws RecognitionException {
 		BLESStoASTParser.array_range_list_return retval = new BLESStoASTParser.array_range_list_return();
 		retval.start = input.LT(1);
@@ -17277,8 +17277,8 @@ public class BLESStoASTParser extends Parser {
 		BAST COMMA253_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2852:3: ( natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2853:3: natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2852:3: ( natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2853:3: natural_range ( COMMA ^ natural_range ( COMMA ! natural_range )* )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -17289,7 +17289,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_range250.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2853:17: ( COMMA ^ natural_range ( COMMA ! natural_range )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2853:17: ( COMMA ^ natural_range ( COMMA ! natural_range )* )?
 			int alt148=2;
 			int LA148_0 = input.LA(1);
 			if ( (LA148_0==COMMA) ) {
@@ -17297,7 +17297,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt148) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2853:19: COMMA ^ natural_range ( COMMA ! natural_range )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2853:19: COMMA ^ natural_range ( COMMA ! natural_range )*
 					{
 					COMMA251=(Token)match(input,COMMA,FOLLOW_COMMA_in_array_range_list11818); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -17311,7 +17311,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, natural_range252.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2853:40: ( COMMA ! natural_range )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2853:40: ( COMMA ! natural_range )*
 					loop147:
 					while (true) {
 						int alt147=2;
@@ -17322,7 +17322,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt147) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2853:42: COMMA ! natural_range
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2853:42: COMMA ! natural_range
 							{
 							COMMA253=(Token)match(input,COMMA,FOLLOW_COMMA_in_array_range_list11825); if (state.failed) return retval;
 							pushFollow(FOLLOW_natural_range_in_array_range_list11828);
@@ -17375,7 +17375,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "natural_range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2860:1: natural_range : (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2860:1: natural_range : (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )? ;
 	public final BLESStoASTParser.natural_range_return natural_range() throws RecognitionException {
 		BLESStoASTParser.natural_range_return retval = new BLESStoASTParser.natural_range_return();
 		retval.start = input.LT(1);
@@ -17395,13 +17395,13 @@ public class BLESStoASTParser extends Parser {
 		BAST iub_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2861:3: ( (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2862:3: (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2861:3: ( (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2862:3: (ilb= INTEGER_LIT |elb= identifier |pnlb= property ) (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2862:3: (ilb= INTEGER_LIT |elb= identifier |pnlb= property )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2862:3: (ilb= INTEGER_LIT |elb= identifier |pnlb= property )
 			int alt149=3;
 			switch ( input.LA(1) ) {
 			case INTEGER_LIT:
@@ -17448,7 +17448,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt149) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2862:5: ilb= INTEGER_LIT
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2862:5: ilb= INTEGER_LIT
 					{
 					ilb=(Token)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_natural_range11865); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -17459,7 +17459,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2862:23: elb= identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2862:23: elb= identifier
 					{
 					pushFollow(FOLLOW_identifier_in_natural_range11871);
 					elb=identifier();
@@ -17470,7 +17470,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2862:40: pnlb= property
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2862:40: pnlb= property
 					{
 					pushFollow(FOLLOW_property_in_natural_range11877);
 					pnlb=property();
@@ -17483,7 +17483,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:3: (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:3: (dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property ) )?
 			int alt151=2;
 			int LA151_0 = input.LA(1);
 			if ( (LA151_0==DOTDOT) ) {
@@ -17491,7 +17491,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt151) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:5: dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:5: dd= DOTDOT ^ (iub= INTEGER_LIT |eub= identifier |pnub= property )
 					{
 					dd=(Token)match(input,DOTDOT,FOLLOW_DOTDOT_in_natural_range11887); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -17499,7 +17499,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.becomeRoot(dd_tree, root_0);
 					}
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:16: (iub= INTEGER_LIT |eub= identifier |pnub= property )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:16: (iub= INTEGER_LIT |eub= identifier |pnub= property )
 					int alt150=3;
 					switch ( input.LA(1) ) {
 					case INTEGER_LIT:
@@ -17546,7 +17546,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt150) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:18: iub= INTEGER_LIT
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:18: iub= INTEGER_LIT
 							{
 							iub=(Token)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_natural_range11894); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -17557,7 +17557,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:36: eub= identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:36: eub= identifier
 							{
 							pushFollow(FOLLOW_identifier_in_natural_range11900);
 							eub=identifier();
@@ -17568,7 +17568,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 3 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2863:53: pnub= property
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2863:53: pnub= property
 							{
 							pushFollow(FOLLOW_property_in_natural_range11906);
 							pnub=property();
@@ -17617,7 +17617,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "variant_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2875:1: variant_type : LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2875:1: variant_type : LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !;
 	public final BLESStoASTParser.variant_type_return variant_type() throws RecognitionException {
 		BLESStoASTParser.variant_type_return retval = new BLESStoASTParser.variant_type_return();
 		retval.start = input.LT(1);
@@ -17634,8 +17634,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN258_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2876:3: ( LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2877:3: LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2876:3: ( LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2877:3: LITERAL_variant ^ LPAREN ! ( record_field )+ RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -17647,7 +17647,7 @@ public class BLESStoASTParser extends Parser {
 			}
 
 			LPAREN256=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_variant_type11951); if (state.failed) return retval;
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2878:13: ( record_field )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2878:13: ( record_field )+
 			int cnt152=0;
 			loop152:
 			while (true) {
@@ -17659,7 +17659,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt152) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2878:13: record_field
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2878:13: record_field
 					{
 					pushFollow(FOLLOW_record_field_in_variant_type11954);
 					record_field257=record_field();
@@ -17710,7 +17710,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_annex_subclause"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2885:1: assertion_annex_subclause : ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2885:1: assertion_annex_subclause : ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )? ;
 	public final BLESStoASTParser.assertion_annex_subclause_return assertion_annex_subclause() throws RecognitionException {
 		BLESStoASTParser.assertion_annex_subclause_return retval = new BLESStoASTParser.assertion_annex_subclause_return();
 		retval.start = input.LT(1);
@@ -17730,10 +17730,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2886:3: ( ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2887:3: ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2886:3: ( ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2887:3: ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) ) ( ANNEX_END )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2887:3: ( ANNEX_START )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2887:3: ( ANNEX_START )?
 			int alt153=2;
 			int LA153_0 = input.LA(1);
 			if ( (LA153_0==ANNEX_START) ) {
@@ -17741,7 +17741,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt153) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2887:3: ANNEX_START
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2887:3: ANNEX_START
 					{
 					ANNEX_START259=(Token)match(input,ANNEX_START,FOLLOW_ANNEX_START_in_assertion_annex_subclause11986); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_START.add(ANNEX_START259);
@@ -17751,7 +17751,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2888:3: ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2888:3: ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) |p= predicate -> ^( ASSERTION_ANNEX $p) )
 			int alt155=2;
 			int LA155_0 = input.LA(1);
 			if ( (LA155_0==LASS) ) {
@@ -17770,9 +17770,9 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt155) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2889:3: (a+= assertion )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2889:3: (a+= assertion )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2889:4: (a+= assertion )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2889:4: (a+= assertion )+
 					int cnt154=0;
 					loop154:
 					while (true) {
@@ -17784,7 +17784,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt154) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2889:4: a+= assertion
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2889:4: a+= assertion
 							{
 							pushFollow(FOLLOW_assertion_in_assertion_annex_subclause11997);
 							a=assertion();
@@ -17819,7 +17819,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2890:5: -> ^( ASSERTION_ANNEX ( $a)+ )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2890:8: ^( ASSERTION_ANNEX ( $a)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2890:8: ^( ASSERTION_ANNEX ( $a)+ )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_ANNEX, "ASSERTION_ANNEX"), root_1);
@@ -17843,7 +17843,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2891:5: p= predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2891:5: p= predicate
 					{
 					pushFollow(FOLLOW_predicate_in_assertion_annex_subclause12020);
 					p=predicate();
@@ -17865,7 +17865,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2892:5: -> ^( ASSERTION_ANNEX $p)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2892:8: ^( ASSERTION_ANNEX $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2892:8: ^( ASSERTION_ANNEX $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_ANNEX, "ASSERTION_ANNEX"), root_1);
@@ -17884,7 +17884,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2894:3: ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2894:3: ( ANNEX_END )?
 			int alt156=2;
 			int LA156_0 = input.LA(1);
 			if ( (LA156_0==ANNEX_END) ) {
@@ -17892,7 +17892,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt156) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2894:3: ANNEX_END
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2894:3: ANNEX_END
 					{
 					ANNEX_END260=(Token)match(input,ANNEX_END,FOLLOW_ANNEX_END_in_assertion_annex_subclause12041); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_END.add(ANNEX_END260);
@@ -17932,7 +17932,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_annex_library"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2901:1: assertion_annex_library : ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2901:1: assertion_annex_library : ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )? ;
 	public final BLESStoASTParser.assertion_annex_library_return assertion_annex_library() throws RecognitionException {
 		BLESStoASTParser.assertion_annex_library_return retval = new BLESStoASTParser.assertion_annex_library_return();
 		retval.start = input.LT(1);
@@ -17950,10 +17950,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion=new RewriteRuleSubtreeStream(adaptor,"rule assertion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2902:3: ( ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2903:3: ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2902:3: ( ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2903:3: ( ANNEX_START )? ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) ) ( ANNEX_END )?
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2903:3: ( ANNEX_START )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2903:3: ( ANNEX_START )?
 			int alt157=2;
 			int LA157_0 = input.LA(1);
 			if ( (LA157_0==ANNEX_START) ) {
@@ -17961,7 +17961,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt157) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2903:3: ANNEX_START
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2903:3: ANNEX_START
 					{
 					ANNEX_START261=(Token)match(input,ANNEX_START,FOLLOW_ANNEX_START_in_assertion_annex_library12069); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_START.add(ANNEX_START261);
@@ -17971,10 +17971,10 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2904:3: ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2905:3: (a+= assertion )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2904:3: ( (a+= assertion )+ -> ^( ASSERTION_ANNEX ( $a)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2905:3: (a+= assertion )+
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2905:4: (a+= assertion )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2905:4: (a+= assertion )+
 			int cnt158=0;
 			loop158:
 			while (true) {
@@ -17986,7 +17986,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt158) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2905:4: a+= assertion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2905:4: a+= assertion
 					{
 					pushFollow(FOLLOW_assertion_in_assertion_annex_library12080);
 					a=assertion();
@@ -18021,7 +18021,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 2906:5: -> ^( ASSERTION_ANNEX ( $a)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2906:8: ^( ASSERTION_ANNEX ( $a)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2906:8: ^( ASSERTION_ANNEX ( $a)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_ANNEX, "ASSERTION_ANNEX"), root_1);
@@ -18044,7 +18044,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2908:3: ( ANNEX_END )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2908:3: ( ANNEX_END )?
 			int alt159=2;
 			int LA159_0 = input.LA(1);
 			if ( (LA159_0==ANNEX_END) ) {
@@ -18052,7 +18052,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt159) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2908:3: ANNEX_END
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2908:3: ANNEX_END
 					{
 					ANNEX_END262=(Token)match(input,ANNEX_END,FOLLOW_ANNEX_END_in_assertion_annex_library12103); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ANNEX_END.add(ANNEX_END262);
@@ -18092,7 +18092,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2913:1: assertion : ll= LASS !ab= assertion_body RASS !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2913:1: assertion : ll= LASS !ab= assertion_body RASS !;
 	public final BLESStoASTParser.assertion_return assertion() throws RecognitionException {
 		BLESStoASTParser.assertion_return retval = new BLESStoASTParser.assertion_return();
 		retval.start = input.LT(1);
@@ -18107,8 +18107,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RASS263_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2915:3: (ll= LASS !ab= assertion_body RASS !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2916:3: ll= LASS !ab= assertion_body RASS !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2915:3: (ll= LASS !ab= assertion_body RASS !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2916:3: ll= LASS !ab= assertion_body RASS !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -18158,7 +18158,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_body"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2929:1: assertion_body : ( (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration ) -> ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae) |ae= assertion_enumeration -> ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate ) -> {lv!=null}? ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p) -> ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value ) -> {lv!=null}? ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e) | ( ASSIGN e= assertion_function_value ) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e) |p3= predicate -> ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2929:1: assertion_body : ( (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration ) -> ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae) |ae= assertion_enumeration -> ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate ) -> {lv!=null}? ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p) -> ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value ) -> {lv!=null}? ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e) | ( ASSIGN e= assertion_function_value ) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e) |p3= predicate -> ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3) );
 	public final BLESStoASTParser.assertion_body_return assertion_body() throws RecognitionException {
 		BLESStoASTParser.assertion_body_return retval = new BLESStoASTParser.assertion_body_return();
 		retval.start = input.LT(1);
@@ -18190,15 +18190,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_function_value=new RewriteRuleSubtreeStream(adaptor,"rule assertion_function_value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2936:3: ( (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration ) -> ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae) |ae= assertion_enumeration -> ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate ) -> {lv!=null}? ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p) -> ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value ) -> {lv!=null}? ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e) | ( ASSIGN e= assertion_function_value ) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e) |p3= predicate -> ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2936:3: ( (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration ) -> ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae) |ae= assertion_enumeration -> ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate ) -> {lv!=null}? ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p) -> ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p) | (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value ) -> {lv!=null}? ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e) | ( ASSIGN e= assertion_function_value ) -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e) |p3= predicate -> ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3) )
 			int alt162=6;
 			alt162 = dfa162.predict(input);
 			switch (alt162) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2938:3: (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2938:3: (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2938:3: (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2938:5: a= identifier cln= COLON lv1= identifier ae= assertion_enumeration
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2938:3: (a= identifier cln= COLON lv1= identifier ae= assertion_enumeration )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2938:5: a= identifier cln= COLON lv1= identifier ae= assertion_enumeration
 					{
 					pushFollow(FOLLOW_identifier_in_assertion_body12195);
 					a=identifier();
@@ -18237,11 +18237,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2939:5: -> ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2939:8: ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2939:8: ^( ASSERTION_ENUMERATION[$a.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($a.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv1) $ae)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_ENUMERATION, (a!=null?((BAST)a.getTree()):null).getToken(), "ASSERTION_ENUMERATION["+Integer.toString((a!=null?((BAST)a.getTree()):null).getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2941:9: ^( LABEL $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2941:9: ^( LABEL $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, "LABEL"), root_2);
@@ -18249,7 +18249,7 @@ public class BLESStoASTParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2941:22: ^( PARAMETERS $lv1)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2941:22: ^( PARAMETERS $lv1)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PARAMETERS, "PARAMETERS"), root_2);
@@ -18270,7 +18270,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2944:3: ae= assertion_enumeration
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2944:3: ae= assertion_enumeration
 					{
 					pushFollow(FOLLOW_assertion_enumeration_in_assertion_body12263);
 					ae=assertion_enumeration();
@@ -18292,7 +18292,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2945:5: -> ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2945:8: ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2945:8: ^( ASSERTION_ENUMERATION[$ae.tree.getToken(),\n \"ASSERTION_ENUMERATION[\"+Integer.toString($ae.tree.getLine()+startingLine)+\"]\"] $ae)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_ENUMERATION, (ae!=null?((BAST)ae.getTree()):null).getToken(), "ASSERTION_ENUMERATION["+Integer.toString((ae!=null?((BAST)ae.getTree()):null).getLine()+startingLine)+"]"), root_1);
@@ -18309,10 +18309,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2948:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2948:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2948:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2948:5: a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2948:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2948:5: a= identifier cln= COLON (lv= formal_assertion_parameter_list )? COLON p= predicate
 					{
 					pushFollow(FOLLOW_identifier_in_assertion_body12290);
 					a=identifier();
@@ -18322,7 +18322,7 @@ public class BLESStoASTParser extends Parser {
 					cln=(Token)match(input,COLON,FOLLOW_COLON_in_assertion_body12294); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COLON.add(cln);
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2948:30: (lv= formal_assertion_parameter_list )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2948:30: (lv= formal_assertion_parameter_list )?
 					int alt160=2;
 					int LA160_0 = input.LA(1);
 					if ( (LA160_0==ID) ) {
@@ -18330,7 +18330,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt160) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2948:30: lv= formal_assertion_parameter_list
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2948:30: lv= formal_assertion_parameter_list
 							{
 							pushFollow(FOLLOW_formal_assertion_parameter_list_in_assertion_body12298);
 							lv=formal_assertion_parameter_list();
@@ -18369,11 +18369,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2949:5: -> {lv!=null}? ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p)
 					if (lv!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2949:20: ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2949:20: ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION, (p!=null?((BAST)p.getTree()):null).getToken(), "ASSERTION["+Integer.toString((p!=null?((BAST)p.getTree()):null).getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2950:9: ^( LABEL $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2950:9: ^( LABEL $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, "LABEL"), root_2);
@@ -18381,7 +18381,7 @@ public class BLESStoASTParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2950:22: ^( PARAMETERS $lv)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2950:22: ^( PARAMETERS $lv)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PARAMETERS, "PARAMETERS"), root_2);
@@ -18397,11 +18397,11 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2951:5: -> ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2951:9: ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2951:9: ^( ASSERTION[$p.tree.getToken(),\"ASSERTION[\"+Integer.toString($p.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION, (p!=null?((BAST)p.getTree()):null).getToken(), "ASSERTION["+Integer.toString((p!=null?((BAST)p.getTree()):null).getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2952:9: ^( LABEL $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2952:9: ^( LABEL $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, "LABEL"), root_2);
@@ -18422,10 +18422,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2954:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2954:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2954:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2954:5: a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2954:3: (a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2954:5: a= identifier cln= COLON (lv= formal_assertion_parameter_list )? ASSIGN e= assertion_function_value
 					{
 					pushFollow(FOLLOW_identifier_in_assertion_body12397);
 					a=identifier();
@@ -18435,7 +18435,7 @@ public class BLESStoASTParser extends Parser {
 					cln=(Token)match(input,COLON,FOLLOW_COLON_in_assertion_body12401); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COLON.add(cln);
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2954:30: (lv= formal_assertion_parameter_list )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2954:30: (lv= formal_assertion_parameter_list )?
 					int alt161=2;
 					int LA161_0 = input.LA(1);
 					if ( (LA161_0==ID) ) {
@@ -18443,7 +18443,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt161) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2954:30: lv= formal_assertion_parameter_list
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2954:30: lv= formal_assertion_parameter_list
 							{
 							pushFollow(FOLLOW_formal_assertion_parameter_list_in_assertion_body12405);
 							lv=formal_assertion_parameter_list();
@@ -18482,11 +18482,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2955:5: -> {lv!=null}? ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e)
 					if (lv!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2955:20: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2955:20: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) ^( PARAMETERS $lv) $e)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_FUNCTION, (e!=null?((BAST)e.getTree()):null).getToken(), "ASSERTION_FUNCTION["+Integer.toString((e!=null?((BAST)e.getTree()):null).getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2957:9: ^( LABEL $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2957:9: ^( LABEL $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, "LABEL"), root_2);
@@ -18494,7 +18494,7 @@ public class BLESStoASTParser extends Parser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2957:22: ^( PARAMETERS $lv)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2957:22: ^( PARAMETERS $lv)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PARAMETERS, "PARAMETERS"), root_2);
@@ -18510,11 +18510,11 @@ public class BLESStoASTParser extends Parser {
 
 					else // 2958:5: -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2958:8: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2958:8: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] ^( LABEL $a) $e)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_FUNCTION, (e!=null?((BAST)e.getTree()):null).getToken(), "ASSERTION_FUNCTION["+Integer.toString((e!=null?((BAST)e.getTree()):null).getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2960:9: ^( LABEL $a)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2960:9: ^( LABEL $a)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LABEL, "LABEL"), root_2);
@@ -18535,10 +18535,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2965:5: ( ASSIGN e= assertion_function_value )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2965:5: ( ASSIGN e= assertion_function_value )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2965:5: ( ASSIGN e= assertion_function_value )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2965:7: ASSIGN e= assertion_function_value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2965:5: ( ASSIGN e= assertion_function_value )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2965:7: ASSIGN e= assertion_function_value
 					{
 					ASSIGN266=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assertion_body12503); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN266);
@@ -18565,7 +18565,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2966:5: -> ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2966:8: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2966:8: ^( ASSERTION_FUNCTION[$e.tree.getToken(),\n \"ASSERTION_FUNCTION[\"+Integer.toString($e.tree.getLine()+startingLine)+\"]\"] $e)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION_FUNCTION, (e!=null?((BAST)e.getTree()):null).getToken(), "ASSERTION_FUNCTION["+Integer.toString((e!=null?((BAST)e.getTree()):null).getLine()+startingLine)+"]"), root_1);
@@ -18582,7 +18582,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2970:5: p3= predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2970:5: p3= predicate
 					{
 					pushFollow(FOLLOW_predicate_in_assertion_body12543);
 					p3=predicate();
@@ -18604,7 +18604,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 2971:5: -> ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2971:8: ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2971:8: ^( ASSERTION[$p3.tree.getToken(),\"ASSERTION[\"+Integer.toString($p3.tree.getLine()+startingLine)+\"]\"] $p3)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(ASSERTION, (p3!=null?((BAST)p3.getTree()):null).getToken(), "ASSERTION["+Integer.toString((p3!=null?((BAST)p3.getTree()):null).getLine()+startingLine)+"]"), root_1);
@@ -18656,7 +18656,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "formal_assertion_parameter"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2980:1: formal_assertion_parameter : ID TILDE ^ type_name ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2980:1: formal_assertion_parameter : ID TILDE ^ type_name ;
 	public final BLESStoASTParser.formal_assertion_parameter_return formal_assertion_parameter() throws RecognitionException {
 		BLESStoASTParser.formal_assertion_parameter_return retval = new BLESStoASTParser.formal_assertion_parameter_return();
 		retval.start = input.LT(1);
@@ -18671,8 +18671,8 @@ public class BLESStoASTParser extends Parser {
 		BAST TILDE268_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2981:3: ( ID TILDE ^ type_name )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2982:17: ID TILDE ^ type_name
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2981:3: ( ID TILDE ^ type_name )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2982:17: ID TILDE ^ type_name
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -18725,7 +18725,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "formal_assertion_parameter_list"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2985:1: formal_assertion_parameter_list : formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2985:1: formal_assertion_parameter_list : formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )? ;
 	public final BLESStoASTParser.formal_assertion_parameter_list_return formal_assertion_parameter_list() throws RecognitionException {
 		BLESStoASTParser.formal_assertion_parameter_list_return retval = new BLESStoASTParser.formal_assertion_parameter_list_return();
 		retval.start = input.LT(1);
@@ -18742,8 +18742,8 @@ public class BLESStoASTParser extends Parser {
 		BAST COMMA273_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2986:3: ( formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2987:3: formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2986:3: ( formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2987:3: formal_assertion_parameter ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -18754,7 +18754,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, formal_assertion_parameter270.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2987:30: ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2987:30: ( COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )* )?
 			int alt164=2;
 			int LA164_0 = input.LA(1);
 			if ( (LA164_0==COMMA) ) {
@@ -18762,7 +18762,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt164) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2987:32: COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2987:32: COMMA ^ formal_assertion_parameter ( COMMA formal_assertion_parameter )*
 					{
 					COMMA271=(Token)match(input,COMMA,FOLLOW_COMMA_in_formal_assertion_parameter_list12619); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -18776,7 +18776,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, formal_assertion_parameter272.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2988:6: ( COMMA formal_assertion_parameter )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2988:6: ( COMMA formal_assertion_parameter )*
 					loop163:
 					while (true) {
 						int alt163=2;
@@ -18787,7 +18787,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt163) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2988:8: COMMA formal_assertion_parameter
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2988:8: COMMA formal_assertion_parameter
 							{
 							COMMA273=(Token)match(input,COMMA,FOLLOW_COMMA_in_formal_assertion_parameter_list12631); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -18844,7 +18844,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_function_value"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2991:1: assertion_function_value : ( ( parenthesized_predicate IMP )=>cae= conditional_assertion_function -> $cae|e= assertion_expression -> $e);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2991:1: assertion_function_value : ( ( parenthesized_predicate IMP )=>cae= conditional_assertion_function -> $cae|e= assertion_expression -> $e);
 	public final BLESStoASTParser.assertion_function_value_return assertion_function_value() throws RecognitionException {
 		BLESStoASTParser.assertion_function_value_return retval = new BLESStoASTParser.assertion_function_value_return();
 		retval.start = input.LT(1);
@@ -18858,7 +18858,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_conditional_assertion_function=new RewriteRuleSubtreeStream(adaptor,"rule conditional_assertion_function");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2992:3: ( ( parenthesized_predicate IMP )=>cae= conditional_assertion_function -> $cae|e= assertion_expression -> $e)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2992:3: ( ( parenthesized_predicate IMP )=>cae= conditional_assertion_function -> $cae|e= assertion_expression -> $e)
 			int alt165=2;
 			int LA165_0 = input.LA(1);
 			if ( (LA165_0==LPAREN) ) {
@@ -18884,7 +18884,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt165) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2993:3: ( parenthesized_predicate IMP )=>cae= conditional_assertion_function
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2993:3: ( parenthesized_predicate IMP )=>cae= conditional_assertion_function
 					{
 					pushFollow(FOLLOW_conditional_assertion_function_in_assertion_function_value12667);
 					cae=conditional_assertion_function();
@@ -18916,7 +18916,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2997:3: e= assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2997:3: e= assertion_expression
 					{
 					pushFollow(FOLLOW_assertion_expression_in_assertion_function_value12686);
 					e=assertion_expression();
@@ -18977,7 +18977,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "conditional_assertion_function"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3001:1: conditional_assertion_function : ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN ) -> ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3001:1: conditional_assertion_function : ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN ) -> ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ ) ;
 	public final BLESStoASTParser.conditional_assertion_function_return conditional_assertion_function() throws RecognitionException {
 		BLESStoASTParser.conditional_assertion_function_return retval = new BLESStoASTParser.conditional_assertion_function_return();
 		retval.start = input.LT(1);
@@ -19000,11 +19000,11 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_condition_value_pair=new RewriteRuleSubtreeStream(adaptor,"rule condition_value_pair");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3002:3: ( ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN ) -> ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3003:3: ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3002:3: ( ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN ) -> ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3003:3: ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3003:3: ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3003:5: LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3003:3: ( LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3003:5: LPAREN cvp+= condition_value_pair (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* ) RPAREN
 			{
 			LPAREN275=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_conditional_assertion_function12712); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN275);
@@ -19016,8 +19016,8 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_condition_value_pair.add(cvp.getTree());
 			if (list_cvp==null) list_cvp=new ArrayList<Object>();
 			list_cvp.add(cvp.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3004:30: (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3004:32: c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3004:30: (c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3004:32: c= COMMA cvp+= condition_value_pair ( COMMA cvp+= condition_value_pair )*
 			{
 			c=(Token)match(input,COMMA,FOLLOW_COMMA_in_conditional_assertion_function12725); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_COMMA.add(c);
@@ -19029,7 +19029,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_condition_value_pair.add(cvp.getTree());
 			if (list_cvp==null) list_cvp=new ArrayList<Object>();
 			list_cvp.add(cvp.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3005:4: ( COMMA cvp+= condition_value_pair )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3005:4: ( COMMA cvp+= condition_value_pair )*
 			loop166:
 			while (true) {
 				int alt166=2;
@@ -19040,7 +19040,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt166) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3005:5: COMMA cvp+= condition_value_pair
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3005:5: COMMA cvp+= condition_value_pair
 					{
 					COMMA276=(Token)match(input,COMMA,FOLLOW_COMMA_in_conditional_assertion_function12736); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA276);
@@ -19081,7 +19081,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3007:5: -> ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3007:8: ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3007:8: ^( CONDITIONAL_FUNCTION[$c] ( $cvp)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITIONAL_FUNCTION, c), root_1);
@@ -19132,7 +19132,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "condition_value_pair"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3011:1: condition_value_pair : parenthesized_predicate IMP ^ assertion_expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3011:1: condition_value_pair : parenthesized_predicate IMP ^ assertion_expression ;
 	public final BLESStoASTParser.condition_value_pair_return condition_value_pair() throws RecognitionException {
 		BLESStoASTParser.condition_value_pair_return retval = new BLESStoASTParser.condition_value_pair_return();
 		retval.start = input.LT(1);
@@ -19146,8 +19146,8 @@ public class BLESStoASTParser extends Parser {
 		BAST IMP279_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3012:3: ( parenthesized_predicate IMP ^ assertion_expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3013:3: parenthesized_predicate IMP ^ assertion_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3012:3: ( parenthesized_predicate IMP ^ assertion_expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3013:3: parenthesized_predicate IMP ^ assertion_expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -19200,7 +19200,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_enumeration"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3016:1: assertion_enumeration : ( ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* ) | ( PLUS_ARROW ^ predicate_invocation ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3016:1: assertion_enumeration : ( ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* ) | ( PLUS_ARROW ^ predicate_invocation ) );
 	public final BLESStoASTParser.assertion_enumeration_return assertion_enumeration() throws RecognitionException {
 		BLESStoASTParser.assertion_enumeration_return retval = new BLESStoASTParser.assertion_enumeration_return();
 		retval.start = input.LT(1);
@@ -19219,7 +19219,7 @@ public class BLESStoASTParser extends Parser {
 		BAST PLUS_ARROW285_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3017:3: ( ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* ) | ( PLUS_ARROW ^ predicate_invocation ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3017:3: ( ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* ) | ( PLUS_ARROW ^ predicate_invocation ) )
 			int alt168=2;
 			int LA168_0 = input.LA(1);
 			if ( (LA168_0==PLUS_ARROW) ) {
@@ -19274,13 +19274,13 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt168) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3018:3: ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3018:3: ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* )
 					{
 					root_0 = (BAST)adaptor.nil();
 
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3018:3: ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3018:4: PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3018:3: ( PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3018:4: PLUS_ARROW ^ enumeration_pair ( COMMA ! enumeration_pair )*
 					{
 					PLUS_ARROW281=(Token)match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertion_enumeration12814); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -19294,7 +19294,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, enumeration_pair282.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3018:33: ( COMMA ! enumeration_pair )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3018:33: ( COMMA ! enumeration_pair )*
 					loop167:
 					while (true) {
 						int alt167=2;
@@ -19305,7 +19305,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt167) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3018:34: COMMA ! enumeration_pair
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3018:34: COMMA ! enumeration_pair
 							{
 							COMMA283=(Token)match(input,COMMA,FOLLOW_COMMA_in_assertion_enumeration12820); if (state.failed) return retval;
 							pushFollow(FOLLOW_enumeration_pair_in_assertion_enumeration12823);
@@ -19327,13 +19327,13 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3020:3: ( PLUS_ARROW ^ predicate_invocation )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3020:3: ( PLUS_ARROW ^ predicate_invocation )
 					{
 					root_0 = (BAST)adaptor.nil();
 
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3020:3: ( PLUS_ARROW ^ predicate_invocation )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3020:4: PLUS_ARROW ^ predicate_invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3020:3: ( PLUS_ARROW ^ predicate_invocation )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3020:4: PLUS_ARROW ^ predicate_invocation
 					{
 					PLUS_ARROW285=(Token)match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertion_enumeration12838); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -19381,7 +19381,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "enumeration_pair"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3023:1: enumeration_pair : ID ^ IMP ! predicate ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3023:1: enumeration_pair : ID ^ IMP ! predicate ;
 	public final BLESStoASTParser.enumeration_pair_return enumeration_pair() throws RecognitionException {
 		BLESStoASTParser.enumeration_pair_return retval = new BLESStoASTParser.enumeration_pair_return();
 		retval.start = input.LT(1);
@@ -19396,8 +19396,8 @@ public class BLESStoASTParser extends Parser {
 		BAST IMP288_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3024:3: ( ID ^ IMP ! predicate )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3025:27: ID ^ IMP ! predicate
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3024:3: ( ID ^ IMP ! predicate )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3025:27: ID ^ IMP ! predicate
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -19445,7 +19445,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "universal_quantification"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3028:1: universal_quantification : a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3028:1: universal_quantification : a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate ;
 	public final BLESStoASTParser.universal_quantification_return universal_quantification() throws RecognitionException {
 		BLESStoASTParser.universal_quantification_return retval = new BLESStoASTParser.universal_quantification_return();
 		retval.start = input.LT(1);
@@ -19462,8 +19462,8 @@ public class BLESStoASTParser extends Parser {
 		BAST r_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3029:3: (a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3030:3: a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3029:3: (a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3030:3: a= LITERAL_all ^ logic_variables logic_variable_domain r= LITERAL_are ! predicate
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -19526,7 +19526,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "existential_quantification"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3038:1: existential_quantification : e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3038:1: existential_quantification : e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate ;
 	public final BLESStoASTParser.existential_quantification_return existential_quantification() throws RecognitionException {
 		BLESStoASTParser.existential_quantification_return retval = new BLESStoASTParser.existential_quantification_return();
 		retval.start = input.LT(1);
@@ -19543,8 +19543,8 @@ public class BLESStoASTParser extends Parser {
 		BAST t_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3039:3: (e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3040:3: e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3039:3: (e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3040:3: e= LITERAL_exists ^ logic_variables logic_variable_domain t= LITERAL_that ! predicate
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -19606,7 +19606,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "logic_variables"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3047:1: logic_variables :i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type -> ^( $coln $aty ( $i)+ ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3047:1: logic_variables :i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type -> ^( $coln $aty ( $i)+ ) ;
 	public final BLESStoASTParser.logic_variables_return logic_variables() throws RecognitionException {
 		BLESStoASTParser.logic_variables_return retval = new BLESStoASTParser.logic_variables_return();
 		retval.start = input.LT(1);
@@ -19626,8 +19626,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_type=new RewriteRuleSubtreeStream(adaptor,"rule assertion_type");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3048:3: (i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type -> ^( $coln $aty ( $i)+ ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3049:3: i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3048:3: (i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type -> ^( $coln $aty ( $i)+ ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3049:3: i+= identifier ( COMMA i+= identifier )* coln= COLON aty= assertion_type
 			{
 			pushFollow(FOLLOW_identifier_in_logic_variables12963);
 			i=identifier();
@@ -19636,7 +19636,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_identifier.add(i.getTree());
 			if (list_i==null) list_i=new ArrayList<Object>();
 			list_i.add(i.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3049:17: ( COMMA i+= identifier )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3049:17: ( COMMA i+= identifier )*
 			loop169:
 			while (true) {
 				int alt169=2;
@@ -19647,7 +19647,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt169) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3049:18: COMMA i+= identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3049:18: COMMA i+= identifier
 					{
 					COMMA296=(Token)match(input,COMMA,FOLLOW_COMMA_in_logic_variables12966); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_COMMA.add(COMMA296);
@@ -19691,7 +19691,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3050:5: -> ^( $coln $aty ( $i)+ )
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3050:8: ^( $coln $aty ( $i)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3050:8: ^( $coln $aty ( $i)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_coln.nextNode(), root_1);
@@ -19746,7 +19746,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "logic_variable_domain"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3058:1: logic_variable_domain : i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3058:1: logic_variable_domain : i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) ) ;
 	public final BLESStoASTParser.logic_variable_domain_return logic_variable_domain() throws RecognitionException {
 		BLESStoASTParser.logic_variable_domain_return retval = new BLESStoASTParser.logic_variable_domain_return();
 		retval.start = input.LT(1);
@@ -19766,13 +19766,13 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3059:3: (i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3060:3: i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3059:3: (i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3060:3: i= LITERAL_in ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) )
 			{
 			i=(Token)match(input,LITERAL_in,FOLLOW_LITERAL_in_in_logic_variable_domain13032); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_in.add(i);
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3061:3: ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3061:3: ( ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression -> ^( $i ^( $rs $l $r) ) | predicate -> ^( $i predicate ) )
 			int alt170=2;
 			int LA170_0 = input.LA(1);
 			if ( (LA170_0==LITERAL_sum) && (synpred8_BLESStoAST())) {
@@ -20027,7 +20027,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt170) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3062:5: ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3062:5: ( assertion_expression range_symbol )=>l= assertion_expression rs= range_symbol r= assertion_expression
 					{
 					pushFollow(FOLLOW_assertion_expression_in_logic_variable_domain13061);
 					l=assertion_expression();
@@ -20062,11 +20062,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3064:5: -> ^( $i ^( $rs $l $r) )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3064:8: ^( $i ^( $rs $l $r) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3064:8: ^( $i ^( $rs $l $r) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3064:13: ^( $rs $l $r)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3064:13: ^( $rs $l $r)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_rs.nextNode(), root_2);
@@ -20087,7 +20087,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3066:3: predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3066:3: predicate
 					{
 					pushFollow(FOLLOW_predicate_in_logic_variable_domain13104);
 					predicate297=predicate();
@@ -20109,7 +20109,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3067:5: -> ^( $i predicate )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3067:8: ^( $i predicate )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3067:8: ^( $i predicate )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_1);
@@ -20164,7 +20164,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "predicate"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3077:1: predicate : ( universal_quantification | existential_quantification | subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )? );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3077:1: predicate : ( universal_quantification | existential_quantification | subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )? );
 	public final BLESStoASTParser.predicate_return predicate() throws RecognitionException {
 		BLESStoASTParser.predicate_return retval = new BLESStoASTParser.predicate_return();
 		retval.start = input.LT(1);
@@ -20204,7 +20204,7 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_xor311_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3078:3: ( universal_quantification | existential_quantification | subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3078:3: ( universal_quantification | existential_quantification | subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )? )
 			int alt175=3;
 			switch ( input.LA(1) ) {
 			case LITERAL_all:
@@ -20255,7 +20255,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt175) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3079:3: universal_quantification
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3079:3: universal_quantification
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -20269,7 +20269,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3081:3: existential_quantification
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3081:3: existential_quantification
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -20283,7 +20283,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3083:3: subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3083:3: subpredicate ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )?
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -20294,7 +20294,7 @@ public class BLESStoASTParser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, subpredicate300.getTree());
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3084:5: ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3084:5: ( ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* ) | ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* ) | ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* ) |imp= LITERAL_implies ^ subpredicate |i= LITERAL_iff ^ subpredicate |a= IMP ^ subpredicate )?
 					int alt174=7;
 					switch ( input.LA(1) ) {
 						case LITERAL_and:
@@ -20330,10 +20330,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt174) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3085:5: ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3085:5: ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* )
 							{
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3085:5: ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* )
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3085:7: LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3085:5: ( LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3085:7: LITERAL_and ^ subpredicate ( LITERAL_and ! subpredicate )*
 							{
 							LITERAL_and301=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_predicate13199); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20347,7 +20347,7 @@ public class BLESStoASTParser extends Parser {
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) adaptor.addChild(root_0, subpredicate302.getTree());
 
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3085:33: ( LITERAL_and ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3085:33: ( LITERAL_and ! subpredicate )*
 							loop171:
 							while (true) {
 								int alt171=2;
@@ -20358,7 +20358,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt171) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3085:35: LITERAL_and ! subpredicate
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3085:35: LITERAL_and ! subpredicate
 									{
 									LITERAL_and303=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_predicate13206); if (state.failed) return retval;
 									pushFollow(FOLLOW_subpredicate_in_predicate13209);
@@ -20380,10 +20380,10 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3087:5: ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3087:5: ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* )
 							{
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3087:5: ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* )
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3087:7: LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3087:5: ( LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3087:7: LITERAL_or ^ subpredicate ( LITERAL_or ! subpredicate )*
 							{
 							LITERAL_or305=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_predicate13229); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20397,7 +20397,7 @@ public class BLESStoASTParser extends Parser {
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) adaptor.addChild(root_0, subpredicate306.getTree());
 
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3087:32: ( LITERAL_or ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3087:32: ( LITERAL_or ! subpredicate )*
 							loop172:
 							while (true) {
 								int alt172=2;
@@ -20408,7 +20408,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt172) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3087:34: LITERAL_or ! subpredicate
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3087:34: LITERAL_or ! subpredicate
 									{
 									LITERAL_or307=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_predicate13236); if (state.failed) return retval;
 									pushFollow(FOLLOW_subpredicate_in_predicate13239);
@@ -20430,10 +20430,10 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 3 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3089:5: ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3089:5: ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* )
 							{
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3089:5: ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* )
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3089:7: LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3089:5: ( LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )* )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3089:7: LITERAL_xor ^ subpredicate ( LITERAL_xor ! subpredicate )*
 							{
 							LITERAL_xor309=(Token)match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_predicate13262); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20447,7 +20447,7 @@ public class BLESStoASTParser extends Parser {
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) adaptor.addChild(root_0, subpredicate310.getTree());
 
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3089:33: ( LITERAL_xor ! subpredicate )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3089:33: ( LITERAL_xor ! subpredicate )*
 							loop173:
 							while (true) {
 								int alt173=2;
@@ -20458,7 +20458,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt173) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3089:35: LITERAL_xor ! subpredicate
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3089:35: LITERAL_xor ! subpredicate
 									{
 									LITERAL_xor311=(Token)match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_predicate13269); if (state.failed) return retval;
 									pushFollow(FOLLOW_subpredicate_in_predicate13272);
@@ -20480,7 +20480,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 4 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3091:5: imp= LITERAL_implies ^ subpredicate
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3091:5: imp= LITERAL_implies ^ subpredicate
 							{
 							imp=(Token)match(input,LITERAL_implies,FOLLOW_LITERAL_implies_in_predicate13294); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20497,7 +20497,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 5 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3093:5: i= LITERAL_iff ^ subpredicate
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3093:5: i= LITERAL_iff ^ subpredicate
 							{
 							i=(Token)match(input,LITERAL_iff,FOLLOW_LITERAL_iff_in_predicate13316); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20514,7 +20514,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 6 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3095:5: a= IMP ^ subpredicate
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3095:5: a= IMP ^ subpredicate
 							{
 							a=(Token)match(input,IMP,FOLLOW_IMP_in_predicate13337); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -20566,7 +20566,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "subpredicate"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3102:1: subpredicate : (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3102:1: subpredicate : (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) ) ;
 	public final BLESStoASTParser.subpredicate_return subpredicate() throws RecognitionException {
 		BLESStoASTParser.subpredicate_return retval = new BLESStoASTParser.subpredicate_return();
 		retval.start = input.LT(1);
@@ -20614,10 +20614,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_timed_predicate=new RewriteRuleSubtreeStream(adaptor,"rule timed_predicate");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3104:3: ( (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) ) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3105:3: (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3104:3: ( (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3105:3: (n= LITERAL_not )? ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3105:3: (n= LITERAL_not )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3105:3: (n= LITERAL_not )?
 			int alt176=2;
 			int LA176_0 = input.LA(1);
 			if ( (LA176_0==LITERAL_not) ) {
@@ -20625,7 +20625,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt176) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3105:5: n= LITERAL_not
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3105:5: n= LITERAL_not
 					{
 					n=(Token)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_subpredicate13382); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_not.add(n);
@@ -20635,7 +20635,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3106:3: ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3106:3: ( ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression -> {n!=null}? ^( $n ^( $r $lhs $rhs) ) -> ^( $r $lhs $rhs) | ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range -> {n!=null}? ^( $n ^( $i $p $ra) ) -> ^( $i $p $ra) | ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression -> {n!=null}? -> ^( $pe $target $increment) |tr= LITERAL_true -> {n!=null}? ^( $n $tr) -> $tr|fa= LITERAL_false -> {n!=null}? ^( $n $fa) -> $fa|st= LITERAL_stop -> {n!=null}? ^( $n $st) -> $st| ( ID LPAREN )=> predicate_invocation -> {n!=null}? ^( $n predicate_invocation ) -> predicate_invocation | timed_predicate -> {n!=null}? ^( $n timed_predicate ) -> timed_predicate |d= LITERAL_def definedLogicVariable= assertion_parameter -> ^( $d $definedLogicVariable) )
 			int alt177=9;
 			switch ( input.LA(1) ) {
 			case MINUS:
@@ -21197,7 +21197,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt177) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3107:3: ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3107:3: ( assertion_subexpression relation_symbol )=>lhs= assertion_subexpression r= relation_symbol rhs= assertion_subexpression
 					{
 					pushFollow(FOLLOW_assertion_subexpression_in_subpredicate13412);
 					lhs=assertion_subexpression();
@@ -21232,11 +21232,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3109:6: -> {n!=null}? ^( $n ^( $r $lhs $rhs) )
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3109:20: ^( $n ^( $r $lhs $rhs) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3109:20: ^( $n ^( $r $lhs $rhs) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3109:26: ^( $r $lhs $rhs)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3109:26: ^( $r $lhs $rhs)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_r.nextNode(), root_2);
@@ -21252,7 +21252,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3110:5: -> ^( $r $lhs $rhs)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3110:8: ^( $r $lhs $rhs)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3110:8: ^( $r $lhs $rhs)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_r.nextNode(), root_1);
@@ -21270,7 +21270,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3112:3: ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3112:3: ( assertion_subexpression LITERAL_in )=>p= assertion_subexpression i= LITERAL_in ra= assertion_range
 					{
 					pushFollow(FOLLOW_assertion_subexpression_in_subpredicate13495);
 					p=assertion_subexpression();
@@ -21303,11 +21303,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3117:6: -> {n!=null}? ^( $n ^( $i $p $ra) )
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3117:20: ^( $n ^( $i $p $ra) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3117:20: ^( $n ^( $i $p $ra) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3117:26: ^( $i $p $ra)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3117:26: ^( $i $p $ra)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_2);
@@ -21323,7 +21323,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3118:5: -> ^( $i $p $ra)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3118:8: ^( $i $p $ra)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3118:8: ^( $i $p $ra)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_1);
@@ -21341,7 +21341,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3120:3: ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3120:3: ( name PLUS_EQUALS )=>target= name pe= PLUS_EQUALS increment= assertion_subexpression
 					{
 					pushFollow(FOLLOW_name_in_subpredicate13571);
 					target=name();
@@ -21378,7 +21378,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3123:5: -> ^( $pe $target $increment)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3123:8: ^( $pe $target $increment)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3123:8: ^( $pe $target $increment)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_pe.nextNode(), root_1);
@@ -21396,7 +21396,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3125:5: tr= LITERAL_true
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3125:5: tr= LITERAL_true
 					{
 					tr=(Token)match(input,LITERAL_true,FOLLOW_LITERAL_true_in_subpredicate13623); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_true.add(tr);
@@ -21417,7 +21417,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3126:5: -> {n!=null}? ^( $n $tr)
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3126:19: ^( $n $tr)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3126:19: ^( $n $tr)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -21439,7 +21439,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3128:5: fa= LITERAL_false
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3128:5: fa= LITERAL_false
 					{
 					fa=(Token)match(input,LITERAL_false,FOLLOW_LITERAL_false_in_subpredicate13661); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_false.add(fa);
@@ -21460,7 +21460,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3129:5: -> {n!=null}? ^( $n $fa)
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3129:19: ^( $n $fa)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3129:19: ^( $n $fa)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -21482,7 +21482,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3131:5: st= LITERAL_stop
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3131:5: st= LITERAL_stop
 					{
 					st=(Token)match(input,LITERAL_stop,FOLLOW_LITERAL_stop_in_subpredicate13697); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_stop.add(st);
@@ -21503,7 +21503,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3132:5: -> {n!=null}? ^( $n $st)
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3132:19: ^( $n $st)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3132:19: ^( $n $st)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -21525,7 +21525,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3134:5: ( ID LPAREN )=> predicate_invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3134:5: ( ID LPAREN )=> predicate_invocation
 					{
 					pushFollow(FOLLOW_predicate_invocation_in_subpredicate13742);
 					predicate_invocation316=predicate_invocation();
@@ -21547,7 +21547,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3136:5: -> {n!=null}? ^( $n predicate_invocation )
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3136:19: ^( $n predicate_invocation )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3136:19: ^( $n predicate_invocation )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -21569,7 +21569,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3139:3: timed_predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3139:3: timed_predicate
 					{
 					pushFollow(FOLLOW_timed_predicate_in_subpredicate13776);
 					timed_predicate317=timed_predicate();
@@ -21591,7 +21591,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3140:5: -> {n!=null}? ^( $n timed_predicate )
 					if (n!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3140:19: ^( $n timed_predicate )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3140:19: ^( $n timed_predicate )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -21613,7 +21613,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 9 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3144:3: d= LITERAL_def definedLogicVariable= assertion_parameter
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3144:3: d= LITERAL_def definedLogicVariable= assertion_parameter
 					{
 					d=(Token)match(input,LITERAL_def,FOLLOW_LITERAL_def_in_subpredicate13813); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_def.add(d);
@@ -21639,7 +21639,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3145:5: -> ^( $d $definedLogicVariable)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3145:8: ^( $d $definedLogicVariable)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3145:8: ^( $d $definedLogicVariable)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_d.nextNode(), root_1);
@@ -21689,7 +21689,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "timed_predicate"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3153:1: timed_predicate : ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3153:1: timed_predicate : ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? ;
 	public final BLESStoASTParser.timed_predicate_return timed_predicate() throws RecognitionException {
 		BLESStoASTParser.timed_predicate_return retval = new BLESStoASTParser.timed_predicate_return();
 		retval.start = input.LT(1);
@@ -21710,13 +21710,13 @@ public class BLESStoASTParser extends Parser {
 		BAST CARET324_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3154:3: ( ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3155:3: ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3154:3: ( ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3155:3: ( name | parenthesized_predicate | predicate_invocation ) ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3155:3: ( name | parenthesized_predicate | predicate_invocation )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3155:3: ( name | parenthesized_predicate | predicate_invocation )
 			int alt178=3;
 			int LA178_0 = input.LA(1);
 			if ( (LA178_0==ID) ) {
@@ -21755,7 +21755,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt178) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3155:4: name
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3155:4: name
 					{
 					pushFollow(FOLLOW_name_in_timed_predicate13866);
 					name318=name();
@@ -21766,7 +21766,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3155:11: parenthesized_predicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3155:11: parenthesized_predicate
 					{
 					pushFollow(FOLLOW_parenthesized_predicate_in_timed_predicate13870);
 					parenthesized_predicate319=parenthesized_predicate();
@@ -21777,7 +21777,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3155:37: predicate_invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3155:37: predicate_invocation
 					{
 					pushFollow(FOLLOW_predicate_invocation_in_timed_predicate13874);
 					predicate_invocation320=predicate_invocation();
@@ -21790,7 +21790,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3156:3: ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3156:3: ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
 			int alt179=4;
 			switch ( input.LA(1) ) {
 				case TICK:
@@ -21811,7 +21811,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt179) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3156:4: TICK ^
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3156:4: TICK ^
 					{
 					TICK321=(Token)match(input,TICK,FOLLOW_TICK_in_timed_predicate13880); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -21822,7 +21822,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3157:6: AT_SIGN ^ time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3157:6: AT_SIGN ^ time_subexpression
 					{
 					AT_SIGN322=(Token)match(input,AT_SIGN,FOLLOW_AT_SIGN_in_timed_predicate13888); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -21839,7 +21839,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3158:6: CARET ^ period_shift
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3158:6: CARET ^ period_shift
 					{
 					CARET324=(Token)match(input,CARET,FOLLOW_CARET_in_timed_predicate13900); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -21889,7 +21889,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "parenthesized_predicate"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3165:1: parenthesized_predicate : LPAREN ^ predicate RPAREN ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3165:1: parenthesized_predicate : LPAREN ^ predicate RPAREN ;
 	public final BLESStoASTParser.parenthesized_predicate_return parenthesized_predicate() throws RecognitionException {
 		BLESStoASTParser.parenthesized_predicate_return retval = new BLESStoASTParser.parenthesized_predicate_return();
 		retval.start = input.LT(1);
@@ -21904,8 +21904,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN328_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3166:3: ( LPAREN ^ predicate RPAREN )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3167:3: LPAREN ^ predicate RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3166:3: ( LPAREN ^ predicate RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3167:3: LPAREN ^ predicate RPAREN
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -21958,7 +21958,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "floatingAtom"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3170:1: floatingAtom : value ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3170:1: floatingAtom : value ;
 	public final BLESStoASTParser.floatingAtom_return floatingAtom() throws RecognitionException {
 		BLESStoASTParser.floatingAtom_return retval = new BLESStoASTParser.floatingAtom_return();
 		retval.start = input.LT(1);
@@ -21969,8 +21969,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3171:3: ( value )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3172:3: value
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3171:3: ( value )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3172:3: value
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -22011,7 +22011,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "period_shift"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3175:1: period_shift : (v= value -> $v|m2= MINUS x= period_shift -> ^( UNARY_MINUS[$m2] $x) |lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN ) -> {mia!=null}? ^( $lp ^( $mia $ia $ia2) $rp) -> {dia!=null}? ^( $lp ^( $dia $ia $ia2) $rp) -> {pia!=null}? ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp) -> {tia!=null}? ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp) -> ^( $lp $ia $rp) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3175:1: period_shift : (v= value -> $v|m2= MINUS x= period_shift -> ^( UNARY_MINUS[$m2] $x) |lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN ) -> {mia!=null}? ^( $lp ^( $mia $ia $ia2) $rp) -> {dia!=null}? ^( $lp ^( $dia $ia $ia2) $rp) -> {pia!=null}? ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp) -> {tia!=null}? ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp) -> ^( $lp $ia $rp) );
 	public final BLESStoASTParser.period_shift_return period_shift() throws RecognitionException {
 		BLESStoASTParser.period_shift_return retval = new BLESStoASTParser.period_shift_return();
 		retval.start = input.LT(1);
@@ -22052,7 +22052,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3177:3: (v= value -> $v|m2= MINUS x= period_shift -> ^( UNARY_MINUS[$m2] $x) |lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN ) -> {mia!=null}? ^( $lp ^( $mia $ia $ia2) $rp) -> {dia!=null}? ^( $lp ^( $dia $ia $ia2) $rp) -> {pia!=null}? ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp) -> {tia!=null}? ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp) -> ^( $lp $ia $rp) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3177:3: (v= value -> $v|m2= MINUS x= period_shift -> ^( UNARY_MINUS[$m2] $x) |lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN ) -> {mia!=null}? ^( $lp ^( $mia $ia $ia2) $rp) -> {dia!=null}? ^( $lp ^( $dia $ia $ia2) $rp) -> {pia!=null}? ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp) -> {tia!=null}? ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp) -> ^( $lp $ia $rp) )
 			int alt183=3;
 			switch ( input.LA(1) ) {
 			case AADL_STRING_LITERAL:
@@ -22091,7 +22091,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt183) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3181:3: v= value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3181:3: v= value
 					{
 					pushFollow(FOLLOW_value_in_period_shift13994);
 					v=value();
@@ -22123,7 +22123,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3185:3: m2= MINUS x= period_shift
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3185:3: m2= MINUS x= period_shift
 					{
 					m2=(Token)match(input,MINUS,FOLLOW_MINUS_in_period_shift14012); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(m2);
@@ -22148,7 +22148,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3186:3: -> ^( UNARY_MINUS[$m2] $x)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3186:6: ^( UNARY_MINUS[$m2] $x)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3186:6: ^( UNARY_MINUS[$m2] $x)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m2), root_1);
@@ -22165,7 +22165,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3191:3: lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3191:3: lp= LPAREN ia= period_shift (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN )
 					{
 					lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_period_shift14042); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(lp);
@@ -22175,7 +22175,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_period_shift.add(ia.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3192:5: (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3192:5: (mia= MINUS ia2= period_shift rp= RPAREN |dia= DIVIDE ia2= period_shift rp= RPAREN |pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN |tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN |rp= RPAREN )
 					int alt182=5;
 					switch ( input.LA(1) ) {
 					case MINUS:
@@ -22211,7 +22211,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt182) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3192:7: mia= MINUS ia2= period_shift rp= RPAREN
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3192:7: mia= MINUS ia2= period_shift rp= RPAREN
 							{
 							mia=(Token)match(input,MINUS,FOLLOW_MINUS_in_period_shift14057); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_MINUS.add(mia);
@@ -22227,7 +22227,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3194:5: dia= DIVIDE ia2= period_shift rp= RPAREN
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3194:5: dia= DIVIDE ia2= period_shift rp= RPAREN
 							{
 							dia=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_period_shift14079); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_DIVIDE.add(dia);
@@ -22243,7 +22243,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 3 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3196:5: pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3196:5: pia= PLUS ia2= period_shift ( PLUS ia3+= period_shift )* rp= RPAREN
 							{
 							pia=(Token)match(input,PLUS,FOLLOW_PLUS_in_period_shift14101); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_PLUS.add(pia);
@@ -22253,7 +22253,7 @@ public class BLESStoASTParser extends Parser {
 							state._fsp--;
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) stream_period_shift.add(ia2.getTree());
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3196:31: ( PLUS ia3+= period_shift )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3196:31: ( PLUS ia3+= period_shift )*
 							loop180:
 							while (true) {
 								int alt180=2;
@@ -22264,7 +22264,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt180) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3196:32: PLUS ia3+= period_shift
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3196:32: PLUS ia3+= period_shift
 									{
 									PLUS330=(Token)match(input,PLUS,FOLLOW_PLUS_in_period_shift14108); if (state.failed) return retval; 
 									if ( state.backtracking==0 ) stream_PLUS.add(PLUS330);
@@ -22290,7 +22290,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 4 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3198:5: tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3198:5: tia= TIMES ia2= period_shift ( TIMES ia3+= period_shift )* rp= RPAREN
 							{
 							tia=(Token)match(input,TIMES,FOLLOW_TIMES_in_period_shift14134); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_TIMES.add(tia);
@@ -22300,7 +22300,7 @@ public class BLESStoASTParser extends Parser {
 							state._fsp--;
 							if (state.failed) return retval;
 							if ( state.backtracking==0 ) stream_period_shift.add(ia2.getTree());
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3198:32: ( TIMES ia3+= period_shift )*
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3198:32: ( TIMES ia3+= period_shift )*
 							loop181:
 							while (true) {
 								int alt181=2;
@@ -22311,7 +22311,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt181) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3198:33: TIMES ia3+= period_shift
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3198:33: TIMES ia3+= period_shift
 									{
 									TIMES331=(Token)match(input,TIMES,FOLLOW_TIMES_in_period_shift14141); if (state.failed) return retval; 
 									if ( state.backtracking==0 ) stream_TIMES.add(TIMES331);
@@ -22337,7 +22337,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 5 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3200:5: rp= RPAREN
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3200:5: rp= RPAREN
 							{
 							rp=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_period_shift14167); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_RPAREN.add(rp);
@@ -22369,11 +22369,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3202:3: -> {mia!=null}? ^( $lp ^( $mia $ia $ia2) $rp)
 					if (mia!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3202:19: ^( $lp ^( $mia $ia $ia2) $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3202:19: ^( $lp ^( $mia $ia $ia2) $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3202:25: ^( $mia $ia $ia2)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3202:25: ^( $mia $ia $ia2)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_mia.nextNode(), root_2);
@@ -22390,11 +22390,11 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3203:3: -> {dia!=null}? ^( $lp ^( $dia $ia $ia2) $rp)
 					if (dia!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3203:19: ^( $lp ^( $dia $ia $ia2) $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3203:19: ^( $lp ^( $dia $ia $ia2) $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3203:25: ^( $dia $ia $ia2)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3203:25: ^( $dia $ia $ia2)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_dia.nextNode(), root_2);
@@ -22411,17 +22411,17 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3204:3: -> {pia!=null}? ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp)
 					if (pia!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3204:19: ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3204:19: ^( $lp ^( $pia $ia $ia2 ( $ia3)* ) $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3204:25: ^( $pia $ia $ia2 ( $ia3)* )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3204:25: ^( $pia $ia $ia2 ( $ia3)* )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_pia.nextNode(), root_2);
 						adaptor.addChild(root_2, stream_ia.nextTree());
 						adaptor.addChild(root_2, stream_ia2.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3204:42: ( $ia3)*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3204:42: ( $ia3)*
 						while ( stream_ia3.hasNext() ) {
 							adaptor.addChild(root_2, stream_ia3.nextTree());
 						}
@@ -22438,17 +22438,17 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3205:3: -> {tia!=null}? ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp)
 					if (tia!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3205:19: ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3205:19: ^( $lp ^( $tia $ia $ia2 ( $ia3)* ) $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3205:25: ^( $tia $ia $ia2 ( $ia3)* )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3205:25: ^( $tia $ia $ia2 ( $ia3)* )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_tia.nextNode(), root_2);
 						adaptor.addChild(root_2, stream_ia.nextTree());
 						adaptor.addChild(root_2, stream_ia2.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3205:42: ( $ia3)*
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3205:42: ( $ia3)*
 						while ( stream_ia3.hasNext() ) {
 							adaptor.addChild(root_2, stream_ia3.nextTree());
 						}
@@ -22465,7 +22465,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3206:3: -> ^( $lp $ia $rp)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3206:6: ^( $lp $ia $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3206:6: ^( $lp $ia $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
@@ -22518,7 +22518,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "predicate_invocation"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3218:1: predicate_invocation : (i= identifier lp= LPAREN RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i) |i= identifier lp= LPAREN exp= assertion_expression RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) ) |i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3218:1: predicate_invocation : (i= identifier lp= LPAREN RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i) |i= identifier lp= LPAREN exp= assertion_expression RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) ) |i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) ) );
 	public final BLESStoASTParser.predicate_invocation_return predicate_invocation() throws RecognitionException {
 		BLESStoASTParser.predicate_invocation_return retval = new BLESStoASTParser.predicate_invocation_return();
 		retval.start = input.LT(1);
@@ -22547,7 +22547,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3220:3: (i= identifier lp= LPAREN RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i) |i= identifier lp= LPAREN exp= assertion_expression RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) ) |i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3220:3: (i= identifier lp= LPAREN RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i) |i= identifier lp= LPAREN exp= assertion_expression RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) ) |i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) ) )
 			int alt185=3;
 			int LA185_0 = input.LA(1);
 			if ( (LA185_0==ID) ) {
@@ -22655,7 +22655,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt185) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3221:3: i= identifier lp= LPAREN RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3221:3: i= identifier lp= LPAREN RPAREN
 					{
 					pushFollow(FOLLOW_identifier_in_predicate_invocation14335);
 					i=identifier();
@@ -22683,7 +22683,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3222:5: -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3222:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3222:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] $i)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVOKE, lp, "INVOKE["+Integer.toString(lp.getLine()+startingLine)+"]"), root_1);
@@ -22700,7 +22700,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3225:3: i= identifier lp= LPAREN exp= assertion_expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3225:3: i= identifier lp= LPAREN exp= assertion_expression RPAREN
 					{
 					pushFollow(FOLLOW_identifier_in_predicate_invocation14376);
 					i=identifier();
@@ -22734,11 +22734,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3226:5: -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3226:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3226:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i $exp) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVOKE, lp, "INVOKE["+Integer.toString(lp.getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3227:9: ^( $i $exp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3227:9: ^( $i $exp)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_2);
@@ -22758,7 +22758,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3229:3: i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3229:3: i= identifier lp= LPAREN params+= actual_assertion_parameter ( COMMA params+= actual_assertion_parameter )* RPAREN
 					{
 					pushFollow(FOLLOW_identifier_in_predicate_invocation14429);
 					i=identifier();
@@ -22775,7 +22775,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_actual_assertion_parameter.add(params.getTree());
 					if (list_params==null) list_params=new ArrayList<Object>();
 					list_params.add(params.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3229:61: ( COMMA params+= actual_assertion_parameter )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3229:61: ( COMMA params+= actual_assertion_parameter )*
 					loop184:
 					while (true) {
 						int alt184=2;
@@ -22786,7 +22786,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt184) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3229:63: COMMA params+= actual_assertion_parameter
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3229:63: COMMA params+= actual_assertion_parameter
 							{
 							COMMA334=(Token)match(input,COMMA,FOLLOW_COMMA_in_predicate_invocation14441); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_COMMA.add(COMMA334);
@@ -22824,11 +22824,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3230:5: -> ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3230:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3230:8: ^( INVOKE[$lp,\"INVOKE[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $i ( $params)+ ) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVOKE, lp, "INVOKE["+Integer.toString(lp.getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3231:9: ^( $i ( $params)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3231:9: ^( $i ( $params)+ )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_i.nextNode(), root_2);
@@ -22888,7 +22888,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "actual_assertion_parameter"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3239:1: actual_assertion_parameter : formal= ID c= COLON actual= assertion_expression -> ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3239:1: actual_assertion_parameter : formal= ID c= COLON actual= assertion_expression -> ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual) ;
 	public final BLESStoASTParser.actual_assertion_parameter_return actual_assertion_parameter() throws RecognitionException {
 		BLESStoASTParser.actual_assertion_parameter_return retval = new BLESStoASTParser.actual_assertion_parameter_return();
 		retval.start = input.LT(1);
@@ -22906,8 +22906,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3240:3: (formal= ID c= COLON actual= assertion_expression -> ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3241:3: formal= ID c= COLON actual= assertion_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3240:3: (formal= ID c= COLON actual= assertion_expression -> ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3241:3: formal= ID c= COLON actual= assertion_expression
 			{
 			formal=(Token)match(input,ID,FOLLOW_ID_in_actual_assertion_parameter14508); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_ID.add(formal);
@@ -22936,7 +22936,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3242:5: -> ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3242:8: ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3242:8: ^( PARAMETER[$c,\"PARAMETER[\"+$formal.text+\"]\"] $formal $actual)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(PARAMETER, c, "PARAMETER["+(formal!=null?formal.getText():null)+"]"), root_1);
@@ -22981,7 +22981,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3262:1: range : numeric_expression range_symbol ^ numeric_expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3262:1: range : numeric_expression range_symbol ^ numeric_expression ;
 	public final BLESStoASTParser.range_return range() throws RecognitionException {
 		BLESStoASTParser.range_return retval = new BLESStoASTParser.range_return();
 		retval.start = input.LT(1);
@@ -22994,8 +22994,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3263:3: ( numeric_expression range_symbol ^ numeric_expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3264:3: numeric_expression range_symbol ^ numeric_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3263:3: ( numeric_expression range_symbol ^ numeric_expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3264:3: numeric_expression range_symbol ^ numeric_expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -23050,7 +23050,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_range"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3274:1: assertion_range : assertion_expression range_symbol ^ assertion_expression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3274:1: assertion_range : assertion_expression range_symbol ^ assertion_expression ;
 	public final BLESStoASTParser.assertion_range_return assertion_range() throws RecognitionException {
 		BLESStoASTParser.assertion_range_return retval = new BLESStoASTParser.assertion_range_return();
 		retval.start = input.LT(1);
@@ -23063,8 +23063,8 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3275:3: ( assertion_expression range_symbol ^ assertion_expression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3276:3: assertion_expression range_symbol ^ assertion_expression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3275:3: ( assertion_expression range_symbol ^ assertion_expression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3276:3: assertion_expression range_symbol ^ assertion_expression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -23117,7 +23117,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3283:1: assertion_expression options {backtrack=true; } : ( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate -> ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate ) | assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3283:1: assertion_expression options {backtrack=true; } : ( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate -> ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate ) | assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression ) );
 	public final BLESStoASTParser.assertion_expression_return assertion_expression() throws RecognitionException {
 		BLESStoASTParser.assertion_expression_return retval = new BLESStoASTParser.assertion_expression_return();
 		retval.start = input.LT(1);
@@ -23187,7 +23187,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_logic_variable_domain=new RewriteRuleSubtreeStream(adaptor,"rule logic_variable_domain");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3285:3: ( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate -> ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate ) | assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3285:3: ( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression -> ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression ) | LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate -> ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate ) | assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression ) )
 			int alt192=4;
 			switch ( input.LA(1) ) {
 			case LITERAL_sum:
@@ -23240,7 +23240,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt192) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3286:3: LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3286:3: LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression
 					{
 					LITERAL_sum342=(Token)match(input,LITERAL_sum,FOLLOW_LITERAL_sum_in_assertion_expression14633); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_sum.add(LITERAL_sum342);
@@ -23250,7 +23250,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_logic_variables.add(logic_variables343.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3286:31: ( logic_variable_domain )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3286:31: ( logic_variable_domain )?
 					int alt186=2;
 					int LA186_0 = input.LA(1);
 					if ( (LA186_0==LITERAL_in) ) {
@@ -23258,7 +23258,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt186) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3286:33: logic_variable_domain
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3286:33: logic_variable_domain
 							{
 							pushFollow(FOLLOW_logic_variable_domain_in_assertion_expression14639);
 							logic_variable_domain344=logic_variable_domain();
@@ -23292,12 +23292,12 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3287:5: -> ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3287:8: ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3287:8: ^( LITERAL_sum logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_LITERAL_sum.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_logic_variables.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3287:39: ( logic_variable_domain )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3287:39: ( logic_variable_domain )?
 						if ( stream_logic_variable_domain.hasNext() ) {
 							adaptor.addChild(root_1, stream_logic_variable_domain.nextTree());
 						}
@@ -23317,7 +23317,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3289:3: LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3289:3: LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression
 					{
 					LITERAL_product347=(Token)match(input,LITERAL_product,FOLLOW_LITERAL_product_in_assertion_expression14678); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_product.add(LITERAL_product347);
@@ -23327,7 +23327,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_logic_variables.add(logic_variables348.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3289:35: ( logic_variable_domain )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3289:35: ( logic_variable_domain )?
 					int alt187=2;
 					int LA187_0 = input.LA(1);
 					if ( (LA187_0==LITERAL_in) ) {
@@ -23335,7 +23335,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt187) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3289:37: logic_variable_domain
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3289:37: logic_variable_domain
 							{
 							pushFollow(FOLLOW_logic_variable_domain_in_assertion_expression14684);
 							logic_variable_domain349=logic_variable_domain();
@@ -23369,12 +23369,12 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3290:5: -> ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3290:8: ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3290:8: ^( LITERAL_product logic_variables ( logic_variable_domain )? LITERAL_of assertion_expression )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_LITERAL_product.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_logic_variables.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3290:43: ( logic_variable_domain )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3290:43: ( logic_variable_domain )?
 						if ( stream_logic_variable_domain.hasNext() ) {
 							adaptor.addChild(root_1, stream_logic_variable_domain.nextTree());
 						}
@@ -23394,7 +23394,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3292:3: LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3292:3: LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate
 					{
 					LITERAL_numberof352=(Token)match(input,LITERAL_numberof,FOLLOW_LITERAL_numberof_in_assertion_expression14721); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_numberof.add(LITERAL_numberof352);
@@ -23404,7 +23404,7 @@ public class BLESStoASTParser extends Parser {
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_logic_variables.add(logic_variables353.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3292:36: ( logic_variable_domain )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3292:36: ( logic_variable_domain )?
 					int alt188=2;
 					int LA188_0 = input.LA(1);
 					if ( (LA188_0==LITERAL_in) ) {
@@ -23412,7 +23412,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt188) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3292:38: logic_variable_domain
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3292:38: logic_variable_domain
 							{
 							pushFollow(FOLLOW_logic_variable_domain_in_assertion_expression14727);
 							logic_variable_domain354=logic_variable_domain();
@@ -23446,12 +23446,12 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3293:5: -> ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3293:8: ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3293:8: ^( LITERAL_numberof logic_variables ( logic_variable_domain )? LITERAL_that subpredicate )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_LITERAL_numberof.nextNode(), root_1);
 						adaptor.addChild(root_1, stream_logic_variables.nextTree());
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3293:44: ( logic_variable_domain )?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3293:44: ( logic_variable_domain )?
 						if ( stream_logic_variable_domain.hasNext() ) {
 							adaptor.addChild(root_1, stream_logic_variable_domain.nextTree());
 						}
@@ -23471,14 +23471,14 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3295:3: assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3295:3: assertion_subexpression ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression )
 					{
 					pushFollow(FOLLOW_assertion_subexpression_in_assertion_expression14768);
 					assertion_subexpression357=assertion_subexpression();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_assertion_subexpression.add(assertion_subexpression357.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3296:3: ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3296:3: ( ( PLUS assertion_subexpression )+ -> ^( PLUS ( assertion_subexpression )+ ) | ( TIMES assertion_subexpression )+ -> ^( TIMES ( assertion_subexpression )+ ) | MINUS assertion_subexpression -> ^( MINUS ( assertion_subexpression )+ ) | DIVIDE assertion_subexpression -> ^( DIVIDE ( assertion_subexpression )+ ) | EXP assertion_subexpression -> ^( EXP ( assertion_subexpression )+ ) | LITERAL_mod assertion_subexpression -> ^( LITERAL_mod ( assertion_subexpression )+ ) | LITERAL_rem assertion_subexpression -> ^( LITERAL_rem ( assertion_subexpression )+ ) | -> assertion_subexpression )
 					int alt191=8;
 					switch ( input.LA(1) ) {
 					case PLUS:
@@ -23550,9 +23550,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt191) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3297:3: ( PLUS assertion_subexpression )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3297:3: ( PLUS assertion_subexpression )+
 							{
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3297:3: ( PLUS assertion_subexpression )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3297:3: ( PLUS assertion_subexpression )+
 							int cnt189=0;
 							loop189:
 							while (true) {
@@ -23564,7 +23564,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt189) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3297:5: PLUS assertion_subexpression
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3297:5: PLUS assertion_subexpression
 									{
 									PLUS358=(Token)match(input,PLUS,FOLLOW_PLUS_in_assertion_expression14782); if (state.failed) return retval; 
 									if ( state.backtracking==0 ) stream_PLUS.add(PLUS358);
@@ -23600,7 +23600,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3298:5: -> ^( PLUS ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3298:8: ^( PLUS ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3298:8: ^( PLUS ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_PLUS.nextNode(), root_1);
@@ -23624,9 +23624,9 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3300:3: ( TIMES assertion_subexpression )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3300:3: ( TIMES assertion_subexpression )+
 							{
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3300:3: ( TIMES assertion_subexpression )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3300:3: ( TIMES assertion_subexpression )+
 							int cnt190=0;
 							loop190:
 							while (true) {
@@ -23638,7 +23638,7 @@ public class BLESStoASTParser extends Parser {
 
 								switch (alt190) {
 								case 1 :
-									// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3300:5: TIMES assertion_subexpression
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3300:5: TIMES assertion_subexpression
 									{
 									TIMES360=(Token)match(input,TIMES,FOLLOW_TIMES_in_assertion_expression14817); if (state.failed) return retval; 
 									if ( state.backtracking==0 ) stream_TIMES.add(TIMES360);
@@ -23674,7 +23674,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3301:5: -> ^( TIMES ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3301:8: ^( TIMES ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3301:8: ^( TIMES ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_TIMES.nextNode(), root_1);
@@ -23698,7 +23698,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 3 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3303:3: MINUS assertion_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3303:3: MINUS assertion_subexpression
 							{
 							MINUS362=(Token)match(input,MINUS,FOLLOW_MINUS_in_assertion_expression14853); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_MINUS.add(MINUS362);
@@ -23722,7 +23722,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3304:5: -> ^( MINUS ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3304:8: ^( MINUS ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3304:8: ^( MINUS ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_MINUS.nextNode(), root_1);
@@ -23746,7 +23746,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 4 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3306:3: DIVIDE assertion_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3306:3: DIVIDE assertion_subexpression
 							{
 							DIVIDE364=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_assertion_expression14886); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_DIVIDE.add(DIVIDE364);
@@ -23770,7 +23770,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3307:5: -> ^( DIVIDE ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3307:8: ^( DIVIDE ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3307:8: ^( DIVIDE ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_DIVIDE.nextNode(), root_1);
@@ -23794,7 +23794,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 5 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3309:3: EXP assertion_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3309:3: EXP assertion_subexpression
 							{
 							EXP366=(Token)match(input,EXP,FOLLOW_EXP_in_assertion_expression14920); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_EXP.add(EXP366);
@@ -23818,7 +23818,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3310:5: -> ^( EXP ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3310:8: ^( EXP ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3310:8: ^( EXP ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_EXP.nextNode(), root_1);
@@ -23842,7 +23842,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 6 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3312:3: LITERAL_mod assertion_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3312:3: LITERAL_mod assertion_subexpression
 							{
 							LITERAL_mod368=(Token)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_assertion_expression14954); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_mod.add(LITERAL_mod368);
@@ -23866,7 +23866,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3313:5: -> ^( LITERAL_mod ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3313:8: ^( LITERAL_mod ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3313:8: ^( LITERAL_mod ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_LITERAL_mod.nextNode(), root_1);
@@ -23890,7 +23890,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 7 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3315:3: LITERAL_rem assertion_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3315:3: LITERAL_rem assertion_subexpression
 							{
 							LITERAL_rem370=(Token)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_assertion_expression14981); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_rem.add(LITERAL_rem370);
@@ -23914,7 +23914,7 @@ public class BLESStoASTParser extends Parser {
 							root_0 = (BAST)adaptor.nil();
 							// 3316:5: -> ^( LITERAL_rem ( assertion_subexpression )+ )
 							{
-								// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3316:8: ^( LITERAL_rem ( assertion_subexpression )+ )
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3316:8: ^( LITERAL_rem ( assertion_subexpression )+ )
 								{
 								BAST root_1 = (BAST)adaptor.nil();
 								root_1 = (BAST)adaptor.becomeRoot(stream_LITERAL_rem.nextNode(), root_1);
@@ -23938,7 +23938,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 8 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3318:5: 
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3318:5: 
 							{
 							// AST REWRITE
 							// elements: assertion_subexpression
@@ -23998,7 +23998,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3326:1: assertion_subexpression : ( (m= MINUS |abs= LITERAL_abs )? ts= timed_expression -> {m!=null}? ^( UNARY_MINUS[$m] $ts) -> {abs!=null}? ^( $abs $ts) -> $ts|atc= assertion_type_conversion -> $atc);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3326:1: assertion_subexpression : ( (m= MINUS |abs= LITERAL_abs )? ts= timed_expression -> {m!=null}? ^( UNARY_MINUS[$m] $ts) -> {abs!=null}? ^( $abs $ts) -> $ts|atc= assertion_type_conversion -> $atc);
 	public final BLESStoASTParser.assertion_subexpression_return assertion_subexpression() throws RecognitionException {
 		BLESStoASTParser.assertion_subexpression_return retval = new BLESStoASTParser.assertion_subexpression_return();
 		retval.start = input.LT(1);
@@ -24018,7 +24018,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_type_conversion=new RewriteRuleSubtreeStream(adaptor,"rule assertion_type_conversion");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3327:3: ( (m= MINUS |abs= LITERAL_abs )? ts= timed_expression -> {m!=null}? ^( UNARY_MINUS[$m] $ts) -> {abs!=null}? ^( $abs $ts) -> $ts|atc= assertion_type_conversion -> $atc)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3327:3: ( (m= MINUS |abs= LITERAL_abs )? ts= timed_expression -> {m!=null}? ^( UNARY_MINUS[$m] $ts) -> {abs!=null}? ^( $abs $ts) -> $ts|atc= assertion_type_conversion -> $atc)
 			int alt194=2;
 			int LA194_0 = input.LA(1);
 			if ( (LA194_0==AADL_STRING_LITERAL||LA194_0==ID||LA194_0==INTEGER_LIT||LA194_0==LBRACKET||LA194_0==LITERAL_abs||LA194_0==LITERAL_false||LA194_0==LITERAL_in||LA194_0==LITERAL_now||LA194_0==LITERAL_null||LA194_0==LITERAL_self||LA194_0==LITERAL_timeout||LA194_0==LITERAL_tops||LA194_0==LITERAL_true||LA194_0==LPAREN||LA194_0==MINUS||LA194_0==OCTOTHORPE||LA194_0==REAL_LIT) ) {
@@ -24037,9 +24037,9 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt194) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3328:3: (m= MINUS |abs= LITERAL_abs )? ts= timed_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3328:3: (m= MINUS |abs= LITERAL_abs )? ts= timed_expression
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3328:3: (m= MINUS |abs= LITERAL_abs )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3328:3: (m= MINUS |abs= LITERAL_abs )?
 					int alt193=3;
 					int LA193_0 = input.LA(1);
 					if ( (LA193_0==MINUS) ) {
@@ -24050,7 +24050,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt193) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3328:5: m= MINUS
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3328:5: m= MINUS
 							{
 							m=(Token)match(input,MINUS,FOLLOW_MINUS_in_assertion_subexpression15043); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_MINUS.add(m);
@@ -24058,7 +24058,7 @@ public class BLESStoASTParser extends Parser {
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3328:15: abs= LITERAL_abs
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3328:15: abs= LITERAL_abs
 							{
 							abs=(Token)match(input,LITERAL_abs,FOLLOW_LITERAL_abs_in_assertion_subexpression15049); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_abs.add(abs);
@@ -24089,7 +24089,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3356:5: -> {m!=null}? ^( UNARY_MINUS[$m] $ts)
 					if (m!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3356:19: ^( UNARY_MINUS[$m] $ts)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3356:19: ^( UNARY_MINUS[$m] $ts)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, m), root_1);
@@ -24101,7 +24101,7 @@ public class BLESStoASTParser extends Parser {
 
 					else // 3357:5: -> {abs!=null}? ^( $abs $ts)
 					if (abs!=null) {
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3357:21: ^( $abs $ts)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3357:21: ^( $abs $ts)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_abs.nextNode(), root_1);
@@ -24123,7 +24123,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3364:6: atc= assertion_type_conversion
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3364:6: atc= assertion_type_conversion
 					{
 					pushFollow(FOLLOW_assertion_type_conversion_in_assertion_subexpression15129);
 					atc=assertion_type_conversion();
@@ -24185,7 +24185,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "timed_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3372:1: timed_expression : vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3372:1: timed_expression : vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? ;
 	public final BLESStoASTParser.timed_expression_return timed_expression() throws RecognitionException {
 		BLESStoASTParser.timed_expression_return retval = new BLESStoASTParser.timed_expression_return();
 		retval.start = input.LT(1);
@@ -24204,8 +24204,8 @@ public class BLESStoASTParser extends Parser {
 		BAST CARET376_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3373:3: ( vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3374:3: vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3373:3: ( vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3374:3: vpa ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -24216,7 +24216,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, vpa372.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3375:3: ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3375:3: ( TICK ^| AT_SIGN ^ time_subexpression | CARET ^ period_shift )?
 			int alt195=4;
 			switch ( input.LA(1) ) {
 				case TICK:
@@ -24237,7 +24237,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt195) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3375:4: TICK ^
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3375:4: TICK ^
 					{
 					TICK373=(Token)match(input,TICK,FOLLOW_TICK_in_timed_expression15167); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24248,7 +24248,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3376:6: AT_SIGN ^ time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3376:6: AT_SIGN ^ time_subexpression
 					{
 					AT_SIGN374=(Token)match(input,AT_SIGN,FOLLOW_AT_SIGN_in_timed_expression15175); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24265,7 +24265,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3377:6: CARET ^ period_shift
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3377:6: CARET ^ period_shift
 					{
 					CARET376=(Token)match(input,CARET,FOLLOW_CARET_in_timed_expression15187); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24314,7 +24314,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "vpa"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3381:1: vpa : (v= value | parenthesized_assertion_expression | assertion_function_invocation );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3381:1: vpa : (v= value | parenthesized_assertion_expression | assertion_function_invocation );
 	public final BLESStoASTParser.vpa_return vpa() throws RecognitionException {
 		BLESStoASTParser.vpa_return retval = new BLESStoASTParser.vpa_return();
 		retval.start = input.LT(1);
@@ -24327,7 +24327,7 @@ public class BLESStoASTParser extends Parser {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3382:3: (v= value | parenthesized_assertion_expression | assertion_function_invocation )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3382:3: (v= value | parenthesized_assertion_expression | assertion_function_invocation )
 			int alt196=3;
 			switch ( input.LA(1) ) {
 			case AADL_STRING_LITERAL:
@@ -24385,7 +24385,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt196) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3383:3: v= value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3383:3: v= value
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -24399,7 +24399,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3385:3: parenthesized_assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3385:3: parenthesized_assertion_expression
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -24413,7 +24413,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3387:3: assertion_function_invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3387:3: assertion_function_invocation
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -24456,7 +24456,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "time_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3390:1: time_expression : lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3390:1: time_expression : lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )? ;
 	public final BLESStoASTParser.time_expression_return time_expression() throws RecognitionException {
 		BLESStoASTParser.time_expression_return retval = new BLESStoASTParser.time_expression_return();
 		retval.start = input.LT(1);
@@ -24474,8 +24474,8 @@ public class BLESStoASTParser extends Parser {
 		BAST TIMES381_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3391:3: (lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3392:3: lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3391:3: (lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3392:3: lhs= time_subexpression ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -24486,7 +24486,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, lhs.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3393:3: ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3393:3: ( (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* ) | (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* ) | (sym= MINUS ^rhs+= time_subexpression ) | (sym= DIVIDE ^rhs+= time_subexpression ) | (sym= EXP ^rhs+= time_subexpression ) | (sym= LITERAL_mod ^rhs+= time_subexpression ) | (sym= LITERAL_rem ^rhs+= time_subexpression ) )?
 			int alt199=8;
 			switch ( input.LA(1) ) {
 				case PLUS:
@@ -24527,10 +24527,10 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt199) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3394:3: (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3394:3: (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3394:3: (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3394:4: sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3394:3: (sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3394:4: sym= PLUS ^rhs+= time_subexpression ( PLUS rhs+= time_subexpression )*
 					{
 					sym=(Token)match(input,PLUS,FOLLOW_PLUS_in_time_expression15266); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24546,7 +24546,7 @@ public class BLESStoASTParser extends Parser {
 
 					if (list_rhs==null) list_rhs=new ArrayList<Object>();
 					list_rhs.add(rhs.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3394:38: ( PLUS rhs+= time_subexpression )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3394:38: ( PLUS rhs+= time_subexpression )*
 					loop197:
 					while (true) {
 						int alt197=2;
@@ -24557,7 +24557,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt197) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3394:40: PLUS rhs+= time_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3394:40: PLUS rhs+= time_subexpression
 							{
 							PLUS380=(Token)match(input,PLUS,FOLLOW_PLUS_in_time_expression15275); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -24586,10 +24586,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3396:3: (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3396:3: (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3396:3: (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3396:4: sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3396:3: (sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )* )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3396:4: sym= TIMES ^rhs+= time_subexpression ( TIMES rhs+= time_subexpression )*
 					{
 					sym=(Token)match(input,TIMES,FOLLOW_TIMES_in_time_expression15294); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24605,7 +24605,7 @@ public class BLESStoASTParser extends Parser {
 
 					if (list_rhs==null) list_rhs=new ArrayList<Object>();
 					list_rhs.add(rhs.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3396:39: ( TIMES rhs+= time_subexpression )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3396:39: ( TIMES rhs+= time_subexpression )*
 					loop198:
 					while (true) {
 						int alt198=2;
@@ -24616,7 +24616,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt198) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3396:41: TIMES rhs+= time_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3396:41: TIMES rhs+= time_subexpression
 							{
 							TIMES381=(Token)match(input,TIMES,FOLLOW_TIMES_in_time_expression15303); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
@@ -24645,10 +24645,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3398:3: (sym= MINUS ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3398:3: (sym= MINUS ^rhs+= time_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3398:3: (sym= MINUS ^rhs+= time_subexpression )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3398:4: sym= MINUS ^rhs+= time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3398:3: (sym= MINUS ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3398:4: sym= MINUS ^rhs+= time_subexpression
 					{
 					sym=(Token)match(input,MINUS,FOLLOW_MINUS_in_time_expression15322); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24669,10 +24669,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3400:3: (sym= DIVIDE ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3400:3: (sym= DIVIDE ^rhs+= time_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3400:3: (sym= DIVIDE ^rhs+= time_subexpression )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3400:4: sym= DIVIDE ^rhs+= time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3400:3: (sym= DIVIDE ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3400:4: sym= DIVIDE ^rhs+= time_subexpression
 					{
 					sym=(Token)match(input,DIVIDE,FOLLOW_DIVIDE_in_time_expression15340); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24693,10 +24693,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3402:3: (sym= EXP ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3402:3: (sym= EXP ^rhs+= time_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3402:3: (sym= EXP ^rhs+= time_subexpression )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3402:4: sym= EXP ^rhs+= time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3402:3: (sym= EXP ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3402:4: sym= EXP ^rhs+= time_subexpression
 					{
 					sym=(Token)match(input,EXP,FOLLOW_EXP_in_time_expression15358); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24717,10 +24717,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3404:3: (sym= LITERAL_mod ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3404:3: (sym= LITERAL_mod ^rhs+= time_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3404:3: (sym= LITERAL_mod ^rhs+= time_subexpression )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3404:4: sym= LITERAL_mod ^rhs+= time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3404:3: (sym= LITERAL_mod ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3404:4: sym= LITERAL_mod ^rhs+= time_subexpression
 					{
 					sym=(Token)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_time_expression15376); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24741,10 +24741,10 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3406:3: (sym= LITERAL_rem ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3406:3: (sym= LITERAL_rem ^rhs+= time_subexpression )
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3406:3: (sym= LITERAL_rem ^rhs+= time_subexpression )
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3406:4: sym= LITERAL_rem ^rhs+= time_subexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3406:3: (sym= LITERAL_rem ^rhs+= time_subexpression )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3406:4: sym= LITERAL_rem ^rhs+= time_subexpression
 					{
 					sym=(Token)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_time_expression15394); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
@@ -24797,7 +24797,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "time_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3410:1: time_subexpression : (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN ) -> {(um!=null)&&(val!=null)}? ^( UNARY_MINUS[$um] $val) -> {(um!=null)&&(afi!=null)}? ^( UNARY_MINUS[$um] $afi) -> {(um!=null)&&(lp!=null)}? ^( UNARY_MINUS[$um] ^( $lp $exp $rp) ) -> {val!=null}? $val -> {afi!=null}? $afi -> ^( $lp $exp $rp) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3410:1: time_subexpression : (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN ) -> {(um!=null)&&(val!=null)}? ^( UNARY_MINUS[$um] $val) -> {(um!=null)&&(afi!=null)}? ^( UNARY_MINUS[$um] $afi) -> {(um!=null)&&(lp!=null)}? ^( UNARY_MINUS[$um] ^( $lp $exp $rp) ) -> {val!=null}? $val -> {afi!=null}? $afi -> ^( $lp $exp $rp) ;
 	public final BLESStoASTParser.time_subexpression_return time_subexpression() throws RecognitionException {
 		BLESStoASTParser.time_subexpression_return retval = new BLESStoASTParser.time_subexpression_return();
 		retval.start = input.LT(1);
@@ -24822,10 +24822,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3411:3: ( (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN ) -> {(um!=null)&&(val!=null)}? ^( UNARY_MINUS[$um] $val) -> {(um!=null)&&(afi!=null)}? ^( UNARY_MINUS[$um] $afi) -> {(um!=null)&&(lp!=null)}? ^( UNARY_MINUS[$um] ^( $lp $exp $rp) ) -> {val!=null}? $val -> {afi!=null}? $afi -> ^( $lp $exp $rp) )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3412:3: (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3411:3: ( (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN ) -> {(um!=null)&&(val!=null)}? ^( UNARY_MINUS[$um] $val) -> {(um!=null)&&(afi!=null)}? ^( UNARY_MINUS[$um] $afi) -> {(um!=null)&&(lp!=null)}? ^( UNARY_MINUS[$um] ^( $lp $exp $rp) ) -> {val!=null}? $val -> {afi!=null}? $afi -> ^( $lp $exp $rp) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3412:3: (um= MINUS )? (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3412:3: (um= MINUS )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3412:3: (um= MINUS )?
 			int alt200=2;
 			int LA200_0 = input.LA(1);
 			if ( (LA200_0==MINUS) ) {
@@ -24833,7 +24833,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt200) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3412:4: um= MINUS
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3412:4: um= MINUS
 					{
 					um=(Token)match(input,MINUS,FOLLOW_MINUS_in_time_subexpression15426); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MINUS.add(um);
@@ -24843,7 +24843,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3413:3: (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3413:3: (val= value |afi= assertion_function_invocation |lp= LPAREN exp= time_expression rp= RPAREN )
 			int alt201=3;
 			switch ( input.LA(1) ) {
 			case AADL_STRING_LITERAL:
@@ -24901,7 +24901,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt201) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3413:5: val= value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3413:5: val= value
 					{
 					pushFollow(FOLLOW_value_in_time_subexpression15436);
 					val=value();
@@ -24911,7 +24911,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3414:5: afi= assertion_function_invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3414:5: afi= assertion_function_invocation
 					{
 					pushFollow(FOLLOW_assertion_function_invocation_in_time_subexpression15444);
 					afi=assertion_function_invocation();
@@ -24921,7 +24921,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3415:5: lp= LPAREN exp= time_expression rp= RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3415:5: lp= LPAREN exp= time_expression rp= RPAREN
 					{
 					lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_time_subexpression15453); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(lp);
@@ -24958,7 +24958,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3417:5: -> {(um!=null)&&(val!=null)}? ^( UNARY_MINUS[$um] $val)
 			if ((um!=null)&&(val!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3417:35: ^( UNARY_MINUS[$um] $val)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3417:35: ^( UNARY_MINUS[$um] $val)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, um), root_1);
@@ -24970,7 +24970,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3418:5: -> {(um!=null)&&(afi!=null)}? ^( UNARY_MINUS[$um] $afi)
 			if ((um!=null)&&(afi!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3418:35: ^( UNARY_MINUS[$um] $afi)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3418:35: ^( UNARY_MINUS[$um] $afi)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, um), root_1);
@@ -24982,11 +24982,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3419:5: -> {(um!=null)&&(lp!=null)}? ^( UNARY_MINUS[$um] ^( $lp $exp $rp) )
 			if ((um!=null)&&(lp!=null)) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3419:34: ^( UNARY_MINUS[$um] ^( $lp $exp $rp) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3419:34: ^( UNARY_MINUS[$um] ^( $lp $exp $rp) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(UNARY_MINUS, um), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3419:53: ^( $lp $exp $rp)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3419:53: ^( $lp $exp $rp)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_2);
@@ -25012,7 +25012,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3422:5: -> ^( $lp $exp $rp)
 			{
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3422:8: ^( $lp $exp $rp)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3422:8: ^( $lp $exp $rp)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
@@ -25057,7 +25057,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_function_invocation"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3425:1: assertion_function_invocation : (assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) ) |assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) ) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3425:1: assertion_function_invocation : (assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) ) |assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) ) );
 	public final BLESStoASTParser.assertion_function_invocation_return assertion_function_invocation() throws RecognitionException {
 		BLESStoASTParser.assertion_function_invocation_return retval = new BLESStoASTParser.assertion_function_invocation_return();
 		retval.start = input.LT(1);
@@ -25085,7 +25085,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3426:3: (assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) ) |assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3426:3: (assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) ) |assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) ) )
 			int alt204=2;
 			int LA204_0 = input.LA(1);
 			if ( (LA204_0==ID) ) {
@@ -25162,7 +25162,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt204) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3427:3: assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3427:3: assertion_function_identifier= ID lp= LPAREN (actual= assertion_expression )? RPAREN
 					{
 					assertion_function_identifier=(Token)match(input,ID,FOLLOW_ID_in_assertion_function_invocation15581); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ID.add(assertion_function_identifier);
@@ -25170,7 +25170,7 @@ public class BLESStoASTParser extends Parser {
 					lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_assertion_function_invocation15585); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(lp);
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3427:52: (actual= assertion_expression )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3427:52: (actual= assertion_expression )?
 					int alt202=2;
 					int LA202_0 = input.LA(1);
 					if ( (LA202_0==AADL_STRING_LITERAL||LA202_0==ID||LA202_0==INTEGER_LIT||LA202_0==LBRACKET||LA202_0==LITERAL_abs||LA202_0==LITERAL_complex||LA202_0==LITERAL_false||LA202_0==LITERAL_in||LA202_0==LITERAL_integer||LA202_0==LITERAL_natural||LA202_0==LITERAL_now||(LA202_0 >= LITERAL_null && LA202_0 <= LITERAL_numberof)||LA202_0==LITERAL_product||(LA202_0 >= LITERAL_rational && LA202_0 <= LITERAL_real)||LA202_0==LITERAL_self||LA202_0==LITERAL_sum||(LA202_0 >= LITERAL_time && LA202_0 <= LITERAL_timeout)||LA202_0==LITERAL_tops||LA202_0==LITERAL_true||LA202_0==LPAREN||LA202_0==MINUS||LA202_0==OCTOTHORPE||LA202_0==REAL_LIT) ) {
@@ -25178,7 +25178,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					switch (alt202) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3427:52: actual= assertion_expression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3427:52: actual= assertion_expression
 							{
 							pushFollow(FOLLOW_assertion_expression_in_assertion_function_invocation15589);
 							actual=assertion_expression();
@@ -25209,15 +25209,15 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3428:5: -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3428:8: ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3428:8: ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $actual)? ) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVOKE_FUNCTION, lp, "INVOKE_FUNCTION["+Integer.toString(lp.getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3429:9: ^( $assertion_function_identifier ( $actual)? )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3429:9: ^( $assertion_function_identifier ( $actual)? )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_assertion_function_identifier.nextNode(), root_2);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3429:45: ( $actual)?
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3429:45: ( $actual)?
 						if ( stream_actual.hasNext() ) {
 							adaptor.addChild(root_2, stream_actual.nextTree());
 						}
@@ -25238,7 +25238,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3431:3: assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3431:3: assertion_function_identifier= ID lp= LPAREN list+= actual_assertion_parameter ( COMMA list+= actual_assertion_parameter )* RPAREN
 					{
 					assertion_function_identifier=(Token)match(input,ID,FOLLOW_ID_in_assertion_function_invocation15639); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_ID.add(assertion_function_identifier);
@@ -25253,7 +25253,7 @@ public class BLESStoASTParser extends Parser {
 					if ( state.backtracking==0 ) stream_actual_assertion_parameter.add(list.getTree());
 					if (list_list==null) list_list=new ArrayList<Object>();
 					list_list.add(list.getTree());
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3432:38: ( COMMA list+= actual_assertion_parameter )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3432:38: ( COMMA list+= actual_assertion_parameter )*
 					loop203:
 					while (true) {
 						int alt203=2;
@@ -25264,7 +25264,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt203) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3432:40: COMMA list+= actual_assertion_parameter
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3432:40: COMMA list+= actual_assertion_parameter
 							{
 							COMMA383=(Token)match(input,COMMA,FOLLOW_COMMA_in_assertion_function_invocation15656); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_COMMA.add(COMMA383);
@@ -25302,11 +25302,11 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3433:5: -> ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) )
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3433:8: ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3433:8: ^( INVOKE_FUNCTION[$lp,\"INVOKE_FUNCTION[\"+Integer.toString($lp.getLine()+startingLine)+\"]\"] ^( $assertion_function_identifier ( $list)+ ) )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(INVOKE_FUNCTION, lp, "INVOKE_FUNCTION["+Integer.toString(lp.getLine()+startingLine)+"]"), root_1);
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3434:9: ^( $assertion_function_identifier ( $list)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3434:9: ^( $assertion_function_identifier ( $list)+ )
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_assertion_function_identifier.nextNode(), root_2);
@@ -25363,7 +25363,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "parenthesized_assertion_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3441:1: parenthesized_assertion_expression : ( ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression -> $cpe| ( LPAREN ID ARROW )=>art= assertion_record_term -> $art| ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function -> $caf|lp= LPAREN pe= assertion_expression rp= RPAREN -> ^( $lp $pe $rp) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3441:1: parenthesized_assertion_expression : ( ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression -> $cpe| ( LPAREN ID ARROW )=>art= assertion_record_term -> $art| ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function -> $caf|lp= LPAREN pe= assertion_expression rp= RPAREN -> ^( $lp $pe $rp) );
 	public final BLESStoASTParser.parenthesized_assertion_expression_return parenthesized_assertion_expression() throws RecognitionException {
 		BLESStoASTParser.parenthesized_assertion_expression_return retval = new BLESStoASTParser.parenthesized_assertion_expression_return();
 		retval.start = input.LT(1);
@@ -25387,7 +25387,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_record_term=new RewriteRuleSubtreeStream(adaptor,"rule assertion_record_term");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3442:3: ( ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression -> $cpe| ( LPAREN ID ARROW )=>art= assertion_record_term -> $art| ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function -> $caf|lp= LPAREN pe= assertion_expression rp= RPAREN -> ^( $lp $pe $rp) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3442:3: ( ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression -> $cpe| ( LPAREN ID ARROW )=>art= assertion_record_term -> $art| ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function -> $caf|lp= LPAREN pe= assertion_expression rp= RPAREN -> ^( $lp $pe $rp) )
 			int alt205=4;
 			int LA205_0 = input.LA(1);
 			if ( (LA205_0==LPAREN) ) {
@@ -25416,7 +25416,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt205) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3443:3: ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3443:3: ( LPAREN LITERAL_if | LPAREN predicate QQ )=>cpe= conditional_assertion_expression
 					{
 					pushFollow(FOLLOW_conditional_assertion_expression_in_parenthesized_assertion_expression15752);
 					cpe=conditional_assertion_expression();
@@ -25448,7 +25448,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3447:3: ( LPAREN ID ARROW )=>art= assertion_record_term
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3447:3: ( LPAREN ID ARROW )=>art= assertion_record_term
 					{
 					pushFollow(FOLLOW_assertion_record_term_in_parenthesized_assertion_expression15782);
 					art=assertion_record_term();
@@ -25480,7 +25480,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3451:3: ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3451:3: ( LPAREN parenthesized_predicate IMP )=>caf= conditional_assertion_function
 					{
 					pushFollow(FOLLOW_conditional_assertion_function_in_parenthesized_assertion_expression15816);
 					caf=conditional_assertion_function();
@@ -25512,7 +25512,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3455:3: lp= LPAREN pe= assertion_expression rp= RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3455:3: lp= LPAREN pe= assertion_expression rp= RPAREN
 					{
 					lp=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_assertion_expression15837); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(lp);
@@ -25542,7 +25542,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3456:5: -> ^( $lp $pe $rp)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3456:8: ^( $lp $pe $rp)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3456:8: ^( $lp $pe $rp)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
@@ -25589,7 +25589,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "conditional_assertion_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3459:1: conditional_assertion_expression : ( LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN -> ^( CONDITIONAL[$then] $p $t $f) | LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN -> ^( CONDITIONAL[$q] $p $t $f) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3459:1: conditional_assertion_expression : ( LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN -> ^( CONDITIONAL[$then] $p $t $f) | LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN -> ^( CONDITIONAL[$q] $p $t $f) );
 	public final BLESStoASTParser.conditional_assertion_expression_return conditional_assertion_expression() throws RecognitionException {
 		BLESStoASTParser.conditional_assertion_expression_return retval = new BLESStoASTParser.conditional_assertion_expression_return();
 		retval.start = input.LT(1);
@@ -25629,7 +25629,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_assertion_expression=new RewriteRuleSubtreeStream(adaptor,"rule assertion_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3460:3: ( LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN -> ^( CONDITIONAL[$then] $p $t $f) | LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN -> ^( CONDITIONAL[$q] $p $t $f) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3460:3: ( LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN -> ^( CONDITIONAL[$then] $p $t $f) | LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN -> ^( CONDITIONAL[$q] $p $t $f) )
 			int alt206=2;
 			int LA206_0 = input.LA(1);
 			if ( (LA206_0==LPAREN) ) {
@@ -25665,7 +25665,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt206) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3461:3: LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3461:3: LPAREN LITERAL_if p= predicate then= LITERAL_then t= assertion_expression LITERAL_else f= assertion_expression RPAREN
 					{
 					LPAREN385=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_conditional_assertion_expression15877); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN385);
@@ -25714,7 +25714,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3462:5: -> ^( CONDITIONAL[$then] $p $t $f)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3462:8: ^( CONDITIONAL[$then] $p $t $f)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3462:8: ^( CONDITIONAL[$then] $p $t $f)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITIONAL, then), root_1);
@@ -25733,7 +25733,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3464:3: LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3464:3: LPAREN p= predicate q= QQ t= assertion_expression COLON f= assertion_expression RPAREN
 					{
 					LPAREN389=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_conditional_assertion_expression15929); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN389);
@@ -25779,7 +25779,7 @@ public class BLESStoASTParser extends Parser {
 					root_0 = (BAST)adaptor.nil();
 					// 3465:5: -> ^( CONDITIONAL[$q] $p $t $f)
 					{
-						// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3465:8: ^( CONDITIONAL[$q] $p $t $f)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3465:8: ^( CONDITIONAL[$q] $p $t $f)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(CONDITIONAL, q), root_1);
@@ -25827,7 +25827,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_record_term"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3468:1: assertion_record_term : LPAREN ^ ( assertion_record_value )+ RPAREN ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3468:1: assertion_record_term : LPAREN ^ ( assertion_record_value )+ RPAREN ;
 	public final BLESStoASTParser.assertion_record_term_return assertion_record_term() throws RecognitionException {
 		BLESStoASTParser.assertion_record_term_return retval = new BLESStoASTParser.assertion_record_term_return();
 		retval.start = input.LT(1);
@@ -25842,8 +25842,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN394_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3469:3: ( LPAREN ^ ( assertion_record_value )+ RPAREN )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3470:5: LPAREN ^ ( assertion_record_value )+ RPAREN
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3469:3: ( LPAREN ^ ( assertion_record_value )+ RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3470:5: LPAREN ^ ( assertion_record_value )+ RPAREN
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -25854,7 +25854,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.becomeRoot(LPAREN392_tree, root_0);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3470:13: ( assertion_record_value )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3470:13: ( assertion_record_value )+
 			int cnt207=0;
 			loop207:
 			while (true) {
@@ -25866,7 +25866,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt207) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3470:13: assertion_record_value
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3470:13: assertion_record_value
 					{
 					pushFollow(FOLLOW_assertion_record_value_in_assertion_record_term15992);
 					assertion_record_value393=assertion_record_value();
@@ -25922,7 +25922,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_record_value"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3473:1: assertion_record_value : ID ARROW ^ value SEMICOLON !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3473:1: assertion_record_value : ID ARROW ^ value SEMICOLON !;
 	public final BLESStoASTParser.assertion_record_value_return assertion_record_value() throws RecognitionException {
 		BLESStoASTParser.assertion_record_value_return retval = new BLESStoASTParser.assertion_record_value_return();
 		retval.start = input.LT(1);
@@ -25939,8 +25939,8 @@ public class BLESStoASTParser extends Parser {
 		BAST SEMICOLON398_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3474:3: ( ID ARROW ^ value SEMICOLON !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3475:3: ID ARROW ^ value SEMICOLON !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3474:3: ( ID ARROW ^ value SEMICOLON !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3475:3: ID ARROW ^ value SEMICOLON !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -25994,7 +25994,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_parameter"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3478:1: assertion_parameter : ID ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3478:1: assertion_parameter : ID ;
 	public final BLESStoASTParser.assertion_parameter_return assertion_parameter() throws RecognitionException {
 		BLESStoASTParser.assertion_parameter_return retval = new BLESStoASTParser.assertion_parameter_return();
 		retval.start = input.LT(1);
@@ -26006,8 +26006,8 @@ public class BLESStoASTParser extends Parser {
 		BAST ID399_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3479:3: ( ID )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3480:3: ID
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3479:3: ( ID )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3480:3: ID
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -26048,7 +26048,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "assertion_type"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3483:1: assertion_type : ( LITERAL_boolean | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | unique_component_classifier_reference );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3483:1: assertion_type : ( LITERAL_boolean | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | unique_component_classifier_reference );
 	public final BLESStoASTParser.assertion_type_return assertion_type() throws RecognitionException {
 		BLESStoASTParser.assertion_type_return retval = new BLESStoASTParser.assertion_type_return();
 		retval.start = input.LT(1);
@@ -26073,7 +26073,7 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_time406_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3484:3: ( LITERAL_boolean | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | unique_component_classifier_reference )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3484:3: ( LITERAL_boolean | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | unique_component_classifier_reference )
 			int alt208=8;
 			switch ( input.LA(1) ) {
 			case LITERAL_boolean:
@@ -26124,7 +26124,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt208) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:3: LITERAL_boolean
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:3: LITERAL_boolean
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26138,7 +26138,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:21: LITERAL_natural
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:21: LITERAL_natural
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26152,7 +26152,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:39: LITERAL_integer
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:39: LITERAL_integer
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26166,7 +26166,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:57: LITERAL_rational
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:57: LITERAL_rational
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26180,7 +26180,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 5 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:76: LITERAL_real
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:76: LITERAL_real
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26194,7 +26194,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 6 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3485:91: LITERAL_complex
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3485:91: LITERAL_complex
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26208,7 +26208,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 7 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3486:4: LITERAL_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3486:4: LITERAL_time
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26222,7 +26222,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 8 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3488:5: unique_component_classifier_reference
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3488:5: unique_component_classifier_reference
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -26265,7 +26265,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "availability"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3493:1: availability : LITERAL_availability ^ availability_subexpression ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3493:1: availability : LITERAL_availability ^ availability_subexpression ;
 	public final BLESStoASTParser.availability_return availability() throws RecognitionException {
 		BLESStoASTParser.availability_return retval = new BLESStoASTParser.availability_return();
 		retval.start = input.LT(1);
@@ -26278,8 +26278,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_availability408_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3494:3: ( LITERAL_availability ^ availability_subexpression )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3495:3: LITERAL_availability ^ availability_subexpression
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3494:3: ( LITERAL_availability ^ availability_subexpression )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3495:3: LITERAL_availability ^ availability_subexpression
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -26326,7 +26326,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "availability_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3498:1: availability_expression :ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )? -> {dna!=null}? ^( $dna ( $ae)+ ) -> {ro!=null}? ^( $ro ( $ae)+ ) -> {rox!=null}? ^( $rox ( $ae)+ ) -> $ae;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3498:1: availability_expression :ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )? -> {dna!=null}? ^( $dna ( $ae)+ ) -> {ro!=null}? ^( $ro ( $ae)+ ) -> {rox!=null}? ^( $rox ( $ae)+ ) -> $ae;
 	public final BLESStoASTParser.availability_expression_return availability_expression() throws RecognitionException {
 		BLESStoASTParser.availability_expression_return retval = new BLESStoASTParser.availability_expression_return();
 		retval.start = input.LT(1);
@@ -26347,8 +26347,8 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_availability_subexpression=new RewriteRuleSubtreeStream(adaptor,"rule availability_subexpression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3499:3: (ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )? -> {dna!=null}? ^( $dna ( $ae)+ ) -> {ro!=null}? ^( $ro ( $ae)+ ) -> {rox!=null}? ^( $rox ( $ae)+ ) -> $ae)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3500:3: ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3499:3: (ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )? -> {dna!=null}? ^( $dna ( $ae)+ ) -> {ro!=null}? ^( $ro ( $ae)+ ) -> {rox!=null}? ^( $rox ( $ae)+ ) -> $ae)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3500:3: ae+= availability_subexpression ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )?
 			{
 			pushFollow(FOLLOW_availability_subexpression_in_availability_expression16134);
 			ae=availability_subexpression();
@@ -26357,7 +26357,7 @@ public class BLESStoASTParser extends Parser {
 			if ( state.backtracking==0 ) stream_availability_subexpression.add(ae.getTree());
 			if (list_ae==null) list_ae=new ArrayList<Object>();
 			list_ae.add(ae.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3501:3: ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3501:3: ( (dna= LITERAL_and ae+= availability_subexpression )+ | (ro= LITERAL_or ae+= availability_subexpression )+ | (rox= LITERAL_xor ae+= availability_subexpression )+ )?
 			int alt212=4;
 			switch ( input.LA(1) ) {
 				case LITERAL_and:
@@ -26378,9 +26378,9 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt212) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3502:5: (dna= LITERAL_and ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3502:5: (dna= LITERAL_and ae+= availability_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3502:5: (dna= LITERAL_and ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3502:5: (dna= LITERAL_and ae+= availability_subexpression )+
 					int cnt209=0;
 					loop209:
 					while (true) {
@@ -26392,7 +26392,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt209) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3502:7: dna= LITERAL_and ae+= availability_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3502:7: dna= LITERAL_and ae+= availability_subexpression
 							{
 							dna=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_availability_expression16148); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_and.add(dna);
@@ -26419,9 +26419,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3504:5: (ro= LITERAL_or ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3504:5: (ro= LITERAL_or ae+= availability_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3504:5: (ro= LITERAL_or ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3504:5: (ro= LITERAL_or ae+= availability_subexpression )+
 					int cnt210=0;
 					loop210:
 					while (true) {
@@ -26433,7 +26433,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt210) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3504:7: ro= LITERAL_or ae+= availability_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3504:7: ro= LITERAL_or ae+= availability_subexpression
 							{
 							ro=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_availability_expression16171); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_or.add(ro);
@@ -26460,9 +26460,9 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3506:5: (rox= LITERAL_xor ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3506:5: (rox= LITERAL_xor ae+= availability_subexpression )+
 					{
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3506:5: (rox= LITERAL_xor ae+= availability_subexpression )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3506:5: (rox= LITERAL_xor ae+= availability_subexpression )+
 					int cnt211=0;
 					loop211:
 					while (true) {
@@ -26474,7 +26474,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt211) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3506:7: rox= LITERAL_xor ae+= availability_subexpression
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3506:7: rox= LITERAL_xor ae+= availability_subexpression
 							{
 							rox=(Token)match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_availability_expression16194); if (state.failed) return retval; 
 							if ( state.backtracking==0 ) stream_LITERAL_xor.add(rox);
@@ -26520,7 +26520,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3508:5: -> {dna!=null}? ^( $dna ( $ae)+ )
 			if (dna!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3508:21: ^( $dna ( $ae)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3508:21: ^( $dna ( $ae)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_dna.nextNode(), root_1);
@@ -26539,7 +26539,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3509:5: -> {ro!=null}? ^( $ro ( $ae)+ )
 			if (ro!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3509:20: ^( $ro ( $ae)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3509:20: ^( $ro ( $ae)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ro.nextNode(), root_1);
@@ -26558,7 +26558,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3510:5: -> {rox!=null}? ^( $rox ( $ae)+ )
 			if (rox!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3510:21: ^( $rox ( $ae)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3510:21: ^( $rox ( $ae)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_rox.nextNode(), root_1);
@@ -26614,7 +26614,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "availability_subexpression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3514:1: availability_subexpression : (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN ) -> {n!=null&&id!=null}? ^( $n $id) -> {n!=null&&ae!=null}? ^( $n ^( $l $ae) ) -> {ae!=null}? ^( $l $ae) -> $id;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3514:1: availability_subexpression : (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN ) -> {n!=null&&id!=null}? ^( $n $id) -> {n!=null&&ae!=null}? ^( $n ^( $l $ae) ) -> {ae!=null}? ^( $l $ae) -> $id;
 	public final BLESStoASTParser.availability_subexpression_return availability_subexpression() throws RecognitionException {
 		BLESStoASTParser.availability_subexpression_return retval = new BLESStoASTParser.availability_subexpression_return();
 		retval.start = input.LT(1);
@@ -26637,10 +26637,10 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_availability_expression=new RewriteRuleSubtreeStream(adaptor,"rule availability_expression");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3515:3: ( (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN ) -> {n!=null&&id!=null}? ^( $n $id) -> {n!=null&&ae!=null}? ^( $n ^( $l $ae) ) -> {ae!=null}? ^( $l $ae) -> $id)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3516:3: (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3515:3: ( (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN ) -> {n!=null&&id!=null}? ^( $n $id) -> {n!=null&&ae!=null}? ^( $n ^( $l $ae) ) -> {ae!=null}? ^( $l $ae) -> $id)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3516:3: (n= LITERAL_not )? (id= identifier |l= LPAREN ae= availability_expression RPAREN )
 			{
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3516:3: (n= LITERAL_not )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3516:3: (n= LITERAL_not )?
 			int alt213=2;
 			int LA213_0 = input.LA(1);
 			if ( (LA213_0==LITERAL_not) ) {
@@ -26648,7 +26648,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt213) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3516:5: n= LITERAL_not
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3516:5: n= LITERAL_not
 					{
 					n=(Token)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_availability_subexpression16290); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_not.add(n);
@@ -26658,7 +26658,7 @@ public class BLESStoASTParser extends Parser {
 
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3517:3: (id= identifier |l= LPAREN ae= availability_expression RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3517:3: (id= identifier |l= LPAREN ae= availability_expression RPAREN )
 			int alt214=2;
 			int LA214_0 = input.LA(1);
 			if ( (LA214_0==ID) ) {
@@ -26677,7 +26677,7 @@ public class BLESStoASTParser extends Parser {
 
 			switch (alt214) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3518:3: id= identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3518:3: id= identifier
 					{
 					pushFollow(FOLLOW_identifier_in_availability_subexpression16305);
 					id=identifier();
@@ -26687,7 +26687,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3520:3: l= LPAREN ae= availability_expression RPAREN
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3520:3: l= LPAREN ae= availability_expression RPAREN
 					{
 					l=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_availability_subexpression16315); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LPAREN.add(l);
@@ -26723,7 +26723,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3522:5: -> {n!=null&&id!=null}? ^( $n $id)
 			if (n!=null&&id!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3522:29: ^( $n $id)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3522:29: ^( $n $id)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
@@ -26735,11 +26735,11 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3523:5: -> {n!=null&&ae!=null}? ^( $n ^( $l $ae) )
 			if (n!=null&&ae!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3523:29: ^( $n ^( $l $ae) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3523:29: ^( $n ^( $l $ae) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_n.nextNode(), root_1);
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3523:34: ^( $l $ae)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3523:34: ^( $l $ae)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
 				root_2 = (BAST)adaptor.becomeRoot(stream_l.nextNode(), root_2);
@@ -26754,7 +26754,7 @@ public class BLESStoASTParser extends Parser {
 
 			else // 3524:5: -> {ae!=null}? ^( $l $ae)
 			if (ae!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3524:20: ^( $l $ae)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3524:20: ^( $l $ae)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_l.nextNode(), root_1);
@@ -26803,7 +26803,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "dispatch_condition"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3531:1: dispatch_condition : 'on' ! LITERAL_dispatch ^ ( dispatch_expression )? ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3531:1: dispatch_condition : 'on' ! LITERAL_dispatch ^ ( dispatch_expression )? ;
 	public final BLESStoASTParser.dispatch_condition_return dispatch_condition() throws RecognitionException {
 		BLESStoASTParser.dispatch_condition_return retval = new BLESStoASTParser.dispatch_condition_return();
 		retval.start = input.LT(1);
@@ -26818,8 +26818,8 @@ public class BLESStoASTParser extends Parser {
 		BAST LITERAL_dispatch412_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3532:3: ( 'on' ! LITERAL_dispatch ^ ( dispatch_expression )? )
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3533:3: 'on' ! LITERAL_dispatch ^ ( dispatch_expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3532:3: ( 'on' ! LITERAL_dispatch ^ ( dispatch_expression )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3533:3: 'on' ! LITERAL_dispatch ^ ( dispatch_expression )?
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -26831,7 +26831,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.becomeRoot(LITERAL_dispatch412_tree, root_0);
 			}
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3533:28: ( dispatch_expression )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3533:28: ( dispatch_expression )?
 			int alt215=2;
 			int LA215_0 = input.LA(1);
 			if ( (LA215_0==ID||LA215_0==LITERAL_stop||LA215_0==LITERAL_timeout) ) {
@@ -26839,7 +26839,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt215) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3533:28: dispatch_expression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3533:28: dispatch_expression
 					{
 					pushFollow(FOLLOW_dispatch_expression_in_dispatch_condition16416);
 					dispatch_expression413=dispatch_expression();
@@ -26884,7 +26884,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "dispatch_expression"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3541:1: dispatch_expression : dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )* -> {o!=null}? ^( $o $dc ( $dc2)+ ) -> $dc;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3541:1: dispatch_expression : dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )* -> {o!=null}? ^( $o $dc ( $dc2)+ ) -> $dc;
 	public final BLESStoASTParser.dispatch_expression_return dispatch_expression() throws RecognitionException {
 		BLESStoASTParser.dispatch_expression_return retval = new BLESStoASTParser.dispatch_expression_return();
 		retval.start = input.LT(1);
@@ -26900,15 +26900,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_dispatch_conjunction=new RewriteRuleSubtreeStream(adaptor,"rule dispatch_conjunction");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3542:3: (dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )* -> {o!=null}? ^( $o $dc ( $dc2)+ ) -> $dc)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3543:3: dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3542:3: (dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )* -> {o!=null}? ^( $o $dc ( $dc2)+ ) -> $dc)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3543:3: dc= dispatch_conjunction (o= LITERAL_or dc2+= dispatch_conjunction )*
 			{
 			pushFollow(FOLLOW_dispatch_conjunction_in_dispatch_expression16444);
 			dc=dispatch_conjunction();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_dispatch_conjunction.add(dc.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3543:27: (o= LITERAL_or dc2+= dispatch_conjunction )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3543:27: (o= LITERAL_or dc2+= dispatch_conjunction )*
 			loop216:
 			while (true) {
 				int alt216=2;
@@ -26919,7 +26919,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt216) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3543:29: o= LITERAL_or dc2+= dispatch_conjunction
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3543:29: o= LITERAL_or dc2+= dispatch_conjunction
 					{
 					o=(Token)match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatch_expression16450); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_or.add(o);
@@ -26955,7 +26955,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3544:5: -> {o!=null}? ^( $o $dc ( $dc2)+ )
 			if (o!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3544:19: ^( $o $dc ( $dc2)+ )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3544:19: ^( $o $dc ( $dc2)+ )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_o.nextNode(), root_1);
@@ -27012,7 +27012,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "dispatch_conjunction"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3548:1: dispatch_conjunction : dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )* -> {a!=null}? ^( $a $dt $dt2) -> $dt;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3548:1: dispatch_conjunction : dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )* -> {a!=null}? ^( $a $dt $dt2) -> $dt;
 	public final BLESStoASTParser.dispatch_conjunction_return dispatch_conjunction() throws RecognitionException {
 		BLESStoASTParser.dispatch_conjunction_return retval = new BLESStoASTParser.dispatch_conjunction_return();
 		retval.start = input.LT(1);
@@ -27028,15 +27028,15 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleSubtreeStream stream_dispatch_trigger=new RewriteRuleSubtreeStream(adaptor,"rule dispatch_trigger");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3549:3: (dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )* -> {a!=null}? ^( $a $dt $dt2) -> $dt)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3550:3: dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3549:3: (dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )* -> {a!=null}? ^( $a $dt $dt2) -> $dt)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3550:3: dt= dispatch_trigger (a= LITERAL_and dt2+= dispatch_trigger )*
 			{
 			pushFollow(FOLLOW_dispatch_trigger_in_dispatch_conjunction16503);
 			dt=dispatch_trigger();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_dispatch_trigger.add(dt.getTree());
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3550:23: (a= LITERAL_and dt2+= dispatch_trigger )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3550:23: (a= LITERAL_and dt2+= dispatch_trigger )*
 			loop217:
 			while (true) {
 				int alt217=2;
@@ -27047,7 +27047,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt217) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3550:25: a= LITERAL_and dt2+= dispatch_trigger
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3550:25: a= LITERAL_and dt2+= dispatch_trigger
 					{
 					a=(Token)match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatch_conjunction16509); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_and.add(a);
@@ -27083,7 +27083,7 @@ public class BLESStoASTParser extends Parser {
 			root_0 = (BAST)adaptor.nil();
 			// 3551:5: -> {a!=null}? ^( $a $dt $dt2)
 			if (a!=null) {
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3551:19: ^( $a $dt $dt2)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3551:19: ^( $a $dt $dt2)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_a.nextNode(), root_1);
@@ -27133,7 +27133,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "dispatch_trigger"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3562:1: dispatch_trigger : ( LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time | LITERAL_timeout ^| identifier |stop= LITERAL_stop -> $stop);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3562:1: dispatch_trigger : ( LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time | LITERAL_timeout ^| identifier |stop= LITERAL_stop -> $stop);
 	public final BLESStoASTParser.dispatch_trigger_return dispatch_trigger() throws RecognitionException {
 		BLESStoASTParser.dispatch_trigger_return retval = new BLESStoASTParser.dispatch_trigger_return();
 		retval.start = input.LT(1);
@@ -27157,7 +27157,7 @@ public class BLESStoASTParser extends Parser {
 		RewriteRuleTokenStream stream_LITERAL_stop=new RewriteRuleTokenStream(adaptor,"token LITERAL_stop");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3563:3: ( LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time | LITERAL_timeout ^| identifier |stop= LITERAL_stop -> $stop)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3563:3: ( LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time | LITERAL_timeout ^| identifier |stop= LITERAL_stop -> $stop)
 			int alt219=4;
 			switch ( input.LA(1) ) {
 			case LITERAL_timeout:
@@ -27203,7 +27203,7 @@ public class BLESStoASTParser extends Parser {
 			}
 			switch (alt219) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3565:3: LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3565:3: LITERAL_timeout ^ LPAREN ( identifier )+ RPAREN behavior_time
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -27220,7 +27220,7 @@ public class BLESStoASTParser extends Parser {
 					adaptor.addChild(root_0, LPAREN415_tree);
 					}
 
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3565:67: ( identifier )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3565:67: ( identifier )+
 					int cnt218=0;
 					loop218:
 					while (true) {
@@ -27232,7 +27232,7 @@ public class BLESStoASTParser extends Parser {
 
 						switch (alt218) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3565:67: identifier
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3565:67: identifier
 							{
 							pushFollow(FOLLOW_identifier_in_dispatch_trigger16576);
 							identifier416=identifier();
@@ -27267,7 +27267,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3567:3: LITERAL_timeout ^
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3567:3: LITERAL_timeout ^
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -27281,7 +27281,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3569:43: identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3569:43: identifier
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -27295,7 +27295,7 @@ public class BLESStoASTParser extends Parser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3571:3: stop= LITERAL_stop
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3571:3: stop= LITERAL_stop
 					{
 					stop=(Token)match(input,LITERAL_stop,FOLLOW_LITERAL_stop_in_dispatch_trigger16612); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_LITERAL_stop.add(stop);
@@ -27354,7 +27354,7 @@ public class BLESStoASTParser extends Parser {
 
 
 	// $ANTLR start "in_modes"
-	// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3660:1: in_modes : LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3660:1: in_modes : LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !;
 	public final BLESStoASTParser.in_modes_return in_modes() throws RecognitionException {
 		BLESStoASTParser.in_modes_return retval = new BLESStoASTParser.in_modes_return();
 		retval.start = input.LT(1);
@@ -27376,8 +27376,8 @@ public class BLESStoASTParser extends Parser {
 		BAST RPAREN427_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3661:3: ( LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !)
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3662:3: LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3661:3: ( LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3662:3: LITERAL_in ^ LITERAL_modes LPAREN ! identifier ( COMMA ! identifier )* RPAREN !
 			{
 			root_0 = (BAST)adaptor.nil();
 
@@ -27401,7 +27401,7 @@ public class BLESStoASTParser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, identifier424.getTree());
 
-			// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3664:23: ( COMMA ! identifier )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3664:23: ( COMMA ! identifier )*
 			loop220:
 			while (true) {
 				int alt220=2;
@@ -27412,7 +27412,7 @@ public class BLESStoASTParser extends Parser {
 
 				switch (alt220) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3664:25: COMMA ! identifier
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3664:25: COMMA ! identifier
 					{
 					COMMA425=(Token)match(input,COMMA,FOLLOW_COMMA_in_in_modes16680); if (state.failed) return retval;
 					pushFollow(FOLLOW_identifier_in_in_modes16684);
@@ -27453,7 +27453,7 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred1_BLESStoAST
 	public final void synpred1_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2481:3: ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2481:3: ( LPAREN LITERAL_if | LPAREN boolean_expression_or_relation QQ )
 		int alt221=2;
 		int LA221_0 = input.LA(1);
 		if ( (LA221_0==LPAREN) ) {
@@ -27489,7 +27489,7 @@ public class BLESStoASTParser extends Parser {
 
 		switch (alt221) {
 			case 1 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2481:4: LPAREN LITERAL_if
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2481:4: LPAREN LITERAL_if
 				{
 				match(input,LPAREN,FOLLOW_LPAREN_in_synpred1_BLESStoAST9464); if (state.failed) return;
 
@@ -27498,7 +27498,7 @@ public class BLESStoASTParser extends Parser {
 				}
 				break;
 			case 2 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2481:24: LPAREN boolean_expression_or_relation QQ
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2481:24: LPAREN boolean_expression_or_relation QQ
 				{
 				match(input,LPAREN,FOLLOW_LPAREN_in_synpred1_BLESStoAST9470); if (state.failed) return;
 
@@ -27518,8 +27518,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred2_BLESStoAST
 	public final void synpred2_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2485:3: ( LPAREN case_choice )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2485:4: LPAREN case_choice
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2485:3: ( LPAREN case_choice )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2485:4: LPAREN case_choice
 		{
 		match(input,LPAREN,FOLLOW_LPAREN_in_synpred2_BLESStoAST9502); if (state.failed) return;
 
@@ -27535,15 +27535,15 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred3_BLESStoAST
 	public final void synpred3_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:3: ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:4: port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:3: ( port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated ) )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:4: port_name ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated )
 		{
 		pushFollow(FOLLOW_port_name_in_synpred3_BLESStoAST9809);
 		port_name();
 		state._fsp--;
 		if (state.failed) return;
 
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:14: ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:14: ( QUESTION | TICK LITERAL_fresh | TICK LITERAL_count | TICK LITERAL_updated )
 		int alt222=4;
 		int LA222_0 = input.LA(1);
 		if ( (LA222_0==QUESTION) ) {
@@ -27589,14 +27589,14 @@ public class BLESStoASTParser extends Parser {
 
 		switch (alt222) {
 			case 1 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:16: QUESTION
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:16: QUESTION
 				{
 				match(input,QUESTION,FOLLOW_QUESTION_in_synpred3_BLESStoAST9813); if (state.failed) return;
 
 				}
 				break;
 			case 2 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:27: TICK LITERAL_fresh
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:27: TICK LITERAL_fresh
 				{
 				match(input,TICK,FOLLOW_TICK_in_synpred3_BLESStoAST9817); if (state.failed) return;
 
@@ -27605,7 +27605,7 @@ public class BLESStoASTParser extends Parser {
 				}
 				break;
 			case 3 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:48: TICK LITERAL_count
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:48: TICK LITERAL_count
 				{
 				match(input,TICK,FOLLOW_TICK_in_synpred3_BLESStoAST9823); if (state.failed) return;
 
@@ -27614,7 +27614,7 @@ public class BLESStoASTParser extends Parser {
 				}
 				break;
 			case 4 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2520:68: TICK LITERAL_updated
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2520:68: TICK LITERAL_updated
 				{
 				match(input,TICK,FOLLOW_TICK_in_synpred3_BLESStoAST9828); if (state.failed) return;
 
@@ -27632,8 +27632,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred4_BLESStoAST
 	public final void synpred4_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2615:3: ( LPAREN ID ARROW )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2615:4: LPAREN ID ARROW
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2615:3: ( LPAREN ID ARROW )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2615:4: LPAREN ID ARROW
 		{
 		match(input,LPAREN,FOLLOW_LPAREN_in_synpred4_BLESStoAST10540); if (state.failed) return;
 
@@ -27648,8 +27648,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred5_BLESStoAST
 	public final void synpred5_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2619:3: ( subexpression relation_symbol )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2619:4: subexpression relation_symbol
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2619:3: ( subexpression relation_symbol )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2619:4: subexpression relation_symbol
 		{
 		pushFollow(FOLLOW_subexpression_in_synpred5_BLESStoAST10572);
 		subexpression();
@@ -27668,8 +27668,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred6_BLESStoAST
 	public final void synpred6_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2634:3: ( subexpression relation_symbol )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2634:4: subexpression relation_symbol
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2634:3: ( subexpression relation_symbol )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2634:4: subexpression relation_symbol
 		{
 		pushFollow(FOLLOW_subexpression_in_synpred6_BLESStoAST10662);
 		subexpression();
@@ -27688,8 +27688,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred7_BLESStoAST
 	public final void synpred7_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2993:3: ( parenthesized_predicate IMP )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:2993:4: parenthesized_predicate IMP
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2993:3: ( parenthesized_predicate IMP )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:2993:4: parenthesized_predicate IMP
 		{
 		pushFollow(FOLLOW_parenthesized_predicate_in_synpred7_BLESStoAST12657);
 		parenthesized_predicate();
@@ -27705,8 +27705,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred8_BLESStoAST
 	public final void synpred8_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3062:5: ( assertion_expression range_symbol )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3062:7: assertion_expression range_symbol
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3062:5: ( assertion_expression range_symbol )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3062:7: assertion_expression range_symbol
 		{
 		pushFollow(FOLLOW_assertion_expression_in_synpred8_BLESStoAST13048);
 		assertion_expression();
@@ -27725,8 +27725,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred9_BLESStoAST
 	public final void synpred9_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3107:3: ( assertion_subexpression relation_symbol )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3107:4: assertion_subexpression relation_symbol
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3107:3: ( assertion_subexpression relation_symbol )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3107:4: assertion_subexpression relation_symbol
 		{
 		pushFollow(FOLLOW_assertion_subexpression_in_synpred9_BLESStoAST13398);
 		assertion_subexpression();
@@ -27745,8 +27745,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred10_BLESStoAST
 	public final void synpred10_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3112:3: ( assertion_subexpression LITERAL_in )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3112:4: assertion_subexpression LITERAL_in
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3112:3: ( assertion_subexpression LITERAL_in )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3112:4: assertion_subexpression LITERAL_in
 		{
 		pushFollow(FOLLOW_assertion_subexpression_in_synpred10_BLESStoAST13479);
 		assertion_subexpression();
@@ -27762,8 +27762,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred11_BLESStoAST
 	public final void synpred11_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3120:3: ( name PLUS_EQUALS )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3120:4: name PLUS_EQUALS
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3120:3: ( name PLUS_EQUALS )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3120:4: name PLUS_EQUALS
 		{
 		pushFollow(FOLLOW_name_in_synpred11_BLESStoAST13560);
 		name();
@@ -27779,8 +27779,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred12_BLESStoAST
 	public final void synpred12_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3134:5: ( ID LPAREN )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3134:6: ID LPAREN
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3134:5: ( ID LPAREN )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3134:6: ID LPAREN
 		{
 		match(input,ID,FOLLOW_ID_in_synpred12_BLESStoAST13732); if (state.failed) return;
 
@@ -27793,7 +27793,7 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred16_BLESStoAST
 	public final void synpred16_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3443:3: ( LPAREN LITERAL_if | LPAREN predicate QQ )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3443:3: ( LPAREN LITERAL_if | LPAREN predicate QQ )
 		int alt226=2;
 		int LA226_0 = input.LA(1);
 		if ( (LA226_0==LPAREN) ) {
@@ -27829,7 +27829,7 @@ public class BLESStoASTParser extends Parser {
 
 		switch (alt226) {
 			case 1 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3443:4: LPAREN LITERAL_if
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3443:4: LPAREN LITERAL_if
 				{
 				match(input,LPAREN,FOLLOW_LPAREN_in_synpred16_BLESStoAST15734); if (state.failed) return;
 
@@ -27838,7 +27838,7 @@ public class BLESStoASTParser extends Parser {
 				}
 				break;
 			case 2 :
-				// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3443:24: LPAREN predicate QQ
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3443:24: LPAREN predicate QQ
 				{
 				match(input,LPAREN,FOLLOW_LPAREN_in_synpred16_BLESStoAST15740); if (state.failed) return;
 
@@ -27858,8 +27858,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred17_BLESStoAST
 	public final void synpred17_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3447:3: ( LPAREN ID ARROW )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3447:4: LPAREN ID ARROW
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3447:3: ( LPAREN ID ARROW )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3447:4: LPAREN ID ARROW
 		{
 		match(input,LPAREN,FOLLOW_LPAREN_in_synpred17_BLESStoAST15770); if (state.failed) return;
 
@@ -27874,8 +27874,8 @@ public class BLESStoASTParser extends Parser {
 
 	// $ANTLR start synpred18_BLESStoAST
 	public final void synpred18_BLESStoAST_fragment() throws RecognitionException {
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3451:3: ( LPAREN parenthesized_predicate IMP )
-		// /Users/brianlarson/git/bless-repo/bless/Grammars/BLESStoAST.g:3451:4: LPAREN parenthesized_predicate IMP
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3451:3: ( LPAREN parenthesized_predicate IMP )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:3451:4: LPAREN parenthesized_predicate IMP
 		{
 		match(input,LPAREN,FOLLOW_LPAREN_in_synpred18_BLESStoAST15804); if (state.failed) return;
 
