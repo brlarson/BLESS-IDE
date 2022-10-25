@@ -1,2 +1,2 @@
 copy the following line to the command line to generate .java files from .g files
-java -cp "/Applications/ANTLR/antlr-3.5.2-complete.jar:$CLASSPATH" org.antlr.Tool -o /Users/brianlarson/git/bless-repo/bless/src/com/multitude/bless/antlr3generated /Users/brianlarson/git/bless-repo/bless/Grammars/*.g
+java -cp "/Applications/ANTLR/antlr-3.5.2-complete.jar:$CLASSPATH" org.antlr.Tool -o /Users/brianlarson/git2/BLESS-IDE/bless/src/com/multitude/bless/antlr3generated /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/*.g

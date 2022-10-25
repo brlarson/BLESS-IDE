@@ -5,7 +5,7 @@ group Java;
 
 //added for Slang
 integer_literal(i) ::= "z\"<i>\""
-real_literal(r) ::=  "r\"<r>\""
+real_literal(r) ::=  "f32\"<r>\""
 now() ::= "Art.time()"
 time()::= "Art.Time"
 
@@ -38,11 +38,11 @@ port_fresh(i) ::= "api.<i>.Fresh()"
 port_count(i) ::= "api.<i>.Count()"
 port_updated(i) ::= "api.<i>.Updated()"
 
-l_and(bs) ::= "<bs; separator=\" & \">"
-l_or(bs) ::= "<bs; separator=\" | \">"
-l_xor(bs) ::= "<bs; separator=\" |^ \">"
-l_cand(bs) ::= "<bs; separator=\" && \">"
-l_cor(bs) ::= "<bs; separator=\" || \">"
+l_and(bs) ::= "<bs; wrap, separator=\" & \">"
+l_or(bs) ::= "<bs; wrap, separator=\" | \">"
+l_xor(bs) ::= "<bs; wrap, separator=\" |^ \">"
+l_cand(bs) ::= "<bs; wrap, separator=\" && \">"
+l_cor(bs) ::= "<bs; wrap, separator=\" || \">"
 
 formal_assertion_parameter(p,t) ::= "<p>:<t>"
 formal_assertion_parameter_list(faps) ::= "<faps; separator=\", \">"
@@ -595,10 +595,10 @@ cor(l,r) ::= "<l> or else <r>"  //change from cand  29JUN2015
 cand(l,r) ::= "<l> and then <r>" //change from cor  29JUN2015
   
 multiply(terms) ::=
-  "<terms; wrap, separator=\"*\">" 
+  "<terms; wrap, separator=\" * \">" 
   
 add(terms) ::=
-  "<terms; wrap, separator=\"+\">" 
+  "<terms; wrap, separator=\" + \">" 
   
 and(terms) ::=
   "<terms; wrap, separator=\" & \">" 

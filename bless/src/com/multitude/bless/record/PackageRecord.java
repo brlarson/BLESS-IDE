@@ -217,23 +217,23 @@ fillScopeTree()
 			}
   } //end of fillScopeTree
 
-  @Override
-	public void
-resolveReferences()
-  { //operates right on ast--not a copy
-		if (verbose())
-		{
-			Dump.it("resolve references for package "+name);
-			}
-  for (ParseRecord componentType : component_type_map.values())
-		{
-			componentType.resolveReferences();
-			}
-  for (ParseRecord componentImplementation : component_implementation_map.values())
-		{
-			componentImplementation.resolveReferences();
-			}
-  } //end of resolveReferences
+//  @Override
+//	public void
+//resolveReferences()
+//  { //operates right on ast--not a copy
+//		if (verbose())
+//		{
+//			Dump.it("resolve references for package "+name);
+//			}
+//  for (ParseRecord componentType : component_type_map.values())
+//		{
+//			componentType.resolveReferences();
+//			}
+//  for (ParseRecord componentImplementation : component_implementation_map.values())
+//		{
+//			componentImplementation.resolveReferences();
+//			}
+//  } //end of resolveReferences
 
 
 //  public void

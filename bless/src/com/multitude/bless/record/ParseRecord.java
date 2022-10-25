@@ -213,25 +213,25 @@ fillScopeTree()
 
 
 
-  public void
-resolveReferences()
-  {
-  if (true)
-	 {
-			if (ast!=null)
-			    {
-//			    ResolveReferences treePattern = new ResolveReferences(new CommonTreeNodeStream(ast));
-//			    treePattern.setTreeAdaptor(new BASTTreeAdaptor());
-//			    treePattern.parseRec=this;
-//			    treePattern.downup(ast,false);  //scan tree down then up
-				if (verbose())
-						{
-							Dump.it(name+" has resolved references");
-							}
-			    }
-//  else if (verbose) Dump.it(name+" does not have a BLESS annex subclause");
-			}
-  } //end of resolveReferences
+//  public void
+//resolveReferences()
+//  {
+//  if (true)
+//	 {
+//			if (ast!=null)
+//			    {
+////			    ResolveReferences treePattern = new ResolveReferences(new CommonTreeNodeStream(ast));
+////			    treePattern.setTreeAdaptor(new BASTTreeAdaptor());
+////			    treePattern.parseRec=this;
+////			    treePattern.downup(ast,false);  //scan tree down then up
+//				if (verbose())
+//						{
+//							Dump.it(name+" has resolved references");
+//							}
+//			    }
+////  else if (verbose) Dump.it(name+" does not have a BLESS annex subclause");
+//			}
+//  } //end of resolveReferences
 
 //  public void
 //normalizeTypes()

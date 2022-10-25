@@ -1948,10 +1948,10 @@ expression // throws ProofException
 		-> multiply(terms={$a2})
 	|
 	^( n=MINUS l=subexpression r=subexpression )
-	  -> two_element_expression(op={$n.text},l={$l.st},r={$r.st})
+	  -> two_element_expression_spaced(op={$n.text},l={$l.st},r={$r.st})
 	|
 	^( n=DIVIDE numer=subexpression d=subexpression )
-	  -> two_element_expression(op={$n.text},l={$numer.st},r={$d.st})
+	  -> two_element_expression_spaced(op={$n.text},l={$numer.st},r={$d.st})
 	|
 	^( n=LITERAL_mod l2=subexpression r2=subexpression )
 	  -> mod(l={$l2.st},r={$r2.st})
