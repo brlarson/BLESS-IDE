@@ -1970,7 +1970,7 @@ toAST(Invocation e)
 isPredicate(Invocation e)
   {
   if (e.eContainer instanceof AssertionEnumeration)  
-    true 
+    false 
   else if (e.label.pred || e.label.enumer)
     true
   else false  //it's an assertion function    

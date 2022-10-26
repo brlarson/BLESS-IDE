@@ -2181,7 +2181,7 @@ public class ToAST {
     boolean _xifexpression = false;
     EObject _eContainer = e.eContainer();
     if ((_eContainer instanceof AssertionEnumeration)) {
-      _xifexpression = true;
+      _xifexpression = false;
     } else {
       boolean _xifexpression_1 = false;
       if ((e.getLabel().isPred() || e.getLabel().isEnumer())) {

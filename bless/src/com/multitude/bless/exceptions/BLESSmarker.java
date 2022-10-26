@@ -2,6 +2,7 @@ package com.multitude.bless.exceptions;
 
 import java.util.Vector;
 
+import org.osate.aadl2.Connection;
 import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.instance.ConnectionInstance;
 import org.osate.aadl2.modelsupport.errorreporting.AnalysisErrorReporterManager;
@@ -64,19 +65,34 @@ setInfoMarker(String message, BAST node)
   	else Dump.it("No Element for message:  "+message+"\n"+node.toStringTree());
   	}  //end of setInfoMarker
 
-  public static void 	
+  public static void  
 setConnectionInfoMarker(String message, ConnectionInstance con)
-  	{
-  	if (errManager==null)
-  	  errManager = new AnalysisErrorReporterManager(
-  				new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));  	
-  	info_messages.add(message);
-// 	Dump.it("Info at line "+con..getLine()+" in "+
-//    	  (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
-//    	  "\n  "+message);
-  	if (con!=null)
-  		errManager.info(con, message);
-  	else Dump.it("No Connection for message:  "+message);
-  	}  //end of setInfoMarker
+    {
+    if (errManager==null)
+      errManager = new AnalysisErrorReporterManager(
+          new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));   
+    info_messages.add(message);
+//  Dump.it("Info at line "+con..getLine()+" in "+
+//        (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
+//        "\n  "+message);
+    if (con!=null)
+      errManager.info(con, message);
+    else Dump.it("No Connection for message:  "+message);
+    }  //end of setInfoMarker
+
+  public static void  
+setConnectionInfoMarker(String message, Connection con)
+    {
+    if (errManager==null)
+      errManager = new AnalysisErrorReporterManager(
+          new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));   
+    info_messages.add(message);
+//  Dump.it("Info at line "+con..getLine()+" in "+
+//        (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
+//        "\n  "+message);
+    if (con!=null)
+      errManager.info(con, message);
+    else Dump.it("No Connection for message:  "+message);
+    }  //end of setInfoMarker
 
 }  //end of BLESSmarker.java
