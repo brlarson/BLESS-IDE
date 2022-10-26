@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2022-10-26 13:46:37
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2022-10-26 14:51:32
 
 //copyright 2020 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -88,8 +88,7 @@ public class UnparseBLESS extends TreeParser {
 		"RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
 		"STOP", "SUBCOMPONENT", "SUBPROGRAM_ANNEX", "THREAD_ANNEX", "THREAD_GROUP", 
 		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TYPE", "TYPE_OPERATOR", 
-		"TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "VALUE", "WP", "WS", "'|'", 
-		"INVOKE_FUNCTION"
+		"TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "VALUE", "WP", "WS", "'|'"
 	};
 	public static final int EOF=-1;
 	public static final int T__302=302;
@@ -391,7 +390,6 @@ public class UnparseBLESS extends TreeParser {
 	public static final int VALUE=299;
 	public static final int WP=300;
 	public static final int WS=301;
-	public static final int INVOKE_FUNCTION=303;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -7478,7 +7476,7 @@ public class UnparseBLESS extends TreeParser {
 				if ( (LA76_1==DOWN) ) {
 					alt76=2;
 				}
-				else if ( (LA76_1==EOF||(LA76_1 >= UP && LA76_1 <= AADL_STRING_LITERAL)||(LA76_1 >= ACTION && LA76_1 <= AM)||LA76_1==AT_SIGN||(LA76_1 >= CARET && LA76_1 <= COLON)||(LA76_1 >= COMMACOMMA && LA76_1 <= COMPLEX)||LA76_1==CONDITIONAL||LA76_1==DIVIDE||(LA76_1 >= DOTCOMMA && LA76_1 <= DOUBLE_COLON)||LA76_1==EQ||LA76_1==EXP||(LA76_1 >= FUNCTION_CALL && LA76_1 <= GT)||LA76_1==ID||LA76_1==INMODE||LA76_1==INTEGER_LIT||(LA76_1 >= INVARIANT && LA76_1 <= INVOKE)||LA76_1==LITERAL_abs||LA76_1==LITERAL_and||LA76_1==LITERAL_any||LA76_1==LITERAL_cand||LA76_1==LITERAL_complex||LA76_1==LITERAL_cor||LA76_1==LITERAL_def||LA76_1==LITERAL_false||LA76_1==LITERAL_hr||LA76_1==LITERAL_in||LA76_1==LITERAL_integer||(LA76_1 >= LITERAL_min && LA76_1 <= LITERAL_mod)||(LA76_1 >= LITERAL_ms && LA76_1 <= LITERAL_natural)||(LA76_1 >= LITERAL_not && LA76_1 <= LITERAL_now)||(LA76_1 >= LITERAL_null && LA76_1 <= LITERAL_numberof)||LA76_1==LITERAL_or||LA76_1==LITERAL_product||LA76_1==LITERAL_ps||(LA76_1 >= LITERAL_rational && LA76_1 <= LITERAL_real)||LA76_1==LITERAL_rem||LA76_1==LITERAL_sec||LA76_1==LITERAL_stop||LA76_1==LITERAL_sum||(LA76_1 >= LITERAL_throw && LA76_1 <= LITERAL_timeout)||LA76_1==LITERAL_tops||LA76_1==LITERAL_true||LA76_1==LITERAL_us||(LA76_1 >= LITERAL_xor && LA76_1 <= LT)||LA76_1==MINUS||LA76_1==NEQ||LA76_1==OCTOTHORPE||(LA76_1 >= PERIOD && LA76_1 <= PLUS)||LA76_1==PLUS_EQUALS||LA76_1==QUESTION||LA76_1==RATIONAL||LA76_1==REAL_LIT||LA76_1==RPAREN||LA76_1==TICK||LA76_1==TIMES||LA76_1==UNARY_MINUS||LA76_1==WP||LA76_1==INVOKE_FUNCTION) ) {
+				else if ( (LA76_1==EOF||(LA76_1 >= UP && LA76_1 <= AADL_STRING_LITERAL)||(LA76_1 >= ACTION && LA76_1 <= AM)||LA76_1==AT_SIGN||(LA76_1 >= CARET && LA76_1 <= COLON)||(LA76_1 >= COMMACOMMA && LA76_1 <= COMPLEX)||LA76_1==CONDITIONAL||LA76_1==DIVIDE||(LA76_1 >= DOTCOMMA && LA76_1 <= DOUBLE_COLON)||LA76_1==EQ||LA76_1==EXP||(LA76_1 >= FUNCTION_CALL && LA76_1 <= GT)||LA76_1==ID||LA76_1==INMODE||LA76_1==INTEGER_LIT||(LA76_1 >= INVARIANT && LA76_1 <= INVOKE)||LA76_1==LITERAL_abs||LA76_1==LITERAL_and||LA76_1==LITERAL_any||LA76_1==LITERAL_cand||LA76_1==LITERAL_complex||LA76_1==LITERAL_cor||LA76_1==LITERAL_def||LA76_1==LITERAL_false||LA76_1==LITERAL_hr||LA76_1==LITERAL_in||LA76_1==LITERAL_integer||(LA76_1 >= LITERAL_min && LA76_1 <= LITERAL_mod)||(LA76_1 >= LITERAL_ms && LA76_1 <= LITERAL_natural)||(LA76_1 >= LITERAL_not && LA76_1 <= LITERAL_now)||(LA76_1 >= LITERAL_null && LA76_1 <= LITERAL_numberof)||LA76_1==LITERAL_or||LA76_1==LITERAL_product||LA76_1==LITERAL_ps||(LA76_1 >= LITERAL_rational && LA76_1 <= LITERAL_real)||LA76_1==LITERAL_rem||LA76_1==LITERAL_sec||LA76_1==LITERAL_stop||LA76_1==LITERAL_sum||(LA76_1 >= LITERAL_throw && LA76_1 <= LITERAL_timeout)||LA76_1==LITERAL_tops||LA76_1==LITERAL_true||LA76_1==LITERAL_us||(LA76_1 >= LITERAL_xor && LA76_1 <= LT)||LA76_1==MINUS||LA76_1==NEQ||LA76_1==OCTOTHORPE||(LA76_1 >= PERIOD && LA76_1 <= PLUS)||LA76_1==PLUS_EQUALS||LA76_1==QUESTION||LA76_1==RATIONAL||LA76_1==REAL_LIT||LA76_1==RPAREN||LA76_1==TICK||LA76_1==TIMES||LA76_1==UNARY_MINUS||LA76_1==WP) ) {
 					alt76=1;
 				}
 
@@ -16696,7 +16694,7 @@ public class UnparseBLESS extends TreeParser {
 									if ( (LA126_19==PARAMETERS) ) {
 										alt126=5;
 									}
-									else if ( (LA126_19==AADL_STRING_LITERAL||LA126_19==AT_SIGN||(LA126_19 >= CARET && LA126_19 <= CASE_EXPRESSION)||LA126_19==COMPLEX||(LA126_19 >= CONDITIONAL && LA126_19 <= CONDITIONAL_FUNCTION)||LA126_19==DIVIDE||LA126_19==DOUBLE_COLON||LA126_19==EXP||LA126_19==ID||LA126_19==INMODE||LA126_19==INTEGER_LIT||LA126_19==LITERAL_abs||LA126_19==LITERAL_complex||LA126_19==LITERAL_def||LA126_19==LITERAL_false||LA126_19==LITERAL_integer||LA126_19==LITERAL_mod||LA126_19==LITERAL_natural||LA126_19==LITERAL_now||(LA126_19 >= LITERAL_null && LA126_19 <= LITERAL_numberof)||LA126_19==LITERAL_product||(LA126_19 >= LITERAL_rational && LA126_19 <= LITERAL_real)||LA126_19==LITERAL_rem||LA126_19==LITERAL_sum||(LA126_19 >= LITERAL_time && LA126_19 <= LITERAL_timeout)||LA126_19==LITERAL_tops||LA126_19==LITERAL_true||LA126_19==LPAREN||LA126_19==MINUS||LA126_19==OCTOTHORPE||(LA126_19 >= PERIOD && LA126_19 <= PLUS)||LA126_19==QUESTION||LA126_19==RATIONAL||LA126_19==REAL_LIT||LA126_19==TICK||LA126_19==TIMES||LA126_19==UNARY_MINUS||LA126_19==INVOKE_FUNCTION) ) {
+									else if ( (LA126_19==AADL_STRING_LITERAL||LA126_19==AT_SIGN||(LA126_19 >= CARET && LA126_19 <= CASE_EXPRESSION)||LA126_19==COMPLEX||(LA126_19 >= CONDITIONAL && LA126_19 <= CONDITIONAL_FUNCTION)||LA126_19==DIVIDE||LA126_19==DOUBLE_COLON||LA126_19==EXP||LA126_19==ID||LA126_19==INMODE||LA126_19==INTEGER_LIT||LA126_19==INVOKE||LA126_19==LITERAL_abs||LA126_19==LITERAL_complex||LA126_19==LITERAL_def||LA126_19==LITERAL_false||LA126_19==LITERAL_integer||LA126_19==LITERAL_mod||LA126_19==LITERAL_natural||LA126_19==LITERAL_now||(LA126_19 >= LITERAL_null && LA126_19 <= LITERAL_numberof)||LA126_19==LITERAL_product||(LA126_19 >= LITERAL_rational && LA126_19 <= LITERAL_real)||LA126_19==LITERAL_rem||LA126_19==LITERAL_sum||(LA126_19 >= LITERAL_time && LA126_19 <= LITERAL_timeout)||LA126_19==LITERAL_tops||LA126_19==LITERAL_true||LA126_19==LPAREN||LA126_19==MINUS||LA126_19==OCTOTHORPE||(LA126_19 >= PERIOD && LA126_19 <= PLUS)||LA126_19==QUESTION||LA126_19==RATIONAL||LA126_19==REAL_LIT||LA126_19==TICK||LA126_19==TIMES||LA126_19==UNARY_MINUS) ) {
 										alt126=6;
 									}
 
@@ -16767,7 +16765,7 @@ public class UnparseBLESS extends TreeParser {
 						}
 
 					}
-					else if ( (LA126_6==AADL_STRING_LITERAL||LA126_6==AT_SIGN||(LA126_6 >= CARET && LA126_6 <= CASE_EXPRESSION)||LA126_6==COMPLEX||(LA126_6 >= CONDITIONAL && LA126_6 <= CONDITIONAL_FUNCTION)||LA126_6==DIVIDE||LA126_6==DOUBLE_COLON||LA126_6==EXP||LA126_6==ID||LA126_6==INMODE||LA126_6==INTEGER_LIT||LA126_6==LITERAL_abs||LA126_6==LITERAL_complex||LA126_6==LITERAL_def||LA126_6==LITERAL_false||LA126_6==LITERAL_integer||LA126_6==LITERAL_mod||LA126_6==LITERAL_natural||LA126_6==LITERAL_now||(LA126_6 >= LITERAL_null && LA126_6 <= LITERAL_numberof)||LA126_6==LITERAL_product||(LA126_6 >= LITERAL_rational && LA126_6 <= LITERAL_real)||LA126_6==LITERAL_rem||LA126_6==LITERAL_sum||(LA126_6 >= LITERAL_time && LA126_6 <= LITERAL_timeout)||LA126_6==LITERAL_tops||LA126_6==LITERAL_true||LA126_6==LPAREN||LA126_6==MINUS||LA126_6==OCTOTHORPE||(LA126_6 >= PERIOD && LA126_6 <= PLUS)||LA126_6==QUESTION||LA126_6==RATIONAL||LA126_6==REAL_LIT||LA126_6==TICK||LA126_6==TIMES||LA126_6==UNARY_MINUS||LA126_6==INVOKE_FUNCTION) ) {
+					else if ( (LA126_6==AADL_STRING_LITERAL||LA126_6==AT_SIGN||(LA126_6 >= CARET && LA126_6 <= CASE_EXPRESSION)||LA126_6==COMPLEX||(LA126_6 >= CONDITIONAL && LA126_6 <= CONDITIONAL_FUNCTION)||LA126_6==DIVIDE||LA126_6==DOUBLE_COLON||LA126_6==EXP||LA126_6==ID||LA126_6==INMODE||LA126_6==INTEGER_LIT||LA126_6==INVOKE||LA126_6==LITERAL_abs||LA126_6==LITERAL_complex||LA126_6==LITERAL_def||LA126_6==LITERAL_false||LA126_6==LITERAL_integer||LA126_6==LITERAL_mod||LA126_6==LITERAL_natural||LA126_6==LITERAL_now||(LA126_6 >= LITERAL_null && LA126_6 <= LITERAL_numberof)||LA126_6==LITERAL_product||(LA126_6 >= LITERAL_rational && LA126_6 <= LITERAL_real)||LA126_6==LITERAL_rem||LA126_6==LITERAL_sum||(LA126_6 >= LITERAL_time && LA126_6 <= LITERAL_timeout)||LA126_6==LITERAL_tops||LA126_6==LITERAL_true||LA126_6==LPAREN||LA126_6==MINUS||LA126_6==OCTOTHORPE||(LA126_6 >= PERIOD && LA126_6 <= PLUS)||LA126_6==QUESTION||LA126_6==RATIONAL||LA126_6==REAL_LIT||LA126_6==TICK||LA126_6==TIMES||LA126_6==UNARY_MINUS) ) {
 						alt126=7;
 					}
 
@@ -17392,7 +17390,7 @@ public class UnparseBLESS extends TreeParser {
 			if ( (LA130_0==CONDITIONAL_FUNCTION) ) {
 				alt130=1;
 			}
-			else if ( (LA130_0==AADL_STRING_LITERAL||LA130_0==AT_SIGN||(LA130_0 >= CARET && LA130_0 <= CASE_EXPRESSION)||LA130_0==COMPLEX||LA130_0==CONDITIONAL||LA130_0==DIVIDE||LA130_0==DOUBLE_COLON||LA130_0==EXP||LA130_0==ID||LA130_0==INMODE||LA130_0==INTEGER_LIT||LA130_0==LITERAL_abs||LA130_0==LITERAL_complex||LA130_0==LITERAL_def||LA130_0==LITERAL_false||LA130_0==LITERAL_integer||LA130_0==LITERAL_mod||LA130_0==LITERAL_natural||LA130_0==LITERAL_now||(LA130_0 >= LITERAL_null && LA130_0 <= LITERAL_numberof)||LA130_0==LITERAL_product||(LA130_0 >= LITERAL_rational && LA130_0 <= LITERAL_real)||LA130_0==LITERAL_rem||LA130_0==LITERAL_sum||(LA130_0 >= LITERAL_time && LA130_0 <= LITERAL_timeout)||LA130_0==LITERAL_tops||LA130_0==LITERAL_true||LA130_0==LPAREN||LA130_0==MINUS||LA130_0==OCTOTHORPE||(LA130_0 >= PERIOD && LA130_0 <= PLUS)||LA130_0==QUESTION||LA130_0==RATIONAL||LA130_0==REAL_LIT||LA130_0==TICK||LA130_0==TIMES||LA130_0==UNARY_MINUS||LA130_0==INVOKE_FUNCTION) ) {
+			else if ( (LA130_0==AADL_STRING_LITERAL||LA130_0==AT_SIGN||(LA130_0 >= CARET && LA130_0 <= CASE_EXPRESSION)||LA130_0==COMPLEX||LA130_0==CONDITIONAL||LA130_0==DIVIDE||LA130_0==DOUBLE_COLON||LA130_0==EXP||LA130_0==ID||LA130_0==INMODE||LA130_0==INTEGER_LIT||LA130_0==INVOKE||LA130_0==LITERAL_abs||LA130_0==LITERAL_complex||LA130_0==LITERAL_def||LA130_0==LITERAL_false||LA130_0==LITERAL_integer||LA130_0==LITERAL_mod||LA130_0==LITERAL_natural||LA130_0==LITERAL_now||(LA130_0 >= LITERAL_null && LA130_0 <= LITERAL_numberof)||LA130_0==LITERAL_product||(LA130_0 >= LITERAL_rational && LA130_0 <= LITERAL_real)||LA130_0==LITERAL_rem||LA130_0==LITERAL_sum||(LA130_0 >= LITERAL_time && LA130_0 <= LITERAL_timeout)||LA130_0==LITERAL_tops||LA130_0==LITERAL_true||LA130_0==LPAREN||LA130_0==MINUS||LA130_0==OCTOTHORPE||(LA130_0 >= PERIOD && LA130_0 <= PLUS)||LA130_0==QUESTION||LA130_0==RATIONAL||LA130_0==REAL_LIT||LA130_0==TICK||LA130_0==TIMES||LA130_0==UNARY_MINUS) ) {
 				alt130=2;
 			}
 
@@ -17678,7 +17676,7 @@ public class UnparseBLESS extends TreeParser {
 				int LA133_1 = input.LA(2);
 				if ( (LA133_1==DOWN) ) {
 					int LA133_2 = input.LA(3);
-					if ( (LA133_2==INVOKE_FUNCTION) ) {
+					if ( (LA133_2==INVOKE) ) {
 						alt133=1;
 					}
 					else if ( (LA133_2==UP||LA133_2==ID) ) {
@@ -20297,7 +20295,7 @@ public class UnparseBLESS extends TreeParser {
 							if ( (LA150_5==PARAMETER) ) {
 								alt150=1;
 							}
-							else if ( (LA150_5==AADL_STRING_LITERAL||LA150_5==AT_SIGN||(LA150_5 >= CARET && LA150_5 <= CASE_EXPRESSION)||LA150_5==COMPLEX||LA150_5==CONDITIONAL||LA150_5==DIVIDE||LA150_5==DOUBLE_COLON||LA150_5==EXP||LA150_5==ID||LA150_5==INMODE||LA150_5==INTEGER_LIT||LA150_5==LITERAL_abs||LA150_5==LITERAL_complex||LA150_5==LITERAL_def||LA150_5==LITERAL_false||LA150_5==LITERAL_integer||LA150_5==LITERAL_mod||LA150_5==LITERAL_natural||LA150_5==LITERAL_now||(LA150_5 >= LITERAL_null && LA150_5 <= LITERAL_numberof)||LA150_5==LITERAL_product||(LA150_5 >= LITERAL_rational && LA150_5 <= LITERAL_real)||LA150_5==LITERAL_rem||LA150_5==LITERAL_sum||(LA150_5 >= LITERAL_time && LA150_5 <= LITERAL_timeout)||LA150_5==LITERAL_tops||LA150_5==LITERAL_true||LA150_5==LPAREN||LA150_5==MINUS||LA150_5==OCTOTHORPE||(LA150_5 >= PERIOD && LA150_5 <= PLUS)||LA150_5==QUESTION||LA150_5==RATIONAL||LA150_5==REAL_LIT||LA150_5==TICK||LA150_5==TIMES||LA150_5==UNARY_MINUS||LA150_5==INVOKE_FUNCTION) ) {
+							else if ( (LA150_5==AADL_STRING_LITERAL||LA150_5==AT_SIGN||(LA150_5 >= CARET && LA150_5 <= CASE_EXPRESSION)||LA150_5==COMPLEX||LA150_5==CONDITIONAL||LA150_5==DIVIDE||LA150_5==DOUBLE_COLON||LA150_5==EXP||LA150_5==ID||LA150_5==INMODE||LA150_5==INTEGER_LIT||LA150_5==INVOKE||LA150_5==LITERAL_abs||LA150_5==LITERAL_complex||LA150_5==LITERAL_def||LA150_5==LITERAL_false||LA150_5==LITERAL_integer||LA150_5==LITERAL_mod||LA150_5==LITERAL_natural||LA150_5==LITERAL_now||(LA150_5 >= LITERAL_null && LA150_5 <= LITERAL_numberof)||LA150_5==LITERAL_product||(LA150_5 >= LITERAL_rational && LA150_5 <= LITERAL_real)||LA150_5==LITERAL_rem||LA150_5==LITERAL_sum||(LA150_5 >= LITERAL_time && LA150_5 <= LITERAL_timeout)||LA150_5==LITERAL_tops||LA150_5==LITERAL_true||LA150_5==LPAREN||LA150_5==MINUS||LA150_5==OCTOTHORPE||(LA150_5 >= PERIOD && LA150_5 <= PLUS)||LA150_5==QUESTION||LA150_5==RATIONAL||LA150_5==REAL_LIT||LA150_5==TICK||LA150_5==TIMES||LA150_5==UNARY_MINUS) ) {
 								alt150=3;
 							}
 
@@ -20931,6 +20929,7 @@ public class UnparseBLESS extends TreeParser {
 			case ID:
 			case INMODE:
 			case INTEGER_LIT:
+			case INVOKE:
 			case LITERAL_abs:
 			case LITERAL_complex:
 			case LITERAL_def:
@@ -20953,7 +20952,6 @@ public class UnparseBLESS extends TreeParser {
 			case REAL_LIT:
 			case TICK:
 			case UNARY_MINUS:
-			case INVOKE_FUNCTION:
 				{
 				alt157=11;
 				}
@@ -21117,7 +21115,7 @@ public class UnparseBLESS extends TreeParser {
 					while (true) {
 						int alt155=2;
 						int LA155_0 = input.LA(1);
-						if ( (LA155_0==AADL_STRING_LITERAL||LA155_0==AT_SIGN||(LA155_0 >= CARET && LA155_0 <= CASE_EXPRESSION)||LA155_0==COMPLEX||LA155_0==CONDITIONAL||LA155_0==DOUBLE_COLON||LA155_0==ID||LA155_0==INMODE||LA155_0==INTEGER_LIT||LA155_0==LITERAL_abs||LA155_0==LITERAL_complex||LA155_0==LITERAL_def||LA155_0==LITERAL_false||LA155_0==LITERAL_integer||LA155_0==LITERAL_natural||LA155_0==LITERAL_now||LA155_0==LITERAL_null||(LA155_0 >= LITERAL_rational && LA155_0 <= LITERAL_real)||(LA155_0 >= LITERAL_time && LA155_0 <= LITERAL_timeout)||LA155_0==LITERAL_tops||LA155_0==LITERAL_true||LA155_0==LPAREN||LA155_0==OCTOTHORPE||LA155_0==PERIOD||LA155_0==QUESTION||LA155_0==RATIONAL||LA155_0==REAL_LIT||LA155_0==TICK||LA155_0==UNARY_MINUS||LA155_0==INVOKE_FUNCTION) ) {
+						if ( (LA155_0==AADL_STRING_LITERAL||LA155_0==AT_SIGN||(LA155_0 >= CARET && LA155_0 <= CASE_EXPRESSION)||LA155_0==COMPLEX||LA155_0==CONDITIONAL||LA155_0==DOUBLE_COLON||LA155_0==ID||LA155_0==INMODE||LA155_0==INTEGER_LIT||LA155_0==INVOKE||LA155_0==LITERAL_abs||LA155_0==LITERAL_complex||LA155_0==LITERAL_def||LA155_0==LITERAL_false||LA155_0==LITERAL_integer||LA155_0==LITERAL_natural||LA155_0==LITERAL_now||LA155_0==LITERAL_null||(LA155_0 >= LITERAL_rational && LA155_0 <= LITERAL_real)||(LA155_0 >= LITERAL_time && LA155_0 <= LITERAL_timeout)||LA155_0==LITERAL_tops||LA155_0==LITERAL_true||LA155_0==LPAREN||LA155_0==OCTOTHORPE||LA155_0==PERIOD||LA155_0==QUESTION||LA155_0==RATIONAL||LA155_0==REAL_LIT||LA155_0==TICK||LA155_0==UNARY_MINUS) ) {
 							alt155=1;
 						}
 
@@ -21168,7 +21166,7 @@ public class UnparseBLESS extends TreeParser {
 					while (true) {
 						int alt156=2;
 						int LA156_0 = input.LA(1);
-						if ( (LA156_0==AADL_STRING_LITERAL||LA156_0==AT_SIGN||(LA156_0 >= CARET && LA156_0 <= CASE_EXPRESSION)||LA156_0==COMPLEX||LA156_0==CONDITIONAL||LA156_0==DOUBLE_COLON||LA156_0==ID||LA156_0==INMODE||LA156_0==INTEGER_LIT||LA156_0==LITERAL_abs||LA156_0==LITERAL_complex||LA156_0==LITERAL_def||LA156_0==LITERAL_false||LA156_0==LITERAL_integer||LA156_0==LITERAL_natural||LA156_0==LITERAL_now||LA156_0==LITERAL_null||(LA156_0 >= LITERAL_rational && LA156_0 <= LITERAL_real)||(LA156_0 >= LITERAL_time && LA156_0 <= LITERAL_timeout)||LA156_0==LITERAL_tops||LA156_0==LITERAL_true||LA156_0==LPAREN||LA156_0==OCTOTHORPE||LA156_0==PERIOD||LA156_0==QUESTION||LA156_0==RATIONAL||LA156_0==REAL_LIT||LA156_0==TICK||LA156_0==UNARY_MINUS||LA156_0==INVOKE_FUNCTION) ) {
+						if ( (LA156_0==AADL_STRING_LITERAL||LA156_0==AT_SIGN||(LA156_0 >= CARET && LA156_0 <= CASE_EXPRESSION)||LA156_0==COMPLEX||LA156_0==CONDITIONAL||LA156_0==DOUBLE_COLON||LA156_0==ID||LA156_0==INMODE||LA156_0==INTEGER_LIT||LA156_0==INVOKE||LA156_0==LITERAL_abs||LA156_0==LITERAL_complex||LA156_0==LITERAL_def||LA156_0==LITERAL_false||LA156_0==LITERAL_integer||LA156_0==LITERAL_natural||LA156_0==LITERAL_now||LA156_0==LITERAL_null||(LA156_0 >= LITERAL_rational && LA156_0 <= LITERAL_real)||(LA156_0 >= LITERAL_time && LA156_0 <= LITERAL_timeout)||LA156_0==LITERAL_tops||LA156_0==LITERAL_true||LA156_0==LPAREN||LA156_0==OCTOTHORPE||LA156_0==PERIOD||LA156_0==QUESTION||LA156_0==RATIONAL||LA156_0==REAL_LIT||LA156_0==TICK||LA156_0==UNARY_MINUS) ) {
 							alt156=1;
 						}
 
@@ -21424,6 +21422,7 @@ public class UnparseBLESS extends TreeParser {
 			case ID:
 			case INMODE:
 			case INTEGER_LIT:
+			case INVOKE:
 			case LITERAL_false:
 			case LITERAL_now:
 			case LITERAL_null:
@@ -21437,7 +21436,6 @@ public class UnparseBLESS extends TreeParser {
 			case RATIONAL:
 			case REAL_LIT:
 			case TICK:
-			case INVOKE_FUNCTION:
 				{
 				alt158=1;
 				}
@@ -21791,7 +21789,7 @@ public class UnparseBLESS extends TreeParser {
 						alt160=2;
 						}
 						break;
-					case INVOKE_FUNCTION:
+					case INVOKE:
 						{
 						alt160=3;
 						}
@@ -21898,7 +21896,7 @@ public class UnparseBLESS extends TreeParser {
 						alt161=2;
 						}
 						break;
-					case INVOKE_FUNCTION:
+					case INVOKE:
 						{
 						alt161=3;
 						}
@@ -22019,6 +22017,7 @@ public class UnparseBLESS extends TreeParser {
 			case ID:
 			case INMODE:
 			case INTEGER_LIT:
+			case INVOKE:
 			case LITERAL_false:
 			case LITERAL_now:
 			case LITERAL_null:
@@ -22033,7 +22032,6 @@ public class UnparseBLESS extends TreeParser {
 			case REAL_LIT:
 			case TICK:
 			case UNARY_MINUS:
-			case INVOKE_FUNCTION:
 				{
 				alt165=1;
 				}
@@ -22110,7 +22108,7 @@ public class UnparseBLESS extends TreeParser {
 					while (true) {
 						int alt163=2;
 						int LA163_0 = input.LA(1);
-						if ( (LA163_0==AADL_STRING_LITERAL||LA163_0==COMPLEX||LA163_0==DOUBLE_COLON||LA163_0==ID||LA163_0==INMODE||LA163_0==INTEGER_LIT||LA163_0==LITERAL_false||LA163_0==LITERAL_now||LA163_0==LITERAL_null||LA163_0==LITERAL_timeout||LA163_0==LITERAL_tops||LA163_0==LITERAL_true||LA163_0==LPAREN||LA163_0==OCTOTHORPE||LA163_0==PERIOD||LA163_0==QUESTION||LA163_0==RATIONAL||LA163_0==REAL_LIT||LA163_0==TICK||LA163_0==UNARY_MINUS||LA163_0==INVOKE_FUNCTION) ) {
+						if ( (LA163_0==AADL_STRING_LITERAL||LA163_0==COMPLEX||LA163_0==DOUBLE_COLON||LA163_0==ID||LA163_0==INMODE||LA163_0==INTEGER_LIT||LA163_0==INVOKE||LA163_0==LITERAL_false||LA163_0==LITERAL_now||LA163_0==LITERAL_null||LA163_0==LITERAL_timeout||LA163_0==LITERAL_tops||LA163_0==LITERAL_true||LA163_0==LPAREN||LA163_0==OCTOTHORPE||LA163_0==PERIOD||LA163_0==QUESTION||LA163_0==RATIONAL||LA163_0==REAL_LIT||LA163_0==TICK||LA163_0==UNARY_MINUS) ) {
 							alt163=1;
 						}
 
@@ -22161,7 +22159,7 @@ public class UnparseBLESS extends TreeParser {
 					while (true) {
 						int alt164=2;
 						int LA164_0 = input.LA(1);
-						if ( (LA164_0==AADL_STRING_LITERAL||LA164_0==COMPLEX||LA164_0==DOUBLE_COLON||LA164_0==ID||LA164_0==INMODE||LA164_0==INTEGER_LIT||LA164_0==LITERAL_false||LA164_0==LITERAL_now||LA164_0==LITERAL_null||LA164_0==LITERAL_timeout||LA164_0==LITERAL_tops||LA164_0==LITERAL_true||LA164_0==LPAREN||LA164_0==OCTOTHORPE||LA164_0==PERIOD||LA164_0==QUESTION||LA164_0==RATIONAL||LA164_0==REAL_LIT||LA164_0==TICK||LA164_0==UNARY_MINUS||LA164_0==INVOKE_FUNCTION) ) {
+						if ( (LA164_0==AADL_STRING_LITERAL||LA164_0==COMPLEX||LA164_0==DOUBLE_COLON||LA164_0==ID||LA164_0==INMODE||LA164_0==INTEGER_LIT||LA164_0==INVOKE||LA164_0==LITERAL_false||LA164_0==LITERAL_now||LA164_0==LITERAL_null||LA164_0==LITERAL_timeout||LA164_0==LITERAL_tops||LA164_0==LITERAL_true||LA164_0==LPAREN||LA164_0==OCTOTHORPE||LA164_0==PERIOD||LA164_0==QUESTION||LA164_0==RATIONAL||LA164_0==REAL_LIT||LA164_0==TICK||LA164_0==UNARY_MINUS) ) {
 							alt164=1;
 						}
 
@@ -22426,7 +22424,7 @@ public class UnparseBLESS extends TreeParser {
 						alt166=1;
 						}
 						break;
-					case INVOKE_FUNCTION:
+					case INVOKE:
 						{
 						alt166=2;
 						}
@@ -22484,7 +22482,7 @@ public class UnparseBLESS extends TreeParser {
 				alt166=4;
 				}
 				break;
-			case INVOKE_FUNCTION:
+			case INVOKE:
 				{
 				alt166=5;
 				}
@@ -22680,7 +22678,7 @@ public class UnparseBLESS extends TreeParser {
 
 
 	// $ANTLR start "assertion_function_invocation"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3163:1: assertion_function_invocation : ( ^( INVOKE_FUNCTION assertion_function_identifier= ID ) -> template(i=$assertion_function_identifier.text) \"<i>()\"| ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID actual= assertion_expression ) ) -> template(i=$assertion_function_identifier.textactual=$actual.st) \"<i>(<actual>)\"| ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) ) -> template(i=$assertion_function_identifier.textparams=$params) \"<i>(<params; separator=\", \">)\");
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3163:1: assertion_function_invocation : ( ^( INVOKE assertion_function_identifier= ID ) -> template(i=$assertion_function_identifier.text) \"<i>()\"| ^( INVOKE ^(assertion_function_identifier= ID actual= assertion_expression ) ) -> template(i=$assertion_function_identifier.textactual=$actual.st) \"<i>(<actual>)\"| ^( INVOKE ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) ) -> template(i=$assertion_function_identifier.textparams=$params) \"<i>(<params; separator=\", \">)\");
 	public final UnparseBLESS.assertion_function_invocation_return assertion_function_invocation() throws RecognitionException {
 		UnparseBLESS.assertion_function_invocation_return retval = new UnparseBLESS.assertion_function_invocation_return();
 		retval.start = input.LT(1);
@@ -22690,10 +22688,10 @@ public class UnparseBLESS extends TreeParser {
 		TreeRuleReturnScope actual =null;
 		RuleReturnScope params = null;
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3164:3: ( ^( INVOKE_FUNCTION assertion_function_identifier= ID ) -> template(i=$assertion_function_identifier.text) \"<i>()\"| ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID actual= assertion_expression ) ) -> template(i=$assertion_function_identifier.textactual=$actual.st) \"<i>(<actual>)\"| ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) ) -> template(i=$assertion_function_identifier.textparams=$params) \"<i>(<params; separator=\", \">)\")
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3164:3: ( ^( INVOKE assertion_function_identifier= ID ) -> template(i=$assertion_function_identifier.text) \"<i>()\"| ^( INVOKE ^(assertion_function_identifier= ID actual= assertion_expression ) ) -> template(i=$assertion_function_identifier.textactual=$actual.st) \"<i>(<actual>)\"| ^( INVOKE ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) ) -> template(i=$assertion_function_identifier.textparams=$params) \"<i>(<params; separator=\", \">)\")
 			int alt168=3;
 			int LA168_0 = input.LA(1);
-			if ( (LA168_0==INVOKE_FUNCTION) ) {
+			if ( (LA168_0==INVOKE) ) {
 				int LA168_1 = input.LA(2);
 				if ( (LA168_1==DOWN) ) {
 					int LA168_2 = input.LA(3);
@@ -22704,7 +22702,7 @@ public class UnparseBLESS extends TreeParser {
 						}
 						else if ( (LA168_3==DOWN) ) {
 							int LA168_5 = input.LA(5);
-							if ( (LA168_5==AADL_STRING_LITERAL||LA168_5==AT_SIGN||(LA168_5 >= CARET && LA168_5 <= CASE_EXPRESSION)||LA168_5==COMPLEX||LA168_5==CONDITIONAL||LA168_5==DIVIDE||LA168_5==DOUBLE_COLON||LA168_5==EXP||LA168_5==ID||LA168_5==INMODE||LA168_5==INTEGER_LIT||LA168_5==LITERAL_abs||LA168_5==LITERAL_complex||LA168_5==LITERAL_def||LA168_5==LITERAL_false||LA168_5==LITERAL_integer||LA168_5==LITERAL_mod||LA168_5==LITERAL_natural||LA168_5==LITERAL_now||(LA168_5 >= LITERAL_null && LA168_5 <= LITERAL_numberof)||LA168_5==LITERAL_product||(LA168_5 >= LITERAL_rational && LA168_5 <= LITERAL_real)||LA168_5==LITERAL_rem||LA168_5==LITERAL_sum||(LA168_5 >= LITERAL_time && LA168_5 <= LITERAL_timeout)||LA168_5==LITERAL_tops||LA168_5==LITERAL_true||LA168_5==LPAREN||LA168_5==MINUS||LA168_5==OCTOTHORPE||(LA168_5 >= PERIOD && LA168_5 <= PLUS)||LA168_5==QUESTION||LA168_5==RATIONAL||LA168_5==REAL_LIT||LA168_5==TICK||LA168_5==TIMES||LA168_5==UNARY_MINUS||LA168_5==INVOKE_FUNCTION) ) {
+							if ( (LA168_5==AADL_STRING_LITERAL||LA168_5==AT_SIGN||(LA168_5 >= CARET && LA168_5 <= CASE_EXPRESSION)||LA168_5==COMPLEX||LA168_5==CONDITIONAL||LA168_5==DIVIDE||LA168_5==DOUBLE_COLON||LA168_5==EXP||LA168_5==ID||LA168_5==INMODE||LA168_5==INTEGER_LIT||LA168_5==INVOKE||LA168_5==LITERAL_abs||LA168_5==LITERAL_complex||LA168_5==LITERAL_def||LA168_5==LITERAL_false||LA168_5==LITERAL_integer||LA168_5==LITERAL_mod||LA168_5==LITERAL_natural||LA168_5==LITERAL_now||(LA168_5 >= LITERAL_null && LA168_5 <= LITERAL_numberof)||LA168_5==LITERAL_product||(LA168_5 >= LITERAL_rational && LA168_5 <= LITERAL_real)||LA168_5==LITERAL_rem||LA168_5==LITERAL_sum||(LA168_5 >= LITERAL_time && LA168_5 <= LITERAL_timeout)||LA168_5==LITERAL_tops||LA168_5==LITERAL_true||LA168_5==LPAREN||LA168_5==MINUS||LA168_5==OCTOTHORPE||(LA168_5 >= PERIOD && LA168_5 <= PLUS)||LA168_5==QUESTION||LA168_5==RATIONAL||LA168_5==REAL_LIT||LA168_5==TICK||LA168_5==TIMES||LA168_5==UNARY_MINUS) ) {
 								alt168=2;
 							}
 							else if ( (LA168_5==PARAMETER) ) {
@@ -22786,9 +22784,9 @@ public class UnparseBLESS extends TreeParser {
 
 			switch (alt168) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3165:3: ^( INVOKE_FUNCTION assertion_function_identifier= ID )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3165:3: ^( INVOKE assertion_function_identifier= ID )
 					{
-					match(input,INVOKE_FUNCTION,FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12923); if (state.failed) return retval;
+					match(input,INVOKE,FOLLOW_INVOKE_in_assertion_function_invocation12923); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					assertion_function_identifier=(BAST)match(input,ID,FOLLOW_ID_in_assertion_function_invocation12927); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -22806,9 +22804,9 @@ public class UnparseBLESS extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3168:3: ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID actual= assertion_expression ) )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3168:3: ^( INVOKE ^(assertion_function_identifier= ID actual= assertion_expression ) )
 					{
-					match(input,INVOKE_FUNCTION,FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12952); if (state.failed) return retval;
+					match(input,INVOKE,FOLLOW_INVOKE_in_assertion_function_invocation12952); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					assertion_function_identifier=(BAST)match(input,ID,FOLLOW_ID_in_assertion_function_invocation12957); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -22833,13 +22831,13 @@ public class UnparseBLESS extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:3: ^( INVOKE_FUNCTION ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:3: ^( INVOKE ^(assertion_function_identifier= ID (params+= actual_assertion_parameter )+ ) )
 					{
-					match(input,INVOKE_FUNCTION,FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12992); if (state.failed) return retval;
+					match(input,INVOKE,FOLLOW_INVOKE_in_assertion_function_invocation12992); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					assertion_function_identifier=(BAST)match(input,ID,FOLLOW_ID_in_assertion_function_invocation12997); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:56: (params+= actual_assertion_parameter )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:47: (params+= actual_assertion_parameter )+
 					int cnt167=0;
 					loop167:
 					while (true) {
@@ -22851,7 +22849,7 @@ public class UnparseBLESS extends TreeParser {
 
 						switch (alt167) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:57: params+= actual_assertion_parameter
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3171:48: params+= actual_assertion_parameter
 							{
 							pushFollow(FOLLOW_actual_assertion_parameter_in_assertion_function_invocation13002);
 							params=actual_assertion_parameter();
@@ -22950,7 +22948,7 @@ public class UnparseBLESS extends TreeParser {
 				int LA169_1 = input.LA(2);
 				if ( (LA169_1==DOWN) ) {
 					int LA169_4 = input.LA(3);
-					if ( (LA169_4==AADL_STRING_LITERAL||LA169_4==AT_SIGN||(LA169_4 >= CARET && LA169_4 <= CASE_EXPRESSION)||LA169_4==COMPLEX||LA169_4==CONDITIONAL||LA169_4==DIVIDE||LA169_4==DOUBLE_COLON||LA169_4==EXP||LA169_4==ID||LA169_4==INMODE||LA169_4==INTEGER_LIT||LA169_4==LITERAL_abs||LA169_4==LITERAL_complex||LA169_4==LITERAL_def||LA169_4==LITERAL_false||LA169_4==LITERAL_integer||LA169_4==LITERAL_mod||LA169_4==LITERAL_natural||LA169_4==LITERAL_now||(LA169_4 >= LITERAL_null && LA169_4 <= LITERAL_numberof)||LA169_4==LITERAL_product||(LA169_4 >= LITERAL_rational && LA169_4 <= LITERAL_real)||LA169_4==LITERAL_rem||LA169_4==LITERAL_sum||(LA169_4 >= LITERAL_time && LA169_4 <= LITERAL_timeout)||LA169_4==LITERAL_tops||LA169_4==LITERAL_true||LA169_4==LPAREN||LA169_4==MINUS||LA169_4==OCTOTHORPE||(LA169_4 >= PERIOD && LA169_4 <= PLUS)||LA169_4==QUESTION||LA169_4==RATIONAL||LA169_4==REAL_LIT||LA169_4==TICK||LA169_4==TIMES||LA169_4==UNARY_MINUS||LA169_4==INVOKE_FUNCTION) ) {
+					if ( (LA169_4==AADL_STRING_LITERAL||LA169_4==AT_SIGN||(LA169_4 >= CARET && LA169_4 <= CASE_EXPRESSION)||LA169_4==COMPLEX||LA169_4==CONDITIONAL||LA169_4==DIVIDE||LA169_4==DOUBLE_COLON||LA169_4==EXP||LA169_4==ID||LA169_4==INMODE||LA169_4==INTEGER_LIT||LA169_4==INVOKE||LA169_4==LITERAL_abs||LA169_4==LITERAL_complex||LA169_4==LITERAL_def||LA169_4==LITERAL_false||LA169_4==LITERAL_integer||LA169_4==LITERAL_mod||LA169_4==LITERAL_natural||LA169_4==LITERAL_now||(LA169_4 >= LITERAL_null && LA169_4 <= LITERAL_numberof)||LA169_4==LITERAL_product||(LA169_4 >= LITERAL_rational && LA169_4 <= LITERAL_real)||LA169_4==LITERAL_rem||LA169_4==LITERAL_sum||(LA169_4 >= LITERAL_time && LA169_4 <= LITERAL_timeout)||LA169_4==LITERAL_tops||LA169_4==LITERAL_true||LA169_4==LPAREN||LA169_4==MINUS||LA169_4==OCTOTHORPE||(LA169_4 >= PERIOD && LA169_4 <= PLUS)||LA169_4==QUESTION||LA169_4==RATIONAL||LA169_4==REAL_LIT||LA169_4==TICK||LA169_4==TIMES||LA169_4==UNARY_MINUS) ) {
 						alt169=1;
 					}
 					else if ( (LA169_4==ARROW) ) {
@@ -28435,17 +28433,17 @@ public class UnparseBLESS extends TreeParser {
 	static final String DFA162_minS =
 		"\1\4\1\uffff\1\2\4\uffff\1\4\2\2\1\uffff\1\76\1\2\1\3";
 	static final String DFA162_maxS =
-		"\1\u012f\1\uffff\1\2\4\uffff\1\u0122\1\u00ea\1\2\1\uffff\2\76\1\u00ea";
+		"\1\u0122\1\uffff\1\2\4\uffff\1\u0122\1\u00ea\1\2\1\uffff\2\76\1\u00ea";
 	static final String DFA162_acceptS =
 		"\1\uffff\1\1\1\uffff\1\2\1\3\1\5\1\6\3\uffff\1\4\3\uffff";
 	static final String DFA162_specialS =
 		"\16\uffff}>";
 	static final String[] DFA162_transitionS = {
 			"\1\1\15\uffff\1\5\7\uffff\1\6\1\3\4\uffff\1\1\2\uffff\1\3\11\uffff\1"+
-			"\1\20\uffff\1\1\1\uffff\1\1\1\uffff\1\1\77\uffff\1\1\47\uffff\1\1\1\uffff"+
-			"\1\1\64\uffff\1\1\1\uffff\1\1\2\uffff\1\1\15\uffff\1\3\7\uffff\1\1\4"+
-			"\uffff\1\1\14\uffff\1\1\1\uffff\1\1\3\uffff\1\1\15\uffff\1\2\14\uffff"+
-			"\1\4",
+			"\1\20\uffff\1\1\1\uffff\1\1\1\uffff\1\1\2\uffff\1\4\74\uffff\1\1\47\uffff"+
+			"\1\1\1\uffff\1\1\64\uffff\1\1\1\uffff\1\1\2\uffff\1\1\15\uffff\1\3\7"+
+			"\uffff\1\1\4\uffff\1\1\14\uffff\1\1\1\uffff\1\1\3\uffff\1\1\15\uffff"+
+			"\1\2",
 			"",
 			"\1\7",
 			"",
@@ -29216,7 +29214,7 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_CONDITIONAL_FUNCTION_in_conditional_assertion_function9301 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_condition_value_pair_in_conditional_assertion_function9307 = new BitSet(new long[]{0x8000000000000008L});
 	public static final BitSet FOLLOW_IMP_in_condition_value_pair9341 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_parenthesized_predicate_in_condition_value_pair9345 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_parenthesized_predicate_in_condition_value_pair9345 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_condition_value_pair9349 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PLUS_ARROW_in_assertion_enumeration9386 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_function_invocation_in_assertion_enumeration9390 = new BitSet(new long[]{0x0000000000000008L});
@@ -29240,7 +29238,7 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_identifier_in_logic_variables9690 = new BitSet(new long[]{0x4000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_in_in_logic_variable_domain9735 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_range_symbol_in_logic_variable_domain9741 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_expression_in_logic_variable_domain9745 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_assertion_expression_in_logic_variable_domain9745 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_logic_variable_domain9749 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_in_in_logic_variable_domain9791 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_predicate_in_logic_variable_domain9795 = new BitSet(new long[]{0x0000000000000008L});
@@ -29270,18 +29268,18 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_stop_in_predicate_atom_stub10223 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_timed_predicate_in_predicate_atom_stub10240 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_relation_symbol_in_predicate_atom_stub10259 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_predicate_atom_stub10264 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_predicate_atom_stub10264 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_predicate_atom_stub10268 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_in_in_predicate_atom_stub10300 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_predicate_atom_stub10304 = new BitSet(new long[]{0x00001800C0000000L});
 	public static final BitSet FOLLOW_assertion_range_in_predicate_atom_stub10308 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PLUS_EQUALS_in_predicate_atom_stub10332 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_name_in_predicate_atom_stub10338 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_name_in_predicate_atom_stub10338 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_predicate_atom_stub10342 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_def_in_predicate_atom_stub10370 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_parameter_in_predicate_atom_stub10374 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_range_symbol_in_assertion_range10411 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_expression_in_assertion_range10415 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_assertion_expression_in_assertion_range10415 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_assertion_range10419 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ID_in_assertion_parameter10458 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_TILDE_in_assertion_parameter10475 = new BitSet(new long[]{0x0000000000000004L});
@@ -29303,11 +29301,11 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_TICK_in_timed_predicate10730 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_name_in_timed_predicate10734 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_AT_SIGN_in_timed_predicate10756 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_name_in_timed_predicate10766 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_parenthesized_predicate_in_timed_predicate10780 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_LITERAL_stop_in_timed_predicate10794 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_LITERAL_true_in_timed_predicate10821 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_predicate_invocation_in_timed_predicate10834 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_name_in_timed_predicate10766 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_parenthesized_predicate_in_timed_predicate10780 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_LITERAL_stop_in_timed_predicate10794 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_LITERAL_true_in_timed_predicate10821 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_predicate_invocation_in_timed_predicate10834 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_timed_predicate10848 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_CARET_in_timed_predicate10964 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_name_in_timed_predicate10974 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
@@ -29331,10 +29329,10 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_behavior_actions_in_predicate_invocation11311 = new BitSet(new long[]{0xC808000004040180L,0x004000000C000020L,0x0001020000D00005L,0x0438004000200000L,0x0000100400000012L});
 	public static final BitSet FOLLOW_predicate_in_predicate_invocation11315 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PARAMETER_in_actual_assertion_parameter11356 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_actual_assertion_parameter11360 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_ID_in_actual_assertion_parameter11360 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_actual_assertion_parameter11364 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_relation_symbol_in_predicate_relation11402 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_expression_in_predicate_relation11406 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_assertion_expression_in_predicate_relation11406 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_predicate_relation11410 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_in_in_predicate_relation11452 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_expression_in_predicate_relation11456 = new BitSet(new long[]{0x00001800C0000000L});
@@ -29345,12 +29343,12 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_sum_in_assertion_expression11551 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_logic_variables_in_assertion_expression11555 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000400000800000L});
 	public static final BitSet FOLLOW_logic_variable_domain_in_assertion_expression11559 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000400000000000L});
-	public static final BitSet FOLLOW_LITERAL_of_in_assertion_expression11563 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_LITERAL_of_in_assertion_expression11563 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_assertion_expression11567 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_product_in_assertion_expression11603 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_logic_variables_in_assertion_expression11607 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000400000800000L});
 	public static final BitSet FOLLOW_logic_variable_domain_in_assertion_expression11611 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000400000000000L});
-	public static final BitSet FOLLOW_LITERAL_of_in_assertion_expression11615 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_LITERAL_of_in_assertion_expression11615 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_assertion_expression11619 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_numberof_in_assertion_expression11656 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_logic_variables_in_assertion_expression11660 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000800000L,0x0000000010000000L});
@@ -29358,23 +29356,23 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_that_in_assertion_expression11667 = new BitSet(new long[]{0x4808000004040180L,0x0040000000000020L,0x0000020000800004L,0x0430004000200000L,0x0000100400000012L});
 	public static final BitSet FOLLOW_subpredicate_in_assertion_expression11671 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PLUS_in_assertion_expression11706 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11710 = new BitSet(new long[]{0x400020090C040018L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11710 = new BitSet(new long[]{0x400020090C040018L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_TIMES_in_assertion_expression11738 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11742 = new BitSet(new long[]{0x400020090C040018L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11742 = new BitSet(new long[]{0x400020090C040018L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_MINUS_in_assertion_expression11772 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11776 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11776 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11780 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_DIVIDE_in_assertion_expression11818 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11822 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11822 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11826 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_EXP_in_assertion_expression11865 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11869 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11869 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11873 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_mod_in_assertion_expression11912 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11916 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11916 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11920 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_rem_in_assertion_expression11955 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11959 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800005L,0x0000144004000004L,0x1010004B00000030L,0x0000840400114002L});
+	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11959 = new BitSet(new long[]{0x400020090C040010L,0x0040100000800025L,0x0000144004000004L,0x1010004B00000030L,0x0000040400114002L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11963 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_assertion_subexpression_in_assertion_expression11996 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_timed_expression_in_assertion_subexpression12033 = new BitSet(new long[]{0x0000000000000002L});
@@ -29392,9 +29390,9 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_value_in_timed_expression12236 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_parenthesized_assertion_expression_in_timed_expression12242 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_AT_SIGN_in_timed_expression12282 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_value_in_timed_expression12288 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_parenthesized_assertion_expression_in_timed_expression12295 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
-	public static final BitSet FOLLOW_assertion_function_invocation_in_timed_expression12301 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_value_in_timed_expression12288 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_parenthesized_assertion_expression_in_timed_expression12295 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
+	public static final BitSet FOLLOW_assertion_function_invocation_in_timed_expression12301 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_timed_expression12308 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_CARET_in_timed_expression12370 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_value_in_timed_expression12376 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
@@ -29403,23 +29401,23 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_period_shift_in_timed_expression12396 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12476 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_PLUS_in_time_expression12495 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12499 = new BitSet(new long[]{0x4000200100000018L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12499 = new BitSet(new long[]{0x4000200100000018L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_TIMES_in_time_expression12526 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12530 = new BitSet(new long[]{0x4000200100000018L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12530 = new BitSet(new long[]{0x4000200100000018L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_MINUS_in_time_expression12557 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12561 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12561 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12565 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_DIVIDE_in_time_expression12595 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12599 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12599 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12603 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_EXP_in_time_expression12633 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12637 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12637 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12641 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_mod_in_time_expression12671 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12675 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12675 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12679 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_rem_in_time_expression12709 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_time_subexpression_in_time_expression12713 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000005L,0x0000140000000004L,0x1010004A00000000L,0x0000840400114002L});
+	public static final BitSet FOLLOW_time_subexpression_in_time_expression12713 = new BitSet(new long[]{0x4000200100000010L,0x0000000000000025L,0x0000140000000004L,0x1010004A00000000L,0x0000040400114002L});
 	public static final BitSet FOLLOW_time_subexpression_in_time_expression12717 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_UNARY_MINUS_in_time_subexpression12756 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_value_in_time_subexpression12760 = new BitSet(new long[]{0x0000000000000008L});
@@ -29434,12 +29432,12 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_LPAREN_in_time_subexpression12883 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_time_expression_in_time_subexpression12887 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
 	public static final BitSet FOLLOW_RPAREN_in_time_subexpression12891 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12923 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INVOKE_in_assertion_function_invocation12923 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_assertion_function_invocation12927 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12952 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INVOKE_in_assertion_function_invocation12952 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_assertion_function_invocation12957 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_expression_in_assertion_function_invocation12961 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVOKE_FUNCTION_in_assertion_function_invocation12992 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INVOKE_in_assertion_function_invocation12992 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_assertion_function_invocation12997 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_actual_assertion_parameter_in_assertion_function_invocation13002 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
 	public static final BitSet FOLLOW_LPAREN_in_parenthesized_assertion_expression13054 = new BitSet(new long[]{0x0000000000000004L});
@@ -29449,8 +29447,8 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_assertion_record_term_in_parenthesized_assertion_expression13111 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_case_expression_in_parenthesized_assertion_expression13129 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_CONDITIONAL_in_conditional_assertion_expression13166 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_predicate_in_conditional_assertion_expression13170 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
-	public static final BitSet FOLLOW_assertion_expression_in_conditional_assertion_expression13174 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800005L,0x1000344404000004L,0x1110004B02000130L,0x0000841400114006L});
+	public static final BitSet FOLLOW_predicate_in_conditional_assertion_expression13170 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
+	public static final BitSet FOLLOW_assertion_expression_in_conditional_assertion_expression13174 = new BitSet(new long[]{0x402022090C040010L,0x0040100000800025L,0x1000344404000004L,0x1110004B02000130L,0x0000041400114006L});
 	public static final BitSet FOLLOW_assertion_expression_in_conditional_assertion_expression13178 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LPAREN_in_assertion_record_term13227 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_record_value_in_assertion_record_term13231 = new BitSet(new long[]{0x0000000000001000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
