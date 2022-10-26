@@ -947,10 +947,10 @@ private static int tab=0;  //tabbing for toStringTree
             && theOtherTree.isNumericLiteral())
       return (this.truncateWholeLiterals().contentEquals(theOtherTree.truncateWholeLiterals()));
     // make INVOKE match FUNCTION_CALL
-    if (!((this.hasType(BLESStoASTLexer.INVOKE)||this.hasType(BLESStoASTLexer.FUNCTION_CALL)||
- 		      this.hasType(BLESStoASTLexer.INVOKE_FUNCTION))
-        && (theOtherTree.hasType(BLESStoASTLexer.INVOKE)||theOtherTree.hasType(BLESStoASTLexer.FUNCTION_CALL)||
-    		  theOtherTree.hasType(BLESStoASTLexer.INVOKE_FUNCTION)))
+    if (!((this.hasType(BLESStoASTLexer.INVOKE)||this.hasType(BLESStoASTLexer.FUNCTION_CALL))
+// 		      this.hasType(BLESStoASTLexer.INVOKE_FUNCTION))
+        && (theOtherTree.hasType(BLESStoASTLexer.INVOKE)||theOtherTree.hasType(BLESStoASTLexer.FUNCTION_CALL)))
+//    		  theOtherTree.hasType(BLESStoASTLexer.INVOKE_FUNCTION)))
         && !this.hasType(theOtherTree.getType()))
 		return false; // different token types
     // then check alphabetic IDs
@@ -1242,20 +1242,20 @@ private static int tab=0;  //tabbing for toStringTree
             }
           result = piOutput.toString(Global.wrapLength); // wrap at 72
           break;
-        case BLESStoASTLexer.INVOKE_FUNCTION:
-          UnparseBLESS.assertion_function_invocation_return afi = null;
-          afi = unparser.assertion_function_invocation();
-          if (afi == null)
-            {
-            throw new YouIdiot("null return from UnparseBLESS.predicate_invocation", this);
-            }
-          StringTemplate afiOutput = (StringTemplate) afi.getTemplate();
-          if (afiOutput == null)
-            {
-            throw new YouIdiot("null return from UnparseBLESS.getTemplate", this);
-            }
-          result = afiOutput.toString(Global.wrapLength); // wrap at 72
-          break;
+//        case BLESStoASTLexer.INVOKE_FUNCTION:
+//          UnparseBLESS.assertion_function_invocation_return afi = null;
+//          afi = unparser.assertion_function_invocation();
+//          if (afi == null)
+//            {
+//            throw new YouIdiot("null return from UnparseBLESS.predicate_invocation", this);
+//            }
+//          StringTemplate afiOutput = (StringTemplate) afi.getTemplate();
+//          if (afiOutput == null)
+//            {
+//            throw new YouIdiot("null return from UnparseBLESS.getTemplate", this);
+//            }
+//          result = afiOutput.toString(Global.wrapLength); // wrap at 72
+//          break;
         case BLESStoASTLexer.LITERAL_all:
         case BLESStoASTLexer.LITERAL_exists:
         case BLESStoASTLexer.LITERAL_and:
@@ -1986,10 +1986,12 @@ private static int tab=0;  //tabbing for toStringTree
         return true;
       }
     // make INVOKE and FUNCTION_CALL match
-    if ((this.hasType(BLESStoASTLexer.INVOKE)||this.hasType(BLESStoASTLexer.FUNCTION_CALL)||
-    		   this.hasType(BLESStoASTLexer.INVOKE_FUNCTION))
-        && (theOtherNode.hasType(BLESStoASTLexer.INVOKE)||theOtherNode.hasType(BLESStoASTLexer.FUNCTION_CALL)||
-        		theOtherNode.hasType(BLESStoASTLexer.INVOKE_FUNCTION))) {
+    if ((this.hasType(BLESStoASTLexer.INVOKE)||this.hasType(BLESStoASTLexer.FUNCTION_CALL)
+ //       || this.hasType(BLESStoASTLexer.INVOKE_FUNCTION)
+        )
+        && (theOtherNode.hasType(BLESStoASTLexer.INVOKE)||theOtherNode.hasType(BLESStoASTLexer.FUNCTION_CALL)
+//            || theOtherNode.hasType(BLESStoASTLexer.INVOKE_FUNCTION)
+        		)) {
 		return true;
 	}
     // first check token types

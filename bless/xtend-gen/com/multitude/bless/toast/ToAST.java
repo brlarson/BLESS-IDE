@@ -136,7 +136,6 @@ import java.util.List;
 import org.antlr.runtime.CommonToken;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -2091,107 +2090,37 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Invocation e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isPredicate = this.isPredicate(e);
-      if (_isPredicate) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          String _name = e.getLabel().getName();
-          String _plus = ("INVOKE[" + _name);
-          String _plus_1 = (_plus + "]");
-          it.myText = _plus_1;
-          String _name_1 = e.getLabel().getName();
-          String _plus_2 = ("INVOKE[" + _name_1);
-          String _plus_3 = (_plus_2 + "]");
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE, _plus_3);
-          it.token = _commonToken;
-          BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            NumericExpression _actual_parameter = e.getActual_parameter();
-            boolean _tripleNotEquals = (_actual_parameter != null);
-            if (_tripleNotEquals) {
-              it_1.addChild(this.toAST(e.getActual_parameter()));
-            }
-            EList<ActualParameter> _params = e.getParams();
-            boolean _tripleNotEquals_1 = (_params != null);
-            if (_tripleNotEquals_1) {
-              EList<ActualParameter> _params_1 = e.getParams();
-              for (final ActualParameter child : _params_1) {
-                it_1.addChild(this.toAST(child));
-              }
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_1);
-          it.addChild(_doubleArrow);
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it) -> {
-          String _name = e.getLabel().getName();
-          String _plus = ("INVOKE_FUNCTION[" + _name);
-          String _plus_1 = (_plus + "]");
-          it.myText = _plus_1;
-          String _name_1 = e.getLabel().getName();
-          String _plus_2 = ("INVOKE_FUNCTION[" + _name_1);
-          String _plus_3 = (_plus_2 + "]");
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, _plus_3);
-          it.token = _commonToken;
-          BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            NumericExpression _actual_parameter = e.getActual_parameter();
-            boolean _tripleNotEquals = (_actual_parameter != null);
-            if (_tripleNotEquals) {
-              it_1.addChild(this.toAST(e.getActual_parameter()));
-            }
-            EList<ActualParameter> _params = e.getParams();
-            boolean _tripleNotEquals_1 = (_params != null);
-            if (_tripleNotEquals_1) {
-              EList<ActualParameter> _params_1 = e.getParams();
-              for (final ActualParameter child : _params_1) {
-                it_1.addChild(this.toAST(child));
-              }
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_2);
-          it.addChild(_doubleArrow);
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
+    BAST _newBAST = this.newBAST(e);
+    final Procedure1<BAST> _function = (BAST it) -> {
+      String _name = e.getLabel().getName();
+      String _plus = ("INVOKE[" + _name);
+      String _plus_1 = (_plus + "]");
+      it.myText = _plus_1;
+      String _name_1 = e.getLabel().getName();
+      String _plus_2 = ("INVOKE[" + _name_1);
+      String _plus_3 = (_plus_2 + "]");
+      CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE, _plus_3);
+      it.token = _commonToken;
+      BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
+      final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+        NumericExpression _actual_parameter = e.getActual_parameter();
+        boolean _tripleNotEquals = (_actual_parameter != null);
+        if (_tripleNotEquals) {
+          it_1.addChild(this.toAST(e.getActual_parameter()));
         }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
-  }
-
-  public boolean isPredicate(final Invocation e) {
-    boolean _xifexpression = false;
-    EObject _eContainer = e.eContainer();
-    if ((_eContainer instanceof AssertionEnumeration)) {
-      _xifexpression = false;
-    } else {
-      boolean _xifexpression_1 = false;
-      if ((e.getLabel().isPred() || e.getLabel().isEnumer())) {
-        _xifexpression_1 = true;
-      } else {
-        _xifexpression_1 = false;
-      }
-      _xifexpression = _xifexpression_1;
-    }
-    return _xifexpression;
+        EList<ActualParameter> _params = e.getParams();
+        boolean _tripleNotEquals_1 = (_params != null);
+        if (_tripleNotEquals_1) {
+          EList<ActualParameter> _params_1 = e.getParams();
+          for (final ActualParameter child : _params_1) {
+            it_1.addChild(this.toAST(child));
+          }
+        }
+      };
+      BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_1);
+      it.addChild(_doubleArrow);
+    };
+    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
   }
 
   protected BAST _toAST(final Relation e) {

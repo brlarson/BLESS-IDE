@@ -1936,8 +1936,8 @@ toAST(PartialName e)
   def dispatch BAST
 toAST(Invocation e)
   {
-  try { 
-  if (e.isPredicate) 
+//  try { 
+//  if (e.label.pred) 
   newBAST(e) =>  
     [  //left parenthesis is root
   	myText = 'INVOKE['+e.label.name+']'
@@ -1950,31 +1950,21 @@ toAST(Invocation e)
 	   	   for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
 	   	 ])
     ]		 	
-  else
-  newBAST(e) =>  
-    [  //left parenthesis is root
-    myText = 'INVOKE_FUNCTION['+e.label.name+']'
-    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
-    addChild(e.label.name.makeBASTforID(e) =>
-       [
-       if (e.actual_parameter!==null) 
-        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
-       if (e.params!==null) 
-         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
-       ])
-    ]           
-    } catch (Exception ex) {ex.printStackTrace x}
+//  else
+//  newBAST(e) =>  
+//    [  //left parenthesis is root
+//    myText = 'INVOKE_FUNCTION['+e.label.name+']'
+//    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
+//    addChild(e.label.name.makeBASTforID(e) =>
+//       [
+//       if (e.actual_parameter!==null) 
+//        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
+//       if (e.params!==null) 
+//         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
+//       ])
+//    ]           
+//    } catch (Exception ex) {ex.printStackTrace x}
   }  //end of PredicateInvocation
-
-  def boolean
-isPredicate(Invocation e)
-  {
-  if (e.eContainer instanceof AssertionEnumeration)  
-    false 
-  else if (e.label.pred || e.label.enumer)
-    true
-  else false  //it's an assertion function    
-  }
 
 
 //      PredicateRelation :
