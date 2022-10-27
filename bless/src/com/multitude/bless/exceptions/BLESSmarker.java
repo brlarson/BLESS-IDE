@@ -5,6 +5,7 @@ import java.util.Vector;
 import org.osate.aadl2.Connection;
 import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.instance.ConnectionInstance;
+import org.osate.aadl2.instance.ConnectionInstanceEnd;
 import org.osate.aadl2.modelsupport.errorreporting.AnalysisErrorReporterManager;
 import org.osate.aadl2.modelsupport.errorreporting.MarkerAnalysisErrorReporter;
 
@@ -66,7 +67,7 @@ setInfoMarker(String message, BAST node)
   	}  //end of setInfoMarker
 
   public static void  
-setConnectionInfoMarker(String message, ConnectionInstance con)
+setConnectionInfoMarker(String message, ConnectionInstanceEnd con)
     {
     if (errManager==null)
       errManager = new AnalysisErrorReporterManager(

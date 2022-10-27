@@ -72,7 +72,7 @@ handleException()
 		//print current time
 	Date today = new Date(time);
 	//give hint?
-	if (time.intValue()%Global.hintRatio==3)	// 1 out of hintRatio gets HelpfulHints
+	if (countYouIdiot%Global.hintRatio==3)	// 1 out of hintRatio gets HelpfulHints
 		{
   	Dump.error("\n*********************************************");
 //  	Dump.error("You are a "+HelpfulHints.getIdiot()+", "+today.toString()+".");

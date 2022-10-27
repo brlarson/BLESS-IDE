@@ -180,7 +180,7 @@ public static boolean replaceSubtractionWithAddingNegation = false; //flag used 
 
 
 //how often should hints be given?
-public static int hintRatio = 101;  // 1 out of hintRatio gets a HelpfulHint
+public static int hintRatio = 10;  // 1 out of hintRatio gets a HelpfulHint
 
 //use BAST node's text, regardless of whether it has a token
 public static boolean useOnlyASTtext = true;

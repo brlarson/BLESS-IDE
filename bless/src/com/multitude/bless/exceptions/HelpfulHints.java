@@ -97,7 +97,7 @@ epithet = new String[]		//node type names
 	"People who get lots of money and sex deserve it.  You don\'t.",
 	"Fish would make good pets for someone with your personality.",
 	"Oh?  So you don\'t like epithets with your error messages?\n"+
-			"  Don\'t read them!",
+			"  Turn them off in BLESS preferences",
 	"Obviously you are not smart enough to write using BLESS.",
 	"Go home.\nGo home.\nGo home.\nGo home.\nGo home.\nGo home.\n"+
 			"Go home.\nGo home.\nGo home!  How many times must I tell you?\n",
@@ -228,7 +228,7 @@ idiot = new String[]    //fool names
 //					else
 //						Dump.it("curse="+Integer.toString(curse));	
 					//give hint?
-					int h = time.intValue()%100;
+					int h = time.intValue()%HelpfulHints.hint.length;
 					if (h<0) h = -h;
 					if (h<HelpfulHints.hint.length) Dump.it(HelpfulHints.hint[h]);
 					hintAlreadyGiven = true;
