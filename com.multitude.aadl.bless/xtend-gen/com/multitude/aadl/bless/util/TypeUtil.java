@@ -183,11 +183,15 @@ public class TypeUtil {
       if (_equalsIgnoreCase) {
         PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
         final String str = ((StringLiteral) _ownedValue).getValue();
+        boolean _startsWith = str.startsWith("boolean");
+        if (_startsWith) {
+          return this.booleanType();
+        }
         if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
           return BlessMaps.typeMapGet(str).getType();
         }
-        boolean _startsWith = str.startsWith("quantity");
-        if (_startsWith) {
+        boolean _startsWith_1 = str.startsWith("quantity");
+        if (_startsWith_1) {
           final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
           boolean _endsWith = str.endsWith("scalar");
           if (_endsWith) {

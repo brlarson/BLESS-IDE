@@ -140,9 +140,9 @@ public static ConfigurationPreferencePage thePage=null;
     showVCField = new BooleanFieldEditor(ConfigurationPreferencePage.SHOW_VC_FIELD,
         "Show verification conditions when created", getFieldEditorParent());
     addField(showVCField);
-    slangDirectoryField = new DirectoryFieldEditor(ConfigurationPreferencePage.SET_SLANG_FIELD,
-        "Choose root directory for generated Slang code\n", getFieldEditorParent());
-    addField(slangDirectoryField);
+//    slangDirectoryField = new DirectoryFieldEditor(ConfigurationPreferencePage.SET_SLANG_FIELD,
+//        "Choose root directory for generated Slang code\n", getFieldEditorParent());
+//    addField(slangDirectoryField);
     baDirectoryField = new DirectoryFieldEditor(ConfigurationPreferencePage.SET_BA_FIELD,
         "Choose root directory for generated BA behavior and Data Model types\n", getFieldEditorParent());
     addField(baDirectoryField);

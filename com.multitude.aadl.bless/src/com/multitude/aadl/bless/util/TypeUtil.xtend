@@ -132,7 +132,9 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       if (pa.property.getQualifiedName.equalsIgnoreCase('BLESS::Typed'))
         {
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
-       if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
+        if (str.startsWith("boolean"))
+          return booleanType
+        if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
           return BlessMaps.typeMapGet(str).type
         if (str.startsWith('quantity')) 
           {  //kludge quantity type because parsing doesn't fill in unit
