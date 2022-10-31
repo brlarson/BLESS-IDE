@@ -67,8 +67,6 @@ if ((pr!=null)&&(pr.component_type_map!=null)&&pr.component_type_map.containsKey
   }
 }	//end of ThreadRecord constructor
 
-
-
 //	boolean saidPeriodic=false;
 //	boolean isPeriodic=false;
 
