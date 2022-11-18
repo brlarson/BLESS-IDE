@@ -271,7 +271,7 @@ get_invariant_from_thread_behavior
       ^(LITERAL_states .+ ) 
       (^(LITERAL_availability .) )? 
       (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=ID+ ) )? predicate=. )) //must have invariant
+      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
       (^(LITERAL_variables .+) )?
       ^(LITERAL_transitions .+) 
 //      (^(LITERAL_transitions .+) )?
@@ -281,7 +281,7 @@ get_invariant_from_thread_behavior
     ) 
     LITERAL_end
   )
-    -> ^($ass $predicate)  //get the predicate only
+    -> ^$ass $predicate)  //get the predicate only
   ;  
   catch [RecognitionException re] 
   {Dump.it("Did you forget an invariant clause, Bub?");
@@ -293,7 +293,7 @@ get_invariant_from_bless_subclause
       ^(LITERAL_states .+ ) 
       (^(LITERAL_availability .) )? 
       (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=ID+ ) )? predicate=. )) //must have invariant
+      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
       (^(LITERAL_variables .+) )?
       ^(LITERAL_transitions .+) 
 //      (^(LITERAL_transitions .+) )?
