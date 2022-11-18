@@ -10,6 +10,7 @@ import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.AddSub;
 import com.multitude.aadl.bless.bLESS.ArrayRange;
 import com.multitude.aadl.bless.bLESS.ArrayType;
+import com.multitude.aadl.bless.bLESS.Assertion;
 import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
@@ -47,6 +48,7 @@ import com.multitude.aadl.bless.bLESS.FormalActualList;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.IndexExpression;
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange;
+import com.multitude.aadl.bless.bLESS.InvariantClause;
 import com.multitude.aadl.bless.bLESS.Invocation;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
@@ -93,6 +95,7 @@ import com.multitude.aadl.bless.bLESS.Value;
 import com.multitude.aadl.bless.bLESS.ValueName;
 import com.multitude.aadl.bless.bLESS.Variable;
 import com.multitude.aadl.bless.bLESS.VariableDeclaration;
+import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
 import com.multitude.aadl.bless.maps.BlessMaps;
 import com.multitude.aadl.bless.scoping.BlessIndex;
@@ -211,6 +214,21 @@ public class BLESSValidator extends AbstractBLESSValidator {
     boolean _firstMarkerHere = this._blessUtil.firstMarkerHere(source);
     if (_firstMarkerHere) {
       this.warning(message, source, feature, code, issueData);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkInvariantHasNoParameters(final InvariantClause ic) {
+    Assertion _inv = ic.getInv();
+    NamedAssertion _namedassertion = null;
+    if (_inv!=null) {
+      _namedassertion=_inv.getNamedassertion();
+    }
+    VariableList _formals = _namedassertion.getFormals();
+    boolean _tripleNotEquals = (_formals != null);
+    if (_tripleNotEquals) {
+      this.fError("Assertions used as invariants must not have parameters.", ic.getInv().getNamedassertion(), 
+        BLESSPackage.eINSTANCE.getNamedAssertion_Formals());
     }
   }
 

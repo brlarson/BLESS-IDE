@@ -115,6 +115,7 @@ import org.osate.aadl2.impl.SubprogramTypeImpl
 import org.eclipse.emf.ecore.EStructuralFeature
 import com.multitude.aadl.bless.bLESS.CaseChoice
 import com.multitude.aadl.bless.bLESS.BehaviorActions
+import com.multitude.aadl.bless.bLESS.InvariantClause
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -191,6 +192,14 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 //        
 //      }
 //  }  
+ 
+ @Check(CheckType.NORMAL)
+def checkInvariantHasNoParameters(InvariantClause ic)
+  {
+    if (ic.inv?.namedassertion.formals !== null)
+    fError('Assertions used as invariants must not have parameters.', ic.inv.namedassertion,
+      BLESSPackage.eINSTANCE.namedAssertion_Formals) 
+  }  
  
  ////////////////////////   CHECK UNIT ANNEX  \\\\\\\\\\\\\\\\\\\\\\\\\\\\
     
