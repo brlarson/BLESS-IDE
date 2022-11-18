@@ -1,8 +1,16 @@
 package com.multitude.aadl.bless.util
 
+import com.multitude.aadl.bless.bLESS.Assertion
+import com.multitude.aadl.bless.bLESS.Assignment
+import com.multitude.aadl.bless.bLESS.BehaviorActions
+import com.multitude.aadl.bless.bLESS.Invocation
+import com.multitude.aadl.bless.bLESS.SimultaneousAssignment
+import com.multitude.aadl.bless.validation.AbstractBLESSValidator
 import java.util.ArrayList
 import java.util.Collections
+import java.util.HashSet
 import java.util.List
+import java.util.Set
 import org.eclipse.emf.ecore.EObject
 import org.osate.aadl2.ComponentClassifier
 import org.osate.aadl2.ComponentImplementation
@@ -12,14 +20,10 @@ import org.osate.aadl2.Mode
 import org.osate.aadl2.Prototype
 import org.osate.aadl2.Subcomponent
 import org.osate.aadl2.SubprogramAccess
-import com.multitude.aadl.bless.bLESS.Invocation
-import com.multitude.aadl.bless.bLESS.Assignment
-import com.multitude.aadl.bless.bLESS.SimultaneousAssignment
-import org.eclipse.emf.ecore.EStructuralFeature
-import java.util.HashSet
-import java.util.Set
-import com.multitude.aadl.bless.validation.AbstractBLESSValidator
-import com.multitude.aadl.bless.bLESS.BehaviorActions
+import com.multitude.aadl.bless.bLESS.NamedAssertion
+import com.multitude.aadl.bless.bLESS.NamelessAssertion
+import com.multitude.aadl.bless.bLESS.NamelessFunction
+import com.multitude.aadl.bless.bLESS.NamelessEnumeration
 
 class BlessUtil extends AbstractBLESSValidator {
 
@@ -39,6 +43,18 @@ class BlessUtil extends AbstractBLESSValidator {
     while (up !== null)
       {
       if (up instanceof BehaviorActions)
+        return true
+      up = up.eContainer      
+      }
+    return false  
+    }   
+
+  def boolean inAssertion(EObject o) 
+    {
+    var up=o
+    while (up !== null)
+      {
+      if (up instanceof NamedAssertion || up instanceof NamelessAssertion || up instanceof NamelessFunction || up instanceof NamelessEnumeration)
         return true
       up = up.eContainer      
       }

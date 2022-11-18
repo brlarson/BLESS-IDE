@@ -4,6 +4,10 @@ import com.google.common.base.Objects;
 import com.multitude.aadl.bless.bLESS.Assignment;
 import com.multitude.aadl.bless.bLESS.BehaviorActions;
 import com.multitude.aadl.bless.bLESS.Invocation;
+import com.multitude.aadl.bless.bLESS.NamedAssertion;
+import com.multitude.aadl.bless.bLESS.NamelessAssertion;
+import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
+import com.multitude.aadl.bless.bLESS.NamelessFunction;
 import com.multitude.aadl.bless.bLESS.SimultaneousAssignment;
 import com.multitude.aadl.bless.validation.AbstractBLESSValidator;
 import java.util.ArrayList;
@@ -41,6 +45,19 @@ public class BlessUtil extends AbstractBLESSValidator {
     while ((up != null)) {
       {
         if ((up instanceof BehaviorActions)) {
+          return true;
+        }
+        up = up.eContainer();
+      }
+    }
+    return false;
+  }
+
+  public boolean inAssertion(final EObject o) {
+    EObject up = o;
+    while ((up != null)) {
+      {
+        if (((((up instanceof NamedAssertion) || (up instanceof NamelessAssertion)) || (up instanceof NamelessFunction)) || (up instanceof NamelessEnumeration))) {
           return true;
         }
         up = up.eContainer();

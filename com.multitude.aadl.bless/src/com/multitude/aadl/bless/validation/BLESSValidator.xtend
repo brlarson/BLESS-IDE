@@ -114,6 +114,7 @@ import org.osate.aadl2.UnitLiteral
 import org.osate.aadl2.impl.SubprogramTypeImpl
 import org.eclipse.emf.ecore.EStructuralFeature
 import com.multitude.aadl.bless.bLESS.CaseChoice
+import com.multitude.aadl.bless.bLESS.BehaviorActions
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -892,6 +893,22 @@ checkExecuteConditionsHaveNoTickAtOrCaret(TimedExpression te)
             BLESSPackage.eINSTANCE.timedExpression_At, IssueCodes.ILLEGAL_TIME_OPERATOR)             
     else if (te.caret) 
       fError('Execute conditions may not have ^.',te,
+            BLESSPackage.eINSTANCE.timedExpression_Caret, IssueCodes.ILLEGAL_TIME_OPERATOR)              
+  }
+
+@Check(CheckType.NORMAL)
+def void 
+checkTimedExpressionNotInAssertion(TimedExpression te)
+  {  
+  if (!te.inAssertion)
+    if (te.tick !== null) 
+      fError('Actions may not have \'.',te,
+            BLESSPackage.eINSTANCE.timedExpression_Tick, IssueCodes.ILLEGAL_TIME_OPERATOR)             
+    else if (te.at) 
+      fError('Actions may not have @.',te,
+            BLESSPackage.eINSTANCE.timedExpression_At, IssueCodes.ILLEGAL_TIME_OPERATOR)             
+    else if (te.caret) 
+      fError('Actions may not have ^.',te,
             BLESSPackage.eINSTANCE.timedExpression_Caret, IssueCodes.ILLEGAL_TIME_OPERATOR)              
   }
 

@@ -1165,6 +1165,32 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void checkTimedExpressionNotInAssertion(final TimedExpression te) {
+    boolean _inAssertion = this._blessUtil.inAssertion(te);
+    boolean _not = (!_inAssertion);
+    if (_not) {
+      String _tick = te.getTick();
+      boolean _tripleNotEquals = (_tick != null);
+      if (_tripleNotEquals) {
+        this.fError("Actions may not have \'.", te, 
+          BLESSPackage.eINSTANCE.getTimedExpression_Tick(), IssueCodes.ILLEGAL_TIME_OPERATOR);
+      } else {
+        boolean _isAt = te.isAt();
+        if (_isAt) {
+          this.fError("Actions may not have @.", te, 
+            BLESSPackage.eINSTANCE.getTimedExpression_At(), IssueCodes.ILLEGAL_TIME_OPERATOR);
+        } else {
+          boolean _isCaret = te.isCaret();
+          if (_isCaret) {
+            this.fError("Actions may not have ^.", te, 
+              BLESSPackage.eINSTANCE.getTimedExpression_Caret(), IssueCodes.ILLEGAL_TIME_OPERATOR);
+          }
+        }
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkOnlyOneStateKind(final BehaviorState bs) {
     int kindCount = 0;
     boolean _isInitial = bs.isInitial();
