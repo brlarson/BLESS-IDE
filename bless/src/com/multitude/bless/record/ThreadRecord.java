@@ -9,9 +9,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.EnumerationLiteral;
 import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.Property;
+import org.osate.aadl2.ThreadClassifier;
 import org.osate.xtext.aadl2.properties.util.GetProperties;
 
 import com.multitude.bless.antlr3generated.BLESStoASTLexer;
@@ -37,7 +40,7 @@ public HashMap<String,BAST> transition_label_assertion_map = new HashMap<String,
 public boolean isPeriodic=false;
 
 
-public ThreadRecord(BAST cu, String typeid, EObject context, PackageRecord pr)	//cu=compilation unit root of thread
+public ThreadRecord(BAST cu, String typeid, ComponentClassifier context, PackageRecord pr)	//cu=compilation unit root of thread
 {
 //this.context=context;
 super(cu,typeid,context,pr);	//invoke ParseRecord constructor
@@ -45,19 +48,19 @@ threadTypeID = typeid;
 if (cu!=null)
   cu.setParseRecord(this);
 myThreadType = this;
-EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol((NamedElement)context);
+EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(context);
 isPeriodic = (dispatchProtocol==null ? false : (dispatchProtocol.getName().endsWith("Periodic")||dispatchProtocol.getName().endsWith("Hybrid")));
 }	//end of ThreadRecord constructor
 
 //constructor for thread implementations
-public ThreadRecord(BAST cu, String typeid, String impid, EObject context, PackageRecord pr)	//cu=compilation unit root of thread
+public ThreadRecord(BAST cu, String typeid, String impid, ComponentClassifier context, PackageRecord pr)	//cu=compilation unit root of thread
 {  //includes implementation ID
 super(cu,typeid+"."+impid,impid,context,pr);	//invoke ParseRecord constructor
 threadTypeID = typeid;
 threadImplementationID = impid;
 if (cu!=null)
   cu.setParseRecord(this);
-EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol((NamedElement)context);
+EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(context);
 isPeriodic = (dispatchProtocol==null ? false : (dispatchProtocol.getName().endsWith("Periodic")||dispatchProtocol.getName().endsWith("Hybrid")));
 if ((pr!=null)&&(pr.component_type_map!=null)&&pr.component_type_map.containsKey(typeid))
   {

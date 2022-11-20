@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.osate.aadl2.AadlBoolean;
@@ -36,10 +37,12 @@ import org.osate.aadl2.AnnexLibrary;
 import org.osate.aadl2.AnnexSubclause;
 import org.osate.aadl2.BasicProperty;
 import org.osate.aadl2.ClassifierType;
+import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.ComponentImplementation;
 import org.osate.aadl2.ComponentType;
 import org.osate.aadl2.DefaultAnnexLibrary;
 import org.osate.aadl2.DefaultAnnexSubclause;
+import org.osate.aadl2.EnumerationLiteral;
 import org.osate.aadl2.EnumerationType;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.ListType;
@@ -57,6 +60,8 @@ import org.osate.aadl2.ReferenceType;
 import org.osate.aadl2.StringLiteral;
 import org.osate.aadl2.SubprogramAccess;
 import org.osate.aadl2.SubprogramSubcomponentType;
+import org.osate.aadl2.ThreadClassifier;
+import org.osate.aadl2.ThreadType;
 import org.osate.aadl2.UnitsType;
 import org.osate.aadl2.impl.StringLiteralImpl;
 import org.osate.aadl2.modelsupport.errorreporting.MarkerParseErrorReporter;
@@ -282,15 +287,27 @@ load() throws YouIdiot
       { Dump.it("There are no component types in package \"" + pr.name + "\"."); }
     for (ComponentType ct : componentTypesInPackage)
       {
+ 
+      EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(ct);
+      if (dispatchProtocol == null)
+        Dump.it("Thread " + ct.getName() + " has null Dispatch_Prototcol.");
+      else
+        Dump.it(ct.getCategory().getName()+" "+ ct.getName() + " has Dispatch_Prototcol => " + dispatchProtocol.getName());
+
       if (verbose())
         {
         Dump.it("Creating a parse record for a \"" + ct.getCategory().getName() + "\" component type named \""
             + ct.getName() + "\".");
         }
+      //resolve if abstract
+//      if (ct.eIsProxy())
+//        ct = (ComponentType) EcoreUtil.resolve((EObject)ct, pr.myAadlPackage);
+      
       // make appropriate ParseRecord for the component, and attach it to the PackageRecord
       ParseRecord componentTypeParseRecord = null; // filled in with ThreadRecord, SubprogramRecord,
       // is it a thread?
-      if (ct.getCategory().getName().equalsIgnoreCase("thread") || ct.getCategory().getName().equalsIgnoreCase("device")
+      if //(ct instanceof ThreadType ) 
+        (ct.getCategory().getName().equalsIgnoreCase("thread") || ct.getCategory().getName().equalsIgnoreCase("device")
           || ct.getCategory().getName().equalsIgnoreCase("system"))
         {
         // look for annex subclauses of this component
@@ -316,7 +333,9 @@ load() throws YouIdiot
               rootOfASTofBLESSbehavior = ToAST.TOAST.toAST(subclause);
               // should have root with type THREAD_ANNEX
               // save AST in ThreadRecord
-              ThreadRecord tr = new ThreadRecord(rootOfASTofBLESSbehavior, ct.getName(), ct, pr);
+//              if (!(ct instanceof ThreadClassifier))
+//                throw new YouIdiot("device and system BLESS annex subclauses not yet supported");
+              ThreadRecord tr = new ThreadRecord(rootOfASTofBLESSbehavior, ct.getName(), (ComponentClassifier)ct, pr);
               // set context
 //							tr.context = ct;
               // make and BAST node in the tree find the ThreadRecord at the top
@@ -361,7 +380,7 @@ load() throws YouIdiot
           } // done with all annex subclauses in thread or device
         if (componentTypeParseRecord == null)
           {
-          componentTypeParseRecord = new ThreadRecord(null, ct.getName(), ct, pr);
+          componentTypeParseRecord = new ThreadRecord(null, ct.getName(), (ComponentClassifier)ct, pr);
           componentTypeParseRecord.port_assertion_map = new HashMap<String, BAST>();
           componentTypeParseRecord.port_value_map = new HashMap<String, BAST>();
           pr.addComponent(ct.getName(), componentTypeParseRecord);
@@ -1077,13 +1096,18 @@ load() throws YouIdiot
         {
         Dump.it("  gathering component implementation \"" + ci.getName() + "\"");
         }
+      //resolve if abstract
+//      if (ci.eIsProxy())
+//        ci = (ComponentImplementation) EcoreUtil.resolve((EObject)ci, pr.myAadlPackage);
+//      
       // make appropriate ParseRecord for the component, and attach it to the
       // PackageRecord
       ParseRecord componentImplementationParseRecord = null; // filled in with
                                                              // ThreadRecord,
                                                              // SubprogramRecord,
       // is it a thread?
-      if (ci.getCategory().getName().equalsIgnoreCase("thread") || ci.getCategory().getName().equalsIgnoreCase("device")
+      if //(ci instanceof ThreadClassifier) 
+       (ci.getCategory().getName().equalsIgnoreCase("thread") || ci.getCategory().getName().equalsIgnoreCase("device")
           || ci.getCategory().getName().equalsIgnoreCase("system"))
         {
         // look for annex subclauses of this component
@@ -1110,8 +1134,10 @@ load() throws YouIdiot
               AnnexSubclause subclause = defaultAnnexSubclause.getParsedAnnexSubclause();
               rootOfASTofBLESSbehavior = ToAST.TOAST.toAST(subclause);
               // save AST in ThreadRecord
-              tr                       = new ThreadRecord(rootOfASTofBLESSbehavior, ci.getTypeName(),
-                  ci.getImplementationName(), ci, pr);
+//              if (!(ci instanceof ThreadClassifier))
+//                throw new YouIdiot("device and system BLESS annex subclauses not yet supported");
+              tr = new ThreadRecord(rootOfASTofBLESSbehavior, ci.getTypeName(),
+                  ci.getImplementationName(), (ComponentClassifier)ci, pr);
               // set context
 //							tr.context = ci;
               // make and BAST node in the tree find the ThreadRecord at the top
@@ -1150,7 +1176,7 @@ load() throws YouIdiot
           } // done with all annex subclauses in thread or device
         if (tr == null)
           { // no BLESS annex subclause?
-          tr = new ThreadRecord(null, ci.getTypeName(), ci.getImplementationName(), ci, pr);
+          tr = new ThreadRecord(null, ci.getTypeName(), ci.getImplementationName(), (ComponentClassifier)ci, pr);
           pr.addImplementation(ci.getName(), tr);
           }
         // link to its component type
