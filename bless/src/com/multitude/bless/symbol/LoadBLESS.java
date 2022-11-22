@@ -128,13 +128,13 @@ boolean verbose()
   public static void 
 load() throws YouIdiot
     {
-    final Injector         injector    = new Aadl2StandaloneSetup().createInjectorAndDoEMFRegistration();
-    final XtextResourceSet rs          = injector.getInstance(XtextResourceSet.class);
-    List<URI>              contributed = PluginSupportUtil.getContributedAadl();
-    for (final URI uri : contributed)
-      {
-      rs.getResource(uri, true);
-      }
+//    final Injector         injector    = new Aadl2StandaloneSetup().createInjectorAndDoEMFRegistration();
+//    final XtextResourceSet rs          = injector.getInstance(XtextResourceSet.class);
+//    List<URI>              contributed = PluginSupportUtil.getContributedAadl();
+//    for (final URI uri : contributed)
+//      {
+//      rs.getResource(uri, true);
+//      }
     if (verbose())
       {
       Dump.it("\nStarting to gather BLESS/subBLESS annex subclauses, Assertion annex libraries,"
