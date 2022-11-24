@@ -10,12 +10,15 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.EcoreUtil2;
 import org.osate.aadl2.AadlPackage;
 import org.osate.aadl2.Classifier;
 import org.osate.aadl2.DeviceImplementation;
 import org.osate.aadl2.DeviceType;
+import org.osate.aadl2.Element;
 import org.osate.aadl2.ThreadImplementation;
 import org.osate.aadl2.ThreadType;
 import org.osate.aadl2.instance.ComponentInstance;
@@ -29,30 +32,30 @@ import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Time;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
-import com.multitude.bless.proof.handlers.GenerateVCHandler;
+import com.multitude.bless.handlers.AbstractBLESSHandler;
 import com.multitude.bless.toast.ToAST;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.util.Util;
 
-public class GenerateBA extends AbstractHandler implements IHandler
+public class GenerateBA extends AbstractBLESSHandler implements IHandler
 {
 
-
+SystemInstance si;
 
   @Override
   public Object execute(ExecutionEvent event) throws ExecutionException
     {
 //    Dump.it("Generating Data Model Components from BLESS types . . .");
-    SystemInstance si = GenerateVCHandler.getSystemInstance();
-    if (si == null) 
-      {
-      Dialog.showError("BLESS", "Please right-click system instance (.aaxl2) \n"+
-       "to Generate BLESS Verification Conditions");
-      Dump.it("Please right-click system instance (.aaxl2)");
-      Dump.it("to Generate BLESS Verification Conditions.");
-      return null;
-      }
+//    SystemInstance si = getSystemInstance();
+//    if (si == null) 
+//      {
+//      Dialog.showError("BLESS", "Please right-click system instance (.aaxl2) \n"+
+//       "to Generate BLESS Verification Conditions");
+//      Dump.it("Please right-click system instance (.aaxl2)");
+//      Dump.it("to Generate BLESS Verification Conditions.");
+//      return null;
+//      }
     // get output folder
 //    generateDataModelforAllTypes(si);
 //    Dump.it("Done generating Data Model Components from BLESS types.");
@@ -266,6 +269,21 @@ writeBA(String fileName, String content)
     e.printStackTrace();
     } //done catching file closing 
   }  //end of writeBA
+
+  @Override
+  protected IStatus runJob(Element sel, IProgressMonitor monitor)
+    {
+    si = getSystemInstance(sel);
+    if (si == null) 
+      {
+      Dialog.showError("BLESS", "Please right-click system instance (.aaxl2) \n"+
+       "to Generate BA.");
+      Dump.it("Please right-click system instance (.aaxl2)");
+      Dump.it("to Generate BA.");
+      return null;
+      }
+    return null;
+    }
 
 
 }

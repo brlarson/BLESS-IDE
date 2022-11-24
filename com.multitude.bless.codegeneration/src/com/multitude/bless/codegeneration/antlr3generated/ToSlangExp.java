@@ -6,15 +6,15 @@ import java.util.List;
 import java.util.ArrayList;
 //import org.eclipse.emf.common.util.EList;
 //import org.eclipse.emf.common.util.BasicEList;
-import com.multitude.bless.proof.Reason;
-import com.multitude.bless.proof.Algebra;
-import com.multitude.bless.proof.Proof;
+//import com.multitude.bless.proof.Reason;
+//import com.multitude.bless.proof.Algebra;
+//import com.multitude.bless.proof.Proof;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.HelpfulHints;
-import com.multitude.bless.proof.exception.ProofException;
+//import com.multitude.bless.proof.exception.ProofException;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.antlr3generated.BLESStoASTLexer;
 
