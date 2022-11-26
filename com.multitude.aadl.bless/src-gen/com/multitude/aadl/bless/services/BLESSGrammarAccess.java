@@ -1085,34 +1085,31 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class DispatchTriggerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.DispatchTrigger");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cStopAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cStopStopKeyword_0_0 = (Keyword)cStopAssignment_0.eContents().get(0);
-		private final Assignment cPortAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cPortPortNameParserRuleCall_1_0 = (RuleCall)cPortAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Assignment cTimeoutAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cTimeoutTimeoutKeyword_2_0_0 = (Keyword)cTimeoutAssignment_2_0.eContents().get(0);
-		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
-		private final Group cGroup_2_1_0 = (Group)cGroup_2_1.eContents().get(0);
-		private final Assignment cLpAssignment_2_1_0_0 = (Assignment)cGroup_2_1_0.eContents().get(0);
-		private final Keyword cLpLeftParenthesisKeyword_2_1_0_0_0 = (Keyword)cLpAssignment_2_1_0_0.eContents().get(0);
-		private final Assignment cPortsAssignment_2_1_0_1 = (Assignment)cGroup_2_1_0.eContents().get(1);
-		private final CrossReference cPortsNamedElementCrossReference_2_1_0_1_0 = (CrossReference)cPortsAssignment_2_1_0_1.eContents().get(0);
-		private final RuleCall cPortsNamedElementIDTerminalRuleCall_2_1_0_1_0_1 = (RuleCall)cPortsNamedElementCrossReference_2_1_0_1_0.eContents().get(1);
-		private final Group cGroup_2_1_0_2 = (Group)cGroup_2_1_0.eContents().get(2);
-		private final Keyword cOrKeyword_2_1_0_2_0 = (Keyword)cGroup_2_1_0_2.eContents().get(0);
-		private final Assignment cPortsAssignment_2_1_0_2_1 = (Assignment)cGroup_2_1_0_2.eContents().get(1);
-		private final CrossReference cPortsNamedElementCrossReference_2_1_0_2_1_0 = (CrossReference)cPortsAssignment_2_1_0_2_1.eContents().get(0);
-		private final RuleCall cPortsNamedElementIDTerminalRuleCall_2_1_0_2_1_0_1 = (RuleCall)cPortsNamedElementCrossReference_2_1_0_2_1_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_2_1_0_3 = (Keyword)cGroup_2_1_0.eContents().get(3);
-		private final Assignment cTimeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final RuleCall cTimeBehaviorTimeParserRuleCall_2_1_1_0 = (RuleCall)cTimeAssignment_2_1_1.eContents().get(0);
+		private final Assignment cPortAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cPortPortNameParserRuleCall_0_0 = (RuleCall)cPortAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cTimeoutAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cTimeoutTimeoutKeyword_1_0_0 = (Keyword)cTimeoutAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cGroup_1_1.eContents().get(0);
+		private final Assignment cLpAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
+		private final Keyword cLpLeftParenthesisKeyword_1_1_0_0_0 = (Keyword)cLpAssignment_1_1_0_0.eContents().get(0);
+		private final Assignment cPortsAssignment_1_1_0_1 = (Assignment)cGroup_1_1_0.eContents().get(1);
+		private final CrossReference cPortsNamedElementCrossReference_1_1_0_1_0 = (CrossReference)cPortsAssignment_1_1_0_1.eContents().get(0);
+		private final RuleCall cPortsNamedElementIDTerminalRuleCall_1_1_0_1_0_1 = (RuleCall)cPortsNamedElementCrossReference_1_1_0_1_0.eContents().get(1);
+		private final Group cGroup_1_1_0_2 = (Group)cGroup_1_1_0.eContents().get(2);
+		private final Keyword cOrKeyword_1_1_0_2_0 = (Keyword)cGroup_1_1_0_2.eContents().get(0);
+		private final Assignment cPortsAssignment_1_1_0_2_1 = (Assignment)cGroup_1_1_0_2.eContents().get(1);
+		private final CrossReference cPortsNamedElementCrossReference_1_1_0_2_1_0 = (CrossReference)cPortsAssignment_1_1_0_2_1.eContents().get(0);
+		private final RuleCall cPortsNamedElementIDTerminalRuleCall_1_1_0_2_1_0_1 = (RuleCall)cPortsNamedElementCrossReference_1_1_0_2_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_1_1_0_3 = (Keyword)cGroup_1_1_0.eContents().get(3);
+		private final Assignment cTimeAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final RuleCall cTimeBehaviorTimeParserRuleCall_1_1_1_0 = (RuleCall)cTimeAssignment_1_1_1.eContents().get(0);
 		
 		////dispatch_trigger
 		////DOES NOT ALLOW PORT INDEXES ON TIMEOUT PORTS
 		//DispatchTrigger:
-		//  stop='stop'
-		//  | port=PortName
+		//  port=PortName
 		//  | timeout='timeout'
 		//   ( ( lp?='(' ports+=[aadl2::NamedElement|ID]
 		//        ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
@@ -1121,8 +1118,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//stop='stop'
-		//| port=PortName
+		//port=PortName
 		//| timeout='timeout'
 		// ( ( lp?='(' ports+=[aadl2::NamedElement|ID]
 		//      ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
@@ -1130,80 +1126,74 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//      time=BehaviorTime )?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//stop='stop'
-		public Assignment getStopAssignment_0() { return cStopAssignment_0; }
-		
-		//'stop'
-		public Keyword getStopStopKeyword_0_0() { return cStopStopKeyword_0_0; }
-		
 		//port=PortName
-		public Assignment getPortAssignment_1() { return cPortAssignment_1; }
+		public Assignment getPortAssignment_0() { return cPortAssignment_0; }
 		
 		//PortName
-		public RuleCall getPortPortNameParserRuleCall_1_0() { return cPortPortNameParserRuleCall_1_0; }
+		public RuleCall getPortPortNameParserRuleCall_0_0() { return cPortPortNameParserRuleCall_0_0; }
 		
 		//timeout='timeout'
 		//  ( ( lp?='(' ports+=[aadl2::NamedElement|ID]
 		//       ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
 		//  )?
 		//       time=BehaviorTime )?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 		
 		//timeout='timeout'
-		public Assignment getTimeoutAssignment_2_0() { return cTimeoutAssignment_2_0; }
+		public Assignment getTimeoutAssignment_1_0() { return cTimeoutAssignment_1_0; }
 		
 		//'timeout'
-		public Keyword getTimeoutTimeoutKeyword_2_0_0() { return cTimeoutTimeoutKeyword_2_0_0; }
+		public Keyword getTimeoutTimeoutKeyword_1_0_0() { return cTimeoutTimeoutKeyword_1_0_0; }
 		
 		//( ( lp?='(' ports+=[aadl2::NamedElement|ID]
 		//     ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
 		//)?
 		//     time=BehaviorTime )?
-		public Group getGroup_2_1() { return cGroup_2_1; }
+		public Group getGroup_1_1() { return cGroup_1_1; }
 		
 		//( lp?='(' ports+=[aadl2::NamedElement|ID]
 		//       ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
 		//  )?
-		public Group getGroup_2_1_0() { return cGroup_2_1_0; }
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 		
 		//lp?='('
-		public Assignment getLpAssignment_2_1_0_0() { return cLpAssignment_2_1_0_0; }
+		public Assignment getLpAssignment_1_1_0_0() { return cLpAssignment_1_1_0_0; }
 		
 		//'('
-		public Keyword getLpLeftParenthesisKeyword_2_1_0_0_0() { return cLpLeftParenthesisKeyword_2_1_0_0_0; }
+		public Keyword getLpLeftParenthesisKeyword_1_1_0_0_0() { return cLpLeftParenthesisKeyword_1_1_0_0_0; }
 		
 		//ports+=[aadl2::NamedElement|ID]
-		public Assignment getPortsAssignment_2_1_0_1() { return cPortsAssignment_2_1_0_1; }
+		public Assignment getPortsAssignment_1_1_0_1() { return cPortsAssignment_1_1_0_1; }
 		
 		//[aadl2::NamedElement|ID]
-		public CrossReference getPortsNamedElementCrossReference_2_1_0_1_0() { return cPortsNamedElementCrossReference_2_1_0_1_0; }
+		public CrossReference getPortsNamedElementCrossReference_1_1_0_1_0() { return cPortsNamedElementCrossReference_1_1_0_1_0; }
 		
 		//ID
-		public RuleCall getPortsNamedElementIDTerminalRuleCall_2_1_0_1_0_1() { return cPortsNamedElementIDTerminalRuleCall_2_1_0_1_0_1; }
+		public RuleCall getPortsNamedElementIDTerminalRuleCall_1_1_0_1_0_1() { return cPortsNamedElementIDTerminalRuleCall_1_1_0_1_0_1; }
 		
 		//('or'? ports+=[aadl2::NamedElement|ID] )*
-		public Group getGroup_2_1_0_2() { return cGroup_2_1_0_2; }
+		public Group getGroup_1_1_0_2() { return cGroup_1_1_0_2; }
 		
 		//'or'?
-		public Keyword getOrKeyword_2_1_0_2_0() { return cOrKeyword_2_1_0_2_0; }
+		public Keyword getOrKeyword_1_1_0_2_0() { return cOrKeyword_1_1_0_2_0; }
 		
 		//ports+=[aadl2::NamedElement|ID]
-		public Assignment getPortsAssignment_2_1_0_2_1() { return cPortsAssignment_2_1_0_2_1; }
+		public Assignment getPortsAssignment_1_1_0_2_1() { return cPortsAssignment_1_1_0_2_1; }
 		
 		//[aadl2::NamedElement|ID]
-		public CrossReference getPortsNamedElementCrossReference_2_1_0_2_1_0() { return cPortsNamedElementCrossReference_2_1_0_2_1_0; }
+		public CrossReference getPortsNamedElementCrossReference_1_1_0_2_1_0() { return cPortsNamedElementCrossReference_1_1_0_2_1_0; }
 		
 		//ID
-		public RuleCall getPortsNamedElementIDTerminalRuleCall_2_1_0_2_1_0_1() { return cPortsNamedElementIDTerminalRuleCall_2_1_0_2_1_0_1; }
+		public RuleCall getPortsNamedElementIDTerminalRuleCall_1_1_0_2_1_0_1() { return cPortsNamedElementIDTerminalRuleCall_1_1_0_2_1_0_1; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_2_1_0_3() { return cRightParenthesisKeyword_2_1_0_3; }
+		public Keyword getRightParenthesisKeyword_1_1_0_3() { return cRightParenthesisKeyword_1_1_0_3; }
 		
 		//time=BehaviorTime
-		public Assignment getTimeAssignment_2_1_1() { return cTimeAssignment_2_1_1; }
+		public Assignment getTimeAssignment_1_1_1() { return cTimeAssignment_1_1_1; }
 		
 		//BehaviorTime
-		public RuleCall getTimeBehaviorTimeParserRuleCall_2_1_1_0() { return cTimeBehaviorTimeParserRuleCall_2_1_1_0; }
+		public RuleCall getTimeBehaviorTimeParserRuleCall_1_1_1_0() { return cTimeBehaviorTimeParserRuleCall_1_1_1_0; }
 	}
 	public class PortNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.PortName");
@@ -10580,8 +10570,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////dispatch_trigger
 	////DOES NOT ALLOW PORT INDEXES ON TIMEOUT PORTS
 	//DispatchTrigger:
-	//  stop='stop'
-	//  | port=PortName
+	//  port=PortName
 	//  | timeout='timeout'
 	//   ( ( lp?='(' ports+=[aadl2::NamedElement|ID]
 	//        ('or'? ports+=[aadl2::NamedElement|ID] )* ')'

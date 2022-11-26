@@ -206,4 +206,14 @@ public class UnitUtil {
       });
     return list;
   }
+
+  public boolean hasTimeUnit(final UnitName u) {
+    boolean _xblockexpression = false;
+    {
+      final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
+      un.setName("s");
+      _xblockexpression = this.sameUnitRoot(u, un);
+    }
+    return _xblockexpression;
+  }
 }

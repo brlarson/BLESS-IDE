@@ -156,7 +156,12 @@ def EList<UnitName> sort(EList<UnitName> list)
 	return list  
 	}
 
-  
+def boolean hasTimeUnit(UnitName u)  
+  {
+  val UnitName un = BLESSFactory.eINSTANCE.createUnitName
+  un.name = "s"  
+  sameUnitRoot(u, un)  
+  }
 	
 //def void sortInPlace(EList<UnitName> list)
 //  {

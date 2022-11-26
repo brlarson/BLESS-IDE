@@ -1416,7 +1416,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns DispatchTrigger
 	 *
 	 * Constraint:
-	 *     (stop='stop' | port=PortName | (timeout='timeout' ((lp?='(' ports+=[NamedElement|ID] ports+=[NamedElement|ID]*)? time=BehaviorTime)?))
+	 *     (port=PortName | (timeout='timeout' ((lp?='(' ports+=[NamedElement|ID] ports+=[NamedElement|ID]*)? time=BehaviorTime)?))
 	 * </pre>
 	 */
 	protected void sequence_DispatchTrigger(ISerializationContext context, DispatchTrigger semanticObject) {

@@ -152,8 +152,7 @@ DispatchConjunction:
 //dispatch_trigger
 //DOES NOT ALLOW PORT INDEXES ON TIMEOUT PORTS
 DispatchTrigger:
-  stop='stop' 
-  | port=PortName  
+  port=PortName  
   | timeout='timeout'  
    ( ( lp?='(' ports+=[aadl2::NamedElement|ID] 
         ('or'? ports+=[aadl2::NamedElement|ID] )* ')'

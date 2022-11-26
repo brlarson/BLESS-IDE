@@ -5076,12 +5076,13 @@ toAST(DispatchExpression e)
 toAST(DispatchTrigger e)
   {
     try {  
-  if (e.stop !== null) newBAST(e) =>  //is stop?
-    [  
-  	myText = "stop"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_stop, "stop")
-    ]
-  else if (e.timeout !== null && e.lp) newBAST(e) =>  //timeout with port list
+//  if (e.stop !== null) newBAST(e) =>  //is stop?
+//    [  
+//  	myText = "stop"
+//    token = new CommonToken(BLESStoASTLexer.LITERAL_stop, "stop")
+//    ]
+//  else 
+  if (e.timeout !== null && e.lp) newBAST(e) =>  //timeout with port list
     [  
   	myText = "timeout"
     token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout")

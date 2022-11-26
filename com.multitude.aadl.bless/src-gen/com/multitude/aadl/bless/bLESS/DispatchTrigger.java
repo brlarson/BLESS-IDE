@@ -21,7 +21,6 @@ import org.osate.aadl2.NamedElement;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getStop <em>Stop</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getPort <em>Port</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#isLp <em>Lp</em>}</li>
@@ -35,28 +34,6 @@ import org.osate.aadl2.NamedElement;
  */
 public interface DispatchTrigger extends EObject, Element
 {
-  /**
-   * Returns the value of the '<em><b>Stop</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Stop</em>' attribute.
-   * @see #setStop(String)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getDispatchTrigger_Stop()
-   * @model
-   * @generated
-   */
-  String getStop();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getStop <em>Stop</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Stop</em>' attribute.
-   * @see #getStop()
-   * @generated
-   */
-  void setStop(String value);
-
   /**
    * Returns the value of the '<em><b>Port</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -26,7 +26,7 @@ public abstract class AbstractBLESSSyntacticSequencer extends AbstractSyntacticS
 	protected AbstractElementAlias match_BehaviorState_SemicolonKeyword_8_q;
 	protected AbstractElementAlias match_BehaviorTransition_SemicolonKeyword_10_q;
 	protected AbstractElementAlias match_BehaviorTransition___LeftCurlyBracketKeyword_8_0_RightCurlyBracketKeyword_8_2__q;
-	protected AbstractElementAlias match_DispatchTrigger_OrKeyword_2_1_0_2_0_q;
+	protected AbstractElementAlias match_DispatchTrigger_OrKeyword_1_1_0_2_0_q;
 	protected AbstractElementAlias match_RecordValue_SemicolonKeyword_3_q;
 	protected AbstractElementAlias match_VariableDeclaration_SemicolonKeyword_4_q;
 	
@@ -36,7 +36,7 @@ public abstract class AbstractBLESSSyntacticSequencer extends AbstractSyntacticS
 		match_BehaviorState_SemicolonKeyword_8_q = new TokenAlias(false, true, grammarAccess.getBehaviorStateAccess().getSemicolonKeyword_8());
 		match_BehaviorTransition_SemicolonKeyword_10_q = new TokenAlias(false, true, grammarAccess.getBehaviorTransitionAccess().getSemicolonKeyword_10());
 		match_BehaviorTransition___LeftCurlyBracketKeyword_8_0_RightCurlyBracketKeyword_8_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getBehaviorTransitionAccess().getLeftCurlyBracketKeyword_8_0()), new TokenAlias(false, false, grammarAccess.getBehaviorTransitionAccess().getRightCurlyBracketKeyword_8_2()));
-		match_DispatchTrigger_OrKeyword_2_1_0_2_0_q = new TokenAlias(false, true, grammarAccess.getDispatchTriggerAccess().getOrKeyword_2_1_0_2_0());
+		match_DispatchTrigger_OrKeyword_1_1_0_2_0_q = new TokenAlias(false, true, grammarAccess.getDispatchTriggerAccess().getOrKeyword_1_1_0_2_0());
 		match_RecordValue_SemicolonKeyword_3_q = new TokenAlias(false, true, grammarAccess.getRecordValueAccess().getSemicolonKeyword_3());
 		match_VariableDeclaration_SemicolonKeyword_4_q = new TokenAlias(false, true, grammarAccess.getVariableDeclarationAccess().getSemicolonKeyword_4());
 	}
@@ -80,8 +80,8 @@ public abstract class AbstractBLESSSyntacticSequencer extends AbstractSyntacticS
 				emit_BehaviorTransition_SemicolonKeyword_10_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_BehaviorTransition___LeftCurlyBracketKeyword_8_0_RightCurlyBracketKeyword_8_2__q.equals(syntax))
 				emit_BehaviorTransition___LeftCurlyBracketKeyword_8_0_RightCurlyBracketKeyword_8_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_DispatchTrigger_OrKeyword_2_1_0_2_0_q.equals(syntax))
-				emit_DispatchTrigger_OrKeyword_2_1_0_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_DispatchTrigger_OrKeyword_1_1_0_2_0_q.equals(syntax))
+				emit_DispatchTrigger_OrKeyword_1_1_0_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_RecordValue_SemicolonKeyword_3_q.equals(syntax))
 				emit_RecordValue_SemicolonKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_VariableDeclaration_SemicolonKeyword_4_q.equals(syntax))
@@ -150,7 +150,7 @@ public abstract class AbstractBLESSSyntacticSequencer extends AbstractSyntacticS
 	 
 	 * </pre>
 	 */
-	protected void emit_DispatchTrigger_OrKeyword_2_1_0_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_DispatchTrigger_OrKeyword_1_1_0_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

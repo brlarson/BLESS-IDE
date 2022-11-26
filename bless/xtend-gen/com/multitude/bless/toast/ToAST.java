@@ -5927,74 +5927,60 @@ public class ToAST {
     BAST _xtrycatchfinallyexpression = null;
     try {
       BAST _xifexpression = null;
-      String _stop = e.getStop();
-      boolean _tripleNotEquals = (_stop != null);
-      if (_tripleNotEquals) {
+      if (((e.getTimeout() != null) && e.isLp())) {
         BAST _newBAST = this.newBAST(e);
         final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "stop";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_stop, "stop");
+          it.myText = "timeout";
+          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
           it.token = _commonToken;
+          BAST _newBAST_1 = this.newBAST(e);
+          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+            it_1.myText = "(";
+            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LPAREN, "(");
+            it_1.token = _commonToken_1;
+          };
+          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+          it.addChild(_doubleArrow);
+          EList<NamedElement> _ports = e.getPorts();
+          for (final NamedElement p : _ports) {
+            it.addChild(this.makeBASTforPort(p.getName(), e));
+          }
+          BAST _newBAST_2 = this.newBAST(e);
+          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+            it_1.myText = ")";
+            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
+            it_1.token = _commonToken_1;
+          };
+          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+          it.addChild(_doubleArrow_1);
+          it.addChild(this.toAST(e.getTime()));
         };
         _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
       } else {
         BAST _xifexpression_1 = null;
-        if (((e.getTimeout() != null) && e.isLp())) {
+        if (((e.getTimeout() != null) && (e.getTime() != null))) {
           BAST _newBAST_1 = this.newBAST(e);
           final Procedure1<BAST> _function_1 = (BAST it) -> {
             it.myText = "timeout";
             CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
             it.token = _commonToken;
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              it_1.myText = "(";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LPAREN, "(");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            it.addChild(_doubleArrow);
-            EList<NamedElement> _ports = e.getPorts();
-            for (final NamedElement p : _ports) {
-              it.addChild(this.makeBASTforPort(p.getName(), e));
-            }
-            BAST _newBAST_3 = this.newBAST(e);
-            final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-              it_1.myText = ")";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            it.addChild(_doubleArrow_1);
             it.addChild(this.toAST(e.getTime()));
           };
           _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
         } else {
           BAST _xifexpression_2 = null;
-          if (((e.getTimeout() != null) && (e.getTime() != null))) {
+          String _timeout = e.getTimeout();
+          boolean _tripleNotEquals = (_timeout != null);
+          if (_tripleNotEquals) {
             BAST _newBAST_2 = this.newBAST(e);
             final Procedure1<BAST> _function_2 = (BAST it) -> {
               it.myText = "timeout";
               CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
               it.token = _commonToken;
-              it.addChild(this.toAST(e.getTime()));
             };
             _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
           } else {
-            BAST _xifexpression_3 = null;
-            String _timeout = e.getTimeout();
-            boolean _tripleNotEquals_1 = (_timeout != null);
-            if (_tripleNotEquals_1) {
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it) -> {
-                it.myText = "timeout";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-                it.token = _commonToken;
-              };
-              _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            } else {
-              _xifexpression_3 = this.makeBASTforPort(e.getPort().getPort().getName(), e);
-            }
-            _xifexpression_2 = _xifexpression_3;
+            _xifexpression_2 = this.makeBASTforPort(e.getPort().getPort().getName(), e);
           }
           _xifexpression_1 = _xifexpression_2;
         }

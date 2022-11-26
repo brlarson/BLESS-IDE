@@ -94,7 +94,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//DispatchConjunction/and"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//DispatchTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//DispatchTrigger/stop"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//DispatchTrigger/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//DispatchTrigger/timeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//DispatchTrigger/lp"/>

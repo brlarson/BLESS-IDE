@@ -1385,22 +1385,13 @@ public interface BLESSPackage extends EPackage
   int DISPATCH_TRIGGER__OWNED_COMMENT = Aadl2Package.ELEMENT__OWNED_COMMENT;
 
   /**
-   * The feature id for the '<em><b>Stop</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DISPATCH_TRIGGER__STOP = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
-
-  /**
    * The feature id for the '<em><b>Port</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER__PORT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
+  int DISPATCH_TRIGGER__PORT = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Timeout</b></em>' attribute.
@@ -1409,7 +1400,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER__TIMEOUT = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int DISPATCH_TRIGGER__TIMEOUT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Lp</b></em>' attribute.
@@ -1418,7 +1409,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER__LP = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+  int DISPATCH_TRIGGER__LP = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Ports</b></em>' reference list.
@@ -1427,7 +1418,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER__PORTS = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
+  int DISPATCH_TRIGGER__PORTS = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Time</b></em>' containment reference.
@@ -1436,7 +1427,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER__TIME = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
+  int DISPATCH_TRIGGER__TIME = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Dispatch Trigger</em>' class.
@@ -1445,7 +1436,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DISPATCH_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 6;
+  int DISPATCH_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.PortNameImpl <em>Port Name</em>}' class.
@@ -10584,17 +10575,6 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EClass getDispatchTrigger();
-
-  /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getStop <em>Stop</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Stop</em>'.
-   * @see com.multitude.aadl.bless.bLESS.DispatchTrigger#getStop()
-   * @see #getDispatchTrigger()
-   * @generated
-   */
-  EAttribute getDispatchTrigger_Stop();
 
   /**
    * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.DispatchTrigger#getPort <em>Port</em>}'.

@@ -2005,20 +2005,9 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EAttribute getDispatchTrigger_Stop()
-  {
-        return (EAttribute)getDispatchTrigger().getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getDispatchTrigger_Port()
   {
-        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(1);
+        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2029,7 +2018,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getDispatchTrigger_Timeout()
   {
-        return (EAttribute)getDispatchTrigger().getEStructuralFeatures().get(2);
+        return (EAttribute)getDispatchTrigger().getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2040,7 +2029,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getDispatchTrigger_Lp()
   {
-        return (EAttribute)getDispatchTrigger().getEStructuralFeatures().get(3);
+        return (EAttribute)getDispatchTrigger().getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2051,7 +2040,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EReference getDispatchTrigger_Ports()
   {
-        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(4);
+        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(3);
   }
 
   /**
@@ -2062,7 +2051,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EReference getDispatchTrigger_Time()
   {
-        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(5);
+        return (EReference)getDispatchTrigger().getEStructuralFeatures().get(4);
   }
 
   /**

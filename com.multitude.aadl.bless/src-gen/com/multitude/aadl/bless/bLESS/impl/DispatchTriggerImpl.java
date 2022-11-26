@@ -36,7 +36,6 @@ import org.osate.aadl2.impl.ElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.DispatchTriggerImpl#getStop <em>Stop</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.DispatchTriggerImpl#getPort <em>Port</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.DispatchTriggerImpl#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.DispatchTriggerImpl#isLp <em>Lp</em>}</li>
@@ -48,26 +47,6 @@ import org.osate.aadl2.impl.ElementImpl;
  */
 public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
 {
-  /**
-   * The default value of the '{@link #getStop() <em>Stop</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStop()
-   * @generated
-   * @ordered
-   */
-  protected static final String STOP_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getStop() <em>Stop</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getStop()
-   * @generated
-   * @ordered
-   */
-  protected String stop = STOP_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getPort() <em>Port</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -157,31 +136,6 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
   protected EClass eStaticClass()
   {
     return BLESSPackage.eINSTANCE.getDispatchTrigger();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getStop()
-  {
-    return stop;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setStop(String newStop)
-  {
-    String oldStop = stop;
-    stop = newStop;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.DISPATCH_TRIGGER__STOP, oldStop, stop));
   }
 
   /**
@@ -377,8 +331,6 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
   {
     switch (featureID)
     {
-      case BLESSPackage.DISPATCH_TRIGGER__STOP:
-        return getStop();
       case BLESSPackage.DISPATCH_TRIGGER__PORT:
         return getPort();
       case BLESSPackage.DISPATCH_TRIGGER__TIMEOUT:
@@ -404,9 +356,6 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
   {
     switch (featureID)
     {
-      case BLESSPackage.DISPATCH_TRIGGER__STOP:
-        setStop((String)newValue);
-        return;
       case BLESSPackage.DISPATCH_TRIGGER__PORT:
         setPort((PortName)newValue);
         return;
@@ -437,9 +386,6 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
   {
     switch (featureID)
     {
-      case BLESSPackage.DISPATCH_TRIGGER__STOP:
-        setStop(STOP_EDEFAULT);
-        return;
       case BLESSPackage.DISPATCH_TRIGGER__PORT:
         setPort((PortName)null);
         return;
@@ -469,8 +415,6 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
   {
     switch (featureID)
     {
-      case BLESSPackage.DISPATCH_TRIGGER__STOP:
-        return STOP_EDEFAULT == null ? stop != null : !STOP_EDEFAULT.equals(stop);
       case BLESSPackage.DISPATCH_TRIGGER__PORT:
         return port != null;
       case BLESSPackage.DISPATCH_TRIGGER__TIMEOUT:
@@ -496,9 +440,7 @@ public class DispatchTriggerImpl extends ElementImpl implements DispatchTrigger
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (stop: ");
-    result.append(stop);
-    result.append(", timeout: ");
+    result.append(" (timeout: ");
     result.append(timeout);
     result.append(", lp: ");
     result.append(lp);

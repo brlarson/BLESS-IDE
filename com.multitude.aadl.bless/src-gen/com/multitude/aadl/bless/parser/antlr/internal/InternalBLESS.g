@@ -1644,25 +1644,10 @@ ruleDispatchTrigger returns [EObject current=null]
 	(
 		(
 			(
-				lv_stop_0_0='stop'
 				{
-					newLeafNode(lv_stop_0_0, grammarAccess.getDispatchTriggerAccess().getStopStopKeyword_0_0());
+					newCompositeNode(grammarAccess.getDispatchTriggerAccess().getPortPortNameParserRuleCall_0_0());
 				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDispatchTriggerRule());
-					}
-					setWithLastConsumed($current, "stop", lv_stop_0_0, "stop");
-				}
-			)
-		)
-		    |
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDispatchTriggerAccess().getPortPortNameParserRuleCall_1_0());
-				}
-				lv_port_1_0=rulePortName
+				lv_port_0_0=rulePortName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDispatchTriggerRule());
@@ -1670,7 +1655,7 @@ ruleDispatchTrigger returns [EObject current=null]
 					set(
 						$current,
 						"port",
-						lv_port_1_0,
+						lv_port_0_0,
 						"com.multitude.aadl.bless.BLESS.PortName");
 					afterParserOrEnumRuleCall();
 				}
@@ -1680,15 +1665,15 @@ ruleDispatchTrigger returns [EObject current=null]
 		(
 			(
 				(
-					lv_timeout_2_0='timeout'
+					lv_timeout_1_0='timeout'
 					{
-						newLeafNode(lv_timeout_2_0, grammarAccess.getDispatchTriggerAccess().getTimeoutTimeoutKeyword_2_0_0());
+						newLeafNode(lv_timeout_1_0, grammarAccess.getDispatchTriggerAccess().getTimeoutTimeoutKeyword_1_0_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getDispatchTriggerRule());
 						}
-						setWithLastConsumed($current, "timeout", lv_timeout_2_0, "timeout");
+						setWithLastConsumed($current, "timeout", lv_timeout_1_0, "timeout");
 					}
 				)
 			)
@@ -1696,15 +1681,15 @@ ruleDispatchTrigger returns [EObject current=null]
 				(
 					(
 						(
-							lv_lp_3_0='('
+							lv_lp_2_0='('
 							{
-								newLeafNode(lv_lp_3_0, grammarAccess.getDispatchTriggerAccess().getLpLeftParenthesisKeyword_2_1_0_0_0());
+								newLeafNode(lv_lp_2_0, grammarAccess.getDispatchTriggerAccess().getLpLeftParenthesisKeyword_1_1_0_0_0());
 							}
 							{
 								if ($current==null) {
 									$current = createModelElement(grammarAccess.getDispatchTriggerRule());
 								}
-								setWithLastConsumed($current, "lp", lv_lp_3_0 != null, "(");
+								setWithLastConsumed($current, "lp", lv_lp_2_0 != null, "(");
 							}
 						)
 					)
@@ -1715,17 +1700,17 @@ ruleDispatchTrigger returns [EObject current=null]
 									$current = createModelElement(grammarAccess.getDispatchTriggerRule());
 								}
 							}
-							otherlv_4=RULE_ID
+							otherlv_3=RULE_ID
 							{
-								newLeafNode(otherlv_4, grammarAccess.getDispatchTriggerAccess().getPortsNamedElementCrossReference_2_1_0_1_0());
+								newLeafNode(otherlv_3, grammarAccess.getDispatchTriggerAccess().getPortsNamedElementCrossReference_1_1_0_1_0());
 							}
 						)
 					)
 					(
 						(
-							otherlv_5='or'
+							otherlv_4='or'
 							{
-								newLeafNode(otherlv_5, grammarAccess.getDispatchTriggerAccess().getOrKeyword_2_1_0_2_0());
+								newLeafNode(otherlv_4, grammarAccess.getDispatchTriggerAccess().getOrKeyword_1_1_0_2_0());
 							}
 						)?
 						(
@@ -1735,24 +1720,24 @@ ruleDispatchTrigger returns [EObject current=null]
 										$current = createModelElement(grammarAccess.getDispatchTriggerRule());
 									}
 								}
-								otherlv_6=RULE_ID
+								otherlv_5=RULE_ID
 								{
-									newLeafNode(otherlv_6, grammarAccess.getDispatchTriggerAccess().getPortsNamedElementCrossReference_2_1_0_2_1_0());
+									newLeafNode(otherlv_5, grammarAccess.getDispatchTriggerAccess().getPortsNamedElementCrossReference_1_1_0_2_1_0());
 								}
 							)
 						)
 					)*
-					otherlv_7=')'
+					otherlv_6=')'
 					{
-						newLeafNode(otherlv_7, grammarAccess.getDispatchTriggerAccess().getRightParenthesisKeyword_2_1_0_3());
+						newLeafNode(otherlv_6, grammarAccess.getDispatchTriggerAccess().getRightParenthesisKeyword_1_1_0_3());
 					}
 				)?
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getDispatchTriggerAccess().getTimeBehaviorTimeParserRuleCall_2_1_1_0());
+							newCompositeNode(grammarAccess.getDispatchTriggerAccess().getTimeBehaviorTimeParserRuleCall_1_1_1_0());
 						}
-						lv_time_8_0=ruleBehaviorTime
+						lv_time_7_0=ruleBehaviorTime
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getDispatchTriggerRule());
@@ -1760,7 +1745,7 @@ ruleDispatchTrigger returns [EObject current=null]
 							set(
 								$current,
 								"time",
-								lv_time_8_0,
+								lv_time_7_0,
 								"com.multitude.aadl.bless.BLESS.BehaviorTime");
 							afterParserOrEnumRuleCall();
 						}
