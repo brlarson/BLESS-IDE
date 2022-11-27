@@ -4708,10 +4708,11 @@ toAST(PropertyField e)
   def dispatch BAST
 toAST(PropertyReference e)
   {
-    try {  
-  val p = e.pname
-  EcoreUtil.resolve(p,e.eContainer)
+  try {  
   if (e.self)  //  self#ps::p
+    {
+    val sp = e.spname
+    EcoreUtil.resolve(sp,e.eContainer)    
   	newBAST(e) =>
   	  [
   	  myText = "#"	
@@ -4721,10 +4722,12 @@ toAST(PropertyReference e)
   	    myText = "self"	
         token = new CommonToken(BLESStoASTLexer.LITERAL_self, "self")
         ] )      
-      addChild(p.qualifiedName().makeBASTforPropertyName(e))
+      addChild(sp.qualifiedName().makeBASTforPropertyName(e))
       for (f : e.field)
         addChild(f.toAST)  	  
       ]
+      
+    }
 //  else if (e.pname!==null)  //subcomponent#ps::p  THERE IS NO SUBCOMPONENT IN GRAMMAR FOR PropertyReference
 //  	newBAST(e) =>
 //  	  [
@@ -4736,16 +4739,23 @@ toAST(PropertyReference e)
 //        addChild(f.toAST)  	  
 //      ]
   else if (e.component!==null)  //  uccr#ps::p
+    {
+    val cp = e.cpname
+    EcoreUtil.resolve(cp,e.eContainer)
   	newBAST(e) =>
   	  [
   	  myText = "#"	
       token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#")
-      addChild(e.component.qualifiedName().makeBASTforPropertyName(e))
-      addChild(p.qualifiedName().makeBASTforPropertyName(e))  	  
+      addChild(e.component.qualifiedName().makeBASTforPropertyName(e))  //it's really a component name
+      addChild(cp.qualifiedName().makeBASTforPropertyName(e))  	  
       for (f : e.field)
         addChild(f.toAST)  	  
       ]
+    }
   else
+    {
+    val p = e.pname
+    EcoreUtil.resolve(p,e.eContainer)
   	newBAST(e) =>   //  #ps::p
   	  [
   	  myText = "#"	
@@ -4754,7 +4764,9 @@ toAST(PropertyReference e)
       for (f : e.field)
         addChild(f.toAST)  	  
       ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+      
+     }
+   } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PropertyReference
 
 

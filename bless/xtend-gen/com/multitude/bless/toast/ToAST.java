@@ -5375,13 +5375,13 @@ public class ToAST {
   protected BAST _toAST(final PropertyReference e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
-      BAST _xblockexpression = null;
-      {
-        final Property p = e.getPname();
-        EcoreUtil.resolve(p, e.eContainer());
-        BAST _xifexpression = null;
-        boolean _isSelf = e.isSelf();
-        if (_isSelf) {
+      BAST _xifexpression = null;
+      boolean _isSelf = e.isSelf();
+      if (_isSelf) {
+        BAST _xblockexpression = null;
+        {
+          final Property sp = e.getSpname();
+          EcoreUtil.resolve(sp, e.eContainer());
           BAST _newBAST = this.newBAST(e);
           final Procedure1<BAST> _function = (BAST it) -> {
             it.myText = "#";
@@ -5395,34 +5395,46 @@ public class ToAST {
             };
             BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
             it.addChild(_doubleArrow);
-            it.addChild(this.makeBASTforPropertyName(p.qualifiedName(), e));
+            it.addChild(this.makeBASTforPropertyName(sp.qualifiedName(), e));
             EList<PropertyField> _field = e.getField();
             for (final PropertyField f : _field) {
               it.addChild(this.toAST(f));
             }
           };
-          _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-        } else {
-          BAST _xifexpression_1 = null;
-          ComponentClassifier _component = e.getComponent();
-          boolean _tripleNotEquals = (_component != null);
-          if (_tripleNotEquals) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
+          _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+        }
+        _xifexpression = _xblockexpression;
+      } else {
+        BAST _xifexpression_1 = null;
+        ComponentClassifier _component = e.getComponent();
+        boolean _tripleNotEquals = (_component != null);
+        if (_tripleNotEquals) {
+          BAST _xblockexpression_1 = null;
+          {
+            final Property cp = e.getCpname();
+            EcoreUtil.resolve(cp, e.eContainer());
+            BAST _newBAST = this.newBAST(e);
+            final Procedure1<BAST> _function = (BAST it) -> {
               it.myText = "#";
               CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
               it.token = _commonToken;
               it.addChild(this.makeBASTforPropertyName(e.getComponent().qualifiedName(), e));
-              it.addChild(this.makeBASTforPropertyName(p.qualifiedName(), e));
+              it.addChild(this.makeBASTforPropertyName(cp.qualifiedName(), e));
               EList<PropertyField> _field = e.getField();
               for (final PropertyField f : _field) {
                 it.addChild(this.toAST(f));
               }
             };
-            _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          } else {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
+            _xblockexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+          }
+          _xifexpression_1 = _xblockexpression_1;
+        } else {
+          BAST _xblockexpression_2 = null;
+          {
+            final Property p = e.getPname();
+            EcoreUtil.resolve(p, e.eContainer());
+            BAST _newBAST = this.newBAST(e);
+            final Procedure1<BAST> _function = (BAST it) -> {
               it.myText = "#";
               CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
               it.token = _commonToken;
@@ -5432,22 +5444,22 @@ public class ToAST {
                 it.addChild(this.toAST(f));
               }
             };
-            _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+            _xblockexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
           }
-          _xifexpression = _xifexpression_1;
+          _xifexpression_1 = _xblockexpression_2;
         }
-        _xblockexpression = _xifexpression;
+        _xifexpression = _xifexpression_1;
       }
-      _xtrycatchfinallyexpression = _xblockexpression;
+      _xtrycatchfinallyexpression = _xifexpression;
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception ex = (Exception)_t;
-        BAST _xblockexpression_1 = null;
+        BAST _xblockexpression_3 = null;
         {
           ex.printStackTrace();
-          _xblockexpression_1 = ToAST.x;
+          _xblockexpression_3 = ToAST.x;
         }
-        _xtrycatchfinallyexpression = _xblockexpression_1;
+        _xtrycatchfinallyexpression = _xblockexpression_3;
       } else {
         throw Exceptions.sneakyThrow(_t);
       }

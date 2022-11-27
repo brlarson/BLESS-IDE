@@ -6,7 +6,7 @@ group Java;
 //added for Slang
 integer_literal(i) ::= "z\"<i>\""
 real_literal(r) ::=  "f32\"<r>\""
-now() ::= "Date.getTime()"
+now() ::= "Java.util.Date.getTime()"
 time()::= "S64"
 
 //added for JSON
