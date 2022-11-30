@@ -93,7 +93,7 @@ topdown
 
 get_timeout_dispatch_triggers 
   :
-  ^(t=LITERAL_timeout LPAREN ports+=ID+ RPAREN b=. {s.add($t.dupTree());})
+  ^(t=LITERAL_timeout .* {s.add($t.dupTree());})
  //   {//System.out.println("p1="+($p1==null?"null":$p1.toStringTree())+" p2="+($p2==null?"null":p2.toStringTree())+
     //" elq="+($elq==null?"null":$elq.toStringTree()));
  //   s.add($t.dupTree());}

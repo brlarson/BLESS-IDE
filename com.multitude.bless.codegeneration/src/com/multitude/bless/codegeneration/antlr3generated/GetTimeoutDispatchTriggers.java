@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g 2022-10-06 09:28:21
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g 2022-11-28 11:35:17
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.codegeneration.antlr3generated;
@@ -415,7 +415,7 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 		return adaptor;
 	}
 	@Override public String[] getTokenNames() { return GetTimeoutDispatchTriggers.tokenNames; }
-	@Override public String getGrammarFileName() { return "/Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g"; }
+	@Override public String getGrammarFileName() { return "/Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g"; }
 
 
 
@@ -476,7 +476,7 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 
 	// $ANTLR start "topdown"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:89:1: topdown : get_timeout_dispatch_triggers ;
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:89:1: topdown : get_timeout_dispatch_triggers ;
 	@Override
 	public final GetTimeoutDispatchTriggers.topdown_return topdown() throws RecognitionException {
 		GetTimeoutDispatchTriggers.topdown_return retval = new GetTimeoutDispatchTriggers.topdown_return();
@@ -492,8 +492,8 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:90:3: ( get_timeout_dispatch_triggers )
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:91:3: get_timeout_dispatch_triggers
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:90:3: ( get_timeout_dispatch_triggers )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:91:3: get_timeout_dispatch_triggers
 			{
 			_last = (BAST)input.LT(1);
 			pushFollow(FOLLOW_get_timeout_dispatch_triggers_in_topdown75);
@@ -530,7 +530,7 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 
 	// $ANTLR start "get_timeout_dispatch_triggers"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:94:1: get_timeout_dispatch_triggers : ^(t= LITERAL_timeout LPAREN (ports+= ID )+ RPAREN b= . ) ;
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:94:1: get_timeout_dispatch_triggers : ^(t= LITERAL_timeout ( . )* ) ;
 	public final GetTimeoutDispatchTriggers.get_timeout_dispatch_triggers_return get_timeout_dispatch_triggers() throws RecognitionException {
 		GetTimeoutDispatchTriggers.get_timeout_dispatch_triggers_return retval = new GetTimeoutDispatchTriggers.get_timeout_dispatch_triggers_return();
 		retval.start = input.LT(1);
@@ -542,21 +542,14 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 
 		BAST t=null;
-		BAST LPAREN2=null;
-		BAST RPAREN3=null;
-		BAST ports=null;
-		BAST b=null;
-		List<Object> list_ports=null;
+		BAST wildcard2=null;
 
 		BAST t_tree=null;
-		BAST LPAREN2_tree=null;
-		BAST RPAREN3_tree=null;
-		BAST b_tree=null;
-		BAST ports_tree=null;
+		BAST wildcard2_tree=null;
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:95:3: ( ^(t= LITERAL_timeout LPAREN (ports+= ID )+ RPAREN b= . ) )
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:3: ^(t= LITERAL_timeout LPAREN (ports+= ID )+ RPAREN b= . )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:95:3: ( ^(t= LITERAL_timeout ( . )* ) )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:3: ^(t= LITERAL_timeout ( . )* )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -567,69 +560,45 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 			if ( state.backtracking==1 )
 			if ( _first_0==null ) _first_0 = t;
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			LPAREN2=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_get_timeout_dispatch_triggers96); if (state.failed) return retval;
-			 
-			if ( state.backtracking==1 )
-			if ( _first_1==null ) _first_1 = LPAREN2;
-
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:35: (ports+= ID )+
-			int cnt1=0;
-			loop1:
-			while (true) {
-				int alt1=2;
-				int LA1_0 = input.LA(1);
-				if ( (LA1_0==ID) ) {
-					alt1=1;
-				}
-
-				switch (alt1) {
-				case 1 :
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:35: ports+= ID
-					{
-					_last = (BAST)input.LT(1);
-					ports=(BAST)match(input,ID,FOLLOW_ID_in_get_timeout_dispatch_triggers100); if (state.failed) return retval;
-					 
-					if ( state.backtracking==1 )
-					if ( _first_1==null ) _first_1 = ports;
-
-					if (list_ports==null) list_ports=new ArrayList<Object>();
-					list_ports.add(ports);
-
-					if ( state.backtracking==1 ) {
-					retval.tree = _first_0;
-					if ( adaptor.getParent(retval.tree)!=null && adaptor.isNil( adaptor.getParent(retval.tree) ) )
-						retval.tree = (BAST)adaptor.getParent(retval.tree);
+			if ( input.LA(1)==Token.DOWN ) {
+				match(input, Token.DOWN, null); if (state.failed) return retval;
+				// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:23: ( . )*
+				loop1:
+				while (true) {
+					int alt1=2;
+					int LA1_0 = input.LA(1);
+					if ( ((LA1_0 >= AADL_STRING_LITERAL && LA1_0 <= 303)) ) {
+						alt1=1;
 					}
 
-					}
-					break;
+					switch (alt1) {
+					case 1 :
+						// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g:96:23: .
+						{
+						_last = (BAST)input.LT(1);
+						wildcard2=(BAST)input.LT(1);
+						matchAny(input); if (state.failed) return retval;
+						 
+						if ( state.backtracking==1 )
+						if ( _first_1==null ) _first_1 = wildcard2;
 
-				default :
-					if ( cnt1 >= 1 ) break loop1;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(1, input);
-					throw eee;
+						if ( state.backtracking==1 ) {
+						retval.tree = _first_0;
+						if ( adaptor.getParent(retval.tree)!=null && adaptor.isNil( adaptor.getParent(retval.tree) ) )
+							retval.tree = (BAST)adaptor.getParent(retval.tree);
+						}
+
+						}
+						break;
+
+					default :
+						break loop1;
+					}
 				}
-				cnt1++;
+
+				if ( state.backtracking==1 ) {s.add(t.dupTree());}
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
-
-			_last = (BAST)input.LT(1);
-			RPAREN3=(BAST)match(input,RPAREN,FOLLOW_RPAREN_in_get_timeout_dispatch_triggers103); if (state.failed) return retval;
-			 
-			if ( state.backtracking==1 )
-			if ( _first_1==null ) _first_1 = RPAREN3;
-
-			_last = (BAST)input.LT(1);
-			b=(BAST)input.LT(1);
-			matchAny(input); if (state.failed) return retval;
-			 
-			if ( state.backtracking==1 )
-			if ( _first_1==null ) _first_1 = b;
-
-			if ( state.backtracking==1 ) {s.add(t.dupTree());}
-			match(input, Token.UP, null); if (state.failed) return retval;
 			_last = _save_last_1;
 			}
 
@@ -657,7 +626,4 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 
 	public static final BitSet FOLLOW_get_timeout_dispatch_triggers_in_topdown75 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_timeout_in_get_timeout_dispatch_triggers94 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_get_timeout_dispatch_triggers96 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_get_timeout_dispatch_triggers100 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
-	public static final BitSet FOLLOW_RPAREN_in_get_timeout_dispatch_triggers103 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000FFFFFFFFFFFFL});
 }

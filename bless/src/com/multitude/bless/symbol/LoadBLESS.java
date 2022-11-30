@@ -287,18 +287,16 @@ load() throws YouIdiot
       { Dump.it("There are no component types in package \"" + pr.name + "\"."); }
     for (ComponentType ct : componentTypesInPackage)
       {
- 
-      EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(ct);
-      if (dispatchProtocol == null)
-        Dump.it("Thread " + ct.getName() + " has null Dispatch_Prototcol.");
-      else
-        Dump.it(ct.getCategory().getName()+" "+ ct.getName() + " has Dispatch_Prototcol => " + dispatchProtocol.getName());
-
       if (verbose())
         {
         Dump.it("Creating a parse record for a \"" + ct.getCategory().getName() + "\" component type named \""
             + ct.getName() + "\".");
-        }
+        EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(ct);
+        if (dispatchProtocol == null)
+          Dump.it(ct.getCategory().getName()+" "+ ct.getName() + " has no Dispatch_Prototcol.");
+        else
+          Dump.it(ct.getCategory().getName()+" "+ ct.getName() + " has Dispatch_Prototcol => " + dispatchProtocol.getName());
+       }
       //resolve if abstract
 //      if (ct.eIsProxy())
 //        ct = (ComponentType) EcoreUtil.resolve((EObject)ct, pr.myAadlPackage);
@@ -1095,7 +1093,12 @@ load() throws YouIdiot
       if (verbose())
         {
         Dump.it("  gathering component implementation \"" + ci.getName() + "\"");
-        }
+        EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(ci);
+        if (dispatchProtocol == null)
+          Dump.it(ci.getCategory().getName()+" immplementation "+ ci.getName() + " has no Dispatch_Prototcol.");
+        else
+          Dump.it(ci.getCategory().getName()+" immplementation "+ ci.getName() + " has Dispatch_Prototcol => " + dispatchProtocol.getName());
+       }
       //resolve if abstract
 //      if (ci.eIsProxy())
 //        ci = (ComponentImplementation) EcoreUtil.resolve((EObject)ci, pr.myAadlPackage);

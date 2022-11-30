@@ -6,7 +6,7 @@ group Java;
 //added for Slang
 integer_literal(i) ::= "z\"<i>\""
 real_literal(r) ::=  "f32\"<r>\""
-now() ::= "Java.util.Date.getTime()"
+now() ::= "Art.time()"
 time()::= "S64"
 
 //added for JSON
@@ -24,10 +24,10 @@ parenthesized_predicate(p) ::= "(<p>)"
 name(p,pp) ::= "<p; separator=\".\"><pp>"
 
 //make into equivalent port
-timeout(bt,p) ::= "api.Updated(timeout_<p; separator=\"_\">_<bt>)"
+timeout(bt,p) ::= "timeout_<p; separator=\"_\">_<bt>"
 
 //for timeout port name
-behavior_time(e,u) ::= "<e>_<u>"
+behavior_time(e,u) ::= "<e><if(u)>_<u><endif>"
 
 //change = to == and <> to != for slang relations
 

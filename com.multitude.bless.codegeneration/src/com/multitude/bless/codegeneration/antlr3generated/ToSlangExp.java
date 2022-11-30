@@ -1,20 +1,14 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g 2022-10-06 09:28:21
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g 2022-11-28 11:35:16
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.codegeneration.antlr3generated;
 import java.util.List;
 import java.util.ArrayList;
-//import org.eclipse.emf.common.util.EList;
-//import org.eclipse.emf.common.util.BasicEList;
-//import com.multitude.bless.proof.Reason;
-//import com.multitude.bless.proof.Algebra;
-//import com.multitude.bless.proof.Proof;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.HelpfulHints;
-//import com.multitude.bless.proof.exception.ProofException;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.antlr3generated.BLESStoASTLexer;
 
@@ -419,7 +413,7 @@ public class ToSlangExp extends TreeRewriter {
 		return adaptor;
 	}
 	@Override public String[] getTokenNames() { return ToSlangExp.tokenNames; }
-	@Override public String getGrammarFileName() { return "/Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g"; }
+	@Override public String getGrammarFileName() { return "/Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g"; }
 
 
 	//static boolean verbose = ConfigurationPreferencePage.getVerboseProof();
@@ -478,7 +472,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 	// $ANTLR start "topdown"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:88:1: topdown : ( removeDuplicateParentheses | convertFeatureNames );
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:82:1: topdown : ( removeDuplicateParentheses | convertFeatureNames );
 	@Override
 	public final ToSlangExp.topdown_return topdown() throws RecognitionException {
 		ToSlangExp.topdown_return retval = new ToSlangExp.topdown_return();
@@ -495,7 +489,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:89:3: ( removeDuplicateParentheses | convertFeatureNames )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:83:3: ( removeDuplicateParentheses | convertFeatureNames )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0==LPAREN) ) {
@@ -514,7 +508,7 @@ public class ToSlangExp extends TreeRewriter {
 
 			switch (alt1) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:90:3: removeDuplicateParentheses
+					// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:84:3: removeDuplicateParentheses
 					{
 					_last = (BAST)input.LT(1);
 					pushFollow(FOLLOW_removeDuplicateParentheses_in_topdown76);
@@ -534,7 +528,7 @@ public class ToSlangExp extends TreeRewriter {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:91:5: convertFeatureNames
+					// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:85:5: convertFeatureNames
 					{
 					_last = (BAST)input.LT(1);
 					pushFollow(FOLLOW_convertFeatureNames_in_topdown82);
@@ -576,7 +570,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 	// $ANTLR start "bottomup"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:94:2: bottomup : removeTopParentheses ;
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:88:2: bottomup : removeTopParentheses ;
 	@Override
 	public final ToSlangExp.bottomup_return bottomup() throws RecognitionException {
 		ToSlangExp.bottomup_return retval = new ToSlangExp.bottomup_return();
@@ -592,8 +586,8 @@ public class ToSlangExp extends TreeRewriter {
 
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:95:3: ( removeTopParentheses )
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:96:3: removeTopParentheses
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:89:3: ( removeTopParentheses )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:90:3: removeTopParentheses
 			{
 			_last = (BAST)input.LT(1);
 			pushFollow(FOLLOW_removeTopParentheses_in_bottomup99);
@@ -633,7 +627,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 	// $ANTLR start "removeDuplicateParentheses"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:100:1: removeDuplicateParentheses : ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN ) -> ^( $lp $x $rp) ;
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:94:1: removeDuplicateParentheses : ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN ) -> ^( $lp $x $rp) ;
 	public final ToSlangExp.removeDuplicateParentheses_return removeDuplicateParentheses() throws RecognitionException {
 		ToSlangExp.removeDuplicateParentheses_return retval = new ToSlangExp.removeDuplicateParentheses_return();
 		retval.start = input.LT(1);
@@ -659,8 +653,8 @@ public class ToSlangExp extends TreeRewriter {
 		RewriteRuleNodeStream stream_RPAREN=new RewriteRuleNodeStream(adaptor,"token RPAREN");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:101:3: ( ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN ) -> ^( $lp $x $rp) )
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:102:3: ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:95:3: ( ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN ) -> ^( $lp $x $rp) )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:96:3: ^( LPAREN ^(lp= LPAREN x= . rp= RPAREN ) RPAREN )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -728,9 +722,9 @@ public class ToSlangExp extends TreeRewriter {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (BAST)adaptor.nil();
-			// 103:5: -> ^( $lp $x $rp)
+			// 97:5: -> ^( $lp $x $rp)
 			{
-				// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:103:8: ^( $lp $x $rp)
+				// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:97:8: ^( $lp $x $rp)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_lp.nextNode(), root_1);
@@ -772,7 +766,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 	// $ANTLR start "removeTopParentheses"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:106:1: removeTopParentheses : ^(lp= LPAREN x= . RPAREN {...}?) -> $x;
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:100:1: removeTopParentheses : ^(lp= LPAREN x= . RPAREN {...}?) -> $x;
 	public final ToSlangExp.removeTopParentheses_return removeTopParentheses() throws RecognitionException {
 		ToSlangExp.removeTopParentheses_return retval = new ToSlangExp.removeTopParentheses_return();
 		retval.start = input.LT(1);
@@ -794,8 +788,8 @@ public class ToSlangExp extends TreeRewriter {
 		RewriteRuleNodeStream stream_RPAREN=new RewriteRuleNodeStream(adaptor,"token RPAREN");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:107:3: ( ^(lp= LPAREN x= . RPAREN {...}?) -> $x)
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:108:3: ^(lp= LPAREN x= . RPAREN {...}?)
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:101:3: ( ^(lp= LPAREN x= . RPAREN {...}?) -> $x)
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:102:3: ^(lp= LPAREN x= . RPAREN {...}?)
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -843,7 +837,7 @@ public class ToSlangExp extends TreeRewriter {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (BAST)adaptor.nil();
-			// 109:5: -> $x
+			// 103:5: -> $x
 			{
 				adaptor.addChild(root_0, stream_x.nextTree());
 			}
@@ -879,7 +873,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 	// $ANTLR start "convertFeatureNames"
-	// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:112:1: convertFeatureNames : ( ^(p= PERIOD label= ID (rest+= ID )+ {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ ) | ^(p= PERIOD label= ID {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ) );
+	// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:106:1: convertFeatureNames : ( ^(p= PERIOD label= ID (rest+= ID )+ {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ ) | ^(p= PERIOD label= ID {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ) );
 	public final ToSlangExp.convertFeatureNames_return convertFeatureNames() throws RecognitionException {
 		ToSlangExp.convertFeatureNames_return retval = new ToSlangExp.convertFeatureNames_return();
 		retval.start = input.LT(1);
@@ -902,7 +896,7 @@ public class ToSlangExp extends TreeRewriter {
 		RewriteRuleNodeStream stream_ID=new RewriteRuleNodeStream(adaptor,"token ID");
 
 		try {
-			// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:113:3: ( ^(p= PERIOD label= ID (rest+= ID )+ {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ ) | ^(p= PERIOD label= ID {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ) )
+			// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:107:3: ( ^(p= PERIOD label= ID (rest+= ID )+ {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ ) | ^(p= PERIOD label= ID {...}?) -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ) )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==PERIOD) ) {
@@ -976,7 +970,7 @@ public class ToSlangExp extends TreeRewriter {
 
 			switch (alt3) {
 				case 1 :
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:114:3: ^(p= PERIOD label= ID (rest+= ID )+ {...}?)
+					// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:108:3: ^(p= PERIOD label= ID (rest+= ID )+ {...}?)
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -995,7 +989,7 @@ public class ToSlangExp extends TreeRewriter {
 					 
 					if ( state.backtracking==1 ) stream_ID.add(label);
 
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:114:27: (rest+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:108:27: (rest+= ID )+
 					int cnt2=0;
 					loop2:
 					while (true) {
@@ -1007,7 +1001,7 @@ public class ToSlangExp extends TreeRewriter {
 
 						switch (alt2) {
 						case 1 :
-							// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:114:27: rest+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:108:27: rest+= ID
 							{
 							_last = (BAST)input.LT(1);
 							rest=(BAST)match(input,ID,FOLLOW_ID_in_convertFeatureNames219); if (state.failed) return retval;
@@ -1057,9 +1051,9 @@ public class ToSlangExp extends TreeRewriter {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (BAST)adaptor.nil();
-					// 115:5: -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ )
+					// 109:5: -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ )
 					{
-						// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:115:8: ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:109:8: ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] ( $rest)+ )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_p.nextNode(), root_1);
@@ -1090,7 +1084,7 @@ public class ToSlangExp extends TreeRewriter {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:117:3: ^(p= PERIOD label= ID {...}?)
+					// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:111:3: ^(p= PERIOD label= ID {...}?)
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -1131,9 +1125,9 @@ public class ToSlangExp extends TreeRewriter {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (BAST)adaptor.nil();
-					// 118:5: -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] )
+					// 112:5: -> ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] )
 					{
-						// /Users/brianlarson/git/bless-repo/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:118:8: ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] )
+						// /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g:112:8: ^( $p ID[\"api\"] ID[\"get_\"+$label.text+\"()\"] ID[\"get\"] )
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_p.nextNode(), root_1);
