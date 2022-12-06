@@ -497,7 +497,9 @@ property_number_type(kind,range,units,designator) ::=
   "<kind> <range><if(units)> <units> <designator><endif>"	
 		
 not(bt) ::=
-	"not <bt>"	
+	"!<bt>"	
+
+not_paren(bt) ::= "!(<bt>)"  
 
 parentheses(be) ::=
 	"( <be> )"	

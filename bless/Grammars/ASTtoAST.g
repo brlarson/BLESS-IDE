@@ -281,7 +281,7 @@ get_invariant_from_thread_behavior
     ) 
     LITERAL_end
   )
-    -> ^$ass $predicate)  //get the predicate only
+    -> ^($ass $predicate)  //get the predicate only
   ;  
   catch [RecognitionException re] 
   {Dump.it("Did you forget an invariant clause, Bub?");

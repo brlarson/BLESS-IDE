@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2022-10-26 14:51:32
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2022-12-06 09:13:23
 
 //copyright 2020 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -24004,7 +24004,7 @@ public class UnparseBLESS extends TreeParser {
 
 
 	// $ANTLR start "availability_subexpression"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3292:1: availability_subexpression : ( ^( LITERAL_not ^( LPAREN nae= availability_expression ) ) -> template(nae=$nae.st) \"not (<nae>)\"| ^( LITERAL_not ni= ID ) -> template(i=$ni.text) \"not <ni>\"| ^( LPAREN ae= availability_expression ) -> template(ae=$ae.st) \"(<ae>)\"|i= ID -> {%{$i.text}});
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3292:1: availability_subexpression : ( ^( LITERAL_not ^( LPAREN nae= availability_expression ) ) -> not_paren(bt=$nae.st)| ^( LITERAL_not ni= ID ) -> not(bt=$ni.text)| ^( LPAREN ae= availability_expression ) -> template(ae=$ae.st) \"(<ae>)\"|i= ID -> {%{$i.text}});
 	public final UnparseBLESS.availability_subexpression_return availability_subexpression() throws RecognitionException {
 		UnparseBLESS.availability_subexpression_return retval = new UnparseBLESS.availability_subexpression_return();
 		retval.start = input.LT(1);
@@ -24015,7 +24015,7 @@ public class UnparseBLESS extends TreeParser {
 		TreeRuleReturnScope ae =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3293:2: ( ^( LITERAL_not ^( LPAREN nae= availability_expression ) ) -> template(nae=$nae.st) \"not (<nae>)\"| ^( LITERAL_not ni= ID ) -> template(i=$ni.text) \"not <ni>\"| ^( LPAREN ae= availability_expression ) -> template(ae=$ae.st) \"(<ae>)\"|i= ID -> {%{$i.text}})
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3293:2: ( ^( LITERAL_not ^( LPAREN nae= availability_expression ) ) -> not_paren(bt=$nae.st)| ^( LITERAL_not ni= ID ) -> not(bt=$ni.text)| ^( LPAREN ae= availability_expression ) -> template(ae=$ae.st) \"(<ae>)\"|i= ID -> {%{$i.text}})
 			int alt178=4;
 			switch ( input.LA(1) ) {
 			case LITERAL_not:
@@ -24096,9 +24096,9 @@ public class UnparseBLESS extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 3295:3: -> template(nae=$nae.st) \"not (<nae>)\"
+					  // 3295:3: -> not_paren(bt=$nae.st)
 					  {
-					  	retval.st = new StringTemplate(templateLib, "not (<nae>)",new STAttrMap().put("nae", (nae!=null?((StringTemplate)nae.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("not_paren",new STAttrMap().put("bt", (nae!=null?((StringTemplate)nae.getTemplate()):null)));
 					  }
 
 
@@ -24109,16 +24109,16 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3297:2: ^( LITERAL_not ni= ID )
 					{
-					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_availability_subexpression13747); if (state.failed) return retval;
+					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_availability_subexpression13748); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					ni=(BAST)match(input,ID,FOLLOW_ID_in_availability_subexpression13751); if (state.failed) return retval;
+					ni=(BAST)match(input,ID,FOLLOW_ID_in_availability_subexpression13752); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 3298:3: -> template(i=$ni.text) \"not <ni>\"
+					  // 3298:3: -> not(bt=$ni.text)
 					  {
-					  	retval.st = new StringTemplate(templateLib, "not <ni>",new STAttrMap().put("i", (ni!=null?ni.getText():null)));
+					  	retval.st = templateLib.getInstanceOf("not",new STAttrMap().put("bt", (ni!=null?ni.getText():null)));
 					  }
 
 
@@ -24129,9 +24129,9 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3300:2: ^( LPAREN ae= availability_expression )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_availability_subexpression13771); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_availability_subexpression13772); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_availability_expression_in_availability_subexpression13775);
+					pushFollow(FOLLOW_availability_expression_in_availability_subexpression13776);
 					ae=availability_expression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24152,7 +24152,7 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3303:2: i= ID
 					{
-					i=(BAST)match(input,ID,FOLLOW_ID_in_availability_subexpression13796); if (state.failed) return retval;
+					i=(BAST)match(input,ID,FOLLOW_ID_in_availability_subexpression13797); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3304:3: -> {%{$i.text}}
@@ -24220,7 +24220,7 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3310:2: ( ^(d= LITERAL_dispatch (dle= dispatch_expression )? ) -> dispatch_condition(dle=$dle.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3311:2: ^(d= LITERAL_dispatch (dle= dispatch_expression )? )
 			{
-			d=(BAST)match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatch_condition13821); if (state.failed) return retval;
+			d=(BAST)match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatch_condition13822); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3311:27: (dle= dispatch_expression )?
@@ -24233,7 +24233,7 @@ public class UnparseBLESS extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3311:27: dle= dispatch_expression
 						{
-						pushFollow(FOLLOW_dispatch_expression_in_dispatch_condition13826);
+						pushFollow(FOLLOW_dispatch_expression_in_dispatch_condition13827);
 						dle=dispatch_expression();
 						state._fsp--;
 						if (state.failed) return retval;
@@ -24313,7 +24313,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3325:2: ^( LITERAL_or (odt+= dispatch_conjunction )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatch_expression13870); if (state.failed) return retval;
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatch_expression13871); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3325:18: (odt+= dispatch_conjunction )+
 					int cnt180=0;
@@ -24329,7 +24329,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3325:18: odt+= dispatch_conjunction
 							{
-							pushFollow(FOLLOW_dispatch_conjunction_in_dispatch_expression13874);
+							pushFollow(FOLLOW_dispatch_conjunction_in_dispatch_expression13875);
 							odt=dispatch_conjunction();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -24364,7 +24364,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3329:2: dt= dispatch_conjunction
 					{
-					pushFollow(FOLLOW_dispatch_conjunction_in_dispatch_expression13897);
+					pushFollow(FOLLOW_dispatch_conjunction_in_dispatch_expression13898);
 					dt=dispatch_conjunction();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24453,7 +24453,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3335:2: d= dispatch_trigger
 					{
-					pushFollow(FOLLOW_dispatch_trigger_in_dispatch_conjunction13923);
+					pushFollow(FOLLOW_dispatch_trigger_in_dispatch_conjunction13924);
 					d=dispatch_trigger();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24472,7 +24472,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3338:2: ^( LITERAL_and (dt+= dispatch_trigger )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatch_conjunction13935); if (state.failed) return retval;
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatch_conjunction13936); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3338:18: (dt+= dispatch_trigger )+
 					int cnt182=0;
@@ -24488,7 +24488,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3338:18: dt+= dispatch_trigger
 							{
-							pushFollow(FOLLOW_dispatch_trigger_in_dispatch_conjunction13939);
+							pushFollow(FOLLOW_dispatch_trigger_in_dispatch_conjunction13940);
 							dt=dispatch_trigger();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -24646,7 +24646,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3347:4: i= ID
 					{
-					i=(BAST)match(input,ID,FOLLOW_ID_in_dispatch_trigger13974); if (state.failed) return retval;
+					i=(BAST)match(input,ID,FOLLOW_ID_in_dispatch_trigger13975); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3348:6: -> dispatch_trigger(i=$i.text)
@@ -24662,9 +24662,9 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3351:4: ^( LITERAL_timeout LPAREN (ports+= ID )+ RPAREN bt= behavior_time )
 					{
-					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger13999); if (state.failed) return retval;
+					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger14000); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,LPAREN,FOLLOW_LPAREN_in_dispatch_trigger14001); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_dispatch_trigger14002); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3351:29: (ports+= ID )+
 					int cnt184=0;
 					loop184:
@@ -24679,7 +24679,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3351:30: ports+= ID
 							{
-							ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatch_trigger14006); if (state.failed) return retval;
+							ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatch_trigger14007); if (state.failed) return retval;
 							if (list_ports==null) list_ports=new ArrayList<Object>();
 							list_ports.add(ports);
 							}
@@ -24694,8 +24694,8 @@ public class UnparseBLESS extends TreeParser {
 						cnt184++;
 					}
 
-					match(input,RPAREN,FOLLOW_RPAREN_in_dispatch_trigger14010); if (state.failed) return retval;
-					pushFollow(FOLLOW_behavior_time_in_dispatch_trigger14014);
+					match(input,RPAREN,FOLLOW_RPAREN_in_dispatch_trigger14011); if (state.failed) return retval;
+					pushFollow(FOLLOW_behavior_time_in_dispatch_trigger14015);
 					bt=behavior_time();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24716,7 +24716,7 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3358:4: t= LITERAL_timeout
 					{
-					t=(BAST)match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger14049); if (state.failed) return retval;
+					t=(BAST)match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger14050); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3359:6: -> {%{$t.text}}
@@ -24732,9 +24732,9 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3361:4: ^( LITERAL_timeout bt= behavior_time )
 					{
-					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger14068); if (state.failed) return retval;
+					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatch_trigger14069); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_behavior_time_in_dispatch_trigger14072);
+					pushFollow(FOLLOW_behavior_time_in_dispatch_trigger14073);
 					bt=behavior_time();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24755,7 +24755,7 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3364:2: s= LITERAL_stop
 					{
-					s=(BAST)match(input,LITERAL_stop,FOLLOW_LITERAL_stop_in_dispatch_trigger14095); if (state.failed) return retval;
+					s=(BAST)match(input,LITERAL_stop,FOLLOW_LITERAL_stop_in_dispatch_trigger14096); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3365:3: -> dispatch_trigger(i=$s.text)
@@ -24822,7 +24822,7 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3369:2: (nl= INTEGER_LIT -> {%{$nl.text}})
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3369:4: nl= INTEGER_LIT
 			{
-			nl=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_integer_literal14120); if (state.failed) return retval;
+			nl=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_integer_literal14121); if (state.failed) return retval;
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
 			  // 3370:6: -> {%{$nl.text}}
@@ -24931,7 +24931,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3376:3: t= LITERAL_true
 					{
-					t=(BAST)match(input,LITERAL_true,FOLLOW_LITERAL_true_in_value_constant14147); if (state.failed) return retval;
+					t=(BAST)match(input,LITERAL_true,FOLLOW_LITERAL_true_in_value_constant14148); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3377:5: -> {%{$t.text}}
@@ -24947,7 +24947,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3378:5: f= LITERAL_false
 					{
-					f=(BAST)match(input,LITERAL_false,FOLLOW_LITERAL_false_in_value_constant14164); if (state.failed) return retval;
+					f=(BAST)match(input,LITERAL_false,FOLLOW_LITERAL_false_in_value_constant14165); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3379:5: -> {%{$f.text}}
@@ -24963,7 +24963,7 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3380:5: sl= AADL_STRING_LITERAL
 					{
-					sl=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_value_constant14180); if (state.failed) return retval;
+					sl=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_value_constant14181); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3381:5: -> {%{$sl.text}}
@@ -24979,7 +24979,7 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3382:5: nc= numeric_constant
 					{
-					pushFollow(FOLLOW_numeric_constant_in_value_constant14196);
+					pushFollow(FOLLOW_numeric_constant_in_value_constant14197);
 					nc=numeric_constant();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -24998,7 +24998,7 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3384:5: ev= enumeration_value
 					{
-					pushFollow(FOLLOW_enumeration_value_in_value_constant14212);
+					pushFollow(FOLLOW_enumeration_value_in_value_constant14213);
 					ev=enumeration_value();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25069,10 +25069,10 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3396:3: ( ^( TICK enum_type= ID enum_value= ID ) -> {Global.usingSlangStringTemplateGroup && BlessMaps.dataComponentMapContainsKey($enum_type.text)}? enumeration_value(t=BlessMaps.dataComponentMapGet($enum_type.text)v=$enum_value.text) -> enumeration_value(t=$enum_type.textv=$enum_value.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3397:3: ^( TICK enum_type= ID enum_value= ID )
 			{
-			match(input,TICK,FOLLOW_TICK_in_enumeration_value14245); if (state.failed) return retval;
+			match(input,TICK,FOLLOW_TICK_in_enumeration_value14246); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			enum_type=(BAST)match(input,ID,FOLLOW_ID_in_enumeration_value14249); if (state.failed) return retval;
-			enum_value=(BAST)match(input,ID,FOLLOW_ID_in_enumeration_value14253); if (state.failed) return retval;
+			enum_type=(BAST)match(input,ID,FOLLOW_ID_in_enumeration_value14250); if (state.failed) return retval;
+			enum_value=(BAST)match(input,ID,FOLLOW_ID_in_enumeration_value14254); if (state.failed) return retval;
 			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
@@ -25145,10 +25145,10 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3405:3: ( ^( DOUBLE_COLON ps= ID p= ID ) -> property_name(ps=$ps.textp=$p.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3407:3: ^( DOUBLE_COLON ps= ID p= ID )
 			{
-			match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_property_constant14321); if (state.failed) return retval;
+			match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_property_constant14322); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			ps=(BAST)match(input,ID,FOLLOW_ID_in_property_constant14325); if (state.failed) return retval;
-			p=(BAST)match(input,ID,FOLLOW_ID_in_property_constant14329); if (state.failed) return retval;
+			ps=(BAST)match(input,ID,FOLLOW_ID_in_property_constant14326); if (state.failed) return retval;
+			p=(BAST)match(input,ID,FOLLOW_ID_in_property_constant14330); if (state.failed) return retval;
 			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
@@ -25223,9 +25223,9 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3415:3: ^(oct= OCTOTHORPE pname= property_name )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14370); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14371); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14374);
+					pushFollow(FOLLOW_property_name_in_property_reference14375);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25251,9 +25251,9 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3420:3: ^(oct= OCTOTHORPE pname= property_name (field+= property_field )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14412); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14413); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14416);
+					pushFollow(FOLLOW_property_name_in_property_reference14417);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25271,7 +25271,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3420:45: field+= property_field
 							{
-							pushFollow(FOLLOW_property_field_in_property_reference14420);
+							pushFollow(FOLLOW_property_field_in_property_reference14421);
 							field=property_field();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -25311,10 +25311,10 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3425:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= property_name )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14463); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14464); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_property_reference14467); if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14471);
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_property_reference14468); if (state.failed) return retval;
+					pushFollow(FOLLOW_property_name_in_property_reference14472);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25340,10 +25340,10 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3430:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= property_name (field+= property_field )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14514); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14515); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_property_reference14518); if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14522);
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_property_reference14519); if (state.failed) return retval;
+					pushFollow(FOLLOW_property_name_in_property_reference14523);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25361,7 +25361,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3430:63: field+= property_field
 							{
-							pushFollow(FOLLOW_property_field_in_property_reference14526);
+							pushFollow(FOLLOW_property_field_in_property_reference14527);
 							field=property_field();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -25401,13 +25401,13 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3438:3: ^(oct= OCTOTHORPE component= unique_component_classifier_reference pname= property_name )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14576); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14577); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_unique_component_classifier_reference_in_property_reference14580);
+					pushFollow(FOLLOW_unique_component_classifier_reference_in_property_reference14581);
 					component=unique_component_classifier_reference();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14584);
+					pushFollow(FOLLOW_property_name_in_property_reference14585);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25428,13 +25428,13 @@ public class UnparseBLESS extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3442:3: ^(oct= OCTOTHORPE component= unique_component_classifier_reference pname= property_name (field+= property_field )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14620); if (state.failed) return retval;
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_property_reference14621); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_unique_component_classifier_reference_in_property_reference14624);
+					pushFollow(FOLLOW_unique_component_classifier_reference_in_property_reference14625);
 					component=unique_component_classifier_reference();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_property_name_in_property_reference14628);
+					pushFollow(FOLLOW_property_name_in_property_reference14629);
 					pname=property_name();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25452,7 +25452,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3442:93: field+= property_field
 							{
-							pushFollow(FOLLOW_property_field_in_property_reference14632);
+							pushFollow(FOLLOW_property_field_in_property_reference14633);
 							field=property_field();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -25539,10 +25539,10 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3448:3: ( ^( DOUBLE_COLON ps= ID p= ID ) -> property_name(ps=$ps.textp=$p.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3449:3: ^( DOUBLE_COLON ps= ID p= ID )
 			{
-			match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_property_name14672); if (state.failed) return retval;
+			match(input,DOUBLE_COLON,FOLLOW_DOUBLE_COLON_in_property_name14673); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			ps=(BAST)match(input,ID,FOLLOW_ID_in_property_name14676); if (state.failed) return retval;
-			p=(BAST)match(input,ID,FOLLOW_ID_in_property_name14680); if (state.failed) return retval;
+			ps=(BAST)match(input,ID,FOLLOW_ID_in_property_name14677); if (state.failed) return retval;
+			p=(BAST)match(input,ID,FOLLOW_ID_in_property_name14681); if (state.failed) return retval;
 			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
@@ -25713,10 +25713,10 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3456:3: ^( LBRACKET lit= INTEGER_LIT RBRACKET )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_property_field14717); if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_property_field14718); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					lit=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_property_field14721); if (state.failed) return retval;
-					match(input,RBRACKET,FOLLOW_RBRACKET_in_property_field14723); if (state.failed) return retval;
+					lit=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_property_field14722); if (state.failed) return retval;
+					match(input,RBRACKET,FOLLOW_RBRACKET_in_property_field14724); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -25734,10 +25734,10 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3459:3: ^( LBRACKET id= ID RBRACKET )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_property_field14747); if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_property_field14748); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					id=(BAST)match(input,ID,FOLLOW_ID_in_property_field14751); if (state.failed) return retval;
-					match(input,RBRACKET,FOLLOW_RBRACKET_in_property_field14753); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_property_field14752); if (state.failed) return retval;
+					match(input,RBRACKET,FOLLOW_RBRACKET_in_property_field14754); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -25755,9 +25755,9 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3462:3: ^( PERIOD id= ID )
 					{
-					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14777); if (state.failed) return retval;
+					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14778); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					id=(BAST)match(input,ID,FOLLOW_ID_in_property_field14781); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_property_field14782); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -25775,9 +25775,9 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3465:3: ^( PERIOD LITERAL_upper_bound )
 					{
-					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14805); if (state.failed) return retval;
+					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14806); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_property_field14807); if (state.failed) return retval;
+					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_property_field14808); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -25795,9 +25795,9 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3468:3: ^( PERIOD LITERAL_lower_bound )
 					{
-					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14828); if (state.failed) return retval;
+					match(input,PERIOD,FOLLOW_PERIOD_in_property_field14829); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_property_field14830); if (state.failed) return retval;
+					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_property_field14831); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -25911,7 +25911,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3475:3: il= INTEGER_LIT
 					{
-					il=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_numeric_constant14861); if (state.failed) return retval;
+					il=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_numeric_constant14862); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3476:5: -> integer_literal(i=$il.text)
@@ -25927,7 +25927,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3477:5: rl= REAL_LIT
 					{
-					rl=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_numeric_constant14884); if (state.failed) return retval;
+					rl=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_numeric_constant14885); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 3478:5: -> real_literal(r=$rl.text)
@@ -25943,7 +25943,7 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3481:5: rat= rational_literal
 					{
-					pushFollow(FOLLOW_rational_literal_in_numeric_constant14909);
+					pushFollow(FOLLOW_rational_literal_in_numeric_constant14910);
 					rat=rational_literal();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25962,7 +25962,7 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3483:6: com= complex_literal
 					{
-					pushFollow(FOLLOW_complex_literal_in_numeric_constant14926);
+					pushFollow(FOLLOW_complex_literal_in_numeric_constant14927);
 					com=complex_literal();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -25981,7 +25981,7 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3486:3: constant= property_constant
 					{
-					pushFollow(FOLLOW_property_constant_in_numeric_constant14944);
+					pushFollow(FOLLOW_property_constant_in_numeric_constant14945);
 					constant=property_constant();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -26000,7 +26000,7 @@ public class UnparseBLESS extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3489:3: reference= property_reference
 					{
-					pushFollow(FOLLOW_property_reference_in_numeric_constant14961);
+					pushFollow(FOLLOW_property_reference_in_numeric_constant14962);
 					reference=property_reference();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -26226,10 +26226,10 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3495:3: ^( RATIONAL dividend= INTEGER_LIT divisor= INTEGER_LIT )
 					{
-					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal14984); if (state.failed) return retval;
+					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal14985); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal14988); if (state.failed) return retval;
-					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal14992); if (state.failed) return retval;
+					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal14989); if (state.failed) return retval;
+					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal14993); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26247,14 +26247,14 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3497:5: ^( RATIONAL ^( MINUS dividend= INTEGER_LIT ) divisor= INTEGER_LIT )
 					{
-					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15018); if (state.failed) return retval;
+					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15019); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15021); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15022); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15025); if (state.failed) return retval;
+					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15026); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
-					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15030); if (state.failed) return retval;
+					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15031); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26272,12 +26272,12 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3499:5: ^( RATIONAL dividend= INTEGER_LIT ^( MINUS divisor= INTEGER_LIT ) )
 					{
-					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15056); if (state.failed) return retval;
+					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15057); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15060); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15063); if (state.failed) return retval;
+					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15061); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15064); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15067); if (state.failed) return retval;
+					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15068); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -26297,16 +26297,16 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3501:5: ^( RATIONAL ^( MINUS dividend= INTEGER_LIT ) ^( MINUS divisor= INTEGER_LIT ) )
 					{
-					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15094); if (state.failed) return retval;
+					match(input,RATIONAL,FOLLOW_RATIONAL_in_rational_literal15095); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15097); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15098); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15101); if (state.failed) return retval;
+					dividend=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15102); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15105); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_rational_literal15106); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15109); if (state.failed) return retval;
+					divisor=(BAST)match(input,INTEGER_LIT,FOLLOW_INTEGER_LIT_in_rational_literal15110); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -26533,10 +26533,10 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3507:3: ^( COMPLEX real= REAL_LIT im= REAL_LIT )
 					{
-					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15145); if (state.failed) return retval;
+					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15146); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15149); if (state.failed) return retval;
-					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15153); if (state.failed) return retval;
+					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15150); if (state.failed) return retval;
+					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15154); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26554,14 +26554,14 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3509:5: ^( COMPLEX ^( MINUS real= REAL_LIT ) im= REAL_LIT )
 					{
-					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15179); if (state.failed) return retval;
+					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15180); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15182); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15183); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15186); if (state.failed) return retval;
+					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15187); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
-					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15191); if (state.failed) return retval;
+					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15192); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26579,12 +26579,12 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3511:5: ^( COMPLEX real= REAL_LIT ^( MINUS im= REAL_LIT ) )
 					{
-					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15217); if (state.failed) return retval;
+					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15218); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15221); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15224); if (state.failed) return retval;
+					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15222); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15225); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15228); if (state.failed) return retval;
+					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15229); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -26604,16 +26604,16 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3513:5: ^( COMPLEX ^( MINUS real= REAL_LIT ) ^( MINUS im= REAL_LIT ) )
 					{
-					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15255); if (state.failed) return retval;
+					match(input,COMPLEX,FOLLOW_COMPLEX_in_complex_literal15256); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15258); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15259); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15262); if (state.failed) return retval;
+					real=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15263); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15266); if (state.failed) return retval;
+					match(input,MINUS,FOLLOW_MINUS_in_complex_literal15267); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15270); if (state.failed) return retval;
+					im=(BAST)match(input,REAL_LIT,FOLLOW_REAL_LIT_in_complex_literal15271); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -26685,9 +26685,9 @@ public class UnparseBLESS extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3525:3: ( ^( LITERAL_in LITERAL_modes (m+= ID )+ ) -> template(m=$m) \"in modes (<m; separator=\",\">)\")
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3526:3: ^( LITERAL_in LITERAL_modes (m+= ID )+ )
 			{
-			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_in_modes15317); if (state.failed) return retval;
+			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_in_modes15318); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			match(input,LITERAL_modes,FOLLOW_LITERAL_modes_in_in_modes15319); if (state.failed) return retval;
+			match(input,LITERAL_modes,FOLLOW_LITERAL_modes_in_in_modes15320); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3526:31: (m+= ID )+
 			int cnt195=0;
 			loop195:
@@ -26702,7 +26702,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3526:31: m+= ID
 					{
-					m=(BAST)match(input,ID,FOLLOW_ID_in_in_modes15323); if (state.failed) return retval;
+					m=(BAST)match(input,ID,FOLLOW_ID_in_in_modes15324); if (state.failed) return retval;
 					if (list_m==null) list_m=new ArrayList<Object>();
 					list_m.add(m);
 					}
@@ -26817,7 +26817,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3545:2: rt= record_term
 					{
-					pushFollow(FOLLOW_record_term_in_parenthesized_xxx15375);
+					pushFollow(FOLLOW_record_term_in_parenthesized_xxx15376);
 					rt=record_term();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -26836,13 +26836,13 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3547:2: ^( LPAREN eor= expression_or_relation RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15389); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15390); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_expression_or_relation_in_parenthesized_xxx15393);
+					pushFollow(FOLLOW_expression_or_relation_in_parenthesized_xxx15394);
 					eor=expression_or_relation();
 					state._fsp--;
 					if (state.failed) return retval;
-					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15395); if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15396); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26860,13 +26860,13 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3550:3: ^(lp= LPAREN pe= assertion_expression RPAREN )
 					{
-					lp=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15422); if (state.failed) return retval;
+					lp=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15423); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_assertion_expression_in_parenthesized_xxx15426);
+					pushFollow(FOLLOW_assertion_expression_in_parenthesized_xxx15427);
 					pe=assertion_expression();
 					state._fsp--;
 					if (state.failed) return retval;
-					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15428); if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15429); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26884,13 +26884,13 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3553:2: ^(lb= LPAREN p= predicate rb= RPAREN )
 					{
-					lb=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15454); if (state.failed) return retval;
+					lb=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesized_xxx15455); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_predicate_in_parenthesized_xxx15458);
+					pushFollow(FOLLOW_predicate_in_parenthesized_xxx15459);
 					p=predicate();
 					state._fsp--;
 					if (state.failed) return retval;
-					rb=(BAST)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15462); if (state.failed) return retval;
+					rb=(BAST)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesized_xxx15463); if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
@@ -26978,7 +26978,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3564:3: rel= relation
 					{
-					pushFollow(FOLLOW_relation_in_boolean_expression_or_relation15508);
+					pushFollow(FOLLOW_relation_in_boolean_expression_or_relation15509);
 					rel=relation();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -26997,7 +26997,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3566:3: be= boolean_expression
 					{
-					pushFollow(FOLLOW_boolean_expression_in_boolean_expression_or_relation15522);
+					pushFollow(FOLLOW_boolean_expression_in_boolean_expression_or_relation15523);
 					be=boolean_expression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27129,7 +27129,7 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3574:3: ^( LITERAL_and (bs+= boolean_subexpression )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_boolean_expression15551); if (state.failed) return retval;
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_boolean_expression15552); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3574:20: (bs+= boolean_subexpression )+
 					int cnt198=0;
@@ -27145,7 +27145,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3574:20: bs+= boolean_subexpression
 							{
-							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15555);
+							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15556);
 							bs=boolean_subexpression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -27180,7 +27180,7 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3577:3: ^( LITERAL_or (bs+= boolean_subexpression )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_boolean_expression15581); if (state.failed) return retval;
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_boolean_expression15582); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3577:19: (bs+= boolean_subexpression )+
 					int cnt199=0;
@@ -27196,7 +27196,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3577:19: bs+= boolean_subexpression
 							{
-							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15585);
+							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15586);
 							bs=boolean_subexpression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -27231,7 +27231,7 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3580:3: ^( LITERAL_xor (bs+= boolean_subexpression )+ )
 					{
-					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_boolean_expression15611); if (state.failed) return retval;
+					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_boolean_expression15612); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3580:20: (bs+= boolean_subexpression )+
 					int cnt200=0;
@@ -27247,7 +27247,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3580:20: bs+= boolean_subexpression
 							{
-							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15615);
+							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15616);
 							bs=boolean_subexpression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -27282,7 +27282,7 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3583:3: ^( LITERAL_cand (bs+= boolean_subexpression )+ )
 					{
-					match(input,LITERAL_cand,FOLLOW_LITERAL_cand_in_boolean_expression15641); if (state.failed) return retval;
+					match(input,LITERAL_cand,FOLLOW_LITERAL_cand_in_boolean_expression15642); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3583:21: (bs+= boolean_subexpression )+
 					int cnt201=0;
@@ -27298,7 +27298,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3583:21: bs+= boolean_subexpression
 							{
-							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15645);
+							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15646);
 							bs=boolean_subexpression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -27333,7 +27333,7 @@ public class UnparseBLESS extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3586:3: ^( LITERAL_cor (bs+= boolean_subexpression )+ )
 					{
-					match(input,LITERAL_cor,FOLLOW_LITERAL_cor_in_boolean_expression15671); if (state.failed) return retval;
+					match(input,LITERAL_cor,FOLLOW_LITERAL_cor_in_boolean_expression15672); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3586:20: (bs+= boolean_subexpression )+
 					int cnt202=0;
@@ -27349,7 +27349,7 @@ public class UnparseBLESS extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3586:20: bs+= boolean_subexpression
 							{
-							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15675);
+							pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15676);
 							bs=boolean_subexpression();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -27384,7 +27384,7 @@ public class UnparseBLESS extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3589:3: sub= boolean_subexpression
 					{
-					pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15701);
+					pushFollow(FOLLOW_boolean_subexpression_in_boolean_expression15702);
 					sub=boolean_subexpression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27443,7 +27443,7 @@ public class UnparseBLESS extends TreeParser {
 
 
 	// $ANTLR start "boolean_subexpression"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3609:1: boolean_subexpression : ( ^( LITERAL_not v= value ) -> template(v=$v.st) \"not <v>\"| ^( LITERAL_not ps= parenthesized_subexpression ) -> template(ps=$ps.st) \"not <ps>\"|v= value -> {$v.st}|ps= parenthesized_subexpression -> {$ps.st});
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3609:1: boolean_subexpression : ( ^( LITERAL_not v= value ) -> not(bt=$v.st)| ^( LITERAL_not ps= parenthesized_subexpression ) -> not(bt=$ps.st)|v= value -> {$v.st}|ps= parenthesized_subexpression -> {$ps.st});
 	public final UnparseBLESS.boolean_subexpression_return boolean_subexpression() throws RecognitionException {
 		UnparseBLESS.boolean_subexpression_return retval = new UnparseBLESS.boolean_subexpression_return();
 		retval.start = input.LT(1);
@@ -27452,7 +27452,7 @@ public class UnparseBLESS extends TreeParser {
 		TreeRuleReturnScope ps =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3610:3: ( ^( LITERAL_not v= value ) -> template(v=$v.st) \"not <v>\"| ^( LITERAL_not ps= parenthesized_subexpression ) -> template(ps=$ps.st) \"not <ps>\"|v= value -> {$v.st}|ps= parenthesized_subexpression -> {$ps.st})
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3610:3: ( ^( LITERAL_not v= value ) -> not(bt=$v.st)| ^( LITERAL_not ps= parenthesized_subexpression ) -> not(bt=$ps.st)|v= value -> {$v.st}|ps= parenthesized_subexpression -> {$ps.st})
 			int alt204=4;
 			switch ( input.LA(1) ) {
 			case LITERAL_not:
@@ -27538,9 +27538,9 @@ public class UnparseBLESS extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3611:3: ^( LITERAL_not v= value )
 					{
-					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_boolean_subexpression15728); if (state.failed) return retval;
+					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_boolean_subexpression15729); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_value_in_boolean_subexpression15732);
+					pushFollow(FOLLOW_value_in_boolean_subexpression15733);
 					v=value();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27548,9 +27548,9 @@ public class UnparseBLESS extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 3612:5: -> template(v=$v.st) \"not <v>\"
+					  // 3612:5: -> not(bt=$v.st)
 					  {
-					  	retval.st = new StringTemplate(templateLib, "not <v>",new STAttrMap().put("v", (v!=null?((StringTemplate)v.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("not",new STAttrMap().put("bt", (v!=null?((StringTemplate)v.getTemplate()):null)));
 					  }
 
 
@@ -27561,9 +27561,9 @@ public class UnparseBLESS extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3614:3: ^( LITERAL_not ps= parenthesized_subexpression )
 					{
-					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_boolean_subexpression15756); if (state.failed) return retval;
+					match(input,LITERAL_not,FOLLOW_LITERAL_not_in_boolean_subexpression15758); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_parenthesized_subexpression_in_boolean_subexpression15760);
+					pushFollow(FOLLOW_parenthesized_subexpression_in_boolean_subexpression15762);
 					ps=parenthesized_subexpression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27571,9 +27571,9 @@ public class UnparseBLESS extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 3615:5: -> template(ps=$ps.st) \"not <ps>\"
+					  // 3615:5: -> not(bt=$ps.st)
 					  {
-					  	retval.st = new StringTemplate(templateLib, "not <ps>",new STAttrMap().put("ps", (ps!=null?((StringTemplate)ps.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("not",new STAttrMap().put("bt", (ps!=null?((StringTemplate)ps.getTemplate()):null)));
 					  }
 
 
@@ -27584,7 +27584,7 @@ public class UnparseBLESS extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3617:3: v= value
 					{
-					pushFollow(FOLLOW_value_in_boolean_subexpression15785);
+					pushFollow(FOLLOW_value_in_boolean_subexpression15787);
 					v=value();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27603,7 +27603,7 @@ public class UnparseBLESS extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3620:3: ps= parenthesized_subexpression
 					{
-					pushFollow(FOLLOW_parenthesized_subexpression_in_boolean_subexpression15803);
+					pushFollow(FOLLOW_parenthesized_subexpression_in_boolean_subexpression15805);
 					ps=parenthesized_subexpression();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -27682,7 +27682,7 @@ public class UnparseBLESS extends TreeParser {
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3545:2: (rt= record_term )
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3545:2: rt= record_term
 		{
-		pushFollow(FOLLOW_record_term_in_synpred3_UnparseBLESS15375);
+		pushFollow(FOLLOW_record_term_in_synpred3_UnparseBLESS15376);
 		rt=record_term();
 		state._fsp--;
 		if (state.failed) return;
@@ -27698,13 +27698,13 @@ public class UnparseBLESS extends TreeParser {
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3547:2: ( ^( LPAREN eor= expression_or_relation RPAREN ) )
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3547:2: ^( LPAREN eor= expression_or_relation RPAREN )
 		{
-		match(input,LPAREN,FOLLOW_LPAREN_in_synpred4_UnparseBLESS15389); if (state.failed) return;
+		match(input,LPAREN,FOLLOW_LPAREN_in_synpred4_UnparseBLESS15390); if (state.failed) return;
 		match(input, Token.DOWN, null); if (state.failed) return;
-		pushFollow(FOLLOW_expression_or_relation_in_synpred4_UnparseBLESS15393);
+		pushFollow(FOLLOW_expression_or_relation_in_synpred4_UnparseBLESS15394);
 		eor=expression_or_relation();
 		state._fsp--;
 		if (state.failed) return;
-		match(input,RPAREN,FOLLOW_RPAREN_in_synpred4_UnparseBLESS15395); if (state.failed) return;
+		match(input,RPAREN,FOLLOW_RPAREN_in_synpred4_UnparseBLESS15396); if (state.failed) return;
 		match(input, Token.UP, null); if (state.failed) return;
 
 		}
@@ -27720,13 +27720,13 @@ public class UnparseBLESS extends TreeParser {
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3550:3: ( ^(lp= LPAREN pe= assertion_expression RPAREN ) )
 		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:3550:3: ^(lp= LPAREN pe= assertion_expression RPAREN )
 		{
-		lp=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_synpred5_UnparseBLESS15422); if (state.failed) return;
+		lp=(BAST)match(input,LPAREN,FOLLOW_LPAREN_in_synpred5_UnparseBLESS15423); if (state.failed) return;
 		match(input, Token.DOWN, null); if (state.failed) return;
-		pushFollow(FOLLOW_assertion_expression_in_synpred5_UnparseBLESS15426);
+		pushFollow(FOLLOW_assertion_expression_in_synpred5_UnparseBLESS15427);
 		pe=assertion_expression();
 		state._fsp--;
 		if (state.failed) return;
-		match(input,RPAREN,FOLLOW_RPAREN_in_synpred5_UnparseBLESS15428); if (state.failed) return;
+		match(input,RPAREN,FOLLOW_RPAREN_in_synpred5_UnparseBLESS15429); if (state.failed) return;
 		match(input, Token.UP, null); if (state.failed) return;
 
 		}
@@ -29494,152 +29494,152 @@ public class UnparseBLESS extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_not_in_availability_subexpression13719 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LPAREN_in_availability_subexpression13722 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_availability_expression_in_availability_subexpression13726 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_not_in_availability_subexpression13747 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_availability_subexpression13751 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_availability_subexpression13771 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_availability_expression_in_availability_subexpression13775 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_availability_subexpression13796 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatch_condition13821 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatch_expression_in_dispatch_condition13826 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_or_in_dispatch_expression13870 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatch_conjunction_in_dispatch_expression13874 = new BitSet(new long[]{0x4000000000000008L,0x0000000008000000L,0x0000000000000000L,0x0000000200200000L});
-	public static final BitSet FOLLOW_dispatch_conjunction_in_dispatch_expression13897 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_dispatch_trigger_in_dispatch_conjunction13923 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_and_in_dispatch_conjunction13935 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatch_trigger_in_dispatch_conjunction13939 = new BitSet(new long[]{0x4000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000200200000L});
-	public static final BitSet FOLLOW_ID_in_dispatch_trigger13974 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger13999 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_dispatch_trigger14001 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_dispatch_trigger14006 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_dispatch_trigger14010 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_behavior_time_in_dispatch_trigger14014 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger14049 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger14068 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behavior_time_in_dispatch_trigger14072 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_stop_in_dispatch_trigger14095 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_integer_literal14120 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_true_in_value_constant14147 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_false_in_value_constant14164 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_value_constant14180 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_numeric_constant_in_value_constant14196 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_enumeration_value_in_value_constant14212 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TICK_in_enumeration_value14245 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_enumeration_value14249 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_enumeration_value14253 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOUBLE_COLON_in_property_constant14321 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_property_constant14325 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_property_constant14329 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14370 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14374 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14412 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_property_field_in_property_reference14420 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14463 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_property_reference14467 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14471 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14514 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_property_reference14518 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14522 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_property_field_in_property_reference14526 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14576 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_unique_component_classifier_reference_in_property_reference14580 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14584 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14620 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_unique_component_classifier_reference_in_property_reference14624 = new BitSet(new long[]{0x0000200000000000L});
-	public static final BitSet FOLLOW_property_name_in_property_reference14628 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_property_field_in_property_reference14632 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_DOUBLE_COLON_in_property_name14672 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_property_name14676 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_property_name14680 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_property_field14717 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_property_field14721 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-	public static final BitSet FOLLOW_RBRACKET_in_property_field14723 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_property_field14747 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_property_field14751 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
-	public static final BitSet FOLLOW_RBRACKET_in_property_field14753 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PERIOD_in_property_field14777 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_property_field14781 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PERIOD_in_property_field14805 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_upper_bound_in_property_field14807 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PERIOD_in_property_field14828 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_lower_bound_in_property_field14830 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_numeric_constant14861 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_REAL_LIT_in_numeric_constant14884 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_rational_literal_in_numeric_constant14909 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_complex_literal_in_numeric_constant14926 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_property_constant_in_numeric_constant14944 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_property_reference_in_numeric_constant14961 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_RATIONAL_in_rational_literal14984 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal14988 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal14992 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15018 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_MINUS_in_rational_literal15021 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15025 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15030 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15056 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15060 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
-	public static final BitSet FOLLOW_MINUS_in_rational_literal15063 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15067 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15094 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_MINUS_in_rational_literal15097 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15101 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MINUS_in_rational_literal15105 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15109 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15145 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15149 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15153 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15179 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_MINUS_in_complex_literal15182 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15186 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15191 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15217 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15221 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
-	public static final BitSet FOLLOW_MINUS_in_complex_literal15224 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15228 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15255 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_MINUS_in_complex_literal15258 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15262 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MINUS_in_complex_literal15266 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15270 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_in_in_in_modes15317 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_modes_in_in_modes15319 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_in_modes15323 = new BitSet(new long[]{0x4000000000000008L});
-	public static final BitSet FOLLOW_record_term_in_parenthesized_xxx15375 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15389 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_or_relation_in_parenthesized_xxx15393 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15395 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15422 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_expression_in_parenthesized_xxx15426 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15428 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15454 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_predicate_in_parenthesized_xxx15458 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15462 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_relation_in_boolean_expression_or_relation15508 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_boolean_expression_in_boolean_expression_or_relation15522 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_and_in_boolean_expression15551 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15555 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
-	public static final BitSet FOLLOW_LITERAL_or_in_boolean_expression15581 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15585 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
-	public static final BitSet FOLLOW_LITERAL_xor_in_boolean_expression15611 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15615 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
-	public static final BitSet FOLLOW_LITERAL_cand_in_boolean_expression15641 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15645 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
-	public static final BitSet FOLLOW_LITERAL_cor_in_boolean_expression15671 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15675 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
-	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15701 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_not_in_boolean_subexpression15728 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_value_in_boolean_subexpression15732 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_not_in_boolean_subexpression15756 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_parenthesized_subexpression_in_boolean_subexpression15760 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_value_in_boolean_subexpression15785 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenthesized_subexpression_in_boolean_subexpression15803 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_not_in_availability_subexpression13748 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_availability_subexpression13752 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_availability_subexpression13772 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_availability_expression_in_availability_subexpression13776 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_in_availability_subexpression13797 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatch_condition13822 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatch_expression_in_dispatch_condition13827 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_or_in_dispatch_expression13871 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatch_conjunction_in_dispatch_expression13875 = new BitSet(new long[]{0x4000000000000008L,0x0000000008000000L,0x0000000000000000L,0x0000000200200000L});
+	public static final BitSet FOLLOW_dispatch_conjunction_in_dispatch_expression13898 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_dispatch_trigger_in_dispatch_conjunction13924 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_and_in_dispatch_conjunction13936 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatch_trigger_in_dispatch_conjunction13940 = new BitSet(new long[]{0x4000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000200200000L});
+	public static final BitSet FOLLOW_ID_in_dispatch_trigger13975 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger14000 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_dispatch_trigger14002 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_ID_in_dispatch_trigger14007 = new BitSet(new long[]{0x4000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_dispatch_trigger14011 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_behavior_time_in_dispatch_trigger14015 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger14050 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatch_trigger14069 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behavior_time_in_dispatch_trigger14073 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_stop_in_dispatch_trigger14096 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_integer_literal14121 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_true_in_value_constant14148 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_false_in_value_constant14165 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_value_constant14181 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_numeric_constant_in_value_constant14197 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_enumeration_value_in_value_constant14213 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TICK_in_enumeration_value14246 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_enumeration_value14250 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_ID_in_enumeration_value14254 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOUBLE_COLON_in_property_constant14322 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_property_constant14326 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_ID_in_property_constant14330 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14371 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14375 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14413 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14417 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_property_field_in_property_reference14421 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14464 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_property_reference14468 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14472 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14515 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_property_reference14519 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14523 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_property_field_in_property_reference14527 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14577 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_unique_component_classifier_reference_in_property_reference14581 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14585 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_property_reference14621 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_unique_component_classifier_reference_in_property_reference14625 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_property_name_in_property_reference14629 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_property_field_in_property_reference14633 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_DOUBLE_COLON_in_property_name14673 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_property_name14677 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_ID_in_property_name14681 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_property_field14718 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_property_field14722 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RBRACKET_in_property_field14724 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_property_field14748 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_property_field14752 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_RBRACKET_in_property_field14754 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PERIOD_in_property_field14778 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_property_field14782 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PERIOD_in_property_field14806 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_upper_bound_in_property_field14808 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PERIOD_in_property_field14829 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_lower_bound_in_property_field14831 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_numeric_constant14862 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_REAL_LIT_in_numeric_constant14885 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_rational_literal_in_numeric_constant14910 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_complex_literal_in_numeric_constant14927 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_property_constant_in_numeric_constant14945 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_property_reference_in_numeric_constant14962 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RATIONAL_in_rational_literal14985 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal14989 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal14993 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15019 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_MINUS_in_rational_literal15022 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15026 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15031 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15057 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15061 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
+	public static final BitSet FOLLOW_MINUS_in_rational_literal15064 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15068 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RATIONAL_in_rational_literal15095 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_MINUS_in_rational_literal15098 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15102 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MINUS_in_rational_literal15106 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_INTEGER_LIT_in_rational_literal15110 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15146 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15150 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15154 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15180 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_MINUS_in_complex_literal15183 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15187 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15192 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15218 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15222 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
+	public static final BitSet FOLLOW_MINUS_in_complex_literal15225 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15229 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMPLEX_in_complex_literal15256 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_MINUS_in_complex_literal15259 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15263 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MINUS_in_complex_literal15267 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_REAL_LIT_in_complex_literal15271 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_in_in_in_modes15318 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_modes_in_in_modes15320 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_ID_in_in_modes15324 = new BitSet(new long[]{0x4000000000000008L});
+	public static final BitSet FOLLOW_record_term_in_parenthesized_xxx15376 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15390 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_or_relation_in_parenthesized_xxx15394 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15396 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15423 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_expression_in_parenthesized_xxx15427 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15429 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_parenthesized_xxx15455 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_predicate_in_parenthesized_xxx15459 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_parenthesized_xxx15463 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_relation_in_boolean_expression_or_relation15509 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_boolean_expression_in_boolean_expression_or_relation15523 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_and_in_boolean_expression15552 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15556 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
+	public static final BitSet FOLLOW_LITERAL_or_in_boolean_expression15582 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15586 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
+	public static final BitSet FOLLOW_LITERAL_xor_in_boolean_expression15612 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15616 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
+	public static final BitSet FOLLOW_LITERAL_cand_in_boolean_expression15642 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15646 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
+	public static final BitSet FOLLOW_LITERAL_cor_in_boolean_expression15672 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15676 = new BitSet(new long[]{0x4000200908000018L,0x0000000000000005L,0x0000160000000004L,0x1010004A00000000L,0x0000000400114002L});
+	public static final BitSet FOLLOW_boolean_subexpression_in_boolean_expression15702 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_not_in_boolean_subexpression15729 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_value_in_boolean_subexpression15733 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_not_in_boolean_subexpression15758 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_parenthesized_subexpression_in_boolean_subexpression15762 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_value_in_boolean_subexpression15787 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenthesized_subexpression_in_boolean_subexpression15805 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_all_in_synpred1_UnparseBLESS9834 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_exists_in_synpred2_UnparseBLESS9855 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_record_term_in_synpred3_UnparseBLESS15375 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_synpred4_UnparseBLESS15389 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_or_relation_in_synpred4_UnparseBLESS15393 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_synpred4_UnparseBLESS15395 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_synpred5_UnparseBLESS15422 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_expression_in_synpred5_UnparseBLESS15426 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_RPAREN_in_synpred5_UnparseBLESS15428 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_record_term_in_synpred3_UnparseBLESS15376 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_synpred4_UnparseBLESS15390 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_or_relation_in_synpred4_UnparseBLESS15394 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_synpred4_UnparseBLESS15396 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_synpred5_UnparseBLESS15423 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_expression_in_synpred5_UnparseBLESS15427 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_RPAREN_in_synpred5_UnparseBLESS15429 = new BitSet(new long[]{0x0000000000000008L});
 }

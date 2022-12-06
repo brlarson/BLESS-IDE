@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2022-10-26 14:51:32
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2022-12-06 09:13:24
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -4277,7 +4277,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: lv, a, l, ass, par, p
+					// elements: p, ass, par, lv, l, a
 					// token labels: ass, par, a, l
 					// rule labels: retval
 					// token list labels: lv
@@ -4386,7 +4386,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p, l, a
+					// elements: a, p, ass, l
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -5106,7 +5106,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "get_invariant_from_thread_behavior"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:262:1: get_invariant_from_thread_behavior : ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:262:1: get_invariant_from_thread_behavior : ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) ;
 	public final ASTtoAST.get_invariant_from_thread_behavior_return get_invariant_from_thread_behavior() throws RecognitionException {
 		ASTtoAST.get_invariant_from_thread_behavior_return retval = new ASTtoAST.get_invariant_from_thread_behavior_return();
 		retval.start = input.LT(1);
@@ -5148,9 +5148,9 @@ public class ASTtoAST extends TreeParser {
 		BAST DO_NOT_PROVE65=null;
 		BAST STOP66=null;
 		BAST LITERAL_end67=null;
-		BAST lv=null;
 		BAST cc=null;
 		BAST predicate=null;
+		BAST lv=null;
 		List<Object> list_lv=null;
 
 		BAST c_tree=null;
@@ -5210,8 +5210,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:263:3: ( ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:264:3: ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:263:3: ( ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:264:3: ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -5732,12 +5732,12 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:66: ( ^( PARAMETERS (lv+= . )+ ) )?
 			int alt35=2;
 			alt35 = dfa35.predict(input);
 			switch (alt35) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:68: ^( PARAMETERS (lv+= ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:68: ^( PARAMETERS (lv+= . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -5750,24 +5750,27 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS60);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: (lv+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: (lv+= . )+
 					int cnt34=0;
 					loop34:
 					while (true) {
 						int alt34=2;
 						int LA34_0 = input.LA(1);
-						if ( (LA34_0==ID) ) {
+						if ( ((LA34_0 >= AADL_STRING_LITERAL && LA34_0 <= LITERAL_BLESS)) ) {
 							alt34=1;
 						}
 
 						switch (alt34) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: lv+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: lv+= .
 							{
 							_last = (BAST)input.LT(1);
-							lv=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior1090); if (state.failed) return retval;
-							 
-							if ( state.backtracking==0 ) stream_ID.add(lv);
+							lv=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							lv_tree = (BAST)adaptor.dupTree(lv);
+							adaptor.addChild(root_6, lv_tree);
+							}
 
 							if (list_lv==null) list_lv=new ArrayList<Object>();
 							list_lv.add(lv);
@@ -6062,7 +6065,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "get_invariant_from_bless_subclause"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:290:1: get_invariant_from_bless_subclause : ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:290:1: get_invariant_from_bless_subclause : ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) ;
 	public final ASTtoAST.get_invariant_from_bless_subclause_return get_invariant_from_bless_subclause() throws RecognitionException {
 		ASTtoAST.get_invariant_from_bless_subclause_return retval = new ASTtoAST.get_invariant_from_bless_subclause_return();
 		retval.start = input.LT(1);
@@ -6091,8 +6094,8 @@ public class ASTtoAST extends TreeParser {
 		BAST wildcard80=null;
 		BAST DO_NOT_PROVE81=null;
 		BAST STOP82=null;
-		BAST lv=null;
 		BAST predicate=null;
+		BAST lv=null;
 		List<Object> list_lv=null;
 
 		BAST ta_tree=null;
@@ -6130,8 +6133,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:291:3: ( ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:292:7: ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= ID )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:291:3: ( ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:292:7: ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -6393,12 +6396,12 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:66: ( ^( PARAMETERS (lv+= ID )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:66: ( ^( PARAMETERS (lv+= . )+ ) )?
 			int alt46=2;
 			alt46 = dfa46.predict(input);
 			switch (alt46) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:68: ^( PARAMETERS (lv+= ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:68: ^( PARAMETERS (lv+= . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -6411,24 +6414,27 @@ public class ASTtoAST extends TreeParser {
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS76);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: (lv+= ID )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: (lv+= . )+
 					int cnt45=0;
 					loop45:
 					while (true) {
 						int alt45=2;
 						int LA45_0 = input.LA(1);
-						if ( (LA45_0==ID) ) {
+						if ( ((LA45_0 >= AADL_STRING_LITERAL && LA45_0 <= LITERAL_BLESS)) ) {
 							alt45=1;
 						}
 
 						switch (alt45) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: lv+= ID
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: lv+= .
 							{
 							_last = (BAST)input.LT(1);
-							lv=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_bless_subclause1325); if (state.failed) return retval;
-							 
-							if ( state.backtracking==0 ) stream_ID.add(lv);
+							lv=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							lv_tree = (BAST)adaptor.dupTree(lv);
+							adaptor.addChild(root_4, lv_tree);
+							}
 
 							if (list_lv==null) list_lv=new ArrayList<Object>();
 							list_lv.add(lv);
@@ -6648,7 +6654,7 @@ public class ASTtoAST extends TreeParser {
 
 
 			// AST REWRITE
-			// elements: predicate, ass
+			// elements: ass, predicate
 			// token labels: ass
 			// rule labels: retval
 			// token list labels: 
@@ -6891,21 +6897,21 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA35_eofS =
 		"\7\uffff";
 	static final String DFA35_minS =
-		"\1\4\1\2\1\uffff\1\4\2\3\1\uffff";
+		"\1\4\1\2\1\uffff\1\4\1\2\1\uffff\1\3";
 	static final String DFA35_maxS =
-		"\1\u012f\1\3\1\uffff\3\u012f\1\uffff";
+		"\1\u012f\1\3\1\uffff\2\u012f\1\uffff\1\u012f";
 	static final String DFA35_acceptS =
-		"\2\uffff\1\2\3\uffff\1\1";
+		"\2\uffff\1\2\2\uffff\1\1\1\uffff";
 	static final String DFA35_specialS =
 		"\7\uffff}>";
 	static final String[] DFA35_transitionS = {
 			"\u00fc\2\1\1\57\2",
 			"\1\3\1\2",
 			"",
-			"\72\2\1\4\u00f1\2",
-			"\1\5\72\2\1\4\u00f1\2",
-			"\1\2\u012c\6",
-			""
+			"\u012c\4",
+			"\1\5\1\6\u012c\4",
+			"",
+			"\1\2\u012c\5"
 	};
 
 	static final short[] DFA35_eot = DFA.unpackEncodedString(DFA35_eotS);
@@ -6939,7 +6945,7 @@ public class ASTtoAST extends TreeParser {
 		}
 		@Override
 		public String getDescription() {
-			return "274:66: ( ^( PARAMETERS (lv+= ID )+ ) )?";
+			return "274:66: ( ^( PARAMETERS (lv+= . )+ ) )?";
 		}
 	}
 
@@ -6948,21 +6954,21 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA46_eofS =
 		"\7\uffff";
 	static final String DFA46_minS =
-		"\1\4\1\2\1\uffff\1\4\2\3\1\uffff";
+		"\1\4\1\2\1\uffff\1\4\1\2\1\uffff\1\3";
 	static final String DFA46_maxS =
-		"\1\u012f\1\3\1\uffff\3\u012f\1\uffff";
+		"\1\u012f\1\3\1\uffff\2\u012f\1\uffff\1\u012f";
 	static final String DFA46_acceptS =
-		"\2\uffff\1\2\3\uffff\1\1";
+		"\2\uffff\1\2\2\uffff\1\1\1\uffff";
 	static final String DFA46_specialS =
 		"\7\uffff}>";
 	static final String[] DFA46_transitionS = {
 			"\u00fc\2\1\1\57\2",
 			"\1\3\1\2",
 			"",
-			"\72\2\1\4\u00f1\2",
-			"\1\5\72\2\1\4\u00f1\2",
-			"\1\2\u012c\6",
-			""
+			"\u012c\4",
+			"\1\5\1\6\u012c\4",
+			"",
+			"\1\2\u012c\5"
 	};
 
 	static final short[] DFA46_eot = DFA.unpackEncodedString(DFA46_eotS);
@@ -6996,7 +7002,7 @@ public class ASTtoAST extends TreeParser {
 		}
 		@Override
 		public String getDescription() {
-			return "296:66: ( ^( PARAMETERS (lv+= ID )+ ) )?";
+			return "296:66: ( ^( PARAMETERS (lv+= . )+ ) )?";
 		}
 	}
 
@@ -7066,7 +7072,6 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_thread_behavior1072 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior1076 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PARAMETERS_in_get_invariant_from_thread_behavior1086 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior1090 = new BitSet(new long[]{0x4000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_variables_in_get_invariant_from_thread_behavior1114 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_transitions_in_get_invariant_from_thread_behavior1130 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_thread_behavior1144 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
@@ -7081,7 +7086,6 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_bless_subclause1307 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_get_invariant_from_bless_subclause1311 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_PARAMETERS_in_get_invariant_from_bless_subclause1321 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_bless_subclause1325 = new BitSet(new long[]{0x4000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_variables_in_get_invariant_from_bless_subclause1349 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_transitions_in_get_invariant_from_bless_subclause1365 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1379 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
