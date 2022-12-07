@@ -1007,6 +1007,16 @@ checkThatEventTriggerNamesASubcomponent(EventTrigger et)
       BLESSPackage.eINSTANCE.eventTrigger_Sub)
   }
 
+///////////////////////////  CODE GENERATION   \\\\\\\\\\\\\\\\\\\\\\\\
+
+//@Check(CheckType.NORMAL)
+//def void 
+//checkStateNamesForCodegen(BehaviorState bs)
+//  {
+//    
+//  }
+
+
 
 ///////////////////////////   TYPE FUNCTIONS   \\\\\\\\\\\\\\\\\\\\\\\\
 
