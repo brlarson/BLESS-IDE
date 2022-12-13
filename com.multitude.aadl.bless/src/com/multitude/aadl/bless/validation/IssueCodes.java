@@ -52,5 +52,6 @@ public interface IssueCodes
   String NEEDS_QUESTION_MARK = PREFIX + "NeedsQuestionMark";
   String PLUS_EQUALS_ERROR = PREFIX + "PlusEqualsError";
   String FEATURE_TYPED_ERROR = PREFIX + "FeatureTypedError";
+  String UNINITIALIZED_VARIABLE = PREFIX + "UninitializedVariable";
 
 	}

@@ -953,6 +953,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void checkThatVariableDelcarationHasAssignment(final VariableDeclaration vd) {
+    boolean _isAssign = vd.isAssign();
+    boolean _not = (!_isAssign);
+    if (_not) {
+      this.fWarning("Variable declarations should have initialization assignments to prevent use of uninitialized values.", vd, BLESSPackage.eINSTANCE.getVariableDeclaration_Expression(), IssueCodes.INCOMPATIBLE_UNITS);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkThatSimultaneousAssignmentHasCompatibleUnits(final SimultaneousAssignment a) {
     int _size = a.getLhs().size();
     int _size_1 = a.getRhs().size();

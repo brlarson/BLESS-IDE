@@ -704,6 +704,14 @@ def void checkThatVariableDelcarationAssignmentHasCompatibleUnits(VariableDeclar
   }
 
 @Check(CheckType.NORMAL)
+def void checkThatVariableDelcarationHasAssignment(VariableDeclaration vd)  
+  {
+  if (!vd.assign)
+    fWarning('Variable declarations should have initialization assignments to prevent use of uninitialized values.',
+      vd,BLESSPackage.eINSTANCE.variableDeclaration_Expression, IssueCodes.INCOMPATIBLE_UNITS);
+  }
+
+@Check(CheckType.NORMAL)
 def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignment a)	
   {	
   if (a.lhs.size !== a.rhs.size)
