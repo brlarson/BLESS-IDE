@@ -1464,7 +1464,8 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
   public static BAST parseTyped(String text, int line, int column, IResource rsrc) 
       throws RecognitionException, YouIdiot
     {
-    TypeAnnexParser tap;
+    if (TypeAnnexParser.eINSTANCE == null)
+       new TypeAnnexParser();
 //    if (rsrc == null)
 //      throw new YouIdiot("Null IResource (file) passed to parseTyped");
     if (text == null)
