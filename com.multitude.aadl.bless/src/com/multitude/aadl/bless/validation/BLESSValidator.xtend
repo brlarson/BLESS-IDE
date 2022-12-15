@@ -1017,12 +1017,26 @@ checkThatEventTriggerNamesASubcomponent(EventTrigger et)
 
 ///////////////////////////  CODE GENERATION   \\\\\\\\\\\\\\\\\\\\\\\\
 
-//@Check(CheckType.NORMAL)
-//def void 
-//checkStateNamesForCodegen(BehaviorState bs)
-//  {
-//    
-//  }
+@Check(CheckType.NORMAL)
+def void 
+checkPortNamesForCodegen(DispatchTrigger dt)
+  {
+  if (dt.port !== null)
+    {
+    if (dt.port.port.name.equalsIgnoreCase("halt"))
+      fWarning('"halt" should not be used as a port name due to code generation name conflict.',
+        dt, BLESSPackage.eINSTANCE.dispatchTrigger_Port )
+    }
+  }
+
+@Check(CheckType.NORMAL)
+def void 
+checkTransitionsHaveSingleSource(BehaviorTransition bt)
+  {
+  if (bt.sources.size > 1) 
+      fWarning('Transitions used for code generation should have a single source state.',
+        bt, BLESSPackage.eINSTANCE.behaviorTransition_Sources )
+  }
 
 
 

@@ -62,6 +62,7 @@ import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
 import com.multitude.aadl.bless.bLESS.PartialName;
 import com.multitude.aadl.bless.bLESS.PeriodShift;
 import com.multitude.aadl.bless.bLESS.PortInput;
+import com.multitude.aadl.bless.bLESS.PortName;
 import com.multitude.aadl.bless.bLESS.Predicate;
 import com.multitude.aadl.bless.bLESS.ProductQuantification;
 import com.multitude.aadl.bless.bLESS.PropertyReference;
@@ -1333,6 +1334,27 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if ((subcomponent == null)) {
       this.fError("Event trigger must specify a subcomponent.", et, 
         BLESSPackage.eINSTANCE.getEventTrigger_Sub());
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortNamesForCodegen(final DispatchTrigger dt) {
+    PortName _port = dt.getPort();
+    boolean _tripleNotEquals = (_port != null);
+    if (_tripleNotEquals) {
+      boolean _equalsIgnoreCase = dt.getPort().getPort().getName().equalsIgnoreCase("halt");
+      if (_equalsIgnoreCase) {
+        this.fWarning("\"halt\" should not be used as a port name due to code generation name conflict.", dt, BLESSPackage.eINSTANCE.getDispatchTrigger_Port());
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkTransitionsHaveSingleSource(final BehaviorTransition bt) {
+    int _size = bt.getSources().size();
+    boolean _greaterThan = (_size > 1);
+    if (_greaterThan) {
+      this.fWarning("Transitions used for code generation should have a single source state.", bt, BLESSPackage.eINSTANCE.getBehaviorTransition_Sources());
     }
   }
 
