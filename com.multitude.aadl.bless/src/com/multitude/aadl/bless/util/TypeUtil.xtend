@@ -132,33 +132,39 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       if (pa.property.getQualifiedName.equalsIgnoreCase('BLESS::Typed'))
         {
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
-        if (str.startsWith("boolean"))
-          return booleanType
-        if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
-          return BlessMaps.typeMapGet(str).type
-        if (str.startsWith('quantity')) 
-          {  //kludge quantity type because parsing doesn't fill in unit
-          val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
-          if (str.endsWith('scalar'))
-            {
-            qt.scalar = true
-            return qt
-            }
-          if (str.endsWith('whole'))
-            {
-            qt.whole = true
-            return qt
-            }
-          val UnitName un = BLESSFactory.eINSTANCE.createUnitName
-          un.name = str.substring(str.lastIndexOf(' ')+1)  
-          qt.unit = un
-          return qt
-          }
+        return getTypeOfString(str)
         }    
      //otherwise error  
          return null
-    }
+    }  //end of getFeatureType
     
+  def Type getTypeOfString(String str)
+  {
+    if (str.startsWith("boolean"))
+      return booleanType
+    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
+      return BlessMaps.typeMapGet(str).type
+    if (str.startsWith('quantity'))
+    { // kludge quantity type because parsing doesn't fill in unit
+      val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
+      if (str.endsWith('scalar'))
+      {
+        qt.scalar = true
+        return qt
+      }
+      if (str.endsWith('whole'))
+      {
+        qt.whole = true
+        return qt
+      }
+      val UnitName un = BLESSFactory.eINSTANCE.createUnitName
+      un.name = str.substring(str.lastIndexOf(' ') + 1)
+      qt.unit = un
+      return qt
+    }
+  } // end of getTypeOfString
+  
+  
 //  def boolean hasIndexType(Type t)
 //    {
 //    t instanceof IndexType

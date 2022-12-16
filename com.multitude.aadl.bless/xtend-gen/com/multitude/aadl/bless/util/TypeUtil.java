@@ -183,34 +183,39 @@ public class TypeUtil {
       if (_equalsIgnoreCase) {
         PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
         final String str = ((StringLiteral) _ownedValue).getValue();
-        boolean _startsWith = str.startsWith("boolean");
-        if (_startsWith) {
-          return this.booleanType();
-        }
-        if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
-          return BlessMaps.typeMapGet(str).getType();
-        }
-        boolean _startsWith_1 = str.startsWith("quantity");
-        if (_startsWith_1) {
-          final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-          boolean _endsWith = str.endsWith("scalar");
-          if (_endsWith) {
-            qt.setScalar(true);
-            return qt;
-          }
-          boolean _endsWith_1 = str.endsWith("whole");
-          if (_endsWith_1) {
-            qt.setWhole(true);
-            return qt;
-          }
-          final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
-          int _lastIndexOf = str.lastIndexOf(" ");
-          int _plus = (_lastIndexOf + 1);
-          un.setName(str.substring(_plus));
-          qt.setUnit(un);
-          return qt;
-        }
+        return this.getTypeOfString(str);
       }
+    }
+    return null;
+  }
+
+  public Type getTypeOfString(final String str) {
+    boolean _startsWith = str.startsWith("boolean");
+    if (_startsWith) {
+      return this.booleanType();
+    }
+    if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
+      return BlessMaps.typeMapGet(str).getType();
+    }
+    boolean _startsWith_1 = str.startsWith("quantity");
+    if (_startsWith_1) {
+      final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
+      boolean _endsWith = str.endsWith("scalar");
+      if (_endsWith) {
+        qt.setScalar(true);
+        return qt;
+      }
+      boolean _endsWith_1 = str.endsWith("whole");
+      if (_endsWith_1) {
+        qt.setWhole(true);
+        return qt;
+      }
+      final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
+      int _lastIndexOf = str.lastIndexOf(" ");
+      int _plus = (_lastIndexOf + 1);
+      un.setName(str.substring(_plus));
+      qt.setUnit(un);
+      return qt;
     }
     return null;
   }
