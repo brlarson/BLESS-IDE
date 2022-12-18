@@ -216,4 +216,15 @@ public class UnitUtil {
     }
     return _xblockexpression;
   }
+
+  public String getConversionToRootUnit(final UnitName u) {
+    final UnitRecord rec = this.toUnitRecord(u);
+    String _xifexpression = null;
+    if (rec.multiplyFactor) {
+      _xifexpression = "*";
+    } else {
+      _xifexpression = "/";
+    }
+    return (_xifexpression + Double.valueOf(rec.conversionFactor));
+  }
 }

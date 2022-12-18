@@ -465,4 +465,44 @@ public class TypeUtil {
     }
     return _xblockexpression;
   }
+
+  public String convertQuantityToArtTime(final Quantity q) {
+    String _xblockexpression = null;
+    {
+      UnitName _unit = q.getUnit();
+      boolean _tripleEquals = (_unit == null);
+      if (_tripleEquals) {
+        return "**no unit for quantity***";
+      }
+      final UnitName un = q.getUnit();
+      boolean _hasTimeUnit = this._unitUtil.hasTimeUnit(un);
+      boolean _not = (!_hasTimeUnit);
+      if (_not) {
+        return "***quantity must have time unit***";
+      }
+      final UnitRecord unit_record = this._unitUtil.toUnitRecord(un);
+      String _xifexpression = null;
+      if (unit_record.multiplyFactor) {
+        String _xblockexpression_1 = null;
+        {
+          final double mf = (1000.0 * unit_record.conversionFactor);
+          long _doubleToLongBits = Double.doubleToLongBits(mf);
+          String _plus = ("* s64\"" + Long.valueOf(_doubleToLongBits));
+          _xblockexpression_1 = (_plus + "\"");
+        }
+        _xifexpression = _xblockexpression_1;
+      } else {
+        String _xblockexpression_2 = null;
+        {
+          final double df = (unit_record.conversionFactor / 1000.0);
+          long _doubleToLongBits = Double.doubleToLongBits(df);
+          String _plus = ("/ s64\"" + Long.valueOf(_doubleToLongBits));
+          _xblockexpression_2 = (_plus + "\"");
+        }
+        _xifexpression = _xblockexpression_2;
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
+  }
 }

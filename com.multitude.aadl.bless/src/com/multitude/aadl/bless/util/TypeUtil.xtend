@@ -134,8 +134,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
         return getTypeOfString(str)
         }    
-     //otherwise error  
-         return null
+    //otherwise error  
+    return null
     }  //end of getFeatureType
     
   def Type getTypeOfString(String str)
@@ -317,8 +317,27 @@ def boolean isInTypedefAnnex(EObject o)
       	
       }
     false	
+    }  //end of relationComparesNull
+
+def String convertQuantityToArtTime(Quantity q) 
+  {
+  if (q.unit === null) 
+    return "**no unit for quantity***"
+  val un = q.unit
+  if (!un.hasTimeUnit)
+    return "***quantity must have time unit***"
+  val unit_record = un.toUnitRecord
+  if (unit_record.multiplyFactor)
+    {
+    val mf = 1000.0*unit_record.conversionFactor
+    "* s64\""+Double.doubleToLongBits(mf)+"\""
     }
- 
+  else
+    {
+    val df = unit_record.conversionFactor/1000.0
+    "/ s64\""+Double.doubleToLongBits(df)+"\""  
+    }
+  }  //end of convertQuantityToArtTime
    
     
 }

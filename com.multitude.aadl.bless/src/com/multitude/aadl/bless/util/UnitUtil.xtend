@@ -162,6 +162,12 @@ def boolean hasTimeUnit(UnitName u)
   un.name = "s"  
   sameUnitRoot(u, un)  
   }
+
+def String getConversionToRootUnit(UnitName u)
+  {
+  val rec = u.toUnitRecord 
+  return (rec.multiplyFactor?"*":"/")+rec.conversionFactor 
+  }
 	
 //def void sortInPlace(EList<UnitName> list)
 //  {
