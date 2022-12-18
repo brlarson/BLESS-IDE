@@ -15828,11 +15828,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     if ( (LA107_5==RULE_ID) ) {
                         int LA107_6 = input.LA(4);
 
-                        if ( (LA107_6==169) ) {
-                            alt107=1;
-                        }
-                        else if ( (LA107_6==EOF||LA107_6==33||LA107_6==35||LA107_6==37||(LA107_6>=39 && LA107_6<=40)||LA107_6==44||LA107_6==46||LA107_6==49||LA107_6==51||LA107_6==54||LA107_6==65||(LA107_6>=74 && LA107_6<=75)||(LA107_6>=80 && LA107_6<=81)||LA107_6==86||LA107_6==88||(LA107_6>=94 && LA107_6<=95)||LA107_6==101||LA107_6==106) ) {
+                        if ( (LA107_6==EOF||LA107_6==33||LA107_6==35||LA107_6==37||(LA107_6>=39 && LA107_6<=40)||LA107_6==44||LA107_6==46||LA107_6==49||LA107_6==51||LA107_6==54||LA107_6==65||(LA107_6>=74 && LA107_6<=75)||(LA107_6>=80 && LA107_6<=81)||LA107_6==86||LA107_6==88||(LA107_6>=94 && LA107_6<=95)||LA107_6==101||LA107_6==106) ) {
                             alt107=2;
+                        }
+                        else if ( (LA107_6==169) ) {
+                            alt107=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -30633,7 +30633,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                         if ( (LA180_5==51||LA180_5==169||LA180_5==175) ) {
                             alt180=2;
                         }
-                        else if ( (LA180_5==EOF||LA180_5==RULE_ID||LA180_5==RULE_DOTDOT||(LA180_5>=RULE_COMMADOT && LA180_5<=RULE_COMMACOMMA)||LA180_5==24||(LA180_5>=26 && LA180_5<=27)||LA180_5==30||(LA180_5>=33 && LA180_5<=35)||(LA180_5>=37 && LA180_5<=39)||LA180_5==41||LA180_5==44||LA180_5==46||LA180_5==49||(LA180_5>=52 && LA180_5<=54)||(LA180_5>=57 && LA180_5<=72)||LA180_5==75||(LA180_5>=77 && LA180_5<=82)||(LA180_5>=84 && LA180_5<=86)||LA180_5==88||LA180_5==90||LA180_5==92||(LA180_5>=94 && LA180_5<=98)||(LA180_5>=101 && LA180_5<=102)||LA180_5==104||(LA180_5>=106 && LA180_5<=107)||(LA180_5>=109 && LA180_5<=129)||LA180_5==144||(LA180_5>=146 && LA180_5<=147)||(LA180_5>=150 && LA180_5<=151)||(LA180_5>=154 && LA180_5<=155)||(LA180_5>=161 && LA180_5<=162)||LA180_5==164||LA180_5==176) ) {
+                        else if ( (LA180_5==EOF||LA180_5==RULE_ID||LA180_5==RULE_DOTDOT||(LA180_5>=26 && LA180_5<=27)||LA180_5==30||(LA180_5>=33 && LA180_5<=35)||LA180_5==38||LA180_5==41||LA180_5==49||(LA180_5>=59 && LA180_5<=64)||LA180_5==104||(LA180_5>=106 && LA180_5<=107)||LA180_5==146||LA180_5==155||(LA180_5>=161 && LA180_5<=162)||LA180_5==164) ) {
                             alt180=3;
                         }
                         else {
@@ -33940,7 +33940,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantity"
-    // InternalBLESS.g:13559:1: ruleQuantity returns [EObject current=null] : ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) ;
+    // InternalBLESS.g:13559:1: ruleQuantity returns [EObject current=null] : ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) ;
     public final EObject ruleQuantity() throws RecognitionException {
         EObject current = null;
 
@@ -33954,11 +33954,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13565:2: ( ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) )
-            // InternalBLESS.g:13566:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
+            // InternalBLESS.g:13565:2: ( ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) )
+            // InternalBLESS.g:13566:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
             {
-            // InternalBLESS.g:13566:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
-            // InternalBLESS.g:13567:3: ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
+            // InternalBLESS.g:13566:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
+            // InternalBLESS.g:13567:3: ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
             {
             // InternalBLESS.g:13567:3: ( (lv_number_0_0= ruleANumber ) )
             // InternalBLESS.g:13568:4: (lv_number_0_0= ruleANumber )
@@ -33969,7 +33969,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getQuantityAccess().getNumberANumberParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_168);
+            pushFollow(FOLLOW_152);
             lv_number_0_0=ruleANumber();
 
             state._fsp--;
@@ -33991,35 +33991,29 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13586:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
-            int alt206=4;
+            // InternalBLESS.g:13586:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
+            int alt206=3;
             switch ( input.LA(1) ) {
-                case RULE_ID:
-                    {
-                    int LA206_1 = input.LA(2);
+            case RULE_ID:
+                {
+                alt206=1;
+                }
+                break;
+            case 161:
+                {
+                alt206=2;
+                }
+                break;
+            case 162:
+                {
+                alt206=3;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 206, 0, input);
 
-                    if ( (LA206_1==75) ) {
-                        int LA206_5 = input.LA(3);
-
-                        if ( (LA206_5==EOF||LA206_5==RULE_ID||LA206_5==RULE_DOTDOT||(LA206_5>=RULE_COMMADOT && LA206_5<=RULE_COMMACOMMA)||LA206_5==24||(LA206_5>=26 && LA206_5<=27)||(LA206_5>=33 && LA206_5<=35)||(LA206_5>=37 && LA206_5<=39)||LA206_5==41||LA206_5==44||LA206_5==46||LA206_5==49||(LA206_5>=52 && LA206_5<=54)||(LA206_5>=57 && LA206_5<=59)||(LA206_5>=65 && LA206_5<=72)||(LA206_5>=77 && LA206_5<=82)||(LA206_5>=84 && LA206_5<=86)||LA206_5==90||LA206_5==92||(LA206_5>=94 && LA206_5<=98)||(LA206_5>=101 && LA206_5<=102)||LA206_5==106||(LA206_5>=109 && LA206_5<=126)||LA206_5==129||LA206_5==144||LA206_5==147||(LA206_5>=150 && LA206_5<=151)||LA206_5==154||LA206_5==176) ) {
-                            alt206=1;
-                        }
-                    }
-                    else if ( (LA206_1==EOF||LA206_1==RULE_ID||LA206_1==RULE_DOTDOT||(LA206_1>=RULE_COMMADOT && LA206_1<=RULE_COMMACOMMA)||LA206_1==24||(LA206_1>=26 && LA206_1<=27)||(LA206_1>=33 && LA206_1<=35)||(LA206_1>=37 && LA206_1<=39)||LA206_1==41||LA206_1==44||LA206_1==46||LA206_1==49||(LA206_1>=52 && LA206_1<=54)||(LA206_1>=57 && LA206_1<=59)||(LA206_1>=65 && LA206_1<=72)||(LA206_1>=77 && LA206_1<=82)||(LA206_1>=84 && LA206_1<=86)||LA206_1==88||LA206_1==90||LA206_1==92||(LA206_1>=94 && LA206_1<=98)||(LA206_1>=101 && LA206_1<=102)||LA206_1==106||(LA206_1>=109 && LA206_1<=129)||LA206_1==144||LA206_1==147||(LA206_1>=150 && LA206_1<=151)||LA206_1==154||LA206_1==176) ) {
-                        alt206=1;
-                    }
-                    }
-                    break;
-                case 161:
-                    {
-                    alt206=2;
-                    }
-                    break;
-                case 162:
-                    {
-                    alt206=3;
-                    }
-                    break;
+                throw nvae;
             }
 
             switch (alt206) {
@@ -34521,7 +34515,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             // InternalBLESS.g:13754:2: (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID )
             // InternalBLESS.g:13755:3: this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_169); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_168); 
 
             			current.merge(this_ID_0);
             		
@@ -34639,7 +34633,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalBLESS.g:13794:4: this_ID_0= RULE_ID kw= '::'
             	    {
-            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_169); 
+            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_168); 
 
             	    				current.merge(this_ID_0);
             	    			
@@ -34660,7 +34654,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            this_ID_2=(Token)match(input,RULE_ID,FOLLOW_170); 
+            this_ID_2=(Token)match(input,RULE_ID,FOLLOW_169); 
 
             			current.merge(this_ID_2);
             		
@@ -35139,8 +35133,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_165 = new BitSet(new long[]{0x0000000000000010L,0x0004000000000000L});
     public static final BitSet FOLLOW_166 = new BitSet(new long[]{0x0000000A00000000L});
     public static final BitSet FOLLOW_167 = new BitSet(new long[]{0x0000000000000000L,0x0400000000000000L,0x0001000000000000L});
-    public static final BitSet FOLLOW_168 = new BitSet(new long[]{0x0000000000000012L,0x0000000000000000L,0x0000000600000000L});
-    public static final BitSet FOLLOW_169 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_170 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_168 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_169 = new BitSet(new long[]{0x0008000000000002L});
 
 }

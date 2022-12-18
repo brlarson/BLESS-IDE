@@ -14090,11 +14090,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             case RULE_ID:
                 {
                 switch ( input.LA(2) ) {
-                case 65:
-                    {
-                    alt16=3;
-                    }
-                    break;
                 case 56:
                     {
                     alt16=1;
@@ -14103,6 +14098,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 case 64:
                     {
                     alt16=2;
+                    }
+                    break;
+                case 65:
+                    {
+                    alt16=3;
                     }
                     break;
                 default:
@@ -14293,11 +14293,22 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     alt17=2;
                     }
                     break;
+                case EOF:
+                case 45:
+                case 48:
+                case 54:
+                case 65:
+                case 98:
+                case 99:
+                    {
+                    alt17=1;
+                    }
+                    break;
                 case 55:
                     {
-                    int LA17_4 = input.LA(3);
+                    int LA17_5 = input.LA(3);
 
-                    if ( (LA17_4==RULE_ID) ) {
+                    if ( (LA17_5==RULE_ID) ) {
                         int LA17_6 = input.LA(4);
 
                         if ( (LA17_6==EOF||LA17_6==45||LA17_6==48||(LA17_6>=54 && LA17_6<=55)||LA17_6==65||LA17_6==99) ) {
@@ -14315,21 +14326,10 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 17, 4, input);
+                            new NoViableAltException("", 17, 5, input);
 
                         throw nvae;
                     }
-                    }
-                    break;
-                case EOF:
-                case 45:
-                case 48:
-                case 54:
-                case 65:
-                case 98:
-                case 99:
-                    {
-                    alt17=1;
                     }
                     break;
                 default:
@@ -14995,11 +14995,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     if ( (LA23_5==RULE_ID) ) {
                         int LA23_6 = input.LA(4);
 
-                        if ( (LA23_6==EOF||LA23_6==41||(LA23_6>=44 && LA23_6<=45)||(LA23_6>=47 && LA23_6<=48)||LA23_6==51||(LA23_6>=53 && LA23_6<=55)||LA23_6==62||LA23_6==65||(LA23_6>=69 && LA23_6<=70)||LA23_6==74||LA23_6==76||(LA23_6>=81 && LA23_6<=83)||LA23_6==85||LA23_6==90||LA23_6==99) ) {
-                            alt23=2;
-                        }
-                        else if ( (LA23_6==119) ) {
+                        if ( (LA23_6==119) ) {
                             alt23=1;
+                        }
+                        else if ( (LA23_6==EOF||LA23_6==41||(LA23_6>=44 && LA23_6<=45)||(LA23_6>=47 && LA23_6<=48)||LA23_6==51||(LA23_6>=53 && LA23_6<=55)||LA23_6==62||LA23_6==65||(LA23_6>=69 && LA23_6<=70)||LA23_6==74||LA23_6==76||(LA23_6>=81 && LA23_6<=83)||LA23_6==85||LA23_6==90||LA23_6==99) ) {
+                            alt23=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -15143,24 +15143,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
             if ( (LA24_0==90) ) {
                 switch ( input.LA(2) ) {
-                case RULE_ID:
-                    {
-                    int LA24_2 = input.LA(3);
-
-                    if ( ((LA24_2>=16 && LA24_2<=28)||LA24_2==48||LA24_2==51||LA24_2==53||(LA24_2>=55 && LA24_2<=56)||LA24_2==61||LA24_2==65||LA24_2==91||LA24_2==94||LA24_2==96||(LA24_2>=98 && LA24_2<=99)||LA24_2==119||LA24_2==121||(LA24_2>=147 && LA24_2<=152)) ) {
-                        alt24=2;
-                    }
-                    else if ( (LA24_2==39) ) {
-                        alt24=1;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 24, 2, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
                 case RULE_NUMBER:
                 case RULE_STRING:
                 case 56:
@@ -15184,6 +15166,24 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 case 173:
                     {
                     alt24=2;
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    int LA24_3 = input.LA(3);
+
+                    if ( ((LA24_3>=16 && LA24_3<=28)||LA24_3==48||LA24_3==51||LA24_3==53||(LA24_3>=55 && LA24_3<=56)||LA24_3==61||LA24_3==65||LA24_3==91||LA24_3==94||LA24_3==96||(LA24_3>=98 && LA24_3<=99)||LA24_3==119||LA24_3==121||(LA24_3>=147 && LA24_3<=152)) ) {
+                        alt24=2;
+                    }
+                    else if ( (LA24_3==39) ) {
+                        alt24=1;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 24, 3, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 case 92:
@@ -15345,14 +15345,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 if ( (LA25_1==89) ) {
                     int LA25_3 = input.LA(3);
 
-                    if ( (LA25_3==RULE_ID) ) {
+                    if ( ((LA25_3>=114 && LA25_3<=115)||LA25_3==118||LA25_3==161||(LA25_3>=166 && LA25_3<=167)||(LA25_3>=170 && LA25_3<=172)) ) {
+                        alt25=1;
+                    }
+                    else if ( (LA25_3==RULE_ID) ) {
                         int LA25_4 = input.LA(4);
 
-                        if ( (LA25_4==93) ) {
-                            alt25=2;
-                        }
-                        else if ( (LA25_4==39||LA25_4==45||LA25_4==92) ) {
+                        if ( (LA25_4==39||LA25_4==45||LA25_4==92) ) {
                             alt25=1;
+                        }
+                        else if ( (LA25_4==93) ) {
+                            alt25=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -15360,9 +15363,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
                             throw nvae;
                         }
-                    }
-                    else if ( ((LA25_3>=114 && LA25_3<=115)||LA25_3==118||LA25_3==161||(LA25_3>=166 && LA25_3<=167)||(LA25_3>=170 && LA25_3<=172)) ) {
-                        alt25=1;
                     }
                     else {
                         NoViableAltException nvae =
@@ -19247,17 +19247,20 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 {
                 int LA56_3 = input.LA(2);
 
-                if ( (LA56_3==121) ) {
+                if ( (LA56_3==55||LA56_3==119) ) {
+                    alt56=2;
+                }
+                else if ( (LA56_3==121) ) {
                     int LA56_4 = input.LA(3);
 
                     if ( (LA56_4==RULE_ID) ) {
                         int LA56_5 = input.LA(4);
 
-                        if ( (LA56_5==55||LA56_5==119||LA56_5==121) ) {
-                            alt56=2;
-                        }
-                        else if ( (LA56_5==EOF||(LA56_5>=RULE_DOTDOT && LA56_5<=RULE_ID)||(LA56_5>=16 && LA56_5<=28)||LA56_5==37||LA56_5==39||(LA56_5>=41 && LA56_5<=42)||(LA56_5>=44 && LA56_5<=47)||LA56_5==49||LA56_5==51||(LA56_5>=53 && LA56_5<=54)||(LA56_5>=59 && LA56_5<=63)||(LA56_5>=66 && LA56_5<=74)||(LA56_5>=76 && LA56_5<=77)||LA56_5==79||(LA56_5>=81 && LA56_5<=85)||LA56_5==88||(LA56_5>=90 && LA56_5<=92)||(LA56_5>=94 && LA56_5<=97)||LA56_5==99||LA56_5==101||LA56_5==103||LA56_5==106||LA56_5==108||(LA56_5>=111 && LA56_5<=112)||LA56_5==117||LA56_5==123||LA56_5==126||(LA56_5>=130 && LA56_5<=140)||(LA56_5>=142 && LA56_5<=143)||(LA56_5>=146 && LA56_5<=152)||LA56_5==165||(LA56_5>=168 && LA56_5<=169)) ) {
+                        if ( (LA56_5==EOF||LA56_5==RULE_DOTDOT||LA56_5==RULE_ID||LA56_5==39||(LA56_5>=41 && LA56_5<=42)||(LA56_5>=45 && LA56_5<=46)||LA56_5==49||LA56_5==54||LA56_5==61||LA56_5==88||LA56_5==90||LA56_5==92||LA56_5==112||LA56_5==117||LA56_5==123||LA56_5==126||(LA56_5>=130 && LA56_5<=134)||LA56_5==165||(LA56_5>=168 && LA56_5<=169)) ) {
                             alt56=3;
+                        }
+                        else if ( (LA56_5==55||LA56_5==119||LA56_5==121) ) {
+                            alt56=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -19272,9 +19275,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
                         throw nvae;
                     }
-                }
-                else if ( (LA56_3==55||LA56_3==119) ) {
-                    alt56=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -84203,52 +84203,27 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Quantity__Group__1__Impl"
-    // InternalBLESS.g:26454:1: rule__Quantity__Group__1__Impl : ( ( rule__Quantity__Alternatives_1 )? ) ;
+    // InternalBLESS.g:26454:1: rule__Quantity__Group__1__Impl : ( ( rule__Quantity__Alternatives_1 ) ) ;
     public final void rule__Quantity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:26458:1: ( ( ( rule__Quantity__Alternatives_1 )? ) )
-            // InternalBLESS.g:26459:1: ( ( rule__Quantity__Alternatives_1 )? )
+            // InternalBLESS.g:26458:1: ( ( ( rule__Quantity__Alternatives_1 ) ) )
+            // InternalBLESS.g:26459:1: ( ( rule__Quantity__Alternatives_1 ) )
             {
-            // InternalBLESS.g:26459:1: ( ( rule__Quantity__Alternatives_1 )? )
-            // InternalBLESS.g:26460:2: ( rule__Quantity__Alternatives_1 )?
+            // InternalBLESS.g:26459:1: ( ( rule__Quantity__Alternatives_1 ) )
+            // InternalBLESS.g:26460:2: ( rule__Quantity__Alternatives_1 )
             {
              before(grammarAccess.getQuantityAccess().getAlternatives_1()); 
-            // InternalBLESS.g:26461:2: ( rule__Quantity__Alternatives_1 )?
-            int alt220=2;
-            int LA220_0 = input.LA(1);
+            // InternalBLESS.g:26461:2: ( rule__Quantity__Alternatives_1 )
+            // InternalBLESS.g:26461:3: rule__Quantity__Alternatives_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Quantity__Alternatives_1();
 
-            if ( (LA220_0==RULE_ID) ) {
-                int LA220_1 = input.LA(2);
+            state._fsp--;
 
-                if ( (LA220_1==99) ) {
-                    int LA220_4 = input.LA(3);
-
-                    if ( (LA220_4==EOF||(LA220_4>=RULE_DOTDOT && LA220_4<=RULE_ID)||(LA220_4>=16 && LA220_4<=28)||LA220_4==37||LA220_4==39||(LA220_4>=41 && LA220_4<=42)||(LA220_4>=44 && LA220_4<=47)||LA220_4==49||LA220_4==51||(LA220_4>=53 && LA220_4<=54)||(LA220_4>=59 && LA220_4<=63)||(LA220_4>=66 && LA220_4<=74)||LA220_4==77||LA220_4==79||(LA220_4>=81 && LA220_4<=85)||(LA220_4>=90 && LA220_4<=91)||(LA220_4>=94 && LA220_4<=97)||LA220_4==101||LA220_4==103||LA220_4==106||LA220_4==108||LA220_4==111||LA220_4==123||(LA220_4>=135 && LA220_4<=140)||(LA220_4>=142 && LA220_4<=143)||(LA220_4>=146 && LA220_4<=150)) ) {
-                        alt220=1;
-                    }
-                }
-                else if ( (LA220_1==EOF||(LA220_1>=RULE_DOTDOT && LA220_1<=RULE_ID)||(LA220_1>=16 && LA220_1<=28)||LA220_1==37||LA220_1==39||(LA220_1>=41 && LA220_1<=42)||(LA220_1>=44 && LA220_1<=47)||LA220_1==49||LA220_1==51||(LA220_1>=53 && LA220_1<=54)||(LA220_1>=59 && LA220_1<=63)||(LA220_1>=66 && LA220_1<=74)||(LA220_1>=76 && LA220_1<=77)||LA220_1==79||(LA220_1>=81 && LA220_1<=85)||(LA220_1>=90 && LA220_1<=91)||(LA220_1>=94 && LA220_1<=97)||LA220_1==101||LA220_1==103||LA220_1==106||LA220_1==108||LA220_1==111||LA220_1==123||(LA220_1>=135 && LA220_1<=140)||(LA220_1>=142 && LA220_1<=143)||(LA220_1>=146 && LA220_1<=152)) ) {
-                    alt220=1;
-                }
-            }
-            else if ( ((LA220_0>=168 && LA220_0<=169)) ) {
-                alt220=1;
-            }
-            switch (alt220) {
-                case 1 :
-                    // InternalBLESS.g:26461:3: rule__Quantity__Alternatives_1
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Quantity__Alternatives_1();
-
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
@@ -84547,23 +84522,23 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getQCREFAccess().getGroup_0()); 
             // InternalBLESS.g:26570:2: ( rule__QCREF__Group_0__0 )*
-            loop221:
+            loop220:
             do {
-                int alt221=2;
-                int LA221_0 = input.LA(1);
+                int alt220=2;
+                int LA220_0 = input.LA(1);
 
-                if ( (LA221_0==RULE_ID) ) {
-                    int LA221_1 = input.LA(2);
+                if ( (LA220_0==RULE_ID) ) {
+                    int LA220_1 = input.LA(2);
 
-                    if ( (LA221_1==121) ) {
-                        alt221=1;
+                    if ( (LA220_1==121) ) {
+                        alt220=1;
                     }
 
 
                 }
 
 
-                switch (alt221) {
+                switch (alt220) {
             	case 1 :
             	    // InternalBLESS.g:26570:3: rule__QCREF__Group_0__0
             	    {
@@ -84577,7 +84552,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop221;
+            	    break loop220;
                 }
             } while (true);
 
@@ -84726,13 +84701,13 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getQCREFAccess().getGroup_2()); 
             // InternalBLESS.g:26623:2: ( rule__QCREF__Group_2__0 )?
-            int alt222=2;
-            int LA222_0 = input.LA(1);
+            int alt221=2;
+            int LA221_0 = input.LA(1);
 
-            if ( (LA222_0==55) ) {
-                alt222=1;
+            if ( (LA221_0==55) ) {
+                alt221=1;
             }
-            switch (alt222) {
+            switch (alt221) {
                 case 1 :
                     // InternalBLESS.g:26623:3: rule__QCREF__Group_2__0
                     {
@@ -107220,10 +107195,10 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
         }
     }
     static final String dfa_13s = "\15\uffff";
-    static final String dfa_14s = "\1\uffff\1\7\6\uffff\2\7\1\13\1\uffff\1\13";
-    static final String dfa_15s = "\1\4\1\5\4\uffff\1\11\1\uffff\3\5\1\uffff\1\5";
-    static final String dfa_16s = "\1\u00ad\1\u0098\4\uffff\1\11\1\uffff\1\u00a4\2\u0098\1\uffff\1\u00a4";
-    static final String dfa_17s = "\2\uffff\1\2\1\3\1\4\1\5\1\uffff\1\1\3\uffff\1\6\1\uffff";
+    static final String dfa_14s = "\1\uffff\1\7\6\uffff\2\7\2\14\1\uffff";
+    static final String dfa_15s = "\1\4\1\5\4\uffff\1\11\1\uffff\4\5\1\uffff";
+    static final String dfa_16s = "\1\u00ad\1\u0098\4\uffff\1\11\1\uffff\1\u00a4\2\u0098\1\u00a4\1\uffff";
+    static final String dfa_17s = "\2\uffff\1\2\1\3\1\4\1\5\1\uffff\1\1\4\uffff\1\6";
     static final String dfa_18s = "\15\uffff}>";
     static final String[] dfa_19s = {
             "\1\2\4\uffff\1\1\1\2\113\uffff\1\3\40\uffff\1\2\45\uffff\1\4\1\5\3\2\13\uffff\1\2",
@@ -107236,9 +107211,9 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             "",
             "\4\7\1\12\6\uffff\15\7\10\uffff\1\7\1\uffff\1\7\1\uffff\2\7\1\uffff\4\7\1\uffff\1\7\1\uffff\1\7\1\uffff\2\7\4\uffff\5\7\2\uffff\11\7\2\uffff\1\7\1\uffff\1\7\1\uffff\5\7\4\uffff\2\7\2\uffff\4\7\3\uffff\1\7\1\uffff\1\7\2\uffff\1\7\1\uffff\1\7\2\uffff\1\7\13\uffff\1\7\13\uffff\6\7\1\uffff\2\7\2\uffff\5\7\13\uffff\3\7",
             "\5\7\6\uffff\15\7\10\uffff\1\7\1\uffff\1\7\1\uffff\2\7\1\uffff\6\7\1\uffff\1\7\1\uffff\3\7\3\uffff\5\7\1\uffff\12\7\2\uffff\1\7\1\uffff\1\7\1\uffff\5\7\4\uffff\2\7\2\uffff\4\7\1\uffff\1\7\1\uffff\1\7\1\uffff\1\7\2\uffff\1\7\1\uffff\1\7\2\uffff\1\7\7\uffff\1\2\3\uffff\1\7\13\uffff\6\7\1\uffff\2\7\2\uffff\7\7",
-            "\5\13\6\uffff\15\13\10\uffff\1\13\1\uffff\1\13\1\uffff\2\13\1\uffff\4\13\1\7\1\13\1\uffff\1\13\1\uffff\2\13\2\7\2\uffff\5\13\2\7\11\13\2\uffff\1\13\1\uffff\1\13\1\uffff\5\13\3\uffff\1\7\2\13\2\uffff\4\13\1\7\1\14\1\uffff\1\13\1\uffff\1\13\2\uffff\1\13\1\uffff\1\13\2\uffff\1\13\13\uffff\1\13\12\uffff\1\7\6\13\1\uffff\2\13\2\7\7\13",
-            "",
-            "\5\13\6\uffff\15\13\10\uffff\1\13\1\uffff\1\13\1\uffff\2\13\1\uffff\4\13\1\uffff\1\13\1\uffff\1\13\1\uffff\2\13\4\uffff\5\13\2\uffff\11\13\2\uffff\1\13\1\uffff\1\13\1\uffff\5\13\4\uffff\2\13\2\uffff\4\13\3\uffff\1\13\1\uffff\1\13\2\uffff\1\13\1\uffff\1\13\2\uffff\1\13\13\uffff\1\13\12\uffff\1\7\6\13\1\uffff\2\13\2\uffff\5\13\13\uffff\3\7"
+            "\5\14\6\uffff\15\14\10\uffff\1\14\1\uffff\1\14\1\uffff\2\14\1\uffff\4\14\1\7\1\14\1\uffff\1\14\1\uffff\2\14\2\7\2\uffff\5\14\2\7\11\14\2\uffff\1\14\1\uffff\1\14\1\uffff\5\14\3\uffff\1\7\2\14\2\uffff\4\14\1\7\1\13\1\uffff\1\14\1\uffff\1\14\2\uffff\1\14\1\uffff\1\14\2\uffff\1\14\13\uffff\1\14\12\uffff\1\7\6\14\1\uffff\2\14\2\7\7\14",
+            "\5\14\6\uffff\15\14\10\uffff\1\14\1\uffff\1\14\1\uffff\2\14\1\uffff\4\14\1\uffff\1\14\1\uffff\1\14\1\uffff\2\14\4\uffff\5\14\2\uffff\11\14\2\uffff\1\14\1\uffff\1\14\1\uffff\5\14\4\uffff\2\14\2\uffff\4\14\3\uffff\1\14\1\uffff\1\14\2\uffff\1\14\1\uffff\1\14\2\uffff\1\14\13\uffff\1\14\12\uffff\1\7\6\14\1\uffff\2\14\2\uffff\5\14\13\uffff\3\7",
+            ""
     };
 
     static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
