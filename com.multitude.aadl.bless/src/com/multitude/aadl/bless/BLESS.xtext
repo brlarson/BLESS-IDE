@@ -307,8 +307,8 @@ Action:
   | wl=WhileLoop
   | fl=ForLoop
   | du=DoUntilLoop
-  | elq=ExistentialLatticeQuantification //forall_action
-  | ulq=UniversalLatticeQuantification   //behavior_action_block
+  | elq=ExistentialLatticeQuantification //behavior_action_block
+  | ulq=UniversalLatticeQuantification   //forall_action
 //  //BA2015 reconciliation add LockingAction
   | la=LockingAction
 ;

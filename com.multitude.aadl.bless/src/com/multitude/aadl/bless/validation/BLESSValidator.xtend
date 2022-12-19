@@ -1029,14 +1029,14 @@ checkPortNamesForCodegen(DispatchTrigger dt)
     }
   }
 
-@Check(CheckType.NORMAL)
-def void 
-checkTransitionsHaveSingleSource(BehaviorTransition bt)
-  {
-  if (bt.sources.size > 1) 
-      fWarning('Transitions used for code generation should have a single source state.',
-        bt, BLESSPackage.eINSTANCE.behaviorTransition_Sources )
-  }
+//@Check(CheckType.NORMAL)
+//def void 
+//checkTransitionsHaveSingleSource(BehaviorTransition bt)
+//  {
+//  if (bt.sources.size > 1) 
+//      fWarning('Transitions used for code generation should have a single source state.',
+//        bt, BLESSPackage.eINSTANCE.behaviorTransition_Sources )
+//  }
 
 
 

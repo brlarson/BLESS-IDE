@@ -142,14 +142,14 @@ public class UnitUtil {
           UnitName _rootUnit = this._blessIndex.getRootUnit(unit);
           EList<UnitName> _singletonEList = ECollections.<UnitName>singletonEList(unit);
           EList<UnitName> _emptyEList = ECollections.<UnitName>emptyEList();
-          UnitRecord _unitRecord = new UnitRecord(_isBaseType, _rootUnit, _singletonEList, _emptyEList, false, false, false, 1.0);
+          UnitRecord _unitRecord = new UnitRecord(_isBaseType, unit, _rootUnit, _singletonEList, _emptyEList, false, false, false, 1.0);
           retval = _unitRecord;
         } else {
           boolean _isBaseType_1 = this.isBaseType(unit);
           UnitName _rootUnit_1 = this._blessIndex.getRootUnit(unit);
           EList<UnitName> _top = root.getFormula().getTop();
           EList<UnitName> _bottom = root.getFormula().getBottom();
-          UnitRecord _unitRecord_1 = new UnitRecord(_isBaseType_1, _rootUnit_1, _top, _bottom, false, false, false, 1.0);
+          UnitRecord _unitRecord_1 = new UnitRecord(_isBaseType_1, unit, _rootUnit_1, _top, _bottom, false, false, false, 1.0);
           retval = _unitRecord_1;
         }
       } else {
@@ -165,7 +165,7 @@ public class UnitUtil {
           boolean _equals = uf.getOp().equals("*");
           boolean _equals_1 = uf.getOp().equals("/");
           Double _valueOf = Double.valueOf(uf.getFactor());
-          UnitRecord _unitRecord_2 = new UnitRecord(_isBaseType_2, _rootUnit_2, _singletonEList_1, _emptyEList_1, false, _equals, _equals_1, (_valueOf).doubleValue());
+          UnitRecord _unitRecord_2 = new UnitRecord(_isBaseType_2, unit, _rootUnit_2, _singletonEList_1, _emptyEList_1, false, _equals, _equals_1, (_valueOf).doubleValue());
           retval = _unitRecord_2;
         } else {
           boolean _isBaseType_3 = this.isBaseType(unit);
@@ -175,7 +175,7 @@ public class UnitUtil {
           boolean _equals_2 = uf.getOp().equals("*");
           boolean _equals_3 = uf.getOp().equals("/");
           Double _valueOf_1 = Double.valueOf(uf.getFactor());
-          UnitRecord _unitRecord_3 = new UnitRecord(_isBaseType_3, _rootUnit_3, _top_1, _bottom_1, false, _equals_2, _equals_3, (_valueOf_1).doubleValue());
+          UnitRecord _unitRecord_3 = new UnitRecord(_isBaseType_3, unit, _rootUnit_3, _top_1, _bottom_1, false, _equals_2, _equals_3, (_valueOf_1).doubleValue());
           retval = _unitRecord_3;
         }
       }
@@ -185,15 +185,15 @@ public class UnitUtil {
   }
 
   public UnitRecord scalar() {
-    return new UnitRecord(false, null, null, null, true, false, false, 1.0, false, false);
+    return new UnitRecord(false, null, null, null, null, true, false, false, 1.0, false, false);
   }
 
   public UnitRecord whole() {
-    return new UnitRecord(false, null, null, null, false, false, false, 1.0, true, false);
+    return new UnitRecord(false, null, null, null, null, false, false, false, 1.0, true, false);
   }
 
   public UnitRecord nan() {
-    return new UnitRecord(false, null, null, null, false, false, false, 1.0, false, true);
+    return new UnitRecord(false, null, null, null, null, false, false, false, 1.0, false, true);
   }
 
   public EList<UnitName> sort(final EList<UnitName> list) {
@@ -210,8 +210,7 @@ public class UnitUtil {
   public boolean hasTimeUnit(final UnitName u) {
     boolean _xblockexpression = false;
     {
-      final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
-      un.setName("s");
+      final UnitName un = this._blessIndex.findUnitNameFromString(u, "s");
       _xblockexpression = this.sameUnitRoot(u, un);
     }
     return _xblockexpression;

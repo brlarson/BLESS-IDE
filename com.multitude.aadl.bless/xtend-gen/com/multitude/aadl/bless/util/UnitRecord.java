@@ -14,6 +14,8 @@ public class UnitRecord {
 
   public UnitName rootUnit;
 
+  public UnitName myUnit;
+
   public double conversionFactor = 1.0;
 
   public List<String> top = new ArrayList<String>();
@@ -33,8 +35,9 @@ public class UnitRecord {
   public UnitRecord() {
   }
 
-  public UnitRecord(final boolean isbase, final UnitName rootunit, final EList<UnitName> t, final EList<UnitName> b, final boolean isscalar, final boolean mult, final boolean div, final double factor) {
+  public UnitRecord(final boolean isbase, final UnitName myunit, final UnitName rootunit, final EList<UnitName> t, final EList<UnitName> b, final boolean isscalar, final boolean mult, final boolean div, final double factor) {
     this.isBase = isbase;
+    this.myUnit = myunit;
     this.rootUnit = rootunit;
     if ((t != null)) {
       for (final UnitName un : t) {
@@ -52,8 +55,9 @@ public class UnitRecord {
     this.conversionFactor = factor;
   }
 
-  public UnitRecord(final boolean isbase, final UnitName rootunit, final List<String> t, final List<String> b, final boolean isscalar, final boolean mult, final boolean div, final double factor, final boolean iswhole, final boolean nan) {
+  public UnitRecord(final boolean isbase, final UnitName myunit, final UnitName rootunit, final List<String> t, final List<String> b, final boolean isscalar, final boolean mult, final boolean div, final double factor, final boolean iswhole, final boolean nan) {
     this.isBase = isbase;
+    this.myUnit = myunit;
     this.rootUnit = rootunit;
     this.top = t;
     this.bottom = b;
@@ -66,7 +70,7 @@ public class UnitRecord {
   }
 
   public UnitRecord copy() {
-    return new UnitRecord(this.isBase, this.rootUnit, this.top, this.bottom, this.isScalar, this.multiplyFactor, this.divideFactor, this.conversionFactor, 
+    return new UnitRecord(this.isBase, this.myUnit, this.rootUnit, this.top, this.bottom, this.isScalar, this.multiplyFactor, this.divideFactor, this.conversionFactor, 
       this.isWhole, this.notANumber);
   }
 

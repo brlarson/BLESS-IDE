@@ -13,6 +13,7 @@ class UnitRecord
 	 
 	public boolean isBase = false
 	public UnitName rootUnit
+	public UnitName myUnit
 	public double conversionFactor = 1.0
 	public List<String> top = new ArrayList<String>()
 	public List<String> bottom = new ArrayList<String>()
@@ -27,10 +28,11 @@ class UnitRecord
   //default constructor
   new(){}
   
-	new(boolean isbase, UnitName rootunit, EList<UnitName> t, EList<UnitName> b, boolean isscalar, boolean mult,
-		boolean div, double factor)
+	new(boolean isbase, UnitName myunit, UnitName rootunit, EList<UnitName> t, EList<UnitName> b, 
+	  boolean isscalar, boolean mult, boolean div, double factor)
 	{
 		isBase = isbase
+		myUnit = myunit
 		rootUnit = rootunit
 		if(t !== null)
 		{
@@ -52,10 +54,11 @@ class UnitRecord
 		conversionFactor = factor
 	}
 
-	new(boolean isbase, UnitName rootunit, List<String> t, List<String> b, boolean isscalar, boolean mult, boolean div,
-		double factor, boolean iswhole, boolean nan)
+	new(boolean isbase, UnitName myunit, UnitName rootunit, List<String> t, List<String> b, boolean isscalar, 
+	  boolean mult, boolean div, double factor, boolean iswhole, boolean nan)
 	{
 		isBase = isbase
+    myUnit = myunit
 		rootUnit = rootunit
 		top = t
 		bottom = b
@@ -70,7 +73,7 @@ class UnitRecord
 	// end of constructor
 	def UnitRecord copy()
 	{
-		return new UnitRecord(isBase, rootUnit, top, bottom, isScalar, multiplyFactor, divideFactor, conversionFactor,
+		return new UnitRecord(isBase, myUnit, rootUnit, top, bottom, isScalar, multiplyFactor, divideFactor, conversionFactor,
 			isWhole,notANumber)
 	}
 	

@@ -107,10 +107,10 @@ def UnitRecord toUnitRecord(UnitName unit)
    if (unit.eContainer instanceof RootDeclaration)
     {val root=unit.eContainer as RootDeclaration
 			if (root.base)
-			  retval = new UnitRecord(unit.isBaseType, unit.getRootUnit, ECollections.singletonEList(unit), 
+			  retval = new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, ECollections.singletonEList(unit), 
 			    ECollections.emptyEList, false, false, false, 1.0)
 			else
-			  retval =  new UnitRecord(unit.isBaseType, unit.getRootUnit, root.formula.top, 
+			  retval =  new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, root.formula.top, 
 			    root.formula.bottom, false, false, false, 1.0) 
 		}
 	else
@@ -118,10 +118,10 @@ def UnitRecord toUnitRecord(UnitName unit)
 		val root=unit.rootDeclaration  //not sure if need to search all RootDeclaration
 		val UnitFactor uf = unit.eContainer as UnitFactor
 			if (root.base)
-			  retval = new UnitRecord(unit.isBaseType, unit.getRootUnit, ECollections.singletonEList(root.unitName), ECollections.emptyEList, false,
+			  retval = new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, ECollections.singletonEList(root.unitName), ECollections.emptyEList, false,
 			  	uf.op.equals("*"), uf.op.equals("/"), Double.valueOf(uf.factor))
 			else 
-			  retval = new UnitRecord(unit.isBaseType, unit.getRootUnit,root.formula.top, root.formula.bottom, false,
+			  retval = new UnitRecord(unit.isBaseType, unit, unit.getRootUnit,root.formula.top, root.formula.bottom, false,
 			  	uf.op.equals("*"), uf.op.equals("/"), Double.valueOf(uf.factor))   	
 	  }
 	retval
@@ -129,17 +129,17 @@ def UnitRecord toUnitRecord(UnitName unit)
 
 def UnitRecord scalar()
   {
-   new UnitRecord(false,null,null,null,true, false, false, 1.0, false, false)  //scalar 
+   new UnitRecord(false,null,null,null,null,true, false, false, 1.0, false, false)  //scalar 
   }
 
 def UnitRecord whole()
   {
-   new UnitRecord(false,null,null,null,false, false, false, 1.0, true, false)  //whole
+   new UnitRecord(false,null,null,null,null,false, false, false, 1.0, true, false)  //whole
   }
 
 def UnitRecord nan()
   {
-   new UnitRecord(false,null,null,null,false, false, false, 1.0, false, true)  //not a number
+   new UnitRecord(false,null,null,null,null,false, false, false, 1.0, false, true)  //not a number
   }
 
 
@@ -158,10 +158,10 @@ def EList<UnitName> sort(EList<UnitName> list)
 
 def boolean hasTimeUnit(UnitName u)  
   {
-  val UnitName un = BLESSFactory.eINSTANCE.createUnitName
-  un.name = "s"  
+  val UnitName un = findUnitNameFromString(u,"s")
   sameUnitRoot(u, un)  
   }
+
 
 def String getConversionToRootUnit(UnitName u)
   {

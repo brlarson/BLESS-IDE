@@ -1349,15 +1349,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
     }
   }
 
-  @Check(CheckType.NORMAL)
-  public void checkTransitionsHaveSingleSource(final BehaviorTransition bt) {
-    int _size = bt.getSources().size();
-    boolean _greaterThan = (_size > 1);
-    if (_greaterThan) {
-      this.fWarning("Transitions used for code generation should have a single source state.", bt, BLESSPackage.eINSTANCE.getBehaviorTransition_Sources());
-    }
-  }
-
   public boolean isBoolean(final Type t) {
     return (t instanceof BooleanType);
   }

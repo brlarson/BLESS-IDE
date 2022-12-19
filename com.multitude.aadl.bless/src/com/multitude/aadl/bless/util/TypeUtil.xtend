@@ -329,13 +329,13 @@ def String convertQuantityToArtTime(Quantity q)
   val unit_record = un.toUnitRecord
   if (unit_record.multiplyFactor)
     {
-    val mf = 1000.0*unit_record.conversionFactor
-    "* s64\""+Double.doubleToLongBits(mf)+"\""
+    val mf = unit_record.conversionFactor * 1000
+    "* s64\""+mf+"\""
     }
   else
     {
     val df = unit_record.conversionFactor/1000.0
-    "/ s64\""+Double.doubleToLongBits(df)+"\""  
+    "/ s64\""+df+"\""  
     }
   }  //end of convertQuantityToArtTime
    

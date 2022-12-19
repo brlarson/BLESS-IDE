@@ -485,19 +485,15 @@ public class TypeUtil {
       if (unit_record.multiplyFactor) {
         String _xblockexpression_1 = null;
         {
-          final double mf = (1000.0 * unit_record.conversionFactor);
-          long _doubleToLongBits = Double.doubleToLongBits(mf);
-          String _plus = ("* s64\"" + Long.valueOf(_doubleToLongBits));
-          _xblockexpression_1 = (_plus + "\"");
+          final double mf = (unit_record.conversionFactor * 1000);
+          _xblockexpression_1 = (("* s64\"" + Double.valueOf(mf)) + "\"");
         }
         _xifexpression = _xblockexpression_1;
       } else {
         String _xblockexpression_2 = null;
         {
           final double df = (unit_record.conversionFactor / 1000.0);
-          long _doubleToLongBits = Double.doubleToLongBits(df);
-          String _plus = ("/ s64\"" + Long.valueOf(_doubleToLongBits));
-          _xblockexpression_2 = (_plus + "\"");
+          _xblockexpression_2 = (("/ s64\"" + Double.valueOf(df)) + "\"");
         }
         _xifexpression = _xblockexpression_2;
       }
