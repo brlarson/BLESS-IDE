@@ -13627,7 +13627,7 @@ ruleQuantity returns [EObject current=null]
 					}
 				)
 			)
-		)
+		)?
 	)
 ;
 

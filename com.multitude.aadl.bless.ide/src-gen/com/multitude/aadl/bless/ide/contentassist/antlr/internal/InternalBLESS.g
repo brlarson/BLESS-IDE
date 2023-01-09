@@ -26458,7 +26458,7 @@ rule__Quantity__Group__1__Impl
 :
 (
 	{ before(grammarAccess.getQuantityAccess().getAlternatives_1()); }
-	(rule__Quantity__Alternatives_1)
+	(rule__Quantity__Alternatives_1)?
 	{ after(grammarAccess.getQuantityAccess().getAlternatives_1()); }
 )
 ;

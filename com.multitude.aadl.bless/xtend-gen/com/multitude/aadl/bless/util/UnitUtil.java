@@ -220,9 +220,22 @@ public class UnitUtil {
     final UnitRecord rec = this.toUnitRecord(u);
     String _xifexpression = null;
     if (rec.multiplyFactor) {
-      _xifexpression = "*";
+      _xifexpression = " / ";
     } else {
-      _xifexpression = "/";
+      _xifexpression = " * ";
+    }
+    String _plus = ("( " + _xifexpression);
+    String _plus_1 = (_plus + Double.valueOf(rec.conversionFactor));
+    return (_plus_1 + " )");
+  }
+
+  public String getConversionFromRootUnit(final UnitName u) {
+    final UnitRecord rec = this.toUnitRecord(u);
+    String _xifexpression = null;
+    if (rec.multiplyFactor) {
+      _xifexpression = " * ";
+    } else {
+      _xifexpression = " / ";
     }
     return (_xifexpression + Double.valueOf(rec.conversionFactor));
   }

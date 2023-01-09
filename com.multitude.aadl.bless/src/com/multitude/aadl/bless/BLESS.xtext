@@ -1058,7 +1058,7 @@ MulDiv: ( TIMES | '/' );
 UnitFactor: ',' unit=UnitName op=MulDiv factor=PositiveNumber;
 
 Quantity: number=ANumber 
-	(unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+	(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 ;  
 
 

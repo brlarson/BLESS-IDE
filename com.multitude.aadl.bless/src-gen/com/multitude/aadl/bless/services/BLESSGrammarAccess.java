@@ -2232,8 +2232,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  | wl=WhileLoop
 		//  | fl=ForLoop
 		//  | du=DoUntilLoop
-		//  | elq=ExistentialLatticeQuantification //forall_action
-		//  | ulq=UniversalLatticeQuantification   //behavior_action_block
+		//  | elq=ExistentialLatticeQuantification //behavior_action_block
+		//  | ulq=UniversalLatticeQuantification   //forall_action
 		////  //BA2015 reconciliation add LockingAction
 		//  | la=LockingAction
 		//;
@@ -2245,8 +2245,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  | wl=WhileLoop
 		//  | fl=ForLoop
 		//  | du=DoUntilLoop
-		//  | elq=ExistentialLatticeQuantification //forall_action
-		//  | ulq=UniversalLatticeQuantification   //behavior_action_block
+		//  | elq=ExistentialLatticeQuantification //behavior_action_block
+		//  | ulq=UniversalLatticeQuantification   //forall_action
 		////  //BA2015 reconciliation add LockingAction
 		//  | la=LockingAction
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -8833,12 +8833,12 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cWholeWholeKeyword_1_2_0 = (Keyword)cWholeAssignment_1_2.eContents().get(0);
 		
 		//Quantity: number=ANumber
-		//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//number=ANumber
-		//   (unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//   (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 		public Group getGroup() { return cGroup; }
 		
 		//number=ANumber
@@ -8847,7 +8847,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ANumber
 		public RuleCall getNumberANumberParserRuleCall_0_0() { return cNumberANumberParserRuleCall_0_0; }
 		
-		//(unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//unit=[UnitName]
@@ -10857,8 +10857,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//  | wl=WhileLoop
 	//  | fl=ForLoop
 	//  | du=DoUntilLoop
-	//  | elq=ExistentialLatticeQuantification //forall_action
-	//  | ulq=UniversalLatticeQuantification   //behavior_action_block
+	//  | elq=ExistentialLatticeQuantification //behavior_action_block
+	//  | ulq=UniversalLatticeQuantification   //forall_action
 	////  //BA2015 reconciliation add LockingAction
 	//  | la=LockingAction
 	//;
@@ -12356,7 +12356,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Quantity: number=ANumber
-	//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+	//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 	//;
 	public QuantityElements getQuantityAccess() {
 		return pQuantity;
