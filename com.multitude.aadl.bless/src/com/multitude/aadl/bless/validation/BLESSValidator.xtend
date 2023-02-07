@@ -116,6 +116,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 import com.multitude.aadl.bless.bLESS.CaseChoice
 import com.multitude.aadl.bless.bLESS.BehaviorActions
 import com.multitude.aadl.bless.bLESS.InvariantClause
+import com.multitude.aadl.bless.bLESS.PortOutput
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -412,11 +413,22 @@ def void checkThatNamedAssertionType(NamedAssertion n)
 
 
 @Check(CheckType.NORMAL)
-def void checkPortInputTarget(PortInput n)
+def void checkPortOutput(PortOutput o)
+  {
+  if (!o.port.direction.outgoing)
+    fError('Port output of port that is not \'in\'.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkPortInput(PortInput n)
   {
   if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
     fError('Target of port input must be a variable name.',n,
       BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
+  if (!n.port.direction.incoming)
+    fError('Port input of port that is not \'in\'.',n,
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
 @Check(CheckType.NORMAL)

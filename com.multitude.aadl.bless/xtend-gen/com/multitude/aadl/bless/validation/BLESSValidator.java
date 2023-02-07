@@ -63,6 +63,7 @@ import com.multitude.aadl.bless.bLESS.PartialName;
 import com.multitude.aadl.bless.bLESS.PeriodShift;
 import com.multitude.aadl.bless.bLESS.PortInput;
 import com.multitude.aadl.bless.bLESS.PortName;
+import com.multitude.aadl.bless.bLESS.PortOutput;
 import com.multitude.aadl.bless.bLESS.Predicate;
 import com.multitude.aadl.bless.bLESS.ProductQuantification;
 import com.multitude.aadl.bless.bLESS.PropertyReference;
@@ -544,10 +545,26 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkPortInputTarget(final PortInput n) {
+  public void checkPortOutput(final PortOutput o) {
+    boolean _outgoing = o.getPort().getDirection().outgoing();
+    boolean _not = (!_outgoing);
+    if (_not) {
+      this.fError("Port output of port that is not \'in\'.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortInput(final PortInput n) {
     if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
       this.fError("Target of port input must be a variable name.", n, 
         BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
+    }
+    boolean _incoming = n.getPort().getDirection().incoming();
+    boolean _not = (!_incoming);
+    if (_not) {
+      this.fError("Port input of port that is not \'in\'.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
   }
 
