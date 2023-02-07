@@ -358,31 +358,35 @@ public class TypeUtil {
     String _xblockexpression = null;
     {
       final StringBuffer sb = new StringBuffer();
-      String _lit = ar.getLb().getLit();
-      boolean _tripleNotEquals = (_lit != null);
+      ANumber _lb = ar.getLb();
+      boolean _tripleNotEquals = (_lb != null);
       if (_tripleNotEquals) {
-        sb.append(ar.getLb().getLit());
-      } else {
-        PropertyReference _property = ar.getLb().getProperty();
-        boolean _tripleNotEquals_1 = (_property != null);
+        String _lit = ar.getLb().getLit();
+        boolean _tripleNotEquals_1 = (_lit != null);
         if (_tripleNotEquals_1) {
-          sb.append(ar.getLb().getProperty());
+          sb.append(ar.getLb().getLit());
         } else {
-          sb.append(ar.getLb().getPropertyConstant());
+          PropertyReference _property = ar.getLb().getProperty();
+          boolean _tripleNotEquals_2 = (_property != null);
+          if (_tripleNotEquals_2) {
+            sb.append(ar.getLb().getProperty());
+          } else {
+            sb.append(ar.getLb().getPropertyConstant());
+          }
         }
       }
       ANumber _ub = ar.getUb();
-      boolean _tripleNotEquals_2 = (_ub != null);
-      if (_tripleNotEquals_2) {
+      boolean _tripleNotEquals_3 = (_ub != null);
+      if (_tripleNotEquals_3) {
         sb.append("..");
         String _lit_1 = ar.getUb().getLit();
-        boolean _tripleNotEquals_3 = (_lit_1 != null);
-        if (_tripleNotEquals_3) {
+        boolean _tripleNotEquals_4 = (_lit_1 != null);
+        if (_tripleNotEquals_4) {
           sb.append(ar.getUb().getLit());
         } else {
           PropertyReference _property_1 = ar.getUb().getProperty();
-          boolean _tripleNotEquals_4 = (_property_1 != null);
-          if (_tripleNotEquals_4) {
+          boolean _tripleNotEquals_5 = (_property_1 != null);
+          if (_tripleNotEquals_5) {
             sb.append(ar.getUb().getProperty());
           } else {
             sb.append(ar.getUb().getPropertyConstant());

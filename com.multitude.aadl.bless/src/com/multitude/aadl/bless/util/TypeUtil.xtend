@@ -250,12 +250,15 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
   def String typeString(ArrayRange ar)
     {
     val sb = new StringBuffer
-    if (ar.lb.lit !== null)
-      sb.append(ar.lb.lit)
-    else if (ar.lb.property !== null)
-      sb.append(ar.lb.property)
-    else
-      sb.append(ar.lb.propertyConstant)
+    if (ar.lb !== null)
+      {
+      if (ar.lb.lit !== null)
+        sb.append(ar.lb.lit)
+      else if (ar.lb.property !== null)
+        sb.append(ar.lb.property)
+      else
+        sb.append(ar.lb.propertyConstant) 
+      }
     if (ar.ub !== null)
       {
       sb.append('..') 
