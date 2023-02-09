@@ -549,7 +549,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     boolean _outgoing = o.getPort().getDirection().outgoing();
     boolean _not = (!_outgoing);
     if (_not) {
-      this.fError("Port output of port that is not \'in\'.", o, 
+      this.fError("Port output of port that is not \'out\'.", o, 
         BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
   }

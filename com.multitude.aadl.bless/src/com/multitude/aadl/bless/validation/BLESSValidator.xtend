@@ -168,7 +168,7 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
       error(message,source,feature,code,issueData)
     }
    
-   def fWarning(String message, EObject source, EStructuralFeature feature, int index)
+  def fWarning(String message, EObject source, EStructuralFeature feature, int index)
     {
     if (source.firstMarkerHere) 
       warning(message,source,feature,index)
@@ -416,7 +416,7 @@ def void checkThatNamedAssertionType(NamedAssertion n)
 def void checkPortOutput(PortOutput o)
   {
   if (!o.port.direction.outgoing)
-    fError('Port output of port that is not \'in\'.', o,
+    fError('Port output of port that is not \'out\'.', o,
       BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
