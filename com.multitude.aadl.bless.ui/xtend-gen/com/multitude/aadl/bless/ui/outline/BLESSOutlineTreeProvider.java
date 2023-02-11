@@ -214,32 +214,36 @@ public class BLESSOutlineTreeProvider extends BackgroundOutlineTreeProvider {
                     }
                   } else {
                     if ((modelElement instanceof InvariantClause)) {
-                      this.createNode(p, ((InvariantClause) modelElement).getInv());
-                    } else {
-                      if ((modelElement instanceof VariablesSection)) {
-                        EList<VariableDeclaration> _behavior_variables = ((VariablesSection) modelElement).getBehavior_variables();
-                        for (final VariableDeclaration v : _behavior_variables) {
-                          this.createNode(p, v);
-                        }
+                      Assertion _inv = ((InvariantClause) modelElement).getInv();
+                      boolean _tripleNotEquals_15 = (_inv != null);
+                      if (_tripleNotEquals_15) {
+                        this.createNode(p, ((InvariantClause) modelElement).getInv());
                       } else {
-                        if ((modelElement instanceof StatesSection)) {
-                          EList<BehaviorState> _states = ((StatesSection) modelElement).getStates();
-                          for (final BehaviorState s : _states) {
-                            this.createNode(p, s);
+                        if ((modelElement instanceof VariablesSection)) {
+                          EList<VariableDeclaration> _behavior_variables = ((VariablesSection) modelElement).getBehavior_variables();
+                          for (final VariableDeclaration v : _behavior_variables) {
+                            this.createNode(p, v);
                           }
                         } else {
-                          if ((modelElement instanceof Transitions)) {
-                            EList<BehaviorTransition> _bt = ((Transitions) modelElement).getBt();
-                            for (final BehaviorTransition t : _bt) {
-                              this.createNode(p, t);
+                          if ((modelElement instanceof StatesSection)) {
+                            EList<BehaviorState> _states = ((StatesSection) modelElement).getStates();
+                            for (final BehaviorState s : _states) {
+                              this.createNode(p, s);
                             }
                           } else {
-                            if ((modelElement instanceof BehaviorTransition)) {
-                              final BehaviorTransition c_1 = ((BehaviorTransition) modelElement);
-                              BehaviorActions _actions = c_1.getActions();
-                              boolean _tripleNotEquals_15 = (_actions != null);
-                              if (_tripleNotEquals_15) {
-                                this.createNode(p, c_1.getActions());
+                            if ((modelElement instanceof Transitions)) {
+                              EList<BehaviorTransition> _bt = ((Transitions) modelElement).getBt();
+                              for (final BehaviorTransition t : _bt) {
+                                this.createNode(p, t);
+                              }
+                            } else {
+                              if ((modelElement instanceof BehaviorTransition)) {
+                                final BehaviorTransition c_1 = ((BehaviorTransition) modelElement);
+                                BehaviorActions _actions = c_1.getActions();
+                                boolean _tripleNotEquals_16 = (_actions != null);
+                                if (_tripleNotEquals_16) {
+                                  this.createNode(p, c_1.getActions());
+                                }
                               }
                             }
                           }

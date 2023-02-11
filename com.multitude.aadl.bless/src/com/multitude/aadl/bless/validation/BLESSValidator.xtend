@@ -411,75 +411,6 @@ def void checkThatNamedAssertionType(NamedAssertion n)
 //  }
 
 
-
-@Check(CheckType.NORMAL)
-def void checkPortOutput(PortOutput o)
-  {
-  if (!o.port.direction.outgoing)
-    fError('Port output of port that is not \'out\'.', o,
-      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkPortInput(PortInput n)
-  {
-  if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
-    fError('Target of port input must be a variable name.',n,
-      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
-  if (!n.port.direction.incoming)
-    fError('Port input of port that is not \'in\'.',n,
-      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkAssignmentToInPort(Assignment asgn)
-  {
-  val vName = asgn.lhs.value.id
-  if (vName instanceof DataPort && !(vName as DataPort).out)
-    fError('May not assign to in data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
-    fError('May not assign to in event data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventPort && !(vName as EventPort).out)
-    fError('May not assign to in event port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof Parameter && !(vName as Parameter).out)
-    fError('May not assign to in parameter.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
-  }
-
-//@Check(CheckType.NORMAL)
-//def void checkInPortValueHasQuestionMark(ValueName vn)
-//  {
-//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort) 
-//    if (!vn.q && !vn.fresh && !vn.count && !vn.updated && vn.inBehaviorActions) 
-//        fError('Values of in ports must use ?, fresh, count, or updated.',vn,
-//          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
-//  }
-
-@Check(CheckType.NORMAL)
-def void checkPortIndexIsNaturalLiteral(ValueName vn)
-  {
-  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
-    if (vn.array_index !== null && vn.array_index.size > 0)
-      {
-      if (vn.array_index.size > 1)  
-        fError('Port arrays are one dimensional.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      else if (vn.array_index.head instanceof ANumber)
-        {
-        val num = vn.array_index.head as ANumber
-        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
-          fError('Port array index must be natural literal.',vn,
-            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-        }   
-      else
-        fError('Port array index must be natural literal.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      }
-  }
-
 @Check(CheckType.NORMAL)
 def void checkPElhsIsWhole(Relation r)
   {
@@ -596,6 +527,101 @@ def void checkSumQuantificationNumericExpression(SumQuantification sq)
 //      BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.ASSERTION_ENUMERATION_INVOCATION_NOT_ALLOWED)   
 //  }
 
+@Check(CheckType.NORMAL)
+def void checkNamedAssertionHasNoNow(Value v)
+  {
+  if (v.now !== null) 
+    {
+    var p = v.eContainer
+    while (p !== null && !(p instanceof NamedAssertion)) 
+      p = p.eContainer
+    if (p !== null)
+      fWarning('Don\'t use \"now\" in named assertions.',v,
+            BLESSPackage::eINSTANCE.value_Now, IssueCodes.NOW_IN_NAMED_ASSERTION)         
+    }
+  }
+
+@Check(CheckType.NORMAL)
+def void checkNamedAssertionInvocation(Invocation i)
+  {  //first check no parameter
+  if (i.label.formals === null)
+    {
+    if (i.params !== null  && i.params.size > 0)
+        fError('Invoked assertion has no parameters.',i,
+            BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)                  
+    else if (i.actual_parameter !== null ) 
+        fError('Invoked assertion has no parameters.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    }
+  else if (i.actual_parameter !== null)
+    {  //one parameter
+    if (i.label.formals.parameter !== null && i.label.formals.parameter.size > 0) 
+        fError('Invoked assertion has more than one parameter.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    else if (!sameStructuralType(i.actual_parameter.getType, i.label.formals.first.getType))  
+        fError('Invocation parameter type mismatch.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    else if (i.actual_parameter.getType.isQuantity && i.label.formals.first.getType.isQuantity) 
+      if (!sameUnitRoot((i.actual_parameter.getType as QuantityType).unit, (i.label.formals.first.getType as QuantityType).unit)) 
+        fError('Invocation parameter unit mismatch.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    }
+  else  //multiple parameters
+    {  //check number
+    if (i.label.formals.parameter === null) 
+      fError('Invocation has more parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)              
+    else if (i.label.formals.parameter.size + 1 > i.params.size) 
+      fError('Invocation has fewer parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)              
+    else if (i.label.formals.parameter.size + 1 < i.params.size) 
+      fError('Invocation has more parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION) 
+    else
+      {  //check labels then types
+      for (param : i.params) 
+        {
+        var found = false
+        if (i.label.formals.first.name == param.formal)
+          {
+          found = true
+          if (!sameStructuralType(i.label.formals.first.getType, param.actual.getType)) 
+            fError('Invocation parameter \"'+param.formal+'\" type mismatch: '+
+              i.label.formals.first.name + "~" +i.label.formals.first.getType.typeString+
+              " is not " +param.formal+ "~" +param.actual.getType.typeString, param,
+              BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+          else if (param.actual.getType.isQuantity && i.label.formals.first.getType.isQuantity
+            && !param.actual.getUnitRecord.matchTopAndBottom(i.label.formals.first.tod.getUnitRecord))
+            fError('Invocation parameter \"'+param.formal+'\" unit mismatch: '+
+              i.label.formals.first.name + "~" +i.label.formals.first.tod.getUnitRecord+
+              " is not " +param.formal+ "~" +param.actual.getUnitRecord, param,
+              BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+          }
+        for (formal : i.label.formals.parameter) 
+          {
+          if (formal.name == param.formal)
+            {
+            found = true
+            if (!sameStructuralType(formal.tod.getType, param.actual.getType)) 
+              fError('Invocation parameter \"'+param.formal+'\" type mismatch: '+
+              formal.name + "~" +formal.getType.typeString+
+              " is not " +param.formal+ "~" +param.actual.getType.typeString, param,
+                BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+            else if (param.actual.getType.isQuantity && formal.tod.getType.isQuantity
+                && !param.actual.getUnitRecord.matchTopAndBottom(formal.tod.getUnitRecord))
+              fError('Invocation parameter \"'+param.formal+'\" unit mismatch: '+
+                formal.name + "~" +(formal.getType as QuantityType).unit+
+              " is not " +param.formal+ "~" +(param.actual.getType as QuantityType).unit,param,
+                BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)               
+            }  
+          }  // done for formal
+        if (!found)
+          fError('Invocation parameter \"'+param.formal+'\" not found.',param,
+             BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)               
+        }
+      }             
+    }
+  }  //end of checkNamedAssertionInvocation
 
 //////////////////////////  EXPRESSION  \\\\\\\\\\\\\\\\\\\\
  
@@ -733,19 +759,21 @@ def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignmen
     {
     val target = a.lhs.get(i).value
     val expression = a.rhs.get(i).exp
-    if (expression.getType.isNull)
+    val targetType = target.getType
+    val expressionType = expression.getType
+    if (expressionType.isNull)
       {}  //null matches all types
-	  else if (!target.getType.sameStructuralType(expression?.getType))
+	  else if (!targetType.sameStructuralType(expressionType))
 	    {
-      fError('Targets of simultaneous assignment must have compatible types with expressions.  '+
-        target.getType.typeString+" is not "+expression?.getType.typeString, a,
+      error('Targets of simultaneous assignment must have compatible types with expressions.  '+
+        targetType.typeString+" is not "+expressionType.typeString, a,
 						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)
 //      fError('Expressions of simultaneous assignment must have compatible types with targets', a,
 //						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)			
 			}
 	  else if (!target.getUnitRecord.matchTopAndBottom(expression?.getUnitRecord))
 	    {	
-      fError('Target of assignment of must have the same base units as its expression; '+
+      error('Target of assignment of must have the same base units as its expression; '+
       	target.getUnitRecord.toString+' is not '+expression.getUnitRecord.toString, a,
 						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)  	
 //      fError('Expressions too ', a,
@@ -844,6 +872,76 @@ checkSubprogramInvocationParametersHavingExpressionsAreIn(SubprogramCall sc)
               fError('Expression subprogram parameters must have "in" direction.',v,
                 BLESSPackage.eINSTANCE.formalActual_Actual, IssueCodes.SUBPROGRAM_CALL_EXPRESSION_PARAMETER_MUST_HAVE_FORMAL)                       
         }
+  }
+
+
+
+@Check(CheckType.NORMAL)
+def void checkPortOutput(PortOutput o)
+  {
+  if (!o.port.direction.outgoing)
+    fError('Port output of port that is not \'out\'.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkPortInput(PortInput n)
+  {
+  if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
+    fError('Target of port input must be a variable name.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
+  if (!n.port.direction.incoming)
+    fError('Port input of port that is not \'in\'.',n,
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkAssignmentToInPort(Assignment asgn)
+  {
+  val vName = asgn.lhs.value.id
+  if (vName instanceof DataPort && !(vName as DataPort).out)
+    fError('May not assign to in data port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
+    fError('May not assign to in event data port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof EventPort && !(vName as EventPort).out)
+    fError('May not assign to in event port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof Parameter && !(vName as Parameter).out)
+    fError('May not assign to in parameter.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
+  }
+
+//@Check(CheckType.NORMAL)
+//def void checkInPortValueHasQuestionMark(ValueName vn)
+//  {
+//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort) 
+//    if (!vn.q && !vn.fresh && !vn.count && !vn.updated && vn.inBehaviorActions) 
+//        fError('Values of in ports must use ?, fresh, count, or updated.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
+//  }
+
+@Check(CheckType.NORMAL)
+def void checkPortIndexIsNaturalLiteral(ValueName vn)
+  {
+  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
+    if (vn.array_index !== null && vn.array_index.size > 0)
+      {
+      if (vn.array_index.size > 1)  
+        fError('Port arrays are one dimensional.',vn,
+          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+      else if (vn.array_index.head instanceof ANumber)
+        {
+        val num = vn.array_index.head as ANumber
+        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
+          fError('Port array index must be natural literal.',vn,
+            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+        }   
+      else
+        fError('Port array index must be natural literal.',vn,
+          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+      }
   }
 
 //@Check(CheckType.NORMAL)
@@ -1170,6 +1268,12 @@ def Type getType(TimedSubject a)
   a.invocation?.getType
   }
 
+def Type getType(TypeOrReference tor)
+  {
+  tor?.ty ?: 
+  tor.ref.type
+  }
+  
 def Type getType(ParenthesizedSubexpression e)
   {
   if (e.expression !== null && e.t !== null && e.f !== null)
@@ -1718,6 +1822,12 @@ def Type getType(EnumerationValue ev)
     ev.enumeration_type.type
   }
 
+def Type getType(Variable v)
+  {
+  v.tod?.ty ?:
+  v.tod.ref.type 
+  }
+  
 ////////////////////////   GET UNIT RECORD   ///////////////////////////////
 
 def UnitRecord getUnitRecord(AddSub a) 

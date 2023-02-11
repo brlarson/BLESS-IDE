@@ -7,6 +7,7 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.ANumber;
+import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.AddSub;
 import com.multitude.aadl.bless.bLESS.ArrayRange;
 import com.multitude.aadl.bless.bLESS.ArrayType;
@@ -491,7 +492,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public void checkThatAssertionFunctionHasCompatibleUnits(final NamedAssertion a) {
     boolean _isFunc = a.isFunc();
     if (_isFunc) {
-      boolean _sameStructuralType = this._typeUtil.sameStructuralType(this._typeUtil.getType(a.getTod()), this.getType(a.getFunctionvalue()));
+      boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(a.getTod()), this.getType(a.getFunctionvalue()));
       boolean _not = (!_sameStructuralType);
       if (_not) {
         this.fError("Operands of assertion functions must have compatible types", a, 
@@ -538,81 +539,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
       this.fError("Assertions must have boolean predicates.", n, 
         BLESSPackage.eINSTANCE.getNamedAssertion_Predicate(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
     }
-    if ((n.isFunc() && (!this._typeUtil.sameStructuralType(this.getType(n.getFunctionvalue()), this._typeUtil.getType(n.getTod()))))) {
+    if ((n.isFunc() && (!this._typeUtil.sameStructuralType(this.getType(n.getFunctionvalue()), this.getType(n.getTod()))))) {
       this.fError("Assertion functions must match their types.", n, 
         BLESSPackage.eINSTANCE.getNamedAssertion_Tod(), IssueCodes.MISMATCHED_UNITS);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortOutput(final PortOutput o) {
-    boolean _outgoing = o.getPort().getDirection().outgoing();
-    boolean _not = (!_outgoing);
-    if (_not) {
-      this.fError("Port output of port that is not \'out\'.", o, 
-        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortInput(final PortInput n) {
-    if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
-      this.fError("Target of port input must be a variable name.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
-    }
-    boolean _incoming = n.getPort().getDirection().incoming();
-    boolean _not = (!_incoming);
-    if (_not) {
-      this.fError("Port input of port that is not \'in\'.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkAssignmentToInPort(final Assignment asgn) {
-    final NamedElement vName = asgn.getLhs().getValue().getId();
-    if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
-      this.fError("May not assign to in data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventDataPort) && (!((EventDataPort) vName).isOut()))) {
-      this.fError("May not assign to in event data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventPort) && (!((EventPort) vName).isOut()))) {
-      this.fError("May not assign to in event port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof Parameter) && (!((Parameter) vName).isOut()))) {
-      this.fError("May not assign to in parameter.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortIndexIsNaturalLiteral(final ValueName vn) {
-    if ((((vn.getId() instanceof DataPort) || (vn.getId() instanceof EventPort)) || (vn.getId() instanceof EventDataPort))) {
-      if (((vn.getArray_index() != null) && (vn.getArray_index().size() > 0))) {
-        int _size = vn.getArray_index().size();
-        boolean _greaterThan = (_size > 1);
-        if (_greaterThan) {
-          this.fError("Port arrays are one dimensional.", vn, 
-            BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-        } else {
-          IndexExpressionOrRange _head = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-          if ((_head instanceof ANumber)) {
-            IndexExpressionOrRange _head_1 = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-            final ANumber num = ((ANumber) _head_1);
-            if (((num.getLit() != null) && (num.getLit().contains(".") || num.getLit().contains("-")))) {
-              this.fError("Port array index must be natural literal.", vn, 
-                BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-            }
-          } else {
-            this.fError("Port array index must be natural literal.", vn, 
-              BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-          }
-        }
-      }
     }
   }
 
@@ -723,6 +652,206 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (((sq.getNumeric_expression() != null) && (!(this.getType(sq.getNumeric_expression()) instanceof QuantityType)))) {
       this.fError("sum-of must be quantity.", sq, 
         BLESSPackage.eINSTANCE.getSumQuantification_Numeric_expression(), IssueCodes.MUST_BE_QUANTITY);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkNamedAssertionHasNoNow(final Value v) {
+    String _now = v.getNow();
+    boolean _tripleNotEquals = (_now != null);
+    if (_tripleNotEquals) {
+      EObject p = v.eContainer();
+      while (((p != null) && (!(p instanceof NamedAssertion)))) {
+        p = p.eContainer();
+      }
+      if ((p != null)) {
+        this.fWarning("Don\'t use \"now\" in named assertions.", v, 
+          BLESSPackage.eINSTANCE.getValue_Now(), IssueCodes.NOW_IN_NAMED_ASSERTION);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkNamedAssertionInvocation(final Invocation i) {
+    VariableList _formals = i.getLabel().getFormals();
+    boolean _tripleEquals = (_formals == null);
+    if (_tripleEquals) {
+      if (((i.getParams() != null) && (i.getParams().size() > 0))) {
+        this.fError("Invoked assertion has no parameters.", i, 
+          BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+      } else {
+        NumericExpression _actual_parameter = i.getActual_parameter();
+        boolean _tripleNotEquals = (_actual_parameter != null);
+        if (_tripleNotEquals) {
+          this.fError("Invoked assertion has no parameters.", i, 
+            BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+        }
+      }
+    } else {
+      NumericExpression _actual_parameter_1 = i.getActual_parameter();
+      boolean _tripleNotEquals_1 = (_actual_parameter_1 != null);
+      if (_tripleNotEquals_1) {
+        if (((i.getLabel().getFormals().getParameter() != null) && (i.getLabel().getFormals().getParameter().size() > 0))) {
+          this.fError("Invoked assertion has more than one parameter.", i, 
+            BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+        } else {
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(i.getActual_parameter()), this.getType(i.getLabel().getFormals().getFirst()));
+          boolean _not = (!_sameStructuralType);
+          if (_not) {
+            this.fError("Invocation parameter type mismatch.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+          } else {
+            if ((this.isQuantity(this.getType(i.getActual_parameter())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst())))) {
+              Type _type = this.getType(i.getActual_parameter());
+              Type _type_1 = this.getType(i.getLabel().getFormals().getFirst());
+              boolean _sameUnitRoot = this._unitUtil.sameUnitRoot(((QuantityType) _type).getUnit(), ((QuantityType) _type_1).getUnit());
+              boolean _not_1 = (!_sameUnitRoot);
+              if (_not_1) {
+                this.fError("Invocation parameter unit mismatch.", i, 
+                  BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+              }
+            }
+          }
+        }
+      } else {
+        EList<Variable> _parameter = i.getLabel().getFormals().getParameter();
+        boolean _tripleEquals_1 = (_parameter == null);
+        if (_tripleEquals_1) {
+          this.fError("Invocation has more parameters than assertion.", i, 
+            BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+        } else {
+          int _size = i.getLabel().getFormals().getParameter().size();
+          int _plus = (_size + 1);
+          int _size_1 = i.getParams().size();
+          boolean _greaterThan = (_plus > _size_1);
+          if (_greaterThan) {
+            this.fError("Invocation has fewer parameters than assertion.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+          } else {
+            int _size_2 = i.getLabel().getFormals().getParameter().size();
+            int _plus_1 = (_size_2 + 1);
+            int _size_3 = i.getParams().size();
+            boolean _lessThan = (_plus_1 < _size_3);
+            if (_lessThan) {
+              this.fError("Invocation has more parameters than assertion.", i, 
+                BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+            } else {
+              EList<ActualParameter> _params = i.getParams();
+              for (final ActualParameter param : _params) {
+                {
+                  boolean found = false;
+                  String _name = i.getLabel().getFormals().getFirst().getName();
+                  String _formal = param.getFormal();
+                  boolean _equals = Objects.equal(_name, _formal);
+                  if (_equals) {
+                    found = true;
+                    boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(i.getLabel().getFormals().getFirst()), this.getType(param.getActual()));
+                    boolean _not_2 = (!_sameStructuralType_1);
+                    if (_not_2) {
+                      String _formal_1 = param.getFormal();
+                      String _plus_2 = ("Invocation parameter \"" + _formal_1);
+                      String _plus_3 = (_plus_2 + "\" type mismatch: ");
+                      String _name_1 = i.getLabel().getFormals().getFirst().getName();
+                      String _plus_4 = (_plus_3 + _name_1);
+                      String _plus_5 = (_plus_4 + "~");
+                      String _typeString = this._typeUtil.typeString(this.getType(i.getLabel().getFormals().getFirst()));
+                      String _plus_6 = (_plus_5 + _typeString);
+                      String _plus_7 = (_plus_6 + 
+                        " is not ");
+                      String _formal_2 = param.getFormal();
+                      String _plus_8 = (_plus_7 + _formal_2);
+                      String _plus_9 = (_plus_8 + "~");
+                      String _typeString_1 = this._typeUtil.typeString(this.getType(param.getActual()));
+                      String _plus_10 = (_plus_9 + _typeString_1);
+                      this.fError(_plus_10, param, 
+                        BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                    } else {
+                      if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod()))))) {
+                        String _formal_3 = param.getFormal();
+                        String _plus_11 = ("Invocation parameter \"" + _formal_3);
+                        String _plus_12 = (_plus_11 + "\" unit mismatch: ");
+                        String _name_2 = i.getLabel().getFormals().getFirst().getName();
+                        String _plus_13 = (_plus_12 + _name_2);
+                        String _plus_14 = (_plus_13 + "~");
+                        UnitRecord _unitRecord = this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod());
+                        String _plus_15 = (_plus_14 + _unitRecord);
+                        String _plus_16 = (_plus_15 + 
+                          " is not ");
+                        String _formal_4 = param.getFormal();
+                        String _plus_17 = (_plus_16 + _formal_4);
+                        String _plus_18 = (_plus_17 + "~");
+                        UnitRecord _unitRecord_1 = this.getUnitRecord(param.getActual());
+                        String _plus_19 = (_plus_18 + _unitRecord_1);
+                        this.fError(_plus_19, param, 
+                          BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                      }
+                    }
+                  }
+                  EList<Variable> _parameter_1 = i.getLabel().getFormals().getParameter();
+                  for (final Variable formal : _parameter_1) {
+                    String _name_3 = formal.getName();
+                    String _formal_5 = param.getFormal();
+                    boolean _equals_1 = Objects.equal(_name_3, _formal_5);
+                    if (_equals_1) {
+                      found = true;
+                      boolean _sameStructuralType_2 = this._typeUtil.sameStructuralType(this.getType(formal.getTod()), this.getType(param.getActual()));
+                      boolean _not_3 = (!_sameStructuralType_2);
+                      if (_not_3) {
+                        String _formal_6 = param.getFormal();
+                        String _plus_20 = ("Invocation parameter \"" + _formal_6);
+                        String _plus_21 = (_plus_20 + "\" type mismatch: ");
+                        String _name_4 = formal.getName();
+                        String _plus_22 = (_plus_21 + _name_4);
+                        String _plus_23 = (_plus_22 + "~");
+                        String _typeString_2 = this._typeUtil.typeString(this.getType(formal));
+                        String _plus_24 = (_plus_23 + _typeString_2);
+                        String _plus_25 = (_plus_24 + 
+                          " is not ");
+                        String _formal_7 = param.getFormal();
+                        String _plus_26 = (_plus_25 + _formal_7);
+                        String _plus_27 = (_plus_26 + "~");
+                        String _typeString_3 = this._typeUtil.typeString(this.getType(param.getActual()));
+                        String _plus_28 = (_plus_27 + _typeString_3);
+                        this.fError(_plus_28, param, 
+                          BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                      } else {
+                        if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(formal.getTod()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(formal.getTod()))))) {
+                          String _formal_8 = param.getFormal();
+                          String _plus_29 = ("Invocation parameter \"" + _formal_8);
+                          String _plus_30 = (_plus_29 + "\" unit mismatch: ");
+                          String _name_5 = formal.getName();
+                          String _plus_31 = (_plus_30 + _name_5);
+                          String _plus_32 = (_plus_31 + "~");
+                          Type _type_2 = this.getType(formal);
+                          UnitName _unit = ((QuantityType) _type_2).getUnit();
+                          String _plus_33 = (_plus_32 + _unit);
+                          String _plus_34 = (_plus_33 + 
+                            " is not ");
+                          String _formal_9 = param.getFormal();
+                          String _plus_35 = (_plus_34 + _formal_9);
+                          String _plus_36 = (_plus_35 + "~");
+                          Type _type_3 = this.getType(param.getActual());
+                          UnitName _unit_1 = ((QuantityType) _type_3).getUnit();
+                          String _plus_37 = (_plus_36 + _unit_1);
+                          this.fError(_plus_37, param, 
+                            BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                        }
+                      }
+                    }
+                  }
+                  if ((!found)) {
+                    String _formal_10 = param.getFormal();
+                    String _plus_38 = ("Invocation parameter \"" + _formal_10);
+                    String _plus_39 = (_plus_38 + "\" not found.");
+                    this.fError(_plus_39, param, 
+                      BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -900,18 +1029,18 @@ public class BLESSValidator extends AbstractBLESSValidator {
       boolean _isNull = this.isNull(this.getType(vd.getExpression()));
       if (_isNull) {
       } else {
-        Type _type = this._typeUtil.getType(vd.getVariable().getTod());
+        Type _type = this.getType(vd.getVariable().getTod());
         if ((_type instanceof ArrayType)) {
-          Type _type_1 = this._typeUtil.getType(vd.getVariable().getTod());
+          Type _type_1 = this.getType(vd.getVariable().getTod());
           final ArrayType art = ((ArrayType) _type_1);
-          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this._typeUtil.getType(art.getTyp()), this.getType(vd.getExpression()));
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(art.getTyp()), this.getType(vd.getExpression()));
           boolean _not = (!_sameStructuralType);
           if (_not) {
             this.fError("Array variable declaration initialization expression must match its element type.", vd, 
               BLESSPackage.eINSTANCE.getVariableDeclaration_Expression(), IssueCodes.INCOMPATIBLE_TYPES);
           } else {
             boolean _and = false;
-            if (!((this._typeUtil.getType(art.getTyp()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
+            if (!((this.getType(art.getTyp()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
               _and = false;
             } else {
               UnitRecord _unitRecord = this.getUnitRecord(art.getTyp());
@@ -935,14 +1064,14 @@ public class BLESSValidator extends AbstractBLESSValidator {
             }
           }
         } else {
-          boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this._typeUtil.getType(vd.getVariable().getTod()), this.getType(vd.getExpression()));
+          boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(vd.getVariable().getTod()), this.getType(vd.getExpression()));
           boolean _not_2 = (!_sameStructuralType_1);
           if (_not_2) {
             this.fError("Variable declaration initialization expression must match its type.", vd, 
               BLESSPackage.eINSTANCE.getVariableDeclaration_Expression(), IssueCodes.INCOMPATIBLE_TYPES);
           } else {
             boolean _and_1 = false;
-            if (!((this._typeUtil.getType(vd.getVariable().getTod()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
+            if (!((this.getType(vd.getVariable().getTod()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
               _and_1 = false;
             } else {
               UnitRecord _unitRecord_2 = this.getUnitRecord(vd.getVariable().getTod());
@@ -992,27 +1121,20 @@ public class BLESSValidator extends AbstractBLESSValidator {
         {
           final ValueName target = a.getLhs().get(i).getValue();
           final Expression expression = a.getRhs().get(i).getExp();
-          boolean _isNull = this.isNull(this.getType(expression));
+          final Type targetType = this.getType(target);
+          final Type expressionType = this.getType(expression);
+          boolean _isNull = this.isNull(expressionType);
           if (_isNull) {
           } else {
-            Type _type = this.getType(target);
-            Type _type_1 = null;
-            if (expression!=null) {
-              _type_1=this.getType(expression);
-            }
-            boolean _sameStructuralType = this._typeUtil.sameStructuralType(_type, _type_1);
+            boolean _sameStructuralType = this._typeUtil.sameStructuralType(targetType, expressionType);
             boolean _not = (!_sameStructuralType);
             if (_not) {
-              String _typeString = this._typeUtil.typeString(this.getType(target));
+              String _typeString = this._typeUtil.typeString(targetType);
               String _plus = ("Targets of simultaneous assignment must have compatible types with expressions.  " + _typeString);
               String _plus_1 = (_plus + " is not ");
-              Type _type_2 = null;
-              if (expression!=null) {
-                _type_2=this.getType(expression);
-              }
-              String _typeString_1 = this._typeUtil.typeString(_type_2);
+              String _typeString_1 = this._typeUtil.typeString(expressionType);
               String _plus_2 = (_plus_1 + _typeString_1);
-              this.fError(_plus_2, a, 
+              this.error(_plus_2, a, 
                 BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
             } else {
               UnitRecord _unitRecord = this.getUnitRecord(target);
@@ -1028,7 +1150,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 String _plus_4 = (_plus_3 + " is not ");
                 String _string_1 = this.getUnitRecord(expression).toString();
                 String _plus_5 = (_plus_4 + _string_1);
-                this.fError(_plus_5, a, 
+                this.error(_plus_5, a, 
                   BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
               }
             }
@@ -1153,6 +1275,78 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortOutput(final PortOutput o) {
+    boolean _outgoing = o.getPort().getDirection().outgoing();
+    boolean _not = (!_outgoing);
+    if (_not) {
+      this.fError("Port output of port that is not \'out\'.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortInput(final PortInput n) {
+    if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
+      this.fError("Target of port input must be a variable name.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
+    }
+    boolean _incoming = n.getPort().getDirection().incoming();
+    boolean _not = (!_incoming);
+    if (_not) {
+      this.fError("Port input of port that is not \'in\'.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkAssignmentToInPort(final Assignment asgn) {
+    final NamedElement vName = asgn.getLhs().getValue().getId();
+    if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
+      this.fError("May not assign to in data port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof EventDataPort) && (!((EventDataPort) vName).isOut()))) {
+      this.fError("May not assign to in event data port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof EventPort) && (!((EventPort) vName).isOut()))) {
+      this.fError("May not assign to in event port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof Parameter) && (!((Parameter) vName).isOut()))) {
+      this.fError("May not assign to in parameter.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortIndexIsNaturalLiteral(final ValueName vn) {
+    if ((((vn.getId() instanceof DataPort) || (vn.getId() instanceof EventPort)) || (vn.getId() instanceof EventDataPort))) {
+      if (((vn.getArray_index() != null) && (vn.getArray_index().size() > 0))) {
+        int _size = vn.getArray_index().size();
+        boolean _greaterThan = (_size > 1);
+        if (_greaterThan) {
+          this.fError("Port arrays are one dimensional.", vn, 
+            BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
+        } else {
+          IndexExpressionOrRange _head = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
+          if ((_head instanceof ANumber)) {
+            IndexExpressionOrRange _head_1 = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
+            final ANumber num = ((ANumber) _head_1);
+            if (((num.getLit() != null) && (num.getLit().contains(".") || num.getLit().contains("-")))) {
+              this.fError("Port array index must be natural literal.", vn, 
+                BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
+            }
+          } else {
+            this.fError("Port array index must be natural literal.", vn, 
+              BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
           }
         }
       }
@@ -1577,6 +1771,21 @@ public class BLESSValidator extends AbstractBLESSValidator {
     return _elvis;
   }
 
+  public Type getType(final TypeOrReference tor) {
+    Type _elvis = null;
+    Type _ty = null;
+    if (tor!=null) {
+      _ty=tor.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
+      Type _type = tor.getRef().getType();
+      _elvis = _type;
+    }
+    return _elvis;
+  }
+
   public Type getType(final ParenthesizedSubexpression e) {
     Type _xblockexpression = null;
     {
@@ -1713,7 +1922,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     }
     boolean _isFunc = e.getLabel().isFunc();
     if (_isFunc) {
-      return this._typeUtil.getType(e.getLabel().getTod());
+      return this.getType(e.getLabel().getTod());
     }
     boolean _isEnumer = e.getLabel().isEnumer();
     if (_isEnumer) {
@@ -2161,7 +2370,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id_1 instanceof Variable)) {
         NamedElement _id_2 = a.getId();
         final Variable aid = ((Variable) _id_2);
-        final Type nameRootType = this._typeUtil.getType(aid.getTod());
+        final Type nameRootType = this.getType(aid.getTod());
         boolean _isLb = a.isLb();
         if (_isLb) {
           if ((!(nameRootType instanceof ArrayType))) {
@@ -2186,9 +2395,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _isDot = a.isDot();
           boolean _not = (!_isDot);
           if (_not) {
-            return this._typeUtil.getType(((ArrayType) nameRootType).getTyp());
+            return this.getType(((ArrayType) nameRootType).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) nameRootType).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) nameRootType).getTyp()));
           }
         }
         boolean _isDot_1 = a.isDot();
@@ -2203,7 +2412,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id_3 instanceof GhostVariable)) {
         NamedElement _id_4 = a.getId();
         final GhostVariable aid_1 = ((GhostVariable) _id_4);
-        final Type nameRootType_1 = this._typeUtil.getType(aid_1.getTod());
+        final Type nameRootType_1 = this.getType(aid_1.getTod());
         boolean _isLb_1 = a.isLb();
         if (_isLb_1) {
           if ((!(nameRootType_1 instanceof ArrayType))) {
@@ -2228,9 +2437,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _isDot_2 = a.isDot();
           boolean _not_2 = (!_isDot_2);
           if (_not_2) {
-            return this._typeUtil.getType(((ArrayType) nameRootType_1).getTyp());
+            return this.getType(((ArrayType) nameRootType_1).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) nameRootType_1).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) nameRootType_1).getTyp()));
           }
         }
         boolean _isDot_3 = a.isDot();
@@ -2277,9 +2486,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _isDot_4 = a.isDot();
           boolean _not_4 = (!_isDot_4);
           if (_not_4) {
-            return this._typeUtil.getType(((ArrayType) featureType).getTyp());
+            return this.getType(((ArrayType) featureType).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) featureType).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) featureType).getTyp()));
           }
         }
         boolean _isDot_5 = a.isDot();
@@ -2348,11 +2557,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _equals = field.getLabel().equals(IterableExtensions.<PartialName>head(pn).getRecord_id());
           if (_equals) {
             if (((IterableExtensions.size(pn) == 1) && (!IterableExtensions.<PartialName>head(pn).isLb()))) {
-              return this._typeUtil.getType(field.getTyp());
+              return this.getType(field.getTyp());
             } else {
               boolean _isLb = IterableExtensions.<PartialName>head(pn).isLb();
               if (_isLb) {
-                final Type fieldType = this._typeUtil.getType(field.getTyp());
+                final Type fieldType = this.getType(field.getTyp());
                 if ((!(fieldType instanceof ArrayType))) {
                   String _record_id = IterableExtensions.<PartialName>head(pn).getRecord_id();
                   String _plus = ("Variable field \'" + _record_id);
@@ -2379,10 +2588,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 if (_tripleEquals) {
                   return ((ArrayType) fieldType);
                 } else {
-                  return this.getType(IterableExtensions.<PartialName>tail(pn), this._typeUtil.getType(((ArrayType) fieldType).getTyp()));
+                  return this.getType(IterableExtensions.<PartialName>tail(pn), this.getType(((ArrayType) fieldType).getTyp()));
                 }
               } else {
-                return this.getType(IterableExtensions.<PartialName>tail(pn), this._typeUtil.getType(field.getTyp()));
+                return this.getType(IterableExtensions.<PartialName>tail(pn), this.getType(field.getTyp()));
               }
             }
           }
@@ -2437,6 +2646,22 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public Type getType(final EnumerationValue ev) {
     return ev.getEnumeration_type().getType();
+  }
+
+  public Type getType(final Variable v) {
+    Type _elvis = null;
+    TypeOrReference _tod = v.getTod();
+    Type _ty = null;
+    if (_tod!=null) {
+      _ty=_tod.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
+      Type _type = v.getTod().getRef().getType();
+      _elvis = _type;
+    }
+    return _elvis;
   }
 
   public UnitRecord getUnitRecord(final AddSub a) {
@@ -2862,9 +3087,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
       TypeOrReference _tod = a.getLabel().getTod();
       boolean _tripleNotEquals = (_tod != null);
       if (_tripleNotEquals) {
-        Type _type = this._typeUtil.getType(a.getLabel().getTod());
+        Type _type = this.getType(a.getLabel().getTod());
         if ((_type instanceof QuantityType)) {
-          Type _type_1 = this._typeUtil.getType(a.getLabel().getTod());
+          Type _type_1 = this.getType(a.getLabel().getTod());
           final QuantityType t = ((QuantityType) _type_1);
           UnitName _unit = t.getUnit();
           boolean _tripleNotEquals_1 = (_unit != null);
@@ -3247,7 +3472,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isWhole(final Variable v) {
-    return ((this._typeUtil.getType(v.getTod()) instanceof QuantityType) && ((QuantityType) this._typeUtil.getType(v.getTod())).isWhole());
+    return ((this.getType(v.getTod()) instanceof QuantityType) && ((QuantityType) this.getType(v.getTod())).isWhole());
   }
 
   public boolean isWhole(final ForallVariable v) {
