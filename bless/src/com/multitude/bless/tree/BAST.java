@@ -932,6 +932,7 @@ private static int tab=0;  //tabbing for toStringTree
     return equalsTree(theOtherTree, qvMap);
     } // end of equalsTree
 
+  
   /**
    * compares trees on String equality only modified to match quantified
    * variables
