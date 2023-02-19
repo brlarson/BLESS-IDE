@@ -128,6 +128,7 @@ import org.osate.aadl2.SubprogramSubcomponent
 import com.multitude.aadl.bless.bLESS.BAAlternative
 import com.multitude.aadl.bless.util.BlessUtil
 import com.multitude.aadl.bless.bLESS.FormalExpressionPair
+import com.multitude.aadl.bless.validation.BLESSValidator
 
 //import com.multitude.aadl.bless.bLESS.PortValue
 
@@ -135,7 +136,8 @@ import com.multitude.aadl.bless.bLESS.FormalExpressionPair
 
 class ToAST {
 
-@Inject extension BlessUtil
+@Inject extension BLESSValidator
+//@Inject extension BlessUtil
 //@Inject extension AssertionUtil
 
 public static final ToAST TOAST = new ToAST();	
@@ -2512,7 +2514,19 @@ toAST(Action e)
   def dispatch BAST
 toAST(ActualParameter e)
   {
-   try {  
+   try {
+     if (e.actual.getType.boolean) //if the type is boolean
+   newBAST(e) =>  //create actual_assertion_parameter including COLON_TILDE
+     [  
+     myText = "PARAMETER"
+     token = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER")
+     addChild(newBAST(e) =>  [ myText = "COLON_TILDE" 
+       token = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE")
+     ])
+     addChild(e.formal.makeBASTforID(e)) 
+     addChild(e.actual.toAST) 
+     ]    
+     else 
   newBAST(e) =>  
      [  
   	 myText = "PARAMETER"

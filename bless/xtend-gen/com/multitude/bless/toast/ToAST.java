@@ -126,7 +126,7 @@ import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.VariablesSection;
 import com.multitude.aadl.bless.bLESS.WhenThrow;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
-import com.multitude.aadl.bless.util.BlessUtil;
+import com.multitude.aadl.bless.validation.BLESSValidator;
 import com.multitude.bless.antlr3generated.BLESStoASTLexer;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.tree.BAST;
@@ -159,7 +159,7 @@ import org.osate.aadl2.parsesupport.LocationReference;
 public class ToAST {
   @Inject
   @Extension
-  private BlessUtil _blessUtil;
+  private BLESSValidator _bLESSValidator;
 
   public static final ToAST TOAST = new ToAST();
 
@@ -2520,15 +2520,38 @@ public class ToAST {
   protected BAST _toAST(final ActualParameter e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "PARAMETER";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getFormal(), e));
-        it.addChild(this.toAST(e.getActual()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+      BAST _xifexpression = null;
+      boolean _isBoolean = this._bLESSValidator.isBoolean(this._bLESSValidator.getType(e.getActual()));
+      if (_isBoolean) {
+        BAST _newBAST = this.newBAST(e);
+        final Procedure1<BAST> _function = (BAST it) -> {
+          it.myText = "PARAMETER";
+          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
+          it.token = _commonToken;
+          BAST _newBAST_1 = this.newBAST(e);
+          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+            it_1.myText = "COLON_TILDE";
+            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE");
+            it_1.token = _commonToken_1;
+          };
+          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+          it.addChild(_doubleArrow);
+          it.addChild(this.makeBASTforID(e.getFormal(), e));
+          it.addChild(this.toAST(e.getActual()));
+        };
+        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+      } else {
+        BAST _newBAST_1 = this.newBAST(e);
+        final Procedure1<BAST> _function_1 = (BAST it) -> {
+          it.myText = "PARAMETER";
+          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
+          it.token = _commonToken;
+          it.addChild(this.makeBASTforID(e.getFormal(), e));
+          it.addChild(this.toAST(e.getActual()));
+        };
+        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+      }
+      _xtrycatchfinallyexpression = _xifexpression;
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception ex = (Exception)_t;

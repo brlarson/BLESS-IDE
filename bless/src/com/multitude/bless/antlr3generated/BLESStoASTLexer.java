@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g 2022-12-06 09:13:23
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g 2023-02-18 18:28:22
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class BLESStoASTLexer extends Lexer {
 	public static final int EOF=-1;
-	public static final int T__302=302;
+	public static final int T__304=304;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -38,279 +38,281 @@ public class BLESStoASTLexer extends Lexer {
 	public static final int CARET=26;
 	public static final int CASE_EXPRESSION=27;
 	public static final int COLON=28;
-	public static final int COMMA=29;
-	public static final int COMMACOMMA=30;
-	public static final int COMMADOT=31;
-	public static final int COMPLEX=32;
-	public static final int COMPONENT=33;
-	public static final int CONDITION=34;
-	public static final int CONDITIONAL=35;
-	public static final int CONDITIONAL_FUNCTION=36;
-	public static final int CONNECTION=37;
-	public static final int COUNTING_TRIGGER=38;
-	public static final int DESTINATION=39;
-	public static final int DIGIT=40;
-	public static final int DIVIDE=41;
-	public static final int DOLLAR=42;
-	public static final int DOTCOMMA=43;
-	public static final int DOTDOT=44;
-	public static final int DOUBLE_COLON=45;
-	public static final int DOUBLE_QUOTE=46;
-	public static final int DO_NOT_PROVE=47;
-	public static final int DUMMY=48;
-	public static final int EMPTY_CURLY=49;
-	public static final int END_ASSERTION_PROPERTY=50;
-	public static final int EQ=51;
-	public static final int EXCLAMATION=52;
-	public static final int EXP=53;
-	public static final int EXPONENT=54;
-	public static final int EXTENDED_DIGIT=55;
-	public static final int FLOATING=56;
-	public static final int FUNCTION=57;
-	public static final int FUNCTION_CALL=58;
-	public static final int GT=59;
-	public static final int GUARD=60;
-	public static final int HEX_DIGIT=61;
-	public static final int ID=62;
-	public static final int IMP=63;
-	public static final int INMODE=64;
-	public static final int INOUT=65;
-	public static final int INTEGER_LIT=66;
-	public static final int INT_EXPONENT=67;
-	public static final int INVARIANT=68;
-	public static final int INVOKE=69;
-	public static final int IP_NAME=70;
-	public static final int IP_PE=71;
-	public static final int IP_PRED=72;
-	public static final int LABEL=73;
-	public static final int LASS=74;
-	public static final int LBRACKET=75;
-	public static final int LCON=76;
-	public static final int LCURLY=77;
-	public static final int LITERAL_Assertion=78;
-	public static final int LITERAL_Invariant=79;
-	public static final int LITERAL_Postcondition=80;
-	public static final int LITERAL_Precondition=81;
-	public static final int LITERAL_Typed=82;
-	public static final int LITERAL_aadlboolean=83;
-	public static final int LITERAL_aadlinteger=84;
-	public static final int LITERAL_aadlreal=85;
-	public static final int LITERAL_aadlstring=86;
-	public static final int LITERAL_abs=87;
-	public static final int LITERAL_abstract=88;
-	public static final int LITERAL_access=89;
-	public static final int LITERAL_all=90;
-	public static final int LITERAL_and=91;
-	public static final int LITERAL_annex=92;
-	public static final int LITERAL_any=93;
-	public static final int LITERAL_applies=94;
-	public static final int LITERAL_are=95;
-	public static final int LITERAL_array=96;
-	public static final int LITERAL_assert=97;
-	public static final int LITERAL_availability=98;
-	public static final int LITERAL_boolean=99;
-	public static final int LITERAL_bound=100;
-	public static final int LITERAL_bus=101;
-	public static final int LITERAL_call=102;
-	public static final int LITERAL_calls=103;
-	public static final int LITERAL_cand=104;
-	public static final int LITERAL_catch=105;
-	public static final int LITERAL_classifier=106;
-	public static final int LITERAL_complete=107;
-	public static final int LITERAL_complex=108;
-	public static final int LITERAL_component=109;
-	public static final int LITERAL_computation=110;
-	public static final int LITERAL_connection=111;
-	public static final int LITERAL_connections=112;
-	public static final int LITERAL_constant=113;
-	public static final int LITERAL_cor=114;
-	public static final int LITERAL_count=115;
-	public static final int LITERAL_data=116;
-	public static final int LITERAL_declare=117;
-	public static final int LITERAL_def=118;
-	public static final int LITERAL_delay=119;
-	public static final int LITERAL_device=120;
-	public static final int LITERAL_dispatch=121;
-	public static final int LITERAL_do=122;
-	public static final int LITERAL_else=123;
-	public static final int LITERAL_end=124;
-	public static final int LITERAL_enumeration=125;
-	public static final int LITERAL_event=126;
-	public static final int LITERAL_exception=127;
-	public static final int LITERAL_exists=128;
-	public static final int LITERAL_extends=129;
-	public static final int LITERAL_false=130;
-	public static final int LITERAL_feature=131;
-	public static final int LITERAL_features=132;
-	public static final int LITERAL_fetchadd=133;
-	public static final int LITERAL_fetchand=134;
-	public static final int LITERAL_fetchor=135;
-	public static final int LITERAL_fetchxor=136;
-	public static final int LITERAL_fi=137;
-	public static final int LITERAL_final=138;
-	public static final int LITERAL_flow=139;
-	public static final int LITERAL_flows=140;
-	public static final int LITERAL_for=141;
-	public static final int LITERAL_forall=142;
-	public static final int LITERAL_fresh=143;
-	public static final int LITERAL_function=144;
-	public static final int LITERAL_group=145;
-	public static final int LITERAL_hr=146;
-	public static final int LITERAL_if=147;
-	public static final int LITERAL_iff=148;
-	public static final int LITERAL_implementation=149;
-	public static final int LITERAL_implies=150;
-	public static final int LITERAL_in=151;
-	public static final int LITERAL_inherit=152;
-	public static final int LITERAL_initial=153;
-	public static final int LITERAL_integer=154;
-	public static final int LITERAL_invariant=155;
-	public static final int LITERAL_inverse=156;
-	public static final int LITERAL_is=157;
-	public static final int LITERAL_list=158;
-	public static final int LITERAL_lower_bound=159;
-	public static final int LITERAL_memory=160;
-	public static final int LITERAL_min=161;
-	public static final int LITERAL_mod=162;
-	public static final int LITERAL_mode=163;
-	public static final int LITERAL_modes=164;
-	public static final int LITERAL_ms=165;
-	public static final int LITERAL_natural=166;
-	public static final int LITERAL_none=167;
-	public static final int LITERAL_nonvolatile=168;
-	public static final int LITERAL_not=169;
-	public static final int LITERAL_now=170;
-	public static final int LITERAL_ns=171;
-	public static final int LITERAL_null=172;
-	public static final int LITERAL_numberof=173;
-	public static final int LITERAL_of=174;
-	public static final int LITERAL_on=175;
-	public static final int LITERAL_or=176;
-	public static final int LITERAL_out=177;
-	public static final int LITERAL_package=178;
-	public static final int LITERAL_parameter=179;
-	public static final int LITERAL_pause=180;
-	public static final int LITERAL_port=181;
-	public static final int LITERAL_post=182;
-	public static final int LITERAL_pre=183;
-	public static final int LITERAL_private=184;
-	public static final int LITERAL_procedure=185;
-	public static final int LITERAL_process=186;
-	public static final int LITERAL_processor=187;
-	public static final int LITERAL_product=188;
-	public static final int LITERAL_properties=189;
-	public static final int LITERAL_property=190;
-	public static final int LITERAL_prototypes=191;
-	public static final int LITERAL_provides=192;
-	public static final int LITERAL_ps=193;
-	public static final int LITERAL_public=194;
-	public static final int LITERAL_range=195;
-	public static final int LITERAL_rational=196;
-	public static final int LITERAL_real=197;
-	public static final int LITERAL_record=198;
-	public static final int LITERAL_reference=199;
-	public static final int LITERAL_rem=200;
-	public static final int LITERAL_renames=201;
-	public static final int LITERAL_requires=202;
-	public static final int LITERAL_sec=203;
-	public static final int LITERAL_self=204;
-	public static final int LITERAL_sequence=205;
-	public static final int LITERAL_set=206;
-	public static final int LITERAL_setmode=207;
-	public static final int LITERAL_shared=208;
-	public static final int LITERAL_skip=209;
-	public static final int LITERAL_spread=210;
-	public static final int LITERAL_state=211;
-	public static final int LITERAL_states=212;
-	public static final int LITERAL_stop=213;
-	public static final int LITERAL_string=214;
-	public static final int LITERAL_subcomponents=215;
-	public static final int LITERAL_subprogram=216;
-	public static final int LITERAL_sum=217;
-	public static final int LITERAL_swap=218;
-	public static final int LITERAL_system=219;
-	public static final int LITERAL_that=220;
-	public static final int LITERAL_then=221;
-	public static final int LITERAL_thread=222;
-	public static final int LITERAL_throw=223;
-	public static final int LITERAL_time=224;
-	public static final int LITERAL_timeout=225;
-	public static final int LITERAL_to=226;
-	public static final int LITERAL_tops=227;
-	public static final int LITERAL_transition=228;
-	public static final int LITERAL_transitions=229;
-	public static final int LITERAL_true=230;
-	public static final int LITERAL_type=231;
-	public static final int LITERAL_units=232;
-	public static final int LITERAL_until=233;
-	public static final int LITERAL_updated=234;
-	public static final int LITERAL_upper_bound=235;
-	public static final int LITERAL_us=236;
-	public static final int LITERAL_variables=237;
-	public static final int LITERAL_variant=238;
-	public static final int LITERAL_virtual=239;
-	public static final int LITERAL_when=240;
-	public static final int LITERAL_while=241;
-	public static final int LITERAL_with=242;
-	public static final int LITERAL_xor=243;
-	public static final int LPAREN=244;
-	public static final int LT=245;
-	public static final int LTE_STRING=246;
-	public static final int LT_STRING=247;
-	public static final int MINUS=248;
-	public static final int MT_STRING=249;
-	public static final int NEQ=250;
-	public static final int OBLIGATION=251;
-	public static final int OCTOTHORPE=252;
-	public static final int ON=253;
-	public static final int P=254;
-	public static final int PARAMETER=255;
-	public static final int PARAMETERS=256;
-	public static final int PERIOD=257;
-	public static final int PLUS=258;
-	public static final int PLUS_ARROW=259;
-	public static final int PLUS_EQUALS=260;
-	public static final int PORT=261;
-	public static final int PORT_INPUT=262;
-	public static final int PORT_OUTPUT=263;
-	public static final int PREDICATE_RELATION=264;
-	public static final int PROCEDURE=265;
-	public static final int PROCEDURE_CALL=266;
-	public static final int PROPERTY_LIST=267;
-	public static final int Q=268;
-	public static final int QQ=269;
-	public static final int QUESTION=270;
-	public static final int RASS=271;
-	public static final int RATIONAL=272;
-	public static final int RBRACKET=273;
-	public static final int RCON=274;
-	public static final int RCURLY=275;
-	public static final int REAL_LIT=276;
-	public static final int RECORD_VALUE=277;
-	public static final int RPAREN=278;
-	public static final int S=279;
-	public static final int SEMICOLON=280;
-	public static final int SLCOMMENT=281;
-	public static final int SOURCE=282;
-	public static final int START=283;
-	public static final int START_ASSERTION_PROPERTY=284;
-	public static final int STOP=285;
-	public static final int SUBCOMPONENT=286;
-	public static final int SUBPROGRAM_ANNEX=287;
-	public static final int THREAD_ANNEX=288;
-	public static final int THREAD_GROUP=289;
-	public static final int TICK=290;
-	public static final int TILDE=291;
-	public static final int TIMES=292;
-	public static final int TOP=293;
-	public static final int TRANSITION=294;
-	public static final int TYPE=295;
-	public static final int TYPE_OPERATOR=296;
-	public static final int TYPE_OPERATOR_INVOCATION=297;
-	public static final int UNARY_MINUS=298;
-	public static final int VALUE=299;
-	public static final int WP=300;
-	public static final int WS=301;
+	public static final int COLON_TILDE=29;
+	public static final int COMMA=30;
+	public static final int COMMACOMMA=31;
+	public static final int COMMADOT=32;
+	public static final int COMPLEX=33;
+	public static final int COMPONENT=34;
+	public static final int CONDITION=35;
+	public static final int CONDITIONAL=36;
+	public static final int CONDITIONAL_FUNCTION=37;
+	public static final int CONNECTION=38;
+	public static final int COUNTING_TRIGGER=39;
+	public static final int DESTINATION=40;
+	public static final int DIGIT=41;
+	public static final int DIVIDE=42;
+	public static final int DOLLAR=43;
+	public static final int DOTCOMMA=44;
+	public static final int DOTDOT=45;
+	public static final int DOUBLE_COLON=46;
+	public static final int DOUBLE_QUOTE=47;
+	public static final int DO_NOT_PROVE=48;
+	public static final int DUMMY=49;
+	public static final int EMPTY_CURLY=50;
+	public static final int END_ASSERTION_PROPERTY=51;
+	public static final int EQ=52;
+	public static final int EXCLAMATION=53;
+	public static final int EXP=54;
+	public static final int EXPONENT=55;
+	public static final int EXTENDED_DIGIT=56;
+	public static final int FLOATING=57;
+	public static final int FUNCTION=58;
+	public static final int FUNCTION_CALL=59;
+	public static final int GT=60;
+	public static final int GUARD=61;
+	public static final int HEX_DIGIT=62;
+	public static final int ID=63;
+	public static final int IMP=64;
+	public static final int INMODE=65;
+	public static final int INOUT=66;
+	public static final int INTEGER_LIT=67;
+	public static final int INT_EXPONENT=68;
+	public static final int INVARIANT=69;
+	public static final int INVOKE=70;
+	public static final int INVOKE_FUNCTION=71;
+	public static final int IP_NAME=72;
+	public static final int IP_PE=73;
+	public static final int IP_PRED=74;
+	public static final int LABEL=75;
+	public static final int LASS=76;
+	public static final int LBRACKET=77;
+	public static final int LCON=78;
+	public static final int LCURLY=79;
+	public static final int LITERAL_Assertion=80;
+	public static final int LITERAL_Invariant=81;
+	public static final int LITERAL_Postcondition=82;
+	public static final int LITERAL_Precondition=83;
+	public static final int LITERAL_Typed=84;
+	public static final int LITERAL_aadlboolean=85;
+	public static final int LITERAL_aadlinteger=86;
+	public static final int LITERAL_aadlreal=87;
+	public static final int LITERAL_aadlstring=88;
+	public static final int LITERAL_abs=89;
+	public static final int LITERAL_abstract=90;
+	public static final int LITERAL_access=91;
+	public static final int LITERAL_all=92;
+	public static final int LITERAL_and=93;
+	public static final int LITERAL_annex=94;
+	public static final int LITERAL_any=95;
+	public static final int LITERAL_applies=96;
+	public static final int LITERAL_are=97;
+	public static final int LITERAL_array=98;
+	public static final int LITERAL_assert=99;
+	public static final int LITERAL_availability=100;
+	public static final int LITERAL_boolean=101;
+	public static final int LITERAL_bound=102;
+	public static final int LITERAL_bus=103;
+	public static final int LITERAL_call=104;
+	public static final int LITERAL_calls=105;
+	public static final int LITERAL_cand=106;
+	public static final int LITERAL_catch=107;
+	public static final int LITERAL_classifier=108;
+	public static final int LITERAL_complete=109;
+	public static final int LITERAL_complex=110;
+	public static final int LITERAL_component=111;
+	public static final int LITERAL_computation=112;
+	public static final int LITERAL_connection=113;
+	public static final int LITERAL_connections=114;
+	public static final int LITERAL_constant=115;
+	public static final int LITERAL_cor=116;
+	public static final int LITERAL_count=117;
+	public static final int LITERAL_data=118;
+	public static final int LITERAL_declare=119;
+	public static final int LITERAL_def=120;
+	public static final int LITERAL_delay=121;
+	public static final int LITERAL_device=122;
+	public static final int LITERAL_dispatch=123;
+	public static final int LITERAL_do=124;
+	public static final int LITERAL_else=125;
+	public static final int LITERAL_end=126;
+	public static final int LITERAL_enumeration=127;
+	public static final int LITERAL_event=128;
+	public static final int LITERAL_exception=129;
+	public static final int LITERAL_exists=130;
+	public static final int LITERAL_extends=131;
+	public static final int LITERAL_false=132;
+	public static final int LITERAL_feature=133;
+	public static final int LITERAL_features=134;
+	public static final int LITERAL_fetchadd=135;
+	public static final int LITERAL_fetchand=136;
+	public static final int LITERAL_fetchor=137;
+	public static final int LITERAL_fetchxor=138;
+	public static final int LITERAL_fi=139;
+	public static final int LITERAL_final=140;
+	public static final int LITERAL_flow=141;
+	public static final int LITERAL_flows=142;
+	public static final int LITERAL_for=143;
+	public static final int LITERAL_forall=144;
+	public static final int LITERAL_fresh=145;
+	public static final int LITERAL_function=146;
+	public static final int LITERAL_group=147;
+	public static final int LITERAL_hr=148;
+	public static final int LITERAL_if=149;
+	public static final int LITERAL_iff=150;
+	public static final int LITERAL_implementation=151;
+	public static final int LITERAL_implies=152;
+	public static final int LITERAL_in=153;
+	public static final int LITERAL_inherit=154;
+	public static final int LITERAL_initial=155;
+	public static final int LITERAL_integer=156;
+	public static final int LITERAL_invariant=157;
+	public static final int LITERAL_inverse=158;
+	public static final int LITERAL_is=159;
+	public static final int LITERAL_list=160;
+	public static final int LITERAL_lower_bound=161;
+	public static final int LITERAL_memory=162;
+	public static final int LITERAL_min=163;
+	public static final int LITERAL_mod=164;
+	public static final int LITERAL_mode=165;
+	public static final int LITERAL_modes=166;
+	public static final int LITERAL_ms=167;
+	public static final int LITERAL_natural=168;
+	public static final int LITERAL_none=169;
+	public static final int LITERAL_nonvolatile=170;
+	public static final int LITERAL_not=171;
+	public static final int LITERAL_now=172;
+	public static final int LITERAL_ns=173;
+	public static final int LITERAL_null=174;
+	public static final int LITERAL_numberof=175;
+	public static final int LITERAL_of=176;
+	public static final int LITERAL_on=177;
+	public static final int LITERAL_or=178;
+	public static final int LITERAL_out=179;
+	public static final int LITERAL_package=180;
+	public static final int LITERAL_parameter=181;
+	public static final int LITERAL_pause=182;
+	public static final int LITERAL_port=183;
+	public static final int LITERAL_post=184;
+	public static final int LITERAL_pre=185;
+	public static final int LITERAL_private=186;
+	public static final int LITERAL_procedure=187;
+	public static final int LITERAL_process=188;
+	public static final int LITERAL_processor=189;
+	public static final int LITERAL_product=190;
+	public static final int LITERAL_properties=191;
+	public static final int LITERAL_property=192;
+	public static final int LITERAL_prototypes=193;
+	public static final int LITERAL_provides=194;
+	public static final int LITERAL_ps=195;
+	public static final int LITERAL_public=196;
+	public static final int LITERAL_range=197;
+	public static final int LITERAL_rational=198;
+	public static final int LITERAL_real=199;
+	public static final int LITERAL_record=200;
+	public static final int LITERAL_reference=201;
+	public static final int LITERAL_rem=202;
+	public static final int LITERAL_renames=203;
+	public static final int LITERAL_requires=204;
+	public static final int LITERAL_sec=205;
+	public static final int LITERAL_self=206;
+	public static final int LITERAL_sequence=207;
+	public static final int LITERAL_set=208;
+	public static final int LITERAL_setmode=209;
+	public static final int LITERAL_shared=210;
+	public static final int LITERAL_skip=211;
+	public static final int LITERAL_spread=212;
+	public static final int LITERAL_state=213;
+	public static final int LITERAL_states=214;
+	public static final int LITERAL_stop=215;
+	public static final int LITERAL_string=216;
+	public static final int LITERAL_subcomponents=217;
+	public static final int LITERAL_subprogram=218;
+	public static final int LITERAL_sum=219;
+	public static final int LITERAL_swap=220;
+	public static final int LITERAL_system=221;
+	public static final int LITERAL_that=222;
+	public static final int LITERAL_then=223;
+	public static final int LITERAL_thread=224;
+	public static final int LITERAL_throw=225;
+	public static final int LITERAL_time=226;
+	public static final int LITERAL_timeout=227;
+	public static final int LITERAL_to=228;
+	public static final int LITERAL_tops=229;
+	public static final int LITERAL_transition=230;
+	public static final int LITERAL_transitions=231;
+	public static final int LITERAL_true=232;
+	public static final int LITERAL_type=233;
+	public static final int LITERAL_units=234;
+	public static final int LITERAL_until=235;
+	public static final int LITERAL_updated=236;
+	public static final int LITERAL_upper_bound=237;
+	public static final int LITERAL_us=238;
+	public static final int LITERAL_variables=239;
+	public static final int LITERAL_variant=240;
+	public static final int LITERAL_virtual=241;
+	public static final int LITERAL_when=242;
+	public static final int LITERAL_while=243;
+	public static final int LITERAL_with=244;
+	public static final int LITERAL_xor=245;
+	public static final int LPAREN=246;
+	public static final int LT=247;
+	public static final int LTE_STRING=248;
+	public static final int LT_STRING=249;
+	public static final int MINUS=250;
+	public static final int MT_STRING=251;
+	public static final int NEQ=252;
+	public static final int OBLIGATION=253;
+	public static final int OCTOTHORPE=254;
+	public static final int ON=255;
+	public static final int P=256;
+	public static final int PARAMETER=257;
+	public static final int PARAMETERS=258;
+	public static final int PERIOD=259;
+	public static final int PLUS=260;
+	public static final int PLUS_ARROW=261;
+	public static final int PLUS_EQUALS=262;
+	public static final int PORT=263;
+	public static final int PORT_INPUT=264;
+	public static final int PORT_OUTPUT=265;
+	public static final int PREDICATE_RELATION=266;
+	public static final int PROCEDURE=267;
+	public static final int PROCEDURE_CALL=268;
+	public static final int PROPERTY_LIST=269;
+	public static final int Q=270;
+	public static final int QQ=271;
+	public static final int QUESTION=272;
+	public static final int RASS=273;
+	public static final int RATIONAL=274;
+	public static final int RBRACKET=275;
+	public static final int RCON=276;
+	public static final int RCURLY=277;
+	public static final int REAL_LIT=278;
+	public static final int RECORD_VALUE=279;
+	public static final int RPAREN=280;
+	public static final int S=281;
+	public static final int SEMICOLON=282;
+	public static final int SLCOMMENT=283;
+	public static final int SOURCE=284;
+	public static final int START=285;
+	public static final int START_ASSERTION_PROPERTY=286;
+	public static final int STOP=287;
+	public static final int SUBCOMPONENT=288;
+	public static final int SUBPROGRAM_ANNEX=289;
+	public static final int THREAD_ANNEX=290;
+	public static final int THREAD_GROUP=291;
+	public static final int TICK=292;
+	public static final int TILDE=293;
+	public static final int TIMES=294;
+	public static final int TOP=295;
+	public static final int TRANSITION=296;
+	public static final int TYPE=297;
+	public static final int TYPE_OPERATOR=298;
+	public static final int TYPE_OPERATOR_INVOCATION=299;
+	public static final int UNARY_MINUS=300;
+	public static final int VALUE=301;
+	public static final int WP=302;
+	public static final int WS=303;
 
 	  
 	  public static final int COMMENT_CHANNEL=10;
@@ -345,10 +347,10 @@ public class BLESStoASTLexer extends Lexer {
 	}
 	@Override public String getGrammarFileName() { return "/Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g"; }
 
-	// $ANTLR start "T__302"
-	public final void mT__302() throws RecognitionException {
+	// $ANTLR start "T__304"
+	public final void mT__304() throws RecognitionException {
 		try {
-			int _type = T__302;
+			int _type = T__304;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:30:8: ( '|' )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:30:10: '|'
@@ -363,7 +365,7 @@ public class BLESStoASTLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__302"
+	// $ANTLR end "T__304"
 
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
@@ -1474,13 +1476,34 @@ public class BLESStoASTLexer extends Lexer {
 	}
 	// $ANTLR end "OCTOTHORPE"
 
+	// $ANTLR start "COLON_TILDE"
+	public final void mCOLON_TILDE() throws RecognitionException {
+		try {
+			int _type = COLON_TILDE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:375:13: ( ':~' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:375:15: ':~'
+			{
+			match(":~"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "COLON_TILDE"
+
 	// $ANTLR start "DOUBLE_QUOTE"
 	public final void mDOUBLE_QUOTE() throws RecognitionException {
 		try {
 			int _type = DOUBLE_QUOTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:376:14: ( '\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:376:16: '\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:378:14: ( '\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:378:16: '\"'
 			{
 			match('\"'); 
 			}
@@ -1499,8 +1522,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = ANNEX_START;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:378:12: ( '{**' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:378:14: '{**'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:380:12: ( '{**' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:380:14: '{**'
 			{
 			match("{**"); 
 
@@ -1520,8 +1543,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = ANNEX_END;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:379:10: ( '**}' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:379:12: '**}'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:381:10: ( '**}' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:381:12: '**}'
 			{
 			match("**}"); 
 
@@ -1541,8 +1564,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = DO_NOT_PROVE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:381:13: ( 'DO_NOT_PROVE' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:381:15: 'DO_NOT_PROVE'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:383:13: ( 'DO_NOT_PROVE' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:383:15: 'DO_NOT_PROVE'
 			{
 			match("DO_NOT_PROVE"); 
 
@@ -1562,8 +1585,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_mod;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:389:13: ( 'mod' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:389:15: 'mod'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:391:13: ( 'mod' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:391:15: 'mod'
 			{
 			match("mod"); 
 
@@ -1583,8 +1606,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_rem;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:390:13: ( 'rem' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:390:15: 'rem'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:392:13: ( 'rem' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:392:15: 'rem'
 			{
 			match("rem"); 
 
@@ -1604,8 +1627,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_and;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:391:13: ( 'and' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:391:15: 'and'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:393:13: ( 'and' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:393:15: 'and'
 			{
 			match("and"); 
 
@@ -1625,8 +1648,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_or;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:392:12: ( 'or' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:392:14: 'or'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:394:12: ( 'or' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:394:14: 'or'
 			{
 			match("or"); 
 
@@ -1646,8 +1669,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_xor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:393:13: ( 'xor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:393:15: 'xor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:395:13: ( 'xor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:395:15: 'xor'
 			{
 			match("xor"); 
 
@@ -1667,8 +1690,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_cand;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:394:14: ( 'cand' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:394:16: 'cand'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:396:14: ( 'cand' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:396:16: 'cand'
 			{
 			match("cand"); 
 
@@ -1688,8 +1711,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_cor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:395:13: ( 'cor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:395:15: 'cor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:397:13: ( 'cor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:397:15: 'cor'
 			{
 			match("cor"); 
 
@@ -1709,8 +1732,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_record;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:398:16: ( 'record' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:398:18: 'record'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:400:16: ( 'record' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:400:18: 'record'
 			{
 			match("record"); 
 
@@ -1730,8 +1753,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_true;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:399:14: ( 'true' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:399:16: 'true'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:401:14: ( 'true' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:401:16: 'true'
 			{
 			match("true"); 
 
@@ -1751,8 +1774,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_false;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:400:15: ( 'false' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:400:17: 'false'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:402:15: ( 'false' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:402:17: 'false'
 			{
 			match("false"); 
 
@@ -1772,8 +1795,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_states;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:401:16: ( 'states' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:401:18: 'states'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:403:16: ( 'states' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:403:18: 'states'
 			{
 			match("states"); 
 
@@ -1793,8 +1816,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_assert;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:402:16: ( 'assert' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:402:18: 'assert'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:404:16: ( 'assert' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:404:18: 'assert'
 			{
 			match("assert"); 
 
@@ -1814,8 +1837,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_availability;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:403:22: ( 'availability' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:403:24: 'availability'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:405:22: ( 'availability' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:405:24: 'availability'
 			{
 			match("availability"); 
 
@@ -1835,8 +1858,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_invariant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:404:19: ( 'invariant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:404:21: 'invariant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:406:19: ( 'invariant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:406:21: 'invariant'
 			{
 			match("invariant"); 
 
@@ -1856,8 +1879,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_variables;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:405:19: ( 'variables' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:405:21: 'variables'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:407:19: ( 'variables' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:407:21: 'variables'
 			{
 			match("variables"); 
 
@@ -1877,8 +1900,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_nonvolatile;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:406:21: ( 'nonvolatile' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:406:23: 'nonvolatile'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:408:21: ( 'nonvolatile' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:408:23: 'nonvolatile'
 			{
 			match("nonvolatile"); 
 
@@ -1898,8 +1921,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_shared;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:407:16: ( 'shared' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:407:18: 'shared'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:409:16: ( 'shared' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:409:18: 'shared'
 			{
 			match("shared"); 
 
@@ -1919,8 +1942,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_skip;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:408:14: ( 'skip' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:408:16: 'skip'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:410:14: ( 'skip' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:410:16: 'skip'
 			{
 			match("skip"); 
 
@@ -1940,8 +1963,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_setmode;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:409:17: ( 'setmode' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:409:19: 'setmode'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:411:17: ( 'setmode' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:411:19: 'setmode'
 			{
 			match("setmode"); 
 
@@ -1961,8 +1984,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_not;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:410:13: ( 'not' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:410:15: 'not'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:412:13: ( 'not' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:412:15: 'not'
 			{
 			match("not"); 
 
@@ -1982,8 +2005,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_units;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:411:15: ( 'units' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:411:17: 'units'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:413:15: ( 'units' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:413:17: 'units'
 			{
 			match("units"); 
 
@@ -2003,8 +2026,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_pre;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:412:13: ( 'pre' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:412:15: 'pre'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:414:13: ( 'pre' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:414:15: 'pre'
 			{
 			match("pre"); 
 
@@ -2024,8 +2047,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_post;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:413:14: ( 'post' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:413:16: 'post'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:415:14: ( 'post' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:415:16: 'post'
 			{
 			match("post"); 
 
@@ -2045,8 +2068,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_forall;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:414:16: ( 'forall' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:414:18: 'forall'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:416:16: ( 'forall' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:416:18: 'forall'
 			{
 			match("forall"); 
 
@@ -2066,8 +2089,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_for;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:415:13: ( 'for' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:415:15: 'for'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:417:13: ( 'for' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:417:15: 'for'
 			{
 			match("for"); 
 
@@ -2087,8 +2110,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_if;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:416:12: ( 'if' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:416:14: 'if'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:418:12: ( 'if' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:418:14: 'if'
 			{
 			match("if"); 
 
@@ -2108,8 +2131,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fi;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:417:12: ( 'fi' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:417:14: 'fi'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:419:12: ( 'fi' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:419:14: 'fi'
 			{
 			match("fi"); 
 
@@ -2129,8 +2152,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_while;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:418:15: ( 'while' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:418:17: 'while'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:420:15: ( 'while' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:420:17: 'while'
 			{
 			match("while"); 
 
@@ -2150,8 +2173,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_do;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:419:12: ( 'do' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:419:14: 'do'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:421:12: ( 'do' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:421:14: 'do'
 			{
 			match("do"); 
 
@@ -2171,8 +2194,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_until;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:420:15: ( 'until' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:420:17: 'until'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:422:15: ( 'until' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:422:17: 'until'
 			{
 			match("until"); 
 
@@ -2192,8 +2215,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:421:15: ( 'bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:421:17: 'bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:423:15: ( 'bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:423:17: 'bound'
 			{
 			match("bound"); 
 
@@ -2213,8 +2236,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_declare;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:422:17: ( 'declare' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:422:19: 'declare'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:424:17: ( 'declare' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:424:19: 'declare'
 			{
 			match("declare"); 
 
@@ -2234,8 +2257,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_exists;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:423:16: ( 'exists' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:423:18: 'exists'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:425:16: ( 'exists' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:425:18: 'exists'
 			{
 			match("exists"); 
 
@@ -2255,8 +2278,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_that;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:424:14: ( 'that' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:424:16: 'that'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:426:14: ( 'that' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:426:16: 'that'
 			{
 			match("that"); 
 
@@ -2276,8 +2299,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_type;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:425:14: ( 'type' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:425:16: 'type'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:427:14: ( 'type' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:427:16: 'type'
 			{
 			match("type"); 
 
@@ -2297,8 +2320,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_in;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:426:12: ( 'in' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:426:14: 'in'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:428:12: ( 'in' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:428:14: 'in'
 			{
 			match("in"); 
 
@@ -2318,8 +2341,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_transitions;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:427:21: ( 'transitions' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:427:23: 'transitions'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:429:21: ( 'transitions' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:429:23: 'transitions'
 			{
 			match("transitions"); 
 
@@ -2339,8 +2362,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_all;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:428:13: ( 'all' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:428:15: 'all'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:430:13: ( 'all' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:430:15: 'all'
 			{
 			match("all"); 
 
@@ -2360,8 +2383,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_are;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:429:13: ( 'are' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:429:15: 'are'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:431:13: ( 'are' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:431:15: 'are'
 			{
 			match("are"); 
 
@@ -2381,8 +2404,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_dispatch;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:430:18: ( 'dispatch' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:430:20: 'dispatch'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:432:18: ( 'dispatch' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:432:20: 'dispatch'
 			{
 			match("dispatch"); 
 
@@ -2402,8 +2425,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_now;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:431:13: ( 'now' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:431:15: 'now'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:433:13: ( 'now' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:433:15: 'now'
 			{
 			match("now"); 
 
@@ -2423,8 +2446,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_timeout;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:432:17: ( 'timeout' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:432:19: 'timeout'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:434:17: ( 'timeout' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:434:19: 'timeout'
 			{
 			match("timeout"); 
 
@@ -2444,8 +2467,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_state;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:433:15: ( 'state' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:433:17: 'state'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:435:15: ( 'state' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:435:17: 'state'
 			{
 			match("state"); 
 
@@ -2465,8 +2488,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_stop;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:434:14: ( 'stop' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:434:16: 'stop'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:436:14: ( 'stop' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:436:16: 'stop'
 			{
 			match("stop"); 
 
@@ -2486,8 +2509,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_computation;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:435:21: ( 'computation' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:435:23: 'computation'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:437:21: ( 'computation' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:437:23: 'computation'
 			{
 			match("computation"); 
 
@@ -2507,8 +2530,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_delay;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:436:15: ( 'delay' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:436:17: 'delay'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:438:15: ( 'delay' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:438:17: 'delay'
 			{
 			match("delay"); 
 
@@ -2528,8 +2551,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_implies;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:437:16: ( 'implies' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:437:18: 'implies'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:439:16: ( 'implies' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:439:18: 'implies'
 			{
 			match("implies"); 
 
@@ -2549,8 +2572,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_iff;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:438:12: ( 'iff' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:438:14: 'iff'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:440:12: ( 'iff' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:440:14: 'iff'
 			{
 			match("iff"); 
 
@@ -2570,8 +2593,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_tops;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:439:13: ( 'tops' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:439:15: 'tops'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:441:13: ( 'tops' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:441:15: 'tops'
 			{
 			match("tops"); 
 
@@ -2591,8 +2614,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_sum;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:440:12: ( 'sum' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:440:14: 'sum'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:442:12: ( 'sum' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:442:14: 'sum'
 			{
 			match("sum"); 
 
@@ -2612,8 +2635,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_product;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:441:16: ( 'product' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:441:18: 'product'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:443:16: ( 'product' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:443:18: 'product'
 			{
 			match("product"); 
 
@@ -2633,8 +2656,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_numberof;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:442:17: ( 'numberof' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:442:19: 'numberof'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:444:17: ( 'numberof' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:444:19: 'numberof'
 			{
 			match("numberof"); 
 
@@ -2654,8 +2677,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_initial;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:445:16: ( 'initial' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:445:18: 'initial'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:447:16: ( 'initial' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:447:18: 'initial'
 			{
 			match("initial"); 
 
@@ -2675,8 +2698,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_complete;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:446:17: ( 'complete' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:446:19: 'complete'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:448:17: ( 'complete' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:448:19: 'complete'
 			{
 			match("complete"); 
 
@@ -2696,8 +2719,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_final;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:447:14: ( 'final' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:447:16: 'final'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:449:14: ( 'final' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:449:16: 'final'
 			{
 			match("final"); 
 
@@ -2717,8 +2740,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_prototypes;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:451:19: ( 'prototypes' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:451:21: 'prototypes'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:453:19: ( 'prototypes' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:453:21: 'prototypes'
 			{
 			match("prototypes"); 
 
@@ -2738,8 +2761,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_features;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:452:17: ( 'features' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:452:19: 'features'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:454:17: ( 'features' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:454:19: 'features'
 			{
 			match("features"); 
 
@@ -2759,8 +2782,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_flows;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:453:14: ( 'flows' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:453:16: 'flows'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:455:14: ( 'flows' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:455:16: 'flows'
 			{
 			match("flows"); 
 
@@ -2780,8 +2803,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_properties;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:454:19: ( 'properties' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:454:21: 'properties'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:456:19: ( 'properties' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:456:21: 'properties'
 			{
 			match("properties"); 
 
@@ -2801,8 +2824,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_abstract;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:455:17: ( 'abstract' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:455:19: 'abstract'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:457:17: ( 'abstract' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:457:19: 'abstract'
 			{
 			match("abstract"); 
 
@@ -2822,8 +2845,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_data;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:456:13: ( 'data' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:456:15: 'data'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:458:13: ( 'data' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:458:15: 'data'
 			{
 			match("data"); 
 
@@ -2843,8 +2866,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_subprogram;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:457:19: ( 'subprogram' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:457:21: 'subprogram'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:459:19: ( 'subprogram' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:459:21: 'subprogram'
 			{
 			match("subprogram"); 
 
@@ -2864,8 +2887,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_group;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:458:14: ( 'group' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:458:16: 'group'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:460:14: ( 'group' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:460:16: 'group'
 			{
 			match("group"); 
 
@@ -2885,8 +2908,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_thread;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:459:15: ( 'thread' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:459:17: 'thread'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:461:15: ( 'thread' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:461:17: 'thread'
 			{
 			match("thread"); 
 
@@ -2906,8 +2929,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_process;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:460:16: ( 'process' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:460:18: 'process'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:462:16: ( 'process' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:462:18: 'process'
 			{
 			match("process"); 
 
@@ -2927,8 +2950,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_memory;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:461:15: ( 'memory' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:461:17: 'memory'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:463:15: ( 'memory' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:463:17: 'memory'
 			{
 			match("memory"); 
 
@@ -2948,8 +2971,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_processor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:462:18: ( 'processor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:462:20: 'processor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:464:18: ( 'processor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:464:20: 'processor'
 			{
 			match("processor"); 
 
@@ -2969,8 +2992,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_bus;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:463:12: ( 'bus' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:463:14: 'bus'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:465:12: ( 'bus' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:465:14: 'bus'
 			{
 			match("bus"); 
 
@@ -2990,8 +3013,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_device;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:464:15: ( 'device' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:464:17: 'device'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:466:15: ( 'device' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:466:17: 'device'
 			{
 			match("device"); 
 
@@ -3011,8 +3034,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_virtual;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:465:16: ( 'virtual' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:465:18: 'virtual'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:467:16: ( 'virtual' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:467:18: 'virtual'
 			{
 			match("virtual"); 
 
@@ -3032,8 +3055,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_system;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:466:15: ( 'system' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:466:17: 'system'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:468:15: ( 'system' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:468:17: 'system'
 			{
 			match("system"); 
 
@@ -3053,8 +3076,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_port;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:467:13: ( 'port' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:467:15: 'port'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:469:13: ( 'port' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:469:15: 'port'
 			{
 			match("port"); 
 
@@ -3074,8 +3097,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_out;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:468:12: ( 'out' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:468:14: 'out'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:470:12: ( 'out' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:470:14: 'out'
 			{
 			match("out"); 
 
@@ -3095,8 +3118,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_event;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:469:14: ( 'event' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:469:16: 'event'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:471:14: ( 'event' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:471:16: 'event'
 			{
 			match("event"); 
 
@@ -3116,8 +3139,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_constant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:470:17: ( 'constant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:470:19: 'constant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:472:17: ( 'constant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:472:19: 'constant'
 			{
 			match("constant"); 
 
@@ -3137,8 +3160,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_end;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:471:12: ( 'end' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:471:15: 'end'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:473:12: ( 'end' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:473:15: 'end'
 			{
 			match("end"); 
 
@@ -3158,8 +3181,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_annex;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:472:14: ( 'annex' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:472:16: 'annex'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:474:14: ( 'annex' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:474:16: 'annex'
 			{
 			match("annex"); 
 
@@ -3179,8 +3202,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_none;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:473:13: ( 'none' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:473:15: 'none'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:475:13: ( 'none' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:475:15: 'none'
 			{
 			match("none"); 
 
@@ -3200,8 +3223,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_modes;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:474:14: ( 'modes' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:474:17: 'modes'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:476:14: ( 'modes' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:476:17: 'modes'
 			{
 			match("modes"); 
 
@@ -3221,8 +3244,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_natural;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:476:16: ( 'natural' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:476:18: 'natural'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:478:16: ( 'natural' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:478:18: 'natural'
 			{
 			match("natural"); 
 
@@ -3242,8 +3265,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_integer;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:477:16: ( 'integer' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:477:18: 'integer'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:479:16: ( 'integer' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:479:18: 'integer'
 			{
 			match("integer"); 
 
@@ -3263,8 +3286,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_rational;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:478:17: ( 'rational' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:478:19: 'rational'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:480:17: ( 'rational' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:480:19: 'rational'
 			{
 			match("rational"); 
 
@@ -3284,8 +3307,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_real;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:479:13: ( 'real' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:479:15: 'real'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:481:13: ( 'real' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:481:15: 'real'
 			{
 			match("real"); 
 
@@ -3305,8 +3328,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_complex;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:480:16: ( 'complex' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:480:18: 'complex'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:482:16: ( 'complex' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:482:18: 'complex'
 			{
 			match("complex"); 
 
@@ -3326,8 +3349,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_time;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:481:13: ( 'time' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:481:15: 'time'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:483:13: ( 'time' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:483:15: 'time'
 			{
 			match("time"); 
 
@@ -3347,8 +3370,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_with;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:483:13: ( 'with' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:483:15: 'with'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:485:13: ( 'with' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:485:15: 'with'
 			{
 			match("with"); 
 
@@ -3368,8 +3391,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_implementation;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:484:23: ( 'implementation' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:484:25: 'implementation'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:486:23: ( 'implementation' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:486:25: 'implementation'
 			{
 			match("implementation"); 
 
@@ -3389,8 +3412,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_package;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:485:16: ( 'package' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:485:18: 'package'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:487:16: ( 'package' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:487:18: 'package'
 			{
 			match("package"); 
 
@@ -3410,8 +3433,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_public;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:486:15: ( 'public' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:486:17: 'public'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:488:15: ( 'public' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:488:17: 'public'
 			{
 			match("public"); 
 
@@ -3431,8 +3454,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_parameter;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:487:18: ( 'parameter' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:487:20: 'parameter'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:489:18: ( 'parameter' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:489:20: 'parameter'
 			{
 			match("parameter"); 
 
@@ -3452,8 +3475,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_feature;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:488:16: ( 'feature' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:488:18: 'feature'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:490:16: ( 'feature' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:490:18: 'feature'
 			{
 			match("feature"); 
 
@@ -3473,8 +3496,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_renames;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:489:16: ( 'renames' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:489:18: 'renames'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:491:16: ( 'renames' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:491:18: 'renames'
 			{
 			match("renames"); 
 
@@ -3494,8 +3517,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_private;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:490:16: ( 'private' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:490:18: 'private'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:492:16: ( 'private' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:492:18: 'private'
 			{
 			match("private"); 
 
@@ -3515,8 +3538,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_provides;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:491:17: ( 'provides' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:491:19: 'provides'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:493:17: ( 'provides' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:493:19: 'provides'
 			{
 			match("provides"); 
 
@@ -3536,8 +3559,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_requires;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:492:17: ( 'requires' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:492:19: 'requires'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:494:17: ( 'requires' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:494:19: 'requires'
 			{
 			match("requires"); 
 
@@ -3557,8 +3580,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_access;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:493:15: ( 'access' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:493:17: 'access'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:495:15: ( 'access' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:495:17: 'access'
 			{
 			match("access"); 
 
@@ -3578,8 +3601,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_subcomponents;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:494:22: ( 'subcomponents' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:494:24: 'subcomponents'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:496:22: ( 'subcomponents' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:496:24: 'subcomponents'
 			{
 			match("subcomponents"); 
 
@@ -3599,8 +3622,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_calls;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:495:14: ( 'calls' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:495:16: 'calls'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:497:14: ( 'calls' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:497:16: 'calls'
 			{
 			match("calls"); 
 
@@ -3620,8 +3643,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_connections;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:496:20: ( 'connections' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:496:22: 'connections'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:498:20: ( 'connections' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:498:22: 'connections'
 			{
 			match("connections"); 
 
@@ -3641,8 +3664,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_self;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:497:13: ( 'self' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:497:15: 'self'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:499:13: ( 'self' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:499:15: 'self'
 			{
 			match("self"); 
 
@@ -3662,8 +3685,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_property;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:498:17: ( 'property' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:498:19: 'property'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:500:17: ( 'property' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:500:19: 'property'
 			{
 			match("property"); 
 
@@ -3683,8 +3706,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_set;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:499:12: ( 'set' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:499:14: 'set'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:501:12: ( 'set' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:501:14: 'set'
 			{
 			match("set"); 
 
@@ -3704,8 +3727,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_is;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:500:11: ( 'is' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:500:13: 'is'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:502:11: ( 'is' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:502:13: 'is'
 			{
 			match("is"); 
 
@@ -3725,8 +3748,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlboolean;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:501:20: ( 'aadlboolean' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:501:22: 'aadlboolean'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:503:20: ( 'aadlboolean' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:503:22: 'aadlboolean'
 			{
 			match("aadlboolean"); 
 
@@ -3746,8 +3769,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlstring;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:502:19: ( 'aadlstring' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:502:21: 'aadlstring'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:504:19: ( 'aadlstring' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:504:21: 'aadlstring'
 			{
 			match("aadlstring"); 
 
@@ -3767,8 +3790,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlinteger;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:503:20: ( 'aadlinteger' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:503:22: 'aadlinteger'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:505:20: ( 'aadlinteger' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:505:22: 'aadlinteger'
 			{
 			match("aadlinteger"); 
 
@@ -3788,8 +3811,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlreal;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:504:17: ( 'aadlreal' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:504:19: 'aadlreal'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:506:17: ( 'aadlreal' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:506:19: 'aadlreal'
 			{
 			match("aadlreal"); 
 
@@ -3809,8 +3832,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_range;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:505:14: ( 'range' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:505:16: 'range'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:507:14: ( 'range' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:507:16: 'range'
 			{
 			match("range"); 
 
@@ -3830,8 +3853,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_inverse;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:506:16: ( 'inverse' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:506:18: 'inverse'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:508:16: ( 'inverse' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:508:18: 'inverse'
 			{
 			match("inverse"); 
 
@@ -3851,8 +3874,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_of;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:507:11: ( 'of' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:507:13: 'of'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:509:11: ( 'of' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:509:13: 'of'
 			{
 			match("of"); 
 
@@ -3872,8 +3895,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_classifier;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:508:19: ( 'classifier' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:508:21: 'classifier'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:510:19: ( 'classifier' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:510:21: 'classifier'
 			{
 			match("classifier"); 
 
@@ -3893,8 +3916,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_applies;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:509:16: ( 'applies' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:509:18: 'applies'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:511:16: ( 'applies' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:511:18: 'applies'
 			{
 			match("applies"); 
 
@@ -3914,8 +3937,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_to;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:510:11: ( 'to' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:510:13: 'to'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:512:11: ( 'to' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:512:13: 'to'
 			{
 			match("to"); 
 
@@ -3935,8 +3958,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_list;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:511:13: ( 'list' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:511:15: 'list'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:513:13: ( 'list' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:513:15: 'list'
 			{
 			match("list"); 
 
@@ -3956,8 +3979,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_connection;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:512:19: ( 'connection' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:512:21: 'connection'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:514:19: ( 'connection' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:514:21: 'connection'
 			{
 			match("connection"); 
 
@@ -3977,8 +4000,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_flow;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:513:13: ( 'flow' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:513:15: 'flow'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:515:13: ( 'flow' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:515:15: 'flow'
 			{
 			match("flow"); 
 
@@ -3998,8 +4021,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_inherit;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:514:16: ( 'inherit' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:514:18: 'inherit'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:516:16: ( 'inherit' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:516:18: 'inherit'
 			{
 			match("inherit"); 
 
@@ -4019,8 +4042,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_reference;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:515:18: ( 'reference' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:515:20: 'reference'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:517:18: ( 'reference' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:517:20: 'reference'
 			{
 			match("reference"); 
 
@@ -4040,8 +4063,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_component;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:516:18: ( 'component' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:516:20: 'component'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:518:18: ( 'component' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:518:20: 'component'
 			{
 			match("component"); 
 
@@ -4061,8 +4084,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_call;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:517:13: ( 'call' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:517:15: 'call'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:519:13: ( 'call' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:519:15: 'call'
 			{
 			match("call"); 
 
@@ -4082,8 +4105,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_sequence;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:518:17: ( 'sequence' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:518:19: 'sequence'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:520:17: ( 'sequence' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:520:19: 'sequence'
 			{
 			match("sequence"); 
 
@@ -4103,8 +4126,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_transition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:519:19: ( 'transition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:519:21: 'transition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:521:19: ( 'transition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:521:21: 'transition'
 			{
 			match("transition"); 
 
@@ -4124,8 +4147,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_mode;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:520:13: ( 'mode' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:520:15: 'mode'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:522:13: ( 'mode' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:522:15: 'mode'
 			{
 			match("mode"); 
 
@@ -4145,8 +4168,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_extends;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:521:16: ( 'extends' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:521:18: 'extends'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:523:16: ( 'extends' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:523:18: 'extends'
 			{
 			match("extends"); 
 
@@ -4166,8 +4189,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_array;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:524:14: ( 'array' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:524:16: 'array'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:526:14: ( 'array' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:526:16: 'array'
 			{
 			match("array"); 
 
@@ -4187,8 +4210,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_variant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:525:16: ( 'variant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:525:18: 'variant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:527:16: ( 'variant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:527:18: 'variant'
 			{
 			match("variant"); 
 
@@ -4208,8 +4231,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_boolean;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:526:16: ( 'boolean' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:526:19: 'boolean'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:528:16: ( 'boolean' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:528:19: 'boolean'
 			{
 			match("boolean"); 
 
@@ -4229,8 +4252,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_string;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:527:15: ( 'string' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:527:18: 'string'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:529:15: ( 'string' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:529:18: 'string'
 			{
 			match("string"); 
 
@@ -4250,8 +4273,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_catch;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:530:15: ( 'catch' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:530:16: 'catch'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:532:15: ( 'catch' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:532:16: 'catch'
 			{
 			match("catch"); 
 
@@ -4271,8 +4294,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_when;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:531:14: ( 'when' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:531:15: 'when'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:533:14: ( 'when' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:533:15: 'when'
 			{
 			match("when"); 
 
@@ -4292,8 +4315,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_throw;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:532:15: ( 'throw' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:532:16: 'throw'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:534:15: ( 'throw' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:534:16: 'throw'
 			{
 			match("throw"); 
 
@@ -4313,8 +4336,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_null;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:535:14: ( 'null' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:535:15: 'null'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:537:14: ( 'null' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:537:15: 'null'
 			{
 			match("null"); 
 
@@ -4334,8 +4357,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_enumeration;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:536:20: ( 'enumeration' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:536:22: 'enumeration'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:538:20: ( 'enumeration' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:538:22: 'enumeration'
 			{
 			match("enumeration"); 
 
@@ -4355,8 +4378,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_count;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:537:14: ( 'count' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:537:16: 'count'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:539:14: ( 'count' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:539:16: 'count'
 			{
 			match("count"); 
 
@@ -4376,8 +4399,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fresh;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:538:14: ( 'fresh' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:538:16: 'fresh'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:540:14: ( 'fresh' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:540:16: 'fresh'
 			{
 			match("fresh"); 
 
@@ -4397,8 +4420,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_updated;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:539:16: ( 'updated' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:539:18: 'updated'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:541:16: ( 'updated' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:541:18: 'updated'
 			{
 			match("updated"); 
 
@@ -4418,8 +4441,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchadd;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:542:17: ( 'fetchadd' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:542:19: 'fetchadd'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:544:17: ( 'fetchadd' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:544:19: 'fetchadd'
 			{
 			match("fetchadd"); 
 
@@ -4439,8 +4462,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:543:16: ( 'fetchor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:543:18: 'fetchor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:545:16: ( 'fetchor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:545:18: 'fetchor'
 			{
 			match("fetchor"); 
 
@@ -4460,8 +4483,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchand;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:544:17: ( 'fetchand' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:544:19: 'fetchand'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:546:17: ( 'fetchand' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:546:19: 'fetchand'
 			{
 			match("fetchand"); 
 
@@ -4481,8 +4504,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchxor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:545:17: ( 'fetchxor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:545:19: 'fetchxor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:547:17: ( 'fetchxor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:547:19: 'fetchxor'
 			{
 			match("fetchxor"); 
 
@@ -4502,8 +4525,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_swap;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:546:13: ( 'swap' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:546:15: 'swap'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:548:13: ( 'swap' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:548:15: 'swap'
 			{
 			match("swap"); 
 
@@ -4523,8 +4546,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_spread;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:547:15: ( 'spread' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:547:17: 'spread'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:549:15: ( 'spread' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:549:17: 'spread'
 			{
 			match("spread"); 
 
@@ -4544,8 +4567,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_def;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:551:12: ( 'def' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:551:14: 'def'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:553:12: ( 'def' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:553:14: 'def'
 			{
 			match("def"); 
 
@@ -4565,8 +4588,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_Typed;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:554:14: ( 'Typed' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:554:16: 'Typed'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:556:14: ( 'Typed' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:556:16: 'Typed'
 			{
 			match("Typed"); 
 
@@ -4586,8 +4609,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_Precondition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:555:21: ( 'Precondition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:555:23: 'Precondition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:557:21: ( 'Precondition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:557:23: 'Precondition'
 			{
 			match("Precondition"); 
 
@@ -4607,8 +4630,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_Postcondition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:556:22: ( 'Postcondition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:556:24: 'Postcondition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:558:22: ( 'Postcondition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:558:24: 'Postcondition'
 			{
 			match("Postcondition"); 
 
@@ -4628,8 +4651,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_Assertion;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:557:18: ( 'Assertion' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:557:20: 'Assertion'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:559:18: ( 'Assertion' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:559:20: 'Assertion'
 			{
 			match("Assertion"); 
 
@@ -4649,8 +4672,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_Invariant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:558:18: ( 'Invariant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:558:20: 'Invariant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:560:18: ( 'Invariant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:560:20: 'Invariant'
 			{
 			match("Invariant"); 
 
@@ -4670,8 +4693,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_ps;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:561:11: ( 'ps' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:561:13: 'ps'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:563:11: ( 'ps' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:563:13: 'ps'
 			{
 			match("ps"); 
 
@@ -4691,8 +4714,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_ns;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:562:11: ( 'ns' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:562:13: 'ns'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:564:11: ( 'ns' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:564:13: 'ns'
 			{
 			match("ns"); 
 
@@ -4712,8 +4735,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_us;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:563:11: ( 'us' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:563:13: 'us'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:565:11: ( 'us' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:565:13: 'us'
 			{
 			match("us"); 
 
@@ -4733,8 +4756,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_ms;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:564:11: ( 'ms' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:564:13: 'ms'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:566:11: ( 'ms' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:566:13: 'ms'
 			{
 			match("ms"); 
 
@@ -4754,8 +4777,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_sec;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:565:12: ( 'sec' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:565:14: 'sec'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:567:12: ( 'sec' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:567:14: 'sec'
 			{
 			match("sec"); 
 
@@ -4775,8 +4798,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_min;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:566:12: ( 'min' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:566:14: 'min'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:568:12: ( 'min' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:568:14: 'min'
 			{
 			match("min"); 
 
@@ -4796,8 +4819,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_hr;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:567:11: ( 'hr' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:567:13: 'hr'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:569:11: ( 'hr' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:569:13: 'hr'
 			{
 			match("hr"); 
 
@@ -4817,8 +4840,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_then;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:570:13: ( 'then' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:570:15: 'then'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:572:13: ( 'then' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:572:15: 'then'
 			{
 			match("then"); 
 
@@ -4838,8 +4861,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_else;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:571:13: ( 'else' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:571:15: 'else'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:573:13: ( 'else' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:573:15: 'else'
 			{
 			match("else"); 
 
@@ -4859,8 +4882,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_pause;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:574:14: ( 'pause' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:574:17: 'pause'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:576:14: ( 'pause' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:576:17: 'pause'
 			{
 			match("pause"); 
 
@@ -4880,8 +4903,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_exception;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:576:18: ( 'exception' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:576:20: 'exception'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:578:18: ( 'exception' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:578:20: 'exception'
 			{
 			match("exception"); 
 
@@ -4901,8 +4924,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_abs;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:578:12: ( 'abs' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:578:15: 'abs'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:580:12: ( 'abs' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:580:15: 'abs'
 			{
 			match("abs"); 
 
@@ -4922,8 +4945,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_upper_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:580:20: ( 'upper_bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:580:23: 'upper_bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:582:20: ( 'upper_bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:582:23: 'upper_bound'
 			{
 			match("upper_bound"); 
 
@@ -4943,8 +4966,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_lower_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:581:20: ( 'lower_bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:581:23: 'lower_bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:583:20: ( 'lower_bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:583:23: 'lower_bound'
 			{
 			match("lower_bound"); 
 
@@ -4964,8 +4987,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_any;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:584:12: ( 'any' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:584:15: 'any'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:586:12: ( 'any' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:586:15: 'any'
 			{
 			match("any"); 
 
@@ -4985,8 +5008,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LITERAL_on;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:586:11: ( 'on' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:586:14: 'on'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:588:11: ( 'on' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:588:14: 'on'
 			{
 			match("on"); 
 
@@ -5006,8 +5029,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:590:4: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:590:7: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:592:4: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:592:7: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -5017,7 +5040,7 @@ public class BLESStoASTLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:591:3: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:593:3: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			loop16:
 			while (true) {
 				int alt16=2;
@@ -5060,7 +5083,7 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:598:9: ( ( '0' .. '9' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:600:9: ( ( '0' .. '9' ) )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -5083,8 +5106,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "EXPONENT"
 	public final void mEXPONENT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:601:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:601:15: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:603:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:603:15: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -5094,7 +5117,7 @@ public class BLESStoASTLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:601:25: ( '+' | '-' )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:603:25: ( '+' | '-' )?
 			int alt17=2;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0=='+'||LA17_0=='-') ) {
@@ -5117,7 +5140,7 @@ public class BLESStoASTLexer extends Lexer {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:601:36: ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:603:36: ( DIGIT )+
 			int cnt18=0;
 			loop18:
 			while (true) {
@@ -5162,8 +5185,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "INT_EXPONENT"
 	public final void mINT_EXPONENT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:604:15: ( ( 'e' | 'E' ) ( '+' )? ( DIGIT )+ )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:604:18: ( 'e' | 'E' ) ( '+' )? ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:606:15: ( ( 'e' | 'E' ) ( '+' )? ( DIGIT )+ )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:606:18: ( 'e' | 'E' ) ( '+' )? ( DIGIT )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -5173,7 +5196,7 @@ public class BLESStoASTLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:604:28: ( '+' )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:606:28: ( '+' )?
 			int alt19=2;
 			int LA19_0 = input.LA(1);
 			if ( (LA19_0=='+') ) {
@@ -5181,7 +5204,7 @@ public class BLESStoASTLexer extends Lexer {
 			}
 			switch (alt19) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:604:29: '+'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:606:29: '+'
 					{
 					match('+'); 
 					}
@@ -5189,7 +5212,7 @@ public class BLESStoASTLexer extends Lexer {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:604:35: ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:606:35: ( DIGIT )+
 			int cnt20=0;
 			loop20:
 			while (true) {
@@ -5234,7 +5257,7 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "EXTENDED_DIGIT"
 	public final void mEXTENDED_DIGIT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:615:20: ( ( DIGIT | 'a' .. 'f' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:617:20: ( ( DIGIT | 'a' .. 'f' ) )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -5257,8 +5280,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "BASED_INTEGER"
 	public final void mBASED_INTEGER() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:20: ( ( EXTENDED_DIGIT ) ( ( '_' )? EXTENDED_DIGIT )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:23: ( EXTENDED_DIGIT ) ( ( '_' )? EXTENDED_DIGIT )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:20: ( ( EXTENDED_DIGIT ) ( ( '_' )? EXTENDED_DIGIT )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:23: ( EXTENDED_DIGIT ) ( ( '_' )? EXTENDED_DIGIT )*
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
 				input.consume();
@@ -5268,7 +5291,7 @@ public class BLESStoASTLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:42: ( ( '_' )? EXTENDED_DIGIT )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:42: ( ( '_' )? EXTENDED_DIGIT )*
 			loop22:
 			while (true) {
 				int alt22=2;
@@ -5279,9 +5302,9 @@ public class BLESStoASTLexer extends Lexer {
 
 				switch (alt22) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:44: ( '_' )? EXTENDED_DIGIT
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:44: ( '_' )? EXTENDED_DIGIT
 					{
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:44: ( '_' )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:44: ( '_' )?
 					int alt21=2;
 					int LA21_0 = input.LA(1);
 					if ( (LA21_0=='_') ) {
@@ -5289,7 +5312,7 @@ public class BLESStoASTLexer extends Lexer {
 					}
 					switch (alt21) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:618:45: '_'
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:620:45: '_'
 							{
 							match('_'); 
 							}
@@ -5319,12 +5342,12 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "BASE"
 	public final void mBASE() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:621:13: ( DIGIT ( DIGIT )? )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:621:15: DIGIT ( DIGIT )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:623:13: ( DIGIT ( DIGIT )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:623:15: DIGIT ( DIGIT )?
 			{
 			mDIGIT(); 
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:621:21: ( DIGIT )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:623:21: ( DIGIT )?
 			int alt23=2;
 			int LA23_0 = input.LA(1);
 			if ( ((LA23_0 >= '0' && LA23_0 <= '9')) ) {
@@ -5361,8 +5384,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = START_ASSERTION_PROPERTY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:623:26: ( '\"<<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:623:28: '\"<<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:625:26: ( '\"<<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:625:28: '\"<<'
 			{
 			match("\"<<"); 
 
@@ -5382,8 +5405,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = END_ASSERTION_PROPERTY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:625:24: ( '>>\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:625:26: '>>\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:627:24: ( '>>\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:627:26: '>>\"'
 			{
 			match(">>\""); 
 
@@ -5401,8 +5424,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "LT_STRING"
 	public final void mLT_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:650:11: ( '\"<\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:650:13: '\"<\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:652:11: ( '\"<\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:652:13: '\"<\"'
 			{
 			match("\"<\""); 
 
@@ -5418,8 +5441,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "LTE_STRING"
 	public final void mLTE_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:653:12: ( '\"<=\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:653:14: '\"<=\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:655:12: ( '\"<=\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:655:14: '\"<=\"'
 			{
 			match("\"<=\""); 
 
@@ -5435,8 +5458,8 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "MT_STRING"
 	public final void mMT_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:656:11: ( '\"\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:656:13: '\"\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:658:11: ( '\"\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:658:13: '\"\"'
 			{
 			match("\"\""); 
 
@@ -5452,7 +5475,7 @@ public class BLESStoASTLexer extends Lexer {
 	// $ANTLR start "AADL_STRING_PART"
 	public final void mAADL_STRING_PART() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:659:18: ( LT_STRING | LTE_STRING | MT_STRING | '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:661:18: ( LT_STRING | LTE_STRING | MT_STRING | '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' ) )
 			int alt25=4;
 			int LA25_0 = input.LA(1);
 			if ( (LA25_0=='\"') ) {
@@ -5518,28 +5541,28 @@ public class BLESStoASTLexer extends Lexer {
 
 			switch (alt25) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:660:1: LT_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:1: LT_STRING
 					{
 					mLT_STRING(); 
 
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:660:13: LTE_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:13: LTE_STRING
 					{
 					mLTE_STRING(); 
 
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:660:26: MT_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:26: MT_STRING
 					{
 					mMT_STRING(); 
 
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:1: '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:1: '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' )
 					{
 					match('\"'); 
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= ';')||(input.LA(1) >= '=' && input.LA(1) <= '\uFFFF') ) {
@@ -5550,10 +5573,10 @@ public class BLESStoASTLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:12: ( ( '\"\"' |~ ( '\"' ) )* '\"' )
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:14: ( '\"\"' |~ ( '\"' ) )* '\"'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:12: ( ( '\"\"' |~ ( '\"' ) )* '\"' )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:14: ( '\"\"' |~ ( '\"' ) )* '\"'
 					{
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:14: ( '\"\"' |~ ( '\"' ) )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:14: ( '\"\"' |~ ( '\"' ) )*
 					loop24:
 					while (true) {
 						int alt24=3;
@@ -5571,14 +5594,14 @@ public class BLESStoASTLexer extends Lexer {
 
 						switch (alt24) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:16: '\"\"'
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:16: '\"\"'
 							{
 							match("\"\""); 
 
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:662:23: ~ ( '\"' )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:664:23: ~ ( '\"' )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -5623,19 +5646,19 @@ public class BLESStoASTLexer extends Lexer {
 
 			StringBuffer sb = new StringBuffer();
 			         boolean hasMore=false;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:668:3: (p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:669:3: p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:670:3: (p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:671:3: p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )*
 			{
-			int pStart1884 = getCharIndex();
-			int pStartLine1884 = getLine();
-			int pStartCharPos1884 = getCharPositionInLine();
+			int pStart1891 = getCharIndex();
+			int pStartLine1891 = getLine();
+			int pStartCharPos1891 = getCharPositionInLine();
 			mAADL_STRING_PART(); 
-			p = new CommonToken(input, Token.INVALID_TOKEN_TYPE, Token.DEFAULT_CHANNEL, pStart1884, getCharIndex()-1);
-			p.setLine(pStartLine1884);
-			p.setCharPositionInLine(pStartCharPos1884);
+			p = new CommonToken(input, Token.INVALID_TOKEN_TYPE, Token.DEFAULT_CHANNEL, pStart1891, getCharIndex()-1);
+			p.setLine(pStartLine1891);
+			p.setCharPositionInLine(pStartCharPos1891);
 
 			sb.append(p.getText());
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:671:3: ( '+' r= AADL_STRING_PART )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:673:3: ( '+' r= AADL_STRING_PART )*
 			loop26:
 			while (true) {
 				int alt26=2;
@@ -5646,16 +5669,16 @@ public class BLESStoASTLexer extends Lexer {
 
 				switch (alt26) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:671:5: '+' r= AADL_STRING_PART
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:673:5: '+' r= AADL_STRING_PART
 					{
 					match('+'); 
-					int rStart1901 = getCharIndex();
-					int rStartLine1901 = getLine();
-					int rStartCharPos1901 = getCharPositionInLine();
+					int rStart1908 = getCharIndex();
+					int rStartLine1908 = getLine();
+					int rStartCharPos1908 = getCharPositionInLine();
 					mAADL_STRING_PART(); 
-					r = new CommonToken(input, Token.INVALID_TOKEN_TYPE, Token.DEFAULT_CHANNEL, rStart1901, getCharIndex()-1);
-					r.setLine(rStartLine1901);
-					r.setCharPositionInLine(rStartCharPos1901);
+					r = new CommonToken(input, Token.INVALID_TOKEN_TYPE, Token.DEFAULT_CHANNEL, rStart1908, getCharIndex()-1);
+					r.setLine(rStartLine1908);
+					r.setCharPositionInLine(rStartCharPos1908);
 
 					sb.append(r.getText()); hasMore=true;
 					}
@@ -5684,8 +5707,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:678:4: ( '<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:678:7: '<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:680:4: ( '<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:680:7: '<'
 			{
 			match('<'); 
 			}
@@ -5704,8 +5727,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:679:4: ( '>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:679:7: '>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:681:4: ( '>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:681:7: '>'
 			{
 			match('>'); 
 			}
@@ -5724,8 +5747,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = TICK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:681:6: ( '\\'' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:681:8: '\\''
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:683:6: ( '\\'' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:683:8: '\\''
 			{
 			match('\''); 
 			}
@@ -5744,8 +5767,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = ARROW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:683:7: ( '=>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:683:9: '=>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:685:7: ( '=>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:685:9: '=>'
 			{
 			match("=>"); 
 
@@ -5765,8 +5788,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = IMP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:685:5: ( '->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:685:7: '->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:687:5: ( '->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:687:7: '->'
 			{
 			match("->"); 
 
@@ -5786,8 +5809,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = BI;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:687:4: ( '<->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:687:6: '<->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:689:4: ( '<->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:689:6: '<->'
 			{
 			match("<->"); 
 
@@ -5807,8 +5830,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = EQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:689:4: ( '=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:689:6: '='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:691:4: ( '=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:691:6: '='
 			{
 			match('='); 
 			}
@@ -5827,8 +5850,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = NEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:692:5: ( '<>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:692:7: '<>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:694:5: ( '<>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:694:7: '<>'
 			{
 			match("<>"); 
 
@@ -5848,8 +5871,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = AM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:695:4: ( '<=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:695:6: '<='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:697:4: ( '<=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:697:6: '<='
 			{
 			match("<="); 
 
@@ -5869,8 +5892,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = AL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:697:4: ( '>=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:697:6: '>='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:699:4: ( '>=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:699:6: '>='
 			{
 			match(">="); 
 
@@ -5890,8 +5913,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = PLUS_EQUALS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:699:13: ( '+=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:699:15: '+='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:701:13: ( '+=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:701:15: '+='
 			{
 			match("+="); 
 
@@ -5911,8 +5934,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LCON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:701:6: ( '-[' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:701:8: '-['
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:703:6: ( '-[' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:703:8: '-['
 			{
 			match("-["); 
 
@@ -5932,8 +5955,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = RCON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:703:6: ( ']->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:703:8: ']->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:705:6: ( ']->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:705:8: ']->'
 			{
 			match("]->"); 
 
@@ -5953,8 +5976,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = BOX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:705:5: ( '[]' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:705:7: '[]'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:707:5: ( '[]' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:707:7: '[]'
 			{
 			match("[]"); 
 
@@ -5974,8 +5997,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = EXCLAMATION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:707:13: ( '!' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:707:15: '!'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:709:13: ( '!' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:709:15: '!'
 			{
 			match('!'); 
 			}
@@ -5994,8 +6017,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = QUESTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:709:10: ( '?' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:709:12: '?'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:711:10: ( '?' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:711:12: '?'
 			{
 			match('?'); 
 			}
@@ -6014,8 +6037,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = GUARD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:711:7: ( ')~>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:711:9: ')~>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:713:7: ( ')~>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:713:9: ')~>'
 			{
 			match(")~>"); 
 
@@ -6035,8 +6058,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = LASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:713:6: ( '<<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:713:8: '<<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:715:6: ( '<<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:715:8: '<<'
 			{
 			match("<<"); 
 
@@ -6056,8 +6079,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = RASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:715:6: ( '>>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:715:8: '>>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:717:6: ( '>>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:717:8: '>>'
 			{
 			match(">>"); 
 
@@ -6077,8 +6100,8 @@ public class BLESStoASTLexer extends Lexer {
 		try {
 			int _type = QQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:717:4: ( '??' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:717:6: '??'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:719:4: ( '??' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:719:6: '??'
 			{
 			match("??"); 
 
@@ -6095,14 +6118,14 @@ public class BLESStoASTLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:8: ( T__302 | WS | SLCOMMENT | REAL_LIT | INTEGER_LIT | PERIOD | DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA | PLUS_ARROW | PLUS | TIMES | MINUS | DIVIDE | EXP | ASSIGN | SEMICOLON | AMPERSAND | LCURLY | RCURLY | LPAREN | RPAREN | LBRACKET | RBRACKET | COLON | DOUBLE_COLON | COMMA | AT_SIGN | CARET | EMPTY_CURLY | DOLLAR | TILDE | OCTOTHORPE | DOUBLE_QUOTE | ANNEX_START | ANNEX_END | DO_NOT_PROVE | LITERAL_mod | LITERAL_rem | LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor | LITERAL_record | LITERAL_true | LITERAL_false | LITERAL_states | LITERAL_assert | LITERAL_availability | LITERAL_invariant | LITERAL_variables | LITERAL_nonvolatile | LITERAL_shared | LITERAL_skip | LITERAL_setmode | LITERAL_not | LITERAL_units | LITERAL_pre | LITERAL_post | LITERAL_forall | LITERAL_for | LITERAL_if | LITERAL_fi | LITERAL_while | LITERAL_do | LITERAL_until | LITERAL_bound | LITERAL_declare | LITERAL_exists | LITERAL_that | LITERAL_type | LITERAL_in | LITERAL_transitions | LITERAL_all | LITERAL_are | LITERAL_dispatch | LITERAL_now | LITERAL_timeout | LITERAL_state | LITERAL_stop | LITERAL_computation | LITERAL_delay | LITERAL_implies | LITERAL_iff | LITERAL_tops | LITERAL_sum | LITERAL_product | LITERAL_numberof | LITERAL_initial | LITERAL_complete | LITERAL_final | LITERAL_prototypes | LITERAL_features | LITERAL_flows | LITERAL_properties | LITERAL_abstract | LITERAL_data | LITERAL_subprogram | LITERAL_group | LITERAL_thread | LITERAL_process | LITERAL_memory | LITERAL_processor | LITERAL_bus | LITERAL_device | LITERAL_virtual | LITERAL_system | LITERAL_port | LITERAL_out | LITERAL_event | LITERAL_constant | LITERAL_end | LITERAL_annex | LITERAL_none | LITERAL_modes | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | LITERAL_with | LITERAL_implementation | LITERAL_package | LITERAL_public | LITERAL_parameter | LITERAL_feature | LITERAL_renames | LITERAL_private | LITERAL_provides | LITERAL_requires | LITERAL_access | LITERAL_subcomponents | LITERAL_calls | LITERAL_connections | LITERAL_self | LITERAL_property | LITERAL_set | LITERAL_is | LITERAL_aadlboolean | LITERAL_aadlstring | LITERAL_aadlinteger | LITERAL_aadlreal | LITERAL_range | LITERAL_inverse | LITERAL_of | LITERAL_classifier | LITERAL_applies | LITERAL_to | LITERAL_list | LITERAL_connection | LITERAL_flow | LITERAL_inherit | LITERAL_reference | LITERAL_component | LITERAL_call | LITERAL_sequence | LITERAL_transition | LITERAL_mode | LITERAL_extends | LITERAL_array | LITERAL_variant | LITERAL_boolean | LITERAL_string | LITERAL_catch | LITERAL_when | LITERAL_throw | LITERAL_null | LITERAL_enumeration | LITERAL_count | LITERAL_fresh | LITERAL_updated | LITERAL_fetchadd | LITERAL_fetchor | LITERAL_fetchand | LITERAL_fetchxor | LITERAL_swap | LITERAL_spread | LITERAL_def | LITERAL_Typed | LITERAL_Precondition | LITERAL_Postcondition | LITERAL_Assertion | LITERAL_Invariant | LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr | LITERAL_then | LITERAL_else | LITERAL_pause | LITERAL_exception | LITERAL_abs | LITERAL_upper_bound | LITERAL_lower_bound | LITERAL_any | LITERAL_on | ID | START_ASSERTION_PROPERTY | END_ASSERTION_PROPERTY | AADL_STRING_LITERAL | LT | GT | TICK | ARROW | IMP | BI | EQ | NEQ | AM | AL | PLUS_EQUALS | LCON | RCON | BOX | EXCLAMATION | QUESTION | GUARD | LASS | RASS | QQ )
-		int alt27=226;
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:8: ( T__304 | WS | SLCOMMENT | REAL_LIT | INTEGER_LIT | PERIOD | DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA | PLUS_ARROW | PLUS | TIMES | MINUS | DIVIDE | EXP | ASSIGN | SEMICOLON | AMPERSAND | LCURLY | RCURLY | LPAREN | RPAREN | LBRACKET | RBRACKET | COLON | DOUBLE_COLON | COMMA | AT_SIGN | CARET | EMPTY_CURLY | DOLLAR | TILDE | OCTOTHORPE | COLON_TILDE | DOUBLE_QUOTE | ANNEX_START | ANNEX_END | DO_NOT_PROVE | LITERAL_mod | LITERAL_rem | LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor | LITERAL_record | LITERAL_true | LITERAL_false | LITERAL_states | LITERAL_assert | LITERAL_availability | LITERAL_invariant | LITERAL_variables | LITERAL_nonvolatile | LITERAL_shared | LITERAL_skip | LITERAL_setmode | LITERAL_not | LITERAL_units | LITERAL_pre | LITERAL_post | LITERAL_forall | LITERAL_for | LITERAL_if | LITERAL_fi | LITERAL_while | LITERAL_do | LITERAL_until | LITERAL_bound | LITERAL_declare | LITERAL_exists | LITERAL_that | LITERAL_type | LITERAL_in | LITERAL_transitions | LITERAL_all | LITERAL_are | LITERAL_dispatch | LITERAL_now | LITERAL_timeout | LITERAL_state | LITERAL_stop | LITERAL_computation | LITERAL_delay | LITERAL_implies | LITERAL_iff | LITERAL_tops | LITERAL_sum | LITERAL_product | LITERAL_numberof | LITERAL_initial | LITERAL_complete | LITERAL_final | LITERAL_prototypes | LITERAL_features | LITERAL_flows | LITERAL_properties | LITERAL_abstract | LITERAL_data | LITERAL_subprogram | LITERAL_group | LITERAL_thread | LITERAL_process | LITERAL_memory | LITERAL_processor | LITERAL_bus | LITERAL_device | LITERAL_virtual | LITERAL_system | LITERAL_port | LITERAL_out | LITERAL_event | LITERAL_constant | LITERAL_end | LITERAL_annex | LITERAL_none | LITERAL_modes | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | LITERAL_with | LITERAL_implementation | LITERAL_package | LITERAL_public | LITERAL_parameter | LITERAL_feature | LITERAL_renames | LITERAL_private | LITERAL_provides | LITERAL_requires | LITERAL_access | LITERAL_subcomponents | LITERAL_calls | LITERAL_connections | LITERAL_self | LITERAL_property | LITERAL_set | LITERAL_is | LITERAL_aadlboolean | LITERAL_aadlstring | LITERAL_aadlinteger | LITERAL_aadlreal | LITERAL_range | LITERAL_inverse | LITERAL_of | LITERAL_classifier | LITERAL_applies | LITERAL_to | LITERAL_list | LITERAL_connection | LITERAL_flow | LITERAL_inherit | LITERAL_reference | LITERAL_component | LITERAL_call | LITERAL_sequence | LITERAL_transition | LITERAL_mode | LITERAL_extends | LITERAL_array | LITERAL_variant | LITERAL_boolean | LITERAL_string | LITERAL_catch | LITERAL_when | LITERAL_throw | LITERAL_null | LITERAL_enumeration | LITERAL_count | LITERAL_fresh | LITERAL_updated | LITERAL_fetchadd | LITERAL_fetchor | LITERAL_fetchand | LITERAL_fetchxor | LITERAL_swap | LITERAL_spread | LITERAL_def | LITERAL_Typed | LITERAL_Precondition | LITERAL_Postcondition | LITERAL_Assertion | LITERAL_Invariant | LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr | LITERAL_then | LITERAL_else | LITERAL_pause | LITERAL_exception | LITERAL_abs | LITERAL_upper_bound | LITERAL_lower_bound | LITERAL_any | LITERAL_on | ID | START_ASSERTION_PROPERTY | END_ASSERTION_PROPERTY | AADL_STRING_LITERAL | LT | GT | TICK | ARROW | IMP | BI | EQ | NEQ | AM | AL | PLUS_EQUALS | LCON | RCON | BOX | EXCLAMATION | QUESTION | GUARD | LASS | RASS | QQ )
+		int alt27=227;
 		alt27 = dfa27.predict(input);
 		switch (alt27) {
 			case 1 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:10: T__302
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:10: T__304
 				{
-				mT__302(); 
+				mT__304(); 
 
 				}
 				break;
@@ -6338,1344 +6361,1351 @@ public class BLESStoASTLexer extends Lexer {
 				}
 				break;
 			case 35 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:281: DOUBLE_QUOTE
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:281: COLON_TILDE
+				{
+				mCOLON_TILDE(); 
+
+				}
+				break;
+			case 36 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:293: DOUBLE_QUOTE
 				{
 				mDOUBLE_QUOTE(); 
 
 				}
 				break;
-			case 36 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:294: ANNEX_START
+			case 37 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:306: ANNEX_START
 				{
 				mANNEX_START(); 
 
 				}
 				break;
-			case 37 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:306: ANNEX_END
+			case 38 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:318: ANNEX_END
 				{
 				mANNEX_END(); 
 
 				}
 				break;
-			case 38 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:316: DO_NOT_PROVE
+			case 39 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:328: DO_NOT_PROVE
 				{
 				mDO_NOT_PROVE(); 
 
 				}
 				break;
-			case 39 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:329: LITERAL_mod
+			case 40 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:341: LITERAL_mod
 				{
 				mLITERAL_mod(); 
 
 				}
 				break;
-			case 40 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:341: LITERAL_rem
+			case 41 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:353: LITERAL_rem
 				{
 				mLITERAL_rem(); 
 
 				}
 				break;
-			case 41 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:353: LITERAL_and
+			case 42 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:365: LITERAL_and
 				{
 				mLITERAL_and(); 
 
 				}
 				break;
-			case 42 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:365: LITERAL_or
+			case 43 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:377: LITERAL_or
 				{
 				mLITERAL_or(); 
 
 				}
 				break;
-			case 43 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:376: LITERAL_xor
+			case 44 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:388: LITERAL_xor
 				{
 				mLITERAL_xor(); 
 
 				}
 				break;
-			case 44 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:388: LITERAL_cand
+			case 45 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:400: LITERAL_cand
 				{
 				mLITERAL_cand(); 
 
 				}
 				break;
-			case 45 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:401: LITERAL_cor
+			case 46 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:413: LITERAL_cor
 				{
 				mLITERAL_cor(); 
 
 				}
 				break;
-			case 46 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:413: LITERAL_record
+			case 47 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:425: LITERAL_record
 				{
 				mLITERAL_record(); 
 
 				}
 				break;
-			case 47 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:428: LITERAL_true
+			case 48 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:440: LITERAL_true
 				{
 				mLITERAL_true(); 
 
 				}
 				break;
-			case 48 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:441: LITERAL_false
+			case 49 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:453: LITERAL_false
 				{
 				mLITERAL_false(); 
 
 				}
 				break;
-			case 49 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:455: LITERAL_states
+			case 50 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:467: LITERAL_states
 				{
 				mLITERAL_states(); 
 
 				}
 				break;
-			case 50 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:470: LITERAL_assert
+			case 51 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:482: LITERAL_assert
 				{
 				mLITERAL_assert(); 
 
 				}
 				break;
-			case 51 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:485: LITERAL_availability
+			case 52 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:497: LITERAL_availability
 				{
 				mLITERAL_availability(); 
 
 				}
 				break;
-			case 52 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:506: LITERAL_invariant
+			case 53 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:518: LITERAL_invariant
 				{
 				mLITERAL_invariant(); 
 
 				}
 				break;
-			case 53 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:524: LITERAL_variables
+			case 54 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:536: LITERAL_variables
 				{
 				mLITERAL_variables(); 
 
 				}
 				break;
-			case 54 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:542: LITERAL_nonvolatile
+			case 55 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:554: LITERAL_nonvolatile
 				{
 				mLITERAL_nonvolatile(); 
 
 				}
 				break;
-			case 55 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:562: LITERAL_shared
+			case 56 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:574: LITERAL_shared
 				{
 				mLITERAL_shared(); 
 
 				}
 				break;
-			case 56 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:577: LITERAL_skip
+			case 57 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:589: LITERAL_skip
 				{
 				mLITERAL_skip(); 
 
 				}
 				break;
-			case 57 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:590: LITERAL_setmode
+			case 58 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:602: LITERAL_setmode
 				{
 				mLITERAL_setmode(); 
 
 				}
 				break;
-			case 58 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:606: LITERAL_not
+			case 59 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:618: LITERAL_not
 				{
 				mLITERAL_not(); 
 
 				}
 				break;
-			case 59 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:618: LITERAL_units
+			case 60 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:630: LITERAL_units
 				{
 				mLITERAL_units(); 
 
 				}
 				break;
-			case 60 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:632: LITERAL_pre
+			case 61 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:644: LITERAL_pre
 				{
 				mLITERAL_pre(); 
 
 				}
 				break;
-			case 61 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:644: LITERAL_post
+			case 62 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:656: LITERAL_post
 				{
 				mLITERAL_post(); 
 
 				}
 				break;
-			case 62 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:657: LITERAL_forall
+			case 63 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:669: LITERAL_forall
 				{
 				mLITERAL_forall(); 
 
 				}
 				break;
-			case 63 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:672: LITERAL_for
+			case 64 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:684: LITERAL_for
 				{
 				mLITERAL_for(); 
 
 				}
 				break;
-			case 64 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:684: LITERAL_if
+			case 65 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:696: LITERAL_if
 				{
 				mLITERAL_if(); 
 
 				}
 				break;
-			case 65 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:695: LITERAL_fi
+			case 66 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:707: LITERAL_fi
 				{
 				mLITERAL_fi(); 
 
 				}
 				break;
-			case 66 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:706: LITERAL_while
+			case 67 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:718: LITERAL_while
 				{
 				mLITERAL_while(); 
 
 				}
 				break;
-			case 67 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:720: LITERAL_do
+			case 68 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:732: LITERAL_do
 				{
 				mLITERAL_do(); 
 
 				}
 				break;
-			case 68 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:731: LITERAL_until
+			case 69 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:743: LITERAL_until
 				{
 				mLITERAL_until(); 
 
 				}
 				break;
-			case 69 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:745: LITERAL_bound
+			case 70 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:757: LITERAL_bound
 				{
 				mLITERAL_bound(); 
 
 				}
 				break;
-			case 70 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:759: LITERAL_declare
+			case 71 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:771: LITERAL_declare
 				{
 				mLITERAL_declare(); 
 
 				}
 				break;
-			case 71 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:775: LITERAL_exists
+			case 72 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:787: LITERAL_exists
 				{
 				mLITERAL_exists(); 
 
 				}
 				break;
-			case 72 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:790: LITERAL_that
+			case 73 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:802: LITERAL_that
 				{
 				mLITERAL_that(); 
 
 				}
 				break;
-			case 73 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:803: LITERAL_type
+			case 74 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:815: LITERAL_type
 				{
 				mLITERAL_type(); 
 
 				}
 				break;
-			case 74 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:816: LITERAL_in
+			case 75 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:828: LITERAL_in
 				{
 				mLITERAL_in(); 
 
 				}
 				break;
-			case 75 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:827: LITERAL_transitions
+			case 76 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:839: LITERAL_transitions
 				{
 				mLITERAL_transitions(); 
 
 				}
 				break;
-			case 76 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:847: LITERAL_all
+			case 77 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:859: LITERAL_all
 				{
 				mLITERAL_all(); 
 
 				}
 				break;
-			case 77 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:859: LITERAL_are
+			case 78 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:871: LITERAL_are
 				{
 				mLITERAL_are(); 
 
 				}
 				break;
-			case 78 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:871: LITERAL_dispatch
+			case 79 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:883: LITERAL_dispatch
 				{
 				mLITERAL_dispatch(); 
 
 				}
 				break;
-			case 79 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:888: LITERAL_now
+			case 80 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:900: LITERAL_now
 				{
 				mLITERAL_now(); 
 
 				}
 				break;
-			case 80 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:900: LITERAL_timeout
+			case 81 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:912: LITERAL_timeout
 				{
 				mLITERAL_timeout(); 
 
 				}
 				break;
-			case 81 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:916: LITERAL_state
+			case 82 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:928: LITERAL_state
 				{
 				mLITERAL_state(); 
 
 				}
 				break;
-			case 82 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:930: LITERAL_stop
+			case 83 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:942: LITERAL_stop
 				{
 				mLITERAL_stop(); 
 
 				}
 				break;
-			case 83 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:943: LITERAL_computation
+			case 84 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:955: LITERAL_computation
 				{
 				mLITERAL_computation(); 
 
 				}
 				break;
-			case 84 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:963: LITERAL_delay
+			case 85 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:975: LITERAL_delay
 				{
 				mLITERAL_delay(); 
 
 				}
 				break;
-			case 85 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:977: LITERAL_implies
+			case 86 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:989: LITERAL_implies
 				{
 				mLITERAL_implies(); 
 
 				}
 				break;
-			case 86 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:993: LITERAL_iff
+			case 87 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1005: LITERAL_iff
 				{
 				mLITERAL_iff(); 
 
 				}
 				break;
-			case 87 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1005: LITERAL_tops
+			case 88 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1017: LITERAL_tops
 				{
 				mLITERAL_tops(); 
 
 				}
 				break;
-			case 88 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1018: LITERAL_sum
+			case 89 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1030: LITERAL_sum
 				{
 				mLITERAL_sum(); 
 
 				}
 				break;
-			case 89 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1030: LITERAL_product
+			case 90 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1042: LITERAL_product
 				{
 				mLITERAL_product(); 
 
 				}
 				break;
-			case 90 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1046: LITERAL_numberof
+			case 91 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1058: LITERAL_numberof
 				{
 				mLITERAL_numberof(); 
 
 				}
 				break;
-			case 91 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1063: LITERAL_initial
+			case 92 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1075: LITERAL_initial
 				{
 				mLITERAL_initial(); 
 
 				}
 				break;
-			case 92 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1079: LITERAL_complete
+			case 93 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1091: LITERAL_complete
 				{
 				mLITERAL_complete(); 
 
 				}
 				break;
-			case 93 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1096: LITERAL_final
+			case 94 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1108: LITERAL_final
 				{
 				mLITERAL_final(); 
 
 				}
 				break;
-			case 94 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1110: LITERAL_prototypes
+			case 95 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1122: LITERAL_prototypes
 				{
 				mLITERAL_prototypes(); 
 
 				}
 				break;
-			case 95 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1129: LITERAL_features
+			case 96 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1141: LITERAL_features
 				{
 				mLITERAL_features(); 
 
 				}
 				break;
-			case 96 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1146: LITERAL_flows
+			case 97 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1158: LITERAL_flows
 				{
 				mLITERAL_flows(); 
 
 				}
 				break;
-			case 97 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1160: LITERAL_properties
+			case 98 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1172: LITERAL_properties
 				{
 				mLITERAL_properties(); 
 
 				}
 				break;
-			case 98 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1179: LITERAL_abstract
+			case 99 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1191: LITERAL_abstract
 				{
 				mLITERAL_abstract(); 
 
 				}
 				break;
-			case 99 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1196: LITERAL_data
+			case 100 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1208: LITERAL_data
 				{
 				mLITERAL_data(); 
 
 				}
 				break;
-			case 100 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1209: LITERAL_subprogram
+			case 101 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1221: LITERAL_subprogram
 				{
 				mLITERAL_subprogram(); 
 
 				}
 				break;
-			case 101 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1228: LITERAL_group
+			case 102 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1240: LITERAL_group
 				{
 				mLITERAL_group(); 
 
 				}
 				break;
-			case 102 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1242: LITERAL_thread
+			case 103 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1254: LITERAL_thread
 				{
 				mLITERAL_thread(); 
 
 				}
 				break;
-			case 103 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1257: LITERAL_process
+			case 104 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1269: LITERAL_process
 				{
 				mLITERAL_process(); 
 
 				}
 				break;
-			case 104 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1273: LITERAL_memory
+			case 105 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1285: LITERAL_memory
 				{
 				mLITERAL_memory(); 
 
 				}
 				break;
-			case 105 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1288: LITERAL_processor
+			case 106 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1300: LITERAL_processor
 				{
 				mLITERAL_processor(); 
 
 				}
 				break;
-			case 106 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1306: LITERAL_bus
+			case 107 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1318: LITERAL_bus
 				{
 				mLITERAL_bus(); 
 
 				}
 				break;
-			case 107 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1318: LITERAL_device
+			case 108 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1330: LITERAL_device
 				{
 				mLITERAL_device(); 
 
 				}
 				break;
-			case 108 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1333: LITERAL_virtual
+			case 109 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1345: LITERAL_virtual
 				{
 				mLITERAL_virtual(); 
 
 				}
 				break;
-			case 109 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1349: LITERAL_system
+			case 110 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1361: LITERAL_system
 				{
 				mLITERAL_system(); 
 
 				}
 				break;
-			case 110 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1364: LITERAL_port
+			case 111 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1376: LITERAL_port
 				{
 				mLITERAL_port(); 
 
 				}
 				break;
-			case 111 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1377: LITERAL_out
+			case 112 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1389: LITERAL_out
 				{
 				mLITERAL_out(); 
 
 				}
 				break;
-			case 112 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1389: LITERAL_event
+			case 113 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1401: LITERAL_event
 				{
 				mLITERAL_event(); 
 
 				}
 				break;
-			case 113 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1403: LITERAL_constant
+			case 114 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1415: LITERAL_constant
 				{
 				mLITERAL_constant(); 
 
 				}
 				break;
-			case 114 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1420: LITERAL_end
+			case 115 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1432: LITERAL_end
 				{
 				mLITERAL_end(); 
 
 				}
 				break;
-			case 115 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1432: LITERAL_annex
+			case 116 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1444: LITERAL_annex
 				{
 				mLITERAL_annex(); 
 
 				}
 				break;
-			case 116 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1446: LITERAL_none
+			case 117 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1458: LITERAL_none
 				{
 				mLITERAL_none(); 
 
 				}
 				break;
-			case 117 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1459: LITERAL_modes
+			case 118 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1471: LITERAL_modes
 				{
 				mLITERAL_modes(); 
 
 				}
 				break;
-			case 118 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1473: LITERAL_natural
+			case 119 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1485: LITERAL_natural
 				{
 				mLITERAL_natural(); 
 
 				}
 				break;
-			case 119 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1489: LITERAL_integer
+			case 120 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1501: LITERAL_integer
 				{
 				mLITERAL_integer(); 
 
 				}
 				break;
-			case 120 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1505: LITERAL_rational
+			case 121 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1517: LITERAL_rational
 				{
 				mLITERAL_rational(); 
 
 				}
 				break;
-			case 121 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1522: LITERAL_real
+			case 122 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1534: LITERAL_real
 				{
 				mLITERAL_real(); 
 
 				}
 				break;
-			case 122 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1535: LITERAL_complex
+			case 123 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1547: LITERAL_complex
 				{
 				mLITERAL_complex(); 
 
 				}
 				break;
-			case 123 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1551: LITERAL_time
+			case 124 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1563: LITERAL_time
 				{
 				mLITERAL_time(); 
 
 				}
 				break;
-			case 124 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1564: LITERAL_with
+			case 125 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1576: LITERAL_with
 				{
 				mLITERAL_with(); 
 
 				}
 				break;
-			case 125 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1577: LITERAL_implementation
+			case 126 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1589: LITERAL_implementation
 				{
 				mLITERAL_implementation(); 
 
 				}
 				break;
-			case 126 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1600: LITERAL_package
+			case 127 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1612: LITERAL_package
 				{
 				mLITERAL_package(); 
 
 				}
 				break;
-			case 127 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1616: LITERAL_public
+			case 128 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1628: LITERAL_public
 				{
 				mLITERAL_public(); 
 
 				}
 				break;
-			case 128 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1631: LITERAL_parameter
+			case 129 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1643: LITERAL_parameter
 				{
 				mLITERAL_parameter(); 
 
 				}
 				break;
-			case 129 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1649: LITERAL_feature
+			case 130 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1661: LITERAL_feature
 				{
 				mLITERAL_feature(); 
 
 				}
 				break;
-			case 130 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1665: LITERAL_renames
+			case 131 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1677: LITERAL_renames
 				{
 				mLITERAL_renames(); 
 
 				}
 				break;
-			case 131 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1681: LITERAL_private
+			case 132 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1693: LITERAL_private
 				{
 				mLITERAL_private(); 
 
 				}
 				break;
-			case 132 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1697: LITERAL_provides
+			case 133 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1709: LITERAL_provides
 				{
 				mLITERAL_provides(); 
 
 				}
 				break;
-			case 133 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1714: LITERAL_requires
+			case 134 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1726: LITERAL_requires
 				{
 				mLITERAL_requires(); 
 
 				}
 				break;
-			case 134 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1731: LITERAL_access
+			case 135 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1743: LITERAL_access
 				{
 				mLITERAL_access(); 
 
 				}
 				break;
-			case 135 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1746: LITERAL_subcomponents
+			case 136 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1758: LITERAL_subcomponents
 				{
 				mLITERAL_subcomponents(); 
 
 				}
 				break;
-			case 136 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1768: LITERAL_calls
+			case 137 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1780: LITERAL_calls
 				{
 				mLITERAL_calls(); 
 
 				}
 				break;
-			case 137 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1782: LITERAL_connections
+			case 138 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1794: LITERAL_connections
 				{
 				mLITERAL_connections(); 
 
 				}
 				break;
-			case 138 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1802: LITERAL_self
+			case 139 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1814: LITERAL_self
 				{
 				mLITERAL_self(); 
 
 				}
 				break;
-			case 139 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1815: LITERAL_property
+			case 140 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1827: LITERAL_property
 				{
 				mLITERAL_property(); 
 
 				}
 				break;
-			case 140 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1832: LITERAL_set
+			case 141 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1844: LITERAL_set
 				{
 				mLITERAL_set(); 
 
 				}
 				break;
-			case 141 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1844: LITERAL_is
+			case 142 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1856: LITERAL_is
 				{
 				mLITERAL_is(); 
 
 				}
 				break;
-			case 142 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1855: LITERAL_aadlboolean
+			case 143 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1867: LITERAL_aadlboolean
 				{
 				mLITERAL_aadlboolean(); 
 
 				}
 				break;
-			case 143 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1875: LITERAL_aadlstring
+			case 144 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1887: LITERAL_aadlstring
 				{
 				mLITERAL_aadlstring(); 
 
 				}
 				break;
-			case 144 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1894: LITERAL_aadlinteger
+			case 145 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1906: LITERAL_aadlinteger
 				{
 				mLITERAL_aadlinteger(); 
 
 				}
 				break;
-			case 145 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1914: LITERAL_aadlreal
+			case 146 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1926: LITERAL_aadlreal
 				{
 				mLITERAL_aadlreal(); 
 
 				}
 				break;
-			case 146 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1931: LITERAL_range
+			case 147 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1943: LITERAL_range
 				{
 				mLITERAL_range(); 
 
 				}
 				break;
-			case 147 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1945: LITERAL_inverse
+			case 148 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1957: LITERAL_inverse
 				{
 				mLITERAL_inverse(); 
 
 				}
 				break;
-			case 148 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1961: LITERAL_of
+			case 149 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1973: LITERAL_of
 				{
 				mLITERAL_of(); 
 
 				}
 				break;
-			case 149 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1972: LITERAL_classifier
+			case 150 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1984: LITERAL_classifier
 				{
 				mLITERAL_classifier(); 
 
 				}
 				break;
-			case 150 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:1991: LITERAL_applies
+			case 151 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2003: LITERAL_applies
 				{
 				mLITERAL_applies(); 
 
 				}
 				break;
-			case 151 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2007: LITERAL_to
+			case 152 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2019: LITERAL_to
 				{
 				mLITERAL_to(); 
 
 				}
 				break;
-			case 152 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2018: LITERAL_list
+			case 153 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2030: LITERAL_list
 				{
 				mLITERAL_list(); 
 
 				}
 				break;
-			case 153 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2031: LITERAL_connection
+			case 154 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2043: LITERAL_connection
 				{
 				mLITERAL_connection(); 
 
 				}
 				break;
-			case 154 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2050: LITERAL_flow
+			case 155 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2062: LITERAL_flow
 				{
 				mLITERAL_flow(); 
 
 				}
 				break;
-			case 155 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2063: LITERAL_inherit
+			case 156 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2075: LITERAL_inherit
 				{
 				mLITERAL_inherit(); 
 
 				}
 				break;
-			case 156 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2079: LITERAL_reference
+			case 157 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2091: LITERAL_reference
 				{
 				mLITERAL_reference(); 
 
 				}
 				break;
-			case 157 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2097: LITERAL_component
+			case 158 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2109: LITERAL_component
 				{
 				mLITERAL_component(); 
 
 				}
 				break;
-			case 158 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2115: LITERAL_call
+			case 159 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2127: LITERAL_call
 				{
 				mLITERAL_call(); 
 
 				}
 				break;
-			case 159 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2128: LITERAL_sequence
+			case 160 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2140: LITERAL_sequence
 				{
 				mLITERAL_sequence(); 
 
 				}
 				break;
-			case 160 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2145: LITERAL_transition
+			case 161 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2157: LITERAL_transition
 				{
 				mLITERAL_transition(); 
 
 				}
 				break;
-			case 161 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2164: LITERAL_mode
+			case 162 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2176: LITERAL_mode
 				{
 				mLITERAL_mode(); 
 
 				}
 				break;
-			case 162 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2177: LITERAL_extends
+			case 163 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2189: LITERAL_extends
 				{
 				mLITERAL_extends(); 
 
 				}
 				break;
-			case 163 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2193: LITERAL_array
+			case 164 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2205: LITERAL_array
 				{
 				mLITERAL_array(); 
 
 				}
 				break;
-			case 164 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2207: LITERAL_variant
+			case 165 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2219: LITERAL_variant
 				{
 				mLITERAL_variant(); 
 
 				}
 				break;
-			case 165 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2223: LITERAL_boolean
+			case 166 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2235: LITERAL_boolean
 				{
 				mLITERAL_boolean(); 
 
 				}
 				break;
-			case 166 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2239: LITERAL_string
+			case 167 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2251: LITERAL_string
 				{
 				mLITERAL_string(); 
 
 				}
 				break;
-			case 167 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2254: LITERAL_catch
+			case 168 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2266: LITERAL_catch
 				{
 				mLITERAL_catch(); 
 
 				}
 				break;
-			case 168 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2268: LITERAL_when
+			case 169 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2280: LITERAL_when
 				{
 				mLITERAL_when(); 
 
 				}
 				break;
-			case 169 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2281: LITERAL_throw
+			case 170 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2293: LITERAL_throw
 				{
 				mLITERAL_throw(); 
 
 				}
 				break;
-			case 170 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2295: LITERAL_null
+			case 171 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2307: LITERAL_null
 				{
 				mLITERAL_null(); 
 
 				}
 				break;
-			case 171 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2308: LITERAL_enumeration
+			case 172 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2320: LITERAL_enumeration
 				{
 				mLITERAL_enumeration(); 
 
 				}
 				break;
-			case 172 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2328: LITERAL_count
+			case 173 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2340: LITERAL_count
 				{
 				mLITERAL_count(); 
 
 				}
 				break;
-			case 173 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2342: LITERAL_fresh
+			case 174 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2354: LITERAL_fresh
 				{
 				mLITERAL_fresh(); 
 
 				}
 				break;
-			case 174 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2356: LITERAL_updated
+			case 175 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2368: LITERAL_updated
 				{
 				mLITERAL_updated(); 
 
 				}
 				break;
-			case 175 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2372: LITERAL_fetchadd
+			case 176 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2384: LITERAL_fetchadd
 				{
 				mLITERAL_fetchadd(); 
 
 				}
 				break;
-			case 176 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2389: LITERAL_fetchor
+			case 177 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2401: LITERAL_fetchor
 				{
 				mLITERAL_fetchor(); 
 
 				}
 				break;
-			case 177 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2405: LITERAL_fetchand
+			case 178 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2417: LITERAL_fetchand
 				{
 				mLITERAL_fetchand(); 
 
 				}
 				break;
-			case 178 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2422: LITERAL_fetchxor
+			case 179 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2434: LITERAL_fetchxor
 				{
 				mLITERAL_fetchxor(); 
 
 				}
 				break;
-			case 179 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2439: LITERAL_swap
+			case 180 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2451: LITERAL_swap
 				{
 				mLITERAL_swap(); 
 
 				}
 				break;
-			case 180 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2452: LITERAL_spread
+			case 181 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2464: LITERAL_spread
 				{
 				mLITERAL_spread(); 
 
 				}
 				break;
-			case 181 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2467: LITERAL_def
+			case 182 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2479: LITERAL_def
 				{
 				mLITERAL_def(); 
 
 				}
 				break;
-			case 182 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2479: LITERAL_Typed
+			case 183 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2491: LITERAL_Typed
 				{
 				mLITERAL_Typed(); 
 
 				}
 				break;
-			case 183 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2493: LITERAL_Precondition
+			case 184 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2505: LITERAL_Precondition
 				{
 				mLITERAL_Precondition(); 
 
 				}
 				break;
-			case 184 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2514: LITERAL_Postcondition
+			case 185 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2526: LITERAL_Postcondition
 				{
 				mLITERAL_Postcondition(); 
 
 				}
 				break;
-			case 185 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2536: LITERAL_Assertion
+			case 186 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2548: LITERAL_Assertion
 				{
 				mLITERAL_Assertion(); 
 
 				}
 				break;
-			case 186 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2554: LITERAL_Invariant
+			case 187 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2566: LITERAL_Invariant
 				{
 				mLITERAL_Invariant(); 
 
 				}
 				break;
-			case 187 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2572: LITERAL_ps
+			case 188 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2584: LITERAL_ps
 				{
 				mLITERAL_ps(); 
 
 				}
 				break;
-			case 188 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2583: LITERAL_ns
+			case 189 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2595: LITERAL_ns
 				{
 				mLITERAL_ns(); 
 
 				}
 				break;
-			case 189 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2594: LITERAL_us
+			case 190 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2606: LITERAL_us
 				{
 				mLITERAL_us(); 
 
 				}
 				break;
-			case 190 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2605: LITERAL_ms
+			case 191 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2617: LITERAL_ms
 				{
 				mLITERAL_ms(); 
 
 				}
 				break;
-			case 191 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2616: LITERAL_sec
+			case 192 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2628: LITERAL_sec
 				{
 				mLITERAL_sec(); 
 
 				}
 				break;
-			case 192 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2628: LITERAL_min
+			case 193 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2640: LITERAL_min
 				{
 				mLITERAL_min(); 
 
 				}
 				break;
-			case 193 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2640: LITERAL_hr
+			case 194 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2652: LITERAL_hr
 				{
 				mLITERAL_hr(); 
 
 				}
 				break;
-			case 194 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2651: LITERAL_then
+			case 195 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2663: LITERAL_then
 				{
 				mLITERAL_then(); 
 
 				}
 				break;
-			case 195 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2664: LITERAL_else
+			case 196 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2676: LITERAL_else
 				{
 				mLITERAL_else(); 
 
 				}
 				break;
-			case 196 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2677: LITERAL_pause
+			case 197 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2689: LITERAL_pause
 				{
 				mLITERAL_pause(); 
 
 				}
 				break;
-			case 197 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2691: LITERAL_exception
+			case 198 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2703: LITERAL_exception
 				{
 				mLITERAL_exception(); 
 
 				}
 				break;
-			case 198 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2709: LITERAL_abs
+			case 199 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2721: LITERAL_abs
 				{
 				mLITERAL_abs(); 
 
 				}
 				break;
-			case 199 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2721: LITERAL_upper_bound
+			case 200 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2733: LITERAL_upper_bound
 				{
 				mLITERAL_upper_bound(); 
 
 				}
 				break;
-			case 200 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2741: LITERAL_lower_bound
+			case 201 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2753: LITERAL_lower_bound
 				{
 				mLITERAL_lower_bound(); 
 
 				}
 				break;
-			case 201 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2761: LITERAL_any
+			case 202 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2773: LITERAL_any
 				{
 				mLITERAL_any(); 
 
 				}
 				break;
-			case 202 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2773: LITERAL_on
+			case 203 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2785: LITERAL_on
 				{
 				mLITERAL_on(); 
 
 				}
 				break;
-			case 203 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2784: ID
+			case 204 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2796: ID
 				{
 				mID(); 
 
 				}
 				break;
-			case 204 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2787: START_ASSERTION_PROPERTY
+			case 205 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2799: START_ASSERTION_PROPERTY
 				{
 				mSTART_ASSERTION_PROPERTY(); 
 
 				}
 				break;
-			case 205 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2812: END_ASSERTION_PROPERTY
+			case 206 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2824: END_ASSERTION_PROPERTY
 				{
 				mEND_ASSERTION_PROPERTY(); 
 
 				}
 				break;
-			case 206 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2835: AADL_STRING_LITERAL
+			case 207 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2847: AADL_STRING_LITERAL
 				{
 				mAADL_STRING_LITERAL(); 
 
 				}
 				break;
-			case 207 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2855: LT
+			case 208 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2867: LT
 				{
 				mLT(); 
 
 				}
 				break;
-			case 208 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2858: GT
+			case 209 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2870: GT
 				{
 				mGT(); 
 
 				}
 				break;
-			case 209 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2861: TICK
+			case 210 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2873: TICK
 				{
 				mTICK(); 
 
 				}
 				break;
-			case 210 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2866: ARROW
+			case 211 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2878: ARROW
 				{
 				mARROW(); 
 
 				}
 				break;
-			case 211 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2872: IMP
+			case 212 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2884: IMP
 				{
 				mIMP(); 
 
 				}
 				break;
-			case 212 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2876: BI
+			case 213 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2888: BI
 				{
 				mBI(); 
 
 				}
 				break;
-			case 213 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2879: EQ
+			case 214 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2891: EQ
 				{
 				mEQ(); 
 
 				}
 				break;
-			case 214 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2882: NEQ
+			case 215 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2894: NEQ
 				{
 				mNEQ(); 
 
 				}
 				break;
-			case 215 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2886: AM
+			case 216 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2898: AM
 				{
 				mAM(); 
 
 				}
 				break;
-			case 216 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2889: AL
+			case 217 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2901: AL
 				{
 				mAL(); 
 
 				}
 				break;
-			case 217 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2892: PLUS_EQUALS
+			case 218 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2904: PLUS_EQUALS
 				{
 				mPLUS_EQUALS(); 
 
 				}
 				break;
-			case 218 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2904: LCON
+			case 219 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2916: LCON
 				{
 				mLCON(); 
 
 				}
 				break;
-			case 219 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2909: RCON
+			case 220 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2921: RCON
 				{
 				mRCON(); 
 
 				}
 				break;
-			case 220 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2914: BOX
+			case 221 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2926: BOX
 				{
 				mBOX(); 
 
 				}
 				break;
-			case 221 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2918: EXCLAMATION
+			case 222 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2930: EXCLAMATION
 				{
 				mEXCLAMATION(); 
 
 				}
 				break;
-			case 222 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2930: QUESTION
+			case 223 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2942: QUESTION
 				{
 				mQUESTION(); 
 
 				}
 				break;
-			case 223 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2939: GUARD
+			case 224 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2951: GUARD
 				{
 				mGUARD(); 
 
 				}
 				break;
-			case 224 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2945: LASS
+			case 225 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2957: LASS
 				{
 				mLASS(); 
 
 				}
 				break;
-			case 225 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2950: RASS
+			case 226 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2962: RASS
 				{
 				mRASS(); 
 
 				}
 				break;
-			case 226 :
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2955: QQ
+			case 227 :
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g:1:2967: QQ
 				{
 				mQQ(); 
 
@@ -7688,62 +7718,62 @@ public class BLESStoASTLexer extends Lexer {
 
 	protected DFA27 dfa27 = new DFA27(this);
 	static final String DFA27_eotS =
-		"\3\uffff\1\75\1\100\1\103\1\106\1\110\1\112\1\uffff\1\115\2\uffff\1\120"+
-		"\2\uffff\1\122\1\124\1\126\5\uffff\1\131\32\63\1\uffff\1\u00ae\1\u00b3"+
-		"\1\uffff\1\u00b5\1\uffff\1\u00b7\15\uffff\1\u00ba\1\uffff\1\u00bc\20\uffff"+
-		"\3\63\1\u00c1\14\63\1\u00d7\1\63\1\u00d9\1\u00da\10\63\1\u00ec\2\63\1"+
-		"\u00f0\13\63\1\u0107\1\u0109\1\63\1\u010b\5\63\1\u0114\2\63\1\u0119\4"+
-		"\63\1\u0123\2\63\1\u0127\21\63\1\u0140\1\u0142\13\uffff\1\100\5\uffff"+
-		"\1\63\1\u0145\1\63\1\uffff\1\u0147\1\u0148\7\63\1\u0150\1\63\1\u0152\2"+
-		"\63\1\u0155\1\u0156\1\63\1\u0159\3\63\1\uffff\1\u015d\2\uffff\1\u015e"+
-		"\3\63\1\u0162\14\63\1\uffff\1\63\1\u0173\1\63\1\uffff\11\63\1\u017f\2"+
-		"\63\1\u0182\1\u0183\10\63\1\uffff\1\u018e\1\uffff\1\63\1\uffff\3\63\1"+
-		"\u0194\1\u0195\3\63\1\uffff\4\63\1\uffff\1\u019d\10\63\1\uffff\3\63\1"+
-		"\uffff\3\63\1\u01b0\4\63\1\u01b5\4\63\1\u01ba\12\63\3\uffff\1\63\1\u01c7"+
-		"\1\uffff\1\63\2\uffff\1\63\1\u01ca\5\63\1\uffff\1\63\1\uffff\2\63\2\uffff"+
-		"\2\63\1\uffff\3\63\2\uffff\1\u01db\1\u01dd\1\63\1\uffff\5\63\1\u01e6\1"+
-		"\63\1\u01e8\2\63\1\u01eb\1\u01ec\1\u01ee\1\u01ef\2\63\1\uffff\3\63\1\u01f6"+
-		"\2\63\1\u01f9\2\63\1\u01fc\1\63\1\uffff\1\u01fe\1\63\2\uffff\3\63\1\u0203"+
-		"\6\63\1\uffff\4\63\1\u020f\2\uffff\1\63\1\u0211\5\63\1\uffff\6\63\1\u021d"+
-		"\1\u021e\5\63\1\u0224\1\u0225\3\63\1\uffff\1\63\1\u022a\2\63\1\uffff\4"+
-		"\63\1\uffff\1\63\1\u0232\1\63\1\u0234\7\63\1\u023c\1\uffff\2\63\1\uffff"+
-		"\4\63\1\u0243\1\u0244\2\63\1\u0247\7\63\1\uffff\1\u024f\1\uffff\1\u0250"+
-		"\5\63\1\u0256\1\63\1\uffff\1\63\1\uffff\1\63\1\u025a\2\uffff\1\63\2\uffff"+
-		"\1\u025c\1\63\1\u025e\2\63\1\u0263\1\uffff\1\u0264\1\u0266\1\uffff\2\63"+
-		"\1\uffff\1\63\1\uffff\4\63\1\uffff\13\63\1\uffff\1\63\1\uffff\1\63\1\u027c"+
-		"\1\u027d\10\63\2\uffff\2\63\1\u0288\1\63\1\u028a\2\uffff\1\63\1\u028c"+
-		"\2\63\1\uffff\1\u028f\4\63\1\u0294\1\63\1\uffff\1\u0296\1\uffff\1\63\1"+
-		"\u0298\5\63\1\uffff\1\u029e\1\u029f\4\63\2\uffff\1\u02a4\1\63\1\uffff"+
-		"\1\63\1\u02a7\5\63\2\uffff\5\63\1\uffff\2\63\1\u02b5\1\uffff\1\63\1\uffff"+
-		"\1\u02b7\1\uffff\4\63\2\uffff\1\u02bd\1\uffff\1\u02be\1\u02bf\4\63\1\u02c4"+
-		"\1\u02c5\15\63\2\uffff\12\63\1\uffff\1\u02dd\1\uffff\1\63\1\uffff\1\u02df"+
-		"\1\63\1\uffff\1\63\1\u02e2\2\63\1\uffff\1\63\1\uffff\1\63\1\uffff\5\63"+
-		"\2\uffff\1\u02ec\3\63\1\uffff\2\63\1\uffff\4\63\1\u02f6\2\63\1\u02f9\5"+
-		"\63\1\uffff\1\u02ff\1\uffff\1\u0301\2\63\1\u0304\1\63\3\uffff\1\u0306"+
-		"\3\63\2\uffff\1\63\1\u030b\1\u030c\1\u030d\1\u030e\1\u030f\2\63\1\u0312"+
-		"\1\u0313\2\63\1\u0316\1\u0317\1\63\1\u0319\2\63\1\u031e\1\63\1\u0320\1"+
-		"\u0321\1\63\1\uffff\1\u0323\1\uffff\1\63\1\u0325\1\uffff\1\u0326\10\63"+
-		"\1\uffff\1\u032f\1\63\1\u0331\1\63\1\u0333\3\63\1\u0337\1\uffff\1\63\1"+
-		"\u0339\1\uffff\1\63\1\u033b\3\63\1\uffff\1\u033f\1\uffff\1\u0340\1\u0341"+
-		"\1\uffff\1\u0342\1\uffff\1\u0343\3\63\5\uffff\2\63\2\uffff\1\63\1\u034a"+
-		"\2\uffff\1\63\1\uffff\2\63\1\u034e\1\63\1\uffff\1\u0350\2\uffff\1\63\1"+
-		"\uffff\1\u0352\2\uffff\10\63\1\uffff\1\u035b\1\uffff\1\63\1\uffff\3\63"+
-		"\1\uffff\1\63\1\uffff\1\u0361\1\uffff\3\63\5\uffff\2\63\1\u0367\1\63\1"+
-		"\u0369\1\63\1\uffff\3\63\1\uffff\1\u036e\1\uffff\1\u036f\1\uffff\1\u0370"+
-		"\4\63\1\u0375\1\u0376\1\63\1\uffff\2\63\1\u037a\2\63\1\uffff\1\u037e\1"+
-		"\u037f\1\u0381\1\u0382\1\63\1\uffff\1\63\1\uffff\2\63\1\u0387\1\u0388"+
-		"\3\uffff\4\63\2\uffff\2\63\1\u038f\1\uffff\1\u0390\1\u0391\1\u0392\2\uffff"+
-		"\1\u0393\2\uffff\2\63\1\u0396\1\u0397\2\uffff\1\u0398\1\u0399\2\63\1\u039c"+
-		"\1\u039d\5\uffff\2\63\4\uffff\1\u03a0\1\63\2\uffff\1\u03a2\1\63\1\uffff"+
-		"\1\u03a4\1\uffff\1\u03a5\2\uffff";
+		"\3\uffff\1\75\1\100\1\103\1\106\1\110\1\112\1\uffff\1\116\2\uffff\1\121"+
+		"\2\uffff\1\123\1\125\1\127\5\uffff\1\132\32\63\1\uffff\1\u00af\1\u00b4"+
+		"\1\uffff\1\u00b6\1\uffff\1\u00b8\15\uffff\1\u00bb\1\uffff\1\u00bd\21\uffff"+
+		"\3\63\1\u00c2\14\63\1\u00d8\1\63\1\u00da\1\u00db\10\63\1\u00ed\2\63\1"+
+		"\u00f1\13\63\1\u0108\1\u010a\1\63\1\u010c\5\63\1\u0115\2\63\1\u011a\4"+
+		"\63\1\u0124\2\63\1\u0128\21\63\1\u0141\1\u0143\13\uffff\1\100\5\uffff"+
+		"\1\63\1\u0146\1\63\1\uffff\1\u0148\1\u0149\7\63\1\u0151\1\63\1\u0153\2"+
+		"\63\1\u0156\1\u0157\1\63\1\u015a\3\63\1\uffff\1\u015e\2\uffff\1\u015f"+
+		"\3\63\1\u0163\14\63\1\uffff\1\63\1\u0174\1\63\1\uffff\11\63\1\u0180\2"+
+		"\63\1\u0183\1\u0184\10\63\1\uffff\1\u018f\1\uffff\1\63\1\uffff\3\63\1"+
+		"\u0195\1\u0196\3\63\1\uffff\4\63\1\uffff\1\u019e\10\63\1\uffff\3\63\1"+
+		"\uffff\3\63\1\u01b1\4\63\1\u01b6\4\63\1\u01bb\12\63\3\uffff\1\63\1\u01c8"+
+		"\1\uffff\1\63\2\uffff\1\63\1\u01cb\5\63\1\uffff\1\63\1\uffff\2\63\2\uffff"+
+		"\2\63\1\uffff\3\63\2\uffff\1\u01dc\1\u01de\1\63\1\uffff\5\63\1\u01e7\1"+
+		"\63\1\u01e9\2\63\1\u01ec\1\u01ed\1\u01ef\1\u01f0\2\63\1\uffff\3\63\1\u01f7"+
+		"\2\63\1\u01fa\2\63\1\u01fd\1\63\1\uffff\1\u01ff\1\63\2\uffff\3\63\1\u0204"+
+		"\6\63\1\uffff\4\63\1\u0210\2\uffff\1\63\1\u0212\5\63\1\uffff\6\63\1\u021e"+
+		"\1\u021f\5\63\1\u0225\1\u0226\3\63\1\uffff\1\63\1\u022b\2\63\1\uffff\4"+
+		"\63\1\uffff\1\63\1\u0233\1\63\1\u0235\7\63\1\u023d\1\uffff\2\63\1\uffff"+
+		"\4\63\1\u0244\1\u0245\2\63\1\u0248\7\63\1\uffff\1\u0250\1\uffff\1\u0251"+
+		"\5\63\1\u0257\1\63\1\uffff\1\63\1\uffff\1\63\1\u025b\2\uffff\1\63\2\uffff"+
+		"\1\u025d\1\63\1\u025f\2\63\1\u0264\1\uffff\1\u0265\1\u0267\1\uffff\2\63"+
+		"\1\uffff\1\63\1\uffff\4\63\1\uffff\13\63\1\uffff\1\63\1\uffff\1\63\1\u027d"+
+		"\1\u027e\10\63\2\uffff\2\63\1\u0289\1\63\1\u028b\2\uffff\1\63\1\u028d"+
+		"\2\63\1\uffff\1\u0290\4\63\1\u0295\1\63\1\uffff\1\u0297\1\uffff\1\63\1"+
+		"\u0299\5\63\1\uffff\1\u029f\1\u02a0\4\63\2\uffff\1\u02a5\1\63\1\uffff"+
+		"\1\63\1\u02a8\5\63\2\uffff\5\63\1\uffff\2\63\1\u02b6\1\uffff\1\63\1\uffff"+
+		"\1\u02b8\1\uffff\4\63\2\uffff\1\u02be\1\uffff\1\u02bf\1\u02c0\4\63\1\u02c5"+
+		"\1\u02c6\15\63\2\uffff\12\63\1\uffff\1\u02de\1\uffff\1\63\1\uffff\1\u02e0"+
+		"\1\63\1\uffff\1\63\1\u02e3\2\63\1\uffff\1\63\1\uffff\1\63\1\uffff\5\63"+
+		"\2\uffff\1\u02ed\3\63\1\uffff\2\63\1\uffff\4\63\1\u02f7\2\63\1\u02fa\5"+
+		"\63\1\uffff\1\u0300\1\uffff\1\u0302\2\63\1\u0305\1\63\3\uffff\1\u0307"+
+		"\3\63\2\uffff\1\63\1\u030c\1\u030d\1\u030e\1\u030f\1\u0310\2\63\1\u0313"+
+		"\1\u0314\2\63\1\u0317\1\u0318\1\63\1\u031a\2\63\1\u031f\1\63\1\u0321\1"+
+		"\u0322\1\63\1\uffff\1\u0324\1\uffff\1\63\1\u0326\1\uffff\1\u0327\10\63"+
+		"\1\uffff\1\u0330\1\63\1\u0332\1\63\1\u0334\3\63\1\u0338\1\uffff\1\63\1"+
+		"\u033a\1\uffff\1\63\1\u033c\3\63\1\uffff\1\u0340\1\uffff\1\u0341\1\u0342"+
+		"\1\uffff\1\u0343\1\uffff\1\u0344\3\63\5\uffff\2\63\2\uffff\1\63\1\u034b"+
+		"\2\uffff\1\63\1\uffff\2\63\1\u034f\1\63\1\uffff\1\u0351\2\uffff\1\63\1"+
+		"\uffff\1\u0353\2\uffff\10\63\1\uffff\1\u035c\1\uffff\1\63\1\uffff\3\63"+
+		"\1\uffff\1\63\1\uffff\1\u0362\1\uffff\3\63\5\uffff\2\63\1\u0368\1\63\1"+
+		"\u036a\1\63\1\uffff\3\63\1\uffff\1\u036f\1\uffff\1\u0370\1\uffff\1\u0371"+
+		"\4\63\1\u0376\1\u0377\1\63\1\uffff\2\63\1\u037b\2\63\1\uffff\1\u037f\1"+
+		"\u0380\1\u0382\1\u0383\1\63\1\uffff\1\63\1\uffff\2\63\1\u0388\1\u0389"+
+		"\3\uffff\4\63\2\uffff\2\63\1\u0390\1\uffff\1\u0391\1\u0392\1\u0393\2\uffff"+
+		"\1\u0394\2\uffff\2\63\1\u0397\1\u0398\2\uffff\1\u0399\1\u039a\2\63\1\u039d"+
+		"\1\u039e\5\uffff\2\63\4\uffff\1\u03a1\1\63\2\uffff\1\u03a3\1\63\1\uffff"+
+		"\1\u03a5\1\uffff\1\u03a6\2\uffff";
 	static final String DFA27_eofS =
-		"\u03a6\uffff";
+		"\u03a7\uffff";
 	static final String DFA27_minS =
 		"\1\11\2\uffff\1\55\1\56\2\54\1\75\1\52\1\uffff\1\72\2\uffff\1\52\2\uffff"+
 		"\1\176\1\135\1\55\5\uffff\1\0\1\117\1\145\2\141\1\146\1\157\1\141\1\150"+
 		"\1\141\1\145\1\146\2\141\1\156\1\141\1\150\1\141\1\157\1\154\1\162\1\151"+
 		"\1\171\1\157\1\163\1\156\1\162\1\uffff\1\75\1\55\1\uffff\1\76\1\uffff"+
-		"\1\77\4\uffff\1\60\10\uffff\1\76\1\uffff\1\175\15\uffff\1\42\2\uffff\1"+
+		"\1\77\4\uffff\1\60\10\uffff\1\76\1\uffff\1\175\16\uffff\1\42\2\uffff\1"+
 		"\137\1\144\1\155\1\60\1\156\1\141\1\156\1\144\1\163\1\141\1\154\1\145"+
 		"\1\163\1\143\1\144\1\160\1\60\1\164\2\60\1\162\1\154\1\155\3\141\1\160"+
 		"\1\155\1\60\1\154\1\162\1\60\1\141\1\157\1\145\2\141\1\151\1\143\1\142"+
@@ -7809,11 +7839,11 @@ public class BLESStoASTLexer extends Lexer {
 		"\156\1\157\2\60\5\uffff\1\163\1\157\4\uffff\1\60\1\156\2\uffff\1\60\1"+
 		"\156\1\uffff\1\60\1\uffff\1\60\2\uffff";
 	static final String DFA27_maxS =
-		"\1\176\2\uffff\1\133\1\137\2\56\1\75\1\52\1\uffff\1\75\2\uffff\1\175\2"+
-		"\uffff\1\176\1\135\1\55\5\uffff\1\uffff\1\117\1\163\1\145\1\166\1\165"+
+		"\1\176\2\uffff\1\133\1\137\2\56\1\75\1\52\1\uffff\1\176\2\uffff\1\175"+
+		"\2\uffff\1\176\1\135\1\55\5\uffff\1\uffff\1\117\1\163\1\145\1\166\1\165"+
 		"\2\157\1\171\1\162\1\171\1\163\1\151\1\165\1\163\1\165\1\151\1\157\1\165"+
 		"\1\170\1\162\1\157\1\171\1\162\1\163\1\156\1\162\1\uffff\2\76\1\uffff"+
-		"\1\76\1\uffff\1\77\4\uffff\1\71\10\uffff\1\76\1\uffff\1\175\15\uffff\1"+
+		"\1\76\1\uffff\1\77\4\uffff\1\71\10\uffff\1\76\1\uffff\1\175\16\uffff\1"+
 		"\75\2\uffff\1\137\1\144\1\155\1\172\1\156\1\161\1\164\1\171\1\163\1\141"+
 		"\1\154\1\162\1\163\1\143\1\144\1\160\1\172\1\164\2\172\1\162\1\164\1\165"+
 		"\1\141\1\165\1\162\1\160\1\155\1\172\1\154\1\162\1\172\1\164\1\157\1\145"+
@@ -7881,44 +7911,44 @@ public class BLESStoASTLexer extends Lexer {
 		"\1\172\1\156\1\uffff\1\172\1\uffff\1\172\2\uffff";
 	static final String DFA27_acceptS =
 		"\1\uffff\1\1\1\2\6\uffff\1\17\1\uffff\1\22\1\23\1\uffff\1\25\1\26\3\uffff"+
-		"\1\35\1\36\1\40\1\41\1\42\33\uffff\1\u00cb\2\uffff\1\u00d1\1\uffff\1\u00dd"+
-		"\1\uffff\1\3\1\u00d3\1\u00da\1\16\1\uffff\1\4\1\5\1\7\1\11\1\6\1\10\1"+
-		"\12\1\34\1\uffff\1\14\1\uffff\1\15\1\21\1\33\1\32\1\37\1\44\1\24\1\u00df"+
-		"\1\27\1\u00dc\1\30\1\u00db\1\31\1\uffff\1\u00ce\1\43\123\uffff\1\u00d8"+
-		"\1\u00d0\1\u00d4\1\u00d6\1\u00d7\1\u00e0\1\u00cf\1\u00d2\1\u00d5\1\u00e2"+
-		"\1\u00de\1\uffff\1\13\1\u00d9\1\45\1\20\1\u00cc\3\uffff\1\u00be\25\uffff"+
-		"\1\52\1\uffff\1\u0094\1\u00ca\21\uffff\1\u0097\3\uffff\1\101\26\uffff"+
-		"\1\112\1\uffff\1\100\1\uffff\1\u008d\10\uffff\1\u00bc\4\uffff\1\u00bd"+
-		"\11\uffff\1\u00bb\3\uffff\1\103\30\uffff\1\u00c1\1\u00cd\1\u00e1\2\uffff"+
-		"\1\47\1\uffff\1\u00c0\1\50\7\uffff\1\51\1\uffff\1\u00c9\2\uffff\1\114"+
-		"\1\115\2\uffff\1\u00c6\3\uffff\1\157\1\53\3\uffff\1\55\20\uffff\1\77\13"+
-		"\uffff\1\u008c\2\uffff\1\u00bf\1\130\12\uffff\1\126\5\uffff\1\72\1\117"+
-		"\7\uffff\1\74\22\uffff\1\u00b5\4\uffff\1\152\4\uffff\1\162\14\uffff\1"+
-		"\u00a1\2\uffff\1\171\20\uffff\1\54\1\uffff\1\u009e\10\uffff\1\57\1\uffff"+
-		"\1\110\2\uffff\1\u00c2\1\111\1\uffff\1\173\1\127\6\uffff\1\u009a\2\uffff"+
-		"\1\122\2\uffff\1\70\1\uffff\1\u008a\4\uffff\1\u00b3\13\uffff\1\164\1\uffff"+
-		"\1\u00aa\13\uffff\1\75\1\156\5\uffff\1\u00a8\1\174\4\uffff\1\143\7\uffff"+
-		"\1\u00c3\1\uffff\1\u0098\7\uffff\1\165\6\uffff\1\u0092\1\163\2\uffff\1"+
-		"\u00a3\7\uffff\1\u0088\1\u00a7\5\uffff\1\u00ac\3\uffff\1\u00a9\1\uffff"+
-		"\1\60\1\uffff\1\135\4\uffff\1\140\1\u00ad\1\uffff\1\121\25\uffff\1\73"+
-		"\1\104\12\uffff\1\u00c4\1\uffff\1\102\1\uffff\1\124\2\uffff\1\105\4\uffff"+
-		"\1\160\1\uffff\1\145\1\uffff\1\u00b6\5\uffff\1\150\1\56\4\uffff\1\62\2"+
-		"\uffff\1\u0086\15\uffff\1\146\1\uffff\1\76\5\uffff\1\61\1\u00a6\1\67\4"+
-		"\uffff\1\155\1\u00b4\27\uffff\1\177\1\uffff\1\153\2\uffff\1\107\11\uffff"+
-		"\1\u0082\11\uffff\1\u0096\2\uffff\1\172\5\uffff\1\120\1\uffff\1\u0081"+
-		"\2\uffff\1\u00b0\1\uffff\1\71\4\uffff\1\u0093\1\133\1\167\1\u009b\1\125"+
-		"\2\uffff\1\u00a4\1\154\2\uffff\1\166\1\u00ae\1\uffff\1\131\4\uffff\1\147"+
-		"\1\uffff\1\u0083\1\176\1\uffff\1\106\1\uffff\1\u00a5\1\u00a2\10\uffff"+
-		"\1\u0085\1\uffff\1\170\1\uffff\1\142\3\uffff\1\u0091\1\uffff\1\134\1\uffff"+
-		"\1\161\3\uffff\1\137\1\u00af\1\u00b1\1\u00b2\1\u009f\6\uffff\1\132\3\uffff"+
-		"\1\u008b\1\uffff\1\u0084\1\uffff\1\116\10\uffff\1\u009c\5\uffff\1\u009d"+
-		"\5\uffff\1\64\1\uffff\1\65\4\uffff\1\151\1\u0080\1\u00c5\4\uffff\1\u00b9"+
-		"\1\u00ba\3\uffff\1\u008f\3\uffff\1\u0099\1\u0095\1\uffff\1\u00a0\1\144"+
-		"\4\uffff\1\136\1\141\6\uffff\1\u008e\1\u0090\1\123\1\u0089\1\113\2\uffff"+
-		"\1\66\1\u00c7\1\u00ab\1\u00c8\2\uffff\1\46\1\63\2\uffff\1\u00b7\1\uffff"+
-		"\1\u0087\1\uffff\1\u00b8\1\175";
+		"\1\35\1\36\1\40\1\41\1\42\33\uffff\1\u00cc\2\uffff\1\u00d2\1\uffff\1\u00de"+
+		"\1\uffff\1\3\1\u00d4\1\u00db\1\16\1\uffff\1\4\1\5\1\7\1\11\1\6\1\10\1"+
+		"\12\1\34\1\uffff\1\14\1\uffff\1\15\1\21\1\33\1\43\1\32\1\37\1\45\1\24"+
+		"\1\u00e0\1\27\1\u00dd\1\30\1\u00dc\1\31\1\uffff\1\u00cf\1\44\123\uffff"+
+		"\1\u00d9\1\u00d1\1\u00d5\1\u00d7\1\u00d8\1\u00e1\1\u00d0\1\u00d3\1\u00d6"+
+		"\1\u00e3\1\u00df\1\uffff\1\13\1\u00da\1\46\1\20\1\u00cd\3\uffff\1\u00bf"+
+		"\25\uffff\1\53\1\uffff\1\u0095\1\u00cb\21\uffff\1\u0098\3\uffff\1\102"+
+		"\26\uffff\1\113\1\uffff\1\101\1\uffff\1\u008e\10\uffff\1\u00bd\4\uffff"+
+		"\1\u00be\11\uffff\1\u00bc\3\uffff\1\104\30\uffff\1\u00c2\1\u00ce\1\u00e2"+
+		"\2\uffff\1\50\1\uffff\1\u00c1\1\51\7\uffff\1\52\1\uffff\1\u00ca\2\uffff"+
+		"\1\115\1\116\2\uffff\1\u00c7\3\uffff\1\160\1\54\3\uffff\1\56\20\uffff"+
+		"\1\100\13\uffff\1\u008d\2\uffff\1\u00c0\1\131\12\uffff\1\127\5\uffff\1"+
+		"\73\1\120\7\uffff\1\75\22\uffff\1\u00b6\4\uffff\1\153\4\uffff\1\163\14"+
+		"\uffff\1\u00a2\2\uffff\1\172\20\uffff\1\55\1\uffff\1\u009f\10\uffff\1"+
+		"\60\1\uffff\1\111\2\uffff\1\u00c3\1\112\1\uffff\1\174\1\130\6\uffff\1"+
+		"\u009b\2\uffff\1\123\2\uffff\1\71\1\uffff\1\u008b\4\uffff\1\u00b4\13\uffff"+
+		"\1\165\1\uffff\1\u00ab\13\uffff\1\76\1\157\5\uffff\1\u00a9\1\175\4\uffff"+
+		"\1\144\7\uffff\1\u00c4\1\uffff\1\u0099\7\uffff\1\166\6\uffff\1\u0093\1"+
+		"\164\2\uffff\1\u00a4\7\uffff\1\u0089\1\u00a8\5\uffff\1\u00ad\3\uffff\1"+
+		"\u00aa\1\uffff\1\61\1\uffff\1\136\4\uffff\1\141\1\u00ae\1\uffff\1\122"+
+		"\25\uffff\1\74\1\105\12\uffff\1\u00c5\1\uffff\1\103\1\uffff\1\125\2\uffff"+
+		"\1\106\4\uffff\1\161\1\uffff\1\146\1\uffff\1\u00b7\5\uffff\1\151\1\57"+
+		"\4\uffff\1\63\2\uffff\1\u0087\15\uffff\1\147\1\uffff\1\77\5\uffff\1\62"+
+		"\1\u00a7\1\70\4\uffff\1\156\1\u00b5\27\uffff\1\u0080\1\uffff\1\154\2\uffff"+
+		"\1\110\11\uffff\1\u0083\11\uffff\1\u0097\2\uffff\1\173\5\uffff\1\121\1"+
+		"\uffff\1\u0082\2\uffff\1\u00b1\1\uffff\1\72\4\uffff\1\u0094\1\134\1\170"+
+		"\1\u009c\1\126\2\uffff\1\u00a5\1\155\2\uffff\1\167\1\u00af\1\uffff\1\132"+
+		"\4\uffff\1\150\1\uffff\1\u0084\1\177\1\uffff\1\107\1\uffff\1\u00a6\1\u00a3"+
+		"\10\uffff\1\u0086\1\uffff\1\171\1\uffff\1\143\3\uffff\1\u0092\1\uffff"+
+		"\1\135\1\uffff\1\162\3\uffff\1\140\1\u00b0\1\u00b2\1\u00b3\1\u00a0\6\uffff"+
+		"\1\133\3\uffff\1\u008c\1\uffff\1\u0085\1\uffff\1\117\10\uffff\1\u009d"+
+		"\5\uffff\1\u009e\5\uffff\1\65\1\uffff\1\66\4\uffff\1\152\1\u0081\1\u00c6"+
+		"\4\uffff\1\u00ba\1\u00bb\3\uffff\1\u0090\3\uffff\1\u009a\1\u0096\1\uffff"+
+		"\1\u00a1\1\145\4\uffff\1\137\1\142\6\uffff\1\u008f\1\u0091\1\124\1\u008a"+
+		"\1\114\2\uffff\1\67\1\u00c8\1\u00ac\1\u00c9\2\uffff\1\47\1\64\2\uffff"+
+		"\1\u00b8\1\uffff\1\u0088\1\uffff\1\u00b9\1\176";
 	static final String DFA27_specialS =
-		"\30\uffff\1\0\u038d\uffff}>";
+		"\30\uffff\1\0\u038e\uffff}>";
 	static final String[] DFA27_transitionS = {
 			"\2\2\1\uffff\2\2\22\uffff\1\2\1\70\1\30\1\27\1\25\1\uffff\1\14\1\66\1"+
 			"\17\1\20\1\10\1\7\1\6\1\3\1\5\1\11\12\4\1\12\1\13\1\65\1\67\1\64\1\71"+
@@ -7935,76 +7965,73 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\107",
 			"\1\111",
 			"",
-			"\1\114\2\uffff\1\113",
+			"\1\114\2\uffff\1\113\100\uffff\1\115",
 			"",
 			"",
-			"\1\117\122\uffff\1\116",
+			"\1\120\122\uffff\1\117",
 			"",
 			"",
-			"\1\121",
-			"\1\123",
-			"\1\125",
+			"\1\122",
+			"\1\124",
+			"\1\126",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\74\130\1\127\uffc3\130",
-			"\1\132",
-			"\1\134\3\uffff\1\136\5\uffff\1\133\3\uffff\1\135",
-			"\1\140\3\uffff\1\137",
-			"\1\150\1\146\1\147\10\uffff\1\144\1\uffff\1\141\1\uffff\1\151\1\uffff"+
-			"\1\145\1\142\2\uffff\1\143",
-			"\1\154\7\uffff\1\155\3\uffff\1\152\2\uffff\1\153",
-			"\1\156",
-			"\1\157\12\uffff\1\161\2\uffff\1\160",
-			"\1\163\1\165\5\uffff\1\166\2\uffff\1\162\6\uffff\1\164",
-			"\1\167\3\uffff\1\172\3\uffff\1\171\2\uffff\1\173\2\uffff\1\170\2\uffff"+
-			"\1\174",
-			"\1\u0080\2\uffff\1\176\2\uffff\1\177\4\uffff\1\u0084\3\uffff\1\175\1"+
-			"\u0081\1\uffff\1\u0083\1\uffff\1\u0082",
-			"\1\u0086\6\uffff\1\u0087\1\u0085\4\uffff\1\u0088",
-			"\1\u0089\7\uffff\1\u008a",
-			"\1\u008d\15\uffff\1\u008b\3\uffff\1\u008e\1\uffff\1\u008c",
-			"\1\u008f\1\uffff\1\u0090\2\uffff\1\u0091",
-			"\1\u0094\15\uffff\1\u0093\2\uffff\1\u0092\1\u0096\1\uffff\1\u0095",
-			"\1\u0097\1\u0098",
-			"\1\u009c\3\uffff\1\u009a\3\uffff\1\u009b\5\uffff\1\u0099",
-			"\1\u009d\5\uffff\1\u009e",
-			"\1\u00a2\1\uffff\1\u00a1\7\uffff\1\u00a0\1\uffff\1\u009f",
-			"\1\u00a3",
-			"\1\u00a4\5\uffff\1\u00a5",
-			"\1\u00a6",
-			"\1\u00a8\2\uffff\1\u00a7",
-			"\1\u00a9",
+			"\74\131\1\130\uffc3\131",
+			"\1\133",
+			"\1\135\3\uffff\1\137\5\uffff\1\134\3\uffff\1\136",
+			"\1\141\3\uffff\1\140",
+			"\1\151\1\147\1\150\10\uffff\1\145\1\uffff\1\142\1\uffff\1\152\1\uffff"+
+			"\1\146\1\143\2\uffff\1\144",
+			"\1\155\7\uffff\1\156\3\uffff\1\153\2\uffff\1\154",
+			"\1\157",
+			"\1\160\12\uffff\1\162\2\uffff\1\161",
+			"\1\164\1\166\5\uffff\1\167\2\uffff\1\163\6\uffff\1\165",
+			"\1\170\3\uffff\1\173\3\uffff\1\172\2\uffff\1\174\2\uffff\1\171\2\uffff"+
+			"\1\175",
+			"\1\u0081\2\uffff\1\177\2\uffff\1\u0080\4\uffff\1\u0085\3\uffff\1\176"+
+			"\1\u0082\1\uffff\1\u0084\1\uffff\1\u0083",
+			"\1\u0087\6\uffff\1\u0088\1\u0086\4\uffff\1\u0089",
+			"\1\u008a\7\uffff\1\u008b",
+			"\1\u008e\15\uffff\1\u008c\3\uffff\1\u008f\1\uffff\1\u008d",
+			"\1\u0090\1\uffff\1\u0091\2\uffff\1\u0092",
+			"\1\u0095\15\uffff\1\u0094\2\uffff\1\u0093\1\u0097\1\uffff\1\u0096",
+			"\1\u0098\1\u0099",
+			"\1\u009d\3\uffff\1\u009b\3\uffff\1\u009c\5\uffff\1\u009a",
+			"\1\u009e\5\uffff\1\u009f",
+			"\1\u00a3\1\uffff\1\u00a2\7\uffff\1\u00a1\1\uffff\1\u00a0",
+			"\1\u00a4",
+			"\1\u00a5\5\uffff\1\u00a6",
+			"\1\u00a7",
+			"\1\u00a9\2\uffff\1\u00a8",
 			"\1\u00aa",
 			"\1\u00ab",
+			"\1\u00ac",
 			"",
-			"\1\u00ad\1\u00ac",
-			"\1\u00af\16\uffff\1\u00b2\1\u00b1\1\u00b0",
+			"\1\u00ae\1\u00ad",
+			"\1\u00b0\16\uffff\1\u00b3\1\u00b2\1\u00b1",
 			"",
-			"\1\u00b4",
+			"\1\u00b5",
 			"",
-			"\1\u00b6",
-			"",
-			"",
-			"",
-			"",
-			"\12\u00b8",
+			"\1\u00b7",
 			"",
 			"",
 			"",
+			"",
+			"\12\u00b9",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\u00b9",
-			"",
-			"\1\u00bb",
 			"",
 			"",
 			"",
+			"\1\u00ba",
+			"",
+			"\1\u00bc",
 			"",
 			"",
 			"",
@@ -8015,84 +8042,87 @@ public class BLESStoASTLexer extends Lexer {
 			"",
 			"",
 			"",
-			"\1\130\31\uffff\1\u00bd\1\130",
 			"",
 			"",
-			"\1\u00be",
+			"",
+			"",
+			"\1\131\31\uffff\1\u00be\1\131",
+			"",
+			"",
 			"\1\u00bf",
 			"\1\u00c0",
+			"\1\u00c1",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u00c2",
-			"\1\u00c5\1\uffff\1\u00c4\2\uffff\1\u00c8\6\uffff\1\u00c3\1\u00c6\2\uffff"+
-			"\1\u00c7",
-			"\1\u00ca\5\uffff\1\u00c9",
-			"\1\u00cb\11\uffff\1\u00cc\12\uffff\1\u00cd",
-			"\1\u00ce",
+			"\1\u00c3",
+			"\1\u00c6\1\uffff\1\u00c5\2\uffff\1\u00c9\6\uffff\1\u00c4\1\u00c7\2\uffff"+
+			"\1\u00c8",
+			"\1\u00cb\5\uffff\1\u00ca",
+			"\1\u00cc\11\uffff\1\u00cd\12\uffff\1\u00ce",
 			"\1\u00cf",
 			"\1\u00d0",
-			"\1\u00d1\14\uffff\1\u00d2",
-			"\1\u00d3",
+			"\1\u00d1",
+			"\1\u00d2\14\uffff\1\u00d3",
 			"\1\u00d4",
 			"\1\u00d5",
 			"\1\u00d6",
+			"\1\u00d7",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u00d8",
+			"\1\u00d9",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u00db",
-			"\1\u00dd\1\uffff\1\u00dc\5\uffff\1\u00de",
-			"\1\u00e0\1\u00e1\3\uffff\1\u00df\2\uffff\1\u00e2",
-			"\1\u00e3",
-			"\1\u00e5\23\uffff\1\u00e4",
-			"\1\u00e6\3\uffff\1\u00e8\14\uffff\1\u00e7",
-			"\1\u00e9",
+			"\1\u00dc",
+			"\1\u00de\1\uffff\1\u00dd\5\uffff\1\u00df",
+			"\1\u00e1\1\u00e2\3\uffff\1\u00e0\2\uffff\1\u00e3",
+			"\1\u00e4",
+			"\1\u00e6\23\uffff\1\u00e5",
+			"\1\u00e7\3\uffff\1\u00e9\14\uffff\1\u00e8",
 			"\1\u00ea",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\17\63\1\u00eb\12\63",
-			"\1\u00ed",
+			"\1\u00eb",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\17\63\1\u00ec\12\63",
 			"\1\u00ee",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\15\63\1\u00ef\14\63",
-			"\1\u00f1\22\uffff\1\u00f2",
-			"\1\u00f3",
+			"\1\u00ef",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\15\63\1\u00f0\14\63",
+			"\1\u00f2\22\uffff\1\u00f3",
 			"\1\u00f4",
-			"\1\u00f5\15\uffff\1\u00f6\2\uffff\1\u00f7",
-			"\1\u00f8",
+			"\1\u00f5",
+			"\1\u00f6\15\uffff\1\u00f7\2\uffff\1\u00f8",
 			"\1\u00f9",
-			"\1\u00fd\10\uffff\1\u00fb\4\uffff\1\u00fc\2\uffff\1\u00fa",
-			"\1\u00ff\12\uffff\1\u00fe",
-			"\1\u0100",
+			"\1\u00fa",
+			"\1\u00fe\10\uffff\1\u00fc\4\uffff\1\u00fd\2\uffff\1\u00fb",
+			"\1\u0100\12\uffff\1\u00ff",
 			"\1\u0101",
 			"\1\u0102",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\7\63\1\u0106\1\u0104\12\63"+
-			"\1\u0105\1\63\1\u0103\4\63",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\5\63\1\u0108\24\63",
-			"\1\u010a",
+			"\1\u0103",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\7\63\1\u0107\1\u0105\12\63"+
+			"\1\u0106\1\63\1\u0104\4\63",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\5\63\1\u0109\24\63",
+			"\1\u010b",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u010c",
 			"\1\u010d",
-			"\1\u010e\5\uffff\1\u010f\2\uffff\1\u0110",
-			"\1\u0112\1\u0111",
-			"\1\u0113",
+			"\1\u010e",
+			"\1\u010f\5\uffff\1\u0110\2\uffff\1\u0111",
+			"\1\u0113\1\u0112",
+			"\1\u0114",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0115\12\uffff\1\u0116",
-			"\1\u0117\13\uffff\1\u0118",
+			"\1\u0116\12\uffff\1\u0117",
+			"\1\u0118\13\uffff\1\u0119",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u011a\3\uffff\1\u011c\5\uffff\1\u011b",
-			"\1\u011e\1\u011d",
-			"\1\u011f\16\uffff\1\u0120\2\uffff\1\u0121",
-			"\1\u0122",
+			"\1\u011b\3\uffff\1\u011d\5\uffff\1\u011c",
+			"\1\u011f\1\u011e",
+			"\1\u0120\16\uffff\1\u0121\2\uffff\1\u0122",
+			"\1\u0123",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0125\3\uffff\1\u0124",
-			"\1\u0126",
+			"\1\u0126\3\uffff\1\u0125",
+			"\1\u0127",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0128\2\uffff\1\u012b\5\uffff\1\u0129\11\uffff\1\u012a",
-			"\1\u012c",
+			"\1\u0129\2\uffff\1\u012c\5\uffff\1\u012a\11\uffff\1\u012b",
 			"\1\u012d",
-			"\1\u012f\5\uffff\1\u012e",
-			"\1\u0130",
-			"\1\u0133\5\uffff\1\u0131\12\uffff\1\u0132",
-			"\1\u0134",
-			"\1\u0135\20\uffff\1\u0136",
-			"\1\u0137",
+			"\1\u012e",
+			"\1\u0130\5\uffff\1\u012f",
+			"\1\u0131",
+			"\1\u0134\5\uffff\1\u0132\12\uffff\1\u0133",
+			"\1\u0135",
+			"\1\u0136\20\uffff\1\u0137",
 			"\1\u0138",
 			"\1\u0139",
 			"\1\u013a",
@@ -8101,8 +8131,9 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u013d",
 			"\1\u013e",
 			"\1\u013f",
+			"\1\u0140",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0141",
+			"\1\u0142",
 			"",
 			"",
 			"",
@@ -8114,64 +8145,63 @@ public class BLESStoASTLexer extends Lexer {
 			"",
 			"",
 			"",
-			"\1\77\1\uffff\12\u00b8\45\uffff\1\76",
+			"\1\77\1\uffff\12\u00b9\45\uffff\1\76",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\u0143",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\4\63\1\u0144\25\63",
-			"\1\u0146",
+			"\1\u0144",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\4\63\1\u0145\25\63",
+			"\1\u0147",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0149",
 			"\1\u014a",
 			"\1\u014b",
 			"\1\u014c",
 			"\1\u014d",
 			"\1\u014e",
 			"\1\u014f",
+			"\1\u0150",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0151",
+			"\1\u0152",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0153",
 			"\1\u0154",
+			"\1\u0155",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0157",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\23\63\1\u0158\6\63",
-			"\1\u015a",
+			"\1\u0158",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\23\63\1\u0159\6\63",
 			"\1\u015b",
 			"\1\u015c",
+			"\1\u015d",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u015f",
 			"\1\u0160",
 			"\1\u0161",
+			"\1\u0162",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0163",
-			"\1\u0165\4\uffff\1\u0164",
-			"\1\u0166",
+			"\1\u0164",
+			"\1\u0166\4\uffff\1\u0165",
 			"\1\u0167",
 			"\1\u0168",
 			"\1\u0169",
 			"\1\u016a",
-			"\1\u016b\11\uffff\1\u016c",
-			"\1\u016d",
+			"\1\u016b",
+			"\1\u016c\11\uffff\1\u016d",
 			"\1\u016e",
 			"\1\u016f",
 			"\1\u0170",
-			"",
 			"\1\u0171",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\1\u0172\31\63",
-			"\1\u0174",
 			"",
+			"\1\u0172",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\1\u0173\31\63",
 			"\1\u0175",
+			"",
 			"\1\u0176",
 			"\1\u0177",
 			"\1\u0178",
@@ -8180,67 +8210,67 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u017b",
 			"\1\u017c",
 			"\1\u017d",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\14\63\1\u017e\15\63",
-			"\1\u0180",
+			"\1\u017e",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\14\63\1\u017f\15\63",
 			"\1\u0181",
+			"\1\u0182",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0185\14\uffff\1\u0184",
-			"\1\u0186",
+			"\1\u0186\14\uffff\1\u0185",
 			"\1\u0187",
 			"\1\u0188",
-			"\1\u0189\3\uffff\1\u018a",
-			"\1\u018b",
+			"\1\u0189",
+			"\1\u018a\3\uffff\1\u018b",
 			"\1\u018c",
 			"\1\u018d",
+			"\1\u018e",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"",
-			"\1\u018f",
 			"",
 			"\1\u0190",
+			"",
 			"\1\u0191",
-			"\1\u0193\20\uffff\1\u0192",
+			"\1\u0192",
+			"\1\u0194\20\uffff\1\u0193",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0196",
 			"\1\u0197",
 			"\1\u0198",
-			"",
 			"\1\u0199",
+			"",
 			"\1\u019a",
 			"\1\u019b",
 			"\1\u019c",
+			"\1\u019d",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01a1\1\u019e\13\uffff\1\u01a0\3\uffff\1\u019f\1\uffff\1\u01a2",
-			"\1\u01a3",
+			"\1\u01a2\1\u019f\13\uffff\1\u01a1\3\uffff\1\u01a0\1\uffff\1\u01a3",
 			"\1\u01a4",
 			"\1\u01a5",
 			"\1\u01a6",
 			"\1\u01a7",
 			"\1\u01a8",
 			"\1\u01a9",
-			"",
 			"\1\u01aa",
+			"",
 			"\1\u01ab",
 			"\1\u01ac",
-			"",
 			"\1\u01ad",
+			"",
 			"\1\u01ae",
 			"\1\u01af",
+			"\1\u01b0",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01b1",
 			"\1\u01b2",
 			"\1\u01b3",
 			"\1\u01b4",
+			"\1\u01b5",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01b6",
 			"\1\u01b7",
 			"\1\u01b8",
 			"\1\u01b9",
+			"\1\u01ba",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01bb",
 			"\1\u01bc",
 			"\1\u01bd",
 			"\1\u01be",
@@ -8250,203 +8280,203 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u01c2",
 			"\1\u01c3",
 			"\1\u01c4",
-			"",
-			"",
-			"",
 			"\1\u01c5",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01c6\7\63",
 			"",
-			"\1\u01c8",
 			"",
+			"",
+			"\1\u01c6",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01c7\7\63",
 			"",
 			"\1\u01c9",
+			"",
+			"",
+			"\1\u01ca",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01cb",
 			"\1\u01cc",
 			"\1\u01cd",
 			"\1\u01ce",
 			"\1\u01cf",
-			"",
 			"\1\u01d0",
 			"",
 			"\1\u01d1",
+			"",
 			"\1\u01d2",
-			"",
-			"",
 			"\1\u01d3",
-			"\1\u01d4",
 			"",
+			"",
+			"\1\u01d4",
 			"\1\u01d5",
-			"\1\u01d6\6\uffff\1\u01d8\10\uffff\1\u01d9\1\u01d7",
-			"\1\u01da",
+			"",
+			"\1\u01d6",
+			"\1\u01d7\6\uffff\1\u01d9\10\uffff\1\u01da\1\u01d8",
+			"\1\u01db",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01dc\7\63",
-			"\1\u01de",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01dd\7\63",
+			"\1\u01df",
 			"",
-			"\1\u01e0\2\uffff\1\u01e1\5\uffff\1\u01df",
-			"\1\u01e2",
+			"\1\u01e1\2\uffff\1\u01e2\5\uffff\1\u01e0",
 			"\1\u01e3",
 			"\1\u01e4",
 			"\1\u01e5",
+			"\1\u01e6",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01e7",
+			"\1\u01e8",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01e9",
 			"\1\u01ea",
+			"\1\u01eb",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\u01ed\13\63",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\u01ee\13\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01f0",
 			"\1\u01f1",
-			"",
 			"\1\u01f2",
+			"",
 			"\1\u01f3",
 			"\1\u01f4",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01f5\7\63",
-			"\1\u01f7",
+			"\1\u01f5",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u01f6\7\63",
 			"\1\u01f8",
+			"\1\u01f9",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01fa",
 			"\1\u01fb",
+			"\1\u01fc",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01fd",
+			"\1\u01fe",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u01ff",
-			"",
-			"",
 			"\1\u0200",
+			"",
+			"",
 			"\1\u0201",
 			"\1\u0202",
+			"\1\u0203",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0204",
 			"\1\u0205",
 			"\1\u0206",
 			"\1\u0207",
 			"\1\u0208",
 			"\1\u0209",
+			"\1\u020a",
 			"",
-			"\1\u020b\3\uffff\1\u020a",
-			"\1\u020c",
+			"\1\u020c\3\uffff\1\u020b",
 			"\1\u020d",
 			"\1\u020e",
+			"\1\u020f",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
-			"\1\u0210",
+			"\1\u0211",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0212",
 			"\1\u0213",
 			"\1\u0214",
 			"\1\u0215",
 			"\1\u0216",
-			"",
 			"\1\u0217",
+			"",
 			"\1\u0218",
 			"\1\u0219",
 			"\1\u021a",
 			"\1\u021b",
 			"\1\u021c",
+			"\1\u021d",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u021f",
 			"\1\u0220",
 			"\1\u0221",
 			"\1\u0222",
 			"\1\u0223",
+			"\1\u0224",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0226",
 			"\1\u0227",
 			"\1\u0228",
-			"",
 			"\1\u0229",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u022b",
-			"\1\u022c",
 			"",
+			"\1\u022a",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+			"\1\u022c",
 			"\1\u022d",
+			"",
 			"\1\u022e",
 			"\1\u022f",
 			"\1\u0230",
-			"",
 			"\1\u0231",
+			"",
+			"\1\u0232",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0233",
+			"\1\u0234",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0235",
 			"\1\u0236",
 			"\1\u0237",
 			"\1\u0238",
 			"\1\u0239",
 			"\1\u023a",
 			"\1\u023b",
+			"\1\u023c",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u023d",
 			"\1\u023e",
-			"",
 			"\1\u023f",
+			"",
 			"\1\u0240",
 			"\1\u0241",
 			"\1\u0242",
+			"\1\u0243",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0245",
 			"\1\u0246",
+			"\1\u0247",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0248",
 			"\1\u0249",
 			"\1\u024a",
 			"\1\u024b",
 			"\1\u024c",
 			"\1\u024d",
 			"\1\u024e",
+			"\1\u024f",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0251",
 			"\1\u0252",
 			"\1\u0253",
 			"\1\u0254",
 			"\1\u0255",
+			"\1\u0256",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0257",
-			"",
 			"\1\u0258",
 			"",
 			"\1\u0259",
+			"",
+			"\1\u025a",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
-			"\1\u025b",
+			"\1\u025c",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u025d",
+			"\1\u025e",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u025f",
-			"\1\u0260\15\uffff\1\u0261\10\uffff\1\u0262",
+			"\1\u0260",
+			"\1\u0261\15\uffff\1\u0262\10\uffff\1\u0263",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0265\7\63",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0266\7\63",
 			"",
-			"\1\u0267",
 			"\1\u0268",
-			"",
 			"\1\u0269",
 			"",
 			"\1\u026a",
+			"",
 			"\1\u026b",
 			"\1\u026c",
 			"\1\u026d",
-			"",
 			"\1\u026e",
+			"",
 			"\1\u026f",
 			"\1\u0270",
 			"\1\u0271",
@@ -8454,16 +8484,16 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u0273",
 			"\1\u0274",
 			"\1\u0275",
-			"\1\u0276\13\uffff\1\u0277",
-			"\1\u0278",
+			"\1\u0276",
+			"\1\u0277\13\uffff\1\u0278",
 			"\1\u0279",
-			"",
 			"\1\u027a",
 			"",
 			"\1\u027b",
+			"",
+			"\1\u027c",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u027e",
 			"\1\u027f",
 			"\1\u0280",
 			"\1\u0281",
@@ -8471,89 +8501,89 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u0283",
 			"\1\u0284",
 			"\1\u0285",
-			"",
-			"",
 			"\1\u0286",
+			"",
+			"",
 			"\1\u0287",
+			"\1\u0288",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0289",
+			"\1\u028a",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
-			"\1\u028b",
+			"\1\u028c",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u028d",
 			"\1\u028e",
+			"\1\u028f",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0290",
 			"\1\u0291",
 			"\1\u0292",
 			"\1\u0293",
+			"\1\u0294",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0295",
+			"\1\u0296",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u0297",
+			"\1\u0298",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0299",
 			"\1\u029a",
 			"\1\u029b",
 			"\1\u029c",
 			"\1\u029d",
+			"\1\u029e",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02a0",
 			"\1\u02a1",
 			"\1\u02a2",
 			"\1\u02a3",
+			"\1\u02a4",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02a5",
-			"",
 			"\1\u02a6",
+			"",
+			"\1\u02a7",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02a8",
 			"\1\u02a9",
 			"\1\u02aa",
 			"\1\u02ab",
 			"\1\u02ac",
-			"",
-			"",
 			"\1\u02ad",
-			"\1\u02ae\3\uffff\1\u02af",
-			"\1\u02b0",
+			"",
+			"",
+			"\1\u02ae",
+			"\1\u02af\3\uffff\1\u02b0",
 			"\1\u02b1",
 			"\1\u02b2",
-			"",
 			"\1\u02b3",
+			"",
 			"\1\u02b4",
+			"\1\u02b5",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u02b6",
+			"\1\u02b7",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u02b8",
-			"\1\u02b9\11\uffff\1\u02ba",
-			"\1\u02bb",
+			"\1\u02b9",
+			"\1\u02ba\11\uffff\1\u02bb",
 			"\1\u02bc",
+			"\1\u02bd",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02c0",
 			"\1\u02c1",
 			"\1\u02c2",
 			"\1\u02c3",
+			"\1\u02c4",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02c6",
 			"\1\u02c7",
 			"\1\u02c8",
 			"\1\u02c9",
@@ -8566,9 +8596,9 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u02d0",
 			"\1\u02d1",
 			"\1\u02d2",
-			"",
-			"",
 			"\1\u02d3",
+			"",
+			"",
 			"\1\u02d4",
 			"\1\u02d5",
 			"\1\u02d6",
@@ -8578,99 +8608,99 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u02da",
 			"\1\u02db",
 			"\1\u02dc",
+			"\1\u02dd",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u02de",
+			"\1\u02df",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02e0",
-			"",
 			"\1\u02e1",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02e3",
-			"\1\u02e4",
 			"",
+			"\1\u02e2",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+			"\1\u02e4",
 			"\1\u02e5",
 			"",
 			"\1\u02e6",
 			"",
 			"\1\u02e7",
+			"",
 			"\1\u02e8",
 			"\1\u02e9",
 			"\1\u02ea",
 			"\1\u02eb",
+			"\1\u02ec",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02ed",
 			"\1\u02ee",
 			"\1\u02ef",
-			"",
 			"\1\u02f0",
-			"\1\u02f1",
 			"",
+			"\1\u02f1",
 			"\1\u02f2",
+			"",
 			"\1\u02f3",
 			"\1\u02f4",
 			"\1\u02f5",
+			"\1\u02f6",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02f7",
 			"\1\u02f8",
+			"\1\u02f9",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u02fa",
 			"\1\u02fb",
 			"\1\u02fc",
 			"\1\u02fd",
 			"\1\u02fe",
+			"\1\u02ff",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0300\7\63",
-			"\1\u0302",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0301\7\63",
 			"\1\u0303",
+			"\1\u0304",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0305",
+			"\1\u0306",
 			"",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0307",
 			"\1\u0308",
 			"\1\u0309",
-			"",
-			"",
 			"\1\u030a",
+			"",
+			"",
+			"\1\u030b",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0310",
 			"\1\u0311",
+			"\1\u0312",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0314",
 			"\1\u0315",
+			"\1\u0316",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0318",
+			"\1\u0319",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u031a",
-			"\1\u031b\17\uffff\1\u031c",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\u031d\13\63",
-			"\1\u031f",
+			"\1\u031b",
+			"\1\u031c\17\uffff\1\u031d",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\u031e\13\63",
+			"\1\u0320",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0322",
+			"\1\u0323",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u0324",
+			"\1\u0325",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0327",
 			"\1\u0328",
 			"\1\u0329",
 			"\1\u032a",
@@ -8678,25 +8708,26 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u032c",
 			"\1\u032d",
 			"\1\u032e",
+			"\1\u032f",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0330",
+			"\1\u0331",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0332",
+			"\1\u0333",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0334",
 			"\1\u0335",
 			"\1\u0336",
+			"\1\u0337",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u0338",
+			"\1\u0339",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u033a",
+			"\1\u033b",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u033c",
 			"\1\u033d",
 			"\1\u033e",
+			"\1\u033f",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
@@ -8706,38 +8737,37 @@ public class BLESStoASTLexer extends Lexer {
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0344",
 			"\1\u0345",
 			"\1\u0346",
-			"",
-			"",
-			"",
-			"",
-			"",
 			"\1\u0347",
+			"",
+			"",
+			"",
+			"",
+			"",
 			"\1\u0348",
-			"",
-			"",
 			"\1\u0349",
+			"",
+			"",
+			"\1\u034a",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"",
-			"\1\u034b",
 			"",
 			"\1\u034c",
+			"",
 			"\1\u034d",
+			"\1\u034e",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u034f",
-			"",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"",
-			"",
-			"\1\u0351",
+			"\1\u0350",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
-			"\1\u0353",
+			"\1\u0352",
+			"",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+			"",
+			"",
 			"\1\u0354",
 			"\1\u0355",
 			"\1\u0356",
@@ -8745,80 +8775,81 @@ public class BLESStoASTLexer extends Lexer {
 			"\1\u0358",
 			"\1\u0359",
 			"\1\u035a",
+			"\1\u035b",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"",
-			"\1\u035c",
 			"",
 			"\1\u035d",
+			"",
 			"\1\u035e",
 			"\1\u035f",
-			"",
 			"\1\u0360",
 			"",
+			"\1\u0361",
+			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
-			"\1\u0362",
 			"\1\u0363",
 			"\1\u0364",
-			"",
-			"",
-			"",
-			"",
-			"",
 			"\1\u0365",
-			"\1\u0366",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0368",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u036a",
 			"",
+			"",
+			"",
+			"",
+			"",
+			"\1\u0366",
+			"\1\u0367",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+			"\1\u0369",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\1\u036b",
+			"",
 			"\1\u036c",
 			"\1\u036d",
+			"\1\u036e",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0371",
 			"\1\u0372",
 			"\1\u0373",
 			"\1\u0374",
+			"\1\u0375",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0377",
-			"",
 			"\1\u0378",
+			"",
 			"\1\u0379",
+			"\1\u037a",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u037b",
 			"\1\u037c",
+			"\1\u037d",
 			"",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u037d\7\63",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u037e\7\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0380\7\63",
+			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\22\63\1\u0381\7\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u0383",
-			"",
 			"\1\u0384",
 			"",
 			"\1\u0385",
+			"",
 			"\1\u0386",
+			"\1\u0387",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
 			"",
-			"\1\u0389",
 			"\1\u038a",
 			"\1\u038b",
 			"\1\u038c",
-			"",
-			"",
 			"\1\u038d",
+			"",
+			"",
 			"\1\u038e",
+			"\1\u038f",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
@@ -8829,16 +8860,16 @@ public class BLESStoASTLexer extends Lexer {
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
-			"\1\u0394",
 			"\1\u0395",
+			"\1\u0396",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u039a",
 			"\1\u039b",
+			"\1\u039c",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
@@ -8846,18 +8877,18 @@ public class BLESStoASTLexer extends Lexer {
 			"",
 			"",
 			"",
-			"\1\u039e",
 			"\1\u039f",
+			"\1\u03a0",
 			"",
 			"",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u03a1",
+			"\1\u03a2",
 			"",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
-			"\1\u03a3",
+			"\1\u03a4",
 			"",
 			"\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
 			"",
@@ -8897,7 +8928,7 @@ public class BLESStoASTLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( T__302 | WS | SLCOMMENT | REAL_LIT | INTEGER_LIT | PERIOD | DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA | PLUS_ARROW | PLUS | TIMES | MINUS | DIVIDE | EXP | ASSIGN | SEMICOLON | AMPERSAND | LCURLY | RCURLY | LPAREN | RPAREN | LBRACKET | RBRACKET | COLON | DOUBLE_COLON | COMMA | AT_SIGN | CARET | EMPTY_CURLY | DOLLAR | TILDE | OCTOTHORPE | DOUBLE_QUOTE | ANNEX_START | ANNEX_END | DO_NOT_PROVE | LITERAL_mod | LITERAL_rem | LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor | LITERAL_record | LITERAL_true | LITERAL_false | LITERAL_states | LITERAL_assert | LITERAL_availability | LITERAL_invariant | LITERAL_variables | LITERAL_nonvolatile | LITERAL_shared | LITERAL_skip | LITERAL_setmode | LITERAL_not | LITERAL_units | LITERAL_pre | LITERAL_post | LITERAL_forall | LITERAL_for | LITERAL_if | LITERAL_fi | LITERAL_while | LITERAL_do | LITERAL_until | LITERAL_bound | LITERAL_declare | LITERAL_exists | LITERAL_that | LITERAL_type | LITERAL_in | LITERAL_transitions | LITERAL_all | LITERAL_are | LITERAL_dispatch | LITERAL_now | LITERAL_timeout | LITERAL_state | LITERAL_stop | LITERAL_computation | LITERAL_delay | LITERAL_implies | LITERAL_iff | LITERAL_tops | LITERAL_sum | LITERAL_product | LITERAL_numberof | LITERAL_initial | LITERAL_complete | LITERAL_final | LITERAL_prototypes | LITERAL_features | LITERAL_flows | LITERAL_properties | LITERAL_abstract | LITERAL_data | LITERAL_subprogram | LITERAL_group | LITERAL_thread | LITERAL_process | LITERAL_memory | LITERAL_processor | LITERAL_bus | LITERAL_device | LITERAL_virtual | LITERAL_system | LITERAL_port | LITERAL_out | LITERAL_event | LITERAL_constant | LITERAL_end | LITERAL_annex | LITERAL_none | LITERAL_modes | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | LITERAL_with | LITERAL_implementation | LITERAL_package | LITERAL_public | LITERAL_parameter | LITERAL_feature | LITERAL_renames | LITERAL_private | LITERAL_provides | LITERAL_requires | LITERAL_access | LITERAL_subcomponents | LITERAL_calls | LITERAL_connections | LITERAL_self | LITERAL_property | LITERAL_set | LITERAL_is | LITERAL_aadlboolean | LITERAL_aadlstring | LITERAL_aadlinteger | LITERAL_aadlreal | LITERAL_range | LITERAL_inverse | LITERAL_of | LITERAL_classifier | LITERAL_applies | LITERAL_to | LITERAL_list | LITERAL_connection | LITERAL_flow | LITERAL_inherit | LITERAL_reference | LITERAL_component | LITERAL_call | LITERAL_sequence | LITERAL_transition | LITERAL_mode | LITERAL_extends | LITERAL_array | LITERAL_variant | LITERAL_boolean | LITERAL_string | LITERAL_catch | LITERAL_when | LITERAL_throw | LITERAL_null | LITERAL_enumeration | LITERAL_count | LITERAL_fresh | LITERAL_updated | LITERAL_fetchadd | LITERAL_fetchor | LITERAL_fetchand | LITERAL_fetchxor | LITERAL_swap | LITERAL_spread | LITERAL_def | LITERAL_Typed | LITERAL_Precondition | LITERAL_Postcondition | LITERAL_Assertion | LITERAL_Invariant | LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr | LITERAL_then | LITERAL_else | LITERAL_pause | LITERAL_exception | LITERAL_abs | LITERAL_upper_bound | LITERAL_lower_bound | LITERAL_any | LITERAL_on | ID | START_ASSERTION_PROPERTY | END_ASSERTION_PROPERTY | AADL_STRING_LITERAL | LT | GT | TICK | ARROW | IMP | BI | EQ | NEQ | AM | AL | PLUS_EQUALS | LCON | RCON | BOX | EXCLAMATION | QUESTION | GUARD | LASS | RASS | QQ );";
+			return "1:1: Tokens : ( T__304 | WS | SLCOMMENT | REAL_LIT | INTEGER_LIT | PERIOD | DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA | PLUS_ARROW | PLUS | TIMES | MINUS | DIVIDE | EXP | ASSIGN | SEMICOLON | AMPERSAND | LCURLY | RCURLY | LPAREN | RPAREN | LBRACKET | RBRACKET | COLON | DOUBLE_COLON | COMMA | AT_SIGN | CARET | EMPTY_CURLY | DOLLAR | TILDE | OCTOTHORPE | COLON_TILDE | DOUBLE_QUOTE | ANNEX_START | ANNEX_END | DO_NOT_PROVE | LITERAL_mod | LITERAL_rem | LITERAL_and | LITERAL_or | LITERAL_xor | LITERAL_cand | LITERAL_cor | LITERAL_record | LITERAL_true | LITERAL_false | LITERAL_states | LITERAL_assert | LITERAL_availability | LITERAL_invariant | LITERAL_variables | LITERAL_nonvolatile | LITERAL_shared | LITERAL_skip | LITERAL_setmode | LITERAL_not | LITERAL_units | LITERAL_pre | LITERAL_post | LITERAL_forall | LITERAL_for | LITERAL_if | LITERAL_fi | LITERAL_while | LITERAL_do | LITERAL_until | LITERAL_bound | LITERAL_declare | LITERAL_exists | LITERAL_that | LITERAL_type | LITERAL_in | LITERAL_transitions | LITERAL_all | LITERAL_are | LITERAL_dispatch | LITERAL_now | LITERAL_timeout | LITERAL_state | LITERAL_stop | LITERAL_computation | LITERAL_delay | LITERAL_implies | LITERAL_iff | LITERAL_tops | LITERAL_sum | LITERAL_product | LITERAL_numberof | LITERAL_initial | LITERAL_complete | LITERAL_final | LITERAL_prototypes | LITERAL_features | LITERAL_flows | LITERAL_properties | LITERAL_abstract | LITERAL_data | LITERAL_subprogram | LITERAL_group | LITERAL_thread | LITERAL_process | LITERAL_memory | LITERAL_processor | LITERAL_bus | LITERAL_device | LITERAL_virtual | LITERAL_system | LITERAL_port | LITERAL_out | LITERAL_event | LITERAL_constant | LITERAL_end | LITERAL_annex | LITERAL_none | LITERAL_modes | LITERAL_natural | LITERAL_integer | LITERAL_rational | LITERAL_real | LITERAL_complex | LITERAL_time | LITERAL_with | LITERAL_implementation | LITERAL_package | LITERAL_public | LITERAL_parameter | LITERAL_feature | LITERAL_renames | LITERAL_private | LITERAL_provides | LITERAL_requires | LITERAL_access | LITERAL_subcomponents | LITERAL_calls | LITERAL_connections | LITERAL_self | LITERAL_property | LITERAL_set | LITERAL_is | LITERAL_aadlboolean | LITERAL_aadlstring | LITERAL_aadlinteger | LITERAL_aadlreal | LITERAL_range | LITERAL_inverse | LITERAL_of | LITERAL_classifier | LITERAL_applies | LITERAL_to | LITERAL_list | LITERAL_connection | LITERAL_flow | LITERAL_inherit | LITERAL_reference | LITERAL_component | LITERAL_call | LITERAL_sequence | LITERAL_transition | LITERAL_mode | LITERAL_extends | LITERAL_array | LITERAL_variant | LITERAL_boolean | LITERAL_string | LITERAL_catch | LITERAL_when | LITERAL_throw | LITERAL_null | LITERAL_enumeration | LITERAL_count | LITERAL_fresh | LITERAL_updated | LITERAL_fetchadd | LITERAL_fetchor | LITERAL_fetchand | LITERAL_fetchxor | LITERAL_swap | LITERAL_spread | LITERAL_def | LITERAL_Typed | LITERAL_Precondition | LITERAL_Postcondition | LITERAL_Assertion | LITERAL_Invariant | LITERAL_ps | LITERAL_ns | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr | LITERAL_then | LITERAL_else | LITERAL_pause | LITERAL_exception | LITERAL_abs | LITERAL_upper_bound | LITERAL_lower_bound | LITERAL_any | LITERAL_on | ID | START_ASSERTION_PROPERTY | END_ASSERTION_PROPERTY | AADL_STRING_LITERAL | LT | GT | TICK | ARROW | IMP | BI | EQ | NEQ | AM | AL | PLUS_EQUALS | LCON | RCON | BOX | EXCLAMATION | QUESTION | GUARD | LASS | RASS | QQ );";
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
@@ -8907,9 +8938,9 @@ public class BLESStoASTLexer extends Lexer {
 					case 0 : 
 						int LA27_24 = input.LA(1);
 						s = -1;
-						if ( (LA27_24=='<') ) {s = 87;}
-						else if ( ((LA27_24 >= '\u0000' && LA27_24 <= ';')||(LA27_24 >= '=' && LA27_24 <= '\uFFFF')) ) {s = 88;}
-						else s = 89;
+						if ( (LA27_24=='<') ) {s = 88;}
+						else if ( ((LA27_24 >= '\u0000' && LA27_24 <= ';')||(LA27_24 >= '=' && LA27_24 <= '\uFFFF')) ) {s = 89;}
+						else s = 90;
 						if ( s>=0 ) return s;
 						break;
 			}
