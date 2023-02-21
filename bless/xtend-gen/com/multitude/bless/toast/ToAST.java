@@ -2144,12 +2144,12 @@ public class ToAST {
   }
 
   public boolean isPredicateParameter(final NamedAssertion na, final ActualParameter ap) {
-    if ((ap.getFormal().equals(na.getFormals().getFirst().getName()) && (na.getFormals().getFirst().getTod() instanceof BooleanType))) {
+    if ((ap.getFormal().equals(na.getFormals().getFirst().getName()) && (na.getFormals().getFirst().getTod().getTy() instanceof BooleanType))) {
       return true;
     }
     EList<Variable> _parameter = na.getFormals().getParameter();
     for (final Variable param : _parameter) {
-      if ((ap.getFormal().equals(param.getName()) && (param.getTod() instanceof BooleanType))) {
+      if ((ap.getFormal().equals(param.getName()) && (param.getTod().getTy() instanceof BooleanType))) {
         return true;
       }
     }

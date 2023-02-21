@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2023-02-21 12:41:12
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g 2023-02-21 13:15:04
 
 //copyright 2020 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -20554,7 +20554,7 @@ public class UnparseBLESS extends TreeParser {
 
 
 	// $ANTLR start "actual_assertion_parameter"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:2916:1: actual_assertion_parameter : ( ^( PARAMETER formal= ID actual= assertion_expression ) -> template(formal=$formal.textactual=$actual.st) \"<formal>:<actual>\"| ^( PARAMETER COLON_TILDE formal= ID pred= predicate ) -> template(formal=$formal.textpred=$pred.st) \"<formal>:~<pred>\");
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:2916:1: actual_assertion_parameter : ( ^( PARAMETER formal= ID actual= assertion_expression ) -> template(formal=$formal.textactual=$actual.st) \"<formal>:<actual>\"| ^( PARAMETER COLON_TILDE formal= ID pred= predicate ) -> template(formal=$formal.textpred=$pred.st) \"<formal>:<pred>\");
 	public final UnparseBLESS.actual_assertion_parameter_return actual_assertion_parameter() throws RecognitionException {
 		UnparseBLESS.actual_assertion_parameter_return retval = new UnparseBLESS.actual_assertion_parameter_return();
 		retval.start = input.LT(1);
@@ -20564,7 +20564,7 @@ public class UnparseBLESS extends TreeParser {
 		TreeRuleReturnScope pred =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:2917:3: ( ^( PARAMETER formal= ID actual= assertion_expression ) -> template(formal=$formal.textactual=$actual.st) \"<formal>:<actual>\"| ^( PARAMETER COLON_TILDE formal= ID pred= predicate ) -> template(formal=$formal.textpred=$pred.st) \"<formal>:~<pred>\")
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS.g:2917:3: ( ^( PARAMETER formal= ID actual= assertion_expression ) -> template(formal=$formal.textactual=$actual.st) \"<formal>:<actual>\"| ^( PARAMETER COLON_TILDE formal= ID pred= predicate ) -> template(formal=$formal.textpred=$pred.st) \"<formal>:<pred>\")
 			int alt151=2;
 			int LA151_0 = input.LA(1);
 			if ( (LA151_0==PARAMETER) ) {
@@ -20657,9 +20657,9 @@ public class UnparseBLESS extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 2922:4: -> template(formal=$formal.textpred=$pred.st) \"<formal>:~<pred>\"
+					  // 2922:4: -> template(formal=$formal.textpred=$pred.st) \"<formal>:<pred>\"
 					  {
-					  	retval.st = new StringTemplate(templateLib, "<formal>:~<pred>",new STAttrMap().put("formal", (formal!=null?formal.getText():null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+					  	retval.st = new StringTemplate(templateLib, "<formal>:<pred>",new STAttrMap().put("formal", (formal!=null?formal.getText():null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
 					  }
 
 

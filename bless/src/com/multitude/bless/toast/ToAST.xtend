@@ -1978,10 +1978,10 @@ toAST(Invocation e)
   def boolean
 isPredicateParameter(NamedAssertion na, ActualParameter ap)
   {  //VariableList has a "first" followed by params
-  if (ap.formal.equals(na.formals.first.name) && na.formals.first.tod instanceof BooleanType)
+  if (ap.formal.equals(na.formals.first.name) && na.formals.first.tod.ty instanceof BooleanType)
      return true; 
   for (param : na.formals.parameter)
-    if (ap.formal.equals(param.name) && param.tod instanceof BooleanType)
+    if (ap.formal.equals(param.name) && param.tod.ty instanceof BooleanType)
       return true;
   return false;  
   }
