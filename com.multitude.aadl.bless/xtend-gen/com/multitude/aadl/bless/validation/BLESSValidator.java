@@ -2212,7 +2212,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
             String _sym_4 = e.getSym();
             String _plus_9 = ("Operands of " + _sym_4);
             String _plus_10 = (_plus_9 + " must be have compatible types.");
-            this.fError(_plus_10, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_TYPES);
+            String _typeString = this._typeUtil.typeString(this.getType(e.getL()));
+            String _plus_11 = (_plus_10 + _typeString);
+            String _plus_12 = (_plus_11 + " is not ");
+            String _typeString_1 = this._typeUtil.typeString(this.getType(e.getR()));
+            String _plus_13 = (_plus_12 + _typeString_1);
+            this.fError(_plus_13, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_TYPES);
           }
         }
         return this._typeUtil.booleanType();
@@ -2235,12 +2240,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _not_3 = (!_matchTopAndBottom);
           if (_not_3) {
             String _string_2 = this.getUnitRecord(e.getL()).toString();
-            String _plus_11 = ("Lower bound of range must have same root units as subject \'" + _string_2);
-            String _plus_12 = (_plus_11 + 
+            String _plus_14 = ("Lower bound of range must have same root units as subject \'" + _string_2);
+            String _plus_15 = (_plus_14 + 
               "\' is not \'");
             String _string_3 = this.getUnitRecord(e.getRange().getLower_bound()).toString();
-            String _plus_13 = (_plus_12 + _string_3);
-            this.fError(_plus_13, e, BLESSPackage.eINSTANCE.getRange_Lower_bound(), IssueCodes.MISMATCHED_UNITS);
+            String _plus_16 = (_plus_15 + _string_3);
+            this.fError(_plus_16, e, BLESSPackage.eINSTANCE.getRange_Lower_bound(), IssueCodes.MISMATCHED_UNITS);
           }
         }
         boolean _isQuantity_2 = this.isQuantity(this.getType(e.getRange().getUpper_bound()));
@@ -2253,12 +2258,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _not_5 = (!_matchTopAndBottom_1);
           if (_not_5) {
             String _string_4 = this.getUnitRecord(e.getL()).toString();
-            String _plus_14 = ("Upper bound of range must have same root units as subject \'" + _string_4);
-            String _plus_15 = (_plus_14 + 
+            String _plus_17 = ("Upper bound of range must have same root units as subject \'" + _string_4);
+            String _plus_18 = (_plus_17 + 
               "\' is not \'");
             String _string_5 = this.getUnitRecord(e.getRange().getUpper_bound()).toString();
-            String _plus_16 = (_plus_15 + _string_5);
-            this.fError(_plus_16, e, BLESSPackage.eINSTANCE.getRange_Upper_bound(), IssueCodes.MISMATCHED_UNITS);
+            String _plus_19 = (_plus_18 + _string_5);
+            this.fError(_plus_19, e, BLESSPackage.eINSTANCE.getRange_Upper_bound(), IssueCodes.MISMATCHED_UNITS);
           }
         }
         return this._typeUtil.booleanType();

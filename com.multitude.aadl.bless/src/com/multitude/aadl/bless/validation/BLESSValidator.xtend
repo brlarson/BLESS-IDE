@@ -1546,7 +1546,8 @@ def Type getType(Relation e)
            '\' is not \''+e.r.getUnitRecord.toString, 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.MISMATCHED_UNITS) 
     else if (!e.l.getType.sameStructuralType(e.r.getType)) 
-      fError('Operands of '+e.sym+' must be have compatible types.', 
+      fError('Operands of '+e.sym+' must be have compatible types.'+
+            e.l.getType.typeString+" is not "+e.r.getType.typeString , 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.INCOMPATIBLE_TYPES)            
     return booleanType
     } 
