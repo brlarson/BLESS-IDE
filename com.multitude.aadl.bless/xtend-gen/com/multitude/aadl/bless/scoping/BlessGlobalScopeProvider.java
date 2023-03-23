@@ -40,7 +40,8 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
         }
         return Scopes.scopeFor(unitNames);
       }
-      if (((Objects.equal(reference, BLESSPackage.eINSTANCE.getTypeOrReference_Ref()) || 
+      if ((((Objects.equal(reference, BLESSPackage.eINSTANCE.getTypeOrReference_Ref()) || 
+        Objects.equal(reference, BLESSPackage.eINSTANCE.getRecordTerm_Record_type())) || 
         Objects.equal(reference, BLESSPackage.eINSTANCE.getEnumerationValue_Enumeration_type())) || 
         Objects.equal(reference, BLESSPackage.eINSTANCE.getNamedAssertion_EnumerationType()))) {
         final List<EObject> typeDeclarations = new ArrayList<EObject>();
