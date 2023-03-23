@@ -1631,7 +1631,8 @@ def Type getType(ValueName a)
     {
       val aid = a.id as Variable
       val Type nameRootType = aid.tod.getType
-      if (a.lb) // is it an array name
+      if (a.array_index!==null && a.array_index.size>0) // is it an array name
+//      if (a.lb) // is it an array name
       {
         if (!(nameRootType instanceof ArrayType))
           fError('Variable name \'' + aid.name + '\' has array index, but it\'s type is not array', a,
@@ -1750,7 +1751,7 @@ def Type getType(Iterable<PartialName> pn, Type typ)
                 pn.head.array_index.last, BLESSPackage::eINSTANCE.valueName_Array_index,
                 IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION)
             if (pn.size === 1) // no record field reference
-              return (fieldType as ArrayType)
+              return (fieldType as ArrayType).typ.getType  //get type of record field array 3/23/2023
             else  // get partial name type 
               return getType(pn.tail, (fieldType as ArrayType).typ.getType)    
           }

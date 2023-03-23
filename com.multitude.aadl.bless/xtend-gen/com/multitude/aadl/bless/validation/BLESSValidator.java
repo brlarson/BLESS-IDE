@@ -2376,8 +2376,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         NamedElement _id_2 = a.getId();
         final Variable aid = ((Variable) _id_2);
         final Type nameRootType = this.getType(aid.getTod());
-        boolean _isLb = a.isLb();
-        if (_isLb) {
+        if (((a.getArray_index() != null) && (a.getArray_index().size() > 0))) {
           if ((!(nameRootType instanceof ArrayType))) {
             String _name = aid.getName();
             String _plus = ("Variable name \'" + _name);
@@ -2418,8 +2417,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
         NamedElement _id_4 = a.getId();
         final GhostVariable aid_1 = ((GhostVariable) _id_4);
         final Type nameRootType_1 = this.getType(aid_1.getTod());
-        boolean _isLb_1 = a.isLb();
-        if (_isLb_1) {
+        boolean _isLb = a.isLb();
+        if (_isLb) {
           if ((!(nameRootType_1 instanceof ArrayType))) {
             String _name_2 = aid_1.getName();
             String _plus_4 = ("Ghost Variable name \'" + _name_2);
@@ -2467,8 +2466,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
             BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.FEATURE_TYPED_ERROR);
           return this._typeUtil.booleanType();
         }
-        boolean _isLb_2 = a.isLb();
-        if (_isLb_2) {
+        boolean _isLb_1 = a.isLb();
+        if (_isLb_1) {
           if ((!(featureType instanceof ArrayType))) {
             String _name_4 = aid_2.getName();
             String _plus_8 = ("Feature name \'" + _name_4);
@@ -2591,7 +2590,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 int _size_2 = IterableExtensions.size(pn);
                 boolean _tripleEquals = (_size_2 == 1);
                 if (_tripleEquals) {
-                  return ((ArrayType) fieldType);
+                  return this.getType(((ArrayType) fieldType).getTyp());
                 } else {
                   return this.getType(IterableExtensions.<PartialName>tail(pn), this.getType(((ArrayType) fieldType).getTyp()));
                 }
