@@ -2086,59 +2086,115 @@ public class ToAST {
     BAST _xblockexpression = null;
     {
       final NamedAssertion namedAssertion = e.getLabel();
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        String _name = e.getLabel().getName();
-        String _plus = ("INVOKE[" + _name);
-        String _plus_1 = (_plus + "]");
-        it.myText = _plus_1;
-        String _name_1 = e.getLabel().getName();
-        String _plus_2 = ("INVOKE[" + _name_1);
-        String _plus_3 = (_plus_2 + "]");
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE, _plus_3);
-        it.token = _commonToken;
-        BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          NumericExpression _actual_parameter = e.getActual_parameter();
-          boolean _tripleNotEquals = (_actual_parameter != null);
-          if (_tripleNotEquals) {
-            it_1.addChild(this.toAST(e.getActual_parameter()));
-          }
-          EList<ActualParameter> _params = e.getParams();
-          boolean _tripleNotEquals_1 = (_params != null);
-          if (_tripleNotEquals_1) {
-            EList<ActualParameter> _params_1 = e.getParams();
-            for (final ActualParameter child : _params_1) {
-              boolean _isPredicateParameter = this.isPredicateParameter(namedAssertion, child);
-              if (_isPredicateParameter) {
-                BAST _newBAST_1 = this.newBAST(e);
-                final Procedure1<BAST> _function_2 = (BAST it_2) -> {
-                  it_2.myText = "PARAMETER";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
-                  it_2.token = _commonToken_1;
-                  BAST _newBAST_2 = this.newBAST(e);
-                  final Procedure1<BAST> _function_3 = (BAST it_3) -> {
-                    it_3.myText = "COLON_TILDE";
-                    CommonToken _commonToken_2 = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE");
-                    it_3.token = _commonToken_2;
+      BAST _xifexpression = null;
+      boolean _isPred = namedAssertion.isPred();
+      if (_isPred) {
+        BAST _newBAST = this.newBAST(e);
+        final Procedure1<BAST> _function = (BAST it) -> {
+          String _name = e.getLabel().getName();
+          String _plus = ("INVOKE[" + _name);
+          String _plus_1 = (_plus + "]");
+          it.myText = _plus_1;
+          String _name_1 = e.getLabel().getName();
+          String _plus_2 = ("INVOKE[" + _name_1);
+          String _plus_3 = (_plus_2 + "]");
+          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE, _plus_3);
+          it.token = _commonToken;
+          BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
+          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+            NumericExpression _actual_parameter = e.getActual_parameter();
+            boolean _tripleNotEquals = (_actual_parameter != null);
+            if (_tripleNotEquals) {
+              it_1.addChild(this.toAST(e.getActual_parameter()));
+            }
+            EList<ActualParameter> _params = e.getParams();
+            boolean _tripleNotEquals_1 = (_params != null);
+            if (_tripleNotEquals_1) {
+              EList<ActualParameter> _params_1 = e.getParams();
+              for (final ActualParameter child : _params_1) {
+                boolean _isPredicateParameter = this.isPredicateParameter(namedAssertion, child);
+                if (_isPredicateParameter) {
+                  BAST _newBAST_1 = this.newBAST(e);
+                  final Procedure1<BAST> _function_2 = (BAST it_2) -> {
+                    it_2.myText = "PARAMETER";
+                    CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
+                    it_2.token = _commonToken_1;
+                    BAST _newBAST_2 = this.newBAST(e);
+                    final Procedure1<BAST> _function_3 = (BAST it_3) -> {
+                      it_3.myText = "COLON_TILDE";
+                      CommonToken _commonToken_2 = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE");
+                      it_3.token = _commonToken_2;
+                    };
+                    BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_3);
+                    it_2.addChild(_doubleArrow);
+                    it_2.addChild(this.makeBASTforID(child.getFormal(), e));
+                    it_2.addChild(this.toAST(child.getActual()));
                   };
-                  BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_3);
-                  it_2.addChild(_doubleArrow);
-                  it_2.addChild(this.makeBASTforID(child.getFormal(), e));
-                  it_2.addChild(this.toAST(child.getActual()));
-                };
-                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_2);
-                it_1.addChild(_doubleArrow);
-              } else {
-                it_1.addChild(this.toAST(child));
+                  BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_2);
+                  it_1.addChild(_doubleArrow);
+                } else {
+                  it_1.addChild(this.toAST(child));
+                }
               }
             }
-          }
+          };
+          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_1);
+          it.addChild(_doubleArrow);
         };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_1);
-        it.addChild(_doubleArrow);
-      };
-      _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+      } else {
+        BAST _xifexpression_1 = null;
+        boolean _isFunc = namedAssertion.isFunc();
+        if (_isFunc) {
+          BAST _newBAST_1 = this.newBAST(e);
+          final Procedure1<BAST> _function_1 = (BAST it) -> {
+            String _name = e.getLabel().getName();
+            String _plus = ("INVOKE_FUNCTION[" + _name);
+            String _plus_1 = (_plus + "]");
+            it.myText = _plus_1;
+            String _name_1 = e.getLabel().getName();
+            String _plus_2 = ("INVOKE_FUNCTION[" + _name_1);
+            String _plus_3 = (_plus_2 + "]");
+            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, _plus_3);
+            it.token = _commonToken;
+            BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
+            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+              NumericExpression _actual_parameter = e.getActual_parameter();
+              boolean _tripleNotEquals = (_actual_parameter != null);
+              if (_tripleNotEquals) {
+                it_1.addChild(this.toAST(e.getActual_parameter()));
+              }
+              EList<ActualParameter> _params = e.getParams();
+              boolean _tripleNotEquals_1 = (_params != null);
+              if (_tripleNotEquals_1) {
+                EList<ActualParameter> _params_1 = e.getParams();
+                for (final ActualParameter child : _params_1) {
+                  it_1.addChild(this.toAST(child));
+                }
+              }
+            };
+            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_2);
+            it.addChild(_doubleArrow);
+          };
+          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+        } else {
+          BAST _newBAST_2 = this.newBAST(e);
+          final Procedure1<BAST> _function_2 = (BAST it) -> {
+            String _name = e.getLabel().getName();
+            String _plus = ("INVOKE_ERROR[" + _name);
+            String _plus_1 = (_plus + "]");
+            it.myText = _plus_1;
+            String _name_1 = e.getLabel().getName();
+            String _plus_2 = ("INVOKE_ERROR[" + _name_1);
+            String _plus_3 = (_plus_2 + "]");
+            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, _plus_3);
+            it.token = _commonToken;
+          };
+          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+        }
+        _xifexpression = _xifexpression_1;
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
