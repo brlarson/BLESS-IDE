@@ -64,6 +64,7 @@ import com.multitude.aadl.bless.bLESS.PartialName;
 import com.multitude.aadl.bless.bLESS.PeriodShift;
 import com.multitude.aadl.bless.bLESS.PortInput;
 import com.multitude.aadl.bless.bLESS.PortName;
+import com.multitude.aadl.bless.bLESS.PortOutput;
 import com.multitude.aadl.bless.bLESS.Predicate;
 import com.multitude.aadl.bless.bLESS.ProductQuantification;
 import com.multitude.aadl.bless.bLESS.PropertyReference;
@@ -545,7 +546,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-<<<<<<< HEAD
   public void checkPortInputTarget(final PortInput n) {
     if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
       this.fError("Target of port input must be a variable name.", n, 
@@ -602,8 +602,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-=======
->>>>>>> origin/continuum
   public void checkPElhsIsWhole(final Relation r) {
     if (((r.getSym() != null) && r.getSym().equalsIgnoreCase("+="))) {
       AddSub _l = r.getL();
@@ -1360,54 +1358,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_not) {
       this.fError("Port input of port that is not \'in\'.", n, 
         BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkAssignmentToInPort(final Assignment asgn) {
-    final NamedElement vName = asgn.getLhs().getValue().getId();
-    if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
-      this.fError("May not assign to in data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventDataPort) && (!((EventDataPort) vName).isOut()))) {
-      this.fError("May not assign to in event data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventPort) && (!((EventPort) vName).isOut()))) {
-      this.fError("May not assign to in event port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof Parameter) && (!((Parameter) vName).isOut()))) {
-      this.fError("May not assign to in parameter.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortIndexIsNaturalLiteral(final ValueName vn) {
-    if ((((vn.getId() instanceof DataPort) || (vn.getId() instanceof EventPort)) || (vn.getId() instanceof EventDataPort))) {
-      if (((vn.getArray_index() != null) && (vn.getArray_index().size() > 0))) {
-        int _size = vn.getArray_index().size();
-        boolean _greaterThan = (_size > 1);
-        if (_greaterThan) {
-          this.fError("Port arrays are one dimensional.", vn, 
-            BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-        } else {
-          IndexExpressionOrRange _head = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-          if ((_head instanceof ANumber)) {
-            IndexExpressionOrRange _head_1 = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-            final ANumber num = ((ANumber) _head_1);
-            if (((num.getLit() != null) && (num.getLit().contains(".") || num.getLit().contains("-")))) {
-              this.fError("Port array index must be natural literal.", vn, 
-                BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-            }
-          } else {
-            this.fError("Port array index must be natural literal.", vn, 
-              BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-          }
-        }
-      }
     }
   }
 

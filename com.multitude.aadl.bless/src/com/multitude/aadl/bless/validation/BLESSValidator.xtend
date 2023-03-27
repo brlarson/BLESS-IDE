@@ -116,6 +116,7 @@ import org.eclipse.emf.ecore.EStructuralFeature
 import com.multitude.aadl.bless.bLESS.CaseChoice
 import com.multitude.aadl.bless.bLESS.BehaviorActions
 import com.multitude.aadl.bless.bLESS.InvariantClause
+import com.multitude.aadl.bless.bLESS.PortOutput
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -410,7 +411,6 @@ def void checkThatNamedAssertionType(NamedAssertion n)
 //  }
 
 
-<<<<<<< HEAD
 
 @Check(CheckType.NORMAL)
 def void checkPortInputTarget(PortInput n)
@@ -469,8 +469,6 @@ def void checkPortIndexIsNaturalLiteral(ValueName vn)
       }
   }
 
-=======
->>>>>>> origin/continuum
 @Check(CheckType.NORMAL)
 def void checkPElhsIsWhole(Relation r)
   {
@@ -955,23 +953,23 @@ def void checkPortInput(PortInput n)
       BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
-@Check(CheckType.NORMAL)
-def void checkAssignmentToInPort(Assignment asgn)
-  {
-  val vName = asgn.lhs.value.id
-  if (vName instanceof DataPort && !(vName as DataPort).out)
-    fError('May not assign to in data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
-    fError('May not assign to in event data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventPort && !(vName as EventPort).out)
-    fError('May not assign to in event port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof Parameter && !(vName as Parameter).out)
-    fError('May not assign to in parameter.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
-  }
+//@Check(CheckType.NORMAL)
+//def void checkAssignmentToInPort(Assignment asgn)
+//  {
+//  val vName = asgn.lhs.value.id
+//  if (vName instanceof DataPort && !(vName as DataPort).out)
+//    fError('May not assign to in data port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
+//    fError('May not assign to in event data port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof EventPort && !(vName as EventPort).out)
+//    fError('May not assign to in event port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof Parameter && !(vName as Parameter).out)
+//    fError('May not assign to in parameter.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
+//  }
 
 //@Check(CheckType.NORMAL)
 //def void checkInPortValueHasQuestionMark(ValueName vn)
@@ -982,27 +980,27 @@ def void checkAssignmentToInPort(Assignment asgn)
 //          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
 //  }
 
-@Check(CheckType.NORMAL)
-def void checkPortIndexIsNaturalLiteral(ValueName vn)
-  {
-  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
-    if (vn.array_index !== null && vn.array_index.size > 0)
-      {
-      if (vn.array_index.size > 1)  
-        fError('Port arrays are one dimensional.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      else if (vn.array_index.head instanceof ANumber)
-        {
-        val num = vn.array_index.head as ANumber
-        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
-          fError('Port array index must be natural literal.',vn,
-            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-        }   
-      else
-        fError('Port array index must be natural literal.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      }
-  }
+//@Check(CheckType.NORMAL)
+//def void checkPortIndexIsNaturalLiteral(ValueName vn)
+//  {
+//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
+//    if (vn.array_index !== null && vn.array_index.size > 0)
+//      {
+//      if (vn.array_index.size > 1)  
+//        fError('Port arrays are one dimensional.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//      else if (vn.array_index.head instanceof ANumber)
+//        {
+//        val num = vn.array_index.head as ANumber
+//        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
+//          fError('Port array index must be natural literal.',vn,
+//            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//        }   
+//      else
+//        fError('Port array index must be natural literal.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//      }
+//  }
 
 //@Check(CheckType.NORMAL)
 //def void checkWhileLoopInvariantIsNameless(WhileLoop wl)
