@@ -1931,6 +1931,7 @@ toAST(Invocation e)
 //  try { 
   //get referenced NamedAssertion
   val namedAssertion = e.label
+  if (namedAssertion.pred)
   newBAST(e) =>  
     [  //left parenthesis is root
   	myText = 'INVOKE['+e.label.name+']'
@@ -1959,20 +1960,26 @@ toAST(Invocation e)
 	   	       addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
 	   	 ])
     ]		 	
-//  else
-//  newBAST(e) =>  
-//    [  //left parenthesis is root
-//    myText = 'INVOKE_FUNCTION['+e.label.name+']'
-//    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
-//    addChild(e.label.name.makeBASTforID(e) =>
-//       [
-//       if (e.actual_parameter!==null) 
-//        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
-//       if (e.params!==null) 
-//         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
-//       ])
-//    ]           
-//    } catch (Exception ex) {ex.printStackTrace x}
+  else if (namedAssertion.func)
+  newBAST(e) =>  
+    [  //left parenthesis is root
+    myText = 'INVOKE_FUNCTION['+e.label.name+']'
+    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
+    addChild(e.label.name.makeBASTforID(e) =>
+       [
+       if (e.actual_parameter!==null) 
+        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
+       if (e.params!==null) 
+         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
+       ])
+    ]           
+  else  //anything else is an error
+  newBAST(e) =>  
+    [  //left parenthesis is root
+    myText = 'INVOKE_ERROR['+e.label.name+']'
+    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_ERROR['+e.label.name+']')
+    ]           
+   
   }  //end of PredicateInvocation
 
   def boolean
