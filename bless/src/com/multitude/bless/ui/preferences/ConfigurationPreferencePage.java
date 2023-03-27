@@ -36,6 +36,7 @@ private BooleanFieldEditor verboseProofField;
 private BooleanFieldEditor epithetField;
 private BooleanFieldEditor showUnparsedField;
 private BooleanFieldEditor showVCField;
+private BooleanFieldEditor continuumField;
 private DirectoryFieldEditor slangDirectoryField;
 private DirectoryFieldEditor baDirectoryField;
 
@@ -48,6 +49,7 @@ public static String SHOW_UNPARSED_FIELD = "showUnparsedField";
 public static String SHOW_VC_FIELD = "showVCField";
 public static String SET_SLANG_FIELD = "setSlangField";
 public static String SET_BA_FIELD = "setBAField";
+public static String CONTINUUM_FIELD = "continuumField";
 
 public static ConfigurationPreferencePage thePage=null;
 
@@ -146,6 +148,10 @@ public static ConfigurationPreferencePage thePage=null;
     baDirectoryField = new DirectoryFieldEditor(ConfigurationPreferencePage.SET_BA_FIELD,
         "Choose root directory for generated BA behavior and Data Model types\n", getFieldEditorParent());
     addField(baDirectoryField);
+    continuumField = new BooleanFieldEditor(ConfigurationPreferencePage.CONTINUUM_FIELD,
+        "Generate VC for transitions leaving complete states \n"+
+        "replacing \'now\' with \'tops\' in source state assertions", getFieldEditorParent());
+    addField(showVCField);
     }  //end of createFieldEditors
 
 
@@ -184,5 +190,9 @@ public static String getSlangDirectory() {
 public static String getBADirectory() {
   return Activator.plugin.getPreferenceStore().getString(ConfigurationPreferencePage.SET_BA_FIELD);
 } // end of useEpithet
+
+public static boolean getContinuum() {
+  return Activator.plugin.getPreferenceStore().getBoolean(ConfigurationPreferencePage.CONTINUUM_FIELD);
+} // end of getContinuum
 
 }  //end of ConfigurationPreferencePage

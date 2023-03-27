@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.util;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.AddSub;
@@ -38,6 +37,7 @@ import org.osate.aadl2.Feature;
 import org.osate.aadl2.ModalPropertyValue;
 import org.osate.aadl2.NamedElement;
 import org.osate.aadl2.PropertyAssociation;
+import org.osate.aadl2.PropertyConstant;
 import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.StringLiteral;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
@@ -117,13 +117,40 @@ public class TypeUtil {
       if (_notEquals) {
         return false;
       }
-      _xblockexpression = IterableExtensions.elementsEqual(c.getRange(), d.getRange());
+      for (int i = 0; (i < c.getRange().size()); i++) {
+        boolean _sameArrayRange = this.sameArrayRange(c.getRange().get(i), d.getRange().get(i));
+        boolean _not = (!_sameArrayRange);
+        if (_not) {
+          return false;
+        }
+      }
+      _xblockexpression = true;
     }
     return _xblockexpression;
   }
 
   public boolean sameArrayRange(final ArrayRange e, final ArrayRange f) {
-    return (Objects.equal(e.getLb(), f.getLb()) && Objects.equal(e.getUb(), f.getUb()));
+    return (this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb())) && this.getStringValue(e.getUb()).equals(this.getStringValue(f.getUb())));
+  }
+
+  public String getStringValue(final ANumber n) {
+    String _xblockexpression = null;
+    {
+      if (n!=null) {
+        n.getLit();
+      }
+      PropertyReference _property = null;
+      if (n!=null) {
+        _property=n.getProperty();
+      }
+      _property.getPname().getName();
+      PropertyConstant _propertyConstant = null;
+      if (n!=null) {
+        _propertyConstant=n.getPropertyConstant();
+      }
+      _xblockexpression = _propertyConstant.getName();
+    }
+    return _xblockexpression;
   }
 
   public boolean recordHasFieldWith(final RecordType r, final String label, final Type typ) {

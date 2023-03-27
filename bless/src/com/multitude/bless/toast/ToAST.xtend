@@ -2,7 +2,6 @@ package com.multitude.bless.toast
 
 //see README
 
-import com.google.inject.Inject
 import com.multitude.aadl.bless.BlessControl
 import com.multitude.aadl.bless.bLESS.ANumber
 import com.multitude.aadl.bless.bLESS.Action
@@ -20,6 +19,7 @@ import com.multitude.aadl.bless.bLESS.AssertionEnumeration
 import com.multitude.aadl.bless.bLESS.AssertionFunctionValue
 import com.multitude.aadl.bless.bLESS.AssertionLibrary
 import com.multitude.aadl.bless.bLESS.Assignment
+import com.multitude.aadl.bless.bLESS.BAAlternative
 import com.multitude.aadl.bless.bLESS.BLESSAlternative
 import com.multitude.aadl.bless.bLESS.BLESSSubclause
 import com.multitude.aadl.bless.bLESS.BasicAction
@@ -59,6 +59,7 @@ import com.multitude.aadl.bless.bLESS.ExpressionOrAny
 import com.multitude.aadl.bless.bLESS.ForLoop
 import com.multitude.aadl.bless.bLESS.FormalActual
 import com.multitude.aadl.bless.bLESS.FormalActualList
+import com.multitude.aadl.bless.bLESS.FormalExpressionPair
 import com.multitude.aadl.bless.bLESS.GuardedAction
 import com.multitude.aadl.bless.bLESS.IndexExpression
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange
@@ -74,7 +75,6 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration
 import com.multitude.aadl.bless.bLESS.NamelessFunction
-//import com.multitude.aadl.bless.bLESS.NumericConstant
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression
 import com.multitude.aadl.bless.bLESS.PartialName
 import com.multitude.aadl.bless.bLESS.PeriodShift
@@ -100,7 +100,6 @@ import com.multitude.aadl.bless.bLESS.SubprogramCall
 import com.multitude.aadl.bless.bLESS.SumQuantification
 import com.multitude.aadl.bless.bLESS.TimedExpression
 import com.multitude.aadl.bless.bLESS.TimedSubject
-//import com.multitude.aadl.bless.bLESS.TransitionLabel
 import com.multitude.aadl.bless.bLESS.Transitions
 import com.multitude.aadl.bless.bLESS.TriggerLogicalExpression
 import com.multitude.aadl.bless.bLESS.Type
@@ -125,18 +124,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.osate.aadl2.Element
 import org.osate.aadl2.SubprogramAccess
 import org.osate.aadl2.SubprogramSubcomponent
-import com.multitude.aadl.bless.bLESS.BAAlternative
-import com.multitude.aadl.bless.util.BlessUtil
-import com.multitude.aadl.bless.bLESS.FormalExpressionPair
-
-//import com.multitude.aadl.bless.bLESS.PortValue
-
-//import edu.ksu.bless.assertion.subbless.ActionAnnexSubclause
 
 class ToAST {
 
-@Inject extension BlessUtil
-//@Inject extension AssertionUtil
 
 public static final ToAST TOAST = new ToAST();	
 
@@ -1933,11 +1923,15 @@ toAST(PartialName e)
 //        ^( $i $params+) ) ;
 
 // Invocation can be either predicate_invocation or assertion_function_invocation
+// to add the COLON_TILDE for actual_assertion_parameter, use label=>NamedAssertion 
+//  to find out parameters which are predicates
   def dispatch BAST
 toAST(Invocation e)
   {
 //  try { 
-//  if (e.label.pred) 
+  //get referenced NamedAssertion
+  val namedAssertion = e.label
+  if (namedAssertion.pred)
   newBAST(e) =>  
     [  //left parenthesis is root
   	myText = 'INVOKE['+e.label.name+']'
@@ -1947,25 +1941,57 @@ toAST(Invocation e)
 	   	 if (e.actual_parameter!==null)	
 	   	 	addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
 	   	 if (e.params!==null)	
-	   	   for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
+	   	   for (child : e.params) 
+	   	     if (isPredicateParameter(namedAssertion, child))  //should this get COLON_TILDE?
+             addChild(
+               newBAST(e) =>  //create actual_assertion_parameter including COLON_TILDE
+                 [  
+                 myText = "PARAMETER"
+                 token = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER")
+                 addChild(newBAST(e) =>  
+                   [ myText = "COLON_TILDE" 
+                    token = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE")
+                   ])
+                 addChild(child.formal.makeBASTforID(e)) 
+                 addChild(child.actual.toAST) 
+                 ] )
+	   	       
+	   	     else
+	   	       addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
 	   	 ])
     ]		 	
-//  else
-//  newBAST(e) =>  
-//    [  //left parenthesis is root
-//    myText = 'INVOKE_FUNCTION['+e.label.name+']'
-//    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
-//    addChild(e.label.name.makeBASTforID(e) =>
-//       [
-//       if (e.actual_parameter!==null) 
-//        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
-//       if (e.params!==null) 
-//         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
-//       ])
-//    ]           
-//    } catch (Exception ex) {ex.printStackTrace x}
+  else if (namedAssertion.func)
+  newBAST(e) =>  
+    [  //left parenthesis is root
+    myText = 'INVOKE_FUNCTION['+e.label.name+']'
+    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
+    addChild(e.label.name.makeBASTforID(e) =>
+       [
+       if (e.actual_parameter!==null) 
+        addChild(e.actual_parameter.toAST)   //actual_parameter=AssertionExpression
+       if (e.params!==null) 
+         for (child : e.params) addChild(child.toAST) //(params+=ActualAssertionParameter ( ',' params+=ActualAssertionParameter )*)
+       ])
+    ]           
+  else  //anything else is an error
+  newBAST(e) =>  
+    [  //left parenthesis is root
+    myText = 'INVOKE_ERROR['+e.label.name+']'
+    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_ERROR['+e.label.name+']')
+    ]           
+   
   }  //end of PredicateInvocation
 
+  def boolean
+isPredicateParameter(NamedAssertion na, ActualParameter ap)
+  {  //VariableList has a "first" followed by params
+  if (ap.formal.equals(na.formals.first.name) && na.formals.first.tod.ty instanceof BooleanType)
+     return true; 
+  for (param : na.formals.parameter)
+    if (ap.formal.equals(param.name) && param.tod.ty instanceof BooleanType)
+      return true;
+  return false;  
+  }
 
 //      PredicateRelation :
 //maps onto subpredicate
@@ -2512,8 +2538,8 @@ toAST(Action e)
   def dispatch BAST
 toAST(ActualParameter e)
   {
-   try {  
-  newBAST(e) =>  
+   try {
+   newBAST(e) =>  
      [  
   	 myText = "PARAMETER"
      token = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER")

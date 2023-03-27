@@ -806,11 +806,11 @@ load() throws YouIdiot
                 rootOfAssertion = LoadBLESS.parseAssertion(assertionText, featureLine, 0, false, pr);
                 componentTypeParseRecord.port_assertion_map.put(featureName, rootOfAssertion);
                 } 
-              else
-                {
-                componentTypeParseRecord.port_assertion_map.put(featureName, null);
-                }
-              componentTypeParseRecord.port_value_map.put(featureName, null);
+//              else
+//                {
+//                componentTypeParseRecord.port_assertion_map.put(featureName, null);
+//                }
+//              componentTypeParseRecord.port_value_map.put(featureName, null);
               componentTypeParseRecord.port_typed_map.put(featureName, er.type);
               break;
             case PortCategory.DATA_VALUE:
@@ -845,10 +845,10 @@ load() throws YouIdiot
                 rootOfAssertion = LoadBLESS.parseAssertion(assertionText, featureLine, 0, false, pr);
                 componentTypeParseRecord.port_assertion_map.put(featureName, rootOfAssertion);
                 } 
-              else
-                {
-                componentTypeParseRecord.port_assertion_map.put(featureName, null);
-                }
+//              else
+//                {
+//                componentTypeParseRecord.port_assertion_map.put(featureName, null);
+//                }
              //add value to map
               valueText = LoadBLESS.getPropertyStringValue(p, blessValue, "");             
               if (valueText.length() > 0) 
@@ -856,8 +856,8 @@ load() throws YouIdiot
                 rootOfValue = LoadBLESS.parseAssertion(valueText, featureLine, 0, false, pr );
                 componentTypeParseRecord.port_value_map.put(featureName, rootOfValue);                
                 }
-              else
-                componentTypeParseRecord.port_value_map.put(featureName, null);
+//              else
+//                componentTypeParseRecord.port_value_map.put(featureName, null);
               break;
             case PortCategory.EVENT_DATA_VALUE:
               er.eventPort = true;
@@ -873,6 +873,7 @@ load() throws YouIdiot
                 }
               else
                 {
+//PUT DOWN ERROR MARKER?
                 er.type = new BAST("TOP", BLESStoASTLexer.TOP, er.identifier);
                 componentTypeParseRecord.port_typed_map.put(featureName, null);
                 }
@@ -883,10 +884,10 @@ load() throws YouIdiot
                 rootOfAssertion = LoadBLESS.parseAssertion(assertionText, featureLine, 0, false, pr);
                 componentTypeParseRecord.port_assertion_map.put(featureName, rootOfAssertion);
                 } 
-              else
-                {
-                componentTypeParseRecord.port_assertion_map.put(featureName, null);
-                }
+//              else
+//                {
+//                componentTypeParseRecord.port_assertion_map.put(featureName, null);
+//                }
               //add value to map
               valueText = LoadBLESS.getPropertyStringValue(p, blessValue, "");             
               if (valueText.length() > 0) 
@@ -894,8 +895,8 @@ load() throws YouIdiot
                 rootOfValue = LoadBLESS.parseAssertion(valueText, featureLine, 0, false, pr );
                 componentTypeParseRecord.port_value_map.put(featureName, rootOfValue);                
                 }
-              else
-                componentTypeParseRecord.port_value_map.put(featureName, null);
+//              else
+//                componentTypeParseRecord.port_value_map.put(featureName, null);
               break;
             }  //end of switch
             }

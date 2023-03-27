@@ -32,6 +32,7 @@ import org.osate.aadl2.StringLiteral
 import org.osate.aadl2.modelsupport.util.AadlUtil
 import org.osate.aadl2.Aadl2Package
 import com.multitude.aadl.bless.scoping.BlessIndex
+import com.multitude.aadl.bless.bLESS.ANumber
 
 class TypeUtil {
 
@@ -80,13 +81,26 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
     {
     	if (c.range.size != d.range.size)
     	  return false;
-    	(c.range.elementsEqual(d.range))  //use sameArrayRange?
+    	for (var i=0;i<c.range.size;i++)
+    	  {
+    	  if (!c.range.get(i).sameArrayRange(d.range.get(i))) 
+    	    return false 
+    	  }
+    	true
     }
  
    def boolean sameArrayRange(ArrayRange e, ArrayRange f) 
      {
-     return e.lb == f.lb && e.ub == f.ub  
+     return e.lb.getStringValue.equals(f.lb.getStringValue) 
+       && e.ub.getStringValue.equals(f.ub.getStringValue)  
      } 
+   
+   def String getStringValue(ANumber n)
+     {
+     n?.lit 
+     n?.property.pname.name 
+     n?.propertyConstant.name
+     }
      
    def boolean recordHasFieldWith(RecordType r, String label, Type typ) 
      {

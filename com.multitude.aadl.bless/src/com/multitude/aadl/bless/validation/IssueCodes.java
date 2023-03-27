@@ -53,5 +53,7 @@ public interface IssueCodes
   String PLUS_EQUALS_ERROR = PREFIX + "PlusEqualsError";
   String FEATURE_TYPED_ERROR = PREFIX + "FeatureTypedError";
   String UNINITIALIZED_VARIABLE = PREFIX + "UninitializedVariable";
+  String NOW_IN_NAMED_ASSERTION = PREFIX + "NowInNamedAssertion";
+  String ASSERTION_INVOCATION = PREFIX + "AssertionInvocation";
 
 	}
