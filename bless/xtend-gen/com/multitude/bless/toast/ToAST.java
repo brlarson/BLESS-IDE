@@ -4700,21 +4700,14 @@ public class ToAST {
     try {
       BAST _newBAST = this.newBAST(e);
       final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "(";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LPAREN, "(");
+        it.myText = "RECORD_TERM";
+        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.RECORD_TERM, "RECORD_TERM");
         it.token = _commonToken;
+        it.addChild(this.makeBASTforID(e.getRecord_type().getName(), e));
         EList<RecordValue> _record_value = e.getRecord_value();
         for (final RecordValue child : _record_value) {
           it.addChild(this.toAST(child));
         }
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = ")";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {

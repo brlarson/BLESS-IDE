@@ -4164,16 +4164,12 @@ toAST(RecordTerm e)
   {
   try {  
   newBAST(e) =>  
-    [  //root is LPAREN
-  	myText = "("
-    token = new CommonToken(BLESStoASTLexer.LPAREN, "(")
+    [  //root is RECORD_TERM
+  	myText = "RECORD_TERM"
+    token = new CommonToken(BLESStoASTLexer.RECORD_TERM, "RECORD_TERM")
+    addChild(e.record_type.name.makeBASTforID(e))
     for (child : e.record_value)  //add record_value+=RecordValue+
       addChild(child.toAST)
-    addChild(newBAST(e) =>  
-      [  //final )
-  	  myText = ")"
-      token = new CommonToken(BLESStoASTLexer.RPAREN, ")")
-      ] )
     ]   
       } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of RecordTerm

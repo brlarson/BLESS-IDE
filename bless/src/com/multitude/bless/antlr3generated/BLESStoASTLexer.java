@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g 2023-03-27 17:59:00
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESStoAST.g 2023-03-29 08:55:50
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -288,7 +288,7 @@ public class BLESStoASTLexer extends Lexer {
 	public static final int RCON=276;
 	public static final int RCURLY=277;
 	public static final int REAL_LIT=278;
-	public static final int RECORD_VALUE=279;
+	public static final int RECORD_TERM=279;
 	public static final int RPAREN=280;
 	public static final int S=281;
 	public static final int SEMICOLON=282;

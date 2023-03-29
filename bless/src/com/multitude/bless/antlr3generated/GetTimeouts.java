@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-03-27 17:59:00
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-03-29 08:55:50
 
 //copyright 2022 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -77,7 +77,7 @@ public class GetTimeouts extends TreeRewriter {
 		"PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", "PORT_OUTPUT", 
 		"PREDICATE_RELATION", "PROCEDURE", "PROCEDURE_CALL", "PROPERTY_LIST", 
 		"Q", "QQ", "QUESTION", "RASS", "RATIONAL", "RBRACKET", "RCON", "RCURLY", 
-		"REAL_LIT", "RECORD_VALUE", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", 
+		"REAL_LIT", "RECORD_TERM", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", 
 		"START", "START_ASSERTION_PROPERTY", "STOP", "SUBCOMPONENT", "SUBPROGRAM_ANNEX", 
 		"THREAD_ANNEX", "THREAD_GROUP", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", 
 		"TYPE", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "VALUE", 
@@ -360,7 +360,7 @@ public class GetTimeouts extends TreeRewriter {
 	public static final int RCON=276;
 	public static final int RCURLY=277;
 	public static final int REAL_LIT=278;
-	public static final int RECORD_VALUE=279;
+	public static final int RECORD_TERM=279;
 	public static final int RPAREN=280;
 	public static final int S=281;
 	public static final int SEMICOLON=282;
