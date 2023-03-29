@@ -1951,23 +1951,23 @@ private static int tab=0;  //tabbing for toStringTree
     return true;
     } // end of myParentIsNotTimed
 
-  public boolean myParentIsNotLogicalOperator()
-    {
-    if (getParent() == null)
-      {
-      return true;
-      }
-    else if (((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_and)
-        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_or)
-        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_xor)
-        || ((BAST) getParent()).hasType(BLESStoASTLexer.ARROW)
-        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_implies) 
-        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_not))
-      {
-      return false;
-      }
-    return true;
-    } // end of myParentIsNotTimed
+//  public boolean myParentIsNotLogicalOperator()
+//    {
+//    if (getParent() == null)
+//      {
+//      return true;
+//      }
+//    else if (((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_and)
+//        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_or)
+//        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_xor)
+//        || ((BAST) getParent()).hasType(BLESStoASTLexer.ARROW)
+//        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_implies) 
+//        || ((BAST) getParent()).hasType(BLESStoASTLexer.LITERAL_not))
+//      {
+//      return false;
+//      }
+//    return true;
+//    } // end of myParentIsNotTimed
 
   public void setParseRecord(ParseRecord pr)
     {
