@@ -7266,26 +7266,26 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class RecordTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.RecordTerm");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cRecord_typeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cRecord_typeTypeDeclarationCrossReference_1_0 = (CrossReference)cRecord_typeAssignment_1.eContents().get(0);
 		private final RuleCall cRecord_typeTypeDeclarationIDTerminalRuleCall_1_0_1 = (RuleCall)cRecord_typeTypeDeclarationCrossReference_1_0.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cRecord_valueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRecord_valueRecordValueParserRuleCall_3_0 = (RuleCall)cRecord_valueAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		/////////////////////   RECORD VALUES   //////////////////////
 		//RecordTerm:
-		//  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+		//  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+		//'[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 		public Group getGroup() { return cGroup; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 		
 		//record_type=[TypeDeclaration]
 		public Assignment getRecord_typeAssignment_1() { return cRecord_typeAssignment_1; }
@@ -7305,8 +7305,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//RecordValue
 		public RuleCall getRecord_valueRecordValueParserRuleCall_3_0() { return cRecord_valueRecordValueParserRuleCall_3_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 	public class RecordValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.RecordValue");
@@ -11951,7 +11951,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	/////////////////////   RECORD VALUES   //////////////////////
 	//RecordTerm:
-	//  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+	//  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 	//;
 	public RecordTermElements getRecordTermAccess() {
 		return pRecordTerm;

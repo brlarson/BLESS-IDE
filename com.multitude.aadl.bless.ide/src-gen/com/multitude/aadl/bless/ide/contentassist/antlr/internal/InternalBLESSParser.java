@@ -12376,7 +12376,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 }
 
             }
-            else if ( (LA4_0==RULE_NUMBER||(LA4_0>=RULE_ID && LA4_0<=RULE_STRING)||LA4_0==56||LA4_0==86||LA4_0==102||(LA4_0>=104 && LA4_0<=105)||LA4_0==107||LA4_0==109||LA4_0==119||LA4_0==129||LA4_0==149||(LA4_0>=153 && LA4_0<=161)||LA4_0==173) ) {
+            else if ( (LA4_0==RULE_NUMBER||(LA4_0>=RULE_ID && LA4_0<=RULE_STRING)||LA4_0==48||LA4_0==56||LA4_0==86||LA4_0==102||(LA4_0>=104 && LA4_0<=105)||LA4_0==107||LA4_0==109||LA4_0==119||LA4_0==129||LA4_0==149||(LA4_0>=153 && LA4_0<=161)||LA4_0==173) ) {
                 alt4=2;
             }
             else {
@@ -12696,7 +12696,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_NUMBER||(LA7_0>=RULE_ID && LA7_0<=RULE_STRING)||LA7_0==56||LA7_0==86||LA7_0==102||(LA7_0>=104 && LA7_0<=105)||LA7_0==107||LA7_0==109||LA7_0==119||LA7_0==149||(LA7_0>=153 && LA7_0<=161)||LA7_0==173) ) {
+            if ( (LA7_0==RULE_NUMBER||(LA7_0>=RULE_ID && LA7_0<=RULE_STRING)||LA7_0==48||LA7_0==56||LA7_0==86||LA7_0==102||(LA7_0>=104 && LA7_0<=105)||LA7_0==107||LA7_0==109||LA7_0==119||LA7_0==149||(LA7_0>=153 && LA7_0<=161)||LA7_0==173) ) {
                 alt7=1;
             }
             else if ( (LA7_0==129) ) {
@@ -14468,7 +14468,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==RULE_NUMBER||(LA18_0>=RULE_ID && LA18_0<=RULE_STRING)||LA18_0==56||LA18_0==86||LA18_0==102||(LA18_0>=104 && LA18_0<=105)||LA18_0==107||LA18_0==109||LA18_0==119||LA18_0==149||(LA18_0>=153 && LA18_0<=161)||LA18_0==173) ) {
+            if ( (LA18_0==RULE_NUMBER||(LA18_0>=RULE_ID && LA18_0<=RULE_STRING)||LA18_0==48||LA18_0==56||LA18_0==86||LA18_0==102||(LA18_0>=104 && LA18_0<=105)||LA18_0==107||LA18_0==109||LA18_0==119||LA18_0==149||(LA18_0>=153 && LA18_0<=161)||LA18_0==173) ) {
                 alt18=1;
             }
             else if ( (LA18_0==15) ) {
@@ -15163,6 +15163,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     break;
                 case RULE_NUMBER:
                 case RULE_STRING:
+                case 48:
                 case 56:
                 case 86:
                 case 102:
@@ -15584,6 +15585,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             case RULE_NUMBER:
             case RULE_ID:
             case RULE_STRING:
+            case 48:
             case 56:
             case 86:
             case 119:
@@ -15885,7 +15887,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 if ( (LA29_1==83) ) {
                     alt29=2;
                 }
-                else if ( (LA29_1==RULE_NUMBER||(LA29_1>=RULE_ID && LA29_1<=RULE_STRING)||LA29_1==56||LA29_1==86||LA29_1==119||LA29_1==149||(LA29_1>=153 && LA29_1<=161)||LA29_1==173) ) {
+                else if ( (LA29_1==RULE_NUMBER||(LA29_1>=RULE_ID && LA29_1<=RULE_STRING)||LA29_1==48||LA29_1==56||LA29_1==86||LA29_1==119||LA29_1==149||(LA29_1>=153 && LA29_1<=161)||LA29_1==173) ) {
                     alt29=1;
                 }
                 else {
@@ -16014,7 +16016,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 if ( (LA30_1==95) ) {
                     alt30=2;
                 }
-                else if ( (LA30_1==RULE_NUMBER||(LA30_1>=RULE_ID && LA30_1<=RULE_STRING)||LA30_1==56||LA30_1==86||LA30_1==119||LA30_1==149||(LA30_1>=153 && LA30_1<=161)||LA30_1==173) ) {
+                else if ( (LA30_1==RULE_NUMBER||(LA30_1>=RULE_ID && LA30_1<=RULE_STRING)||LA30_1==48||LA30_1==56||LA30_1==86||LA30_1==119||LA30_1==149||(LA30_1>=153 && LA30_1<=161)||LA30_1==173) ) {
                     alt30=1;
                 }
                 else {
@@ -16818,63 +16820,20 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             switch ( input.LA(1) ) {
             case 56:
                 {
-                switch ( input.LA(2) ) {
-                case 67:
-                    {
+                int LA37_1 = input.LA(2);
+
+                if ( (LA37_1==67) ) {
                     alt37=3;
-                    }
-                    break;
-                case RULE_ID:
-                    {
-                    int LA37_5 = input.LA(3);
-
-                    if ( ((LA37_5>=16 && LA37_5<=28)||LA37_5==48||LA37_5==51||(LA37_5>=53 && LA37_5<=56)||LA37_5==61||LA37_5==65||LA37_5==94||(LA37_5>=96 && LA37_5<=99)||LA37_5==119||LA37_5==121||(LA37_5>=147 && LA37_5<=152)) ) {
-                        alt37=1;
-                    }
-                    else if ( (LA37_5==39) ) {
-                        alt37=4;
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 37, 5, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case RULE_NUMBER:
-                case RULE_STRING:
-                case 56:
-                case 86:
-                case 100:
-                case 102:
-                case 104:
-                case 105:
-                case 107:
-                case 109:
-                case 119:
-                case 149:
-                case 153:
-                case 154:
-                case 155:
-                case 156:
-                case 157:
-                case 158:
-                case 159:
-                case 160:
-                case 161:
-                case 173:
-                    {
+                }
+                else if ( (LA37_1==RULE_NUMBER||(LA37_1>=RULE_ID && LA37_1<=RULE_STRING)||LA37_1==48||LA37_1==56||LA37_1==86||LA37_1==100||LA37_1==102||(LA37_1>=104 && LA37_1<=105)||LA37_1==107||LA37_1==109||LA37_1==119||LA37_1==149||(LA37_1>=153 && LA37_1<=161)||LA37_1==173) ) {
                     alt37=1;
-                    }
-                    break;
-                default:
+                }
+                else {
                     NoViableAltException nvae =
                         new NoViableAltException("", 37, 1, input);
 
                     throw nvae;
                 }
-
                 }
                 break;
             case RULE_ID:
@@ -16907,6 +16866,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             case 173:
                 {
                 alt37=2;
+                }
+                break;
+            case 48:
+                {
+                alt37=4;
                 }
                 break;
             default:
@@ -17070,7 +17034,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( (LA38_0==RULE_NUMBER||(LA38_0>=RULE_ID && LA38_0<=RULE_STRING)||LA38_0==56||LA38_0==86||LA38_0==102||(LA38_0>=104 && LA38_0<=105)||LA38_0==107||LA38_0==109||LA38_0==119||LA38_0==149||(LA38_0>=153 && LA38_0<=161)||LA38_0==173) ) {
+            if ( (LA38_0==RULE_NUMBER||(LA38_0>=RULE_ID && LA38_0<=RULE_STRING)||LA38_0==48||LA38_0==56||LA38_0==86||LA38_0==102||(LA38_0>=104 && LA38_0<=105)||LA38_0==107||LA38_0==109||LA38_0==119||LA38_0==149||(LA38_0>=153 && LA38_0<=161)||LA38_0==173) ) {
                 alt38=1;
             }
             else if ( (LA38_0==100) ) {
@@ -18737,7 +18701,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     throw nvae;
                 }
             }
-            else if ( (LA51_0==RULE_NUMBER||LA51_0==RULE_STRING||LA51_0==56||LA51_0==86||LA51_0==102||(LA51_0>=104 && LA51_0<=105)||LA51_0==107||LA51_0==109||LA51_0==119||LA51_0==149||(LA51_0>=153 && LA51_0<=161)||LA51_0==173) ) {
+            else if ( (LA51_0==RULE_NUMBER||LA51_0==RULE_STRING||LA51_0==48||LA51_0==56||LA51_0==86||LA51_0==102||(LA51_0>=104 && LA51_0<=105)||LA51_0==107||LA51_0==109||LA51_0==119||LA51_0==149||(LA51_0>=153 && LA51_0<=161)||LA51_0==173) ) {
                 alt51=2;
             }
             else {
@@ -18826,7 +18790,20 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int LA52_0 = input.LA(1);
 
             if ( (LA52_0==48) ) {
-                alt52=1;
+                int LA52_1 = input.LA(2);
+
+                if ( (LA52_1==56) ) {
+                    alt52=1;
+                }
+                else if ( (LA52_1==RULE_ID) ) {
+                    alt52=2;
+                }
+                else {
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 52, 1, input);
+
+                    throw nvae;
+                }
             }
             else if ( (LA52_0==RULE_NUMBER||(LA52_0>=RULE_ID && LA52_0<=RULE_STRING)||LA52_0==56||LA52_0==86||LA52_0==102||(LA52_0>=104 && LA52_0<=105)||LA52_0==107||LA52_0==109||LA52_0==119||LA52_0==149||(LA52_0>=153 && LA52_0<=161)||LA52_0==173) ) {
                 alt52=2;
@@ -25889,7 +25866,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int alt93=2;
             int LA93_0 = input.LA(1);
 
-            if ( (LA93_0==RULE_NUMBER||(LA93_0>=RULE_ID && LA93_0<=RULE_STRING)||LA93_0==50||LA93_0==56||LA93_0==86||LA93_0==102||(LA93_0>=104 && LA93_0<=105)||LA93_0==107||LA93_0==109||LA93_0==119||LA93_0==129||LA93_0==149||(LA93_0>=153 && LA93_0<=161)||LA93_0==173) ) {
+            if ( (LA93_0==RULE_NUMBER||(LA93_0>=RULE_ID && LA93_0<=RULE_STRING)||LA93_0==48||LA93_0==50||LA93_0==56||LA93_0==86||LA93_0==102||(LA93_0>=104 && LA93_0<=105)||LA93_0==107||LA93_0==109||LA93_0==119||LA93_0==129||LA93_0==149||(LA93_0>=153 && LA93_0<=161)||LA93_0==173) ) {
                 alt93=1;
             }
             switch (alt93) {
@@ -53213,7 +53190,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16353:1: ( rule__NamedAssertion__Group_3_0_1_1__2__Impl rule__NamedAssertion__Group_3_0_1_1__3 )
             // InternalBLESS.g:16354:2: rule__NamedAssertion__Group_3_0_1_1__2__Impl rule__NamedAssertion__Group_3_0_1_1__3
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_51);
             rule__NamedAssertion__Group_3_0_1_1__2__Impl();
 
             state._fsp--;
@@ -53538,7 +53515,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16461:1: ( rule__NamedAssertion__Group_3_1__2__Impl rule__NamedAssertion__Group_3_1__3 )
             // InternalBLESS.g:16462:2: rule__NamedAssertion__Group_3_1__2__Impl rule__NamedAssertion__Group_3_1__3
             {
-            pushFollow(FOLLOW_100);
+            pushFollow(FOLLOW_99);
             rule__NamedAssertion__Group_3_1__2__Impl();
 
             state._fsp--;
@@ -54018,7 +53995,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16623:1: ( rule__NamelessFunction__Group__0__Impl rule__NamelessFunction__Group__1 )
             // InternalBLESS.g:16624:2: rule__NamelessFunction__Group__0__Impl rule__NamelessFunction__Group__1
             {
-            pushFollow(FOLLOW_101);
+            pushFollow(FOLLOW_100);
             rule__NamelessFunction__Group__0__Impl();
 
             state._fsp--;
@@ -54253,7 +54230,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16704:1: ( rule__NamelessFunction__Group__3__Impl rule__NamelessFunction__Group__4 )
             // InternalBLESS.g:16705:2: rule__NamelessFunction__Group__3__Impl rule__NamelessFunction__Group__4
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_51);
             rule__NamelessFunction__Group__3__Impl();
 
             state._fsp--;
@@ -54493,7 +54470,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16785:1: ( rule__NamelessEnumeration__Group__0__Impl rule__NamelessEnumeration__Group__1 )
             // InternalBLESS.g:16786:2: rule__NamelessEnumeration__Group__0__Impl rule__NamelessEnumeration__Group__1
             {
-            pushFollow(FOLLOW_100);
+            pushFollow(FOLLOW_99);
             rule__NamelessEnumeration__Group__0__Impl();
 
             state._fsp--;
@@ -54798,7 +54775,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:16893:1: ( rule__Expression__Group_5__0__Impl rule__Expression__Group_5__1 )
             // InternalBLESS.g:16894:2: rule__Expression__Group_5__0__Impl rule__Expression__Group_5__1
             {
-            pushFollow(FOLLOW_102);
+            pushFollow(FOLLOW_101);
             rule__Expression__Group_5__0__Impl();
 
             state._fsp--;
@@ -55139,7 +55116,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:17001:1: ( rule__Disjunction__Group__0__Impl rule__Disjunction__Group__1 )
             // InternalBLESS.g:17002:2: rule__Disjunction__Group__0__Impl rule__Disjunction__Group__1
             {
-            pushFollow(FOLLOW_103);
+            pushFollow(FOLLOW_102);
             rule__Disjunction__Group__0__Impl();
 
             state._fsp--;
@@ -56396,7 +56373,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:17406:1: ( rule__Disjunction__Group_1_2__1__Impl rule__Disjunction__Group_1_2__2 )
             // InternalBLESS.g:17407:2: rule__Disjunction__Group_1_2__1__Impl rule__Disjunction__Group_1_2__2
             {
-            pushFollow(FOLLOW_104);
+            pushFollow(FOLLOW_103);
             rule__Disjunction__Group_1_2__1__Impl();
 
             state._fsp--;
@@ -56533,7 +56510,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:17447:3: rule__Disjunction__Group_1_2_2__0
             	    {
-            	    pushFollow(FOLLOW_105);
+            	    pushFollow(FOLLOW_104);
             	    rule__Disjunction__Group_1_2_2__0();
 
             	    state._fsp--;
@@ -57906,7 +57883,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:17892:1: ( rule__Relation__Group__0__Impl rule__Relation__Group__1 )
             // InternalBLESS.g:17893:2: rule__Relation__Group__0__Impl rule__Relation__Group__1
             {
-            pushFollow(FOLLOW_106);
+            pushFollow(FOLLOW_105);
             rule__Relation__Group__0__Impl();
 
             state._fsp--;
@@ -58412,7 +58389,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18054:1: ( rule__AddSub__Group__0__Impl rule__AddSub__Group__1 )
             // InternalBLESS.g:18055:2: rule__AddSub__Group__0__Impl rule__AddSub__Group__1
             {
-            pushFollow(FOLLOW_107);
+            pushFollow(FOLLOW_106);
             rule__AddSub__Group__0__Impl();
 
             state._fsp--;
@@ -58673,7 +58650,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18135:1: ( rule__AddSub__Group_1_0__1__Impl rule__AddSub__Group_1_0__2 )
             // InternalBLESS.g:18136:2: rule__AddSub__Group_1_0__1__Impl rule__AddSub__Group_1_0__2
             {
-            pushFollow(FOLLOW_108);
+            pushFollow(FOLLOW_107);
             rule__AddSub__Group_1_0__1__Impl();
 
             state._fsp--;
@@ -58810,7 +58787,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:18176:3: rule__AddSub__Group_1_0_2__0
             	    {
-            	    pushFollow(FOLLOW_109);
+            	    pushFollow(FOLLOW_108);
             	    rule__AddSub__Group_1_0_2__0();
 
             	    state._fsp--;
@@ -59176,7 +59153,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18297:1: ( rule__MultDiv__Group__0__Impl rule__MultDiv__Group__1 )
             // InternalBLESS.g:18298:2: rule__MultDiv__Group__0__Impl rule__MultDiv__Group__1
             {
-            pushFollow(FOLLOW_110);
+            pushFollow(FOLLOW_109);
             rule__MultDiv__Group__0__Impl();
 
             state._fsp--;
@@ -59602,7 +59579,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18432:1: ( rule__MultDiv__Group_1_1__1__Impl rule__MultDiv__Group_1_1__2 )
             // InternalBLESS.g:18433:2: rule__MultDiv__Group_1_1__1__Impl rule__MultDiv__Group_1_1__2
             {
-            pushFollow(FOLLOW_110);
+            pushFollow(FOLLOW_109);
             rule__MultDiv__Group_1_1__1__Impl();
 
             state._fsp--;
@@ -59739,7 +59716,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:18473:3: rule__MultDiv__Group_1_1_2__0
             	    {
-            	    pushFollow(FOLLOW_111);
+            	    pushFollow(FOLLOW_110);
             	    rule__MultDiv__Group_1_1_2__0();
 
             	    state._fsp--;
@@ -59944,7 +59921,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18540:1: ( rule__Exp__Group__0__Impl rule__Exp__Group__1 )
             // InternalBLESS.g:18541:2: rule__Exp__Group__0__Impl rule__Exp__Group__1
             {
-            pushFollow(FOLLOW_112);
+            pushFollow(FOLLOW_111);
             rule__Exp__Group__0__Impl();
 
             state._fsp--;
@@ -60461,7 +60438,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18702:1: ( rule__TimedExpression__Group__0__Impl rule__TimedExpression__Group__1 )
             // InternalBLESS.g:18703:2: rule__TimedExpression__Group__0__Impl rule__TimedExpression__Group__1
             {
-            pushFollow(FOLLOW_113);
+            pushFollow(FOLLOW_112);
             rule__TimedExpression__Group__0__Impl();
 
             state._fsp--;
@@ -60802,7 +60779,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18810:1: ( rule__TimedExpression__Group_1_2__0__Impl rule__TimedExpression__Group_1_2__1 )
             // InternalBLESS.g:18811:2: rule__TimedExpression__Group_1_2__0__Impl rule__TimedExpression__Group_1_2__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__TimedExpression__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -60967,7 +60944,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18864:1: ( rule__ParenthesizedSubexpression__Group__0__Impl rule__ParenthesizedSubexpression__Group__1 )
             // InternalBLESS.g:18865:2: rule__ParenthesizedSubexpression__Group__0__Impl rule__ParenthesizedSubexpression__Group__1
             {
-            pushFollow(FOLLOW_115);
+            pushFollow(FOLLOW_114);
             rule__ParenthesizedSubexpression__Group__0__Impl();
 
             state._fsp--;
@@ -61197,7 +61174,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:18945:1: ( rule__ParenthesizedSubexpression__Group_1_0__0__Impl rule__ParenthesizedSubexpression__Group_1_0__1 )
             // InternalBLESS.g:18946:2: rule__ParenthesizedSubexpression__Group_1_0__0__Impl rule__ParenthesizedSubexpression__Group_1_0__1
             {
-            pushFollow(FOLLOW_116);
+            pushFollow(FOLLOW_115);
             rule__ParenthesizedSubexpression__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -61688,7 +61665,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19107:1: ( rule__Range__Group__0__Impl rule__Range__Group__1 )
             // InternalBLESS.g:19108:2: rule__Range__Group__0__Impl rule__Range__Group__1
             {
-            pushFollow(FOLLOW_117);
+            pushFollow(FOLLOW_116);
             rule__Range__Group__0__Impl();
 
             state._fsp--;
@@ -63053,7 +63030,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19566:1: ( rule__ValueName__Group__0__Impl rule__ValueName__Group__1 )
             // InternalBLESS.g:19567:2: rule__ValueName__Group__0__Impl rule__ValueName__Group__1
             {
-            pushFollow(FOLLOW_118);
+            pushFollow(FOLLOW_117);
             rule__ValueName__Group__0__Impl();
 
             state._fsp--;
@@ -63138,7 +63115,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19593:1: ( rule__ValueName__Group__1__Impl rule__ValueName__Group__2 )
             // InternalBLESS.g:19594:2: rule__ValueName__Group__1__Impl rule__ValueName__Group__2
             {
-            pushFollow(FOLLOW_118);
+            pushFollow(FOLLOW_117);
             rule__ValueName__Group__1__Impl();
 
             state._fsp--;
@@ -63234,7 +63211,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19620:1: ( rule__ValueName__Group__2__Impl rule__ValueName__Group__3 )
             // InternalBLESS.g:19621:2: rule__ValueName__Group__2__Impl rule__ValueName__Group__3
             {
-            pushFollow(FOLLOW_118);
+            pushFollow(FOLLOW_117);
             rule__ValueName__Group__2__Impl();
 
             state._fsp--;
@@ -63330,7 +63307,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19647:1: ( rule__ValueName__Group__3__Impl rule__ValueName__Group__4 )
             // InternalBLESS.g:19648:2: rule__ValueName__Group__3__Impl rule__ValueName__Group__4
             {
-            pushFollow(FOLLOW_118);
+            pushFollow(FOLLOW_117);
             rule__ValueName__Group__3__Impl();
 
             state._fsp--;
@@ -63599,7 +63576,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19728:1: ( rule__ValueName__Group_1__1__Impl rule__ValueName__Group_1__2 )
             // InternalBLESS.g:19729:2: rule__ValueName__Group_1__1__Impl rule__ValueName__Group_1__2
             {
-            pushFollow(FOLLOW_119);
+            pushFollow(FOLLOW_118);
             rule__ValueName__Group_1__1__Impl();
 
             state._fsp--;
@@ -63684,7 +63661,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19755:1: ( rule__ValueName__Group_1__2__Impl rule__ValueName__Group_1__3 )
             // InternalBLESS.g:19756:2: rule__ValueName__Group_1__2__Impl rule__ValueName__Group_1__3
             {
-            pushFollow(FOLLOW_119);
+            pushFollow(FOLLOW_118);
             rule__ValueName__Group_1__2__Impl();
 
             state._fsp--;
@@ -63850,7 +63827,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19809:1: ( rule__ValueName__Group_2__0__Impl rule__ValueName__Group_2__1 )
             // InternalBLESS.g:19810:2: rule__ValueName__Group_2__0__Impl rule__ValueName__Group_2__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__ValueName__Group_2__0__Impl();
 
             state._fsp--;
@@ -64147,7 +64124,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:19904:3: rule__ValueName__Group_2_3__0
             	    {
-            	    pushFollow(FOLLOW_120);
+            	    pushFollow(FOLLOW_119);
             	    rule__ValueName__Group_2_3__0();
 
             	    state._fsp--;
@@ -64193,7 +64170,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19917:1: ( rule__ValueName__Group_2_3__0__Impl rule__ValueName__Group_2_3__1 )
             // InternalBLESS.g:19918:2: rule__ValueName__Group_2_3__0__Impl rule__ValueName__Group_2_3__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__ValueName__Group_2_3__0__Impl();
 
             state._fsp--;
@@ -64846,7 +64823,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20133:1: ( rule__ValueName__Group_4_1__0__Impl rule__ValueName__Group_4_1__1 )
             // InternalBLESS.g:20134:2: rule__ValueName__Group_4_1__0__Impl rule__ValueName__Group_4_1__1
             {
-            pushFollow(FOLLOW_121);
+            pushFollow(FOLLOW_120);
             rule__ValueName__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -65001,7 +64978,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20187:1: ( rule__ValueName__Group_4_2__0__Impl rule__ValueName__Group_4_2__1 )
             // InternalBLESS.g:20188:2: rule__ValueName__Group_4_2__0__Impl rule__ValueName__Group_4_2__1
             {
-            pushFollow(FOLLOW_122);
+            pushFollow(FOLLOW_121);
             rule__ValueName__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -65156,7 +65133,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20241:1: ( rule__ValueName__Group_4_3__0__Impl rule__ValueName__Group_4_3__1 )
             // InternalBLESS.g:20242:2: rule__ValueName__Group_4_3__0__Impl rule__ValueName__Group_4_3__1
             {
-            pushFollow(FOLLOW_123);
+            pushFollow(FOLLOW_122);
             rule__ValueName__Group_4_3__0__Impl();
 
             state._fsp--;
@@ -65487,7 +65464,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20349:1: ( rule__PartialName__Group_1__0__Impl rule__PartialName__Group_1__1 )
             // InternalBLESS.g:20350:2: rule__PartialName__Group_1__0__Impl rule__PartialName__Group_1__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__PartialName__Group_1__0__Impl();
 
             state._fsp--;
@@ -65784,7 +65761,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:20444:3: rule__PartialName__Group_1_3__0
             	    {
-            	    pushFollow(FOLLOW_120);
+            	    pushFollow(FOLLOW_119);
             	    rule__PartialName__Group_1_3__0();
 
             	    state._fsp--;
@@ -65830,7 +65807,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20457:1: ( rule__PartialName__Group_1_3__0__Impl rule__PartialName__Group_1_3__1 )
             // InternalBLESS.g:20458:2: rule__PartialName__Group_1_3__0__Impl rule__PartialName__Group_1_3__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__PartialName__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -66236,7 +66213,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20592:1: ( rule__IndexExpressionOrRange__Group_1__0__Impl rule__IndexExpressionOrRange__Group_1__1 )
             // InternalBLESS.g:20593:2: rule__IndexExpressionOrRange__Group_1__0__Impl rule__IndexExpressionOrRange__Group_1__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpressionOrRange__Group_1__0__Impl();
 
             state._fsp--;
@@ -66401,7 +66378,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20646:1: ( rule__PeriodShift__Group__0__Impl rule__PeriodShift__Group__1 )
             // InternalBLESS.g:20647:2: rule__PeriodShift__Group__0__Impl rule__PeriodShift__Group__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__PeriodShift__Group__0__Impl();
 
             state._fsp--;
@@ -66577,7 +66554,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20700:1: ( rule__PeriodShift__Group_1_1__0__Impl rule__PeriodShift__Group_1_1__1 )
             // InternalBLESS.g:20701:2: rule__PeriodShift__Group_1_1__0__Impl rule__PeriodShift__Group_1_1__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__PeriodShift__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -66807,7 +66784,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20781:1: ( rule__IndexExpression__Group__0__Impl rule__IndexExpression__Group__1 )
             // InternalBLESS.g:20782:2: rule__IndexExpression__Group__0__Impl rule__IndexExpression__Group__1
             {
-            pushFollow(FOLLOW_124);
+            pushFollow(FOLLOW_123);
             rule__IndexExpression__Group__0__Impl();
 
             state._fsp--;
@@ -66983,7 +66960,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20835:1: ( rule__IndexExpression__Group_1_0__0__Impl rule__IndexExpression__Group_1_0__1 )
             // InternalBLESS.g:20836:2: rule__IndexExpression__Group_1_0__0__Impl rule__IndexExpression__Group_1_0__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -67148,7 +67125,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20889:1: ( rule__IndexExpression__Group_1_1__0__Impl rule__IndexExpression__Group_1_1__1 )
             // InternalBLESS.g:20890:2: rule__IndexExpression__Group_1_1__0__Impl rule__IndexExpression__Group_1_1__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_1__0__Impl();
 
             state._fsp--;
@@ -67313,7 +67290,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20943:1: ( rule__IndexExpression__Group_1_2__0__Impl rule__IndexExpression__Group_1_2__1 )
             // InternalBLESS.g:20944:2: rule__IndexExpression__Group_1_2__0__Impl rule__IndexExpression__Group_1_2__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -67478,7 +67455,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20997:1: ( rule__IndexExpression__Group_1_3__0__Impl rule__IndexExpression__Group_1_3__1 )
             // InternalBLESS.g:20998:2: rule__IndexExpression__Group_1_3__0__Impl rule__IndexExpression__Group_1_3__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_3__0__Impl();
 
             state._fsp--;
@@ -67563,7 +67540,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21024:1: ( rule__IndexExpression__Group_1_3__1__Impl rule__IndexExpression__Group_1_3__2 )
             // InternalBLESS.g:21025:2: rule__IndexExpression__Group_1_3__1__Impl rule__IndexExpression__Group_1_3__2
             {
-            pushFollow(FOLLOW_108);
+            pushFollow(FOLLOW_107);
             rule__IndexExpression__Group_1_3__1__Impl();
 
             state._fsp--;
@@ -67700,7 +67677,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:21065:3: rule__IndexExpression__Group_1_3_2__0
             	    {
-            	    pushFollow(FOLLOW_109);
+            	    pushFollow(FOLLOW_108);
             	    rule__IndexExpression__Group_1_3_2__0();
 
             	    state._fsp--;
@@ -67746,7 +67723,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21078:1: ( rule__IndexExpression__Group_1_3_2__0__Impl rule__IndexExpression__Group_1_3_2__1 )
             // InternalBLESS.g:21079:2: rule__IndexExpression__Group_1_3_2__0__Impl rule__IndexExpression__Group_1_3_2__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_3_2__0__Impl();
 
             state._fsp--;
@@ -67901,7 +67878,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21132:1: ( rule__IndexExpression__Group_1_4__0__Impl rule__IndexExpression__Group_1_4__1 )
             // InternalBLESS.g:21133:2: rule__IndexExpression__Group_1_4__0__Impl rule__IndexExpression__Group_1_4__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_4__0__Impl();
 
             state._fsp--;
@@ -67986,7 +67963,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21159:1: ( rule__IndexExpression__Group_1_4__1__Impl rule__IndexExpression__Group_1_4__2 )
             // InternalBLESS.g:21160:2: rule__IndexExpression__Group_1_4__1__Impl rule__IndexExpression__Group_1_4__2
             {
-            pushFollow(FOLLOW_110);
+            pushFollow(FOLLOW_109);
             rule__IndexExpression__Group_1_4__1__Impl();
 
             state._fsp--;
@@ -68123,7 +68100,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:21200:3: rule__IndexExpression__Group_1_4_2__0
             	    {
-            	    pushFollow(FOLLOW_111);
+            	    pushFollow(FOLLOW_110);
             	    rule__IndexExpression__Group_1_4_2__0();
 
             	    state._fsp--;
@@ -68169,7 +68146,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21213:1: ( rule__IndexExpression__Group_1_4_2__0__Impl rule__IndexExpression__Group_1_4_2__1 )
             // InternalBLESS.g:21214:2: rule__IndexExpression__Group_1_4_2__0__Impl rule__IndexExpression__Group_1_4_2__1
             {
-            pushFollow(FOLLOW_114);
+            pushFollow(FOLLOW_113);
             rule__IndexExpression__Group_1_4_2__0__Impl();
 
             state._fsp--;
@@ -68601,7 +68578,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21355:1: ( rule__CaseChoice__Group__1__Impl rule__CaseChoice__Group__2 )
             // InternalBLESS.g:21356:2: rule__CaseChoice__Group__1__Impl rule__CaseChoice__Group__2
             {
-            pushFollow(FOLLOW_125);
+            pushFollow(FOLLOW_124);
             rule__CaseChoice__Group__1__Impl();
 
             state._fsp--;
@@ -69329,7 +69306,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21598:1: ( rule__SumQuantification__Group__1__Impl rule__SumQuantification__Group__2 )
             // InternalBLESS.g:21599:2: rule__SumQuantification__Group__1__Impl rule__SumQuantification__Group__2
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_125);
             rule__SumQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -69414,7 +69391,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21625:1: ( rule__SumQuantification__Group__2__Impl rule__SumQuantification__Group__3 )
             // InternalBLESS.g:21626:2: rule__SumQuantification__Group__2__Impl rule__SumQuantification__Group__3
             {
-            pushFollow(FOLLOW_127);
+            pushFollow(FOLLOW_126);
             rule__SumQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -70059,7 +70036,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21841:1: ( rule__ProductQuantification__Group__1__Impl rule__ProductQuantification__Group__2 )
             // InternalBLESS.g:21842:2: rule__ProductQuantification__Group__1__Impl rule__ProductQuantification__Group__2
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_125);
             rule__ProductQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -70144,7 +70121,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21868:1: ( rule__ProductQuantification__Group__2__Impl rule__ProductQuantification__Group__3 )
             // InternalBLESS.g:21869:2: rule__ProductQuantification__Group__2__Impl rule__ProductQuantification__Group__3
             {
-            pushFollow(FOLLOW_127);
+            pushFollow(FOLLOW_126);
             rule__ProductQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -70789,7 +70766,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22084:1: ( rule__CountingQuantification__Group__1__Impl rule__CountingQuantification__Group__2 )
             // InternalBLESS.g:22085:2: rule__CountingQuantification__Group__1__Impl rule__CountingQuantification__Group__2
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_125);
             rule__CountingQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -70874,7 +70851,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22111:1: ( rule__CountingQuantification__Group__2__Impl rule__CountingQuantification__Group__3 )
             // InternalBLESS.g:22112:2: rule__CountingQuantification__Group__2__Impl rule__CountingQuantification__Group__3
             {
-            pushFollow(FOLLOW_128);
+            pushFollow(FOLLOW_127);
             rule__CountingQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -71519,7 +71496,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22327:1: ( rule__UniversalQuantification__Group__1__Impl rule__UniversalQuantification__Group__2 )
             // InternalBLESS.g:22328:2: rule__UniversalQuantification__Group__1__Impl rule__UniversalQuantification__Group__2
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_125);
             rule__UniversalQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -71604,7 +71581,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22354:1: ( rule__UniversalQuantification__Group__2__Impl rule__UniversalQuantification__Group__3 )
             // InternalBLESS.g:22355:2: rule__UniversalQuantification__Group__2__Impl rule__UniversalQuantification__Group__3
             {
-            pushFollow(FOLLOW_129);
+            pushFollow(FOLLOW_128);
             rule__UniversalQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -72249,7 +72226,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22570:1: ( rule__ExistentialQuantification__Group__1__Impl rule__ExistentialQuantification__Group__2 )
             // InternalBLESS.g:22571:2: rule__ExistentialQuantification__Group__1__Impl rule__ExistentialQuantification__Group__2
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_125);
             rule__ExistentialQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -72334,7 +72311,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22597:1: ( rule__ExistentialQuantification__Group__2__Impl rule__ExistentialQuantification__Group__3 )
             // InternalBLESS.g:22598:2: rule__ExistentialQuantification__Group__2__Impl rule__ExistentialQuantification__Group__3
             {
-            pushFollow(FOLLOW_128);
+            pushFollow(FOLLOW_127);
             rule__ExistentialQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -72933,21 +72910,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordTerm__Group__0__Impl"
-    // InternalBLESS.g:22794:1: rule__RecordTerm__Group__0__Impl : ( '(' ) ;
+    // InternalBLESS.g:22794:1: rule__RecordTerm__Group__0__Impl : ( '[' ) ;
     public final void rule__RecordTerm__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:22798:1: ( ( '(' ) )
-            // InternalBLESS.g:22799:1: ( '(' )
+            // InternalBLESS.g:22798:1: ( ( '[' ) )
+            // InternalBLESS.g:22799:1: ( '[' )
             {
-            // InternalBLESS.g:22799:1: ( '(' )
-            // InternalBLESS.g:22800:2: '('
+            // InternalBLESS.g:22799:1: ( '[' )
+            // InternalBLESS.g:22800:2: '['
             {
-             before(grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0()); 
-            match(input,56,FOLLOW_2); 
-             after(grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0()); 
+             before(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); 
 
             }
 
@@ -73139,7 +73116,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22867:1: ( rule__RecordTerm__Group__3__Impl rule__RecordTerm__Group__4 )
             // InternalBLESS.g:22868:2: rule__RecordTerm__Group__3__Impl rule__RecordTerm__Group__4
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_25);
             rule__RecordTerm__Group__3__Impl();
 
             state._fsp--;
@@ -73291,21 +73268,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordTerm__Group__4__Impl"
-    // InternalBLESS.g:22908:1: rule__RecordTerm__Group__4__Impl : ( ')' ) ;
+    // InternalBLESS.g:22908:1: rule__RecordTerm__Group__4__Impl : ( ']' ) ;
     public final void rule__RecordTerm__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:22912:1: ( ( ')' ) )
-            // InternalBLESS.g:22913:1: ( ')' )
+            // InternalBLESS.g:22912:1: ( ( ']' ) )
+            // InternalBLESS.g:22913:1: ( ']' )
             {
-            // InternalBLESS.g:22913:1: ( ')' )
-            // InternalBLESS.g:22914:2: ')'
+            // InternalBLESS.g:22913:1: ( ']' )
+            // InternalBLESS.g:22914:2: ']'
             {
-             before(grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4()); 
-            match(input,54,FOLLOW_2); 
-             after(grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4()); 
+             before(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4()); 
 
             }
 
@@ -73337,7 +73314,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22928:1: ( rule__RecordValue__Group__0__Impl rule__RecordValue__Group__1 )
             // InternalBLESS.g:22929:2: rule__RecordValue__Group__0__Impl rule__RecordValue__Group__1
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_129);
             rule__RecordValue__Group__0__Impl();
 
             state._fsp--;
@@ -73422,7 +73399,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22955:1: ( rule__RecordValue__Group__1__Impl rule__RecordValue__Group__2 )
             // InternalBLESS.g:22956:2: rule__RecordValue__Group__1__Impl rule__RecordValue__Group__2
             {
-            pushFollow(FOLLOW_131);
+            pushFollow(FOLLOW_130);
             rule__RecordValue__Group__1__Impl();
 
             state._fsp--;
@@ -73754,7 +73731,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23063:1: ( rule__Invocation__Group__1__Impl rule__Invocation__Group__2 )
             // InternalBLESS.g:23064:2: rule__Invocation__Group__1__Impl rule__Invocation__Group__2
             {
-            pushFollow(FOLLOW_132);
+            pushFollow(FOLLOW_131);
             rule__Invocation__Group__1__Impl();
 
             state._fsp--;
@@ -73829,7 +73806,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23090:1: ( rule__Invocation__Group__2__Impl rule__Invocation__Group__3 )
             // InternalBLESS.g:23091:2: rule__Invocation__Group__2__Impl rule__Invocation__Group__3
             {
-            pushFollow(FOLLOW_132);
+            pushFollow(FOLLOW_131);
             rule__Invocation__Group__2__Impl();
 
             state._fsp--;
@@ -73875,7 +73852,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             int alt194=2;
             int LA194_0 = input.LA(1);
 
-            if ( (LA194_0==RULE_NUMBER||(LA194_0>=RULE_ID && LA194_0<=RULE_STRING)||LA194_0==56||LA194_0==86||LA194_0==102||(LA194_0>=104 && LA194_0<=105)||LA194_0==107||LA194_0==109||LA194_0==119||LA194_0==149||(LA194_0>=153 && LA194_0<=161)||LA194_0==173) ) {
+            if ( (LA194_0==RULE_NUMBER||(LA194_0>=RULE_ID && LA194_0<=RULE_STRING)||LA194_0==48||LA194_0==56||LA194_0==86||LA194_0==102||(LA194_0>=104 && LA194_0<=105)||LA194_0==107||LA194_0==109||LA194_0==119||LA194_0==149||(LA194_0>=153 && LA194_0<=161)||LA194_0==173) ) {
                 alt194=1;
             }
             switch (alt194) {
@@ -75760,7 +75737,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23718:1: ( rule__ConditionValuePair__Group__1__Impl rule__ConditionValuePair__Group__2 )
             // InternalBLESS.g:23719:2: rule__ConditionValuePair__Group__1__Impl rule__ConditionValuePair__Group__2
             {
-            pushFollow(FOLLOW_133);
+            pushFollow(FOLLOW_132);
             rule__ConditionValuePair__Group__1__Impl();
 
             state._fsp--;
@@ -75845,7 +75822,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23745:1: ( rule__ConditionValuePair__Group__2__Impl rule__ConditionValuePair__Group__3 )
             // InternalBLESS.g:23746:2: rule__ConditionValuePair__Group__2__Impl rule__ConditionValuePair__Group__3
             {
-            pushFollow(FOLLOW_99);
+            pushFollow(FOLLOW_51);
             rule__ConditionValuePair__Group__2__Impl();
 
             state._fsp--;
@@ -76338,7 +76315,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23907:1: ( rule__EnumerationPair__Group__0__Impl rule__EnumerationPair__Group__1 )
             // InternalBLESS.g:23908:2: rule__EnumerationPair__Group__0__Impl rule__EnumerationPair__Group__1
             {
-            pushFollow(FOLLOW_125);
+            pushFollow(FOLLOW_124);
             rule__EnumerationPair__Group__0__Impl();
 
             state._fsp--;
@@ -76653,7 +76630,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24015:1: ( rule__TypeDeclaration__Group__1__Impl rule__TypeDeclaration__Group__2 )
             // InternalBLESS.g:24016:2: rule__TypeDeclaration__Group__1__Impl rule__TypeDeclaration__Group__2
             {
-            pushFollow(FOLLOW_134);
+            pushFollow(FOLLOW_133);
             rule__TypeDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -76738,7 +76715,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24042:1: ( rule__TypeDeclaration__Group__2__Impl rule__TypeDeclaration__Group__3 )
             // InternalBLESS.g:24043:2: rule__TypeDeclaration__Group__2__Impl rule__TypeDeclaration__Group__3
             {
-            pushFollow(FOLLOW_135);
+            pushFollow(FOLLOW_134);
             rule__TypeDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -77241,7 +77218,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24211:1: ( rule__QuantityType__Group__0__Impl rule__QuantityType__Group__1 )
             // InternalBLESS.g:24212:2: rule__QuantityType__Group__0__Impl rule__QuantityType__Group__1
             {
-            pushFollow(FOLLOW_136);
+            pushFollow(FOLLOW_135);
             rule__QuantityType__Group__0__Impl();
 
             state._fsp--;
@@ -77316,7 +77293,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24238:1: ( rule__QuantityType__Group__1__Impl rule__QuantityType__Group__2 )
             // InternalBLESS.g:24239:2: rule__QuantityType__Group__1__Impl rule__QuantityType__Group__2
             {
-            pushFollow(FOLLOW_137);
+            pushFollow(FOLLOW_136);
             rule__QuantityType__Group__1__Impl();
 
             state._fsp--;
@@ -77401,7 +77378,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24265:1: ( rule__QuantityType__Group__2__Impl rule__QuantityType__Group__3 )
             // InternalBLESS.g:24266:2: rule__QuantityType__Group__2__Impl rule__QuantityType__Group__3
             {
-            pushFollow(FOLLOW_137);
+            pushFollow(FOLLOW_136);
             rule__QuantityType__Group__2__Impl();
 
             state._fsp--;
@@ -77497,7 +77474,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24292:1: ( rule__QuantityType__Group__3__Impl rule__QuantityType__Group__4 )
             // InternalBLESS.g:24293:2: rule__QuantityType__Group__3__Impl rule__QuantityType__Group__4
             {
-            pushFollow(FOLLOW_137);
+            pushFollow(FOLLOW_136);
             rule__QuantityType__Group__3__Impl();
 
             state._fsp--;
@@ -77684,7 +77661,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24346:1: ( rule__QuantityType__Group_2__0__Impl rule__QuantityType__Group_2__1 )
             // InternalBLESS.g:24347:2: rule__QuantityType__Group_2__0__Impl rule__QuantityType__Group_2__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__QuantityType__Group_2__0__Impl();
 
             state._fsp--;
@@ -77844,7 +77821,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24400:1: ( rule__QuantityType__Group_2__2__Impl rule__QuantityType__Group_2__3 )
             // InternalBLESS.g:24401:2: rule__QuantityType__Group_2__2__Impl rule__QuantityType__Group_2__3
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__QuantityType__Group_2__2__Impl();
 
             state._fsp--;
@@ -78074,7 +78051,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24481:1: ( rule__QuantityType__Group_3__0__Impl rule__QuantityType__Group_3__1 )
             // InternalBLESS.g:24482:2: rule__QuantityType__Group_3__0__Impl rule__QuantityType__Group_3__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__QuantityType__Group_3__0__Impl();
 
             state._fsp--;
@@ -78229,7 +78206,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24535:1: ( rule__QuantityType__Group_4__0__Impl rule__QuantityType__Group_4__1 )
             // InternalBLESS.g:24536:2: rule__QuantityType__Group_4__0__Impl rule__QuantityType__Group_4__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__QuantityType__Group_4__0__Impl();
 
             state._fsp--;
@@ -78459,7 +78436,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24616:1: ( rule__ArrayType__Group__1__Impl rule__ArrayType__Group__2 )
             // InternalBLESS.g:24617:2: rule__ArrayType__Group__1__Impl rule__ArrayType__Group__2
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__ArrayType__Group__1__Impl();
 
             state._fsp--;
@@ -78619,7 +78596,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24670:1: ( rule__ArrayType__Group__3__Impl rule__ArrayType__Group__4 )
             // InternalBLESS.g:24671:2: rule__ArrayType__Group__3__Impl rule__ArrayType__Group__4
             {
-            pushFollow(FOLLOW_127);
+            pushFollow(FOLLOW_126);
             rule__ArrayType__Group__3__Impl();
 
             state._fsp--;
@@ -79025,7 +79002,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24805:1: ( rule__ArrayRangeList__Group_1__0__Impl rule__ArrayRangeList__Group_1__1 )
             // InternalBLESS.g:24806:2: rule__ArrayRangeList__Group_1__0__Impl rule__ArrayRangeList__Group_1__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__ArrayRangeList__Group_1__0__Impl();
 
             state._fsp--;
@@ -79293,7 +79270,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24886:1: ( rule__ArrayRangeList__Group_1_2__0__Impl rule__ArrayRangeList__Group_1_2__1 )
             // InternalBLESS.g:24887:2: rule__ArrayRangeList__Group_1_2__0__Impl rule__ArrayRangeList__Group_1_2__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__ArrayRangeList__Group_1_2__0__Impl();
 
             state._fsp--;
@@ -79624,7 +79601,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24994:1: ( rule__ArrayRange__Group_1__0__Impl rule__ArrayRange__Group_1__1 )
             // InternalBLESS.g:24995:2: rule__ArrayRange__Group_1__0__Impl rule__ArrayRange__Group_1__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__ArrayRange__Group_1__0__Impl();
 
             state._fsp--;
@@ -80377,7 +80354,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25244:1: ( rule__PropertyReference__Group_0__0__Impl rule__PropertyReference__Group_0__1 )
             // InternalBLESS.g:25245:2: rule__PropertyReference__Group_0__0__Impl rule__PropertyReference__Group_0__1
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__PropertyReference__Group_0__0__Impl();
 
             state._fsp--;
@@ -80452,7 +80429,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25271:1: ( rule__PropertyReference__Group_0__1__Impl rule__PropertyReference__Group_0__2 )
             // InternalBLESS.g:25272:2: rule__PropertyReference__Group_0__1__Impl rule__PropertyReference__Group_0__2
             {
-            pushFollow(FOLLOW_139);
+            pushFollow(FOLLOW_138);
             rule__PropertyReference__Group_0__1__Impl();
 
             state._fsp--;
@@ -80589,7 +80566,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:25312:3: rule__PropertyReference__FieldAssignment_0_2
             	    {
-            	    pushFollow(FOLLOW_140);
+            	    pushFollow(FOLLOW_139);
             	    rule__PropertyReference__FieldAssignment_0_2();
 
             	    state._fsp--;
@@ -80635,7 +80612,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25325:1: ( rule__PropertyReference__Group_1__0__Impl rule__PropertyReference__Group_1__1 )
             // InternalBLESS.g:25326:2: rule__PropertyReference__Group_1__0__Impl rule__PropertyReference__Group_1__1
             {
-            pushFollow(FOLLOW_141);
+            pushFollow(FOLLOW_140);
             rule__PropertyReference__Group_1__0__Impl();
 
             state._fsp--;
@@ -80720,7 +80697,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25352:1: ( rule__PropertyReference__Group_1__1__Impl rule__PropertyReference__Group_1__2 )
             // InternalBLESS.g:25353:2: rule__PropertyReference__Group_1__1__Impl rule__PropertyReference__Group_1__2
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__PropertyReference__Group_1__1__Impl();
 
             state._fsp--;
@@ -80795,7 +80772,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25379:1: ( rule__PropertyReference__Group_1__2__Impl rule__PropertyReference__Group_1__3 )
             // InternalBLESS.g:25380:2: rule__PropertyReference__Group_1__2__Impl rule__PropertyReference__Group_1__3
             {
-            pushFollow(FOLLOW_139);
+            pushFollow(FOLLOW_138);
             rule__PropertyReference__Group_1__2__Impl();
 
             state._fsp--;
@@ -80932,7 +80909,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:25420:3: rule__PropertyReference__FieldAssignment_1_3
             	    {
-            	    pushFollow(FOLLOW_140);
+            	    pushFollow(FOLLOW_139);
             	    rule__PropertyReference__FieldAssignment_1_3();
 
             	    state._fsp--;
@@ -80978,7 +80955,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25433:1: ( rule__PropertyReference__Group_2__0__Impl rule__PropertyReference__Group_2__1 )
             // InternalBLESS.g:25434:2: rule__PropertyReference__Group_2__0__Impl rule__PropertyReference__Group_2__1
             {
-            pushFollow(FOLLOW_141);
+            pushFollow(FOLLOW_140);
             rule__PropertyReference__Group_2__0__Impl();
 
             state._fsp--;
@@ -81063,7 +81040,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25460:1: ( rule__PropertyReference__Group_2__1__Impl rule__PropertyReference__Group_2__2 )
             // InternalBLESS.g:25461:2: rule__PropertyReference__Group_2__1__Impl rule__PropertyReference__Group_2__2
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_137);
             rule__PropertyReference__Group_2__1__Impl();
 
             state._fsp--;
@@ -81138,7 +81115,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25487:1: ( rule__PropertyReference__Group_2__2__Impl rule__PropertyReference__Group_2__3 )
             // InternalBLESS.g:25488:2: rule__PropertyReference__Group_2__2__Impl rule__PropertyReference__Group_2__3
             {
-            pushFollow(FOLLOW_139);
+            pushFollow(FOLLOW_138);
             rule__PropertyReference__Group_2__2__Impl();
 
             state._fsp--;
@@ -81275,7 +81252,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:25528:3: rule__PropertyReference__FieldAssignment_2_3
             	    {
-            	    pushFollow(FOLLOW_140);
+            	    pushFollow(FOLLOW_139);
             	    rule__PropertyReference__FieldAssignment_2_3();
 
             	    state._fsp--;
@@ -81321,7 +81298,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25541:1: ( rule__PropertyField__Group_0__0__Impl rule__PropertyField__Group_0__1 )
             // InternalBLESS.g:25542:2: rule__PropertyField__Group_0__0__Impl rule__PropertyField__Group_0__1
             {
-            pushFollow(FOLLOW_142);
+            pushFollow(FOLLOW_141);
             rule__PropertyField__Group_0__0__Impl();
 
             state._fsp--;
@@ -81551,7 +81528,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25622:1: ( rule__PropertyField__Group_1__0__Impl rule__PropertyField__Group_1__1 )
             // InternalBLESS.g:25623:2: rule__PropertyField__Group_1__0__Impl rule__PropertyField__Group_1__1
             {
-            pushFollow(FOLLOW_143);
+            pushFollow(FOLLOW_142);
             rule__PropertyField__Group_1__0__Impl();
 
             state._fsp--;
@@ -81957,7 +81934,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25757:1: ( rule__UnitName__Group_0__1__Impl rule__UnitName__Group_0__2 )
             // InternalBLESS.g:25758:2: rule__UnitName__Group_0__1__Impl rule__UnitName__Group_0__2
             {
-            pushFollow(FOLLOW_144);
+            pushFollow(FOLLOW_143);
             rule__UnitName__Group_0__1__Impl();
 
             state._fsp--;
@@ -82155,7 +82132,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:25818:1: ( rule__UnitFormula__Group_0__0__Impl rule__UnitFormula__Group_0__1 )
             // InternalBLESS.g:25819:2: rule__UnitFormula__Group_0__0__Impl rule__UnitFormula__Group_0__1
             {
-            pushFollow(FOLLOW_145);
+            pushFollow(FOLLOW_144);
             rule__UnitFormula__Group_0__0__Impl();
 
             state._fsp--;
@@ -83078,7 +83055,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26089:1: ( rule__RootDeclaration__Group__3__Impl rule__RootDeclaration__Group__4 )
             // InternalBLESS.g:26090:2: rule__RootDeclaration__Group__3__Impl rule__RootDeclaration__Group__4
             {
-            pushFollow(FOLLOW_146);
+            pushFollow(FOLLOW_145);
             rule__RootDeclaration__Group__3__Impl();
 
             state._fsp--;
@@ -83153,7 +83130,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26116:1: ( rule__RootDeclaration__Group__4__Impl rule__RootDeclaration__Group__5 )
             // InternalBLESS.g:26117:2: rule__RootDeclaration__Group__4__Impl rule__RootDeclaration__Group__5
             {
-            pushFollow(FOLLOW_147);
+            pushFollow(FOLLOW_146);
             rule__RootDeclaration__Group__4__Impl();
 
             state._fsp--;
@@ -83238,7 +83215,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26143:1: ( rule__RootDeclaration__Group__5__Impl rule__RootDeclaration__Group__6 )
             // InternalBLESS.g:26144:2: rule__RootDeclaration__Group__5__Impl rule__RootDeclaration__Group__6
             {
-            pushFollow(FOLLOW_147);
+            pushFollow(FOLLOW_146);
             rule__RootDeclaration__Group__5__Impl();
 
             state._fsp--;
@@ -83769,7 +83746,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26312:1: ( rule__UnitFactor__Group__0__Impl rule__UnitFactor__Group__1 )
             // InternalBLESS.g:26313:2: rule__UnitFactor__Group__0__Impl rule__UnitFactor__Group__1
             {
-            pushFollow(FOLLOW_146);
+            pushFollow(FOLLOW_145);
             rule__UnitFactor__Group__0__Impl();
 
             state._fsp--;
@@ -83844,7 +83821,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26339:1: ( rule__UnitFactor__Group__1__Impl rule__UnitFactor__Group__2 )
             // InternalBLESS.g:26340:2: rule__UnitFactor__Group__1__Impl rule__UnitFactor__Group__2
             {
-            pushFollow(FOLLOW_110);
+            pushFollow(FOLLOW_109);
             rule__UnitFactor__Group__1__Impl();
 
             state._fsp--;
@@ -84094,7 +84071,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26420:1: ( rule__Quantity__Group__0__Impl rule__Quantity__Group__1 )
             // InternalBLESS.g:26421:2: rule__Quantity__Group__0__Impl rule__Quantity__Group__1
             {
-            pushFollow(FOLLOW_136);
+            pushFollow(FOLLOW_135);
             rule__Quantity__Group__0__Impl();
 
             state._fsp--;
@@ -84284,7 +84261,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26474:1: ( rule__QCLREF__Group__0__Impl rule__QCLREF__Group__1 )
             // InternalBLESS.g:26475:2: rule__QCLREF__Group__0__Impl rule__QCLREF__Group__1
             {
-            pushFollow(FOLLOW_148);
+            pushFollow(FOLLOW_147);
             rule__QCLREF__Group__0__Impl();
 
             state._fsp--;
@@ -84779,7 +84756,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:26636:1: ( rule__QCREF__Group_0__0__Impl rule__QCREF__Group_0__1 )
             // InternalBLESS.g:26637:2: rule__QCREF__Group_0__0__Impl rule__QCREF__Group_0__1
             {
-            pushFollow(FOLLOW_148);
+            pushFollow(FOLLOW_147);
             rule__QCREF__Group_0__0__Impl();
 
             state._fsp--;
@@ -107272,14 +107249,14 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     static final String dfa_23s = "\2\uffff\1\2\3\uffff\1\1\3\uffff";
     static final String[] dfa_24s = {
             "\1\2\4\uffff\1\2\56\uffff\1\1\76\uffff\1\2\65\uffff\1\2",
-            "\1\2\4\uffff\1\3\1\2\55\uffff\1\2\35\uffff\1\2\15\uffff\1\2\1\uffff\1\2\1\uffff\2\2\1\uffff\1\2\1\uffff\1\2\11\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
+            "\1\2\4\uffff\1\3\1\2\45\uffff\1\2\7\uffff\1\2\35\uffff\1\2\15\uffff\1\2\1\uffff\1\2\1\uffff\2\2\1\uffff\1\2\1\uffff\1\2\11\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
             "",
             "\1\6\6\uffff\15\2\23\uffff\1\2\2\uffff\1\4\1\uffff\1\2\1\5\2\2\4\uffff\1\2\3\uffff\1\2\34\uffff\1\2\1\uffff\4\2\23\uffff\1\2\1\uffff\1\2\31\uffff\6\2",
-            "\1\2\4\uffff\1\7\1\2\55\uffff\1\2\32\uffff\1\2\2\uffff\1\2\40\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
+            "\1\2\4\uffff\1\7\1\2\45\uffff\1\2\7\uffff\1\2\32\uffff\1\2\2\uffff\1\2\40\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
             "\1\6\4\uffff\1\6\42\uffff\1\2\6\uffff\1\2\1\uffff\1\2\2\uffff\1\6\34\uffff\1\2\41\uffff\1\6\65\uffff\1\6",
             "",
             "\1\6\6\uffff\15\2\23\uffff\1\2\2\uffff\1\10\1\uffff\1\2\1\5\2\2\4\uffff\1\2\3\uffff\1\2\36\uffff\4\2\23\uffff\1\2\1\uffff\1\2\31\uffff\6\2",
-            "\1\2\4\uffff\1\11\1\2\55\uffff\1\2\35\uffff\1\2\40\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
+            "\1\2\4\uffff\1\11\1\2\45\uffff\1\2\7\uffff\1\2\35\uffff\1\2\40\uffff\1\2\35\uffff\1\2\3\uffff\11\2\13\uffff\1\2",
             "\1\6\6\uffff\15\2\23\uffff\1\2\2\uffff\1\10\1\uffff\1\2\1\5\2\2\4\uffff\1\2\3\uffff\1\2\36\uffff\4\2\23\uffff\1\2\1\uffff\1\2\31\uffff\6\2"
     };
     static final short[] dfa_20 = DFA.unpackEncodedString(dfa_20s);
@@ -107325,7 +107302,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000020000000000L,0x0000000004000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0001008000000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0104100000000610L,0x00802B4000400000L,0x00002003FE200002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0105100000000610L,0x00802B4000400000L,0x00002003FE200002L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000420000000000L,0x0000000004000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000200000000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000200000000002L});
@@ -107357,7 +107334,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000800000000000L});
     public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000000000L,0x0000000000401000L});
     public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0100000000000610L,0x00802B4000400000L,0x00002003FE200000L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0101000000000610L,0x00802B4000400000L,0x00002003FE200000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0000020000000000L,0x4000000004000000L,0x000000000000007CL});
     public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x4000020000000000L});
@@ -107372,7 +107349,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
     public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
     public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0100000000008610L,0x00802B4000400000L,0x00002003FE200000L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0101000000008610L,0x00802B4000400000L,0x00002003FE200000L});
     public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});
     public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
     public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0040000000000000L,0x0000000000000010L});
@@ -107405,55 +107382,54 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_96 = new BitSet(new long[]{0x0000000000000200L,0x004C000000000000L,0x00001CC200000000L});
     public static final BitSet FOLLOW_97 = new BitSet(new long[]{0x0000008000000200L,0x0000000010000000L});
     public static final BitSet FOLLOW_98 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
-    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x0101000000000610L,0x00802B4000400000L,0x00002003FE200000L});
-    public static final BitSet FOLLOW_100 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_101 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_102 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000180000L});
-    public static final BitSet FOLLOW_103 = new BitSet(new long[]{0x0008000000000000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_104 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
-    public static final BitSet FOLLOW_105 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
-    public static final BitSet FOLLOW_106 = new BitSet(new long[]{0x2000000001FE0000L});
-    public static final BitSet FOLLOW_107 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L,0x0000000000200000L});
-    public static final BitSet FOLLOW_108 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-    public static final BitSet FOLLOW_109 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
-    public static final BitSet FOLLOW_110 = new BitSet(new long[]{0x000000001E010000L});
-    public static final BitSet FOLLOW_111 = new BitSet(new long[]{0x000000001E010002L});
-    public static final BitSet FOLLOW_112 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_113 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L,0x0000000001800000L});
-    public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x0100000000000610L,0x0080000000400000L,0x00002003E0200000L});
-    public static final BitSet FOLLOW_115 = new BitSet(new long[]{0x0100000000000610L,0x00802B5000400000L,0x00002003FE200000L});
-    public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
-    public static final BitSet FOLLOW_117 = new BitSet(new long[]{0x00000000000001E0L});
-    public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x0081000000000000L,0x0000000C00000002L});
-    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0040000000000200L});
-    public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
-    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000800000000L});
-    public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x000000001E010000L,0x0000000100000000L,0x0000000000200000L});
-    public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
-    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x2000000000000000L,0x0000000000000000L,0x0000002000000000L});
-    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_129 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
-    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
-    public static final BitSet FOLLOW_131 = new BitSet(new long[]{0x0000000000000610L,0x0080000000400000L,0x00002003E0000000L});
-    public static final BitSet FOLLOW_132 = new BitSet(new long[]{0x0140000000000610L,0x00802B4000400000L,0x00002003FE200000L});
-    public static final BitSet FOLLOW_133 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_134 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-    public static final BitSet FOLLOW_135 = new BitSet(new long[]{0x0000000000000000L,0x004C000000000000L,0x00001CC200000000L});
-    public static final BitSet FOLLOW_136 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000000L,0x0000030000000000L});
-    public static final BitSet FOLLOW_137 = new BitSet(new long[]{0x0001000000000000L,0x0030000000000000L});
-    public static final BitSet FOLLOW_138 = new BitSet(new long[]{0x0000000000000210L,0x0080000000000000L,0x0000200000000000L});
-    public static final BitSet FOLLOW_139 = new BitSet(new long[]{0x0081000000000000L});
-    public static final BitSet FOLLOW_140 = new BitSet(new long[]{0x0081000000000002L});
-    public static final BitSet FOLLOW_141 = new BitSet(new long[]{0x0000000000000000L,0x0080000000000000L});
-    public static final BitSet FOLLOW_142 = new BitSet(new long[]{0x0000000000000210L});
-    public static final BitSet FOLLOW_143 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000000L,0x0000C00000000000L});
-    public static final BitSet FOLLOW_144 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_145 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_146 = new BitSet(new long[]{0x0000000000080200L});
-    public static final BitSet FOLLOW_147 = new BitSet(new long[]{0x0000220000000000L});
-    public static final BitSet FOLLOW_148 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L});
+    public static final BitSet FOLLOW_99 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_100 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_101 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000180000L});
+    public static final BitSet FOLLOW_102 = new BitSet(new long[]{0x0008000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_103 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_104 = new BitSet(new long[]{0x0000000000000002L,0x0000000040000000L});
+    public static final BitSet FOLLOW_105 = new BitSet(new long[]{0x2000000001FE0000L});
+    public static final BitSet FOLLOW_106 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L,0x0000000000200000L});
+    public static final BitSet FOLLOW_107 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_108 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
+    public static final BitSet FOLLOW_109 = new BitSet(new long[]{0x000000001E010000L});
+    public static final BitSet FOLLOW_110 = new BitSet(new long[]{0x000000001E010002L});
+    public static final BitSet FOLLOW_111 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_112 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L,0x0000000001800000L});
+    public static final BitSet FOLLOW_113 = new BitSet(new long[]{0x0100000000000610L,0x0080000000400000L,0x00002003E0200000L});
+    public static final BitSet FOLLOW_114 = new BitSet(new long[]{0x0101000000000610L,0x00802B5000400000L,0x00002003FE200000L});
+    public static final BitSet FOLLOW_115 = new BitSet(new long[]{0x0000000000000000L,0x0000000200000000L});
+    public static final BitSet FOLLOW_116 = new BitSet(new long[]{0x00000000000001E0L});
+    public static final BitSet FOLLOW_117 = new BitSet(new long[]{0x0081000000000000L,0x0000000C00000002L});
+    public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x0040000000000200L});
+    public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000400000000L});
+    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000800000000L});
+    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x000000001E010000L,0x0000000100000000L,0x0000000000200000L});
+    public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x2000000000000000L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_129 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
+    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x0000000000000610L,0x0080000000400000L,0x00002003E0000000L});
+    public static final BitSet FOLLOW_131 = new BitSet(new long[]{0x0141000000000610L,0x00802B4000400000L,0x00002003FE200000L});
+    public static final BitSet FOLLOW_132 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_133 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
+    public static final BitSet FOLLOW_134 = new BitSet(new long[]{0x0000000000000000L,0x004C000000000000L,0x00001CC200000000L});
+    public static final BitSet FOLLOW_135 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000000L,0x0000030000000000L});
+    public static final BitSet FOLLOW_136 = new BitSet(new long[]{0x0001000000000000L,0x0030000000000000L});
+    public static final BitSet FOLLOW_137 = new BitSet(new long[]{0x0000000000000210L,0x0080000000000000L,0x0000200000000000L});
+    public static final BitSet FOLLOW_138 = new BitSet(new long[]{0x0081000000000000L});
+    public static final BitSet FOLLOW_139 = new BitSet(new long[]{0x0081000000000002L});
+    public static final BitSet FOLLOW_140 = new BitSet(new long[]{0x0000000000000000L,0x0080000000000000L});
+    public static final BitSet FOLLOW_141 = new BitSet(new long[]{0x0000000000000210L});
+    public static final BitSet FOLLOW_142 = new BitSet(new long[]{0x0000000000000200L,0x0000000000000000L,0x0000C00000000000L});
+    public static final BitSet FOLLOW_143 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_144 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_145 = new BitSet(new long[]{0x0000000000080200L});
+    public static final BitSet FOLLOW_146 = new BitSet(new long[]{0x0000220000000000L});
+    public static final BitSet FOLLOW_147 = new BitSet(new long[]{0x0000000000000000L,0x0200000000000000L});
 
 }

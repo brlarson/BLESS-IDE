@@ -11124,9 +11124,9 @@ ruleRecordTerm returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='('
+		otherlv_0='['
 		{
-			newLeafNode(otherlv_0, grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0());
 		}
 		(
 			(
@@ -11164,9 +11164,9 @@ ruleRecordTerm returns [EObject current=null]
 				}
 			)
 		)+
-		otherlv_4=')'
+		otherlv_4=']'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4());
 		}
 	)
 ;

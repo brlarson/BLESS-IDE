@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-03-29 08:55:51
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-03-29 09:26:39
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -2443,16 +2443,16 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: lv, p, ass, l, a, par
-					// token labels: ass, par, a, l
+					// elements: par, ass, p, a, lv, l
+					// token labels: par, ass, a, l
 					// rule labels: retval
 					// token list labels: lv
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
-					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
+					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
 					RewriteRuleNodeStream stream_lv=new RewriteRuleNodeStream(adaptor,"token lv", list_lv);
@@ -2552,7 +2552,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, ass, a, l
+					// elements: a, ass, p, l
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -2622,7 +2622,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, ass
+					// elements: ass, p
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -4820,7 +4820,7 @@ public class ASTtoAST extends TreeParser {
 
 
 			// AST REWRITE
-			// elements: ass, predicate
+			// elements: predicate, ass
 			// token labels: ass
 			// rule labels: retval
 			// token list labels: 

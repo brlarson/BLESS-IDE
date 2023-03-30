@@ -874,7 +874,7 @@ ExistentialQuantification:
 
 
 RecordTerm:
-  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 ;
 
 RecordValue:

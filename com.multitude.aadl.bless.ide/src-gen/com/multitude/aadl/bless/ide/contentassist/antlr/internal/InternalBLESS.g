@@ -22797,9 +22797,9 @@ rule__RecordTerm__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0()); }
-	'('
-	{ after(grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0()); }
+	{ before(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); }
+	'['
+	{ after(grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0()); }
 )
 ;
 finally {
@@ -22911,9 +22911,9 @@ rule__RecordTerm__Group__4__Impl
 	}
 :
 (
-	{ before(grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4()); }
-	')'
-	{ after(grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4()); }
+	{ before(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4()); }
+	']'
+	{ after(grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4()); }
 )
 ;
 finally {
