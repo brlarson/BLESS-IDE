@@ -1,0 +1,592 @@
+//BLESS3.stg
+group Java;
+
+action_subclause(no_proof,tc,ac,pre,post,inv,elq) ::=
+<<
+annex Action
+  {**  <if(no_proof)>DO_NOT_PROVE<endif>
+  <if(tc)><tc>
+  <endif><if(ac)><ac>
+  <endif><if(pre)>pre <pre>
+  <endif><if(post)>post <post>
+  <endif><if(inv)>inv <inv>
+  <endif><elq>
+  **};  --end of Action annex subclause
+>>
+
+actual_parameter(formal,actual) ::=
+  "<formal> : <actual>" 
+
+add(terms) ::=
+  "<terms; wrap, separator=\" + \">" 
+
+alternative(gf) ::=
+<<if 
+<gf; separator="\n[]\n">
+fi>>
+
+and(terms) ::=
+  "<terms; wrap, separator=\"\n and \">" 
+
+annex_library_assertion(ghosts,ass) ::=
+<<
+annex Assertion 
+  {** <if(ghosts)>
+  <ghosts><endif>
+  <ass; separator="\n">
+  **};  --end of Assertion annex library
+>>  
+
+annex_subclause_action(sb) ::=
+    "annex Action <\n>{**<\n><sb><\n>**};  --end of Action annex<\n>"
+
+array_range(l,r)::="<l> .. <r>"
+
+array_range_list(r) ::=
+   "<r; separator=\", \">"
+
+array_type(arl,t,at)::= "array[<arl>] of <t>"
+
+assert_clause(a) ::=
+<<
+assert
+  <a; separator=<\n>>
+>>
+
+asserted_action(p,s,q) ::= 
+  "<if(p)><p><\n><endif><s><if(q)><\n><q><endif>"
+
+assertion(a,lv,p)::=
+   "\<\< <if(a)><a>:<lv; separator=\" \"> :<endif><p> \>\>"
+    
+assertion_enumeration_pairs(ep) ::=
+  "+=\> <ep; separator=\", \">"
+
+assertion_enumeration_predicate_invocation(pi) ::=
+  "+=\> <pi>" 
+
+assertion_function(a,lv,e) ::=
+<<\<\< <if(a)><a>:<endif><if(lv)><lv; separator=" "><else> <endif>:= <e> \>\> >>
+
+assignment(nt,eort)::="<nt> := <eort>"
+
+at(p,t) ::= "<p>@<t>"
+
+behavior_state(bsi,i,com,finl,a) ::=
+    "<bsi> : <if(i)><i> <endif><if(com)><com> <endif><if(finl)><finl> <endif>state<if(a)><\n>  <a><endif>;"
+
+behavior_time(e,u) ::= "<e> <u>"
+
+behavior_transition(i,pr,ssi,bc,dsi,ba,btq) ::=
+<<<<i><pr>:
+  <ssi; separator=",">-[<bc>]-\><dsi><if(ba)>
+    { <ba; anchor> }<else>{}<endif> <if(btq)><btq><endif>  --end of <i>
+>>
+
+behavior_variable_type(d,t,p,s,con,sp,e,finl,ass) ::=
+<<
+<d; separator=","> ~ <p><s><con><sp><finl> <t><if(e)>:=<e><endif><if(ass)>
+  <ass><endif>;
+>>
+   
+bless_property_association(bpa,ass) ::=
+  "BLESS::<bpa> =\> \"<ass>\";"   
+
+bless_subclause(n,ac,inv,vs,ss,t) ::=
+<<
+annex BLESS
+  {** <if(n)>DO_NOT_PROVE
+  <endif><if(ac)><ac>
+  <endif><if(inv)><inv>
+  <endif><if(vs)><vs>
+  <endif><if(ss)><ss>
+  <endif><if(t)><t>
+  <endif>**};
+>>
+
+boolean()::="boolean"
+
+cand(t) ::= "<t; wrap, separator=\" and then \">" 
+
+caret(p,cv) ::= "<p>^<cv>"
+
+case_choice(be,exp) ::= "(<be>) -> <exp>"
+
+case_expression(cc) ::= "(<cc; anchor, wrap, separator=\", \">)"
+
+catch_clause(cct) ::= "catch <cct; separator=\" \">"
+
+catch_clause_term(ei,ba) ::= "(<ei; seperator=\" \">:<ba>)" 
+
+catch_clause_term_all(ba) ::= "(all:<ba>)"
+
+classifier_type(i) ::=
+  "classifier (<i; wrap, anchor, separator=\", \">)"   
+
+complex()::="complex"
+
+component_classifier_term(uccr) ::=
+  "classifier(<uccr>)"
+
+concurrent_composition(g)::=
+  "<g; separator=\"\n&\n\">" 
+
+conditional_assertion_function(cvp) ::=
+<<
+  [<cvp; wrap, anchor, separator=", ">]
+>>
+
+conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
+
+condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
+
+conjunction(bopt) ::=
+  "<bopt; wrap, anchor,  separator=\"\n and \">"
+
+cor(t) ::= "<t; wrap, separator=\" or else \">" 
+
+declarator(i,lit) ::=   
+  "<i>[<lit; separator=\"][\">]"
+
+declarators(d,ds) ::=
+  "<d>,<ds; separator=\",\">"
+
+disjunction(bopt) ::=
+  "<bopt; wrap, separator=\" or \">"
+
+dispatch_condition(dle) ::= "on dispatch <dle>"
+
+dispatch_trigger(i) ::= "<i>"
+
+do_until(be,ba,bd,inv) ::=
+<<do <if(inv)><\n>  invariant <inv><endif><if(bd)><\n>  bound <bd><endif>
+  <ba; anchor>
+until (<be>)>>  
+
+elq(v,ba,cc) ::=
+<<
+<if(v)><v>
+<endif>  {
+  <ba; anchor>
+  }<if(cc)><\n><cc><endif> >>
+
+enumeration_pair(i,pe) ::=
+"<i> -\> <pe>"
+
+enumeration_type(id)::=
+  "enumeration (<id; wrap, anchor, separator=\" \">)"
+
+enumeration_value(t,v) ::=
+  "<t>'<v>"
+
+equal_relation(lhs,rhs) ::= // "<lhs> = <rhs>"
+<<
+<lhs>
+=
+<rhs> >>
+
+event_port_output(o) ::= "<o>!"
+
+existential_quantification(e,lv2,d2,p2)::=
+<<
+<e> <lv2>
+  <d2> 
+  that <p2; anchor> >>
+
+exp(l,r) ::= "<l>**<r>"
+
+false() ::= "false"
+
+formal_actual(f,ap) ::= "<f>:<ap>"  
+
+formal_actual_list(ns) ::= "<ns; anchor, wrap, separator=\", \">"
+
+formal_assertion_parameter(p,t) ::= "<p>~<t>"
+
+formal_assertion_parameter_list(faps) ::= "<faps; separator=\", \">"
+
+formal_expression_pair(f,a) ::= "<f>=\><a>"
+
+for_loop(a,lb,ub,ba,inv) ::=
+<<for <a> in <lb>..<ub><if(inv)>
+  invariant <inv><endif>
+  <ba> >>
+
+function_call(f,pl,p) ::= 
+<<<if(p)><p; separator="::">::<endif><f>(<pl>)>>
+
+ghost_variable(id,tod) ::=
+  "def <id> ~ <tod>"
+  
+ghost_variables(gv) ::=
+<<
+ghost variables
+  <gv; separator="\n">
+>>
+
+guarded_action(be,ba) ::=
+ <<(<be>)~> 
+  <ba> >>
+
+id_cc_id(fst,snd) ::=
+  "<fst>::<snd>"  
+
+id_cc_id_dot_id(fst,snd,thr) ::=
+  "<fst>::<snd>.<thr>"  
+
+id_dot_id(fst,snd) ::=
+  "<fst>.<snd>" 
+
+iff(l,r) ::= "<l> iff <r>"
+
+implies(s,c) ::= "<s> -\> <c>"
+
+integer()::="quantity whole"
+
+integer_literal(i) ::= "<i>"
+
+invariant_clause(a) ::=
+<<
+invariant <a>
+>>
+
+index(i) ::=
+  "[<i>]"
+
+internal_condition(p) ::=
+  "on internal <p; separator=\" or \">"
+
+invocation(i,p) ::=
+  "i(<p; separator=\", \">)"
+
+in_port_value(pn)::="<pn>?"  
+
+in_range(p,ra) ::= "<p> in <ra>"
+
+issue_exception(ex,m) ::=
+  "exception <ex> <m>"
+
+local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
+
+logic_variables(t,i) ::= "<i; separator=\",\">~<t>" 
+
+logic_variable_domain(i,l,h,rs) ::=
+"<i> <l> <rs> <h>"
+
+logic_variable_domain2(i2,p) ::=
+"<i2> <p>"
+
+l_and(bs) ::= "<bs; anchor, wrap, separator=\" and \">"
+
+l_cand(bs) ::= "<bs; anchor, wrap, separator=\" and then \">"
+
+l_cor(bs) ::= "<bs; anchor, wrap, separator=\" or else \">"
+
+l_or(bs) ::= "<bs; anchor, wrap, separator=\" or \">"
+
+l_xor(bs) ::= "<bs; anchor, wrap, separator=\" xor \">"
+
+mod(l,r) ::= "<l> mod <r>"
+
+mode_condition(tle) ::=
+  "on <tle>"
+
+multiply(terms) ::=
+  "<terms; wrap, separator=\" * \">" 
+
+name(id,index,rec) ::= 
+  "<id><if(index)>[<index; separator=\"][\">]<endif><if(rec)>.<rec; separator=\".\"><endif>"
+
+named_assertion(id,pred,formals,tod,functionvalue) ::=
+<<
+\<\<<id>: <formals><if(pred)>:<pred><endif><if(tod)> returns <tod> := <functionvalue><endif> \>\>>>
+
+named_assertion_enum(id,assertionvariable,enumerationTy,enumeration) ::=
+<<
+\<\<<id>: <assertionvariable> ~ <enumerationTy> +=> 
+  <enumeration> \>\> >>
+
+nameless_assertion(a) ::=
+<<\<\< <a> \>\>>>
+
+nameless_enumeration(inv) ::=
+  "\<<\ +=> <inv> \>\>"
+
+nameless_function(tod,a) ::=
+<<\<\< returns <tod> := <a> \>\>>>
+
+name_tick(vn) ::= "<vn>'"
+
+natural()::="quantity whole"
+
+not(bt) ::= "not <bt>"  
+
+not_equal_relation(lhs,rhs) ::= "<lhs> \<\> <rhs>"
+
+not_paren(bt) ::= "not (<bt>)"  
+
+now() ::= "now"
+
+numberof(lv,d,pe) ::=
+<<
+numberof <lv>
+  <d> 
+  that <pe; anchor> >>
+
+number_type(nr,ud,nw) ::=
+  "<nw> <if(nr)>[<nr>]<endif><if(ud)> units <ud><endif>"
+
+number_type_plain(n)::="<n>"
+
+or(terms) ::=
+  "<terms; wrap, separator=\" or \">" 
+
+parameter_spec(dpi,io,uccr,mpa)::=
+  "<dpi>: <io> parameter <uccr> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
+
+parentheses(be) ::=
+  "( <be> )"  
+
+parenthesized_predicate(p) ::= "(<p>)"
+
+partial_name(i,p) ::=
+  "<i><if(p)>[<p; separator=\"][\">]<endif>"
+
+port_count(i) ::= "<i>'count" 
+
+port_fresh(i) ::= "<i>'fresh" 
+
+port_input(i,n) ::= "<i>?(<n>)"
+
+port_name(port,index) ::=
+  "<port><if(index)>[<index>]<endif>"
+
+port_output(o,be) ::= "<o>!<if(be)>(<be>)<endif>"
+
+port_spec(dpi,io,pt,mpa)::=
+  "<dpi>: <io> <pt> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
+
+port_updated(i) ::= "<i>'updated" 
+
+predicate_invocation(p,ip,a) ::= 
+  "<p>(<if(ip)><ip; anchor, wrap, separator=\", \"><endif><if(a)><a><endif>)"
+
+priority(num) ::=
+  "[<num>]"
+
+procedure_call(p,spb) ::= 
+  "<p>(<spb>)"
+
+product(p,lv,d,pe) ::=
+<<
+<p> <lv>
+  <d> 
+  of <pe; anchor> >>
+
+property_name(ps,p) ::= "<ps>::<p>"
+
+property_reference(component,pname,f) ::= "<component>#<pname><f>"
+
+property_number_type(kind,range,units,designator) ::=
+  "<kind> <range><if(units)> <units> <designator><endif>" 
+
+quantified_variables(bv) ::=
+<<declare 
+  <bv; anchor, separator="\n">
+>>
+
+quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
+<<
+quantity <unit><scalar><whole><if(lb)> [<lb> .. <ub>]<endif><if(step)> step <step><endif><if(representation)> representation <representation><endif>>>
+
+range(rs,lb,ub)::=  "<lb> <rs> <ub>" 
+
+range_type(rt)::= 
+  "range of <rt>"
+
+rational()::="quantity scalar"
+
+real()::="quantity scalar"
+
+real_literal(r) ::=  "<r>"
+
+record_field(df,ptd,t) ::=
+    "<df>:<if(t)>list of <endif><ptd>;"
+
+record_term(typeid,prv) ::=
+  "[<typeid>: <prv; wrap, separator=\" \">]"
+
+record_type(rvu,rf) ::= 
+<<<rvu> 
+  (<rf;anchor, separator="\n">)>>   
+
+record_value(id,v) ::=
+  "<id>-\><v>;"
+
+reference_type(i) ::=
+  "reference (<i; wrap, anchor, separator=\", \">)"   
+
+relation(r,lhs,rhs) ::= "<lhs> <r> <rhs>"
+
+rem(l,r) ::= "<l> rem <r>"
+
+root_declaration(base,formula,kindWords,unit,factors) ::=
+<<
+<base><formula> [ <kindWords; separator=" "> ] <unit> <factors; separator=" ">; >>
+
+sequential_composition(f)::=
+  "<f; separator=\"\n;\n\">" 
+
+simultaneous_assignment(l,r) ::=
+<<
+|<l; separator=","> := <r; separator=",">|  >>
+
+skip() ::= "skip" 
+
+states_section(bs) ::=
+<<
+states
+  <bs; separator="\n">
+>>
+
+stop() ::= "stop"
+
+string()::="string"
+
+subcomponent(i,cc,uccr,ad,aeil,sbpa,sbim)::=
+  "<i>: <cc> <uccr><ad><aeil><if(sbpa)>(<sbpa; separator=\",\">)<endif><sbim>;"
+
+subprogram_behavior(ac,p1,p2,elq) ::=
+<<
+--start of Action annex subclause
+<ac><if(p1)><\n>pre <p1><endif><if(p2)><\n>post <p2><endif>
+<elq>
+--end of Action annex subclause
+>>
+
+sum(s,lv,d,pe) ::=
+<<
+<s> <lv>
+  <d> 
+  of <pe; anchor> >>
+
+
+throws_clause(ex) ::=
+  "throws <ex; wrap, separator=\" \">"
+
+tick(tp) ::= "<tp>'"
+
+time()::= "time"
+
+timeout(bt,p) ::= "timeout <if(p)>(<p; separator=\" \">) <endif><bt>"
+
+transitions(bt) ::=
+<<transitions
+  <bt; separator="\n\n">
+>>
+
+true() ::= "true"
+
+two_element_expression(op,l,r) ::=
+  "<l> <op> <r>"  
+
+two_element_expression_spaced(op,l,r) ::=
+  "<l> <op> <r>"  
+
+type_declaration(id,ty)::=
+<<
+type <id> is <ty>>>
+
+type_operator(i,param,t)::=
+<<<i>[<param; separator=" ">] : type <t>;
+>>
+
+type_operator_invocation(o,ty)::=
+<<<o>[<ty; separator=", ">]
+>>
+
+ulq(lv,lb,ub,elq) ::=
+<<
+forall <lv> in <lb> .. <ub>
+  <elq> >>
+
+unary(sym,ex) ::=
+  "<sym> <ex>"
+
+unary_paren(sym,ex) ::=
+  "<sym>(<ex>)"
+  
+unique_component_classifier_reference(p,ii) ::=
+  "<p; separator=\"::\"><if(ii)>.<ii><endif>"
+
+unit_formula(top,bottom) ::=
+  "<top; separator=\" \"><if(bottom)> / <bottom; separator=\" \"> <endif>"
+
+unit_library(unitDeclarations) ::=
+<<
+annex Unit 
+  {**
+  <unitDeclarations; separator="\n">
+  **};  --end of Unit annex library
+>>  
+
+unit_name(id,longname) ::=
+  "<if(longname)>\< <longname; separator=\" \"> \> <endif><id>"
+
+units_declaration(i,ul)::=
+<<<i> : units <ul>;
+>>
+
+unit_extension(root,factors) ::=
+<<
+extension <root> <factors; separator=" ">;>>
+
+unit_factor(unit,op,factor) ::=
+  ", <unit> <op> <factor>"
+
+units_list(fu,au) ::=
+    "(<fu><if(au)>,<\n>     <au; separator=\",\n     \"><endif>)"
+
+units_type(ul)::=
+  "units <ul>"
+
+universal_quantification(a,lv,d,p)::=
+<<
+<a> <lv>
+  <d> 
+  are <p; anchor> >>  
+
+variable(id,tod) ::=
+  " <id> ~ <tod>"
+
+variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
+<<
+<v> <nv><sh><c><sp><f><if(exp)>:= <exp><endif><if(a)>
+  <a><endif>>>
+
+variable_list(parameter) ::=
+<<<parameter; wrap, separator=", ">>>
+
+variables(bv) ::=
+<<
+variables
+  <bv; separator="\n"> >>
+
+variant_field(df,ptd,t) ::=
+    "<df>:<if(t)>list of <endif><ptd>;"
+
+variant_type(vf)::= 
+ <<variant 
+  (<vf;anchor, separator="\n">)>>   
+
+when_throw(e,i,m) ::=
+  "when (<e>) throw <i> <m>"
+
+while_loop(be,elq,bd,inv) ::= 
+<<while (<be>)<if(inv)> 
+  invariant <inv> <endif>
+  bound <bd>
+  <elq> >>
+
+xor(terms) ::=
+  "<terms; wrap, separator=\" xor \">" 
