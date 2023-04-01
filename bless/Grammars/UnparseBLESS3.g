@@ -226,19 +226,19 @@ unitLibrary
 unitName
   :
   ^( UNIT_NAME id=ID longname+=ID* )
-    -> unit_name(id={$id.text}, longname={$longname*})
+    -> unit_name(id={$id.text}, longname={$longname})
   ;  
 
 unitFormula
   :
   ^( UNIT_FORMULA top+=ID+ )
-    -> unit_formula(top={$top+})
+    -> unit_formula(top={$top})
   |
   ^( UNIT_FORMULA top+=ID+ DIVIDE bottom+=ID+ )
-    -> unit_formula(top={$top+}, bottom={$bottom+})
+    -> unit_formula(top={$top}, bottom={$bottom})
   |
   ^( UNIT_FORMULA DIVIDE bottom+=ID+ )
-    -> unit_formula(bottom={$bottom+})
+    -> unit_formula(bottom={$bottom})
   ;
 
 unitDeclaration: 
@@ -248,10 +248,10 @@ unitDeclaration:
 rootDeclaration
   :
   ^( ROOT_DECLARATION base=LITERAL_base ^( LBRACKET kindWords+=ID+ ) unit=unitName factors+=unitFactor* )
-    -> root_declaration(base={$base.text}, kindWords={$kindWords+}, unit={$unit.st}, factors={$factors*})
+    -> root_declaration(base={$base.text}, kindWords={$kindWords}, unit={$unit.st}, factors={$factors})
   |
   ^( ROOT_DECLARATION formula=unitFormula ^( LBRACKET kindWords+=ID+ ) unit=unitName factors+=unitFactor* )
-    -> root_declaration(formula={$formula.st}, kindWords={$kindWords+}, unit={$unit.st}, factors={$factors*})
+    -> root_declaration(formula={$formula.st}, kindWords={$kindWords}, unit={$unit.st}, factors={$factors})
   ;
 
 unitExtension
@@ -274,7 +274,7 @@ unitFactor:
 
 typeLibrary:  
   decs+=typeDeclaration+
-    -> {$decs}
+    -> type_library(decs={$decs})
   ;
 
 typeDeclaration:
@@ -309,7 +309,7 @@ type
 
 typeOrReference:
   ty=type
-    -> {ty.st} 
+    -> {$ty.st} 
   | 
   ref=ID
     ->{%{$ref.text}}  
@@ -562,11 +562,11 @@ assertion:
   na=namedAssertion
     -> {$na.st}
   | a=namelessAssertion
-    -> {a.st}
+    -> {$a.st}
   | f=namelessFunction
-    -> {f.st}
+    -> {$f.st}
   | e=namelessEnumeration
-    -> {e.st}
+    -> {$e.st}
   ;
   
 //////////////////////////  EXPRESSION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -574,54 +574,64 @@ assertion:
 expression // throws ProofException
 	:	
   all=universalQuantification
-    -> {all.st}
+    -> {$all.st}
   | exists=existentialQuantification
-    -> {exists.st}
+    -> {$exists.st}
   | sum=sumQuantification
-    -> {sum.st}
+    -> {$sum.st}
   | product=productQuantification
-    -> {product.st}
+    -> {$product.st}
   | numberof=countingQuantification
-    -> {numberof.st}
-  | ^( LITERAL_iff l=disjunction r=disjunction )
-  | ^( LITERAL_implies l=disjunction r=disjunction )
+    -> {$numberof.st}
+  | ^( iff=LITERAL_iff l=disjunction r=disjunction )
+    -> relation(r={$iff.text}, lhs={$l.st}, rhs={$r.st})
+  | ^( imp=LITERAL_implies l=disjunction r=disjunction )
+    -> relation(r={$imp.text}, lhs={$l.st}, rhs={$r.st})
 	;	
 
 universalQuantification
   :
-  ^( LITERAL_all lv=logicVariables iw=in_which ^( LITERAL_are pred=predicate ) )
+  ^( a=LITERAL_all lv=logicVariables iw=in_which ^( LITERAL_are pred=predicate ) )
+    -> universal_quantification(a={$a.text}, lv={$lv.st}, d={$iw.st}, p={$pred.st})
   ;
 
 in_which
   :
   ^( LITERAL_in r=range )
+    -> template(r={$r.st}) "in <r>"
   |
   ^( LITERAL_which b=predicate )
+    -> template(b={$b.st}) "which <b>"
   ;
 
 existentialQuantification
   :
-  ^( LITERAL_exists lv=logicVariables iw=in_which ^( LITERAL_are pred=predicate ) )
+  ^( e=LITERAL_exists lv=logicVariables iw=in_which ^( LITERAL_are pred=predicate ) )
+    -> existential_quantification(e={$e.text},  lv2={$lv.st}, d2={$iw.st}, p2={$pred.st})
 	;
 
 sumQuantification
   :
-  ^( LITERAL_sum lv=logicVariables iw=in_which ^( LITERAL_of ex=expression ) )
+  ^( s=LITERAL_sum lv=logicVariables iw=in_which ^( LITERAL_of ex=expression ) )
+    -> sum(s={$s.text}, lv={$lv.st}, d={$iw.st}, pe={$ex.st})
   ;	
 
 productQuantification
   :
-  ^( LITERAL_product lv=logicVariables iw=in_which ^( LITERAL_of ex=expression ) )
-  ;
+  ^( p=LITERAL_product lv=logicVariables iw=in_which ^( LITERAL_of ex=expression ) )
+     -> product(p={$p.text}, lv={$lv.st}, d={$iw.st}, pe={$ex.st})
+ ;
   
 countingQuantification
   :
-  ^( LITERAL_numberof lv=logicVariables iw=in_which ^( LITERAL_of ex=expression) )  
+  ^( LITERAL_numberof lv=logicVariables iw=in_which ^( LITERAL_that ex=expression) ) 
+    -> numberof(lv={$lv.st}, d={$iw.st}, pe={$ex.st}) 
   ;  
 
 logicVariables
   :
   ^( COMMA lv+=variable+ )
+    -> variable_list(parameter={$lv})
   |
   v=variable
   ;
@@ -629,10 +639,13 @@ logicVariables
 disjunction
   :
   ^( LITERAL_or c+=conjunction+ )
+    -> disjunction(bopt={$c})
   |
   ^( LITERAL_else c+=conjunction+ )
+    -> cor(t={$c})
   |
   ^( LITERAL_xor c+=conjunction+ )
+    -> xor(terms={$c})
   |
   con=conjunction
   ;  
@@ -640,10 +653,13 @@ disjunction
 conjunction
   :
   ^( LITERAL_and r+=relation+ )
+    -> conjunction(bopt={$r})
   |
   ^( LITERAL_then r+=relation+ )
+    -> cand(t={$r})
   |
   rel=relation
+    -> {$rel.st}
   ;
   
  relation
@@ -758,7 +774,7 @@ subexpression
 timedExpression
   :
   ^( TICK ts=timedSubject )
-    -> tick(tp={ts.st})
+    -> tick(tp={$ts.st})
   |
   ^( AT_SIGN ts=timedSubject se=subexpression )
     -> at(p={$ts.st}, t={$se.st})
@@ -787,10 +803,10 @@ timedSubject
 periodShift
   :
   ^( um=UNARY_MINUS v=value )
-    -> unary(sym={$um.text}, ex={v.st})
+    -> unary(sym={$um.text}, ex={$v.st})
   |
   ^( um=UNARY_MINUS ^( LPAREN ie=indexExpression RPAREN ) )
-    -> unary_paren(sym={$um.text}, ex={v.st})
+    -> unary_paren(sym={$um.text}, ex={$v.st})
   |
   v=value
     -> {$v.st}
@@ -835,7 +851,7 @@ parenthesizedSubexpression
 recordTerm
   :
   ^( RECORD_TERM typeid=ID prv+=recordValue+ )
-    -> record_term(typeid={$.text},prv={$prv})
+    -> record_term(typeid={$typeid.text},prv={$prv})
   ;
   
 recordValue
@@ -908,14 +924,16 @@ functionParameters
 formalExpressionPair
   :
   ^( COLON formal=ID actual=expression )
-    ->  formal_actual(f={$id.text}, ap={$actual.st})
+    ->  formal_actual(f={$formal.text}, ap={$actual.st})
   ;
   	
 indexExpressionOrRange
   :
-  ^( DOTDOT lb=indexExpression up=indexExpression )
+  ^( dd=DOTDOT lb=indexExpression ub=indexExpression )
+    -> relation(r={$dd.text}, lhs={$lb.st}, rhs={$ub.st})
   |
   index=indexExpression
+    -> {$index.st}
   ;
 
 partialName
@@ -930,15 +948,20 @@ partialName
 	
 constant
   :
-  quantity
+  q=quantity
+    -> {$q.st}
   |
-  AADL_STRING_LITERAL
+  s=AADL_STRING_LITERAL
+    -> {%{$s.text}}
   |
-  LITERAL_true
+  t=LITERAL_true
+    -> {%{$t.text}}
   |
-  LITERAL_false
+  f=LITERAL_false
+    -> {%{$f.text}}
   |
-  LITERAL_null
+  n=LITERAL_null
+    -> {%{$n.text}}
 	;	
 
 quantity
@@ -947,7 +970,7 @@ quantity
     -> {$number.st}
   |
   ^( QUANTITY number=aNumber unit=ID )
-    -> template(number={$number.st}, unit={$unit.st}) "<number> <unit>"
+    -> template(number={$number.st}, unit={$unit.text}) "<number> <unit>"
   |
   ^( QUANTITY number=aNumber LITERAL_scalar )
     -> template(number={$number.st}) "<number> scalar"
@@ -1187,19 +1210,19 @@ combinableOperation:
   
 communicationAction:
   pc=subprogramCall
-    -> {pc.st}
+    -> {$pc.st}
   |
   po=portOutput
-    -> {po.st}
+    -> {$po.st}
   |
   pi=portInput
-    -> {pi.st}
+    -> {$pi.st}
   ;
   
 portOutput
   :
   ^( PORT_OUTPUT pn=ID be=expression? )
-    -> port_output(o={pn.text}, be={$be.st})
+    -> port_output(o={$pn.text}, be={$be.st})
   ;
     
 portInput
@@ -1245,6 +1268,7 @@ subProgramParameter:
 alternative
   :
   ^( LITERAL_if alt+=guardedAction+ )
+    -> alternative(gf={$alt})
   ;	 
 	 
 guardedAction
@@ -1292,6 +1316,7 @@ blessSubclause
     vs=variablesSection?
     ss=statesSection?
     t=transitions? )
+    -> bless_subclause(n={$no_proof.text}, ac={$ac.st}, inv={$inv.st}, vs={$vs.st}, ss={$ss.st}, t={$t.st})
   ;
   	 
 invariantClause
@@ -1328,7 +1353,7 @@ behaviorTransition
   :
   ^( TRANSITION ^( LABEL id=ID pr=priority? ) ^( SOURCE ssi+=ID+ ) 
     ^( CONDITION bc=behaviorCondition? ) ^( DESTINATION dsi=ID )
-    ^( ACTION s=behaviorActions ) ^( Q q=assertion? ) )
+    ^( ACTION s=behaviorActions? ) ^( Q q=assertion? ) )
     -> behavior_transition(id={$id.text}, pr={$pr.st}, ssi={$ssi},
         bc={$bc.st}, dsi={$dsi.text}, ba={$s.st}, btq={$q.st})
   ;
@@ -1342,13 +1367,13 @@ priority
 behaviorCondition
   :
   dc=dispatchCondition
-    -> {dc.st} 
+    -> {$dc.st} 
   | ec=executeCondition 
-    -> {ec.st} 
+    -> {$ec.st} 
   | mc=modeCondition 
-    -> {mc.st} 
+    -> {$mc.st} 
   | ic=internalCondition
-    -> {ic.st} 
+    -> {$ic.st} 
   ;
   
 dispatchCondition

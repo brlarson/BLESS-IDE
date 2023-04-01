@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-01 03:51:28
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-01 05:24:04
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -76,15 +76,15 @@ public class ASTtoAST extends TreeParser {
 		"LITERAL_upper_bound", "LITERAL_us", "LITERAL_variables", "LITERAL_variant", 
 		"LITERAL_when", "LITERAL_which", "LITERAL_while", "LITERAL_whole", "LITERAL_with", 
 		"LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", 
-		"NEQ", "NUMBER", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", "PARAMETERS", 
-		"PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", "PORT_OUTPUT", 
-		"PREDICATE_RELATION", "PROCEDURE", "PROCEDURE_CALL", "Q", "QCLREF", "QCREF", 
-		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", 
-		"RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", 
-		"SOURCE", "START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_ANNEX", 
-		"THREAD_ANNEX", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", 
-		"TYPE", "TYPE_LIBRARY", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", 
-		"UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
+		"NEQ", "NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
+		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
+		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "PROCEDURE_CALL", "Q", 
+		"QCLREF", "QCREF", "QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", 
+		"RCURLY", "REAL_LIT", "RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", 
+		"SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
+		"STOP", "SUBPROGRAM_ANNEX", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", 
+		"TRIGGER", "TYPE", "TYPE_LIBRARY", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", 
+		"UNARY_MINUS", "UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
 		"VERT", "WP", "WS", "'%'"
 	};
 	public static final int EOF=-1;
@@ -334,44 +334,44 @@ public class ASTtoAST extends TreeParser {
 	public static final int MT_STRING=246;
 	public static final int NEQ=247;
 	public static final int NUMBER=248;
-	public static final int OCTOTHORPE=249;
-	public static final int OLD_NEQ=250;
-	public static final int ON=251;
-	public static final int P=252;
-	public static final int PARAMETER=253;
-	public static final int PARAMETERS=254;
-	public static final int PLUS=255;
-	public static final int PLUS_ARROW=256;
-	public static final int PLUS_EQUALS=257;
-	public static final int PORT=258;
-	public static final int PORT_INPUT=259;
-	public static final int PORT_OUTPUT=260;
-	public static final int PREDICATE_RELATION=261;
-	public static final int PROCEDURE=262;
-	public static final int PROCEDURE_CALL=263;
-	public static final int Q=264;
-	public static final int QCLREF=265;
-	public static final int QCREF=266;
-	public static final int QQ=267;
-	public static final int QUANTITY=268;
-	public static final int QUESTION=269;
-	public static final int RASS=270;
-	public static final int RBRACKET=271;
-	public static final int RCON=272;
-	public static final int RCURLY=273;
-	public static final int REAL_LIT=274;
-	public static final int RECORD_TERM=275;
-	public static final int ROOT_DECLARATION=276;
-	public static final int RPAREN=277;
-	public static final int S=278;
-	public static final int SEMICOLON=279;
-	public static final int SLCOMMENT=280;
-	public static final int SOURCE=281;
-	public static final int START=282;
-	public static final int START_ASSERTION_PROPERTY=283;
-	public static final int STOP=284;
-	public static final int SUBPROGRAM_ANNEX=285;
-	public static final int THREAD_ANNEX=286;
+	public static final int OBLIGATION=249;
+	public static final int OCTOTHORPE=250;
+	public static final int OLD_NEQ=251;
+	public static final int ON=252;
+	public static final int P=253;
+	public static final int PARAMETER=254;
+	public static final int PARAMETERS=255;
+	public static final int PLUS=256;
+	public static final int PLUS_ARROW=257;
+	public static final int PLUS_EQUALS=258;
+	public static final int PORT=259;
+	public static final int PORT_INPUT=260;
+	public static final int PORT_OUTPUT=261;
+	public static final int PREDICATE_RELATION=262;
+	public static final int PROCEDURE=263;
+	public static final int PROCEDURE_CALL=264;
+	public static final int Q=265;
+	public static final int QCLREF=266;
+	public static final int QCREF=267;
+	public static final int QQ=268;
+	public static final int QUANTITY=269;
+	public static final int QUESTION=270;
+	public static final int RASS=271;
+	public static final int RBRACKET=272;
+	public static final int RCON=273;
+	public static final int RCURLY=274;
+	public static final int REAL_LIT=275;
+	public static final int RECORD_TERM=276;
+	public static final int ROOT_DECLARATION=277;
+	public static final int RPAREN=278;
+	public static final int S=279;
+	public static final int SEMICOLON=280;
+	public static final int SLCOMMENT=281;
+	public static final int SOURCE=282;
+	public static final int START=283;
+	public static final int START_ASSERTION_PROPERTY=284;
+	public static final int STOP=285;
+	public static final int SUBPROGRAM_ANNEX=286;
 	public static final int TICK=287;
 	public static final int TILDE=288;
 	public static final int TIMES=289;
@@ -2713,7 +2713,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: l, p, a, par, formals, ass
+					// elements: p, formals, par, l, ass, a
 					// token labels: par, ass, a, l
 					// rule labels: formals, retval
 					// token list labels: 
@@ -2815,7 +2815,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: l, a, ass, p
+					// elements: l, p, ass, a
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -2885,7 +2885,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, ass
+					// elements: ass, p
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -4054,20 +4054,20 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u0132\1\u0111\1\uffff\2\u0132\1\uffff\1\u0132\1\u0111";
+		"\1\u0132\1\u0112\1\uffff\2\u0132\1\uffff\1\u0132\1\u0112";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
 			"\163\2\1\1\u00bb\2",
-			"\1\3\u010e\uffff\1\2",
+			"\1\3\u010f\uffff\1\2",
 			"",
 			"\1\5\u012f\4",
 			"\1\5\1\6\u012f\4",
 			"",
-			"\u010d\5\1\7\41\5",
-			"\1\5\1\2\150\uffff\1\2\u00a4\uffff\1\5"
+			"\u010e\5\1\7\40\5",
+			"\1\5\1\2\150\uffff\1\2\u00a5\uffff\1\5"
 	};
 
 	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
@@ -4114,7 +4114,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000100000000000L});
 	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
@@ -4126,10 +4126,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
 	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000020000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
@@ -4155,7 +4155,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000000800000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
 	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});

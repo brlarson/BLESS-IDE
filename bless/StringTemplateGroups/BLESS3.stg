@@ -21,7 +21,8 @@ add(terms) ::=
   "<terms; wrap, separator=\" + \">" 
 
 alternative(gf) ::=
-<<if 
+<<
+if 
 <gf; separator="\n[]\n">
 fi>>
 
@@ -496,6 +497,14 @@ two_element_expression_spaced(op,l,r) ::=
 type_declaration(id,ty)::=
 <<
 type <id> is <ty>>>
+
+type_library(decs) ::=
+<<
+annex Typedef
+  {**
+  <decs; separator=<\n>>
+  **};
+>>
 
 type_operator(i,param,t)::=
 <<<i>[<param; separator=" ">] : type <t>;

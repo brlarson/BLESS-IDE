@@ -41,7 +41,8 @@ INVOKE_FUNCTION;
 IP_NAME; 
 IP_PE; 
 IP_PRED;  //invoctionParameter tags
-LABEL; 
+LABEL;
+OBLIGATION;  //proof obligation 
 ON;   //for behavior_guard
 P; 
 PARAMETER;  // formal:actual in predicate_invocation b:c => ^(PARAMETER b c)
@@ -61,7 +62,6 @@ SOURCE;
 START; 
 STOP; //used to mark the end of some strings of children
 SUBPROGRAM_ANNEX; 
-THREAD_ANNEX; 
 TOP;  //the set of all values; every values is in TOP
 TRANSITION; 
 TYPE; 
@@ -968,13 +968,15 @@ exponentiation:
 	
 subexpression:
 	( uo=unaryOperator )? te=timedExpression
-	  -> {uo!=null&&uo==MINUS}? ^( UNARY_MINUS $te )
 	  -> {uo!=null}? ^( $uo $te )
 	  -> $te
+	|
+	MINUS te=timedExpression
+	  -> ^( UNARY_MINUS $te )
 	;
 
 unaryOperator:
-	LITERAL_not | MINUS | LITERAL_abs | LITERAL_truncate | LITERAL_round
+	LITERAL_not | LITERAL_abs | LITERAL_truncate | LITERAL_round
 	;
 
 timedExpression:
@@ -1016,7 +1018,7 @@ conditionalExpression:
 recordTerm
   :
   LBRACKET typeid=ID COLON prv+=recordValue+ RBRACKET 
-    -> ^(RECORD_TERM["RECORD_TERM"] $typeid $prv+)
+    -> ^(RECORD_TERM $typeid $prv+)
   ;
   
 recordValue
@@ -1182,11 +1184,11 @@ assertClause:
 
 existentialLatticeQuantification:	
   qv=quantifiedVariables?
-  lc=LCURLY^  ba=behaviorActions RCURLY!  //keep the closing }
+  lc=LCURLY^  ba=behaviorActions RCURLY  //keep the closing }
   cc=catchClause?
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existential_lattice_quantification.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existentialLatticeQuantification.tree);}
 	
 //actionTimeout:
 //  LITERAL_timeout^ behaviorTime
@@ -1255,7 +1257,7 @@ assertedAction  :
          )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.assertedAction,re,$asserted_action.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.assertedAction,re,$assertedAction.tree);}
 
 action:
   basicAction
@@ -1331,7 +1333,7 @@ communicationAction:
 subprogramCall:
   id=ID LPAREN fal=formalActualList? RPAREN
     -> ^( FUNCTION_CALL[$id,
-      "FUNCTION_CALL["+Integer.toString($pn.tree.getLine())+"] "] $id $fal )
+      "FUNCTION_CALL["+Integer.toString($id.tree.getLine())+"] "] $id $fal )
   ;
 
 formalActualList:
@@ -1379,7 +1381,7 @@ guardedAction:
   LPAREN! /*boolean_*/expression GUARD^ assertedAction
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.guardedAction,re,$guarded_action.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.guardedAction,re,$guardedAction.tree);}
   
 whileLoop:
   lw=LITERAL_while  
@@ -1391,7 +1393,7 @@ whileLoop:
     -> ^($lw $be ^(INVARIANT[$lw,"INVARIANT"] $inv?) ^(BOUND[$lw,"BOUND"] $bd?) $elq )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.whileLoop,re,$while_loop.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.whileLoop,re,$whileLoop.tree);}
 
 forLoop:
   lf=LITERAL_for
@@ -1401,7 +1403,7 @@ forLoop:
     ->^($lf $a ^($li $lb $ub) ^(INVARIANT[$lf,"INVARIANT"] $inv?) $act ) 
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.forLoop,re,$for_loop.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.forLoop,re,$forLoop.tree);}
  
 doUntilLoop:
   ld=LITERAL_do 
@@ -1412,7 +1414,7 @@ doUntilLoop:
     ->^($ld ^($lu $be) ^(INVARIANT[$ld,"INVARIANT"] $inv?) ^(BOUND[$ld,"BOUND"] $bd?) $ba )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.doUntilLoop,re,$do_until_loop.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.doUntilLoop,re,$doUntilLoop.tree);}
   
 universalLatticeQuantification:
   lf=LITERAL_forall   
@@ -1422,7 +1424,7 @@ universalLatticeQuantification:
     -> ^($lf $lv+ ^($li $lb $ub) $elq )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.ulq,re,$universal_lattice_quantification.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.ulq,re,$universalLatticeQuantification.tree);}
 
 issueException:
 	LITERAL_exception^ LPAREN exception=ID  //[Exception]
@@ -1463,7 +1465,7 @@ behaviorState:
     -> ^( LITERAL_state[$st,"state["+Integer.toString($st.getLine()+startingLine)+"]"] $init? $com? $finl? $i $a? )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.behaviorState,re,$behavior_state.tree);}
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.behaviorState,re,$behaviorState.tree);}
 
 transitions 
   : 
@@ -1499,7 +1501,7 @@ behaviorTransition
     Dump.it("\nDo you have either behavior actions or empty curly brackets?");
     Dump.it("Is there a space between your empty curly brackets?\nYou stink!  Take a bath.\n");
     Dump.it("Is your execute condition grammatically-correct? ");
-    tellBNF(GrammarStrings.behaviorTransition,re,$behavior_transition.tree);
+    tellBNF(GrammarStrings.behaviorTransition,re,$behaviorTransition.tree);
     Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree());}
 
