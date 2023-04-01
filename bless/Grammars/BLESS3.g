@@ -20,6 +20,7 @@ ASSERTION_ENUMERATION;
 ASSERTION_FUNCTION; 
 BEHAVIOR_GUARD;
 BEHAVIOR_TIME; 
+BLESS_SUBCLAUSE;
 BOUND;  //for loops
 CASE_EXPRESSION;  //case expression
 COMPONENT;
@@ -628,6 +629,12 @@ range_symbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA;
 QCLREF:
   ID DOUBLE_COLON ID;
 
+QCREF:
+	(ID '::')* ID ('.' ID)?;
+
+TRIGGER:
+  (ID '.')* ID;	
+
 identifier 
   : ID ;
   catch [RecognitionException re] {reportError(re,(BAST)retval.getTree()); Dump.it("\nYou may be using a reserved word inappropriately.\n");throw(re);}
@@ -678,37 +685,6 @@ unitFactor:
     -> ^( $c $unit $op $factor )
   ;
 
-quantity: 
-  number=aNumber 
-  ( u=ID '%' | 
-  scalar=LITERAL_scalar | whole=LITERAL_whole )?
-   -> ^( QUANTITY $number $u? $scalar? $whole? )
-  ;  
-
-aNumber:
-  lit=NUMBER
- | property=propertyReference
-  | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
-  ;
-
-propertyReference:
-	OCTOTHORPE pname=QCLREF  //[aadl2::Property|QCLREF] 
-	  ( field+=propertyField )*
-	//component_element_reference
-	| LITERAL_self OCTOTHORPE spname=QCLREF  //[aadl2::Property|QCLREF] 
-	  ( field+=propertyField )*
-	| component=QCLREF //[aadl2::ComponentClassifier|QCREF] 
-	  OCTOTHORPE cpname=QCLREF  //[aadl2::Property|QCLREF]
-	   ( field+=propertyField )*
-;
-
-
-propertyField:
-	LBRACKET (index=NUMBER | var=ID ) //[Variable]) 
-	   RBRACKET  //must check that number is integer
-	| DOT  (pf=ID | upper=LITERAL_upper_bound | lower=LITERAL_lower_bound)
-;
-
 ///////////////////////////   TYPE   \\\\\\\\\\\\\\\\\\\\\\\\\\
 
 typeLibrary:  
@@ -716,7 +692,7 @@ typeLibrary:
   ;
 
 typeDeclaration:
-  'type' id=ID 'is' ty=type
+  LITERAL_type^ id=ID LITERAL_is! ty=type
   ;
 
 type:
@@ -740,8 +716,8 @@ enumerationType:
 quantityType: 
   q=LITERAL_quantity^ 
   ( unit=ID | scalar=LITERAL_scalar | whole=LITERAL_whole )
-  ( LBRACKET! lb=aNumber dd=DOTDOT^ ub=aNumber RBRACKET! )? 
-  ( st=LITERAL_step^ step=aNumber )?  //check if positive
+  ( LBRACKET! lb=aNumber dd=DOTDOT^ ub=aNumber RBRACKET! 
+  ( st=LITERAL_step^ step=aNumber )? )? //check if positive
   ( rep=LITERAL_representation^ representation=QCLREF )?
   ;
 
@@ -770,6 +746,7 @@ recordField :
 assertionLibrary:
   ( ghosts=ghostVariables )?
   assertion_list+=namedAssertion*
+  -> ^(ASSERTION_ANNEX $ghosts? $assertion_list*) 
   ;
 
 ghostVariables
@@ -778,23 +755,29 @@ ghostVariables
   ;
 
 ghostVariable:
-  LITERAL_def  id=ID TILDE tod=typeOrReference  
+  LITERAL_def^  id=ID TILDE! tod=typeOrReference  
   ;
 
 namedAssertion: 
-  LASS^
+  LASS
   id=ID COLON 
   (
     formals=variableList?
       ( //assertion_predicate
       COLON  pred=predicate 
       | //assertion_function
-      LITERAL_returns tod=typeOrReference ASSIGN  functionvalue=assertionFunctionValue 
+      ret=LITERAL_returns tod=typeOrReference ASSIGN  functionvalue=assertionFunctionValue 
       ) 
     | //assertion_enumeration
-    assertionvariable=ID TILDE enumerationTy=ID PLUS_ARROW enumeration=assertionEnumeration
+    assertionvariable=ID til=TILDE enumerationTy=ID enumeration=assertionEnumeration
   )
   RASS
+   -> {formals==null&&pred!=null}? ^( ASSERTION ^( LABEL $id ) $pred )                                          
+   -> {formals!=null&&pred!=null}? ^( ASSERTION ^( LABEL $id ) ^( PARAMETERS $formals ) $pred )
+   -> {formals==null&&tod!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( $ret $tod ) $functionvalue )                                          
+   -> {formals!=null&&tod!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( PARAMETERS $formals ) ^( $ret $tod ) $functionvalue ) 
+   -> {assertionvariable!=null}?  ^( ASSERTION_ENUMERATION ^( LABEL $id ) ^( $til $assertionvariable $enumerationTy ) $enumeration  ) 
+   -> ^( ASSERTION ^( LABEL $id ) DUMMY )                                    
 ; 
 
 predicate:  expression;
@@ -817,14 +800,16 @@ conditionalAssertionFunction:
 	;	
 	
 conditionValuePair:
-  LPAREN predicate CVP^ expression
+  LPAREN! predicate CVP^ expression
   ;
 	
 assertionEnumeration:
-	invocation
+	( pa=PLUS_ARROW inv=invocation )
+	  -> ^( $pa $inv )
 	|
-	( pair+=enumerationPair ( COMMA pair+=enumerationPair )* )
-	  -> ^( ASSERTION_ENUMERATION $pair+ )
+	( pa=PLUS_ARROW pair+=enumerationPair ( com=COMMA pair+=enumerationPair ( COMMA pair+=enumerationPair )* )? )
+	  -> {com!=null}? ^( $pa ^( $com $pair+ ) )
+	  -> ^( $pa $pair )
 	;
 	
 enumerationPair:
@@ -832,22 +817,25 @@ enumerationPair:
 	;	
 
 namelessAssertion:
-  LASS^ predicate RASS
+  LASS pred=predicate RASS
+    -> ^( ASSERTION $pred )
   ;
   
 namelessFunction:
-  LASS^ LITERAL_returns tod=typeOrReference ASSIGN functionvalue=assertionFunctionValue RASS
+  LASS ret=LITERAL_returns tod=typeOrReference ASSIGN functionvalue=assertionFunctionValue RASS
+    -> ^( ASSERTION_FUNCTION ^( $ret $tod ) $functionvalue  )
   ;	
 		
 namelessEnumeration:
-	LASS^ PLUS_ARROW invocation RASS
+	LASS pa=PLUS_ARROW inv=invocation RASS
+	  ->  ^( ASSERTION_ENUMERATION $inv )
 	;
 
 invocation:
 	id=ID LPAREN 
 	( ( params+=actualParameter ( COMMA params+=actualParameter )* )
-	  | exp=expression ) RPAREN
-	  -> ^( INVOKE $params* $exp? )
+	  | exp=expression )? RPAREN
+	  -> ^( INVOKE $id $params* $exp? )
 	;
 
 actualParameter:
@@ -979,7 +967,10 @@ exponentiation:
   ;	
 	
 subexpression:
-	( unaryOperator^ )? timedExpression
+	( uo=unaryOperator )? te=timedExpression
+	  -> {uo!=null&&uo==MINUS}? ^( UNARY_MINUS $te )
+	  -> {uo!=null}? ^( $uo $te )
+	  -> $te
 	;
 
 unaryOperator:
@@ -1034,12 +1025,16 @@ recordValue
   ;  
   
 periodShift:
-	( MINUS^ )?
+	( m=MINUS )?
 	(
-	  value
+	  v=value
 	  | 
-	  (LPAREN^ indexExpression RPAREN)
+	  (lp=LPAREN ie=indexExpression rp=RPAREN)
 	)
+	-> {m!=null&&v!=null}? ^( UNARY_MINUS $v )
+	-> {m!=null&&ie!=null}? ^( UNARY_MINUS ^( $lp $ie $rp ) )
+	-> {m==null&&v!=null}? $v
+	-> ^( $lp $ie $rp ) 
 	;  	
 
 indexExpression:
@@ -1050,6 +1045,8 @@ indexExpression:
 	  LITERAL_div^ periodShift
 	  |
 	  LITERAL_mod^ periodShift
+	  |
+	  LITERAL_rem^ periodShift
 	  |
 	  PLUS^ periodShift ( PLUS! periodShift )*
 	  |
@@ -1090,7 +1087,7 @@ valueName:
     )?
   -> {dol!=null}? ^( $id $dol $pr )
   -> {lb!=null&&dot!=null}? ^( $id ^( $lb $array_index+ ) ^( $dot $pn+ ) )
-  -> {lb!=null&&dot==null}? ^( $id ^( $lb $array_index+ ) )
+  -> {lb!=null&&dot==null}? ^( $id ^( $lb $array_index+ ) DOT )  //to avoid unparse ambiguity
   -> {lb==null&&dot!=null}? ^( $id ^( $dot $pn+ ) )
   -> {q!=null}? ^( $q $id )
   -> {fresh!=null}? ^( $t $id $fresh )
@@ -1129,6 +1126,37 @@ constant:
   LITERAL_null
   ;
 	
+
+quantity: 
+  number=aNumber 
+  ( u=ID '%' | 
+  scalar=LITERAL_scalar | whole=LITERAL_whole )?
+   -> ^( QUANTITY $number $u? $scalar? $whole? )
+  ;  
+
+aNumber:
+ lit=NUMBER
+ | property=propertyReference
+ | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
+  ;
+  
+propertyReference:
+	OCTOTHORPE^ pname=QCLREF  //[aadl2::Property|QCLREF] 
+	  ( field+=propertyField )*
+	//component_element_reference
+	| LITERAL_self OCTOTHORPE^ spname=QCLREF  //[aadl2::Property|QCLREF] 
+	  ( field+=propertyField )*
+	| component=QCREF //[aadl2::ComponentClassifier|QCREF] 
+	  OCTOTHORPE^ cpname=QCLREF  //[aadl2::Property|QCLREF]
+	   ( field+=propertyField )*
+  ;
+
+
+propertyField:
+	LBRACKET^ (index=NUMBER | var=ID ) //[Variable]) 
+	   RBRACKET!  //must check that number is integer
+	| DOT^  (pf=ID | upper=LITERAL_upper_bound | lower=LITERAL_lower_bound)
+  ;
 		
 /////////////////////////   ACTION   \\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -1140,6 +1168,8 @@ actionSubclause:
   ( post=LITERAL_post postcondition=assertion )?	
   ( inv=LITERAL_invariant invariant=assertion )?	
   elq=existentialLatticeQuantification
+  -> ^( ACTION_SUBCLAUSE $no_proof? $throws_clause? $assert_clause? ^( LITERAL_pre $precondition? )
+     ^( LITERAL_post $postcondition? ) ^( LITERAL_invariant $invariant ) $elq )
 ;
 
 throwsClause:
@@ -1151,10 +1181,9 @@ assertClause:
   ;
 
 existentialLatticeQuantification:	
-  quantifiedVariables?
-  LCURLY^  behaviorActions RCURLY  //keep the closing }
-//  actionTimeout?
-  catchClause?
+  qv=quantifiedVariables?
+  lc=LCURLY^  ba=behaviorActions RCURLY!  //keep the closing }
+  cc=catchClause?
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existential_lattice_quantification.tree);}
@@ -1176,8 +1205,8 @@ catchClause:
   ;
 
 catchClauseTerm:
-  lp=LPAREN
-  ( exceptions+=ID+ | LITERAL_all ) colon=COLON act=basicAction
+  LPAREN^
+  ( exceptions+=ID+ | LITERAL_all ) colon=COLON act=basicAction RPAREN
   ;
 
 quantifiedVariables:
@@ -1264,7 +1293,7 @@ simultaneousAssignment :
     -> ^($a ^($left_comma $lhs+ )  ^($right_comma $rhs+ ) )
 ;
 
-nameTick: valueName TICK^;
+nameTick: valueName ( TICK^ )? ;
 
 expressionOrAny:
   expression | LITERAL_any
@@ -1273,7 +1302,7 @@ expressionOrAny:
 whenThrow:
   LITERAL_when^ LPAREN exp=expression RPAREN LITERAL_throw excep=ID  //[Exception]  
   message=AADL_STRING_LITERAL?      
-;
+  ;
 
 combinableOperation:
   LITERAL_fetchadd
@@ -1297,10 +1326,12 @@ communicationAction:
 //  fp=freezePort
 //  |
 //  pa=pause
-;
+  ;
 
 subprogramCall:
-  id=ID LPAREN formalActualList? RPAREN
+  id=ID LPAREN fal=formalActualList? RPAREN
+    -> ^( FUNCTION_CALL[$id,
+      "FUNCTION_CALL["+Integer.toString($pn.tree.getLine())+"] "] $id $fal )
   ;
 
 formalActualList:
@@ -1388,7 +1419,7 @@ universalLatticeQuantification:
   lv+=ID+ li=LITERAL_in lb=expression DOTDOT ub=expression  
 //  av=availability? 
   elq=existentialLatticeQuantification
-    -> ^($lf $lv ^($li $lb $ub) $elq )
+    -> ^($lf $lv+ ^($li $lb $ub) $elq )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.ulq,re,$universal_lattice_quantification.tree);}
@@ -1406,8 +1437,9 @@ blessSubclause:
   ac=assertClause?  
   inv=invariantClause?
   vs=variablesSection?
-//  ss=statesSection?
- // t=transitions?
+  ss=statesSection?
+  t=transitions?
+    -> ^( BLESS_SUBCLAUSE $no_proof $ac $inv $vs $ss $t )
 	;
 
 invariantClause:
@@ -1418,7 +1450,7 @@ variablesSection:
 	LITERAL_variables^ vd+=variableDeclaration+
 ;
 
-atatesSection:
+statesSection:
 	  LITERAL_states^ states+=behaviorState+ 
 ;
 
@@ -1427,7 +1459,7 @@ atatesSection:
 //for BA2015 reconciliation
 behaviorState:
   i=identifier 
-  COLON (init=LITERAL_initial | com=LITERAL_complete | finl=LITERAL_final)? st=LITERAL_state a=assertion? SEMICOLON
+  COLON (init=LITERAL_initial | com=LITERAL_complete | finl=LITERAL_final)? st=LITERAL_state a=assertion? SEMICOLON?
     -> ^( LITERAL_state[$st,"state["+Integer.toString($st.getLine()+startingLine)+"]"] $init? $com? $finl? $i $a? )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
@@ -1451,10 +1483,10 @@ behaviorTransition
   x=LCON bc=behaviorCondition? RCON
   /*destination_state*/dsi=identifier 
   ( LCURLY s=behaviorActions RCURLY | EMPTY_CURLY )
-  q=assertion? semi=SEMICOLON
+  q=assertion? semi=SEMICOLON?
     -> 
       ^( TRANSITION[$x,"TRANSITION["+Integer.toString($x.getLine()+startingLine)+"]"] 
-      ^( LABEL[$x,"LABEL["+Integer.toString($x.getLine()+startingLine)+"]"] $id? ) 
+      ^( LABEL[$x,"LABEL["+Integer.toString($x.getLine()+startingLine)+"]"] $id $pr? ) 
       ^( SOURCE[$x,"SOURCE["+Integer.toString($x.getLine()+startingLine)+"]"] $ssi+ ) 
       ^( CONDITION[$x,"CONDITION["+Integer.toString($x.getLine()+startingLine)+"]"] $bc? ) 
       ^( DESTINATION[$x,"DESTINATION["+Integer.toString($x.getLine()+startingLine)+"]"] $dsi ) 
@@ -1502,7 +1534,7 @@ dispatchConjunction:
 dispatchTrigger:
   port=portName  
   | LITERAL_timeout^ 
-   ( ( LPAREN ports+=ID //[aadl2::NamedElement|ID] 
+   ( ( LPAREN^ ports+=ID //[aadl2::NamedElement|ID] 
         (LITERAL_or! ports+=ID //[aadl2::NamedElement|ID] 
         )* RPAREN
       )?
@@ -1511,7 +1543,7 @@ dispatchTrigger:
   ;
 
 portName:
-  port=ID //[aadl2::NamedElement|ID] 
+  port=ID^ //[aadl2::NamedElement|ID] 
   ( '[' index=NUMBER ']' )? 
 ;
 
@@ -1544,12 +1576,12 @@ logicalOperator
   ;
  
 eventTrigger:
-  ( sub+=ID DOT^ ( sub+=ID DOT )* )? port=ID
+  tr=TRIGGER
   | LPAREN^ triggerLogicalExpression RPAREN
   ;
 
 internalCondition:
-	LITERAL_on! LITERAL_internal^ first=ID //[aadl2::Port]
+	LITERAL_on! LITERAL_internal^ ports+=ID //[aadl2::Port]
 	 ( LITERAL_or! ports+=ID  //[aadl2::Port]
 	  )*
 ;  //note may need to make real port Name with index

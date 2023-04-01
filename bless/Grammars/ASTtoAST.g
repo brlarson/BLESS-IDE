@@ -6,7 +6,7 @@ tree grammar ASTtoAST;
 
 options
 {
-tokenVocab=BLESStoAST;
+tokenVocab=BLESS3;
 ASTLabelType=BAST;
 output=AST;
 //filter=true;  //tree pattern matching mode
@@ -120,21 +120,21 @@ makeConjunctionOfAssertions(BAST amp)
 } //end of members
 
 //   all a:t in r are P1
-makeAnAllAreTree[Tree a, Tree t, Tree r, Tree p1]
+makeAnAllAreTree[Tree lv, Tree iw, Tree pred]
   :
-  -> ^(LITERAL_all {$a} COLON {$t} LITERAL_in {$r} LITERAL_are {$p1} )
+  -> ^(LITERAL_all {$lv} {$iw} LITERAL_are {$pred} )
   ;
 
 getPredicateFromAssertion
   :
-  ^( ASSERTION  (^( LABEL ID ))? (^(PARAMETERS ID+ ))?  p=. )
+  ^( ASSERTION  (^( LABEL ID ))? (^(PARAMETERS . ))?  p=. )
     -> {$p}
   ;
 
 
 getBehaviorActionsFromELQ
   :
-  ^(LCURLY (^(LITERAL_declare .*) )? ba=. RCURLY )
+  ^(LCURLY (^(LITERAL_declare .*) )? ba=. RCURLY (^( LITERAL_catch .+ ) )? )
     -> {$ba}
   
   ;
@@ -194,8 +194,8 @@ getPostconditionFromBehaviorActionsInELQ
   
 anAssertion
   :
-  ^( ass=ASSERTION  ^( l=LABEL a=ID ) ^(par=PARAMETERS lv+=ID+ )  p=. )
-    -> ^($ass ^($l $a) ^($par $lv+) $p)
+  ^( ass=ASSERTION  ^( l=LABEL a=ID ) ^(par=PARAMETERS formals=variableList )  p=. )
+    -> ^($ass ^($l $a) ^($par $formals) $p)
   |
   ^( ass=ASSERTION  ^( l=LABEL a=ID )  p=. )
     -> ^($ass ^($l $a) $p)
@@ -203,6 +203,18 @@ anAssertion
   ^( ass=ASSERTION p=. ) 
     -> ^($ass $p)
   ;  
+ 
+variableList
+  :
+  v=variable
+  |
+  ^( COMMA parameter+=variable+ )
+  ; 
+
+variable
+  :
+  ^( TILDE id=ID tod=. )
+  ;
   
 getPostconditionFromBehaviorActions returns [BAST post = null]
   options {backtrack=true;}  
@@ -259,48 +271,12 @@ get_x_t_from_behavior_variable
    ; 
 */
  
-get_invariant_from_thread_behavior  
-  :  
-  ^(c=COMPONENT cc=. 
-    (LITERAL_implementation ^(PERIOD dcti=ID des=ID)
-      | ID)
-    ( ^(LITERAL_features .+) )?
-    ( ^(LITERAL_properties  .+) )?
-    ^(LITERAL_annex LITERAL_BLESS 
-      ^( THREAD_ANNEX  
-      ^(LITERAL_states .+ ) 
-      (^(LITERAL_availability .) )? 
-      (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
-      (^(LITERAL_variables .+) )?
-      ^(LITERAL_transitions .+) 
-//      (^(LITERAL_transitions .+) )?
-      DO_NOT_PROVE?
-      STOP
-      )
-    ) 
-    LITERAL_end
-  )
-    -> ^($ass $predicate)  //get the predicate only
-  ;  
-  catch [RecognitionException re] 
-  {Dump.it("Did you forget an invariant clause, Bub?");
-  tell("ASTtoAST.get_invariant_from_thread_behavior",re,(BAST)retval.getTree());}
-
 get_invariant_from_bless_subclause  
   :  
-      ^( ta=THREAD_ANNEX  
-      ^(LITERAL_states .+ ) 
-      (^(LITERAL_availability .) )? 
-      (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
-      (^(LITERAL_variables .+) )?
-      ^(LITERAL_transitions .+) 
-//      (^(LITERAL_transitions .+) )?
-      DO_NOT_PROVE?
-      STOP
-      )
-    -> ^($ass $predicate)  //get the predicate only
+  ^( BLESS_SUBCLAUSE DO_NOT_PROVE? ^( LITERAL_assert .+ )
+    ^( ta=LITERAL_invariant ^( ass=ASSERTION pred=. ) .* )
+  )
+    -> ^($ass $pred)  //get the predicate only
   ;  
   catch [RecognitionException re] 
   {Dump.it("Did you forget an invariant clause, Bub?");
