@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-01 05:24:04
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-01 05:46:57
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -46,33 +46,32 @@ public class ASTtoAST extends TreeParser {
 		"LITERAL_array", "LITERAL_assert", "LITERAL_availability", "LITERAL_base", 
 		"LITERAL_boolean", "LITERAL_bound", "LITERAL_call", "LITERAL_calls", "LITERAL_cand", 
 		"LITERAL_case", "LITERAL_catch", "LITERAL_classifier", "LITERAL_complete", 
-		"LITERAL_complex", "LITERAL_component", "LITERAL_computation", "LITERAL_connection", 
-		"LITERAL_connections", "LITERAL_constant", "LITERAL_cor", "LITERAL_count", 
-		"LITERAL_declare", "LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", 
-		"LITERAL_div", "LITERAL_do", "LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", 
-		"LITERAL_exists", "LITERAL_extends", "LITERAL_extension", "LITERAL_false", 
-		"LITERAL_feature", "LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", 
-		"LITERAL_fetchxor", "LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", 
-		"LITERAL_forall", "LITERAL_fresh", "LITERAL_ghost", "LITERAL_hr", "LITERAL_if", 
-		"LITERAL_iff", "LITERAL_implementation", "LITERAL_implies", "LITERAL_in", 
-		"LITERAL_inherit", "LITERAL_initial", "LITERAL_integer", "LITERAL_internal", 
-		"LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", "LITERAL_list", 
-		"LITERAL_lower_bound", "LITERAL_min", "LITERAL_mod", "LITERAL_mode", "LITERAL_modes", 
-		"LITERAL_ms", "LITERAL_natural", "LITERAL_nonvolatile", "LITERAL_not", 
-		"LITERAL_now", "LITERAL_ns", "LITERAL_null", "LITERAL_numberof", "LITERAL_of", 
-		"LITERAL_on", "LITERAL_or", "LITERAL_package", "LITERAL_parameter", "LITERAL_pause", 
-		"LITERAL_post", "LITERAL_pre", "LITERAL_private", "LITERAL_product", "LITERAL_property", 
-		"LITERAL_provides", "LITERAL_ps", "LITERAL_public", "LITERAL_quantity", 
-		"LITERAL_range", "LITERAL_rational", "LITERAL_real", "LITERAL_record", 
-		"LITERAL_reference", "LITERAL_rem", "LITERAL_renames", "LITERAL_representation", 
-		"LITERAL_requires", "LITERAL_returns", "LITERAL_round", "LITERAL_scalar", 
-		"LITERAL_sec", "LITERAL_self", "LITERAL_sequence", "LITERAL_set", "LITERAL_setmode", 
-		"LITERAL_shared", "LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", 
-		"LITERAL_step", "LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", 
-		"LITERAL_sum", "LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", 
-		"LITERAL_throws", "LITERAL_time", "LITERAL_timeout", "LITERAL_to", "LITERAL_tops", 
-		"LITERAL_transition", "LITERAL_transitions", "LITERAL_true", "LITERAL_truncate", 
-		"LITERAL_type", "LITERAL_union", "LITERAL_units", "LITERAL_until", "LITERAL_updated", 
+		"LITERAL_component", "LITERAL_computation", "LITERAL_connection", "LITERAL_connections", 
+		"LITERAL_constant", "LITERAL_cor", "LITERAL_count", "LITERAL_declare", 
+		"LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", "LITERAL_div", "LITERAL_do", 
+		"LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", "LITERAL_exists", 
+		"LITERAL_extends", "LITERAL_extension", "LITERAL_false", "LITERAL_feature", 
+		"LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", 
+		"LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", "LITERAL_forall", 
+		"LITERAL_fresh", "LITERAL_ghost", "LITERAL_hr", "LITERAL_if", "LITERAL_iff", 
+		"LITERAL_implementation", "LITERAL_implies", "LITERAL_in", "LITERAL_inherit", 
+		"LITERAL_initial", "LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", 
+		"LITERAL_is", "LITERAL_list", "LITERAL_lower_bound", "LITERAL_min", "LITERAL_mod", 
+		"LITERAL_mode", "LITERAL_modes", "LITERAL_ms", "LITERAL_nonvolatile", 
+		"LITERAL_not", "LITERAL_now", "LITERAL_ns", "LITERAL_null", "LITERAL_numberof", 
+		"LITERAL_of", "LITERAL_on", "LITERAL_or", "LITERAL_package", "LITERAL_parameter", 
+		"LITERAL_pause", "LITERAL_post", "LITERAL_pre", "LITERAL_private", "LITERAL_product", 
+		"LITERAL_property", "LITERAL_provides", "LITERAL_ps", "LITERAL_public", 
+		"LITERAL_quantity", "LITERAL_range", "LITERAL_record", "LITERAL_reference", 
+		"LITERAL_rem", "LITERAL_renames", "LITERAL_representation", "LITERAL_requires", 
+		"LITERAL_returns", "LITERAL_round", "LITERAL_scalar", "LITERAL_sec", "LITERAL_self", 
+		"LITERAL_sequence", "LITERAL_set", "LITERAL_setmode", "LITERAL_shared", 
+		"LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", "LITERAL_step", 
+		"LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", "LITERAL_sum", 
+		"LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", "LITERAL_throws", 
+		"LITERAL_time", "LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
+		"LITERAL_transitions", "LITERAL_true", "LITERAL_truncate", "LITERAL_type", 
+		"LITERAL_union", "LITERAL_units", "LITERAL_until", "LITERAL_updated", 
 		"LITERAL_upper_bound", "LITERAL_us", "LITERAL_variables", "LITERAL_variant", 
 		"LITERAL_when", "LITERAL_which", "LITERAL_while", "LITERAL_whole", "LITERAL_with", 
 		"LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", 
@@ -88,7 +87,7 @@ public class ASTtoAST extends TreeParser {
 		"VERT", "WP", "WS", "'%'"
 	};
 	public static final int EOF=-1;
-	public static final int T__306=306;
+	public static final int T__301=301;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -196,201 +195,196 @@ public class ASTtoAST extends TreeParser {
 	public static final int LITERAL_catch=108;
 	public static final int LITERAL_classifier=109;
 	public static final int LITERAL_complete=110;
-	public static final int LITERAL_complex=111;
-	public static final int LITERAL_component=112;
-	public static final int LITERAL_computation=113;
-	public static final int LITERAL_connection=114;
-	public static final int LITERAL_connections=115;
-	public static final int LITERAL_constant=116;
-	public static final int LITERAL_cor=117;
-	public static final int LITERAL_count=118;
-	public static final int LITERAL_declare=119;
-	public static final int LITERAL_def=120;
-	public static final int LITERAL_delay=121;
-	public static final int LITERAL_dispatch=122;
-	public static final int LITERAL_div=123;
-	public static final int LITERAL_do=124;
-	public static final int LITERAL_else=125;
-	public static final int LITERAL_enumeration=126;
-	public static final int LITERAL_exception=127;
-	public static final int LITERAL_exists=128;
-	public static final int LITERAL_extends=129;
-	public static final int LITERAL_extension=130;
-	public static final int LITERAL_false=131;
-	public static final int LITERAL_feature=132;
-	public static final int LITERAL_fetchadd=133;
-	public static final int LITERAL_fetchand=134;
-	public static final int LITERAL_fetchor=135;
-	public static final int LITERAL_fetchxor=136;
-	public static final int LITERAL_fi=137;
-	public static final int LITERAL_final=138;
-	public static final int LITERAL_flow=139;
-	public static final int LITERAL_for=140;
-	public static final int LITERAL_forall=141;
-	public static final int LITERAL_fresh=142;
-	public static final int LITERAL_ghost=143;
-	public static final int LITERAL_hr=144;
-	public static final int LITERAL_if=145;
-	public static final int LITERAL_iff=146;
-	public static final int LITERAL_implementation=147;
-	public static final int LITERAL_implies=148;
-	public static final int LITERAL_in=149;
-	public static final int LITERAL_inherit=150;
-	public static final int LITERAL_initial=151;
-	public static final int LITERAL_integer=152;
-	public static final int LITERAL_internal=153;
-	public static final int LITERAL_invariant=154;
-	public static final int LITERAL_inverse=155;
-	public static final int LITERAL_is=156;
-	public static final int LITERAL_list=157;
-	public static final int LITERAL_lower_bound=158;
-	public static final int LITERAL_min=159;
-	public static final int LITERAL_mod=160;
-	public static final int LITERAL_mode=161;
-	public static final int LITERAL_modes=162;
-	public static final int LITERAL_ms=163;
-	public static final int LITERAL_natural=164;
-	public static final int LITERAL_nonvolatile=165;
-	public static final int LITERAL_not=166;
-	public static final int LITERAL_now=167;
-	public static final int LITERAL_ns=168;
-	public static final int LITERAL_null=169;
-	public static final int LITERAL_numberof=170;
-	public static final int LITERAL_of=171;
-	public static final int LITERAL_on=172;
-	public static final int LITERAL_or=173;
-	public static final int LITERAL_package=174;
-	public static final int LITERAL_parameter=175;
-	public static final int LITERAL_pause=176;
-	public static final int LITERAL_post=177;
-	public static final int LITERAL_pre=178;
-	public static final int LITERAL_private=179;
-	public static final int LITERAL_product=180;
-	public static final int LITERAL_property=181;
-	public static final int LITERAL_provides=182;
-	public static final int LITERAL_ps=183;
-	public static final int LITERAL_public=184;
-	public static final int LITERAL_quantity=185;
-	public static final int LITERAL_range=186;
-	public static final int LITERAL_rational=187;
-	public static final int LITERAL_real=188;
-	public static final int LITERAL_record=189;
-	public static final int LITERAL_reference=190;
-	public static final int LITERAL_rem=191;
-	public static final int LITERAL_renames=192;
-	public static final int LITERAL_representation=193;
-	public static final int LITERAL_requires=194;
-	public static final int LITERAL_returns=195;
-	public static final int LITERAL_round=196;
-	public static final int LITERAL_scalar=197;
-	public static final int LITERAL_sec=198;
-	public static final int LITERAL_self=199;
-	public static final int LITERAL_sequence=200;
-	public static final int LITERAL_set=201;
-	public static final int LITERAL_setmode=202;
-	public static final int LITERAL_shared=203;
-	public static final int LITERAL_skip=204;
-	public static final int LITERAL_spread=205;
-	public static final int LITERAL_state=206;
-	public static final int LITERAL_states=207;
-	public static final int LITERAL_step=208;
-	public static final int LITERAL_stop=209;
-	public static final int LITERAL_string=210;
-	public static final int LITERAL_subcomponents=211;
-	public static final int LITERAL_sum=212;
-	public static final int LITERAL_swap=213;
-	public static final int LITERAL_that=214;
-	public static final int LITERAL_then=215;
-	public static final int LITERAL_throw=216;
-	public static final int LITERAL_throws=217;
-	public static final int LITERAL_time=218;
-	public static final int LITERAL_timeout=219;
-	public static final int LITERAL_to=220;
-	public static final int LITERAL_tops=221;
-	public static final int LITERAL_transition=222;
-	public static final int LITERAL_transitions=223;
-	public static final int LITERAL_true=224;
-	public static final int LITERAL_truncate=225;
-	public static final int LITERAL_type=226;
-	public static final int LITERAL_union=227;
-	public static final int LITERAL_units=228;
-	public static final int LITERAL_until=229;
-	public static final int LITERAL_updated=230;
-	public static final int LITERAL_upper_bound=231;
-	public static final int LITERAL_us=232;
-	public static final int LITERAL_variables=233;
-	public static final int LITERAL_variant=234;
-	public static final int LITERAL_when=235;
-	public static final int LITERAL_which=236;
-	public static final int LITERAL_while=237;
-	public static final int LITERAL_whole=238;
-	public static final int LITERAL_with=239;
-	public static final int LITERAL_xor=240;
-	public static final int LPAREN=241;
-	public static final int LT=242;
-	public static final int LTE_STRING=243;
-	public static final int LT_STRING=244;
-	public static final int MINUS=245;
-	public static final int MT_STRING=246;
-	public static final int NEQ=247;
-	public static final int NUMBER=248;
-	public static final int OBLIGATION=249;
-	public static final int OCTOTHORPE=250;
-	public static final int OLD_NEQ=251;
-	public static final int ON=252;
-	public static final int P=253;
-	public static final int PARAMETER=254;
-	public static final int PARAMETERS=255;
-	public static final int PLUS=256;
-	public static final int PLUS_ARROW=257;
-	public static final int PLUS_EQUALS=258;
-	public static final int PORT=259;
-	public static final int PORT_INPUT=260;
-	public static final int PORT_OUTPUT=261;
-	public static final int PREDICATE_RELATION=262;
-	public static final int PROCEDURE=263;
-	public static final int PROCEDURE_CALL=264;
-	public static final int Q=265;
-	public static final int QCLREF=266;
-	public static final int QCREF=267;
-	public static final int QQ=268;
-	public static final int QUANTITY=269;
-	public static final int QUESTION=270;
-	public static final int RASS=271;
-	public static final int RBRACKET=272;
-	public static final int RCON=273;
-	public static final int RCURLY=274;
-	public static final int REAL_LIT=275;
-	public static final int RECORD_TERM=276;
-	public static final int ROOT_DECLARATION=277;
-	public static final int RPAREN=278;
-	public static final int S=279;
-	public static final int SEMICOLON=280;
-	public static final int SLCOMMENT=281;
-	public static final int SOURCE=282;
-	public static final int START=283;
-	public static final int START_ASSERTION_PROPERTY=284;
-	public static final int STOP=285;
-	public static final int SUBPROGRAM_ANNEX=286;
-	public static final int TICK=287;
-	public static final int TILDE=288;
-	public static final int TIMES=289;
-	public static final int TOP=290;
-	public static final int TRANSITION=291;
-	public static final int TRIGGER=292;
-	public static final int TYPE=293;
-	public static final int TYPE_LIBRARY=294;
-	public static final int TYPE_OPERATOR=295;
-	public static final int TYPE_OPERATOR_INVOCATION=296;
-	public static final int UNARY_MINUS=297;
-	public static final int UNIT_FORMULA=298;
-	public static final int UNIT_LIBRARY=299;
-	public static final int UNIT_NAME=300;
-	public static final int VALUE=301;
-	public static final int VARIABLE_DECLARATION=302;
-	public static final int VERT=303;
-	public static final int WP=304;
-	public static final int WS=305;
+	public static final int LITERAL_component=111;
+	public static final int LITERAL_computation=112;
+	public static final int LITERAL_connection=113;
+	public static final int LITERAL_connections=114;
+	public static final int LITERAL_constant=115;
+	public static final int LITERAL_cor=116;
+	public static final int LITERAL_count=117;
+	public static final int LITERAL_declare=118;
+	public static final int LITERAL_def=119;
+	public static final int LITERAL_delay=120;
+	public static final int LITERAL_dispatch=121;
+	public static final int LITERAL_div=122;
+	public static final int LITERAL_do=123;
+	public static final int LITERAL_else=124;
+	public static final int LITERAL_enumeration=125;
+	public static final int LITERAL_exception=126;
+	public static final int LITERAL_exists=127;
+	public static final int LITERAL_extends=128;
+	public static final int LITERAL_extension=129;
+	public static final int LITERAL_false=130;
+	public static final int LITERAL_feature=131;
+	public static final int LITERAL_fetchadd=132;
+	public static final int LITERAL_fetchand=133;
+	public static final int LITERAL_fetchor=134;
+	public static final int LITERAL_fetchxor=135;
+	public static final int LITERAL_fi=136;
+	public static final int LITERAL_final=137;
+	public static final int LITERAL_flow=138;
+	public static final int LITERAL_for=139;
+	public static final int LITERAL_forall=140;
+	public static final int LITERAL_fresh=141;
+	public static final int LITERAL_ghost=142;
+	public static final int LITERAL_hr=143;
+	public static final int LITERAL_if=144;
+	public static final int LITERAL_iff=145;
+	public static final int LITERAL_implementation=146;
+	public static final int LITERAL_implies=147;
+	public static final int LITERAL_in=148;
+	public static final int LITERAL_inherit=149;
+	public static final int LITERAL_initial=150;
+	public static final int LITERAL_internal=151;
+	public static final int LITERAL_invariant=152;
+	public static final int LITERAL_inverse=153;
+	public static final int LITERAL_is=154;
+	public static final int LITERAL_list=155;
+	public static final int LITERAL_lower_bound=156;
+	public static final int LITERAL_min=157;
+	public static final int LITERAL_mod=158;
+	public static final int LITERAL_mode=159;
+	public static final int LITERAL_modes=160;
+	public static final int LITERAL_ms=161;
+	public static final int LITERAL_nonvolatile=162;
+	public static final int LITERAL_not=163;
+	public static final int LITERAL_now=164;
+	public static final int LITERAL_ns=165;
+	public static final int LITERAL_null=166;
+	public static final int LITERAL_numberof=167;
+	public static final int LITERAL_of=168;
+	public static final int LITERAL_on=169;
+	public static final int LITERAL_or=170;
+	public static final int LITERAL_package=171;
+	public static final int LITERAL_parameter=172;
+	public static final int LITERAL_pause=173;
+	public static final int LITERAL_post=174;
+	public static final int LITERAL_pre=175;
+	public static final int LITERAL_private=176;
+	public static final int LITERAL_product=177;
+	public static final int LITERAL_property=178;
+	public static final int LITERAL_provides=179;
+	public static final int LITERAL_ps=180;
+	public static final int LITERAL_public=181;
+	public static final int LITERAL_quantity=182;
+	public static final int LITERAL_range=183;
+	public static final int LITERAL_record=184;
+	public static final int LITERAL_reference=185;
+	public static final int LITERAL_rem=186;
+	public static final int LITERAL_renames=187;
+	public static final int LITERAL_representation=188;
+	public static final int LITERAL_requires=189;
+	public static final int LITERAL_returns=190;
+	public static final int LITERAL_round=191;
+	public static final int LITERAL_scalar=192;
+	public static final int LITERAL_sec=193;
+	public static final int LITERAL_self=194;
+	public static final int LITERAL_sequence=195;
+	public static final int LITERAL_set=196;
+	public static final int LITERAL_setmode=197;
+	public static final int LITERAL_shared=198;
+	public static final int LITERAL_skip=199;
+	public static final int LITERAL_spread=200;
+	public static final int LITERAL_state=201;
+	public static final int LITERAL_states=202;
+	public static final int LITERAL_step=203;
+	public static final int LITERAL_stop=204;
+	public static final int LITERAL_string=205;
+	public static final int LITERAL_subcomponents=206;
+	public static final int LITERAL_sum=207;
+	public static final int LITERAL_swap=208;
+	public static final int LITERAL_that=209;
+	public static final int LITERAL_then=210;
+	public static final int LITERAL_throw=211;
+	public static final int LITERAL_throws=212;
+	public static final int LITERAL_time=213;
+	public static final int LITERAL_timeout=214;
+	public static final int LITERAL_to=215;
+	public static final int LITERAL_tops=216;
+	public static final int LITERAL_transition=217;
+	public static final int LITERAL_transitions=218;
+	public static final int LITERAL_true=219;
+	public static final int LITERAL_truncate=220;
+	public static final int LITERAL_type=221;
+	public static final int LITERAL_union=222;
+	public static final int LITERAL_units=223;
+	public static final int LITERAL_until=224;
+	public static final int LITERAL_updated=225;
+	public static final int LITERAL_upper_bound=226;
+	public static final int LITERAL_us=227;
+	public static final int LITERAL_variables=228;
+	public static final int LITERAL_variant=229;
+	public static final int LITERAL_when=230;
+	public static final int LITERAL_which=231;
+	public static final int LITERAL_while=232;
+	public static final int LITERAL_whole=233;
+	public static final int LITERAL_with=234;
+	public static final int LITERAL_xor=235;
+	public static final int LPAREN=236;
+	public static final int LT=237;
+	public static final int LTE_STRING=238;
+	public static final int LT_STRING=239;
+	public static final int MINUS=240;
+	public static final int MT_STRING=241;
+	public static final int NEQ=242;
+	public static final int NUMBER=243;
+	public static final int OBLIGATION=244;
+	public static final int OCTOTHORPE=245;
+	public static final int OLD_NEQ=246;
+	public static final int ON=247;
+	public static final int P=248;
+	public static final int PARAMETER=249;
+	public static final int PARAMETERS=250;
+	public static final int PLUS=251;
+	public static final int PLUS_ARROW=252;
+	public static final int PLUS_EQUALS=253;
+	public static final int PORT=254;
+	public static final int PORT_INPUT=255;
+	public static final int PORT_OUTPUT=256;
+	public static final int PREDICATE_RELATION=257;
+	public static final int PROCEDURE=258;
+	public static final int PROCEDURE_CALL=259;
+	public static final int Q=260;
+	public static final int QCLREF=261;
+	public static final int QCREF=262;
+	public static final int QQ=263;
+	public static final int QUANTITY=264;
+	public static final int QUESTION=265;
+	public static final int RASS=266;
+	public static final int RBRACKET=267;
+	public static final int RCON=268;
+	public static final int RCURLY=269;
+	public static final int REAL_LIT=270;
+	public static final int RECORD_TERM=271;
+	public static final int ROOT_DECLARATION=272;
+	public static final int RPAREN=273;
+	public static final int S=274;
+	public static final int SEMICOLON=275;
+	public static final int SLCOMMENT=276;
+	public static final int SOURCE=277;
+	public static final int START=278;
+	public static final int START_ASSERTION_PROPERTY=279;
+	public static final int STOP=280;
+	public static final int SUBPROGRAM_ANNEX=281;
+	public static final int TICK=282;
+	public static final int TILDE=283;
+	public static final int TIMES=284;
+	public static final int TOP=285;
+	public static final int TRANSITION=286;
+	public static final int TRIGGER=287;
+	public static final int TYPE=288;
+	public static final int TYPE_LIBRARY=289;
+	public static final int TYPE_OPERATOR=290;
+	public static final int TYPE_OPERATOR_INVOCATION=291;
+	public static final int UNARY_MINUS=292;
+	public static final int UNIT_FORMULA=293;
+	public static final int UNIT_LIBRARY=294;
+	public static final int UNIT_NAME=295;
+	public static final int VALUE=296;
+	public static final int VARIABLE_DECLARATION=297;
+	public static final int VERT=298;
+	public static final int WP=299;
+	public static final int WS=300;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -636,7 +630,7 @@ public class ASTtoAST extends TreeParser {
 						int LA1_4 = input.LA(4);
 						if ( (LA1_4==UP) ) {
 							int LA1_5 = input.LA(5);
-							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= 306)) ) {
+							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= 301)) ) {
 								alt1=1;
 							}
 						}
@@ -684,14 +678,14 @@ public class ASTtoAST extends TreeParser {
 				int LA2_1 = input.LA(2);
 				if ( (LA2_1==DOWN) ) {
 					int LA2_3 = input.LA(3);
-					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= 306)) ) {
+					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= 301)) ) {
 						int LA2_4 = input.LA(4);
 						if ( (LA2_4==DOWN) ) {
 							alt2=1;
 						}
 						else if ( (LA2_4==UP) ) {
 							int LA2_6 = input.LA(5);
-							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= 306)) ) {
+							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= 301)) ) {
 								alt2=1;
 							}
 						}
@@ -865,7 +859,7 @@ public class ASTtoAST extends TreeParser {
 						while (true) {
 							int alt3=2;
 							int LA3_0 = input.LA(1);
-							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= 306)) ) {
+							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= 301)) ) {
 								alt3=1;
 							}
 							else if ( (LA3_0==UP) ) {
@@ -950,7 +944,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt5=2;
 						int LA5_0 = input.LA(1);
-						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= 306)) ) {
+						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= 301)) ) {
 							alt5=1;
 						}
 						else if ( (LA5_0==UP) ) {
@@ -1090,240 +1084,2677 @@ public class ASTtoAST extends TreeParser {
 			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:13: (v= . )?
 			int alt7=2;
-			int LA7_0 = input.LA(1);
-			if ( (LA7_0==ACTION) ) {
-				int LA7_1 = input.LA(2);
-				if ( (LA7_1==DOWN) ) {
-					int LA7_6 = input.LA(3);
-					if ( (LA7_6==P) ) {
-						int LA7_10 = input.LA(4);
-						if ( ((LA7_10 >= UP && LA7_10 <= 306)) ) {
+			switch ( input.LA(1) ) {
+				case ACTION:
+					{
+					int LA7_1 = input.LA(2);
+					if ( (LA7_1==DOWN) ) {
+						int LA7_6 = input.LA(3);
+						if ( (LA7_6==P) ) {
+							int LA7_10 = input.LA(4);
+							if ( ((LA7_10 >= UP && LA7_10 <= 301)) ) {
+								alt7=1;
+							}
+						}
+						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= 301)) ) {
 							alt7=1;
 						}
 					}
-					else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= 306)) ) {
+					else if ( (LA7_1==ACTION||LA7_1==AMPERSAND||LA7_1==LCURLY||LA7_1==SEMICOLON) ) {
 						alt7=1;
 					}
-				}
-				else if ( (LA7_1==ACTION||LA7_1==AMPERSAND||LA7_1==LCURLY||LA7_1==SEMICOLON) ) {
-					alt7=1;
-				}
-			}
-			else if ( (LA7_0==SEMICOLON) ) {
-				int LA7_2 = input.LA(2);
-				if ( (LA7_2==DOWN) ) {
-					int LA7_7 = input.LA(3);
-					if ( (LA7_7==ACTION) ) {
-						int LA7_11 = input.LA(4);
-						if ( ((LA7_11 >= UP && LA7_11 <= 306)) ) {
+					}
+					break;
+				case SEMICOLON:
+					{
+					int LA7_2 = input.LA(2);
+					if ( (LA7_2==DOWN) ) {
+						int LA7_7 = input.LA(3);
+						if ( (LA7_7==ACTION) ) {
+							int LA7_11 = input.LA(4);
+							if ( ((LA7_11 >= UP && LA7_11 <= 301)) ) {
+								alt7=1;
+							}
+						}
+						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= 301)) ) {
 							alt7=1;
 						}
 					}
-					else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= 306)) ) {
+					else if ( (LA7_2==ACTION||LA7_2==AMPERSAND||LA7_2==LCURLY||LA7_2==SEMICOLON) ) {
 						alt7=1;
 					}
-				}
-				else if ( (LA7_2==ACTION||LA7_2==AMPERSAND||LA7_2==LCURLY||LA7_2==SEMICOLON) ) {
-					alt7=1;
-				}
-			}
-			else if ( (LA7_0==AMPERSAND) ) {
-				int LA7_3 = input.LA(2);
-				if ( (LA7_3==DOWN) ) {
-					int LA7_8 = input.LA(3);
-					if ( (LA7_8==ACTION) ) {
-						int LA7_12 = input.LA(4);
-						if ( ((LA7_12 >= UP && LA7_12 <= 306)) ) {
-							alt7=1;
+					}
+					break;
+				case AMPERSAND:
+					{
+					int LA7_3 = input.LA(2);
+					if ( (LA7_3==DOWN) ) {
+						switch ( input.LA(3) ) {
+							case ACTION:
+								{
+								int LA7_12 = input.LA(4);
+								if ( ((LA7_12 >= UP && LA7_12 <= 301)) ) {
+									alt7=1;
+								}
+								}
+								break;
+							case SEMICOLON:
+								{
+								int LA7_13 = input.LA(4);
+								if ( ((LA7_13 >= UP && LA7_13 <= 301)) ) {
+									alt7=1;
+								}
+								}
+								break;
+							case AMPERSAND:
+								{
+								int LA7_14 = input.LA(4);
+								if ( ((LA7_14 >= UP && LA7_14 <= 301)) ) {
+									alt7=1;
+								}
+								}
+								break;
+							case LCURLY:
+								{
+								int LA7_15 = input.LA(4);
+								if ( ((LA7_15 >= UP && LA7_15 <= 301)) ) {
+									alt7=1;
+								}
+								}
+								break;
+							case AADL_STRING_LITERAL:
+							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
+							case AL:
+							case AM:
+							case ANNEX_END:
+							case ANNEX_START:
+							case ARROW:
+							case ASSERTION:
+							case ASSERTION_ANNEX:
+							case ASSERTION_ENUMERATION:
+							case ASSERTION_FUNCTION:
+							case ASSIGN:
+							case AT_SIGN:
+							case BASE:
+							case BASED_INTEGER:
+							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
+							case BI:
+							case BLESS_SUBCLAUSE:
+							case BOUND:
+							case BOX:
+							case CARET:
+							case CASE_EXPRESSION:
+							case COLON:
+							case COLON_TILDE:
+							case COMMA:
+							case COMMACOMMA:
+							case COMMADOT:
+							case COMPONENT:
+							case CONDITION:
+							case CONDITIONAL:
+							case CONDITIONAL_FUNCTION:
+							case COUNTING_TRIGGER:
+							case CVP:
+							case DESTINATION:
+							case DIGIT:
+							case DIVIDE:
+							case DOLLAR:
+							case DOT:
+							case DOTCOMMA:
+							case DOTDOT:
+							case DOUBLE_COLON:
+							case DOUBLE_QUOTE:
+							case DO_NOT_PROVE:
+							case DUMMY:
+							case EMPTY_CURLY:
+							case END_ASSERTION_PROPERTY:
+							case EQ:
+							case EXCLAMATION:
+							case EXP:
+							case EXPONENT:
+							case EXTENDED_DIGIT:
+							case FLOATING:
+							case FUNCTION:
+							case FUNCTION_CALL:
+							case GT:
+							case GUARD:
+							case HEX_DIGIT:
+							case ID:
+							case IMP:
+							case INMODE:
+							case INOUT:
+							case INTEGER_LIT:
+							case INT_EXPONENT:
+							case INVARIANT:
+							case INVOKE:
+							case INVOKE_FUNCTION:
+							case IP_NAME:
+							case IP_PE:
+							case IP_PRED:
+							case LABEL:
+							case LASS:
+							case LBRACKET:
+							case LCON:
+							case LITERAL_Assertion:
+							case LITERAL_Invariant:
+							case LITERAL_Postcondition:
+							case LITERAL_Precondition:
+							case LITERAL_Typed:
+							case LITERAL_aadlboolean:
+							case LITERAL_aadlinteger:
+							case LITERAL_aadlreal:
+							case LITERAL_aadlstring:
+							case LITERAL_abs:
+							case LITERAL_access:
+							case LITERAL_all:
+							case LITERAL_and:
+							case LITERAL_any:
+							case LITERAL_applies:
+							case LITERAL_are:
+							case LITERAL_array:
+							case LITERAL_assert:
+							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_boolean:
+							case LITERAL_bound:
+							case LITERAL_call:
+							case LITERAL_calls:
+							case LITERAL_cand:
+							case LITERAL_case:
+							case LITERAL_catch:
+							case LITERAL_classifier:
+							case LITERAL_complete:
+							case LITERAL_component:
+							case LITERAL_computation:
+							case LITERAL_connection:
+							case LITERAL_connections:
+							case LITERAL_constant:
+							case LITERAL_cor:
+							case LITERAL_count:
+							case LITERAL_declare:
+							case LITERAL_def:
+							case LITERAL_delay:
+							case LITERAL_dispatch:
+							case LITERAL_div:
+							case LITERAL_do:
+							case LITERAL_else:
+							case LITERAL_enumeration:
+							case LITERAL_exception:
+							case LITERAL_exists:
+							case LITERAL_extends:
+							case LITERAL_extension:
+							case LITERAL_false:
+							case LITERAL_feature:
+							case LITERAL_fetchadd:
+							case LITERAL_fetchand:
+							case LITERAL_fetchor:
+							case LITERAL_fetchxor:
+							case LITERAL_fi:
+							case LITERAL_final:
+							case LITERAL_flow:
+							case LITERAL_for:
+							case LITERAL_forall:
+							case LITERAL_fresh:
+							case LITERAL_ghost:
+							case LITERAL_hr:
+							case LITERAL_if:
+							case LITERAL_iff:
+							case LITERAL_implementation:
+							case LITERAL_implies:
+							case LITERAL_in:
+							case LITERAL_inherit:
+							case LITERAL_initial:
+							case LITERAL_internal:
+							case LITERAL_invariant:
+							case LITERAL_inverse:
+							case LITERAL_is:
+							case LITERAL_list:
+							case LITERAL_lower_bound:
+							case LITERAL_min:
+							case LITERAL_mod:
+							case LITERAL_mode:
+							case LITERAL_modes:
+							case LITERAL_ms:
+							case LITERAL_nonvolatile:
+							case LITERAL_not:
+							case LITERAL_now:
+							case LITERAL_ns:
+							case LITERAL_null:
+							case LITERAL_numberof:
+							case LITERAL_of:
+							case LITERAL_on:
+							case LITERAL_or:
+							case LITERAL_package:
+							case LITERAL_parameter:
+							case LITERAL_pause:
+							case LITERAL_post:
+							case LITERAL_pre:
+							case LITERAL_private:
+							case LITERAL_product:
+							case LITERAL_property:
+							case LITERAL_provides:
+							case LITERAL_ps:
+							case LITERAL_public:
+							case LITERAL_quantity:
+							case LITERAL_range:
+							case LITERAL_record:
+							case LITERAL_reference:
+							case LITERAL_rem:
+							case LITERAL_renames:
+							case LITERAL_representation:
+							case LITERAL_requires:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
+							case LITERAL_sec:
+							case LITERAL_self:
+							case LITERAL_sequence:
+							case LITERAL_set:
+							case LITERAL_setmode:
+							case LITERAL_shared:
+							case LITERAL_skip:
+							case LITERAL_spread:
+							case LITERAL_state:
+							case LITERAL_states:
+							case LITERAL_step:
+							case LITERAL_stop:
+							case LITERAL_string:
+							case LITERAL_subcomponents:
+							case LITERAL_sum:
+							case LITERAL_swap:
+							case LITERAL_that:
+							case LITERAL_then:
+							case LITERAL_throw:
+							case LITERAL_throws:
+							case LITERAL_time:
+							case LITERAL_timeout:
+							case LITERAL_to:
+							case LITERAL_tops:
+							case LITERAL_transition:
+							case LITERAL_transitions:
+							case LITERAL_true:
+							case LITERAL_truncate:
+							case LITERAL_type:
+							case LITERAL_union:
+							case LITERAL_units:
+							case LITERAL_until:
+							case LITERAL_updated:
+							case LITERAL_upper_bound:
+							case LITERAL_us:
+							case LITERAL_variables:
+							case LITERAL_variant:
+							case LITERAL_when:
+							case LITERAL_which:
+							case LITERAL_while:
+							case LITERAL_whole:
+							case LITERAL_with:
+							case LITERAL_xor:
+							case LPAREN:
+							case LT:
+							case LTE_STRING:
+							case LT_STRING:
+							case MINUS:
+							case MT_STRING:
+							case NEQ:
+							case NUMBER:
+							case OBLIGATION:
+							case OCTOTHORPE:
+							case OLD_NEQ:
+							case ON:
+							case P:
+							case PARAMETER:
+							case PARAMETERS:
+							case PLUS:
+							case PLUS_ARROW:
+							case PLUS_EQUALS:
+							case PORT:
+							case PORT_INPUT:
+							case PORT_OUTPUT:
+							case PREDICATE_RELATION:
+							case PROCEDURE:
+							case PROCEDURE_CALL:
+							case Q:
+							case QCLREF:
+							case QCREF:
+							case QQ:
+							case QUANTITY:
+							case QUESTION:
+							case RASS:
+							case RBRACKET:
+							case RCON:
+							case RCURLY:
+							case REAL_LIT:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
+							case RPAREN:
+							case S:
+							case SLCOMMENT:
+							case SOURCE:
+							case START:
+							case START_ASSERTION_PROPERTY:
+							case STOP:
+							case SUBPROGRAM_ANNEX:
+							case TICK:
+							case TILDE:
+							case TIMES:
+							case TOP:
+							case TRANSITION:
+							case TRIGGER:
+							case TYPE:
+							case TYPE_LIBRARY:
+							case TYPE_OPERATOR:
+							case TYPE_OPERATOR_INVOCATION:
+							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
+							case VALUE:
+							case VARIABLE_DECLARATION:
+							case VERT:
+							case WP:
+							case WS:
+							case 301:
+								{
+								alt7=1;
+								}
+								break;
 						}
 					}
-					else if ( (LA7_8==SEMICOLON) ) {
-						int LA7_13 = input.LA(4);
-						if ( ((LA7_13 >= UP && LA7_13 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( (LA7_8==AMPERSAND) ) {
-						int LA7_14 = input.LA(4);
-						if ( ((LA7_14 >= UP && LA7_14 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( (LA7_8==LCURLY) ) {
-						int LA7_15 = input.LA(4);
-						if ( ((LA7_15 >= UP && LA7_15 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( ((LA7_8 >= AADL_STRING_LITERAL && LA7_8 <= AADL_STRING_PART)||(LA7_8 >= ACTION_SUBCLAUSE && LA7_8 <= AM)||(LA7_8 >= ANNEX_END && LA7_8 <= LCON)||(LA7_8 >= LITERAL_Assertion && LA7_8 <= S)||(LA7_8 >= SLCOMMENT && LA7_8 <= 306)) ) {
+					else if ( (LA7_3==ACTION||LA7_3==AMPERSAND||LA7_3==LCURLY||LA7_3==SEMICOLON) ) {
 						alt7=1;
 					}
-				}
-				else if ( (LA7_3==ACTION||LA7_3==AMPERSAND||LA7_3==LCURLY||LA7_3==SEMICOLON) ) {
+					}
+					break;
+				case LCURLY:
+					{
+					int LA7_4 = input.LA(2);
+					if ( (LA7_4==DOWN) ) {
+						switch ( input.LA(3) ) {
+							case ACTION:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt7=1;
+										}
+										break;
+								}
+								}
+								break;
+							case SEMICOLON:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt7=1;
+										}
+										break;
+								}
+								}
+								break;
+							case AMPERSAND:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt7=1;
+										}
+										break;
+								}
+								}
+								break;
+							case LCURLY:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt7=1;
+										}
+										break;
+								}
+								}
+								break;
+							case AADL_STRING_LITERAL:
+							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
+							case AL:
+							case AM:
+							case ANNEX_END:
+							case ANNEX_START:
+							case ARROW:
+							case ASSERTION:
+							case ASSERTION_ANNEX:
+							case ASSERTION_ENUMERATION:
+							case ASSERTION_FUNCTION:
+							case ASSIGN:
+							case AT_SIGN:
+							case BASE:
+							case BASED_INTEGER:
+							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
+							case BI:
+							case BLESS_SUBCLAUSE:
+							case BOUND:
+							case BOX:
+							case CARET:
+							case CASE_EXPRESSION:
+							case COLON:
+							case COLON_TILDE:
+							case COMMA:
+							case COMMACOMMA:
+							case COMMADOT:
+							case COMPONENT:
+							case CONDITION:
+							case CONDITIONAL:
+							case CONDITIONAL_FUNCTION:
+							case COUNTING_TRIGGER:
+							case CVP:
+							case DESTINATION:
+							case DIGIT:
+							case DIVIDE:
+							case DOLLAR:
+							case DOT:
+							case DOTCOMMA:
+							case DOTDOT:
+							case DOUBLE_COLON:
+							case DOUBLE_QUOTE:
+							case DO_NOT_PROVE:
+							case DUMMY:
+							case EMPTY_CURLY:
+							case END_ASSERTION_PROPERTY:
+							case EQ:
+							case EXCLAMATION:
+							case EXP:
+							case EXPONENT:
+							case EXTENDED_DIGIT:
+							case FLOATING:
+							case FUNCTION:
+							case FUNCTION_CALL:
+							case GT:
+							case GUARD:
+							case HEX_DIGIT:
+							case ID:
+							case IMP:
+							case INMODE:
+							case INOUT:
+							case INTEGER_LIT:
+							case INT_EXPONENT:
+							case INVARIANT:
+							case INVOKE:
+							case INVOKE_FUNCTION:
+							case IP_NAME:
+							case IP_PE:
+							case IP_PRED:
+							case LABEL:
+							case LASS:
+							case LBRACKET:
+							case LCON:
+							case LITERAL_Assertion:
+							case LITERAL_Invariant:
+							case LITERAL_Postcondition:
+							case LITERAL_Precondition:
+							case LITERAL_Typed:
+							case LITERAL_aadlboolean:
+							case LITERAL_aadlinteger:
+							case LITERAL_aadlreal:
+							case LITERAL_aadlstring:
+							case LITERAL_abs:
+							case LITERAL_access:
+							case LITERAL_all:
+							case LITERAL_and:
+							case LITERAL_any:
+							case LITERAL_applies:
+							case LITERAL_are:
+							case LITERAL_array:
+							case LITERAL_assert:
+							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_boolean:
+							case LITERAL_bound:
+							case LITERAL_call:
+							case LITERAL_calls:
+							case LITERAL_cand:
+							case LITERAL_case:
+							case LITERAL_catch:
+							case LITERAL_classifier:
+							case LITERAL_complete:
+							case LITERAL_component:
+							case LITERAL_computation:
+							case LITERAL_connection:
+							case LITERAL_connections:
+							case LITERAL_constant:
+							case LITERAL_cor:
+							case LITERAL_count:
+							case LITERAL_declare:
+							case LITERAL_def:
+							case LITERAL_delay:
+							case LITERAL_dispatch:
+							case LITERAL_div:
+							case LITERAL_do:
+							case LITERAL_else:
+							case LITERAL_enumeration:
+							case LITERAL_exception:
+							case LITERAL_exists:
+							case LITERAL_extends:
+							case LITERAL_extension:
+							case LITERAL_false:
+							case LITERAL_feature:
+							case LITERAL_fetchadd:
+							case LITERAL_fetchand:
+							case LITERAL_fetchor:
+							case LITERAL_fetchxor:
+							case LITERAL_fi:
+							case LITERAL_final:
+							case LITERAL_flow:
+							case LITERAL_for:
+							case LITERAL_forall:
+							case LITERAL_fresh:
+							case LITERAL_ghost:
+							case LITERAL_hr:
+							case LITERAL_if:
+							case LITERAL_iff:
+							case LITERAL_implementation:
+							case LITERAL_implies:
+							case LITERAL_in:
+							case LITERAL_inherit:
+							case LITERAL_initial:
+							case LITERAL_internal:
+							case LITERAL_invariant:
+							case LITERAL_inverse:
+							case LITERAL_is:
+							case LITERAL_list:
+							case LITERAL_lower_bound:
+							case LITERAL_min:
+							case LITERAL_mod:
+							case LITERAL_mode:
+							case LITERAL_modes:
+							case LITERAL_ms:
+							case LITERAL_nonvolatile:
+							case LITERAL_not:
+							case LITERAL_now:
+							case LITERAL_ns:
+							case LITERAL_null:
+							case LITERAL_numberof:
+							case LITERAL_of:
+							case LITERAL_on:
+							case LITERAL_or:
+							case LITERAL_package:
+							case LITERAL_parameter:
+							case LITERAL_pause:
+							case LITERAL_post:
+							case LITERAL_pre:
+							case LITERAL_private:
+							case LITERAL_product:
+							case LITERAL_property:
+							case LITERAL_provides:
+							case LITERAL_ps:
+							case LITERAL_public:
+							case LITERAL_quantity:
+							case LITERAL_range:
+							case LITERAL_record:
+							case LITERAL_reference:
+							case LITERAL_rem:
+							case LITERAL_renames:
+							case LITERAL_representation:
+							case LITERAL_requires:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
+							case LITERAL_sec:
+							case LITERAL_self:
+							case LITERAL_sequence:
+							case LITERAL_set:
+							case LITERAL_setmode:
+							case LITERAL_shared:
+							case LITERAL_skip:
+							case LITERAL_spread:
+							case LITERAL_state:
+							case LITERAL_states:
+							case LITERAL_step:
+							case LITERAL_stop:
+							case LITERAL_string:
+							case LITERAL_subcomponents:
+							case LITERAL_sum:
+							case LITERAL_swap:
+							case LITERAL_that:
+							case LITERAL_then:
+							case LITERAL_throw:
+							case LITERAL_throws:
+							case LITERAL_time:
+							case LITERAL_timeout:
+							case LITERAL_to:
+							case LITERAL_tops:
+							case LITERAL_transition:
+							case LITERAL_transitions:
+							case LITERAL_true:
+							case LITERAL_truncate:
+							case LITERAL_type:
+							case LITERAL_union:
+							case LITERAL_units:
+							case LITERAL_until:
+							case LITERAL_updated:
+							case LITERAL_upper_bound:
+							case LITERAL_us:
+							case LITERAL_variables:
+							case LITERAL_variant:
+							case LITERAL_when:
+							case LITERAL_which:
+							case LITERAL_while:
+							case LITERAL_whole:
+							case LITERAL_with:
+							case LITERAL_xor:
+							case LPAREN:
+							case LT:
+							case LTE_STRING:
+							case LT_STRING:
+							case MINUS:
+							case MT_STRING:
+							case NEQ:
+							case NUMBER:
+							case OBLIGATION:
+							case OCTOTHORPE:
+							case OLD_NEQ:
+							case ON:
+							case P:
+							case PARAMETER:
+							case PARAMETERS:
+							case PLUS:
+							case PLUS_ARROW:
+							case PLUS_EQUALS:
+							case PORT:
+							case PORT_INPUT:
+							case PORT_OUTPUT:
+							case PREDICATE_RELATION:
+							case PROCEDURE:
+							case PROCEDURE_CALL:
+							case Q:
+							case QCLREF:
+							case QCREF:
+							case QQ:
+							case QUANTITY:
+							case QUESTION:
+							case RASS:
+							case RBRACKET:
+							case RCON:
+							case RCURLY:
+							case REAL_LIT:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
+							case RPAREN:
+							case S:
+							case SLCOMMENT:
+							case SOURCE:
+							case START:
+							case START_ASSERTION_PROPERTY:
+							case STOP:
+							case SUBPROGRAM_ANNEX:
+							case TICK:
+							case TILDE:
+							case TIMES:
+							case TOP:
+							case TRANSITION:
+							case TRIGGER:
+							case TYPE:
+							case TYPE_LIBRARY:
+							case TYPE_OPERATOR:
+							case TYPE_OPERATOR_INVOCATION:
+							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
+							case VALUE:
+							case VARIABLE_DECLARATION:
+							case VERT:
+							case WP:
+							case WS:
+							case 301:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= 301)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt7=1;
+										}
+										break;
+								}
+								}
+								break;
+						}
+					}
+					else if ( (LA7_4==ACTION||LA7_4==AMPERSAND||LA7_4==LCURLY||LA7_4==SEMICOLON) ) {
+						alt7=1;
+					}
+					}
+					break;
+				case AADL_STRING_LITERAL:
+				case AADL_STRING_PART:
+				case ACTION_SUBCLAUSE:
+				case AL:
+				case AM:
+				case ANNEX_END:
+				case ANNEX_START:
+				case ARROW:
+				case ASSERTION:
+				case ASSERTION_ANNEX:
+				case ASSERTION_ENUMERATION:
+				case ASSERTION_FUNCTION:
+				case ASSIGN:
+				case AT_SIGN:
+				case BASE:
+				case BASED_INTEGER:
+				case BEHAVIOR_GUARD:
+				case BEHAVIOR_TIME:
+				case BI:
+				case BLESS_SUBCLAUSE:
+				case BOUND:
+				case BOX:
+				case CARET:
+				case CASE_EXPRESSION:
+				case COLON:
+				case COLON_TILDE:
+				case COMMA:
+				case COMMACOMMA:
+				case COMMADOT:
+				case COMPONENT:
+				case CONDITION:
+				case CONDITIONAL:
+				case CONDITIONAL_FUNCTION:
+				case COUNTING_TRIGGER:
+				case CVP:
+				case DESTINATION:
+				case DIGIT:
+				case DIVIDE:
+				case DOLLAR:
+				case DOT:
+				case DOTCOMMA:
+				case DOTDOT:
+				case DOUBLE_COLON:
+				case DOUBLE_QUOTE:
+				case DO_NOT_PROVE:
+				case DUMMY:
+				case EMPTY_CURLY:
+				case END_ASSERTION_PROPERTY:
+				case EQ:
+				case EXCLAMATION:
+				case EXP:
+				case EXPONENT:
+				case EXTENDED_DIGIT:
+				case FLOATING:
+				case FUNCTION:
+				case FUNCTION_CALL:
+				case GT:
+				case GUARD:
+				case HEX_DIGIT:
+				case ID:
+				case IMP:
+				case INMODE:
+				case INOUT:
+				case INTEGER_LIT:
+				case INT_EXPONENT:
+				case INVARIANT:
+				case INVOKE:
+				case INVOKE_FUNCTION:
+				case IP_NAME:
+				case IP_PE:
+				case IP_PRED:
+				case LABEL:
+				case LASS:
+				case LBRACKET:
+				case LCON:
+				case LITERAL_Assertion:
+				case LITERAL_Invariant:
+				case LITERAL_Postcondition:
+				case LITERAL_Precondition:
+				case LITERAL_Typed:
+				case LITERAL_aadlboolean:
+				case LITERAL_aadlinteger:
+				case LITERAL_aadlreal:
+				case LITERAL_aadlstring:
+				case LITERAL_abs:
+				case LITERAL_access:
+				case LITERAL_all:
+				case LITERAL_and:
+				case LITERAL_any:
+				case LITERAL_applies:
+				case LITERAL_are:
+				case LITERAL_array:
+				case LITERAL_assert:
+				case LITERAL_availability:
+				case LITERAL_base:
+				case LITERAL_boolean:
+				case LITERAL_bound:
+				case LITERAL_call:
+				case LITERAL_calls:
+				case LITERAL_cand:
+				case LITERAL_case:
+				case LITERAL_catch:
+				case LITERAL_classifier:
+				case LITERAL_complete:
+				case LITERAL_component:
+				case LITERAL_computation:
+				case LITERAL_connection:
+				case LITERAL_connections:
+				case LITERAL_constant:
+				case LITERAL_cor:
+				case LITERAL_count:
+				case LITERAL_declare:
+				case LITERAL_def:
+				case LITERAL_delay:
+				case LITERAL_dispatch:
+				case LITERAL_div:
+				case LITERAL_do:
+				case LITERAL_else:
+				case LITERAL_enumeration:
+				case LITERAL_exception:
+				case LITERAL_exists:
+				case LITERAL_extends:
+				case LITERAL_extension:
+				case LITERAL_false:
+				case LITERAL_feature:
+				case LITERAL_fetchadd:
+				case LITERAL_fetchand:
+				case LITERAL_fetchor:
+				case LITERAL_fetchxor:
+				case LITERAL_fi:
+				case LITERAL_final:
+				case LITERAL_flow:
+				case LITERAL_for:
+				case LITERAL_forall:
+				case LITERAL_fresh:
+				case LITERAL_ghost:
+				case LITERAL_hr:
+				case LITERAL_if:
+				case LITERAL_iff:
+				case LITERAL_implementation:
+				case LITERAL_implies:
+				case LITERAL_in:
+				case LITERAL_inherit:
+				case LITERAL_initial:
+				case LITERAL_internal:
+				case LITERAL_invariant:
+				case LITERAL_inverse:
+				case LITERAL_is:
+				case LITERAL_list:
+				case LITERAL_lower_bound:
+				case LITERAL_min:
+				case LITERAL_mod:
+				case LITERAL_mode:
+				case LITERAL_modes:
+				case LITERAL_ms:
+				case LITERAL_nonvolatile:
+				case LITERAL_not:
+				case LITERAL_now:
+				case LITERAL_ns:
+				case LITERAL_null:
+				case LITERAL_numberof:
+				case LITERAL_of:
+				case LITERAL_on:
+				case LITERAL_or:
+				case LITERAL_package:
+				case LITERAL_parameter:
+				case LITERAL_pause:
+				case LITERAL_post:
+				case LITERAL_pre:
+				case LITERAL_private:
+				case LITERAL_product:
+				case LITERAL_property:
+				case LITERAL_provides:
+				case LITERAL_ps:
+				case LITERAL_public:
+				case LITERAL_quantity:
+				case LITERAL_range:
+				case LITERAL_record:
+				case LITERAL_reference:
+				case LITERAL_rem:
+				case LITERAL_renames:
+				case LITERAL_representation:
+				case LITERAL_requires:
+				case LITERAL_returns:
+				case LITERAL_round:
+				case LITERAL_scalar:
+				case LITERAL_sec:
+				case LITERAL_self:
+				case LITERAL_sequence:
+				case LITERAL_set:
+				case LITERAL_setmode:
+				case LITERAL_shared:
+				case LITERAL_skip:
+				case LITERAL_spread:
+				case LITERAL_state:
+				case LITERAL_states:
+				case LITERAL_step:
+				case LITERAL_stop:
+				case LITERAL_string:
+				case LITERAL_subcomponents:
+				case LITERAL_sum:
+				case LITERAL_swap:
+				case LITERAL_that:
+				case LITERAL_then:
+				case LITERAL_throw:
+				case LITERAL_throws:
+				case LITERAL_time:
+				case LITERAL_timeout:
+				case LITERAL_to:
+				case LITERAL_tops:
+				case LITERAL_transition:
+				case LITERAL_transitions:
+				case LITERAL_true:
+				case LITERAL_truncate:
+				case LITERAL_type:
+				case LITERAL_union:
+				case LITERAL_units:
+				case LITERAL_until:
+				case LITERAL_updated:
+				case LITERAL_upper_bound:
+				case LITERAL_us:
+				case LITERAL_variables:
+				case LITERAL_variant:
+				case LITERAL_when:
+				case LITERAL_which:
+				case LITERAL_while:
+				case LITERAL_whole:
+				case LITERAL_with:
+				case LITERAL_xor:
+				case LPAREN:
+				case LT:
+				case LTE_STRING:
+				case LT_STRING:
+				case MINUS:
+				case MT_STRING:
+				case NEQ:
+				case NUMBER:
+				case OBLIGATION:
+				case OCTOTHORPE:
+				case OLD_NEQ:
+				case ON:
+				case P:
+				case PARAMETER:
+				case PARAMETERS:
+				case PLUS:
+				case PLUS_ARROW:
+				case PLUS_EQUALS:
+				case PORT:
+				case PORT_INPUT:
+				case PORT_OUTPUT:
+				case PREDICATE_RELATION:
+				case PROCEDURE:
+				case PROCEDURE_CALL:
+				case Q:
+				case QCLREF:
+				case QCREF:
+				case QQ:
+				case QUANTITY:
+				case QUESTION:
+				case RASS:
+				case RBRACKET:
+				case RCON:
+				case RCURLY:
+				case REAL_LIT:
+				case RECORD_TERM:
+				case ROOT_DECLARATION:
+				case RPAREN:
+				case S:
+				case SLCOMMENT:
+				case SOURCE:
+				case START:
+				case START_ASSERTION_PROPERTY:
+				case STOP:
+				case SUBPROGRAM_ANNEX:
+				case TICK:
+				case TILDE:
+				case TIMES:
+				case TOP:
+				case TRANSITION:
+				case TRIGGER:
+				case TYPE:
+				case TYPE_LIBRARY:
+				case TYPE_OPERATOR:
+				case TYPE_OPERATOR_INVOCATION:
+				case UNARY_MINUS:
+				case UNIT_FORMULA:
+				case UNIT_LIBRARY:
+				case UNIT_NAME:
+				case VALUE:
+				case VARIABLE_DECLARATION:
+				case VERT:
+				case WP:
+				case WS:
+				case 301:
+					{
 					alt7=1;
-				}
-			}
-			else if ( (LA7_0==LCURLY) ) {
-				int LA7_4 = input.LA(2);
-				if ( (LA7_4==DOWN) ) {
-					int LA7_9 = input.LA(3);
-					if ( (LA7_9==ACTION) ) {
-						int LA7_16 = input.LA(4);
-						if ( (LA7_16==ACTION) ) {
-							int LA7_22 = input.LA(5);
-							if ( ((LA7_22 >= UP && LA7_22 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_16==SEMICOLON) ) {
-							int LA7_23 = input.LA(5);
-							if ( ((LA7_23 >= UP && LA7_23 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_16==AMPERSAND) ) {
-							int LA7_24 = input.LA(5);
-							if ( ((LA7_24 >= UP && LA7_24 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_16==LCURLY) ) {
-							int LA7_25 = input.LA(5);
-							if ( ((LA7_25 >= UP && LA7_25 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( ((LA7_16 >= UP && LA7_16 <= AADL_STRING_PART)||(LA7_16 >= ACTION_SUBCLAUSE && LA7_16 <= AM)||(LA7_16 >= ANNEX_END && LA7_16 <= LCON)||(LA7_16 >= LITERAL_Assertion && LA7_16 <= S)||(LA7_16 >= SLCOMMENT && LA7_16 <= 306)) ) {
-							alt7=1;
-						}
 					}
-					else if ( (LA7_9==SEMICOLON) ) {
-						int LA7_17 = input.LA(4);
-						if ( (LA7_17==ACTION) ) {
-							int LA7_22 = input.LA(5);
-							if ( ((LA7_22 >= UP && LA7_22 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_17==SEMICOLON) ) {
-							int LA7_23 = input.LA(5);
-							if ( ((LA7_23 >= UP && LA7_23 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_17==AMPERSAND) ) {
-							int LA7_24 = input.LA(5);
-							if ( ((LA7_24 >= UP && LA7_24 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_17==LCURLY) ) {
-							int LA7_25 = input.LA(5);
-							if ( ((LA7_25 >= UP && LA7_25 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( ((LA7_17 >= UP && LA7_17 <= AADL_STRING_PART)||(LA7_17 >= ACTION_SUBCLAUSE && LA7_17 <= AM)||(LA7_17 >= ANNEX_END && LA7_17 <= LCON)||(LA7_17 >= LITERAL_Assertion && LA7_17 <= S)||(LA7_17 >= SLCOMMENT && LA7_17 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( (LA7_9==AMPERSAND) ) {
-						int LA7_18 = input.LA(4);
-						if ( (LA7_18==ACTION) ) {
-							int LA7_22 = input.LA(5);
-							if ( ((LA7_22 >= UP && LA7_22 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_18==SEMICOLON) ) {
-							int LA7_23 = input.LA(5);
-							if ( ((LA7_23 >= UP && LA7_23 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_18==AMPERSAND) ) {
-							int LA7_24 = input.LA(5);
-							if ( ((LA7_24 >= UP && LA7_24 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_18==LCURLY) ) {
-							int LA7_25 = input.LA(5);
-							if ( ((LA7_25 >= UP && LA7_25 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( ((LA7_18 >= UP && LA7_18 <= AADL_STRING_PART)||(LA7_18 >= ACTION_SUBCLAUSE && LA7_18 <= AM)||(LA7_18 >= ANNEX_END && LA7_18 <= LCON)||(LA7_18 >= LITERAL_Assertion && LA7_18 <= S)||(LA7_18 >= SLCOMMENT && LA7_18 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( (LA7_9==LCURLY) ) {
-						int LA7_19 = input.LA(4);
-						if ( (LA7_19==ACTION) ) {
-							int LA7_22 = input.LA(5);
-							if ( ((LA7_22 >= UP && LA7_22 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_19==SEMICOLON) ) {
-							int LA7_23 = input.LA(5);
-							if ( ((LA7_23 >= UP && LA7_23 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_19==AMPERSAND) ) {
-							int LA7_24 = input.LA(5);
-							if ( ((LA7_24 >= UP && LA7_24 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_19==LCURLY) ) {
-							int LA7_25 = input.LA(5);
-							if ( ((LA7_25 >= UP && LA7_25 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( ((LA7_19 >= UP && LA7_19 <= AADL_STRING_PART)||(LA7_19 >= ACTION_SUBCLAUSE && LA7_19 <= AM)||(LA7_19 >= ANNEX_END && LA7_19 <= LCON)||(LA7_19 >= LITERAL_Assertion && LA7_19 <= S)||(LA7_19 >= SLCOMMENT && LA7_19 <= 306)) ) {
-							alt7=1;
-						}
-					}
-					else if ( ((LA7_9 >= AADL_STRING_LITERAL && LA7_9 <= AADL_STRING_PART)||(LA7_9 >= ACTION_SUBCLAUSE && LA7_9 <= AM)||(LA7_9 >= ANNEX_END && LA7_9 <= LCON)||(LA7_9 >= LITERAL_Assertion && LA7_9 <= S)||(LA7_9 >= SLCOMMENT && LA7_9 <= 306)) ) {
-						int LA7_20 = input.LA(4);
-						if ( (LA7_20==ACTION) ) {
-							int LA7_22 = input.LA(5);
-							if ( ((LA7_22 >= UP && LA7_22 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_20==SEMICOLON) ) {
-							int LA7_23 = input.LA(5);
-							if ( ((LA7_23 >= UP && LA7_23 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_20==AMPERSAND) ) {
-							int LA7_24 = input.LA(5);
-							if ( ((LA7_24 >= UP && LA7_24 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( (LA7_20==LCURLY) ) {
-							int LA7_25 = input.LA(5);
-							if ( ((LA7_25 >= UP && LA7_25 <= 306)) ) {
-								alt7=1;
-							}
-						}
-						else if ( ((LA7_20 >= UP && LA7_20 <= AADL_STRING_PART)||(LA7_20 >= ACTION_SUBCLAUSE && LA7_20 <= AM)||(LA7_20 >= ANNEX_END && LA7_20 <= LCON)||(LA7_20 >= LITERAL_Assertion && LA7_20 <= S)||(LA7_20 >= SLCOMMENT && LA7_20 <= 306)) ) {
-							alt7=1;
-						}
-					}
-				}
-				else if ( (LA7_4==ACTION||LA7_4==AMPERSAND||LA7_4==LCURLY||LA7_4==SEMICOLON) ) {
-					alt7=1;
-				}
-			}
-			else if ( ((LA7_0 >= AADL_STRING_LITERAL && LA7_0 <= AADL_STRING_PART)||(LA7_0 >= ACTION_SUBCLAUSE && LA7_0 <= AM)||(LA7_0 >= ANNEX_END && LA7_0 <= LCON)||(LA7_0 >= LITERAL_Assertion && LA7_0 <= S)||(LA7_0 >= SLCOMMENT && LA7_0 <= 306)) ) {
-				alt7=1;
+					break;
 			}
 			switch (alt7) {
 				case 1 :
@@ -1531,7 +3962,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
 						int alt8=2;
 						int LA8_0 = input.LA(1);
-						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= 306)) ) {
+						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= 301)) ) {
 							alt8=1;
 						}
 						switch (alt8) {
@@ -1609,7 +4040,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: ( . )?
 						int alt9=2;
 						int LA9_0 = input.LA(1);
-						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= 306)) ) {
+						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= 301)) ) {
 							alt9=1;
 						}
 						switch (alt9) {
@@ -1706,7 +4137,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
 						int alt10=2;
 						int LA10_0 = input.LA(1);
-						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= 306)) ) {
+						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= 301)) ) {
 							alt10=1;
 						}
 						switch (alt10) {
@@ -1784,7 +4215,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: ( . )?
 						int alt11=2;
 						int LA11_0 = input.LA(1);
-						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= 306)) ) {
+						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= 301)) ) {
 							alt11=1;
 						}
 						switch (alt11) {
@@ -1826,7 +4257,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt12=2;
 						int LA12_0 = input.LA(1);
-						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= 306)) ) {
+						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= 301)) ) {
 							alt12=1;
 						}
 						else if ( (LA12_0==UP) ) {
@@ -2050,240 +4481,2677 @@ public class ASTtoAST extends TreeParser {
 			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:12: ( . )?
 			int alt15=2;
-			int LA15_0 = input.LA(1);
-			if ( (LA15_0==ACTION) ) {
-				int LA15_1 = input.LA(2);
-				if ( (LA15_1==DOWN) ) {
-					int LA15_6 = input.LA(3);
-					if ( (LA15_6==P) ) {
-						int LA15_10 = input.LA(4);
-						if ( ((LA15_10 >= UP && LA15_10 <= 306)) ) {
+			switch ( input.LA(1) ) {
+				case ACTION:
+					{
+					int LA15_1 = input.LA(2);
+					if ( (LA15_1==DOWN) ) {
+						int LA15_6 = input.LA(3);
+						if ( (LA15_6==P) ) {
+							int LA15_10 = input.LA(4);
+							if ( ((LA15_10 >= UP && LA15_10 <= 301)) ) {
+								alt15=1;
+							}
+						}
+						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= 301)) ) {
 							alt15=1;
 						}
 					}
-					else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= 306)) ) {
+					else if ( (LA15_1==ACTION||LA15_1==AMPERSAND||LA15_1==LCURLY||LA15_1==SEMICOLON) ) {
 						alt15=1;
 					}
-				}
-				else if ( (LA15_1==ACTION||LA15_1==AMPERSAND||LA15_1==LCURLY||LA15_1==SEMICOLON) ) {
-					alt15=1;
-				}
-			}
-			else if ( (LA15_0==SEMICOLON) ) {
-				int LA15_2 = input.LA(2);
-				if ( (LA15_2==DOWN) ) {
-					int LA15_7 = input.LA(3);
-					if ( (LA15_7==ACTION) ) {
-						int LA15_11 = input.LA(4);
-						if ( ((LA15_11 >= UP && LA15_11 <= 306)) ) {
+					}
+					break;
+				case SEMICOLON:
+					{
+					int LA15_2 = input.LA(2);
+					if ( (LA15_2==DOWN) ) {
+						int LA15_7 = input.LA(3);
+						if ( (LA15_7==ACTION) ) {
+							int LA15_11 = input.LA(4);
+							if ( ((LA15_11 >= UP && LA15_11 <= 301)) ) {
+								alt15=1;
+							}
+						}
+						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= 301)) ) {
 							alt15=1;
 						}
 					}
-					else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= 306)) ) {
+					else if ( (LA15_2==ACTION||LA15_2==AMPERSAND||LA15_2==LCURLY||LA15_2==SEMICOLON) ) {
 						alt15=1;
 					}
-				}
-				else if ( (LA15_2==ACTION||LA15_2==AMPERSAND||LA15_2==LCURLY||LA15_2==SEMICOLON) ) {
-					alt15=1;
-				}
-			}
-			else if ( (LA15_0==AMPERSAND) ) {
-				int LA15_3 = input.LA(2);
-				if ( (LA15_3==DOWN) ) {
-					int LA15_8 = input.LA(3);
-					if ( (LA15_8==ACTION) ) {
-						int LA15_12 = input.LA(4);
-						if ( ((LA15_12 >= UP && LA15_12 <= 306)) ) {
-							alt15=1;
+					}
+					break;
+				case AMPERSAND:
+					{
+					int LA15_3 = input.LA(2);
+					if ( (LA15_3==DOWN) ) {
+						switch ( input.LA(3) ) {
+							case ACTION:
+								{
+								int LA15_12 = input.LA(4);
+								if ( ((LA15_12 >= UP && LA15_12 <= 301)) ) {
+									alt15=1;
+								}
+								}
+								break;
+							case SEMICOLON:
+								{
+								int LA15_13 = input.LA(4);
+								if ( ((LA15_13 >= UP && LA15_13 <= 301)) ) {
+									alt15=1;
+								}
+								}
+								break;
+							case AMPERSAND:
+								{
+								int LA15_14 = input.LA(4);
+								if ( ((LA15_14 >= UP && LA15_14 <= 301)) ) {
+									alt15=1;
+								}
+								}
+								break;
+							case LCURLY:
+								{
+								int LA15_15 = input.LA(4);
+								if ( ((LA15_15 >= UP && LA15_15 <= 301)) ) {
+									alt15=1;
+								}
+								}
+								break;
+							case AADL_STRING_LITERAL:
+							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
+							case AL:
+							case AM:
+							case ANNEX_END:
+							case ANNEX_START:
+							case ARROW:
+							case ASSERTION:
+							case ASSERTION_ANNEX:
+							case ASSERTION_ENUMERATION:
+							case ASSERTION_FUNCTION:
+							case ASSIGN:
+							case AT_SIGN:
+							case BASE:
+							case BASED_INTEGER:
+							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
+							case BI:
+							case BLESS_SUBCLAUSE:
+							case BOUND:
+							case BOX:
+							case CARET:
+							case CASE_EXPRESSION:
+							case COLON:
+							case COLON_TILDE:
+							case COMMA:
+							case COMMACOMMA:
+							case COMMADOT:
+							case COMPONENT:
+							case CONDITION:
+							case CONDITIONAL:
+							case CONDITIONAL_FUNCTION:
+							case COUNTING_TRIGGER:
+							case CVP:
+							case DESTINATION:
+							case DIGIT:
+							case DIVIDE:
+							case DOLLAR:
+							case DOT:
+							case DOTCOMMA:
+							case DOTDOT:
+							case DOUBLE_COLON:
+							case DOUBLE_QUOTE:
+							case DO_NOT_PROVE:
+							case DUMMY:
+							case EMPTY_CURLY:
+							case END_ASSERTION_PROPERTY:
+							case EQ:
+							case EXCLAMATION:
+							case EXP:
+							case EXPONENT:
+							case EXTENDED_DIGIT:
+							case FLOATING:
+							case FUNCTION:
+							case FUNCTION_CALL:
+							case GT:
+							case GUARD:
+							case HEX_DIGIT:
+							case ID:
+							case IMP:
+							case INMODE:
+							case INOUT:
+							case INTEGER_LIT:
+							case INT_EXPONENT:
+							case INVARIANT:
+							case INVOKE:
+							case INVOKE_FUNCTION:
+							case IP_NAME:
+							case IP_PE:
+							case IP_PRED:
+							case LABEL:
+							case LASS:
+							case LBRACKET:
+							case LCON:
+							case LITERAL_Assertion:
+							case LITERAL_Invariant:
+							case LITERAL_Postcondition:
+							case LITERAL_Precondition:
+							case LITERAL_Typed:
+							case LITERAL_aadlboolean:
+							case LITERAL_aadlinteger:
+							case LITERAL_aadlreal:
+							case LITERAL_aadlstring:
+							case LITERAL_abs:
+							case LITERAL_access:
+							case LITERAL_all:
+							case LITERAL_and:
+							case LITERAL_any:
+							case LITERAL_applies:
+							case LITERAL_are:
+							case LITERAL_array:
+							case LITERAL_assert:
+							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_boolean:
+							case LITERAL_bound:
+							case LITERAL_call:
+							case LITERAL_calls:
+							case LITERAL_cand:
+							case LITERAL_case:
+							case LITERAL_catch:
+							case LITERAL_classifier:
+							case LITERAL_complete:
+							case LITERAL_component:
+							case LITERAL_computation:
+							case LITERAL_connection:
+							case LITERAL_connections:
+							case LITERAL_constant:
+							case LITERAL_cor:
+							case LITERAL_count:
+							case LITERAL_declare:
+							case LITERAL_def:
+							case LITERAL_delay:
+							case LITERAL_dispatch:
+							case LITERAL_div:
+							case LITERAL_do:
+							case LITERAL_else:
+							case LITERAL_enumeration:
+							case LITERAL_exception:
+							case LITERAL_exists:
+							case LITERAL_extends:
+							case LITERAL_extension:
+							case LITERAL_false:
+							case LITERAL_feature:
+							case LITERAL_fetchadd:
+							case LITERAL_fetchand:
+							case LITERAL_fetchor:
+							case LITERAL_fetchxor:
+							case LITERAL_fi:
+							case LITERAL_final:
+							case LITERAL_flow:
+							case LITERAL_for:
+							case LITERAL_forall:
+							case LITERAL_fresh:
+							case LITERAL_ghost:
+							case LITERAL_hr:
+							case LITERAL_if:
+							case LITERAL_iff:
+							case LITERAL_implementation:
+							case LITERAL_implies:
+							case LITERAL_in:
+							case LITERAL_inherit:
+							case LITERAL_initial:
+							case LITERAL_internal:
+							case LITERAL_invariant:
+							case LITERAL_inverse:
+							case LITERAL_is:
+							case LITERAL_list:
+							case LITERAL_lower_bound:
+							case LITERAL_min:
+							case LITERAL_mod:
+							case LITERAL_mode:
+							case LITERAL_modes:
+							case LITERAL_ms:
+							case LITERAL_nonvolatile:
+							case LITERAL_not:
+							case LITERAL_now:
+							case LITERAL_ns:
+							case LITERAL_null:
+							case LITERAL_numberof:
+							case LITERAL_of:
+							case LITERAL_on:
+							case LITERAL_or:
+							case LITERAL_package:
+							case LITERAL_parameter:
+							case LITERAL_pause:
+							case LITERAL_post:
+							case LITERAL_pre:
+							case LITERAL_private:
+							case LITERAL_product:
+							case LITERAL_property:
+							case LITERAL_provides:
+							case LITERAL_ps:
+							case LITERAL_public:
+							case LITERAL_quantity:
+							case LITERAL_range:
+							case LITERAL_record:
+							case LITERAL_reference:
+							case LITERAL_rem:
+							case LITERAL_renames:
+							case LITERAL_representation:
+							case LITERAL_requires:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
+							case LITERAL_sec:
+							case LITERAL_self:
+							case LITERAL_sequence:
+							case LITERAL_set:
+							case LITERAL_setmode:
+							case LITERAL_shared:
+							case LITERAL_skip:
+							case LITERAL_spread:
+							case LITERAL_state:
+							case LITERAL_states:
+							case LITERAL_step:
+							case LITERAL_stop:
+							case LITERAL_string:
+							case LITERAL_subcomponents:
+							case LITERAL_sum:
+							case LITERAL_swap:
+							case LITERAL_that:
+							case LITERAL_then:
+							case LITERAL_throw:
+							case LITERAL_throws:
+							case LITERAL_time:
+							case LITERAL_timeout:
+							case LITERAL_to:
+							case LITERAL_tops:
+							case LITERAL_transition:
+							case LITERAL_transitions:
+							case LITERAL_true:
+							case LITERAL_truncate:
+							case LITERAL_type:
+							case LITERAL_union:
+							case LITERAL_units:
+							case LITERAL_until:
+							case LITERAL_updated:
+							case LITERAL_upper_bound:
+							case LITERAL_us:
+							case LITERAL_variables:
+							case LITERAL_variant:
+							case LITERAL_when:
+							case LITERAL_which:
+							case LITERAL_while:
+							case LITERAL_whole:
+							case LITERAL_with:
+							case LITERAL_xor:
+							case LPAREN:
+							case LT:
+							case LTE_STRING:
+							case LT_STRING:
+							case MINUS:
+							case MT_STRING:
+							case NEQ:
+							case NUMBER:
+							case OBLIGATION:
+							case OCTOTHORPE:
+							case OLD_NEQ:
+							case ON:
+							case P:
+							case PARAMETER:
+							case PARAMETERS:
+							case PLUS:
+							case PLUS_ARROW:
+							case PLUS_EQUALS:
+							case PORT:
+							case PORT_INPUT:
+							case PORT_OUTPUT:
+							case PREDICATE_RELATION:
+							case PROCEDURE:
+							case PROCEDURE_CALL:
+							case Q:
+							case QCLREF:
+							case QCREF:
+							case QQ:
+							case QUANTITY:
+							case QUESTION:
+							case RASS:
+							case RBRACKET:
+							case RCON:
+							case RCURLY:
+							case REAL_LIT:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
+							case RPAREN:
+							case S:
+							case SLCOMMENT:
+							case SOURCE:
+							case START:
+							case START_ASSERTION_PROPERTY:
+							case STOP:
+							case SUBPROGRAM_ANNEX:
+							case TICK:
+							case TILDE:
+							case TIMES:
+							case TOP:
+							case TRANSITION:
+							case TRIGGER:
+							case TYPE:
+							case TYPE_LIBRARY:
+							case TYPE_OPERATOR:
+							case TYPE_OPERATOR_INVOCATION:
+							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
+							case VALUE:
+							case VARIABLE_DECLARATION:
+							case VERT:
+							case WP:
+							case WS:
+							case 301:
+								{
+								alt15=1;
+								}
+								break;
 						}
 					}
-					else if ( (LA15_8==SEMICOLON) ) {
-						int LA15_13 = input.LA(4);
-						if ( ((LA15_13 >= UP && LA15_13 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( (LA15_8==AMPERSAND) ) {
-						int LA15_14 = input.LA(4);
-						if ( ((LA15_14 >= UP && LA15_14 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( (LA15_8==LCURLY) ) {
-						int LA15_15 = input.LA(4);
-						if ( ((LA15_15 >= UP && LA15_15 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( ((LA15_8 >= AADL_STRING_LITERAL && LA15_8 <= AADL_STRING_PART)||(LA15_8 >= ACTION_SUBCLAUSE && LA15_8 <= AM)||(LA15_8 >= ANNEX_END && LA15_8 <= LCON)||(LA15_8 >= LITERAL_Assertion && LA15_8 <= S)||(LA15_8 >= SLCOMMENT && LA15_8 <= 306)) ) {
+					else if ( (LA15_3==ACTION||LA15_3==AMPERSAND||LA15_3==LCURLY||LA15_3==SEMICOLON) ) {
 						alt15=1;
 					}
-				}
-				else if ( (LA15_3==ACTION||LA15_3==AMPERSAND||LA15_3==LCURLY||LA15_3==SEMICOLON) ) {
+					}
+					break;
+				case LCURLY:
+					{
+					int LA15_4 = input.LA(2);
+					if ( (LA15_4==DOWN) ) {
+						switch ( input.LA(3) ) {
+							case ACTION:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt15=1;
+										}
+										break;
+								}
+								}
+								break;
+							case SEMICOLON:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt15=1;
+										}
+										break;
+								}
+								}
+								break;
+							case AMPERSAND:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt15=1;
+										}
+										break;
+								}
+								}
+								break;
+							case LCURLY:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt15=1;
+										}
+										break;
+								}
+								}
+								break;
+							case AADL_STRING_LITERAL:
+							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
+							case AL:
+							case AM:
+							case ANNEX_END:
+							case ANNEX_START:
+							case ARROW:
+							case ASSERTION:
+							case ASSERTION_ANNEX:
+							case ASSERTION_ENUMERATION:
+							case ASSERTION_FUNCTION:
+							case ASSIGN:
+							case AT_SIGN:
+							case BASE:
+							case BASED_INTEGER:
+							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
+							case BI:
+							case BLESS_SUBCLAUSE:
+							case BOUND:
+							case BOX:
+							case CARET:
+							case CASE_EXPRESSION:
+							case COLON:
+							case COLON_TILDE:
+							case COMMA:
+							case COMMACOMMA:
+							case COMMADOT:
+							case COMPONENT:
+							case CONDITION:
+							case CONDITIONAL:
+							case CONDITIONAL_FUNCTION:
+							case COUNTING_TRIGGER:
+							case CVP:
+							case DESTINATION:
+							case DIGIT:
+							case DIVIDE:
+							case DOLLAR:
+							case DOT:
+							case DOTCOMMA:
+							case DOTDOT:
+							case DOUBLE_COLON:
+							case DOUBLE_QUOTE:
+							case DO_NOT_PROVE:
+							case DUMMY:
+							case EMPTY_CURLY:
+							case END_ASSERTION_PROPERTY:
+							case EQ:
+							case EXCLAMATION:
+							case EXP:
+							case EXPONENT:
+							case EXTENDED_DIGIT:
+							case FLOATING:
+							case FUNCTION:
+							case FUNCTION_CALL:
+							case GT:
+							case GUARD:
+							case HEX_DIGIT:
+							case ID:
+							case IMP:
+							case INMODE:
+							case INOUT:
+							case INTEGER_LIT:
+							case INT_EXPONENT:
+							case INVARIANT:
+							case INVOKE:
+							case INVOKE_FUNCTION:
+							case IP_NAME:
+							case IP_PE:
+							case IP_PRED:
+							case LABEL:
+							case LASS:
+							case LBRACKET:
+							case LCON:
+							case LITERAL_Assertion:
+							case LITERAL_Invariant:
+							case LITERAL_Postcondition:
+							case LITERAL_Precondition:
+							case LITERAL_Typed:
+							case LITERAL_aadlboolean:
+							case LITERAL_aadlinteger:
+							case LITERAL_aadlreal:
+							case LITERAL_aadlstring:
+							case LITERAL_abs:
+							case LITERAL_access:
+							case LITERAL_all:
+							case LITERAL_and:
+							case LITERAL_any:
+							case LITERAL_applies:
+							case LITERAL_are:
+							case LITERAL_array:
+							case LITERAL_assert:
+							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_boolean:
+							case LITERAL_bound:
+							case LITERAL_call:
+							case LITERAL_calls:
+							case LITERAL_cand:
+							case LITERAL_case:
+							case LITERAL_catch:
+							case LITERAL_classifier:
+							case LITERAL_complete:
+							case LITERAL_component:
+							case LITERAL_computation:
+							case LITERAL_connection:
+							case LITERAL_connections:
+							case LITERAL_constant:
+							case LITERAL_cor:
+							case LITERAL_count:
+							case LITERAL_declare:
+							case LITERAL_def:
+							case LITERAL_delay:
+							case LITERAL_dispatch:
+							case LITERAL_div:
+							case LITERAL_do:
+							case LITERAL_else:
+							case LITERAL_enumeration:
+							case LITERAL_exception:
+							case LITERAL_exists:
+							case LITERAL_extends:
+							case LITERAL_extension:
+							case LITERAL_false:
+							case LITERAL_feature:
+							case LITERAL_fetchadd:
+							case LITERAL_fetchand:
+							case LITERAL_fetchor:
+							case LITERAL_fetchxor:
+							case LITERAL_fi:
+							case LITERAL_final:
+							case LITERAL_flow:
+							case LITERAL_for:
+							case LITERAL_forall:
+							case LITERAL_fresh:
+							case LITERAL_ghost:
+							case LITERAL_hr:
+							case LITERAL_if:
+							case LITERAL_iff:
+							case LITERAL_implementation:
+							case LITERAL_implies:
+							case LITERAL_in:
+							case LITERAL_inherit:
+							case LITERAL_initial:
+							case LITERAL_internal:
+							case LITERAL_invariant:
+							case LITERAL_inverse:
+							case LITERAL_is:
+							case LITERAL_list:
+							case LITERAL_lower_bound:
+							case LITERAL_min:
+							case LITERAL_mod:
+							case LITERAL_mode:
+							case LITERAL_modes:
+							case LITERAL_ms:
+							case LITERAL_nonvolatile:
+							case LITERAL_not:
+							case LITERAL_now:
+							case LITERAL_ns:
+							case LITERAL_null:
+							case LITERAL_numberof:
+							case LITERAL_of:
+							case LITERAL_on:
+							case LITERAL_or:
+							case LITERAL_package:
+							case LITERAL_parameter:
+							case LITERAL_pause:
+							case LITERAL_post:
+							case LITERAL_pre:
+							case LITERAL_private:
+							case LITERAL_product:
+							case LITERAL_property:
+							case LITERAL_provides:
+							case LITERAL_ps:
+							case LITERAL_public:
+							case LITERAL_quantity:
+							case LITERAL_range:
+							case LITERAL_record:
+							case LITERAL_reference:
+							case LITERAL_rem:
+							case LITERAL_renames:
+							case LITERAL_representation:
+							case LITERAL_requires:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
+							case LITERAL_sec:
+							case LITERAL_self:
+							case LITERAL_sequence:
+							case LITERAL_set:
+							case LITERAL_setmode:
+							case LITERAL_shared:
+							case LITERAL_skip:
+							case LITERAL_spread:
+							case LITERAL_state:
+							case LITERAL_states:
+							case LITERAL_step:
+							case LITERAL_stop:
+							case LITERAL_string:
+							case LITERAL_subcomponents:
+							case LITERAL_sum:
+							case LITERAL_swap:
+							case LITERAL_that:
+							case LITERAL_then:
+							case LITERAL_throw:
+							case LITERAL_throws:
+							case LITERAL_time:
+							case LITERAL_timeout:
+							case LITERAL_to:
+							case LITERAL_tops:
+							case LITERAL_transition:
+							case LITERAL_transitions:
+							case LITERAL_true:
+							case LITERAL_truncate:
+							case LITERAL_type:
+							case LITERAL_union:
+							case LITERAL_units:
+							case LITERAL_until:
+							case LITERAL_updated:
+							case LITERAL_upper_bound:
+							case LITERAL_us:
+							case LITERAL_variables:
+							case LITERAL_variant:
+							case LITERAL_when:
+							case LITERAL_which:
+							case LITERAL_while:
+							case LITERAL_whole:
+							case LITERAL_with:
+							case LITERAL_xor:
+							case LPAREN:
+							case LT:
+							case LTE_STRING:
+							case LT_STRING:
+							case MINUS:
+							case MT_STRING:
+							case NEQ:
+							case NUMBER:
+							case OBLIGATION:
+							case OCTOTHORPE:
+							case OLD_NEQ:
+							case ON:
+							case P:
+							case PARAMETER:
+							case PARAMETERS:
+							case PLUS:
+							case PLUS_ARROW:
+							case PLUS_EQUALS:
+							case PORT:
+							case PORT_INPUT:
+							case PORT_OUTPUT:
+							case PREDICATE_RELATION:
+							case PROCEDURE:
+							case PROCEDURE_CALL:
+							case Q:
+							case QCLREF:
+							case QCREF:
+							case QQ:
+							case QUANTITY:
+							case QUESTION:
+							case RASS:
+							case RBRACKET:
+							case RCON:
+							case RCURLY:
+							case REAL_LIT:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
+							case RPAREN:
+							case S:
+							case SLCOMMENT:
+							case SOURCE:
+							case START:
+							case START_ASSERTION_PROPERTY:
+							case STOP:
+							case SUBPROGRAM_ANNEX:
+							case TICK:
+							case TILDE:
+							case TIMES:
+							case TOP:
+							case TRANSITION:
+							case TRIGGER:
+							case TYPE:
+							case TYPE_LIBRARY:
+							case TYPE_OPERATOR:
+							case TYPE_OPERATOR_INVOCATION:
+							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
+							case VALUE:
+							case VARIABLE_DECLARATION:
+							case VERT:
+							case WP:
+							case WS:
+							case 301:
+								{
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= 301)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
+										alt15=1;
+										}
+										break;
+								}
+								}
+								break;
+						}
+					}
+					else if ( (LA15_4==ACTION||LA15_4==AMPERSAND||LA15_4==LCURLY||LA15_4==SEMICOLON) ) {
+						alt15=1;
+					}
+					}
+					break;
+				case AADL_STRING_LITERAL:
+				case AADL_STRING_PART:
+				case ACTION_SUBCLAUSE:
+				case AL:
+				case AM:
+				case ANNEX_END:
+				case ANNEX_START:
+				case ARROW:
+				case ASSERTION:
+				case ASSERTION_ANNEX:
+				case ASSERTION_ENUMERATION:
+				case ASSERTION_FUNCTION:
+				case ASSIGN:
+				case AT_SIGN:
+				case BASE:
+				case BASED_INTEGER:
+				case BEHAVIOR_GUARD:
+				case BEHAVIOR_TIME:
+				case BI:
+				case BLESS_SUBCLAUSE:
+				case BOUND:
+				case BOX:
+				case CARET:
+				case CASE_EXPRESSION:
+				case COLON:
+				case COLON_TILDE:
+				case COMMA:
+				case COMMACOMMA:
+				case COMMADOT:
+				case COMPONENT:
+				case CONDITION:
+				case CONDITIONAL:
+				case CONDITIONAL_FUNCTION:
+				case COUNTING_TRIGGER:
+				case CVP:
+				case DESTINATION:
+				case DIGIT:
+				case DIVIDE:
+				case DOLLAR:
+				case DOT:
+				case DOTCOMMA:
+				case DOTDOT:
+				case DOUBLE_COLON:
+				case DOUBLE_QUOTE:
+				case DO_NOT_PROVE:
+				case DUMMY:
+				case EMPTY_CURLY:
+				case END_ASSERTION_PROPERTY:
+				case EQ:
+				case EXCLAMATION:
+				case EXP:
+				case EXPONENT:
+				case EXTENDED_DIGIT:
+				case FLOATING:
+				case FUNCTION:
+				case FUNCTION_CALL:
+				case GT:
+				case GUARD:
+				case HEX_DIGIT:
+				case ID:
+				case IMP:
+				case INMODE:
+				case INOUT:
+				case INTEGER_LIT:
+				case INT_EXPONENT:
+				case INVARIANT:
+				case INVOKE:
+				case INVOKE_FUNCTION:
+				case IP_NAME:
+				case IP_PE:
+				case IP_PRED:
+				case LABEL:
+				case LASS:
+				case LBRACKET:
+				case LCON:
+				case LITERAL_Assertion:
+				case LITERAL_Invariant:
+				case LITERAL_Postcondition:
+				case LITERAL_Precondition:
+				case LITERAL_Typed:
+				case LITERAL_aadlboolean:
+				case LITERAL_aadlinteger:
+				case LITERAL_aadlreal:
+				case LITERAL_aadlstring:
+				case LITERAL_abs:
+				case LITERAL_access:
+				case LITERAL_all:
+				case LITERAL_and:
+				case LITERAL_any:
+				case LITERAL_applies:
+				case LITERAL_are:
+				case LITERAL_array:
+				case LITERAL_assert:
+				case LITERAL_availability:
+				case LITERAL_base:
+				case LITERAL_boolean:
+				case LITERAL_bound:
+				case LITERAL_call:
+				case LITERAL_calls:
+				case LITERAL_cand:
+				case LITERAL_case:
+				case LITERAL_catch:
+				case LITERAL_classifier:
+				case LITERAL_complete:
+				case LITERAL_component:
+				case LITERAL_computation:
+				case LITERAL_connection:
+				case LITERAL_connections:
+				case LITERAL_constant:
+				case LITERAL_cor:
+				case LITERAL_count:
+				case LITERAL_declare:
+				case LITERAL_def:
+				case LITERAL_delay:
+				case LITERAL_dispatch:
+				case LITERAL_div:
+				case LITERAL_do:
+				case LITERAL_else:
+				case LITERAL_enumeration:
+				case LITERAL_exception:
+				case LITERAL_exists:
+				case LITERAL_extends:
+				case LITERAL_extension:
+				case LITERAL_false:
+				case LITERAL_feature:
+				case LITERAL_fetchadd:
+				case LITERAL_fetchand:
+				case LITERAL_fetchor:
+				case LITERAL_fetchxor:
+				case LITERAL_fi:
+				case LITERAL_final:
+				case LITERAL_flow:
+				case LITERAL_for:
+				case LITERAL_forall:
+				case LITERAL_fresh:
+				case LITERAL_ghost:
+				case LITERAL_hr:
+				case LITERAL_if:
+				case LITERAL_iff:
+				case LITERAL_implementation:
+				case LITERAL_implies:
+				case LITERAL_in:
+				case LITERAL_inherit:
+				case LITERAL_initial:
+				case LITERAL_internal:
+				case LITERAL_invariant:
+				case LITERAL_inverse:
+				case LITERAL_is:
+				case LITERAL_list:
+				case LITERAL_lower_bound:
+				case LITERAL_min:
+				case LITERAL_mod:
+				case LITERAL_mode:
+				case LITERAL_modes:
+				case LITERAL_ms:
+				case LITERAL_nonvolatile:
+				case LITERAL_not:
+				case LITERAL_now:
+				case LITERAL_ns:
+				case LITERAL_null:
+				case LITERAL_numberof:
+				case LITERAL_of:
+				case LITERAL_on:
+				case LITERAL_or:
+				case LITERAL_package:
+				case LITERAL_parameter:
+				case LITERAL_pause:
+				case LITERAL_post:
+				case LITERAL_pre:
+				case LITERAL_private:
+				case LITERAL_product:
+				case LITERAL_property:
+				case LITERAL_provides:
+				case LITERAL_ps:
+				case LITERAL_public:
+				case LITERAL_quantity:
+				case LITERAL_range:
+				case LITERAL_record:
+				case LITERAL_reference:
+				case LITERAL_rem:
+				case LITERAL_renames:
+				case LITERAL_representation:
+				case LITERAL_requires:
+				case LITERAL_returns:
+				case LITERAL_round:
+				case LITERAL_scalar:
+				case LITERAL_sec:
+				case LITERAL_self:
+				case LITERAL_sequence:
+				case LITERAL_set:
+				case LITERAL_setmode:
+				case LITERAL_shared:
+				case LITERAL_skip:
+				case LITERAL_spread:
+				case LITERAL_state:
+				case LITERAL_states:
+				case LITERAL_step:
+				case LITERAL_stop:
+				case LITERAL_string:
+				case LITERAL_subcomponents:
+				case LITERAL_sum:
+				case LITERAL_swap:
+				case LITERAL_that:
+				case LITERAL_then:
+				case LITERAL_throw:
+				case LITERAL_throws:
+				case LITERAL_time:
+				case LITERAL_timeout:
+				case LITERAL_to:
+				case LITERAL_tops:
+				case LITERAL_transition:
+				case LITERAL_transitions:
+				case LITERAL_true:
+				case LITERAL_truncate:
+				case LITERAL_type:
+				case LITERAL_union:
+				case LITERAL_units:
+				case LITERAL_until:
+				case LITERAL_updated:
+				case LITERAL_upper_bound:
+				case LITERAL_us:
+				case LITERAL_variables:
+				case LITERAL_variant:
+				case LITERAL_when:
+				case LITERAL_which:
+				case LITERAL_while:
+				case LITERAL_whole:
+				case LITERAL_with:
+				case LITERAL_xor:
+				case LPAREN:
+				case LT:
+				case LTE_STRING:
+				case LT_STRING:
+				case MINUS:
+				case MT_STRING:
+				case NEQ:
+				case NUMBER:
+				case OBLIGATION:
+				case OCTOTHORPE:
+				case OLD_NEQ:
+				case ON:
+				case P:
+				case PARAMETER:
+				case PARAMETERS:
+				case PLUS:
+				case PLUS_ARROW:
+				case PLUS_EQUALS:
+				case PORT:
+				case PORT_INPUT:
+				case PORT_OUTPUT:
+				case PREDICATE_RELATION:
+				case PROCEDURE:
+				case PROCEDURE_CALL:
+				case Q:
+				case QCLREF:
+				case QCREF:
+				case QQ:
+				case QUANTITY:
+				case QUESTION:
+				case RASS:
+				case RBRACKET:
+				case RCON:
+				case RCURLY:
+				case REAL_LIT:
+				case RECORD_TERM:
+				case ROOT_DECLARATION:
+				case RPAREN:
+				case S:
+				case SLCOMMENT:
+				case SOURCE:
+				case START:
+				case START_ASSERTION_PROPERTY:
+				case STOP:
+				case SUBPROGRAM_ANNEX:
+				case TICK:
+				case TILDE:
+				case TIMES:
+				case TOP:
+				case TRANSITION:
+				case TRIGGER:
+				case TYPE:
+				case TYPE_LIBRARY:
+				case TYPE_OPERATOR:
+				case TYPE_OPERATOR_INVOCATION:
+				case UNARY_MINUS:
+				case UNIT_FORMULA:
+				case UNIT_LIBRARY:
+				case UNIT_NAME:
+				case VALUE:
+				case VARIABLE_DECLARATION:
+				case VERT:
+				case WP:
+				case WS:
+				case 301:
+					{
 					alt15=1;
-				}
-			}
-			else if ( (LA15_0==LCURLY) ) {
-				int LA15_4 = input.LA(2);
-				if ( (LA15_4==DOWN) ) {
-					int LA15_9 = input.LA(3);
-					if ( (LA15_9==ACTION) ) {
-						int LA15_16 = input.LA(4);
-						if ( (LA15_16==ACTION) ) {
-							int LA15_22 = input.LA(5);
-							if ( ((LA15_22 >= UP && LA15_22 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_16==SEMICOLON) ) {
-							int LA15_23 = input.LA(5);
-							if ( ((LA15_23 >= UP && LA15_23 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_16==AMPERSAND) ) {
-							int LA15_24 = input.LA(5);
-							if ( ((LA15_24 >= UP && LA15_24 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_16==LCURLY) ) {
-							int LA15_25 = input.LA(5);
-							if ( ((LA15_25 >= UP && LA15_25 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( ((LA15_16 >= UP && LA15_16 <= AADL_STRING_PART)||(LA15_16 >= ACTION_SUBCLAUSE && LA15_16 <= AM)||(LA15_16 >= ANNEX_END && LA15_16 <= LCON)||(LA15_16 >= LITERAL_Assertion && LA15_16 <= S)||(LA15_16 >= SLCOMMENT && LA15_16 <= 306)) ) {
-							alt15=1;
-						}
 					}
-					else if ( (LA15_9==SEMICOLON) ) {
-						int LA15_17 = input.LA(4);
-						if ( (LA15_17==ACTION) ) {
-							int LA15_22 = input.LA(5);
-							if ( ((LA15_22 >= UP && LA15_22 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_17==SEMICOLON) ) {
-							int LA15_23 = input.LA(5);
-							if ( ((LA15_23 >= UP && LA15_23 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_17==AMPERSAND) ) {
-							int LA15_24 = input.LA(5);
-							if ( ((LA15_24 >= UP && LA15_24 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_17==LCURLY) ) {
-							int LA15_25 = input.LA(5);
-							if ( ((LA15_25 >= UP && LA15_25 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( ((LA15_17 >= UP && LA15_17 <= AADL_STRING_PART)||(LA15_17 >= ACTION_SUBCLAUSE && LA15_17 <= AM)||(LA15_17 >= ANNEX_END && LA15_17 <= LCON)||(LA15_17 >= LITERAL_Assertion && LA15_17 <= S)||(LA15_17 >= SLCOMMENT && LA15_17 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( (LA15_9==AMPERSAND) ) {
-						int LA15_18 = input.LA(4);
-						if ( (LA15_18==ACTION) ) {
-							int LA15_22 = input.LA(5);
-							if ( ((LA15_22 >= UP && LA15_22 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_18==SEMICOLON) ) {
-							int LA15_23 = input.LA(5);
-							if ( ((LA15_23 >= UP && LA15_23 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_18==AMPERSAND) ) {
-							int LA15_24 = input.LA(5);
-							if ( ((LA15_24 >= UP && LA15_24 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_18==LCURLY) ) {
-							int LA15_25 = input.LA(5);
-							if ( ((LA15_25 >= UP && LA15_25 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( ((LA15_18 >= UP && LA15_18 <= AADL_STRING_PART)||(LA15_18 >= ACTION_SUBCLAUSE && LA15_18 <= AM)||(LA15_18 >= ANNEX_END && LA15_18 <= LCON)||(LA15_18 >= LITERAL_Assertion && LA15_18 <= S)||(LA15_18 >= SLCOMMENT && LA15_18 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( (LA15_9==LCURLY) ) {
-						int LA15_19 = input.LA(4);
-						if ( (LA15_19==ACTION) ) {
-							int LA15_22 = input.LA(5);
-							if ( ((LA15_22 >= UP && LA15_22 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_19==SEMICOLON) ) {
-							int LA15_23 = input.LA(5);
-							if ( ((LA15_23 >= UP && LA15_23 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_19==AMPERSAND) ) {
-							int LA15_24 = input.LA(5);
-							if ( ((LA15_24 >= UP && LA15_24 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_19==LCURLY) ) {
-							int LA15_25 = input.LA(5);
-							if ( ((LA15_25 >= UP && LA15_25 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( ((LA15_19 >= UP && LA15_19 <= AADL_STRING_PART)||(LA15_19 >= ACTION_SUBCLAUSE && LA15_19 <= AM)||(LA15_19 >= ANNEX_END && LA15_19 <= LCON)||(LA15_19 >= LITERAL_Assertion && LA15_19 <= S)||(LA15_19 >= SLCOMMENT && LA15_19 <= 306)) ) {
-							alt15=1;
-						}
-					}
-					else if ( ((LA15_9 >= AADL_STRING_LITERAL && LA15_9 <= AADL_STRING_PART)||(LA15_9 >= ACTION_SUBCLAUSE && LA15_9 <= AM)||(LA15_9 >= ANNEX_END && LA15_9 <= LCON)||(LA15_9 >= LITERAL_Assertion && LA15_9 <= S)||(LA15_9 >= SLCOMMENT && LA15_9 <= 306)) ) {
-						int LA15_20 = input.LA(4);
-						if ( (LA15_20==ACTION) ) {
-							int LA15_22 = input.LA(5);
-							if ( ((LA15_22 >= UP && LA15_22 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_20==SEMICOLON) ) {
-							int LA15_23 = input.LA(5);
-							if ( ((LA15_23 >= UP && LA15_23 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_20==AMPERSAND) ) {
-							int LA15_24 = input.LA(5);
-							if ( ((LA15_24 >= UP && LA15_24 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( (LA15_20==LCURLY) ) {
-							int LA15_25 = input.LA(5);
-							if ( ((LA15_25 >= UP && LA15_25 <= 306)) ) {
-								alt15=1;
-							}
-						}
-						else if ( ((LA15_20 >= UP && LA15_20 <= AADL_STRING_PART)||(LA15_20 >= ACTION_SUBCLAUSE && LA15_20 <= AM)||(LA15_20 >= ANNEX_END && LA15_20 <= LCON)||(LA15_20 >= LITERAL_Assertion && LA15_20 <= S)||(LA15_20 >= SLCOMMENT && LA15_20 <= 306)) ) {
-							alt15=1;
-						}
-					}
-				}
-				else if ( (LA15_4==ACTION||LA15_4==AMPERSAND||LA15_4==LCURLY||LA15_4==SEMICOLON) ) {
-					alt15=1;
-				}
-			}
-			else if ( ((LA15_0 >= AADL_STRING_LITERAL && LA15_0 <= AADL_STRING_PART)||(LA15_0 >= ACTION_SUBCLAUSE && LA15_0 <= AM)||(LA15_0 >= ANNEX_END && LA15_0 <= LCON)||(LA15_0 >= LITERAL_Assertion && LA15_0 <= S)||(LA15_0 >= SLCOMMENT && LA15_0 <= 306)) ) {
-				alt15=1;
+					break;
 			}
 			switch (alt15) {
 				case 1 :
@@ -2417,17 +7285,19 @@ public class ASTtoAST extends TreeParser {
 							if ( (LA16_5==ID) ) {
 								int LA16_6 = input.LA(6);
 								if ( (LA16_6==UP) ) {
-									int LA16_7 = input.LA(7);
-									if ( (LA16_7==PARAMETERS) ) {
+									switch ( input.LA(7) ) {
+									case PARAMETERS:
+										{
 										int LA16_8 = input.LA(8);
 										if ( (LA16_8==DOWN) ) {
-											int LA16_10 = input.LA(9);
-											if ( (LA16_10==TILDE) ) {
+											switch ( input.LA(9) ) {
+											case TILDE:
+												{
 												int LA16_11 = input.LA(10);
 												if ( (LA16_11==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_11 >= UP && LA16_11 <= 306)) ) {
+												else if ( ((LA16_11 >= UP && LA16_11 <= 301)) ) {
 													alt16=2;
 												}
 
@@ -2446,13 +7316,15 @@ public class ASTtoAST extends TreeParser {
 													}
 												}
 
-											}
-											else if ( (LA16_10==COMMA) ) {
+												}
+												break;
+											case COMMA:
+												{
 												int LA16_12 = input.LA(10);
 												if ( (LA16_12==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_12 >= UP && LA16_12 <= 306)) ) {
+												else if ( ((LA16_12 >= UP && LA16_12 <= 301)) ) {
 													alt16=2;
 												}
 
@@ -2471,12 +7343,309 @@ public class ASTtoAST extends TreeParser {
 													}
 												}
 
-											}
-											else if ( ((LA16_10 >= AADL_STRING_LITERAL && LA16_10 <= COLON_TILDE)||(LA16_10 >= COMMACOMMA && LA16_10 <= TICK)||(LA16_10 >= TIMES && LA16_10 <= 306)) ) {
+												}
+												break;
+											case AADL_STRING_LITERAL:
+											case AADL_STRING_PART:
+											case ACTION:
+											case ACTION_SUBCLAUSE:
+											case AL:
+											case AM:
+											case AMPERSAND:
+											case ANNEX_END:
+											case ANNEX_START:
+											case ARROW:
+											case ASSERTION:
+											case ASSERTION_ANNEX:
+											case ASSERTION_ENUMERATION:
+											case ASSERTION_FUNCTION:
+											case ASSIGN:
+											case AT_SIGN:
+											case BASE:
+											case BASED_INTEGER:
+											case BEHAVIOR_GUARD:
+											case BEHAVIOR_TIME:
+											case BI:
+											case BLESS_SUBCLAUSE:
+											case BOUND:
+											case BOX:
+											case CARET:
+											case CASE_EXPRESSION:
+											case COLON:
+											case COLON_TILDE:
+											case COMMACOMMA:
+											case COMMADOT:
+											case COMPONENT:
+											case CONDITION:
+											case CONDITIONAL:
+											case CONDITIONAL_FUNCTION:
+											case COUNTING_TRIGGER:
+											case CVP:
+											case DESTINATION:
+											case DIGIT:
+											case DIVIDE:
+											case DOLLAR:
+											case DOT:
+											case DOTCOMMA:
+											case DOTDOT:
+											case DOUBLE_COLON:
+											case DOUBLE_QUOTE:
+											case DO_NOT_PROVE:
+											case DUMMY:
+											case EMPTY_CURLY:
+											case END_ASSERTION_PROPERTY:
+											case EQ:
+											case EXCLAMATION:
+											case EXP:
+											case EXPONENT:
+											case EXTENDED_DIGIT:
+											case FLOATING:
+											case FUNCTION:
+											case FUNCTION_CALL:
+											case GT:
+											case GUARD:
+											case HEX_DIGIT:
+											case ID:
+											case IMP:
+											case INMODE:
+											case INOUT:
+											case INTEGER_LIT:
+											case INT_EXPONENT:
+											case INVARIANT:
+											case INVOKE:
+											case INVOKE_FUNCTION:
+											case IP_NAME:
+											case IP_PE:
+											case IP_PRED:
+											case LABEL:
+											case LASS:
+											case LBRACKET:
+											case LCON:
+											case LCURLY:
+											case LITERAL_Assertion:
+											case LITERAL_Invariant:
+											case LITERAL_Postcondition:
+											case LITERAL_Precondition:
+											case LITERAL_Typed:
+											case LITERAL_aadlboolean:
+											case LITERAL_aadlinteger:
+											case LITERAL_aadlreal:
+											case LITERAL_aadlstring:
+											case LITERAL_abs:
+											case LITERAL_access:
+											case LITERAL_all:
+											case LITERAL_and:
+											case LITERAL_any:
+											case LITERAL_applies:
+											case LITERAL_are:
+											case LITERAL_array:
+											case LITERAL_assert:
+											case LITERAL_availability:
+											case LITERAL_base:
+											case LITERAL_boolean:
+											case LITERAL_bound:
+											case LITERAL_call:
+											case LITERAL_calls:
+											case LITERAL_cand:
+											case LITERAL_case:
+											case LITERAL_catch:
+											case LITERAL_classifier:
+											case LITERAL_complete:
+											case LITERAL_component:
+											case LITERAL_computation:
+											case LITERAL_connection:
+											case LITERAL_connections:
+											case LITERAL_constant:
+											case LITERAL_cor:
+											case LITERAL_count:
+											case LITERAL_declare:
+											case LITERAL_def:
+											case LITERAL_delay:
+											case LITERAL_dispatch:
+											case LITERAL_div:
+											case LITERAL_do:
+											case LITERAL_else:
+											case LITERAL_enumeration:
+											case LITERAL_exception:
+											case LITERAL_exists:
+											case LITERAL_extends:
+											case LITERAL_extension:
+											case LITERAL_false:
+											case LITERAL_feature:
+											case LITERAL_fetchadd:
+											case LITERAL_fetchand:
+											case LITERAL_fetchor:
+											case LITERAL_fetchxor:
+											case LITERAL_fi:
+											case LITERAL_final:
+											case LITERAL_flow:
+											case LITERAL_for:
+											case LITERAL_forall:
+											case LITERAL_fresh:
+											case LITERAL_ghost:
+											case LITERAL_hr:
+											case LITERAL_if:
+											case LITERAL_iff:
+											case LITERAL_implementation:
+											case LITERAL_implies:
+											case LITERAL_in:
+											case LITERAL_inherit:
+											case LITERAL_initial:
+											case LITERAL_internal:
+											case LITERAL_invariant:
+											case LITERAL_inverse:
+											case LITERAL_is:
+											case LITERAL_list:
+											case LITERAL_lower_bound:
+											case LITERAL_min:
+											case LITERAL_mod:
+											case LITERAL_mode:
+											case LITERAL_modes:
+											case LITERAL_ms:
+											case LITERAL_nonvolatile:
+											case LITERAL_not:
+											case LITERAL_now:
+											case LITERAL_ns:
+											case LITERAL_null:
+											case LITERAL_numberof:
+											case LITERAL_of:
+											case LITERAL_on:
+											case LITERAL_or:
+											case LITERAL_package:
+											case LITERAL_parameter:
+											case LITERAL_pause:
+											case LITERAL_post:
+											case LITERAL_pre:
+											case LITERAL_private:
+											case LITERAL_product:
+											case LITERAL_property:
+											case LITERAL_provides:
+											case LITERAL_ps:
+											case LITERAL_public:
+											case LITERAL_quantity:
+											case LITERAL_range:
+											case LITERAL_record:
+											case LITERAL_reference:
+											case LITERAL_rem:
+											case LITERAL_renames:
+											case LITERAL_representation:
+											case LITERAL_requires:
+											case LITERAL_returns:
+											case LITERAL_round:
+											case LITERAL_scalar:
+											case LITERAL_sec:
+											case LITERAL_self:
+											case LITERAL_sequence:
+											case LITERAL_set:
+											case LITERAL_setmode:
+											case LITERAL_shared:
+											case LITERAL_skip:
+											case LITERAL_spread:
+											case LITERAL_state:
+											case LITERAL_states:
+											case LITERAL_step:
+											case LITERAL_stop:
+											case LITERAL_string:
+											case LITERAL_subcomponents:
+											case LITERAL_sum:
+											case LITERAL_swap:
+											case LITERAL_that:
+											case LITERAL_then:
+											case LITERAL_throw:
+											case LITERAL_throws:
+											case LITERAL_time:
+											case LITERAL_timeout:
+											case LITERAL_to:
+											case LITERAL_tops:
+											case LITERAL_transition:
+											case LITERAL_transitions:
+											case LITERAL_true:
+											case LITERAL_truncate:
+											case LITERAL_type:
+											case LITERAL_union:
+											case LITERAL_units:
+											case LITERAL_until:
+											case LITERAL_updated:
+											case LITERAL_upper_bound:
+											case LITERAL_us:
+											case LITERAL_variables:
+											case LITERAL_variant:
+											case LITERAL_when:
+											case LITERAL_which:
+											case LITERAL_while:
+											case LITERAL_whole:
+											case LITERAL_with:
+											case LITERAL_xor:
+											case LPAREN:
+											case LT:
+											case LTE_STRING:
+											case LT_STRING:
+											case MINUS:
+											case MT_STRING:
+											case NEQ:
+											case NUMBER:
+											case OBLIGATION:
+											case OCTOTHORPE:
+											case OLD_NEQ:
+											case ON:
+											case P:
+											case PARAMETER:
+											case PARAMETERS:
+											case PLUS:
+											case PLUS_ARROW:
+											case PLUS_EQUALS:
+											case PORT:
+											case PORT_INPUT:
+											case PORT_OUTPUT:
+											case PREDICATE_RELATION:
+											case PROCEDURE:
+											case PROCEDURE_CALL:
+											case Q:
+											case QCLREF:
+											case QCREF:
+											case QQ:
+											case QUANTITY:
+											case QUESTION:
+											case RASS:
+											case RBRACKET:
+											case RCON:
+											case RCURLY:
+											case REAL_LIT:
+											case RECORD_TERM:
+											case ROOT_DECLARATION:
+											case RPAREN:
+											case S:
+											case SEMICOLON:
+											case SLCOMMENT:
+											case SOURCE:
+											case START:
+											case START_ASSERTION_PROPERTY:
+											case STOP:
+											case SUBPROGRAM_ANNEX:
+											case TICK:
+											case TIMES:
+											case TOP:
+											case TRANSITION:
+											case TRIGGER:
+											case TYPE:
+											case TYPE_LIBRARY:
+											case TYPE_OPERATOR:
+											case TYPE_OPERATOR_INVOCATION:
+											case UNARY_MINUS:
+											case UNIT_FORMULA:
+											case UNIT_LIBRARY:
+											case UNIT_NAME:
+											case VALUE:
+											case VARIABLE_DECLARATION:
+											case VERT:
+											case WP:
+											case WS:
+											case 301:
+												{
 												alt16=2;
-											}
-
-											else {
+												}
+												break;
+											default:
 												if (state.backtracking>0) {state.failed=true; return retval;}
 												int nvaeMark = input.mark();
 												try {
@@ -2490,7 +7659,6 @@ public class ASTtoAST extends TreeParser {
 													input.rewind(nvaeMark);
 												}
 											}
-
 										}
 										else if ( (LA16_8==UP) ) {
 											alt16=2;
@@ -2511,15 +7679,315 @@ public class ASTtoAST extends TreeParser {
 											}
 										}
 
-									}
-									else if ( ((LA16_7 >= AADL_STRING_LITERAL && LA16_7 <= PARAMETER)||(LA16_7 >= PLUS && LA16_7 <= 306)) ) {
+										}
+										break;
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case AMPERSAND:
+									case ANNEX_END:
+									case ANNEX_START:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BASE:
+									case BASED_INTEGER:
+									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case CASE_EXPRESSION:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case COMPONENT:
+									case CONDITION:
+									case CONDITIONAL:
+									case CONDITIONAL_FUNCTION:
+									case COUNTING_TRIGGER:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case END_ASSERTION_PROPERTY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case EXTENDED_DIGIT:
+									case FLOATING:
+									case FUNCTION:
+									case FUNCTION_CALL:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INMODE:
+									case INOUT:
+									case INTEGER_LIT:
+									case INT_EXPONENT:
+									case INVARIANT:
+									case INVOKE:
+									case INVOKE_FUNCTION:
+									case IP_NAME:
+									case IP_PE:
+									case IP_PRED:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LCURLY:
+									case LITERAL_Assertion:
+									case LITERAL_Invariant:
+									case LITERAL_Postcondition:
+									case LITERAL_Precondition:
+									case LITERAL_Typed:
+									case LITERAL_aadlboolean:
+									case LITERAL_aadlinteger:
+									case LITERAL_aadlreal:
+									case LITERAL_aadlstring:
+									case LITERAL_abs:
+									case LITERAL_access:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_applies:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_cand:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_classifier:
+									case LITERAL_complete:
+									case LITERAL_component:
+									case LITERAL_computation:
+									case LITERAL_connection:
+									case LITERAL_connections:
+									case LITERAL_constant:
+									case LITERAL_cor:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_feature:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_flow:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_hr:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implementation:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_inherit:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_list:
+									case LITERAL_lower_bound:
+									case LITERAL_min:
+									case LITERAL_mod:
+									case LITERAL_mode:
+									case LITERAL_modes:
+									case LITERAL_ms:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_ns:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_package:
+									case LITERAL_parameter:
+									case LITERAL_pause:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_private:
+									case LITERAL_product:
+									case LITERAL_property:
+									case LITERAL_provides:
+									case LITERAL_ps:
+									case LITERAL_public:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_reference:
+									case LITERAL_rem:
+									case LITERAL_renames:
+									case LITERAL_representation:
+									case LITERAL_requires:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_sec:
+									case LITERAL_self:
+									case LITERAL_sequence:
+									case LITERAL_set:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_stop:
+									case LITERAL_string:
+									case LITERAL_subcomponents:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_time:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transition:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_us:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case ON:
+									case P:
+									case PARAMETER:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case PROCEDURE:
+									case PROCEDURE_CALL:
+									case Q:
+									case QCLREF:
+									case QCREF:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case REAL_LIT:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SEMICOLON:
+									case SLCOMMENT:
+									case SOURCE:
+									case START:
+									case START_ASSERTION_PROPERTY:
+									case STOP:
+									case SUBPROGRAM_ANNEX:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TOP:
+									case TRANSITION:
+									case TRIGGER:
+									case TYPE:
+									case TYPE_LIBRARY:
+									case TYPE_OPERATOR:
+									case TYPE_OPERATOR_INVOCATION:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WP:
+									case WS:
+									case 301:
+										{
 										alt16=2;
-									}
-									else if ( (LA16_7==UP) ) {
+										}
+										break;
+									case UP:
+										{
 										alt16=3;
-									}
-
-									else {
+										}
+										break;
+									default:
 										if (state.backtracking>0) {state.failed=true; return retval;}
 										int nvaeMark = input.mark();
 										try {
@@ -2533,9 +8001,8 @@ public class ASTtoAST extends TreeParser {
 											input.rewind(nvaeMark);
 										}
 									}
-
 								}
-								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= 306)) ) {
+								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= 301)) ) {
 									alt16=3;
 								}
 
@@ -2555,7 +8022,7 @@ public class ASTtoAST extends TreeParser {
 								}
 
 							}
-							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= 306)) ) {
+							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= 301)) ) {
 								alt16=3;
 							}
 
@@ -2595,7 +8062,7 @@ public class ASTtoAST extends TreeParser {
 						}
 
 					}
-					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= 306)) ) {
+					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= 301)) ) {
 						alt16=3;
 					}
 
@@ -2713,16 +8180,16 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, formals, par, l, ass, a
-					// token labels: par, ass, a, l
+					// elements: formals, l, p, ass, a, par
+					// token labels: ass, par, a, l
 					// rule labels: formals, retval
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
-					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
 					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
+					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"wildcard p",p);
@@ -2815,7 +8282,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: l, p, ass, a
+					// elements: l, a, ass, p
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -3306,7 +8773,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:16: ( . )?
 						int alt19=2;
 						int LA19_0 = input.LA(1);
-						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= 306)) ) {
+						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= 301)) ) {
 							alt19=1;
 						}
 						switch (alt19) {
@@ -3384,7 +8851,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:33: (q= . )?
 						int alt20=2;
 						int LA20_0 = input.LA(1);
-						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= 306)) ) {
+						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= 301)) ) {
 							alt20=1;
 						}
 						switch (alt20) {
@@ -3495,7 +8962,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:228:11: ( . )?
 								int alt21=2;
 								int LA21_0 = input.LA(1);
-								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= 306)) ) {
+								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= 301)) ) {
 									alt21=1;
 								}
 								switch (alt21) {
@@ -3573,7 +9040,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:230:13: (q2= . )?
 								int alt22=2;
 								int LA22_0 = input.LA(1);
-								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= 306)) ) {
+								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= 301)) ) {
 									alt22=1;
 								}
 								switch (alt22) {
@@ -3868,7 +9335,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt27=2;
 				int LA27_0 = input.LA(1);
-				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= 306)) ) {
+				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= 301)) ) {
 					alt27=1;
 				}
 				else if ( (LA27_0==UP) ) {
@@ -3949,7 +9416,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt28=2;
 				int LA28_0 = input.LA(1);
-				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= 306)) ) {
+				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= 301)) ) {
 					alt28=1;
 				}
 				else if ( (LA28_0==UP) ) {
@@ -4054,20 +9521,20 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u0132\1\u0112\1\uffff\2\u0132\1\uffff\1\u0132\1\u0112";
+		"\1\u012d\1\u010d\1\uffff\2\u012d\1\uffff\1\u012d\1\u010d";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
-			"\163\2\1\1\u00bb\2",
-			"\1\3\u010f\uffff\1\2",
+			"\162\2\1\1\u00b7\2",
+			"\1\3\u010a\uffff\1\2",
 			"",
-			"\1\5\u012f\4",
-			"\1\5\1\6\u012f\4",
+			"\1\5\u012a\4",
+			"\1\5\1\6\u012a\4",
 			"",
-			"\u010e\5\1\7\40\5",
-			"\1\5\1\2\150\uffff\1\2\u00a5\uffff\1\5"
+			"\u0109\5\1\7\40\5",
+			"\1\5\1\2\150\uffff\1\2\u00a0\uffff\1\5"
 	};
 
 	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
@@ -4114,7 +9581,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000100000000000L});
 	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
@@ -4126,10 +9593,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
 	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
@@ -4142,9 +9609,9 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion626 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_variable_in_variableList667 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000100000000L});
+	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000008000000L});
 	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0007FFFFFFFFFFFFL});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00003FFFFFFFFFFFL});
 	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
@@ -4155,7 +9622,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000020000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
 	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979 = new BitSet(new long[]{0x0000000000000000L,0x0000000800000000L});

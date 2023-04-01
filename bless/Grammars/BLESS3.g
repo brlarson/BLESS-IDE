@@ -382,7 +382,6 @@ LITERAL_case : 'case';
 LITERAL_catch :'catch'; 
 LITERAL_classifier: 'classifier';
 LITERAL_complete: 'complete';
-LITERAL_complex: 'complex'; 
 LITERAL_component: 'component';
 LITERAL_computation : 'computation';
 LITERAL_connection: 'connection';
@@ -422,7 +421,6 @@ LITERAL_implies: 'implies';
 LITERAL_in : 'in';
 LITERAL_inherit: 'inherit';
 LITERAL_initial: 'initial';
-LITERAL_integer: 'integer';
 LITERAL_internal: 'internal';
 LITERAL_invariant : 'invariant';
 LITERAL_Invariant: 'Invariant';
@@ -434,7 +432,6 @@ LITERAL_min: 'min';
 LITERAL_mode: 'mode';
 LITERAL_modes:  'modes';
 LITERAL_ms: 'ms';
-LITERAL_natural: 'natural';
 LITERAL_nonvolatile : 'nonvolatile';
 LITERAL_not : 'not';
 LITERAL_now : 'now';
@@ -458,8 +455,6 @@ LITERAL_ps: 'ps';
 LITERAL_public: 'public';
 LITERAL_quantity : 'quantity';
 LITERAL_range: 'range';
-LITERAL_rational: 'rational';
-LITERAL_real: 'real';
 LITERAL_record : 'record';
 LITERAL_reference: 'reference';
 LITERAL_renames: 'renames';
@@ -900,7 +895,7 @@ productQuantification:
 countingQuantification:
   n=LITERAL_numberof lv=logicVariables  
     (i=LITERAL_in r=range | w=LITERAL_which b=predicate )
-     ar=LITERAL_of ex=expression
+     ar=LITERAL_that ex=expression
    -> {i!=null}? ^( $n $lv ^( $i $r ) ^( $ar $ex ) )
    -> {w!=null}? ^( $n $lv ^( $w $b ) ^( $ar $ex ) )
    -> $n
