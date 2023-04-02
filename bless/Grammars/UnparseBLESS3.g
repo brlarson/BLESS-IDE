@@ -489,7 +489,6 @@ assertionFunctionValue
  	  -> {$caf.st}
 	| exp=expression  
  	  -> {$exp.st}
- 
   ;
 
 conditionalAssertionFunction
@@ -518,7 +517,7 @@ assertionEnumeration
 
 enumerationPair
   :
-  ^( ARROW id=ID pred=predicate )
+  ^( IMP id=ID pred=predicate )
     -> enumeration_pair(i={$id.text}, pe={$pred.st})
   ;  
 
@@ -687,6 +686,8 @@ conjunction
   |  
   ^(OLD_NEQ  lhs=addSub rhs=addSub )
     -> not_equal_relation(lhs={$lhs.st},rhs={$rhs.st})
+  |
+  ^(LITERAL_in lhs=addSub rng=range )
   |
   as=addSub
     -> {$as.st}
@@ -1153,7 +1154,7 @@ basicAction
   	-> {%{$sk.text}} 
   | ass=assignment
     -> {$ass.st}
-  | LITERAL_setmode mode=ID //[aadl2::Mode]
+  | ^( LITERAL_setmode mode=ID ) //[aadl2::Mode]
     -> template(mode={$mode.text}) "setmode <mode>"
   | wt=whenThrow
     -> {$wt.st}
@@ -1210,20 +1211,20 @@ whenThrow:
   ;
   
 combinableOperation:
-  fa=LITERAL_fetchadd
-  	->{%{$fa.text}} 
+  ^( fa=LITERAL_fetchadd target=ID arithmetic=expression result=ID )
+  	-> combinable(op={$fa.text}, t={$target.text}, e={$arithmetic.st}, r={$result.text}) 
   |
-  fo=LITERAL_fetchor
-  	->{%{$fo.text}} 
+  ^( fo=LITERAL_fetchor target=ID bool=expression result=ID )
+  	-> combinable(op={$fo.text}, t={$target.text}, e={$bool.st}, r={$result.text}) 
   |
-  fan=LITERAL_fetchand
-  	->{%{$fan.text}} 
+  ^( fan=LITERAL_fetchand target=ID bool=expression result=ID )
+  	-> combinable(op={$fan.text}, t={$target.text}, e={$bool.st}, r={$result.text}) 
   |
-  fx=LITERAL_fetchxor
-  	->{%{$fx.text}} 
+  ^( fx=LITERAL_fetchxor target=ID bool=expression result=ID )
+  	-> combinable(op={$fx.text}, t={$target.text}, e={$bool.st}, r={$result.text}) 
   |
-  sw=LITERAL_swap
-  	->{%{$sw.text}} 
+  ^( sw=LITERAL_swap target=ID reference=ID result=ID )
+  	-> combinable(op={$sw.text}, t={$target.text}, e={$reference.text}, r={$result.text}) 
   ;
   
 communicationAction:
@@ -1236,6 +1237,12 @@ communicationAction:
   pi=portInput
     -> {$pi.st}
   ;
+ 
+computation
+  :
+  ^( LITERAL_computation lb=behaviorTime ub=behaviorTime? ( ^( LITERAL_binding component=QCREF+ ) )? )
+    -> computation(lb={$lb.st}, ub={$ub.st}, c={$component})
+  ; 
   
 portOutput
   :
@@ -1252,7 +1259,7 @@ portInput
   
 subprogramCall
   :
-  ^( FUNCTION_CALL id=ID fal=formalActualList? )
+  ^( SUBPROGRAM_INVOCATION id=ID fal=formalActualList? )
     -> function_call(f={$id.text}, pl={$fal.st})
   ;  
   

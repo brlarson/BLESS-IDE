@@ -1156,7 +1156,7 @@ private static int tab=0;  //tabbing for toStringTree
             }
           // at 72
           break;
-        case BLESS3Lexer.SUBPROGRAM_ANNEX:
+        case BLESS3Lexer.ACTION_SUBCLAUSE:
           UnparseBLESS3.actionSubclause_return sbu = null;
           sbu = unparser.actionSubclause();
           StringTemplate subprogramOutput = (StringTemplate) sbu.getTemplate();
@@ -1873,7 +1873,8 @@ private static int tab=0;  //tabbing for toStringTree
 		return true; // no parent
 	} else if (((BAST) this.getParent()).hasType(BLESS3Lexer.DOT)
         || ((BAST) this.getParent()).hasType(BLESS3Lexer.DOUBLE_COLON)
-        || ((BAST) this.getParent()).hasType(BLESS3Lexer.BEHAVIOR_TIME)) {
+//        || ((BAST) this.getParent()).hasType(BLESS3Lexer.BEHAVIOR_TIME)
+        ) {
 		return false;
 	} else {
 		return true;

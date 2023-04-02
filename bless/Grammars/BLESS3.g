@@ -19,7 +19,7 @@ ASSERTION_ANNEX;  //root of trees for AADL annex sublanguages
 ASSERTION_ENUMERATION; 
 ASSERTION_FUNCTION; 
 BEHAVIOR_GUARD;
-BEHAVIOR_TIME; 
+//BEHAVIOR_TIME; 
 BLESS_SUBCLAUSE;
 BOUND;  //for loops
 //CASE_EXPRESSION;  //case expression
@@ -60,7 +60,7 @@ S;
 SOURCE; 
 START; 
 STOP; //used to mark the end of some strings of children
-SUBPROGRAM_ANNEX; 
+//SUBPROGRAM_ANNEX; 
 SUBPROGRAM_INVOCATION; 
 TOP;  //the set of all values; every values is in TOP
 TRANSITION; 
@@ -351,8 +351,8 @@ DO_NOT_PROVE: 'DO_NOT_PROVE';
 
 //operators that are literals
 LITERAL_and : 'and';
-LITERAL_cand : 'cand';
-LITERAL_cor : 'cor';
+//LITERAL_cand : 'cand';
+//LITERAL_cor : 'cor';
 LITERAL_mod : 'mod';
 LITERAL_or : 'or';
 LITERAL_rem : 'rem';
@@ -374,6 +374,7 @@ LITERAL_assert : 'assert';
 LITERAL_Assertion: 'Assertion';
 LITERAL_availability : 'availability';
 LITERAL_base : 'base';
+LITERAL_binding : 'binding';
 LITERAL_boolean:  'boolean';
 LITERAL_bound : 'bound';
 LITERAL_call: 'call'; 
@@ -809,7 +810,7 @@ assertionEnumeration:
 	;
 	
 enumerationPair:
-  ID ARROW^ predicate
+  ID IMP^ predicate
 	;	
 
 namelessAssertion:
@@ -1261,11 +1262,11 @@ action:
 basicAction:
   LITERAL_skip
   | assignment
-  | LITERAL_setmode mode=ID //[aadl2::Mode]
+  | ^( LITERAL_setmode mode=ID ) //[aadl2::Mode]
   | whenThrow
   | combinableOperation
   | communicationAction 
-//  | computation
+  | computation
   | simultaneousAssignment
 // //BA2015 reconciliation add IssueException
   | issueException
@@ -1296,15 +1297,15 @@ whenThrow:
   ;
 
 combinableOperation:
-  LITERAL_fetchadd
+  f_add=LITERAL_fetchadd^ LPAREN! target=ID COMMA! arithmetic=expression COMMA! result=ID RPAREN! 
   |
-  LITERAL_fetchor
+  f_or=LITERAL_fetchor^ LPAREN! target=ID COMMA! bool=expression COMMA! result=ID RPAREN!
   |
-  LITERAL_fetchand
+  f_and=LITERAL_fetchand^ LPAREN! target=ID COMMA! bool=expression COMMA! result=ID RPAREN!
   |
-  LITERAL_fetchxor
+  f_xor=LITERAL_fetchxor^ LPAREN! target=ID COMMA! bool=expression COMMA! result=ID RPAREN!
   |
-  LITERAL_swap
+  sw=LITERAL_swap^ LPAREN! target=ID COMMA! reference=ID COMMA! result=ID RPAREN!
   ;
 
 communicationAction:
@@ -1317,6 +1318,11 @@ communicationAction:
 //  fp=freezePort
 //  |
 //  pa=pause
+  ;
+
+computation:
+  LITERAL_computation^ LPAREN! lb=behaviorTime ( COMMA! ub=behaviorTime )? RPAREN!
+    ( LITERAL_in! LITERAL_binding^ component=QCREF+ )?
   ;
 
 subprogramCall:
