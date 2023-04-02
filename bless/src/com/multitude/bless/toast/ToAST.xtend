@@ -114,7 +114,7 @@ import com.multitude.aadl.bless.bLESS.VariableList
 import com.multitude.aadl.bless.bLESS.VariablesSection
 import com.multitude.aadl.bless.bLESS.WhenThrow
 import com.multitude.aadl.bless.bLESS.WhileLoop
-import com.multitude.bless.antlr3generated.BLESStoASTLexer
+import com.multitude.bless.antlr3generated.BLESS3Lexer
 import com.multitude.bless.app.Global
 import com.multitude.bless.tree.BAST
 import java.util.ArrayList
@@ -146,7 +146,7 @@ makeBASTforID(String id, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = id
-       token = new CommonToken(BLESStoASTLexer.ID, id)
+       token = new CommonToken(BLESS3Lexer.ID, id)
       ]	    
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforID
@@ -173,11 +173,11 @@ makeBASTforPropertyReference(PropertyReference pr, Element e)
     newBAST(e) =>
       [
        myText = '#'
-       token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, '#')
+       token = new CommonToken(BLESS3Lexer.OCTOTHORPE, '#')
        if (pr.self) addChild(newBAST(e) =>
          [
          myText = 'self'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_self, 'self')
+         token = new CommonToken(BLESS3Lexer.LITERAL_self, 'self')
          ])
        if (pr.pname !== null)
          addChild(makeBASTforPropertyName(pr.pname.qualifiedName(),e))
@@ -201,7 +201,7 @@ makeBASTforComponentClassifier(String s, Element e)
   newBAST(e) =>
     [
     myText = '::'
-    token = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, '::')
+    token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, '::')
     for (c : s?.getComponentClassifierStrings)
       addChild(c.makeBASTforINT(e))
     ]  
@@ -229,53 +229,53 @@ makeBASTforPropertyField(PropertyField f, Element e)
   newBAST(e) =>
     [
     myText = '['
-    token = new CommonToken(BLESStoASTLexer.LBRACKET, '[')
+    token = new CommonToken(BLESS3Lexer.LBRACKET, '[')
     addChild(f.index.makeBASTforINT(e))
     addChild(newBAST(e) =>
       [
       myText = ']'
-      token = new CommonToken(BLESStoASTLexer.RBRACKET, ']')
+      token = new CommonToken(BLESS3Lexer.RBRACKET, ']')
       ] )
     ]
   else if (f.variable !== null)
   newBAST(e) =>
     [
     myText = '['
-    token = new CommonToken(BLESStoASTLexer.LBRACKET, '[')
+    token = new CommonToken(BLESS3Lexer.LBRACKET, '[')
     addChild(f.variable.name.makeBASTforID(e))
     addChild(newBAST(e) =>
       [
       myText = ']'
-      token = new CommonToken(BLESStoASTLexer.RBRACKET, ']')
+      token = new CommonToken(BLESS3Lexer.RBRACKET, ']')
       ] )
     ]
   else if (f.pf !== null)
   newBAST(e) =>
     [
     myText = '.'
-    token = new CommonToken(BLESStoASTLexer.PERIOD, '.')
+    token = new CommonToken(BLESS3Lexer.DOT, '.')
     addChild(f.pf.makeBASTforID(e))
     ]
   else if (f.upper !== null)
   newBAST(e) =>
     [
     myText = '.'
-    token = new CommonToken(BLESStoASTLexer.PERIOD, '.')
+    token = new CommonToken(BLESS3Lexer.DOT, '.')
     addChild(newBAST(e) =>
       [
       myText = 'upper_bound'
-      token = new CommonToken(BLESStoASTLexer.LITERAL_upper_bound, 'upper_bound')
+      token = new CommonToken(BLESS3Lexer.LITERAL_upper_bound, 'upper_bound')
       ])
     ]
   else if (f.lower !== null)
   newBAST(e) =>
     [
     myText = '.'
-    token = new CommonToken(BLESStoASTLexer.PERIOD, '.')
+    token = new CommonToken(BLESS3Lexer.DOT, '.')
     addChild(newBAST(e) =>
       [
       myText = 'lower_bound'
-      token = new CommonToken(BLESStoASTLexer.LITERAL_lower_bound, 'lower_bound')
+      token = new CommonToken(BLESS3Lexer.LITERAL_lower_bound, 'lower_bound')
       ])
     ]
   } 
@@ -291,7 +291,7 @@ makeBASTforINT(String integer_literal, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = integer_literal
-       token = new CommonToken(BLESStoASTLexer.INTEGER_LIT, integer_literal)
+       token = new CommonToken(BLESS3Lexer.INTEGER_LIT, integer_literal)
       ]	
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforINT
@@ -307,7 +307,7 @@ makeBASTforREAL_LIT(String real_literal, Element parent)
     newBAST(parent) =>
       [
        myText = real_literal
-       token = new CommonToken(BLESStoASTLexer.REAL_LIT, real_literal)
+       token = new CommonToken(BLESS3Lexer.REAL_LIT, real_literal)
       ] 
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforREAL_LIT
@@ -337,7 +337,7 @@ makeBASTforSTRING(String string_literal, Value parent)
   	newBAST(parent) =>
   	  [
   	   myText = string_literal
-       token = new CommonToken(BLESStoASTLexer.AADL_STRING_LITERAL, string_literal)
+       token = new CommonToken(BLESS3Lexer.AADL_STRING_LITERAL, string_literal)
       ]	
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforSTRING
@@ -356,25 +356,25 @@ makeBASTforRangeSymbol(String mySymbol, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = '..'
-       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
       ]	
   	case ',.' :
   	newBAST(parent) =>
   	  [
   	   myText = ',.'
-       token = new CommonToken(BLESStoASTLexer.COMMADOT, ',.')
+       token = new CommonToken(BLESS3Lexer.COMMADOT, ',.')
       ]	
   	case '.,' :
   	newBAST(parent) =>
   	  [
   	   myText = '.,'
-       token = new CommonToken(BLESStoASTLexer.DOTCOMMA, '.,')
+       token = new CommonToken(BLESS3Lexer.DOTCOMMA, '.,')
       ]	
   	case ',,' :
   	newBAST(parent) =>
   	  [
   	   myText = ',,'
-       token = new CommonToken(BLESStoASTLexer.COMMACOMMA, ',,')
+       token = new CommonToken(BLESS3Lexer.COMMACOMMA, ',,')
       ]	 		
   	}  //end of switch	
     } catch (Exception ex) {ex.printStackTrace x}
@@ -394,37 +394,37 @@ makeBASTforRelationSymbol(String mySymbol, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = '='
-       token = new CommonToken(BLESStoASTLexer.EQ, '=')
+       token = new CommonToken(BLESS3Lexer.EQ, '=')
       ]	
   	case '<>' :
   	newBAST(parent) =>
   	  [
   	   myText = '<>'
-       token = new CommonToken(BLESStoASTLexer.NEQ, '<>')
+       token = new CommonToken(BLESS3Lexer.NEQ, '<>')
       ]	
   	case '<' :
   	newBAST(parent) =>
   	  [
   	   myText = '<'
-       token = new CommonToken(BLESStoASTLexer.LT, '<')
+       token = new CommonToken(BLESS3Lexer.LT, '<')
       ]	
   	case '<=' :
   	newBAST(parent) =>
   	  [
   	   myText = '<='
-       token = new CommonToken(BLESStoASTLexer.AM, '<=')
+       token = new CommonToken(BLESS3Lexer.AM, '<=')
       ]	 		
   	case '>=' :
   	newBAST(parent) =>
   	  [
   	   myText = '>='
-       token = new CommonToken(BLESStoASTLexer.AL, '>=')
+       token = new CommonToken(BLESS3Lexer.AL, '>=')
       ]	 		
   	case '>' :
   	newBAST(parent) =>
   	  [
   	   myText = '>'
-       token = new CommonToken(BLESStoASTLexer.GT, '>')
+       token = new CommonToken(BLESS3Lexer.GT, '>')
       ]	 		
   	}  //end of switch	
     } catch (Exception ex) {ex.printStackTrace x}
@@ -444,37 +444,37 @@ makeBASTforTimeUnit(String myUnit, BehaviorTime parent)
   	newBAST(parent) =>
   	  [
   	   myText = 'ps'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_ps, 'ps')
+       token = new CommonToken(BLESS3Lexer.LITERAL_ps, 'ps')
       ]	
   	case 'us' :
   	newBAST(parent) =>
   	  [
   	   myText = 'us'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_us, 'us')
+       token = new CommonToken(BLESS3Lexer.LITERAL_us, 'us')
       ]	
   	case 'ms' :
   	newBAST(parent) =>
   	  [
   	   myText = 'ms'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_ms, 'ms')
+       token = new CommonToken(BLESS3Lexer.LITERAL_ms, 'ms')
       ]	
   	case 'sec' :
   	newBAST(parent) =>
   	  [
   	   myText = 'sec'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_sec, 'sec')
+       token = new CommonToken(BLESS3Lexer.LITERAL_sec, 'sec')
       ]	 		
   	case 'min' :
   	newBAST(parent) =>
   	  [
   	   myText = 'min'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_min, 'min')
+       token = new CommonToken(BLESS3Lexer.LITERAL_min, 'min')
       ]	 		
   	case 'hr' :
   	newBAST(parent) =>
   	  [
   	   myText = 'hr'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_hr, 'hr')
+       token = new CommonToken(BLESS3Lexer.LITERAL_hr, 'hr')
       ]	 		
   	}  //end of switch	
     } catch (Exception ex) {ex.printStackTrace x}
@@ -496,7 +496,7 @@ makeBASTforPropertyName(String property_name, Element parent)
 //  	  newBAST(parent) =>
 //  	    [
 //  	    myText = 'time'
-//        token = new CommonToken(BLESStoASTLexer.LITERAL_time, 'time')
+//        token = new CommonToken(BLESS3Lexer.LITERAL_time, 'time')
 //        ]  
 //      }	
 //  	else
@@ -508,7 +508,7 @@ makeBASTforPropertyName(String property_name, Element parent)
     return newBAST(parent) =>
       [
        myText = '::'
-       token = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, '::')
+       token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, '::')
        addChild('NO'.makeBASTforID(parent))
        addChild('NAME'.makeBASTforID(parent))
       ] 
@@ -520,7 +520,7 @@ makeBASTforPropertyName(String property_name, Element parent)
     return newBAST(parent) =>
       [
        myText = '::'
-       token = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, '::')
+       token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, '::')
        addChild('NO'.makeBASTforID(parent))
        addChild(property_name.makeBASTforID(parent))
       ] 
@@ -531,7 +531,7 @@ makeBASTforPropertyName(String property_name, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = '::'
-       token = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, '::')
+       token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, '::')
        addChild(property_set.makeBASTforID(parent))
        addChild(property_id.makeBASTforID(parent))
       ]	
@@ -553,7 +553,7 @@ makeBASTforPort(String port_name, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = port_name
-       token = new CommonToken(BLESStoASTLexer.ID, port_name)
+       token = new CommonToken(BLESS3Lexer.ID, port_name)
       ]	
     } catch (Exception ex) {ex.printStackTrace x}  	
   }  //end of makeBASTforPort
@@ -569,7 +569,7 @@ makeBASTforAADL_STRING_LITERAL(String theString, Element parent)
   newBAST(parent) =>
   	  [
   	   myText =theString
-       token = new CommonToken(BLESStoASTLexer.AADL_STRING_LITERAL, theString)
+       token = new CommonToken(BLESS3Lexer.AADL_STRING_LITERAL, theString)
       ]	
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforAADL_STRING_LITERAL
@@ -614,7 +614,7 @@ toAST(AssertionLibrary e)
 //ghost variables not put into BAST  	
   	newBAST(e) =>
   	  [
-       token = new CommonToken(BLESStoASTLexer.ASSERTION_ANNEX, 'ASSERTION_ANNEX')
+       token = new CommonToken(BLESS3Lexer.ASSERTION_ANNEX, 'ASSERTION_ANNEX')
            //set my text
        myText = 'ASSERTION_ANNEX'
           //put on children
@@ -655,8 +655,8 @@ toAST(Assertion e)
 //  {
 //  	newBAST(e) =>
 //  	  [
-//        	//make fake token with BLESStoASTLexer type
-//        token = new CommonToken(BLESStoASTLexer.PARAMETER, 'PARAMETER')
+//        	//make fake token with BLESS3Lexer type
+//        token = new CommonToken(BLESS3Lexer.PARAMETER, 'PARAMETER')
 //           //set my text
 //        myText = 'PARAMETER'
 //          // put the formal ID as first child
@@ -687,7 +687,7 @@ toAST(AssertionEnumeration e)
     try {  
   	newBAST(e) =>
   	  [
-        token = new CommonToken(BLESStoASTLexer.PLUS_ARROW, '+=>')
+        token = new CommonToken(BLESS3Lexer.PLUS_ARROW, '+=>')
         myText = '+=>'
           //add either a PredicateInvocation, or one or more EnumerationPair
         if (e.pred !== null)  
@@ -741,39 +741,39 @@ toAST(AssertionEnumeration e)
 //  switch (e?.sym)
 //    {
 //    	case '+' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.PLUS, '+')
+//          token = new CommonToken(BLESS3Lexer.PLUS, '+')
 //          myText = '+' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '*' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.TIMES, '*')
+//          token = new CommonToken(BLESS3Lexer.TIMES, '*')
 //          myText = '*' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '-' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.MINUS, '-')
 //          myText = '-' 
 //          addChild(e.left_hand_side.toAST)
 //          addChild(e.right_hand_side.head.toAST) ]
 //    	case '/' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.DIVIDE, '/')
+//          token = new CommonToken(BLESS3Lexer.DIVIDE, '/')
 //          myText = '/' 
 //          addChild(e.left_hand_side.toAST)
 //          addChild(e.right_hand_side.head.toAST) ]
 //    	case '**' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.EXP, '**')
+//          token = new CommonToken(BLESS3Lexer.EXP, '**')
 //          myText = '**' 
 //          addChild(e.left_hand_side.toAST)
 //          addChild(e.right_hand_side.head.toAST) ]
 //    	case 'mod' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_mod, 'mod')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_mod, 'mod')
 //          myText = 'mod' 
 //          addChild(e.left_hand_side.toAST)
 //          addChild(e.right_hand_side.head.toAST) ]
 //    	case 'rem' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_rem, 'rem')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_rem, 'rem')
 //          myText = 'rem' 
 //          addChild(e.left_hand_side.toAST)
 //          addChild(e.right_hand_side.head.toAST) ]
@@ -798,7 +798,7 @@ toAST(SumQuantification e)
 //  if (e.sum)
   	newBAST(e) =>
   	  [
-        token = new CommonToken(BLESStoASTLexer.LITERAL_sum, 'sum')
+        token = new CommonToken(BLESS3Lexer.LITERAL_sum, 'sum')
            //set my text
         myText = 'sum'
           // put on the logic variables
@@ -807,7 +807,7 @@ toAST(SumQuantification e)
        addChild(newBAST(e)  =>
        	 [
        	 myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          if (e.in)
        	   addChild(e.range.toAST)
        	 else if (e.which)
@@ -816,7 +816,7 @@ toAST(SumQuantification e)
           // put on the "of"
         addChild(newBAST(e) =>
   	       [
-           token = new CommonToken(BLESStoASTLexer.LITERAL_of, 'of')
+           token = new CommonToken(BLESS3Lexer.LITERAL_of, 'of')
            myText = 'of'
            ])
           //put on the assertion expression
@@ -833,7 +833,7 @@ toAST(ProductQuantification e)
 //  if (e.product)
   	newBAST(e) =>
   	  [
-        token = new CommonToken(BLESStoASTLexer.LITERAL_product, 'product')
+        token = new CommonToken(BLESS3Lexer.LITERAL_product, 'product')
            //set my text
         myText = 'product'
           // put on the logic variables
@@ -842,7 +842,7 @@ toAST(ProductQuantification e)
        addChild(newBAST(e)  =>
        	 [
        	 myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          if (e.in)
        	   addChild(e.range.toAST)
        	 else if (e.which)
@@ -851,7 +851,7 @@ toAST(ProductQuantification e)
           // put on the "of"
         addChild(newBAST(e) =>
   	       [
-           token = new CommonToken(BLESStoASTLexer.LITERAL_of, 'of')
+           token = new CommonToken(BLESS3Lexer.LITERAL_of, 'of')
            myText = 'of'
            ])
           //put on the assertion expression
@@ -876,7 +876,7 @@ toAST(CountingQuantification e)
 //  if (e.numberof)
   	newBAST(e) =>
   	  [
-      token = new CommonToken(BLESStoASTLexer.LITERAL_numberof, 'numberof')
+      token = new CommonToken(BLESS3Lexer.LITERAL_numberof, 'numberof')
            //set my text
       myText = 'numberof'
           // put on the logic variables
@@ -885,7 +885,7 @@ toAST(CountingQuantification e)
       addChild(newBAST(e)  =>
        	 [
        	 myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          if (e.in)
        	   addChild(e.range.toAST)
        	 else if (e.which)
@@ -894,7 +894,7 @@ toAST(CountingQuantification e)
           // put on the "that"
       addChild(newBAST(e) =>
   	       [
-           token = new CommonToken(BLESStoASTLexer.LITERAL_that, 'that')
+           token = new CommonToken(BLESS3Lexer.LITERAL_that, 'that')
            myText = 'that'
            ])
           //put on the subpredicate
@@ -912,7 +912,7 @@ toAST(CountingQuantification e)
 //      [
 //  	   myText = 'INVOKE_FUNCTION['+e.assertion_function_identifier //.name
 //  	      +']'
-//       token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 
+//       token = new CommonToken(BLESS3Lexer.INVOKE_FUNCTION, 
 //		'INVOKE_FUNCTION['+e.assertion_function_identifier+']')
 //	   addChild(e.assertion_function_identifier //.name
 //	      .makeBASTforID(e) =>
@@ -940,7 +940,7 @@ toAST(AssertionFunctionValue e)
 
 //   AssertionName :
 //name 
-//  : pn1=partial_name ( d=PERIOD pn2+=partial_name )*
+//  : pn1=partial_name ( d=DOT pn2+=partial_name )*
 //    // if there's a dot, make it the root
 //    -> {d!==null}? ^( $d $pn1 $pn2+ )
 //    -> $pn1 ;
@@ -950,7 +950,7 @@ toAST(AssertionFunctionValue e)
 //	if (e.dot) 
 //	  newBAST(e) =>  [
 //  	   myText = '.'
-//       token = new CommonToken(BLESStoASTLexer.PERIOD, '.')
+//       token = new CommonToken(BLESS3Lexer.DOT, '.')
 //       addChild(
 //       	  e.id.makeBASTforID(e) => [
 //            for (index: e.array_index)  //then add the variables
@@ -987,13 +987,13 @@ toAST(AssertionFunctionValue e)
 //  newBAST(e) =>  
 //    [  //left parenthesis is root
 //  	myText = '('
-//    token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+//    token = new CommonToken(BLESS3Lexer.LPAREN, '(')
 //    for (child : e.record_value)  // record_value+=AssertionRecordValue+
 //      addChild(child.toAST)  //
 //    addChild(newBAST(e) => 
 //       [  //right parenthesis is last child
 //  	   myText = ')'
-//       token = new CommonToken(BLESStoASTLexer.RPAREN, ')') 
+//       token = new CommonToken(BLESS3Lexer.RPAREN, ')') 
 //       ] )  
 //    ]		 	
 //  }  //end of AssertionRecordTerm
@@ -1006,7 +1006,7 @@ toAST(AssertionFunctionValue e)
 //  newBAST(e) =>  
 //    [  //arrow parenthesis is root
 //  	myText = '=>'
-//    token = new CommonToken(BLESStoASTLexer.ARROW, '=>')
+//    token = new CommonToken(BLESS3Lexer.ARROW, '=>')
 //    addChild(e.field.makeBASTforID(e))  //field=ID  //[RecordField] 
 //    addChild(e.aval.toAST)  
 //    ]		 	
@@ -1027,14 +1027,14 @@ toAST(AssertionFunctionValue e)
 //    newBAST(e) =>  
 //      [
 //  	   myText = '-'
-//       token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+//       token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
 //       addChild(e.timed_expression.toAST)
 //  	  ]
 //  else if (e.abs)
 //    newBAST(e) =>  
 //      [
 //  	   myText = 'abs'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_abs, 'abs') 
+//       token = new CommonToken(BLESS3Lexer.LITERAL_abs, 'abs') 
 //       addChild(e.timed_expression.toAST)
 //  	  ]
 //  else if (e.timed_expression!==null)
@@ -1054,13 +1054,13 @@ toAST(AssertionFunctionValue e)
 //  	  [
 //     	switch (e)   
 //     	  {
-//     	  	BooleanType:  token = new CommonToken(BLESStoASTLexer.LITERAL_boolean, 'boolean')
-//     	  	case 'natural':  token = new CommonToken(BLESStoASTLexer.LITERAL_natural, 'natural')
-//     	  	case 'integer':  token = new CommonToken(BLESStoASTLexer.LITERAL_integer, 'integer')
-//     	  	case 'rational':  token = new CommonToken(BLESStoASTLexer.LITERAL_rational, 'rational')
-//     	  	case 'real':  token = new CommonToken(BLESStoASTLexer.LITERAL_real, 'real')
-//     	  	case 'complex':  token = new CommonToken(BLESStoASTLexer.LITERAL_complex, 'complex')
-//     	  	case 'time':  token = new CommonToken(BLESStoASTLexer.LITERAL_time, 'time')  	  	  		  	  
+//     	  	BooleanType:  token = new CommonToken(BLESS3Lexer.LITERAL_boolean, 'boolean')
+//     	  	case 'natural':  token = new CommonToken(BLESS3Lexer.LITERAL_natural, 'natural')
+//     	  	case 'integer':  token = new CommonToken(BLESS3Lexer.LITERAL_integer, 'integer')
+//     	  	case 'rational':  token = new CommonToken(BLESS3Lexer.LITERAL_rational, 'rational')
+//     	  	case 'real':  token = new CommonToken(BLESS3Lexer.LITERAL_real, 'real')
+//     	  	case 'complex':  token = new CommonToken(BLESS3Lexer.LITERAL_complex, 'complex')
+//     	  	case 'time':  token = new CommonToken(BLESS3Lexer.LITERAL_time, 'time')  	  	  		  	  
 //     	  }   
 //     
 //   	  ]
@@ -1077,42 +1077,42 @@ toAST(AssertionFunctionValue e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "natural"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_natural, "natural")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_natural, "natural")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.integer)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "integer"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_integer, "integer")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_integer, "integer")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.rational)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "rational"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_rational, "rational")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_rational, "rational")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.real)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "real"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_real, "real")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_real, "real")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.complex)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "complex"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_complex, "complex")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_complex, "complex")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.time)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "time"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_time, "time")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  }  //end of AssertionTypeConversion
@@ -1153,22 +1153,22 @@ toAST(AssertionFunctionValue e)
 //  else if (e.timeout!==null) 
 //    newBAST(e) => [
 //  	   myText = 'timeout'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, 'timeout')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_timeout, 'timeout')
 //      ] 
 ////  | now='now'
 //    else if (e.now!==null) newBAST(e) => [
 //  	   myText = 'now'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_now, 'now')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_now, 'now')
 //      ] 
 ////  | tops='tops'
 //    else if (e.tops!==null) newBAST(e) => [
 //  	   myText = 'tops'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_tops, 'tops')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_tops, 'tops')
 //      ] 
 ////  | nul='null'
 //    else if (e.nul!==null) newBAST(e) => [
 //  	   myText = 'null'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_null, 'null')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_null, 'null')
 //      ]    
 //  }  //end of AssertionValue
   
@@ -1180,7 +1180,7 @@ toAST(ConditionValuePair e)
   try {  
     newBAST(e) =>  [
   	   myText = '->'
-       token = new CommonToken(BLESStoASTLexer.IMP, '->')
+       token = new CommonToken(BLESS3Lexer.IMP, '->')
 //must add parentheses around predicate       
        addChild(parenthesize((e.condition as Expression).toAST,e))  //condition = parenthesized_predicate
        addChild((e.expression as Expression).toAST)  //expression = assertion_expression
@@ -1191,16 +1191,16 @@ toAST(ConditionValuePair e)
   def BAST
 parenthesize(BAST pred, Element e)
   {
-  if ((pred.getChildCount()==0) || pred.hasType(BLESStoASTLexer.AT_SIGN)
-        || pred.hasType(BLESStoASTLexer.LBRACKET)) 
+  if ((pred.getChildCount()==0) || pred.hasType(BLESS3Lexer.AT_SIGN)
+        || pred.hasType(BLESS3Lexer.LBRACKET)) 
   return pred
   newBAST(e) =>  [
        myText = '('
-       token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+       token = new CommonToken(BLESS3Lexer.LPAREN, '(')
        addChild(pred)
        addChild(newBAST(e) =>  [
        myText = ')'
-       token = new CommonToken(BLESStoASTLexer.RPAREN, ')')
+       token = new CommonToken(BLESS3Lexer.RPAREN, ')')
        ])
        ] 
   }
@@ -1215,8 +1215,8 @@ toAST(ConditionalExpression e)
   {
   try {  
     newBAST(e) =>  [
-  	   myText = 'CONDITIONAL'
-       token = new CommonToken(BLESStoASTLexer.CONDITIONAL, 'CONDITIONAL')
+  	   myText = 'QQ'
+       token = new CommonToken(BLESS3Lexer.QQ, 'QQ')
        addChild(e.pred.toAST)  //pred = predicate
        addChild(e.t.toAST)  //true choice, t = assertion_expression
        addChild(e.f.toAST)  //false choice f = assertion_expression
@@ -1229,16 +1229,16 @@ toAST(ConditionalExpression e)
 //      ConditionalAssertionFunction :
  //conditional_assertion_function:
 //  ( cvp+=condition_value_pair ( c=COMMA cvp+=condition_value_pair (COMMA cvp+=condition_value_pair)* ) )
-//    -> ^(CONDITIONAL_FUNCTION[$c,
-//        "CONDITIONAL_FUNCTION["+Integer.toString($c.getLine()+startingLine)+"]"] 
+//    -> ^(CONDITIONAL_ASSERTION_FUNCTION[$c,
+//        "CONDITIONAL_ASSERTION_FUNCTION["+Integer.toString($c.getLine()+startingLine)+"]"] 
 //        $cvp+) ;
   def dispatch BAST
 toAST(ConditionalAssertionFunction e)
   {
   try {  
     newBAST(e) =>  [
-  	   myText = 'CONDITIONAL_FUNCTION' //['+e.locationReference.line+']'
-       token = new CommonToken(BLESStoASTLexer.CONDITIONAL_FUNCTION, 'CONDITIONAL_FUNCTION') //['+e.locationReference.line+']')
+  	   myText = 'CONDITIONAL_ASSERTION_FUNCTION' //['+e.locationReference.line+']'
+       token = new CommonToken(BLESS3Lexer.CONDITIONAL_ASSERTION_FUNCTION, 'CONDITIONAL_ASSERTION_FUNCTION') //['+e.locationReference.line+']')
        for (child : e.cvp)  //add on the condition_value_pair children
          addChild(child.toAST)
       ]	
@@ -1251,17 +1251,17 @@ toAST(ConditionalAssertionFunction e)
 //  if (!e.lb_unary_minus&&!e.ub_unary_minus)
 //    newBAST(e) =>  [
 //  	   myText = '..'
-//       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+//       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
 //       addChild(e.lb.toAST)  //add lower bound
 //       addChild(e.ub.toAST)  //add upper bound
 //      ]	
 //  else if (e.lb_unary_minus&&!e.ub_unary_minus)
 //    newBAST(e) =>  [
 //  	   myText = '..'
-//       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+//       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
 //       addChild(newBAST(e) =>  [
 //  	      myText = '-'
-//          token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
 //          addChild(e.lb.toAST)  //add lower bound
 //          ])
 //       addChild(e.ub.toAST)  //add upper bound
@@ -1269,26 +1269,26 @@ toAST(ConditionalAssertionFunction e)
 //  else if (!e.lb_unary_minus&&e.ub_unary_minus)
 //    newBAST(e) =>  [
 //  	   myText = '..'
-//       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+//       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
 //       addChild(e.lb.toAST)
 //       addChild(newBAST(e) =>  [
 //  	      myText = '-'
-//          token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
 //          addChild(e.ub.toAST)
 //          ])  //add upper bound
 //      ]	
 //  else if (e.lb_unary_minus&&e.ub_unary_minus)
 //    newBAST(e) =>  [
 //  	   myText = '..'
-//       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+//       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
 //       addChild(newBAST(e) =>  [
 //  	      myText = '-'
-//          token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
 //          addChild(e.lb.toAST)  //add lower bound
 //          ])
 //       addChild(newBAST(e) =>  [
 //  	      myText = '-'
-//          token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
 //          addChild(e.ub.toAST)
 //          ])  //add upper bound
 //      ]		
@@ -1302,7 +1302,7 @@ toAST(EnumerationPair e)
   try {  
     newBAST(e) =>  [
   	   myText = e.enumeration_literal
-       token = new CommonToken(BLESStoASTLexer.ID, e.enumeration_literal)
+       token = new CommonToken(BLESS3Lexer.ID, e.enumeration_literal)
        addChild((e.predicate as Expression).toAST)  //predicate = predicate
       ]	
     } catch (Exception ex) {ex.printStackTrace x}
@@ -1316,13 +1316,13 @@ toAST(ExistentialQuantification e)
   try {  
     newBAST(e) =>  [
   	   myText = 'exists'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_exists, 'exists')
+       token = new CommonToken(BLESS3Lexer.LITERAL_exists, 'exists')
        if (e.variables!==null)
          addChild(e.variables.toAST)  //variables = logic_variables
        addChild(newBAST(e)  =>
        	 [
        	 myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          if (e.in)
        	   addChild(e.range.toAST)
        	 else if (e.which)
@@ -1350,7 +1350,7 @@ toAST(Variable e)
   e.name.makeBASTforID(e)
   try {  
     newBAST(e) => [
-      token = new CommonToken(BLESStoASTLexer.TILDE, '~')
+      token = new CommonToken(BLESS3Lexer.TILDE, '~')
           myText = '~' 
           addChild(e.name.makeBASTforID(e))
 //NEED TO FAKE IN type_name 
@@ -1358,7 +1358,7 @@ toAST(Variable e)
             addChild(e.tod.ref.name.makeBASTforID(e)) 
           else  //make dummy type name for type       
             addChild(newBAST(e) => [
-             token = new CommonToken(BLESStoASTLexer.ID, 'dummytype')
+             token = new CommonToken(BLESS3Lexer.ID, 'dummytype')
              myText = 'dummytype' 
           	 ]
           ) ]
@@ -1372,7 +1372,7 @@ toAST(VariableList e)
   try {  
   if (e.comma)
     newBAST(e) => [
-      token = new CommonToken(BLESStoASTLexer.COMMA, ',')
+      token = new CommonToken(BLESS3Lexer.COMMA, ',')
           myText = ',' 
           addChild(e.first.toAST)
           for (child : e.parameter)  
@@ -1392,41 +1392,41 @@ toAST(VariableList e)
 //    switch e.sym
 //    {
 //    	case '+' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.PLUS, '+')
+//          token = new CommonToken(BLESS3Lexer.PLUS, '+')
 //          myText = '+' 
 //          addChild(e.first.toAST)
 //          for (child : e.added)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '*' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.TIMES, '*')
+//          token = new CommonToken(BLESS3Lexer.TIMES, '*')
 //          myText = '*' 
 //          addChild(e.first.toAST)
 //          for (child : e.multiplied)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '-' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.MINUS, '-')
 //          myText = '-' 
 //          addChild(e.first.toAST)
 //          addChild(e.subtracted.toAST)  //add on the r.h.s children
 //            ]
 //    	case '/' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.DIVIDE, '/')
+//          token = new CommonToken(BLESS3Lexer.DIVIDE, '/')
 //          myText = '/' 
 //          addChild(e.first.toAST)
 //          addChild(e.divided.toAST) ]
 ////    	case '**' : newBAST(e) => [
-////          token = new CommonToken(BLESStoASTLexer.EXP, '**')
+////          token = new CommonToken(BLESS3Lexer.EXP, '**')
 ////          myText = '**' 
 ////          addChild(e.left_hand_side.toAST)
 ////          for (child : e.right_hand_side)  //add on the r.h.s children
 ////            addChild(child.toAST) ]
 //    	case 'mod' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_mod, 'mod')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_mod, 'mod')
 //          myText = 'mod' 
 //          addChild(e.first.toAST)
 //          addChild(e.divided.toAST)]
 ////    	case 'rem' : newBAST(e) => [
-////          token = new CommonToken(BLESStoASTLexer.LITERAL_rem, 'rem')
+////          token = new CommonToken(BLESS3Lexer.LITERAL_rem, 'rem')
 ////          myText = '*' 
 ////          addChild(e.left_hand_side.toAST)
 ////          for (child : e.right_hand_side)  //add on the r.h.s children
@@ -1445,7 +1445,7 @@ toAST(IndexExpressionOrRange e)
 	if (e.dd) 
 	  newBAST(e) =>  [
   	   myText = '..'
-       token = new CommonToken(BLESStoASTLexer.DOTDOT, '..')
+       token = new CommonToken(BLESS3Lexer.DOTDOT, '..')
        addChild(e.left_hand_side.toAST)  //variables = logic_variables
        addChild(e.right_hand_side.toAST)  //domain = logic_variable_domain
       ]	
@@ -1463,7 +1463,7 @@ toAST(PeriodShift e)
 	if (e.unary_minus) 
 	  newBAST(e) =>  [
   	   myText = '-'
-       token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, '-')
+       token = new CommonToken(BLESS3Lexer.UNARY_MINUS, '-')
        if (e.v!==null)
          addChild(e.v.toAST)  //v = value
        else if (e.index_expression!==null)  
@@ -1484,12 +1484,12 @@ parenthesize(IndexExpression ie)
   newBAST(ie) =>  
     [  //left parenthesis is root
   	myText = '('
-    token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+    token = new CommonToken(BLESS3Lexer.LPAREN, '(')
     addChild(ie.toAST)  //first child is expression tree
     addChild(newBAST(ie) => 
        [  //right parenthesis is last child
   	   myText = ')'
-       token = new CommonToken(BLESStoASTLexer.RPAREN, ')') 
+       token = new CommonToken(BLESS3Lexer.RPAREN, ')') 
        ] )  
     ]		 	
     } catch (Exception ex) {ex.printStackTrace x}
@@ -1505,7 +1505,7 @@ toAST(IndexExpression ie)
     newBAST(ie) =>
       [
   	  myText = '-'
-      token = new CommonToken(BLESStoASTLexer.MINUS, '-')
+      token = new CommonToken(BLESS3Lexer.MINUS, '-')
       addChild(ie.l.toAST)
       addChild(ie.r.head.toAST)
       ]	
@@ -1515,7 +1515,7 @@ toAST(IndexExpression ie)
     newBAST(ie) =>
       [
   	  myText = '/'
-      token = new CommonToken(BLESStoASTLexer.DIVIDE, '/')
+      token = new CommonToken(BLESS3Lexer.DIVIDE, '/')
       addChild(ie.l.toAST)
       addChild(ie.r.head.toAST)
       ]	
@@ -1525,7 +1525,7 @@ toAST(IndexExpression ie)
     newBAST(ie) =>
       [
   	  myText = 'mod'
-      token = new CommonToken(BLESStoASTLexer.LITERAL_mod, '/')
+      token = new CommonToken(BLESS3Lexer.LITERAL_mod, '/')
       addChild(ie.l.toAST)
       addChild(ie.r.head.toAST)
       ]	
@@ -1535,7 +1535,7 @@ toAST(IndexExpression ie)
     newBAST(ie) =>
       [
   	  myText = '+'
-      token = new CommonToken(BLESStoASTLexer.PLUS, '+')
+      token = new CommonToken(BLESS3Lexer.PLUS, '+')
       addChild(ie.l.toAST)
       for (ch : ie.r)
         addChild(ch.toAST)
@@ -1546,7 +1546,7 @@ toAST(IndexExpression ie)
     newBAST(ie) =>
       [
   	  myText = '*'
-      token = new CommonToken(BLESStoASTLexer.TIMES, '*')
+      token = new CommonToken(BLESS3Lexer.TIMES, '*')
       addChild(ie.l.toAST)
       for (ch : ie.r)
         addChild(ch.toAST)
@@ -1573,7 +1573,7 @@ toAST(IndexExpression ie)
 //  {
 //	newBAST(e) =>  [  //make 'in' root
 //  	   myText = 'in'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
 //       if (e.range!==null)
 //         addChild( //range_symol subroot
 //       	  e.range.makeBASTforRangeSymbol(e) =>
@@ -1599,7 +1599,7 @@ toAST(LogicVariables e)
 	newBAST(e) =>  
 	  [  //make ':' root
   	myText = ':'
-    token = new CommonToken(BLESStoASTLexer.COLON, ':')
+    token = new CommonToken(BLESS3Lexer.COLON, ':')
     addChild( //assertion_type is first child
        e.lv.head.tod.toAST)
     addChild(e.lv.head.name.makeBASTforID(e.lv.head))
@@ -1608,7 +1608,7 @@ toAST(LogicVariables e)
 	newBAST(e) =>  
 	  [  //make ':' root
   	myText = ':'
-    token = new CommonToken(BLESStoASTLexer.COLON, ':')
+    token = new CommonToken(BLESS3Lexer.COLON, ':')
     addChild( //assertion_type is first child
        e.lv.head.tod.toAST)
     for (v : e.lv)
@@ -1624,7 +1624,7 @@ toAST(ModeCondition e)
    try {  
   newBAST(e) =>  [  
     myText = 'on'
-    token = new CommonToken(BLESStoASTLexer.LITERAL_on, 'on')
+    token = new CommonToken(BLESS3Lexer.LITERAL_on, 'on')
     addChild(e.tle.toAST)  	
   	]
     } catch (Exception ex) {ex.printStackTrace x}
@@ -1632,7 +1632,7 @@ toAST(ModeCondition e)
 
 //      Name :
 //name 
-//  : pn1=partial_name ( d=PERIOD pn2+=partial_name )*
+//  : pn1=partial_name ( d=DOT pn2+=partial_name )*
 //    // if there's a dot, make it the root
 //    -> {d!==null}? ^( $d $pn1 $pn2+ )
 //    -> $pn1 ;
@@ -1643,11 +1643,11 @@ toAST(ValueName e)
 	if (e.dot) 
 	  newBAST(e) =>  [
   	   myText = '.'
-       token = new CommonToken(BLESStoASTLexer.PERIOD, '.')
+       token = new CommonToken(BLESS3Lexer.DOT, '.')
        addChild(  //put on id[i1][i2]
        	 newBAST(e) =>  [
        	 	myText = e.id.name
-       	 	token = new CommonToken(BLESStoASTLexer.ID, e.id.name)
+       	 	token = new CommonToken(BLESS3Lexer.ID, e.id.name)
        	 	for (index : e.array_index)
        	 	  addChild(index.toAST)
        	 ]
@@ -1659,48 +1659,48 @@ toAST(ValueName e)
      makeBASTforPort(e.id.name+'\'fresh',e)
 //   newBAST(e) => [
 //       myText = '\''
-//       token = new CommonToken(BLESStoASTLexer.TICK, '\'')
+//       token = new CommonToken(BLESS3Lexer.TICK, '\'')
 //       addChild(makeBASTforPort(e.id.name,e))
 //       addChild(   
 //         newBAST(e) => [
 //         myText = 'fresh'
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_fresh, 'fresh')
+//         token = new CommonToken(BLESS3Lexer.LITERAL_fresh, 'fresh')
 //         ])
 //      ] 
   else if (e.count)
      makeBASTforPort(e.id.name+'\'count',e)
 //   newBAST(e) => [
 //       myText = '\''
-//       token = new CommonToken(BLESStoASTLexer.TICK, '\'')
+//       token = new CommonToken(BLESS3Lexer.TICK, '\'')
 //       addChild(makeBASTforPort(e.id.name,e))
 //       addChild(   
 //         newBAST(e) => [
 //         myText = 'count'
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_count, 'count')
+//         token = new CommonToken(BLESS3Lexer.LITERAL_count, 'count')
 //         ])
 //      ] 
   else if (e.updated)
       makeBASTforPort(e.id.name+'\'updated',e)
 //   newBAST(e) => [
 //       myText = '\''
-//       token = new CommonToken(BLESStoASTLexer.TICK, '\'')
+//       token = new CommonToken(BLESS3Lexer.TICK, '\'')
 //       addChild(makeBASTforPort(e.id.name,e))
 //       addChild(   
 //         newBAST(e) => [
 //         myText = 'updated'
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_updated, 'updated')
+//         token = new CommonToken(BLESS3Lexer.LITERAL_updated, 'updated')
 //         ])
 //      ] 
   else if (e.q) // && !e.containedInAssignment)  // && !AssertionUtil.containedInAssertion(e))
    newBAST(e) => [
        myText = '?'
-       token = new CommonToken(BLESStoASTLexer.QUESTION, '?')
+       token = new CommonToken(BLESS3Lexer.QUESTION, '?')
        addChild(makeBASTforPort(e.id.name,e))
       ] 
   else if (e.lp) // function call
    newBAST(e) => [
-       myText = 'FUNCTION_CALL['+e.id.name+']'
-       token = new CommonToken(BLESStoASTLexer.FUNCTION_CALL, 'FUNCTION_CALL['+e.id.name+']')
+       myText = 'SUBPROGRAM_INVOCATION['+e.id.name+']'
+       token = new CommonToken(BLESS3Lexer.SUBPROGRAM_INVOCATION, 'SUBPROGRAM_INVOCATION['+e.id.name+']')
        addChild(makeBASTforID(e.id.name,e))
        if (e.pr !== null)
        for (parameter : e.pr.parameters)
@@ -1709,7 +1709,7 @@ toAST(ValueName e)
   else  //just id with optional [i1][i2]
       newBAST(e) =>  [
        	myText = e.id.name
-       	token = new CommonToken(BLESStoASTLexer.ID, e.id.name)
+       	token = new CommonToken(BLESS3Lexer.ID, e.id.name)
        	for (index : e.array_index)
        	 	addChild(index.toAST)
       ]
@@ -1723,7 +1723,7 @@ toAST(FormalExpressionPair e)
   {
   newBAST(e) => [
        myText = '->'
-       token = new CommonToken(BLESStoASTLexer.ARROW, '->')
+       token = new CommonToken(BLESS3Lexer.ARROW, '->')
        addChild(makeBASTforID(e.formal,e))
        addChild(e.actual.toAST)
       ] 
@@ -1742,7 +1742,7 @@ toAST(NamelessAssertion e)
   try {  
 	  newBAST(e) =>  [
   	   myText = 'ASSERTION'
-       token = new CommonToken(BLESStoASTLexer.ASSERTION, 'ASSERTION')
+       token = new CommonToken(BLESS3Lexer.ASSERTION, 'ASSERTION')
        addChild((e.predicate as Expression).toAST)
        ]
     } catch (Exception ex) {ex.printStackTrace x}
@@ -1754,7 +1754,7 @@ toAST(NamelessFunction e)
   try {  
 	  newBAST(e) =>  [
   	   myText = 'ASSERTION_FUNCTION'
-       token = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, 'ASSERTION_FUNCTION')
+       token = new CommonToken(BLESS3Lexer.ASSERTION_FUNCTION, 'ASSERTION_FUNCTION')
        //ignore return type
        addChild(e.functionvalue.toAST)
        ]
@@ -1767,7 +1767,7 @@ toAST(NamelessEnumeration e)
   try {  
 	  newBAST(e) =>  [
   	   myText = 'ASSERTION_ENUMERATION'
-       token = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, 'ASSERTION_ENUMERATION')
+       token = new CommonToken(BLESS3Lexer.ASSERTION_ENUMERATION, 'ASSERTION_ENUMERATION')
        addChild(e.enumeration.toAST)
        ]   
     } catch (Exception ex) {ex.printStackTrace x}
@@ -1781,12 +1781,12 @@ toAST(NamelessEnumeration e)
 //  newBAST(e) =>  
 //    [  //left parenthesis is root
 //  	myText = '('
-//    token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+//    token = new CommonToken(BLESS3Lexer.LPAREN, '(')
 //    addChild(e.predicate.toAST)  //first child is predicate
 //    addChild(newBAST(e) => 
 //       [  //right parenthesis is last child
 //  	   myText = ')'
-//       token = new CommonToken(BLESStoASTLexer.RPAREN, ')') 
+//       token = new CommonToken(BLESS3Lexer.RPAREN, ')') 
 //       ] )  
 //    ]		 	
 //  }  //end of ParenthesizedPredicate
@@ -1810,11 +1810,11 @@ toAST(NamelessEnumeration e)
 //  else if (e.pred_ex!==null)	 //have a AssertionExpression?
 //	newBAST(e) =>  [  //make ^(LPAREN ae RPAREN)
 //  	   myText = '('  //make left parenthesis
-//       token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+//       token = new CommonToken(BLESS3Lexer.LPAREN, '(')
 //       addChild(e.pred_ex.toAST)
 //       addChild(  //add right parenthesis
 //         newBAST(e) =>  [ myText = ')'  //make right parenthesis
-//           token = new CommonToken(BLESStoASTLexer.RPAREN, ')') ]  )
+//           token = new CommonToken(BLESS3Lexer.RPAREN, ')') ]  )
 //       ]   
 //  }  //end of ParenthesizedPredicateExpression
 
@@ -1869,35 +1869,35 @@ toAST(PartialName e)
 //  	  switch e.sym
 //  	  {
 //  	  case 'and' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_and, 'and')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_and, 'and')
 //          myText = 'and' 
 //          addChild(e.term.toAST)
 //          for (child : e.moreTerms)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //  	  case 'or' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_or, 'or')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_or, 'or')
 //          myText = 'or' 
 //          addChild(e.term.toAST)
 //          for (child : e.moreTerms)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //  	  case 'xor' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_xor, 'xor')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_xor, 'xor')
 //          myText = 'xor' 
 //          addChild(e.term.toAST)
 //          for (child : e.moreTerms)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //  	  case '->' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.IMP, '->')
+//          token = new CommonToken(BLESS3Lexer.IMP, '->')
 //          myText = '->' 
 //          addChild(e.term.toAST)
 //          addChild(e.consequent.toAST) ]
 //  	  case 'implies' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_implies, 'implies')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_implies, 'implies')
 //          myText = 'implies' 
 //          addChild(e.term.toAST)
 //          addChild(e.consequent.toAST) ]
 //  	  case 'iff' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_iff, 'iff')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_iff, 'iff')
 //          myText = 'iff' 
 //          addChild(e.term.toAST)
 //          addChild(e.logical_equivalent.toAST) ]
@@ -1935,7 +1935,7 @@ toAST(Invocation e)
   newBAST(e) =>  
     [  //left parenthesis is root
   	myText = 'INVOKE['+e.label.name+']'
-    token = new CommonToken(BLESStoASTLexer.INVOKE, 'INVOKE['+e.label.name+']')
+    token = new CommonToken(BLESS3Lexer.INVOKE, 'INVOKE['+e.label.name+']')
 	  addChild(e.label.name.makeBASTforID(e) =>
 	   	 [
 	   	 if (e.actual_parameter!==null)	
@@ -1947,10 +1947,10 @@ toAST(Invocation e)
                newBAST(e) =>  //create actual_assertion_parameter including COLON_TILDE
                  [  
                  myText = "PARAMETER"
-                 token = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER")
+                 token = new CommonToken(BLESS3Lexer.PARAMETER, "PARAMETER")
                  addChild(newBAST(e) =>  
                    [ myText = "COLON_TILDE" 
-                    token = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE")
+                    token = new CommonToken(BLESS3Lexer.COLON_TILDE, "COLON_TILDE")
                    ])
                  addChild(child.formal.makeBASTforID(e)) 
                  addChild(child.actual.toAST) 
@@ -1964,7 +1964,7 @@ toAST(Invocation e)
   newBAST(e) =>  
     [  //left parenthesis is root
     myText = 'INVOKE_FUNCTION['+e.label.name+']'
-    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
+    token = new CommonToken(BLESS3Lexer.INVOKE_FUNCTION, 'INVOKE_FUNCTION['+e.label.name+']')
     addChild(e.label.name.makeBASTforID(e) =>
        [
        if (e.actual_parameter!==null) 
@@ -1977,7 +1977,7 @@ toAST(Invocation e)
   newBAST(e) =>  
     [  //left parenthesis is root
     myText = 'INVOKE_ERROR['+e.label.name+']'
-    token = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, 'INVOKE_ERROR['+e.label.name+']')
+    token = new CommonToken(BLESS3Lexer.INVOKE_FUNCTION, 'INVOKE_ERROR['+e.label.name+']')
     ]           
    
   }  //end of PredicateInvocation
@@ -2003,7 +2003,7 @@ toAST(Relation e)
 //     newBAST(e) =>  
 //       [ 
 //  	   myText = '+='
-//       token = new CommonToken(BLESStoASTLexer.PLUS_EQUALS, '+=')
+//       token = new CommonToken(BLESS3Lexer.PLUS_EQUALS, '+=')
 //       addChild(e.target.toAST)  //add target=Name
 //       addChild(e.increment.toAST)  //add increment=AssertionSubexpression     
 //       ]
@@ -2012,7 +2012,7 @@ toAST(Relation e)
      (newBAST(e) =>  
          [  
          myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          addChild(e.l.toAST)   //s.b. only one
          addChild(e.range.toAST)
          ]).parenthesize(e)
@@ -2037,7 +2037,7 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = 'not'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_not, 'not')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_not, 'not')
 //       addChild(e.subsub.toAST)
 //       ]
 //  else
@@ -2052,32 +2052,32 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = 'true'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_true, 'true')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_true, 'true')
 //       ]
 //  else if (e.f!==null)  //f?='false'
 //    newBAST(e) =>  
 //       [  
 //  	   myText = 'false'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_false, 'false')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_false, 'false')
 //       ]
 //  else if (e.st!==null)  //st?='stop'
 //    newBAST(e) =>  
 //       [  
 //  	   myText = 'stop'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_stop, 'stop')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_stop, 'stop')
 //       ]
 //   else if (e.variable!==null)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = 'def'
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_def, 'def')
+//       token = new CommonToken(BLESS3Lexer.LITERAL_def, 'def')
 //       addChild(e.variable.makeBASTforID(e))  //may change to assertion_parameter
 //       ]    
 ////  else if (e.def)  // def?='def' variable=LogicVariables
 ////    newBAST(e) =>  
 ////       [  
 ////  	   myText = 'def'
-////       token = new CommonToken(BLESStoASTLexer.LITERAL_def, 'def')
+////       token = new CommonToken(BLESS3Lexer.LITERAL_def, 'def')
 ////       addChild(e.variables.toAST)
 ////       ]
 //  else if (e.relation!==null)
@@ -2102,14 +2102,14 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "'"
-//       token = new CommonToken(BLESStoASTLexer.TICK, "'")
+//       token = new CommonToken(BLESS3Lexer.TICK, "'")
 //       addChild(e.subject.toAST)
 //       ]
 //  else if (e.at)	
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "@"
-//       token = new CommonToken(BLESStoASTLexer.AT_SIGN, "@")
+//       token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
 //       addChild(e.subject.toAST)
 //       addChild(e.time.toAST)  // at?='@' time=AssertionSubexpression
 //       ]
@@ -2117,7 +2117,7 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "^"
-//       token = new CommonToken(BLESStoASTLexer.CARET, "^")
+//       token = new CommonToken(BLESS3Lexer.CARET, "^")
 //       addChild(e.subject.toAST)
 //       addChild(e.shift.toAST)  //  caret?='^' periods=PeriodShift 
 //       ]
@@ -2161,14 +2161,14 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "'"
-//       token = new CommonToken(BLESStoASTLexer.TICK, "'")
+//       token = new CommonToken(BLESS3Lexer.TICK, "'")
 //       addChild(e.subject.toAST)
 //       ]
 //  else if (e.at)	
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "@"
-//       token = new CommonToken(BLESStoASTLexer.AT_SIGN, "@")
+//       token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
 //       addChild(e.subject.toAST)
 //       addChild(e.time.toAST)  // at?='@' time=AssertionSubexpression
 //       ]
@@ -2176,7 +2176,7 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "^"
-//       token = new CommonToken(BLESStoASTLexer.CARET, "^")
+//       token = new CommonToken(BLESS3Lexer.CARET, "^")
 //       addChild(e.subject.toAST)
 //       addChild(e.shift.toAST)  //  caret?='^' periods=PeriodShift 
 //       ]
@@ -2193,43 +2193,43 @@ toAST(Relation e)
 //    switch (e.sym)
 //    {
 //    	case '+' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.PLUS, '+')
+//          token = new CommonToken(BLESS3Lexer.PLUS, '+')
 //          myText = '+' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '*' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.TIMES, '*')
+//          token = new CommonToken(BLESS3Lexer.TIMES, '*')
 //          myText = '*' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '-' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.MINUS, '-')
+//          token = new CommonToken(BLESS3Lexer.MINUS, '-')
 //          myText = '-' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '/' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.DIVIDE, '/')
+//          token = new CommonToken(BLESS3Lexer.DIVIDE, '/')
 //          myText = '/' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case '**' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.EXP, '**')
+//          token = new CommonToken(BLESS3Lexer.EXP, '**')
 //          myText = '**' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case 'mod' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_mod, 'mod')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_mod, 'mod')
 //          myText = 'mod' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
 //            addChild(child.toAST) ]
 //    	case 'rem' : newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_rem, 'rem')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_rem, 'rem')
 //          myText = 'rem' 
 //          addChild(e.left_hand_side.toAST)
 //          for (child : e.right_hand_side)  //add on the r.h.s children
@@ -2248,7 +2248,7 @@ toAST(Relation e)
 //    newBAST(e) =>  
 //    [  
 //  	myText = "-"
-//    token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+//    token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
 //    if (e.value!==null)
 //      addChild(e.value.toAST)	// value=Value
 //    else if (e.af!==null) 
@@ -2256,11 +2256,11 @@ toAST(Relation e)
 //    else   //'(' expression=TimeExpression ')'
 //      addChild(newBAST(e) =>  [  //make ^(LPAREN ae RPAREN)
 //  	   myText = '('  //make left parenthesis
-//       token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+//       token = new CommonToken(BLESS3Lexer.LPAREN, '(')
 //       addChild(e.expression.toAST)
 //       addChild(  //add right parenthesis
 //         newBAST(e) =>  [ myText = ')'  //make right parenthesis
-//           token = new CommonToken(BLESStoASTLexer.RPAREN, ')') ]  )
+//           token = new CommonToken(BLESS3Lexer.RPAREN, ')') ]  )
 //       ] ) 	//ps=ParenthesizedSubexpression
 //    ]
 //  else if (e.value!==null)
@@ -2270,11 +2270,11 @@ toAST(Relation e)
 //  else  
 //    newBAST(e) =>  [  //make ^(LPAREN ae RPAREN)
 //  	   myText = '('  //make left parenthesis
-//       token = new CommonToken(BLESStoASTLexer.LPAREN, '(')
+//       token = new CommonToken(BLESS3Lexer.LPAREN, '(')
 //       addChild(e.expression.toAST)
 //       addChild(  //add right parenthesis
 //         newBAST(e) =>  [ myText = ')'  //make right parenthesis
-//           token = new CommonToken(BLESStoASTLexer.RPAREN, ')') ]  )
+//           token = new CommonToken(BLESS3Lexer.RPAREN, ')') ]  )
 //       ]   
 //  }  //end of TimeSubexpression
   
@@ -2286,12 +2286,12 @@ toAST(UniversalQuantification e)
    try {  
 	newBAST(e) =>  [  //make ^(all
   	   myText = 'all'  
-       token = new CommonToken(BLESStoASTLexer.LITERAL_all, 'all')
+       token = new CommonToken(BLESS3Lexer.LITERAL_all, 'all')
        addChild(e.variables.toAST)
        addChild(newBAST(e)  =>
        	 [
        	 myText = 'in'
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, 'in')
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, 'in')
          if (e.in)
        	   addChild(e.range.toAST)
        	 else if (e.which)
@@ -2320,12 +2320,12 @@ toAST(NamedAssertion e)
 	newBAST(e) =>  
 	  [  //make ^(ASSERTION root
   	  myText = 'ASSERTION['+e.name+']'  //ASSERTION root
-      token = new CommonToken(BLESStoASTLexer.ASSERTION, 'ASSERTION['+e.name+']')
+      token = new CommonToken(BLESS3Lexer.ASSERTION, 'ASSERTION['+e.name+']')
       addChild(  //make LABEL subroot
 	      newBAST(e) =>  
 	      [  //make ^(LABEL identifier)
   	    myText = 'LABEL'  //LABEL subroot
-        token = new CommonToken(BLESStoASTLexer.LABEL, 'LABEL')
+        token = new CommonToken(BLESS3Lexer.LABEL, 'LABEL')
         addChild(e.name.makeBASTforID(e))
         ] )
    //if there are parameters
@@ -2333,7 +2333,7 @@ toAST(NamedAssertion e)
 	      addChild(newBAST(e) =>  
 	    	 [  
   	     myText = 'PARAMETERS'  
-         token = new CommonToken(BLESStoASTLexer.PARAMETERS, 'PARAMETERS')
+         token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
 	       addChild(e.formals.toAST)
 	       ])
    //finally, put the predicate on    
@@ -2342,19 +2342,19 @@ toAST(NamedAssertion e)
   else if (e.func)  //ASSERTION_FUNCTION
 	newBAST(e) =>  [  //make ^(ASSERTION_FUNCTION root
   	   myText = 'ASSERTION_FUNCTION['+e.name+']'  
-       token = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, 
+       token = new CommonToken(BLESS3Lexer.ASSERTION_FUNCTION, 
           'ASSERTION_FUNCTION['+e.name+']')
        addChild(  //make LABEL subroot
 	       newBAST(e) =>  [  //make ^(LABEL identifier)
   	       myText = 'LABEL'  //LABEL subroot
-           token = new CommonToken(BLESStoASTLexer.LABEL, 'LABEL')
+           token = new CommonToken(BLESS3Lexer.LABEL, 'LABEL')
            addChild(e.name.makeBASTforID(e))
            ] )
        //if there are parameters
        if (e.formals !==null)    
 	     addChild(newBAST(e) =>  [  
   	       myText = 'PARAMETERS'  
-           token = new CommonToken(BLESStoASTLexer.PARAMETERS, 'PARAMETERS')
+           token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
 	         addChild(e.formals.toAST)])
        //finally, put the function on    
        addChild(e.functionvalue.toAST) // pfv=AssertionFunctionValue 
@@ -2362,18 +2362,18 @@ toAST(NamedAssertion e)
     else if (e.enumer)
 	newBAST(e) =>  [  //make ^(ASSERTION_ENUMERATION root
   	   myText = 'ASSERTION_ENUMERATION['+e.name+']'  //ASSERTION_ENUMERATION root
-       token = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, 
+       token = new CommonToken(BLESS3Lexer.ASSERTION_ENUMERATION, 
           'ASSERTION_ENUMERATION['+e.name+']')
        addChild(  //make LABEL subroot
 	     newBAST(e) =>  [  //make ^(LABEL identifier)
   	       myText = 'LABEL'  //LABEL subroot
-           token = new CommonToken(BLESStoASTLexer.LABEL, 'LABEL')
+           token = new CommonToken(BLESS3Lexer.LABEL, 'LABEL')
            addChild(e.name.makeBASTforID(e))
            ] )
        //there is one parameter
        addChild(newBAST(e) =>  [  //make ^(PARAMETERS lv+)
   	       myText = 'PARAMETERS'  //LABEL subroot
-           token = new CommonToken(BLESStoASTLexer.PARAMETERS, 'PARAMETERS')
+           token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
            addChild(e.assertionvariable.makeBASTforID(e))    //add child to PARAMETERS node     
            ] )
        //finally, put the AssertionEnumeration on    
@@ -2390,14 +2390,14 @@ toAST(NamedAssertion e)
 //	newBAST(e) =>  [  //make ^(ASSERTION_FUNCTION root
 //  	   myText = 'ASSERTION_FUNCTION['+e.nam+']'  
 // // 	   myText = 'ASSERTION_FUNCTION['+e.name+']'  
-//       token = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, 
+//       token = new CommonToken(BLESS3Lexer.ASSERTION_FUNCTION, 
 //          'ASSERTION_FUNCTION['+e.nam+']')
-////       token = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, 
+////       token = new CommonToken(BLESS3Lexer.ASSERTION_FUNCTION, 
 ////          'ASSERTION_FUNCTION['+e.name+']')
 //       addChild(  //make LABEL subroot
 //	     newBAST(e) =>  [  //make ^(LABEL identifier)
 //  	       myText = 'LABEL'  //LABEL subroot
-//           token = new CommonToken(BLESStoASTLexer.LABEL, 'LABEL')
+//           token = new CommonToken(BLESS3Lexer.LABEL, 'LABEL')
 //           addChild(e.nam.makeBASTforID(e))
 ////           addChild(e.name.makeBASTforID(e))
 //           ] )
@@ -2405,7 +2405,7 @@ toAST(NamedAssertion e)
 //       if (e.formals !==null)    
 //	     addChild(newBAST(e) =>  [  
 //  	       myText = 'PARAMETERS'  
-//           token = new CommonToken(BLESStoASTLexer.PARAMETERS, 'PARAMETERS')
+//           token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
 //	         addChild(e.formals.toAST)])
 //       //finally, put the function on    
 //       addChild(e.functionvalue.toAST) // pfv=AssertionFunctionValue 
@@ -2419,22 +2419,22 @@ toAST(NamedAssertion e)
 //  {
 //	newBAST(e) =>  [  //make ^(ASSERTION_FUNCTION root
 //  	   myText = 'ASSERTION_ENUMERATION['+e.nam+']'  //ASSERTION_ENUMERATION root
-//       token = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, 
+//       token = new CommonToken(BLESS3Lexer.ASSERTION_ENUMERATION, 
 //          'ASSERTION_ENUMERATION['+e.nam+']')
 ////  	   myText = 'ASSERTION_ENUMERATION['+e.name+']'  //ASSERTION_ENUMERATION root
-////       token = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, 
+////       token = new CommonToken(BLESS3Lexer.ASSERTION_ENUMERATION, 
 ////          'ASSERTION_ENUMERATION['+e.name+']')
 //       addChild(  //make LABEL subroot
 //	     newBAST(e) =>  [  //make ^(LABEL identifier)
 //  	       myText = 'LABEL'  //LABEL subroot
-//           token = new CommonToken(BLESStoASTLexer.LABEL, 'LABEL')
+//           token = new CommonToken(BLESS3Lexer.LABEL, 'LABEL')
 //           addChild(e.nam.makeBASTforID(e))
 ////           addChild(e.name.makeBASTforID(e))
 //           ] )
 //       //there is one parameter
 //       addChild(newBAST(e) =>  [  //make ^(PARAMETERS lv+)
 //  	       myText = 'PARAMETERS'  //LABEL subroot
-//           token = new CommonToken(BLESStoASTLexer.PARAMETERS, 'PARAMETERS')
+//           token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
 //           addChild(e.assertionvariable.makeBASTforID(e))    //add child to PARAMETERS node     
 //           ] )
 //       //finally, put the AssertionEnumeration on    
@@ -2475,14 +2475,14 @@ toAST(ActionSubclause e)
    try {  
   newBAST(e) =>  [  
   	myText = 'SUBPROGRAM_ANNEX'  //SUBPROGRAM_ANNEX subroot
-    token = new CommonToken(BLESStoASTLexer.SUBPROGRAM_ANNEX, 'SUBPROGRAM_ANNEX')
+    token = new CommonToken(BLESS3Lexer.SUBPROGRAM_ANNEX, 'SUBPROGRAM_ANNEX')
     addChild(e.assert_clause?.toAST)
     if (e.precondition!==null) //have a precondition?
       addChild(   //make LITERAL_pre
         newBAST(e) =>  
        [  //make LITERAL_pre
   	   myText = 'pre'  
-       token = new CommonToken(BLESStoASTLexer.LITERAL_pre, 'pre')
+       token = new CommonToken(BLESS3Lexer.LITERAL_pre, 'pre')
        addChild(e.precondition.toAST) //put on precondition
        ]	 )
     if (e.postcondition!==null) //have a precondition?
@@ -2490,7 +2490,7 @@ toAST(ActionSubclause e)
         newBAST(e) =>  
        [  //make LITERAL_post
   	   myText = 'post'  
-       token = new CommonToken(BLESStoASTLexer.LITERAL_post, 'post')
+       token = new CommonToken(BLESS3Lexer.LITERAL_post, 'post')
        addChild(e.postcondition.toAST) //put on precondition
        ]	 )
     if (e.invariant!==null) //have a invariant?
@@ -2498,7 +2498,7 @@ toAST(ActionSubclause e)
         newBAST(e) =>  
        [  //make LITERAL_invariant
   	   myText = 'post'  
-       token = new CommonToken(BLESStoASTLexer.LITERAL_invariant, 'invariant')
+       token = new CommonToken(BLESS3Lexer.LITERAL_invariant, 'invariant')
        addChild(e.invariant.toAST) //put on invariant
        ]	 )
     addChild(e.elq.toAST)  // elq=ExistentialLatticeQuantification
@@ -2506,7 +2506,7 @@ toAST(ActionSubclause e)
       addChild(newBAST(e) =>  
       [  
   	  myText = "DO_NOT_PROVE"
-      token = new CommonToken(BLESStoASTLexer.DO_NOT_PROVE, "DO_NOT_PROVE")
+      token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
       ] )    
     ]  
      } catch (Exception ex) {ex.printStackTrace x}
@@ -2542,7 +2542,7 @@ toAST(ActualParameter e)
    newBAST(e) =>  
      [  
   	 myText = "PARAMETER"
-     token = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER")
+     token = new CommonToken(BLESS3Lexer.PARAMETER, "PARAMETER")
      addChild(e.formal.makeBASTforID(e)) 
      addChild(e.actual.toAST)	
      ]
@@ -2558,11 +2558,11 @@ toAST(Alternative e)
 	newBAST(e) =>  
 	  [  //make ^( LITERAL_if  
   	myText = 'if'  //make left parenthesis
-    token = new CommonToken(BLESStoASTLexer.LITERAL_if, 'if')
+    token = new CommonToken(BLESS3Lexer.LITERAL_if, 'if')
     addChild(newBAST(e) =>
     	[
     	myText = ')~>'	
-      token = new CommonToken(BLESStoASTLexer.GUARD, ')~>')
+      token = new CommonToken(BLESS3Lexer.GUARD, ')~>')
       addChild((e.guard as Expression).toAST)
       addChild(b.action.toAST)
     	]  )  
@@ -2582,7 +2582,7 @@ toAST(ArrayRangeList e)
     newBAST(e) =>  
        [  
   	   myText = ","
-       token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+       token = new CommonToken(BLESS3Lexer.COMMA, ",")
        for (child : e.range)  //add  range+=NaturalRange
        addChild(child.toAST) 	
        ]
@@ -2601,7 +2601,7 @@ toAST(ArrayRange e)
     newBAST(e) =>  
        [  
   	   myText = ".."
-       token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+       token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
        addChild(e.lb.makeBASTforANumber(e)) 	
        addChild(e.ub.makeBASTforANumber(e)) 	
        ]
@@ -2616,12 +2616,12 @@ toAST(ArrayType e)
 	newBAST(e) =>  
        [  
   	   myText = "array"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_array, "array")
+       token = new CommonToken(BLESS3Lexer.LITERAL_array, "array")
        addChild(e.array_ranges.toAST) 	//array_ranges=ArrayRangeList
        addChild(newBAST(e) =>  
           [  
   	      myText = "of"
-          token = new CommonToken(BLESStoASTLexer.LITERAL_of, "of") ] )
+          token = new CommonToken(BLESS3Lexer.LITERAL_of, "of") ] )
        addChild(e.typ.toAST) 	 //typ=Type
        ]
     } catch (Exception ex) {ex.printStackTrace x}
@@ -2635,7 +2635,7 @@ toAST(AssertClause e)
 	newBAST(e) =>  
        [  
   	   myText = "assert"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_assert, "assert")
+       token = new CommonToken(BLESS3Lexer.LITERAL_assert, "assert")
        for (child : e.assertions)  //add  (assertions+=Assertion)+
          {
          val namedAssertion = child.toAST  
@@ -2663,26 +2663,26 @@ toAST(AssertedAction e)
 	newBAST(e) =>  
        [  //make ^( ACTION
   	   myText = "ACTION"
-       token = new CommonToken(BLESStoASTLexer.ACTION, "ACTION")
+       token = new CommonToken(BLESS3Lexer.ACTION, "ACTION")
        //^( P["P"] $pre? )
        addChild(newBAST(e) =>  
          [  
   	     myText = "P"
-         token = new CommonToken(BLESStoASTLexer.P, "P")
+         token = new CommonToken(BLESS3Lexer.P, "P")
          addChild(e.precondition?.toAST)
          ] ) 	
        //^( S["S"] s? )
        addChild(newBAST(e) =>  
          [  
   	     myText = "S"
-         token = new CommonToken(BLESStoASTLexer.S, "S")
+         token = new CommonToken(BLESS3Lexer.S, "S")
          addChild(e.action.toAST)
          ] ) 	
        //^( Q["Q"] $post? )
        addChild(newBAST(e) =>  
          [  
   	     myText = "Q"
-         token = new CommonToken(BLESStoASTLexer.Q, "Q")
+         token = new CommonToken(BLESS3Lexer.Q, "Q")
          addChild(e.postcondition?.toAST)
          ] ) 	
        ]
@@ -2698,7 +2698,7 @@ toAST(Assignment e)
 	newBAST(e) =>  
        [  
   	   myText = ":="
-       token = new CommonToken(BLESStoASTLexer.ASSIGN, ":=")
+       token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
        addChild(e.lhs.toAST) 	
        addChild(e.rhs.toAST) 	
        ]
@@ -2713,7 +2713,7 @@ toAST(Assignment e)
 //	newBAST(e) =>  
 //       [  
 //  	   myText = "availability"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_availability, "availability")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_availability, "availability")
 //       addChild(e.sub_expression.toAST) 	
 //       ]
 //   }  //end of Availability
@@ -2739,7 +2739,7 @@ toAST(Assignment e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "and"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_and, "and")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
 //       for (child : e.subexpressions)
 //         addChild(child.toAST)
 //       ]
@@ -2747,7 +2747,7 @@ toAST(Assignment e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "or"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_or, "or")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
 //       for (child : e.subexpressions)
 //         addChild(child.toAST)
 //       ]
@@ -2755,7 +2755,7 @@ toAST(Assignment e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "xor"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_xor, "xor")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_xor, "xor")
 //       for (child : e.subexpressions)
 //         addChild(child.toAST)
 //       ]
@@ -2783,7 +2783,7 @@ toAST(Assignment e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "not"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_not, "not")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
 //       if (e.ple!==null)
 //         addChild(e.ple.makeBASTforID(e))    //either ple=ID
 //       else if (e.availability!==null)
@@ -2797,7 +2797,7 @@ toAST(BAAlternative e)
     newBAST(e) =>  
        [  
        myText = "skip"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_skip, "skip")
+       token = new CommonToken(BLESS3Lexer.LITERAL_skip, "skip")
        ]    
   }
 
@@ -2821,7 +2821,7 @@ toAST(BasicAction e)
     newBAST(e) =>  
        [  
   	   myText = "skip"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_skip, "skip")
+       token = new CommonToken(BLESS3Lexer.LITERAL_skip, "skip")
        ]
    else if (e.assign!==null)
      e.assign.toAST    
@@ -2860,7 +2860,7 @@ toAST(BehaviorActions e)
     newBAST(e) =>  
        [  
   	   myText = ";"
-       token = new CommonToken(BLESStoASTLexer.SEMICOLON, ";")
+       token = new CommonToken(BLESS3Lexer.SEMICOLON, ";")
        for (child : e.action)
          addChild(child.toAST)
        ]
@@ -2868,7 +2868,7 @@ toAST(BehaviorActions e)
     newBAST(e) =>  
        [  
   	   myText = "&"
-       token = new CommonToken(BLESStoASTLexer.AMPERSAND, "&")
+       token = new CommonToken(BLESS3Lexer.AMPERSAND, "&")
        for (child : e.action)
          addChild(child.toAST)
        ]
@@ -2888,7 +2888,7 @@ toAST(BehaviorTime e)
 	newBAST(e) =>  
        [  
   	   myText = "BEHAVIOR_TIME"
-       token = new CommonToken(BLESStoASTLexer.BEHAVIOR_TIME, "BEHAVIOR_TIME")
+       token = new CommonToken(BLESS3Lexer.BEHAVIOR_TIME, "BEHAVIOR_TIME")
        if (e.quantity !== null)
          addChild(e.quantity.toAST) 
        else if (e.value !== null)	
@@ -2916,12 +2916,12 @@ toAST(BehaviorTime e)
 //	newBAST(e) =>  
 //       [  //COLON is root
 //  	   myText = ":"
-//       token = new CommonToken(BLESStoASTLexer.COLON, ":")
+//       token = new CommonToken(BLESS3Lexer.COLON, ":")
 //       if (e.comma)
 //         addChild(newBAST(e) =>  
 //         [  
 //  	     myText = ","
-//         token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+//         token = new CommonToken(BLESS3Lexer.COMMA, ",")
 //         for (v : e.variable_names)
 //           addChild(v.toAST) 	//may have multiple variable labels in single declaration 
 //         ] )
@@ -2932,7 +2932,7 @@ toAST(BehaviorTime e)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = "TYPE"
-//         token = new CommonToken(BLESStoASTLexer.TYPE, "TYPE")
+//         token = new CommonToken(BLESS3Lexer.TYPE, "TYPE")
 //         addChild(e.type.toAST) 	
 //         ] ) 	
 //       //then the initialization :=e, if any
@@ -2940,7 +2940,7 @@ toAST(BehaviorTime e)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = ":="
-//         token = new CommonToken(BLESStoASTLexer.ASSIGN, ":=")
+//         token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
 //         addChild(e.expression.toAST) 	
 //         ] ) 
 //       //then the Assertion, if any
@@ -2951,31 +2951,31 @@ toAST(BehaviorTime e)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = "nonvolatile"
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_nonvolatile, "nonvolatile")
+//         token = new CommonToken(BLESS3Lexer.LITERAL_nonvolatile, "nonvolatile")
 //         ] ) 
 //       if (e.shared)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = "shared"
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_shared, "shared")
+//         token = new CommonToken(BLESS3Lexer.LITERAL_shared, "shared")
 //         ] ) 
 //       if (e.constant)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = "constant"
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_constant, "constant")
+//         token = new CommonToken(BLESS3Lexer.LITERAL_constant, "constant")
 //         ] ) 
 //       if (e.spread)
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = "spread"
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_spread, "spread")
+//         token = new CommonToken(BLESS3Lexer.LITERAL_spread, "spread")
 //         ] ) 
 //       //finally, always include the semicolon!
 //       addChild( newBAST(e) =>  
 //         [  
 //  	     myText = ";"
-//         token = new CommonToken(BLESStoASTLexer.SEMICOLON, ";")
+//         token = new CommonToken(BLESS3Lexer.SEMICOLON, ";")
 //         ] )  
 //       ]
 //   }  //end of BehaviorVariable
@@ -2989,7 +2989,7 @@ toAST(CaseChoice e)
 	newBAST(e) =>  
        [  //IMP as root
        myText = "->"
-       token =  new CommonToken(BLESStoASTLexer.IMP, "->")
+       token =  new CommonToken(BLESS3Lexer.IMP, "->")
        addChild((e.be as Expression).toAST)
        addChild(e.exp.toAST)
        ]
@@ -3003,8 +3003,8 @@ toAST(CaseExpression e)
   try {  
 	newBAST(e) =>  
        [  
-  	   myText = "CASE_EXPRESSION"
-       token = new CommonToken(BLESStoASTLexer.CASE_EXPRESSION, "CASE_EXPRESSION")
+  	   myText = "LITERAL_case"
+       token = new CommonToken(BLESS3Lexer.LITERAL_case, "LITERAL_case")
        for (child : e.cc)
          addChild(child.toAST) 	
        ]
@@ -3020,7 +3020,7 @@ toAST(CatchClause e)
 	newBAST(e) =>  
        [  
   	   myText = "catch"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_catch, "catch")
+       token = new CommonToken(BLESS3Lexer.LITERAL_catch, "catch")
        for (child : e.catches)
          addChild(child.toAST) 	
        ]
@@ -3040,12 +3040,12 @@ toAST(CatchClauseTerm e)
 	newBAST(e) =>  
        [  //COLON as root
   	   myText = ":"
-       token = new CommonToken(BLESStoASTLexer.COLON, ":")
+       token = new CommonToken(BLESS3Lexer.COLON, ":")
        if (e.all)
          addChild(newBAST(e) =>  
            [  //
   	       myText = "all"
-           token = new CommonToken(BLESStoASTLexer.LITERAL_all, "all")
+           token = new CommonToken(BLESS3Lexer.LITERAL_all, "all")
            ] )
        else //it has exception IDs
          for (child : e.exceptions)
@@ -3065,7 +3065,7 @@ toAST(CombinableOperation e)
     newBAST(e) =>  
        [  
   	   myText = "fetchadd"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_fetchadd, "fetchadd")
+       token = new CommonToken(BLESS3Lexer.LITERAL_fetchadd, "fetchadd")
        addChild(e.target.name.makeBASTforID(e))
        addChild(e.arithmetic.toAST)
        addChild(e.result.name.makeBASTforID(e))
@@ -3074,7 +3074,7 @@ toAST(CombinableOperation e)
     newBAST(e) =>  
        [  
   	   myText = "fetchor"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_fetchor, "fetchor")
+       token = new CommonToken(BLESS3Lexer.LITERAL_fetchor, "fetchor")
        addChild(e.target.name.makeBASTforID(e))
        addChild(e.bool.toAST)
        addChild(e.result.name.makeBASTforID(e))
@@ -3083,7 +3083,7 @@ toAST(CombinableOperation e)
     newBAST(e) =>  
        [  
   	   myText = "fetchxor"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_fetchxor, "fetchxor")
+       token = new CommonToken(BLESS3Lexer.LITERAL_fetchxor, "fetchxor")
        addChild(e.target.name.makeBASTforID(e))
        addChild(e.bool.toAST)
        addChild(e.result.name.makeBASTforID(e))
@@ -3092,7 +3092,7 @@ toAST(CombinableOperation e)
     newBAST(e) =>  
        [  
   	   myText = "fetchand"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_fetchand, "fetchand")
+       token = new CommonToken(BLESS3Lexer.LITERAL_fetchand, "fetchand")
        addChild(e.target.name.makeBASTforID(e))
        addChild(e.bool.toAST)
        addChild(e.result.name.makeBASTforID(e))
@@ -3101,7 +3101,7 @@ toAST(CombinableOperation e)
     newBAST(e) =>  
        [  
   	   myText = "swap"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_swap, "swap")
+       token = new CommonToken(BLESS3Lexer.LITERAL_swap, "swap")
        addChild(e.target.name.makeBASTforID(e))
        addChild(e.reference.name.makeBASTforID(e))
        addChild(e.result.name.makeBASTforID(e))
@@ -3125,7 +3125,7 @@ toAST(CommunicationAction e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "pause"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_pause, "pause")      
+//       token = new CommonToken(BLESS3Lexer.LITERAL_pause, "pause")      
 //       ]    
       } catch (Exception ex) {ex.printStackTrace x}
   }  //end of CommunicationAction
@@ -3137,12 +3137,12 @@ toAST(CommunicationAction e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "COMPLEX"
-//    token = new CommonToken(BLESStoASTLexer.COMPLEX, "COMPLEX")
+//    token = new CommonToken(BLESS3Lexer.COMPLEX, "COMPLEX")
 //    if (e.up)
 //      addChild(newBAST(e) =>  
 //        [  
 //  	    myText = "-"
-//        token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
 //      	addChild(e.real.makeBASTforREAL_LIT(e))
 //      	])
 //    else
@@ -3151,7 +3151,7 @@ toAST(CommunicationAction e)
 //      addChild(newBAST(e) =>  
 //        [  
 //  	    myText = "-"
-//        token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
 //      	addChild(e.imaginary.makeBASTforREAL_LIT(e))
 //      	])
 //    else
@@ -3166,7 +3166,7 @@ toAST(Computation e)
   newBAST(e) =>  
     [  
   	myText = "computation"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_computation, "computation")
+    token = new CommonToken(BLESS3Lexer.LITERAL_computation, "computation")
     addChild(e.lb.toAST)
     if (e.ub!==null)
       addChild(e.ub.toAST)
@@ -3182,7 +3182,7 @@ toAST(Computation e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = ","
-//       token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+//       token = new CommonToken(BLESS3Lexer.COMMA, ",")
 //       for (child : e.behavior_variable)  
 //         addChild(child.toAST) 	
 //       ]
@@ -3198,12 +3198,12 @@ toAST(DoUntilLoop e)
 	newBAST(e) =>  
        [  //'do' as root
   	   myText = "do"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_do, "do")
+       token = new CommonToken(BLESS3Lexer.LITERAL_do, "do")
        //'until is first child
        addChild(newBAST(e) =>  
            [  //
   	       myText = "until"
-           token = new CommonToken(BLESStoASTLexer.LITERAL_until, "until")
+           token = new CommonToken(BLESS3Lexer.LITERAL_until, "until")
            addChild((e.guard as Expression).toAST)
            ] )
        //have invariant?
@@ -3211,7 +3211,7 @@ toAST(DoUntilLoop e)
          addChild(newBAST(e) =>  
            [  //
   	       myText = "invariant"
-           token = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant")
+           token = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant")
            addChild(e.inv.toAST)
            ] )
        //have bound function?    
@@ -3219,7 +3219,7 @@ toAST(DoUntilLoop e)
          addChild(newBAST(e) =>  
            [  //
   	       myText = "bound"
-           token = new CommonToken(BLESStoASTLexer.LITERAL_bound, "bound")
+           token = new CommonToken(BLESS3Lexer.LITERAL_bound, "bound")
            addChild(e.bnd.toAST)
            ] )
        //finally, actions to do    
@@ -3246,7 +3246,7 @@ toAST(EnumerationType e)
     newBAST(e) =>  
        [  
   	   myText = "enumeration"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_enumeration, "enumeration")
+       token = new CommonToken(BLESS3Lexer.LITERAL_enumeration, "enumeration")
        for (child : e.defining_enumeration_literal)  
          addChild(child.makeBASTforID(e)) 	
        ]
@@ -3260,12 +3260,12 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "@"
-//       token = new CommonToken(BLESStoASTLexer.AT_SIGN, "@")
+//       token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
 //       addChild(e.id.makeBASTforID(e))
 //       addChild(newBAST(e) =>  
 //           [  //
 //  	       myText = "now"
-//           token = new CommonToken(BLESStoASTLexer.LITERAL_now, "now")
+//           token = new CommonToken(BLESS3Lexer.LITERAL_now, "now")
 //           ])        
 //       ]
 // }  //end of Event
@@ -3282,7 +3282,7 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "not"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_not, "not")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
 //       addChild(e.event.toAST)
 //       ]
 //  else if (e.event!==null)
@@ -3291,7 +3291,7 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "and"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_and, "and")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
 //       for (child : e.events)  
 //            addChild(child.toAST)
 //       ]
@@ -3299,7 +3299,7 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "or"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_or, "or")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
 //       for (child : e.events)  
 //            addChild(child.toAST)
 //       ]
@@ -3307,12 +3307,12 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "and"
-//       token = new CommonToken(BLESStoASTLexer.LITERAL_and, "and")
+//       token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
 //       addChild(e.happened.toAST)
 //       addChild(    newBAST(e) =>  
 //         [  
 //  	     myText = "not"
-//         token = new CommonToken(BLESStoASTLexer.LITERAL_not, "not")
+//         token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
 //         addChild(e.didnt.toAST)
 //         ])
 //       ]
@@ -3335,7 +3335,7 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "."
-//       token = new CommonToken(BLESStoASTLexer.PERIOD, ".")
+//       token = new CommonToken(BLESS3Lexer.DOT, ".")
 //       for (s : e.sub)
 //         addChild(s.makeBASTforID(e))
 //       addChild(e.port.makeBASTforID(e))
@@ -3344,7 +3344,7 @@ toAST(EnumerationType e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = "."
-//       token = new CommonToken(BLESStoASTLexer.PERIOD, ".")
+//       token = new CommonToken(BLESS3Lexer.DOT, ".")
 //       addChild(e.tle.toAST)
 //       ]      	
 //  }  //end of EventTrigger
@@ -3360,17 +3360,17 @@ toAST(ExistentialLatticeQuantification e)
     newBAST(e) =>  
        [  
   	   myText = "{"
-       token = new CommonToken(BLESStoASTLexer.LCURLY, "{")
+       token = new CommonToken(BLESS3Lexer.LCURLY, "{")
        if (e.quantified_variables!==null)
          addChild(e.quantified_variables.toAST) 	
        addChild(e.actions.toAST) 	
        addChild(  //add right curly
          newBAST(e) =>  [ myText = '}'  //make right curly
-           token = new CommonToken(BLESStoASTLexer.RCURLY, '}') ]  )
+           token = new CommonToken(BLESS3Lexer.RCURLY, '}') ]  )
        if (e.timeout!==null)
          addChild(  //add right curly
            newBAST(e) =>  [ myText = 'timeout'  //make right curly
-             token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, 'timeout')     
+             token = new CommonToken(BLESS3Lexer.LITERAL_timeout, 'timeout')     
              addChild(e.timeout.toAST) ] ) 	        	
        if (e.catch_clause!==null)
          addChild(e.catch_clause.toAST)
@@ -3402,7 +3402,7 @@ toAST(Expression e)
     (newBAST(e) =>
     [
     myText = 'iff'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_iff, 'iff')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_iff, 'iff')  
     addChild(e.l.toAST)	
     addChild(e.r.toAST)	
     ]).parenthesize(e)
@@ -3410,7 +3410,7 @@ toAST(Expression e)
     (newBAST(e) =>
     [
     myText = 'implies'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_implies, 'implies')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_implies, 'implies')  
     addChild(e.l.toAST)	
     addChild(e.r.toAST)	
     ]).parenthesize(e)
@@ -3427,7 +3427,7 @@ toAST(Disjunction e)
     (newBAST(e) =>
     [
     myText = 'or'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_or, 'or')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_or, 'or')  
     addChild(e.l.toAST) 
     for (rchild : e.r)
       addChild(rchild.toAST)  
@@ -3436,7 +3436,7 @@ toAST(Disjunction e)
     (newBAST(e) =>
     [
     myText = 'cor'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_cor, 'cor')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_cor, 'cor')  
     addChild(e.l.toAST) 
     for (rchild : e.r)
       addChild(rchild.toAST)  
@@ -3445,7 +3445,7 @@ toAST(Disjunction e)
     (newBAST(e) =>
     [
     myText = 'xor'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_xor, 'xor')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_xor, 'xor')  
     addChild(e.l.toAST) 
     for (rchild : e.r)
       addChild(rchild.toAST)  
@@ -3463,7 +3463,7 @@ toAST(Disjunction e)
 //    newBAST(e) =>
 //    [
 //    myText = 'or'
-//    token =  new CommonToken(BLESStoASTLexer.LITERAL_or, 'or')  
+//    token =  new CommonToken(BLESS3Lexer.LITERAL_or, 'or')  
 //    addChild(e.l.toAST.parenthesize(e)) 
 //    for (rchild : e.r)
 //      addChild(rchild.toAST.parenthesize(e))  
@@ -3472,7 +3472,7 @@ toAST(Disjunction e)
 //    newBAST(e) =>
 //    [
 //    myText = 'cor'
-//    token =  new CommonToken(BLESStoASTLexer.LITERAL_cor, 'cor')  
+//    token =  new CommonToken(BLESS3Lexer.LITERAL_cor, 'cor')  
 //    addChild(e.l.toAST.parenthesize(e)) 
 //    for (rchild : e.r)
 //      addChild(rchild.toAST.parenthesize(e))  
@@ -3481,7 +3481,7 @@ toAST(Disjunction e)
 //    newBAST(e) =>
 //    [
 //    myText = 'xor'
-//    token =  new CommonToken(BLESStoASTLexer.LITERAL_xor, 'xor')  
+//    token =  new CommonToken(BLESS3Lexer.LITERAL_xor, 'xor')  
 //    addChild(e.l.toAST.parenthesize(e)) 
 //    for (rchild : e.r)
 //      addChild(rchild.toAST.parenthesize(e))  
@@ -3499,7 +3499,7 @@ toAST(Conjunction e)
     (newBAST(e) =>
     [
     myText = 'and'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_and, 'and')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_and, 'and')  
     addChild(e.l.toAST)	
     for (rchild : e.r)
       addChild(rchild.toAST)	
@@ -3508,7 +3508,7 @@ toAST(Conjunction e)
     (newBAST(e) =>
     [
     myText = 'cand'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_cand, 'cand')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_cand, 'cand')  
     addChild(e.l.toAST)	
     for (rchild : e.r)
       addChild(rchild.toAST)	
@@ -3527,7 +3527,7 @@ toAST(AddSub e)
     (newBAST(e) =>
     [
     myText = '+'
-    token =  new CommonToken(BLESStoASTLexer.PLUS, '+')  
+    token =  new CommonToken(BLESS3Lexer.PLUS, '+')  
     addChild(e.l.toAST)	
     for (rchild : e.r)
       addChild(rchild.toAST)	
@@ -3536,7 +3536,7 @@ toAST(AddSub e)
     (newBAST(e) =>
     [
     myText = '-'
-    token =  new CommonToken(BLESStoASTLexer.MINUS, '-')  
+    token =  new CommonToken(BLESS3Lexer.MINUS, '-')  
     addChild(e.l.toAST)	
     addChild(e.r.head.toAST)	
     ]).parenthesize(e)    
@@ -3553,7 +3553,7 @@ toAST(MultDiv e)
     (newBAST(e) =>
     [
     myText = '/'
-    token =  new CommonToken(BLESStoASTLexer.DIVIDE, '/')  
+    token =  new CommonToken(BLESS3Lexer.DIVIDE, '/')  
     addChild(e.l.toAST)	
     addChild(e.r.head.toAST)	
     ]).parenthesize(e)    
@@ -3561,7 +3561,7 @@ toAST(MultDiv e)
     (newBAST(e) =>
     [  
     myText = 'mod'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_mod, 'mod')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_mod, 'mod')  
     addChild(e.l.toAST)	
     addChild(e.r.head.toAST)	
     ]).parenthesize(e)    
@@ -3569,7 +3569,7 @@ toAST(MultDiv e)
     (newBAST(e) =>
     [
     myText = 'rem'
-    token =  new CommonToken(BLESStoASTLexer.LITERAL_rem, 'rem')  
+    token =  new CommonToken(BLESS3Lexer.LITERAL_rem, 'rem')  
     addChild(e.l.toAST)	
     addChild(e.r.head.toAST)	
     ]).parenthesize(e)    
@@ -3577,7 +3577,7 @@ toAST(MultDiv e)
     (newBAST(e) =>
     [
     myText = '*'
-    token =  new CommonToken(BLESStoASTLexer.TIMES, '*')  
+    token =  new CommonToken(BLESS3Lexer.TIMES, '*')  
     addChild(e.l.toAST)	
     for (rchild : e.r)
       addChild(rchild.toAST)	
@@ -3595,7 +3595,7 @@ toAST(Exp e)
     (newBAST(e) =>
     [  
     myText = '**'
-    token =  new CommonToken(BLESStoASTLexer.EXP, '**')  
+    token =  new CommonToken(BLESS3Lexer.EXP, '**')  
     addChild(e.l.toAST)	
     addChild(e.r.toAST)	
     ]).parenthesize(e)    
@@ -3613,7 +3613,7 @@ toAST(Exp e)
 //    e.record.toAST  
 //  else if (e.any!==null)
 //    newBAST(e) => [
-//          token = new CommonToken(BLESStoASTLexer.LITERAL_any, 'any')
+//          token = new CommonToken(BLESS3Lexer.LITERAL_any, 'any')
 //          myText = 'any']  
 //  }  //end of ExpressionOrRecordTerm
 
@@ -3642,20 +3642,20 @@ toAST(ForLoop e)
     newBAST(e) =>  
        [  
   	   myText = "for"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_for, "for")
+       token = new CommonToken(BLESS3Lexer.LITERAL_for, "for")
        addChild(e.count.name.makeBASTforID(e)) 	
 //       addChild(e.count.toAST) 	
        addChild( newBAST(e) =>  
          [  
   	     myText = "in"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_in, "in")
+         token = new CommonToken(BLESS3Lexer.LITERAL_in, "in")
          addChild(e.lower_bound.toAST) 	
          addChild(e.upper_bound.toAST) 	
          ] )
        addChild( newBAST(e) =>  
          [  
   	     myText = "invariant"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant")
+         token = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant")
          addChild(e?.inv?.toAST) 	
          ] )
        addChild(e.action.toAST) 	
@@ -3674,7 +3674,7 @@ toAST(FormalActual e)
     newBAST(e) =>  
        [  
   	   myText = ":"
-       token = new CommonToken(BLESStoASTLexer.COLON, ":")
+       token = new CommonToken(BLESS3Lexer.COLON, ":")
        addChild(e.formal.name.makeBASTforID(e))
        if (e.actual.constant !== null)
          addChild(e.actual.constant.toAST)
@@ -3695,7 +3695,7 @@ toAST(FormalActualList e)
     newBAST(e) =>  
        [  
   	   myText = ","
-       token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+       token = new CommonToken(BLESS3Lexer.COMMA, ",")
        for (child : e.variables)  
          addChild(child.toAST) 	
        ]
@@ -3712,7 +3712,7 @@ toAST(FormalActualList e)
 //  newBAST(e) =>  
 //     [  
 //  	 myText = "=>"
-//       token = new CommonToken(BLESStoASTLexer.ARROW, "=>")
+//       token = new CommonToken(BLESS3Lexer.ARROW, "=>")
 //       addChild( e.formal.makeBASTforID(e)) 	
 //       addChild( e.actual.toAST) 	
 //       ]
@@ -3723,8 +3723,8 @@ toAST(FormalActualList e)
 //function_call : 
 //  ( /*package_*/p+=identifier DOUBLE_COLON )*
 //  id=/*function_*/identifier lp=LPAREN DOLLAR function_parameters? RPAREN
-//  -> {p!==null}? ^(FUNCTION_CALL[$lp,"FUNCTION_CALL"] ^(DOUBLE_COLON $p+) $id function_parameters? )
-//  -> ^(FUNCTION_CALL[$lp,"FUNCTION_CALL"] $id function_parameters? )
+//  -> {p!==null}? ^(SUBPROGRAM_INVOCATION[$lp,"SUBPROGRAM_INVOCATION"] ^(DOUBLE_COLON $p+) $id function_parameters? )
+//  -> ^(SUBPROGRAM_INVOCATION[$lp,"SUBPROGRAM_INVOCATION"] $id function_parameters? )
 //  ;
 //  def dispatch BAST
 //toAST(FunctionCall e)
@@ -3732,12 +3732,12 @@ toAST(FormalActualList e)
 //  try {  
 //  newBAST(e) =>  
 //     [  
-//  	 myText = "FUNCTION_CALL"  //root is FUNCTION_CALL
-//       token = new CommonToken(BLESStoASTLexer.FUNCTION_CALL, "FUNCTION_CALL")
+//  	 myText = "SUBPROGRAM_INVOCATION"  //root is SUBPROGRAM_INVOCATION
+//       token = new CommonToken(BLESS3Lexer.SUBPROGRAM_INVOCATION, "SUBPROGRAM_INVOCATION")
 //       addChild(newBAST(e) =>  
 //         [  //package ids
-//  	     myText = "::"  //root is FUNCTION_CALL
-//         token = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, "::")
+//  	     myText = "::"  //root is SUBPROGRAM_INVOCATION
+//         token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, "::")
 //         for (child : e.pack)  
 //           addChild(child.makeBASTforID(e)) 	        
 //         ])
@@ -3756,7 +3756,7 @@ toAST(FormalActualList e)
 //    newBAST(e) =>  
 //       [  
 //  	   myText = ","
-//       token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+//       token = new CommonToken(BLESS3Lexer.COMMA, ",")
 //       for (child : e.parameters)  
 //         addChild(child.toAST) 	
 //       ]
@@ -3775,7 +3775,7 @@ toAST(GuardedAction e)
   newBAST(e) =>  
      [  
   	 myText = ")~>"  //root is)~>
-       token = new CommonToken(BLESStoASTLexer.GUARD, ")~>")
+       token = new CommonToken(BLESS3Lexer.GUARD, ")~>")
        addChild( (e.guard as Expression).toAST) 
        addChild( e.action.toAST) 	
        ]
@@ -3791,7 +3791,7 @@ toAST(GuardedAction e)
 //  newBAST(e) =>  
 //     [  
 //  	 myText = ","  // : for root
-//       token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+//       token = new CommonToken(BLESS3Lexer.COMMA, ",")
 //       addChild(e.first.makeBASTforID(e))  //last ty=Type
 //       for (child : e.lv)  //add lv+=Variable (',' lv+=Variable)*
 //         addChild(child.makeBASTforID(e)) 	
@@ -3810,7 +3810,7 @@ toAST(NameTick e)
     newBAST(e) =>  
        [  
   	   myText = "'"
-       token = new CommonToken(BLESStoASTLexer.TICK, "'")
+       token = new CommonToken(BLESS3Lexer.TICK, "'")
        addChild(e.value.toAST) 	
        ]
   else  //just one variable
@@ -3837,7 +3837,7 @@ toAST(NameTick e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = ".."
-//    token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+//    token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
 //    addChild(e.lb.toAST) 	//lower bound
 //    addChild(e.ub.toAST) 	//upper bound
 //    ]
@@ -3864,20 +3864,19 @@ toAST(QuantityType e)
   if (e.whole)  
     newBAST(e) =>  
     [  
-  	myText = "integer"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_integer, "integer")
-//    if (e.unit !== null)  //have units?
-//      addChild(newBAST(e) =>  
-//        [  
-//  	    myText = "units"  //add units
-//        token = new CommonToken(BLESStoASTLexer.LITERAL_units, "units")
-//        addChild(e.unit.name.makeBASTforID(e))
-//        ]	)
+  	myText = "quantity"
+    token = new CommonToken(BLESS3Lexer.LITERAL_quantity, "quantity")
+    addChild(newBAST(e) =>  
+        [  
+  	    myText = "whole" 
+        token = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole")
+        addChild(e.unit.name.makeBASTforID(e))
+        ]	)
     if (e.lb !== null)  //have range?
       addChild(newBAST(e) =>  
         [  
   	    myText = ".."  //add units
-        token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
         addChild(e.lb.makeBASTforANumber(e))
         addChild(e.ub.makeBASTforANumber(e))
         ]	)
@@ -3885,13 +3884,19 @@ toAST(QuantityType e)
   else if (e.scalar)
     newBAST(e) =>  
     [  
-  	myText = "real"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_real, "real")
+    myText = "quantity"
+    token = new CommonToken(BLESS3Lexer.LITERAL_quantity, "quantity")
+    addChild(newBAST(e) =>  
+        [  
+        myText = "scalar" 
+        token = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar")
+        addChild(e.unit.name.makeBASTforID(e))
+        ] )
     if (e.lb !== null)  //have range?
       addChild(newBAST(e) =>  
         [  
   	    myText = ".."  //add units
-        token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
         addChild(e.lb.makeBASTforANumber(e))
         addChild(e.ub.makeBASTforANumber(e))
         ]	)
@@ -3900,18 +3905,18 @@ toAST(QuantityType e)
     newBAST(e) =>  
     [  
   	myText = "time"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_time, "time")
+    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
     ]  //end of time_literal
   else
   newBAST(e) =>  
     [  
-  	myText = "real"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_real, "real")
+    myText = "quantity"
+    token = new CommonToken(BLESS3Lexer.LITERAL_quantity, "quantity")
     if (e.unit !== null)
       addChild(newBAST(e) =>  
         [  
   	    myText = "units"  //add units
-        token = new CommonToken(BLESStoASTLexer.LITERAL_units, "units")
+        token = new CommonToken(BLESS3Lexer.LITERAL_units, "units")
         if (e.unit.name !== null)
           addChild(e.unit.name.makeBASTforID(e))
         ]	)
@@ -3919,7 +3924,7 @@ toAST(QuantityType e)
       addChild(newBAST(e) =>  
         [  
   	    myText = ".."  //add units
-        token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
         addChild(e.lb.makeBASTforANumber(e))
         addChild(e.ub.makeBASTforANumber(e))
         ]	)
@@ -3939,7 +3944,7 @@ toAST(QuantityType e)
 ////  	newBAST(e) =>
 ////  	  [
 ////  	  myText = "NumericConstant error"	
-////      token = new CommonToken(BLESStoASTLexer.ID, "error")
+////      token = new CommonToken(BLESS3Lexer.ID, "error")
 ////      ]
 //      } catch (Exception ex) {ex.printStackTrace x}       
 //  }  //end of NumericConstant
@@ -3954,15 +3959,15 @@ toAST(ParenthesizedSubexpression e)
    if (e.caseexpression !== null)  //is this a conditional expression?
      newBAST(e) =>  
        [  
-  	   myText = "CASE_EXPRESSION"
-       token = new CommonToken(BLESStoASTLexer.CASE_EXPRESSION, "CASE_EXPRESSION")
+  	   myText = "LITERAL_case"
+       token = new CommonToken(BLESS3Lexer.LITERAL_case, "LITERAL_case")
        for (c : e.caseexpression.cc)
          addChild(c.toAST) 	
        ]
   else if (e.t !== null)
     newBAST(e) =>  [
-  	   myText = 'CONDITIONAL'
-       token = new CommonToken(BLESStoASTLexer.CONDITIONAL, 'CONDITIONAL')
+  	   myText = 'QQ'
+       token = new CommonToken(BLESS3Lexer.QQ, 'QQ')
        addChild(e.expression.toAST)  //pred = predicate
        addChild(e.t.toAST)  //true choice, t = assertion_expression
        addChild(e.f.toAST)  //false choice f = assertion_expression
@@ -3986,7 +3991,7 @@ toAST(PortInput e)
   newBAST(e) =>  
     [  
   	myText = "PORT_INPUT["+e.port.name+"]"
-    token = new CommonToken(BLESStoASTLexer.PORT_INPUT, "PORT_INPUT["+e.port.name+"]")
+    token = new CommonToken(BLESS3Lexer.PORT_INPUT, "PORT_INPUT["+e.port.name+"]")
     addChild(e.port.name.makeBASTforPort(e)) 	//port=PORTNAME //[aadl2::Port|PORTNAME]
     addChild(e.target.toAST) 	//variable=Name
     ]
@@ -4001,7 +4006,7 @@ toAST(PortOutput e)
   newBAST(e) =>  
     [  
   	myText = "PORT_OUTPUT["+e.port.name+"]"
-    token = new CommonToken(BLESStoASTLexer.PORT_OUTPUT, "PORT_OUTPUT["+e.port.name+"]")
+    token = new CommonToken(BLESS3Lexer.PORT_OUTPUT, "PORT_OUTPUT["+e.port.name+"]")
     addChild(e.port.name.makeBASTforPort(e)) 	//port=PORTNAME //[aadl2::Port|PORTNAME]
     if (e.eor!==null)
       addChild(e.eor.toAST) 	//( '(' eor=ExpressionOrRelation ')' )?
@@ -4017,7 +4022,7 @@ toAST(QuantifiedVariables e)
   newBAST(e) =>  
     [  
   	myText = "declare"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_declare, "declare")
+    token = new CommonToken(BLESS3Lexer.LITERAL_declare, "declare")
     for (child : e.variables )
       addChild(child.toAST) 	
     ]
@@ -4031,12 +4036,12 @@ toAST(QuantifiedVariables e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "RATIONAL"
-//    token = new CommonToken(BLESStoASTLexer.RATIONAL, "RATIONAL")
+//    token = new CommonToken(BLESS3Lexer.RATIONAL, "RATIONAL")
 //    if (e.up)
 //      addChild(newBAST(e) =>  
 //        [  
 //  	    myText = "-"
-//        token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
 //      	addChild(e.dividend.makeBASTforINT(e))
 //      	])
 //    else
@@ -4045,7 +4050,7 @@ toAST(QuantifiedVariables e)
 //      addChild(newBAST(e) =>  
 //        [  
 //  	    myText = "-"
-//        token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
 //      	addChild(e.divisor.makeBASTforINT(e))
 //      	])
 //    else
@@ -4068,14 +4073,14 @@ toAST(VariableDeclaration e)
 	newBAST(e) =>  
        [  //COLON is root
   	   myText = ":"
-       token = new CommonToken(BLESStoASTLexer.COLON, ":")
+       token = new CommonToken(BLESS3Lexer.COLON, ":")
        addChild(e.variable.name.makeBASTforID(e)) 	//may have multiple variable labels in single declaration 
 //         addChild(v.toAST) 	//may have multiple variable labels in single declaration 
        //types follow next
        addChild( newBAST(e) =>  
          [  
   	     myText = "TYPE"
-         token = new CommonToken(BLESStoASTLexer.TYPE, "TYPE")
+         token = new CommonToken(BLESS3Lexer.TYPE, "TYPE")
          addChild(e.variable.tod.toAST) 	
          ] ) 	
        //then the initialization :=e, if any
@@ -4083,7 +4088,7 @@ toAST(VariableDeclaration e)
        addChild( newBAST(e) =>  
          [  
   	     myText = ":="
-         token = new CommonToken(BLESStoASTLexer.ASSIGN, ":=")
+         token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
          addChild(e.expression.toAST) 	
          ] ) 
        //then the Assertion
@@ -4094,37 +4099,37 @@ toAST(VariableDeclaration e)
          addChild( newBAST(e) =>  
          [  
   	     myText = "constant"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_constant, "constant")
+         token = new CommonToken(BLESS3Lexer.LITERAL_constant, "constant")
          ] ) 
        else if (e.nonvolatile)
          addChild( newBAST(e) =>  
          [  
   	     myText = "nonvolatile"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_nonvolatile, "nonvolatile")
+         token = new CommonToken(BLESS3Lexer.LITERAL_nonvolatile, "nonvolatile")
          ] ) 
        else if (e.shared)
          addChild( newBAST(e) =>  
          [  
   	     myText = "shared"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_shared, "shared")
+         token = new CommonToken(BLESS3Lexer.LITERAL_shared, "shared")
          ] ) 
        else if (e.spread)
          addChild( newBAST(e) =>  
          [  
   	     myText = "spread"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_spread, "spread")
+         token = new CommonToken(BLESS3Lexer.LITERAL_spread, "spread")
          ] ) 
        else if (e.final)
          addChild( newBAST(e) =>  
          [  
   	     myText = "final"
-         token = new CommonToken(BLESStoASTLexer.LITERAL_final, "final")
+         token = new CommonToken(BLESS3Lexer.LITERAL_final, "final")
          ] ) 
        //finally, always include the semicolon!
        addChild( newBAST(e) =>  
          [  
   	     myText = ";"
-         token = new CommonToken(BLESStoASTLexer.SEMICOLON, ";")
+         token = new CommonToken(BLESS3Lexer.SEMICOLON, ";")
          ] )  
        ]
       } catch (Exception ex) {ex.printStackTrace x}       
@@ -4151,7 +4156,7 @@ toAST(RecordField e)
   newBAST(e) =>  
     [  
   	myText = ":"
-    token = new CommonToken(BLESStoASTLexer.COLON, ":")
+    token = new CommonToken(BLESS3Lexer.COLON, ":")
     addChild(e.label.makeBASTforID(e))
     addChild(e.typ.toAST)
     ]   
@@ -4166,7 +4171,7 @@ toAST(RecordTerm e)
   newBAST(e) =>  
     [  //root is RECORD_TERM
   	myText = "RECORD_TERM"
-    token = new CommonToken(BLESStoASTLexer.RECORD_TERM, "RECORD_TERM")
+    token = new CommonToken(BLESS3Lexer.RECORD_TERM, "RECORD_TERM")
     addChild(e.record_type.name.makeBASTforID(e))
     for (child : e.record_value)  //add record_value+=RecordValue+
       addChild(child.toAST)
@@ -4182,7 +4187,7 @@ toAST(RecordType e)
   newBAST(e) =>  
     [  
   	myText = "record"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_record, "record")
+    token = new CommonToken(BLESS3Lexer.LITERAL_record, "record")
     for (child : e.fields)  //add '(' fields+=RecordField+ ')'
       addChild(child.toAST)
     ]   
@@ -4197,7 +4202,7 @@ toAST(RecordValue e)
   newBAST(e) =>  
     [  
   	myText = "=>"
-    token = new CommonToken(BLESStoASTLexer.ARROW, "=>")
+    token = new CommonToken(BLESS3Lexer.ARROW, "=>")
     addChild(e.label.makeBASTforID(e))
     addChild(e.aval.toAST)
     ]   
@@ -4216,12 +4221,12 @@ toAST(SimultaneousAssignment e)
   newBAST(e) =>  
     [  
   	myText = ":="
-    token = new CommonToken(BLESStoASTLexer.ASSIGN, ":=")
+    token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
     //left_comma
     addChild(newBAST(e) =>  
       [  
   	  myText = ","
-      token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+      token = new CommonToken(BLESS3Lexer.COMMA, ",")
       for (left : e.lhs)
         addChild(left.toAST)
       ] )
@@ -4229,7 +4234,7 @@ toAST(SimultaneousAssignment e)
     addChild(newBAST(e) =>  
       [  
   	  myText = ","
-      token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+      token = new CommonToken(BLESS3Lexer.COMMA, ",")
       for (right : e.rhs)
         addChild(right.toAST)
       ] )
@@ -4248,28 +4253,28 @@ toAST(Subexpression e)
     if (e.unary.unary_minus !== null)	 
   	  { 
   	  	myText = "-"
-  	  	token = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-")
+  	  	token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
   	  }
     else if (e.unary.not !== null)	 
   	  { 
   	  	myText = "not"
-  	  	token = new CommonToken(BLESStoASTLexer.LITERAL_not, "not")
+  	  	token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
   	  }
     else if (e.unary.absolute_value !== null)	 
   	  { 
   	  	myText = "abs"
-  	  	token = new CommonToken(BLESStoASTLexer.LITERAL_abs, "abs")
+  	  	token = new CommonToken(BLESS3Lexer.LITERAL_abs, "abs")
   	  }
 //DON'T MAKE BAST FOR TURNCATE OR ROUND  	  
 //    else if (e.unary.truncate !== null)	 
 //  	  { 
 //  	  	myText = "truncate"
-//  	  	token = new CommonToken(BLESStoASTLexer.DUMMY, "truncate")
+//  	  	token = new CommonToken(BLESS3Lexer.DUMMY, "truncate")
 //  	  }
 //    else if (e.unary.round !== null)	 
 //  	  { 
 //  	  	myText = "round"
-//  	  	token = new CommonToken(BLESStoASTLexer.DUMMY, "round")
+//  	  	token = new CommonToken(BLESS3Lexer.DUMMY, "round")
 //  	  }
   	addChild(e.timed_expression.toAST)  
   	]
@@ -4286,14 +4291,14 @@ toAST(TimedExpression e)
     newBAST(e) =>
       [
       myText = "\'"
-      token = new CommonToken(BLESStoASTLexer.TICK, "\'")
+      token = new CommonToken(BLESS3Lexer.TICK, "\'")
       addChild(e.subject.toAST)
       ]
    else if (e.at)
       newBAST(e) =>
       [
       myText = "@"
-      token = new CommonToken(BLESStoASTLexer.AT_SIGN, "@")
+      token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
       addChild(e.subject.toAST)
       addChild(e.time.toAST)
       ]
@@ -4301,7 +4306,7 @@ toAST(TimedExpression e)
       newBAST(e) =>
       [
       myText = "^"
-      token = new CommonToken(BLESStoASTLexer.CARET, "^")
+      token = new CommonToken(BLESS3Lexer.CARET, "^")
       addChild(e.subject.toAST)
       addChild(e.shift.toAST)
       ]
@@ -4335,7 +4340,7 @@ toAST(SubprogramCall e)
   newBAST(e) =>  
     [  
   	myText = "PROCEDURE_CALL["+e.procedure+"]"
-    token = new CommonToken(BLESStoASTLexer.PROCEDURE_CALL, "PROCEDURE_CALL["+e.procedure+"]")
+    token = new CommonToken(BLESS3Lexer.PROCEDURE_CALL, "PROCEDURE_CALL["+e.procedure+"]")
     if (e.procedure instanceof SubprogramAccess)
       addChild((e.procedure as SubprogramAccess).name.makeBASTforID(e))   
     else if (e.procedure instanceof SubprogramSubcomponent)
@@ -4354,7 +4359,7 @@ toAST(SubprogramCall e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "computation"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_computation, "computation")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_computation, "computation")
 //    addChild(e.lb.toAST) 	
 //    addChild(e.ub?.toAST) 	//( ',' ub=BehaviorTime )?
 //    ]
@@ -4366,7 +4371,7 @@ toAST(SubprogramCall e)
 //    newBAST(e) =>  
 //      [  
 //  	  myText = "boolean"
-//      token = new CommonToken(BLESStoASTLexer.LITERAL_boolean, "boolean")
+//      token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
 //      ]
 //   }
 //
@@ -4376,7 +4381,7 @@ toAST(SubprogramCall e)
 //    newBAST(e) =>  
 //      [  
 //  	  myText = "string"
-//      token = new CommonToken(BLESStoASTLexer.LITERAL_string, "string")
+//      token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
 //      ]
 //   }
 
@@ -4399,13 +4404,13 @@ toAST(SubprogramCall e)
 //    newBAST(e) =>  
 //      [  
 //  	  myText = "boolean"
-//      token = new CommonToken(BLESStoASTLexer.LITERAL_boolean, "boolean")
+//      token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
 //      ]
 //  else if (e.st!==null)
 //    newBAST(e) =>  
 //      [  
 //  	  myText = "string"
-//      token = new CommonToken(BLESStoASTLexer.LITERAL_string, "string")
+//      token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
 //      ]
 //  else if (e.et!==null)
 //    e.et.toAST   //et=EnumerationType
@@ -4426,42 +4431,42 @@ toAST(SubprogramCall e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "natural"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_natural, "natural")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_natural, "natural")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.integer)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "integer"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_integer, "integer")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_integer, "integer")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.rational)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "rational"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_rational, "rational")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_rational, "rational")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.real)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "real"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_real, "real")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_real, "real")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.complex)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "complex"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_complex, "complex")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_complex, "complex")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  else if (e.time)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "time"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_time, "time")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
 //    addChild(e.ps.toAST) 	
 //    ]
 //  }  //end of TypeConversion
@@ -4475,43 +4480,43 @@ toAST(SubprogramCall e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "natural"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_natural, "natural")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_natural, "natural")
 //    ]
 //  else if (e.integer)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "integer"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_integer, "integer")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_integer, "integer")
 //    ]
 //  else if (e.rational)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "rational"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_rational, "rational")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_rational, "rational")
 //    ]
 //  else if (e.real)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "real"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_real, "real")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_real, "real")
 //    ]
 //  else if (e.complex)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "complex"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_complex, "complex")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_complex, "complex")
 //    ]
 //  else if (e.time)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "time"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_time, "time")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
 //    ]
 //  else if (e.string)	
 //  newBAST(e) =>  
 //    [  
 //  	myText = "string"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_string, "string")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
 //    ]
 //  }  //end of TypeName
 
@@ -4530,12 +4535,12 @@ toAST(UniversalLatticeQuantification e)
   newBAST(e) =>  
     [  
   	myText = "forall"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_forall, "forall")
+    token = new CommonToken(BLESS3Lexer.LITERAL_forall, "forall")
     if (e.variables.size > 1)  //multiple forall variables
       addChild(newBAST(e) =>  
       [  
       myText = ","
-      token = new CommonToken(BLESStoASTLexer.COMMA, ",")
+      token = new CommonToken(BLESS3Lexer.COMMA, ",")
       for (v : e.variables)
         addChild(v.name.makeBASTforID(e))   
       ] )
@@ -4544,11 +4549,11 @@ toAST(UniversalLatticeQuantification e)
     addChild(newBAST(e) =>  //^($li $r)
       [  
   	  myText = "in"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_in, "in")
+      token = new CommonToken(BLESS3Lexer.LITERAL_in, "in")
       addChild(newBAST(e) =>
         [  
         myText = ".."
-        token = new CommonToken(BLESStoASTLexer.DOTDOT, "..")
+        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
         addChild(e.lower_bound.toAST)
         addChild(e.upper_bound.toAST)
         ]
@@ -4571,19 +4576,19 @@ toAST(Value e)
   else if (e.timeout !== null) 
      newBAST(e) => [
   	   myText = 'timeout'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, 'timeout')
+       token = new CommonToken(BLESS3Lexer.LITERAL_timeout, 'timeout')
       ] 
 //  | now?='now'
     else if (e.now !== null) 
       newBAST(e) => [
   	   myText = 'now'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_now, 'now')
+       token = new CommonToken(BLESS3Lexer.LITERAL_now, 'now')
       ] 
 //  | tops?='tops'
     else if (e.tops !== null) 
       newBAST(e) => [
   	   myText = 'tops'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_tops, 'tops')
+       token = new CommonToken(BLESS3Lexer.LITERAL_tops, 'tops')
       ] 
     else if (e.enum_val !== null)
       e.enum_val.toAST
@@ -4596,15 +4601,15 @@ toAST(EnumerationValue e)
   {
   newBAST(e) => [
     myText = '\''
-    token = new CommonToken(BLESStoASTLexer.TICK, '\'')
+    token = new CommonToken(BLESS3Lexer.TICK, '\'')
     addChild(newBAST(e) => [
       myText = e.enumeration_type.name
-      token = new CommonToken(BLESStoASTLexer.ID, e.enumeration_type.name)     
+      token = new CommonToken(BLESS3Lexer.ID, e.enumeration_type.name)     
       ]
       )
     addChild(newBAST(e) => [
       myText = e.enumeration_value
-      token = new CommonToken(BLESStoASTLexer.ID, e.enumeration_value)     
+      token = new CommonToken(BLESS3Lexer.ID, e.enumeration_value)     
       ]
       )
     ] 
@@ -4623,17 +4628,17 @@ toAST(Constant e)
     if (e.t !== null) 
       newBAST(e) => [
   	   myText = 'true'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_true, 'true')
+       token = new CommonToken(BLESS3Lexer.LITERAL_true, 'true')
       ] 
     else if (e.f !== null) 
       newBAST(e) => [
   	   myText = 'false'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_false, 'false')
+       token = new CommonToken(BLESS3Lexer.LITERAL_false, 'false')
       ] 
     else if (e.nul !== null) 
       newBAST(e) => [
   	   myText = 'null'
-       token = new CommonToken(BLESStoASTLexer.LITERAL_null, 'null')
+       token = new CommonToken(BLESS3Lexer.LITERAL_null, 'null')
       ] 
     else if (e.numeric_constant !==null)
       e.numeric_constant.toAST()
@@ -4673,48 +4678,48 @@ toAST(PropertyField e)
   	newBAST(e) =>
   	  [
   	  myText = "["	
-      token = new CommonToken(BLESStoASTLexer.LBRACKET, "[")
+      token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
       addChild(e.index.makeBASTforINT(e))
       addChild(newBAST(e) =>[myText = "]"	
-        token = new CommonToken(BLESStoASTLexer.RBRACKET, "]")])
+        token = new CommonToken(BLESS3Lexer.RBRACKET, "]")])
   	  ]
     else if (e.variable!==null)
   	newBAST(e) =>
   	  [
   	  myText = "["	
-      token = new CommonToken(BLESStoASTLexer.LBRACKET, "[")
+      token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
       addChild(e.variable.toAST)
       addChild(newBAST(e) =>[myText = "]"	
-        token = new CommonToken(BLESStoASTLexer.RBRACKET, "]")])
+        token = new CommonToken(BLESS3Lexer.RBRACKET, "]")])
   	  ]
     else if (e.pf!==null)
   	newBAST(e) =>
   	  [
   	  myText = "."	
-      token = new CommonToken(BLESStoASTLexer.PERIOD, ".")
+      token = new CommonToken(BLESS3Lexer.DOT, ".")
       addChild(e.pf.makeBASTforID(e))
   	  ]
     else if (e.upper!==null)
   	newBAST(e) =>
   	  [
   	  myText = "."	
-      token = new CommonToken(BLESStoASTLexer.PERIOD, ".")
+      token = new CommonToken(BLESS3Lexer.DOT, ".")
       addChild(newBAST(e) =>[myText = "upper_bound"	
-        token = new CommonToken(BLESStoASTLexer.LITERAL_upper_bound, "upper_bound")])
+        token = new CommonToken(BLESS3Lexer.LITERAL_upper_bound, "upper_bound")])
   	  ]
     else if (e.lower!==null)
   	newBAST(e) =>
   	  [
   	  myText = "."	
-      token = new CommonToken(BLESStoASTLexer.PERIOD, ".")
+      token = new CommonToken(BLESS3Lexer.DOT, ".")
       addChild(newBAST(e) =>[myText = "lower_bound"	
-        token = new CommonToken(BLESStoASTLexer.LITERAL_lower_bound, "lower_bound")])
+        token = new CommonToken(BLESS3Lexer.LITERAL_lower_bound, "lower_bound")])
   	  ]
     else
   	newBAST(e) =>
   	  [
   	  myText = "error"	
-      token = new CommonToken(BLESStoASTLexer.ID, "error")
+      token = new CommonToken(BLESS3Lexer.ID, "error")
       ]
      } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PropertyField
@@ -4738,11 +4743,11 @@ toAST(PropertyReference e)
   	newBAST(e) =>
   	  [
   	  myText = "#"	
-      token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#")
+      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
       addChild(newBAST(e) =>
   	    [
   	    myText = "self"	
-        token = new CommonToken(BLESStoASTLexer.LITERAL_self, "self")
+        token = new CommonToken(BLESS3Lexer.LITERAL_self, "self")
         ] )      
       addChild(sp.qualifiedName().makeBASTforPropertyName(e))
       for (f : e.field)
@@ -4754,7 +4759,7 @@ toAST(PropertyReference e)
 //  	newBAST(e) =>
 //  	  [
 //  	  myText = "#"	
-//      token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#")
+//      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
 ////      addChild(e.component_element.makeBASTforID(e))
 //      addChild(e.pname.qualifiedName().makeBASTforPropertyName(e))  	  
 //      for (f : e.field)
@@ -4767,7 +4772,7 @@ toAST(PropertyReference e)
   	newBAST(e) =>
   	  [
   	  myText = "#"	
-      token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#")
+      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
       addChild(e.component.qualifiedName().makeBASTforPropertyName(e))  //it's really a component name
       addChild(cp.qualifiedName().makeBASTforPropertyName(e))  	  
       for (f : e.field)
@@ -4781,7 +4786,7 @@ toAST(PropertyReference e)
   	newBAST(e) =>   //  #ps::p
   	  [
   	  myText = "#"	
-      token = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#")
+      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
       addChild(p.qualifiedName().makeBASTforPropertyName(e))
       for (f : e.field)
         addChild(f.toAST)  	  
@@ -4801,7 +4806,7 @@ toAST(PropertyReference e)
 //  newBAST(e) =>  
 //    [  
 //  	myText = "variant"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_variant, "variant")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_variant, "variant")
 //    for (field : e.fields)
 //      addChild(field.toAST) 	//lv=LatticeVariables
 //    ]
@@ -4816,12 +4821,12 @@ toAST(WhenThrow e)
   newBAST(e) =>  
     [  
   	myText = "when"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_when, "when")
+    token = new CommonToken(BLESS3Lexer.LITERAL_when, "when")
     addChild(e.exp.toAST) //exp=Expression
     addChild(newBAST(e) =>  // "throw"
       [  
   	  myText = "throw"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_throw, "throw")
+      token = new CommonToken(BLESS3Lexer.LITERAL_throw, "throw")
       ] )
     addChild(e.exception.name.makeBASTforID(e))  // exception=ID 
     ]
@@ -4843,7 +4848,7 @@ toAST(WhileLoop e)
 	newBAST(e) =>  
        [  //'while' as root
   	   myText = "while"
-       token = new CommonToken(BLESStoASTLexer.LITERAL_while, "while")
+       token = new CommonToken(BLESS3Lexer.LITERAL_while, "while")
        //expression_or_relation
        addChild((e.test as Expression).toAST)    
        //have invariant?
@@ -4851,7 +4856,7 @@ toAST(WhileLoop e)
          addChild(newBAST(e) =>  
            [  //
   	       myText = "invariant"
-           token = new CommonToken(BLESStoASTLexer.INVARIANT, "invariant")
+           token = new CommonToken(BLESS3Lexer.INVARIANT, "invariant")
            addChild(e.inv.toAST)
            ] )
        //have bound function?    
@@ -4859,7 +4864,7 @@ toAST(WhileLoop e)
          addChild(newBAST(e) =>  
            [  //
   	       myText = "bound"
-           token = new CommonToken(BLESStoASTLexer.BOUND, "bound")
+           token = new CommonToken(BLESS3Lexer.BOUND, "bound")
            addChild(e.bound_function.toAST)
            ] )
        //finally, actions to do    
@@ -4895,24 +4900,24 @@ toAST(BehaviorTransition e)
   newBAST(e) =>  
     [  //TRANSITION as root
   	myText = "TRANSITION["+e.name+"]"
-    token = new CommonToken(BLESStoASTLexer.TRANSITION, "TRANSITION["+e.name+"]")
+    token = new CommonToken(BLESS3Lexer.TRANSITION, "TRANSITION["+e.name+"]")
     addChild(newBAST(e) =>  // "LABEL"
       [  
   	  myText = "LABEL["+e.name+"]"
-      token = new CommonToken(BLESStoASTLexer.LABEL, "LABEL["+e.name+"]")
+      token = new CommonToken(BLESS3Lexer.LABEL, "LABEL["+e.name+"]")
       addChild(e.name.makeBASTforID(e))
       ] )
     addChild(newBAST(e) =>  // "SOURCE"
       [  
   	  myText = "SOURCE"
-      token = new CommonToken(BLESStoASTLexer.SOURCE, "SOURCE")
+      token = new CommonToken(BLESS3Lexer.SOURCE, "SOURCE")
       for (source : e.sources)  //multiple source states
         addChild(source.name.makeBASTforID(e))
       ] )
     addChild(newBAST(e) =>  // "CONDITION"
       [  
   	  myText = "CONDITION"
-      token = new CommonToken(BLESStoASTLexer.CONDITION, "CONDITION")
+      token = new CommonToken(BLESS3Lexer.CONDITION, "CONDITION")
       if (e.dispatch!==null)
         addChild(e.dispatch.toAST)  //either dispatch condition
       else if (e.execute!==null)
@@ -4926,19 +4931,19 @@ toAST(BehaviorTransition e)
     addChild(newBAST(e) =>  // "DESTINATION"
       [  
   	  myText = "DESTINATION"
-      token = new CommonToken(BLESStoASTLexer.DESTINATION, "DESTINATION")
+      token = new CommonToken(BLESS3Lexer.DESTINATION, "DESTINATION")
       addChild(e.destination.name.makeBASTforID(e))  //destination state
       ] )
     addChild(newBAST(e) =>  // "ACTION"
       [  
   	  myText = "ACTION"
-      token = new CommonToken(BLESStoASTLexer.ACTION, "ACTION")
+      token = new CommonToken(BLESS3Lexer.ACTION, "ACTION")
       addChild(e.actions?.toAST)  //behavior=BehaviorActions 
       ] )
     addChild(newBAST(e) =>  // "Q"  Assertion during transition
       [  
   	  myText = "Q"
-      token = new CommonToken(BLESStoASTLexer.Q, "Q")
+      token = new CommonToken(BLESS3Lexer.Q, "Q")
       addChild(e.ass?.toAST)  //ass=Assertion?
       ] )
     ]
@@ -4957,24 +4962,24 @@ toAST(BehaviorState e)
   newBAST(e) =>  
     [  
   	myText = "state"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_state, "state")
+    token = new CommonToken(BLESS3Lexer.LITERAL_state, "state")
     if (e.initial)
       addChild(newBAST(e) =>  // "initial"
       [  
   	  myText = "initial"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_initial, "initial")
+      token = new CommonToken(BLESS3Lexer.LITERAL_initial, "initial")
       ] )
     if (e.complete)
       addChild(newBAST(e) =>  // "complete"
       [  
   	  myText = "complete"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_complete, "complete")
+      token = new CommonToken(BLESS3Lexer.LITERAL_complete, "complete")
       ] )
     if (e.final)
       addChild(newBAST(e) =>  // "final"
       [  
   	  myText = "final"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_final, "final")
+      token = new CommonToken(BLESS3Lexer.LITERAL_final, "final")
       ] )
     addChild(e.name.makeBASTforID(e))  //add name of state
     if (e.state_assertion!==null)
@@ -5005,13 +5010,13 @@ toAST(BLESSSubclause e)
     try {  
   newBAST(e) =>  //THREAD_ANNEX as root
     [  
-  	myText = "THREAD_ANNEX"
-    token = new CommonToken(BLESStoASTLexer.THREAD_ANNEX, "THREAD_ANNEX")
+  	myText = "BLESS_SUBCLAUSE"
+    token = new CommonToken(BLESS3Lexer.BLESS_SUBCLAUSE, "BLESS_SUBCLAUSE")
     if (e.statesSection !== null)
       addChild(newBAST(e) =>  // add states
       [  
   	  myText = "states"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_states, "states")
+      token = new CommonToken(BLESS3Lexer.LITERAL_states, "states")
       for (state : e.statesSection.states)  //add states+=BehaviorState+
         addChild(state.toAST)
       ] )
@@ -5031,13 +5036,13 @@ toAST(BLESSSubclause e)
       addChild(newBAST(e) =>  
       [  
   	  myText = "DO_NOT_PROVE"
-      token = new CommonToken(BLESStoASTLexer.DO_NOT_PROVE, "DO_NOT_PROVE")
+      token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
       ] )    
     //add STOP at end
     addChild(newBAST(e) =>  
       [  
   	  myText = "STOP"
-      token = new CommonToken(BLESStoASTLexer.STOP, "STOP")
+      token = new CommonToken(BLESS3Lexer.STOP, "STOP")
       ] )
     ]
      } catch (Exception ex) {ex.printStackTrace x}       
@@ -5052,7 +5057,7 @@ toAST(DispatchCondition e)
   newBAST(e) =>  //LITERAL_dispatch as root
     [  
   	myText = "dispatch"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_dispatch, "dispatch")
+    token = new CommonToken(BLESS3Lexer.LITERAL_dispatch, "dispatch")
     addChild(e.de?.toAST)  // de=DispatchExpression?
     ]
      } catch (Exception ex) {ex.printStackTrace x}       
@@ -5068,7 +5073,7 @@ toAST(DispatchConjunction e)
    newBAST(e) =>  //LITERAL_and as root
     [  
   	myText = "and"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_and, "and")
+    token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
     for (child : e.trigger)
       addChild(child.toAST)  // de=DispatchExpression?
     ]
@@ -5092,7 +5097,7 @@ toAST(DispatchExpression e)
   if (e.or) newBAST(e) =>  //have or? disjunction of conjunctions
     [  
   	myText = "or"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_or, "or")
+    token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
     for (child : e.dc)
       addChild(child.toAST)  // dc+=DispatchConjunction
     ]
@@ -5113,18 +5118,18 @@ toAST(DispatchTrigger e)
 //  if (e.stop !== null) newBAST(e) =>  //is stop?
 //    [  
 //  	myText = "stop"
-//    token = new CommonToken(BLESStoASTLexer.LITERAL_stop, "stop")
+//    token = new CommonToken(BLESS3Lexer.LITERAL_stop, "stop")
 //    ]
 //  else 
   if (e.timeout !== null && e.lp) newBAST(e) =>  //timeout with port list
     [  
   	myText = "timeout"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout")
+    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
        //LPAREN
        addChild(newBAST(e) =>  
            [  //
   	       myText = "("
-           token = new CommonToken(BLESStoASTLexer.LPAREN, "(")
+           token = new CommonToken(BLESS3Lexer.LPAREN, "(")
            ] )
        //port list
        for (p : e.ports)
@@ -5133,7 +5138,7 @@ toAST(DispatchTrigger e)
        addChild(newBAST(e) =>  
            [  //
   	       myText = ")"
-           token = new CommonToken(BLESStoASTLexer.RPAREN, ")")
+           token = new CommonToken(BLESS3Lexer.RPAREN, ")")
            ] )
        //behavior_time
        addChild(e.time.toAST)   
@@ -5142,7 +5147,7 @@ toAST(DispatchTrigger e)
     newBAST(e) =>  
     [  
   	myText = "timeout"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout")
+    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
     //behavior_time
     addChild(e.time.toAST)   
     ]
@@ -5150,7 +5155,7 @@ toAST(DispatchTrigger e)
     newBAST(e) =>  
     [  
   	myText = "timeout"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout")
+    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
     ]
   else  //just a port
     e.port.port.name.makeBASTforPort(e)
@@ -5174,7 +5179,7 @@ toAST(InternalCondition e)
   newBAST(e) =>  //have or?
     [  
   	myText = "dispatch"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_dispatch, "dispatch")
+    token = new CommonToken(BLESS3Lexer.LITERAL_dispatch, "dispatch")
     addChild(makeBASTforPort(e.first.name,e))
     for (p : e.ports)
       addChild(makeBASTforPort(p.name,e))  // dc+=DispatchConjunction
@@ -5193,7 +5198,7 @@ toAST(InvariantClause e)
   newBAST(e) =>  
     [  
   	myText = "invariant"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant")
+    token = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant")
     addChild(e.inv.toAST)
     ]
       } catch (Exception ex) {ex.printStackTrace x}       
@@ -5207,7 +5212,7 @@ toAST(IssueException e)
   newBAST(e) =>  
     [  
   	myText = "exception"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_exception, "exception")
+    token = new CommonToken(BLESS3Lexer.LITERAL_exception, "exception")
     addChild(e.exception.name.makeBASTforID(e))
       if (e.message !== null)
     addChild(e.message.makeBASTforAADL_STRING_LITERAL(e))
@@ -5239,7 +5244,7 @@ toAST(Transitions e)
   newBAST(e) =>  
     [  
   	myText = "transitions"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_transitions, "transitions")
+    token = new CommonToken(BLESS3Lexer.LITERAL_transitions, "transitions")
     for (child : e.bt)
       addChild(child.toAST)
     ]
@@ -5259,7 +5264,7 @@ toAST(TriggerLogicalExpression e)
       newBAST(e) =>  
         [  
   	    myText = "and"
-        token = new CommonToken(BLESStoASTLexer.LITERAL_and, "and")
+        token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
         addChild(e.first.toAST)
         for (tr : e.trigger)
           addChild(tr.toAST)
@@ -5268,7 +5273,7 @@ toAST(TriggerLogicalExpression e)
       newBAST(e) =>  
         [  
   	    myText = "or"
-        token = new CommonToken(BLESStoASTLexer.LITERAL_or, "or")
+        token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
         addChild(e.first.toAST)
         for (tr : e.trigger)
           addChild(tr.toAST)
@@ -5277,7 +5282,7 @@ toAST(TriggerLogicalExpression e)
       newBAST(e) =>  
         [  
   	    myText = "xor"
-        token = new CommonToken(BLESStoASTLexer.LITERAL_xor, "xor")
+        token = new CommonToken(BLESS3Lexer.LITERAL_xor, "xor")
         addChild(e.first.toAST)
         for (tr : e.trigger)
           addChild(tr.toAST)
@@ -5286,7 +5291,7 @@ toAST(TriggerLogicalExpression e)
       newBAST(e) =>  
         [  
   	    myText = "cand"
-        token = new CommonToken(BLESStoASTLexer.LITERAL_cand, "cand")
+        token = new CommonToken(BLESS3Lexer.LITERAL_cand, "cand")
         addChild(e.first.toAST)
         for (tr : e.trigger)
           addChild(tr.toAST)
@@ -5295,7 +5300,7 @@ toAST(TriggerLogicalExpression e)
       newBAST(e) =>  
         [  
   	    myText = "cor"
-        token = new CommonToken(BLESStoASTLexer.LITERAL_cor, "cor")
+        token = new CommonToken(BLESS3Lexer.LITERAL_cor, "cor")
         addChild(e.first.toAST)
         for (tr : e.trigger)
           addChild(tr.toAST)
@@ -5314,7 +5319,7 @@ toAST(VariablesSection e)
   newBAST(e) =>  
     [  
   	myText = "variables"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_variables, "variables")
+    token = new CommonToken(BLESS3Lexer.LITERAL_variables, "variables")
     for (child : e.behavior_variables)
       addChild(child.toAST)
     ]
@@ -5328,7 +5333,7 @@ toAST(BooleanType e)
   newBAST(e) =>  
     [  
   	myText = "boolean"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_boolean, "boolean")
+    token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
   	]
      } catch (Exception ex) {ex.printStackTrace x}       
   }
@@ -5340,7 +5345,7 @@ toAST(StringType e)
   newBAST(e) =>  
     [  
   	myText = "string"
-    token = new CommonToken(BLESStoASTLexer.LITERAL_string, "string")
+    token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
   	]
     } catch (Exception ex) {ex.printStackTrace x}       
   }
@@ -5356,7 +5361,7 @@ toAST(TypeOrReference e)
     newBAST(e) =>  
       [  
     	myText = "time"
-      token = new CommonToken(BLESStoASTLexer.LITERAL_time, "time")
+      token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
     	]  
     else if (e.ref?.type !== null)
       e.ref.type.toAST
@@ -5364,7 +5369,7 @@ toAST(TypeOrReference e)
       newBAST(e) =>  
         [  
   	    myText = "UNRESOLVED_TYPE_REFERENCE"
-        token = new CommonToken(BLESStoASTLexer.DUMMY, "UNRESOLVED_TYPE_REFERENCE")
+        token = new CommonToken(BLESS3Lexer.DUMMY, "UNRESOLVED_TYPE_REFERENCE")
   	    ]  
     }
     } catch (Exception ex) {ex.printStackTrace x}       
@@ -5405,7 +5410,7 @@ toAST(ANumber e)
 //    newBAST(e) =>  
 //        [  
 //        myText = "UNRESOLVED_NUMBER_REFERENCE"
-//        token = new CommonToken(BLESStoASTLexer.DUMMY, "UNRESOLVED_NUMBER_REFERENCE")
+//        token = new CommonToken(BLESS3Lexer.DUMMY, "UNRESOLVED_NUMBER_REFERENCE")
 //        ]  
     } 
   catch (Exception ex) {ex.printStackTrace x}       
