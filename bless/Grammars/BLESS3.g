@@ -22,17 +22,16 @@ BEHAVIOR_GUARD;
 BEHAVIOR_TIME; 
 BLESS_SUBCLAUSE;
 BOUND;  //for loops
-CASE_EXPRESSION;  //case expression
+//CASE_EXPRESSION;  //case expression
 COMPONENT;
 CONDITION;
-CONDITIONAL;  //conditional expression, replaces QQ='??'
-CONDITIONAL_FUNCTION;
+//CONDITIONAL;  //conditional expression, replaces QQ='??'
+CONDITIONAL_ASSERTION_FUNCTION;
 COUNTING_TRIGGER;  //for counting dispatch triggers in a dispatch condition, ormore/orless
 DESTINATION; 
 DUMMY;  //used for dummy roots of trees
 FLOATING; 
 FUNCTION; 
-FUNCTION_CALL; 
 INMODE;  //for 'in mode' clause
 INOUT;  //both in and out direction for port
 INVARIANT; 
@@ -62,6 +61,7 @@ SOURCE;
 START; 
 STOP; //used to mark the end of some strings of children
 SUBPROGRAM_ANNEX; 
+SUBPROGRAM_INVOCATION; 
 TOP;  //the set of all values; every values is in TOP
 TRANSITION; 
 TYPE; 
@@ -791,7 +791,8 @@ assertionFunctionValue:
 	;	
 
 conditionalAssertionFunction:
-	LBRACKET^ conditionValuePair ( COMMA! conditionValuePair )* RBRACKET
+	LBRACKET cvp+=conditionValuePair ( COMMA cvp+=conditionValuePair )* RBRACKET
+	  -> ^( CONDITIONAL_ASSERTION_FUNCTION $cvp* )
 	;	
 	
 conditionValuePair:
@@ -1002,7 +1003,12 @@ parenthesizedSubexpression:
 ;
 
 caseExpression:
-  LITERAL_case
+  LITERAL_case^ caseChoice+
+  ;
+
+caseChoice
+  :
+  LPAREN! bool=expression IMP^ exp=expression RPAREN!
   ;
  
 conditionalExpression:
@@ -1176,14 +1182,6 @@ throwsClause:
 assertClause:
   LITERAL_assert^ (assertions+=namedAssertion)+
   ;
-
-existentialLatticeQuantification:	
-  qv=quantifiedVariables?
-  lc=LCURLY^  ba=behaviorActions RCURLY  //keep the closing }
-  cc=catchClause?
-  ;
-  catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existentialLatticeQuantification.tree);}
 	
 //actionTimeout:
 //  LITERAL_timeout^ behaviorTime
@@ -1228,8 +1226,6 @@ variableDeclaration:
 
 
 behaviorActions:
-	
-
   a+=assertedAction
   (  //sequential_composition
   	( SEMICOLON^ a+=assertedAction ( SEMICOLON! a+=assertedAction )* )
@@ -1237,8 +1233,6 @@ behaviorActions:
   	( AMPERSAND^ a+=assertedAction ( AMPERSAND a+=assertedAction)* )
   )?
 ;
-
-
 
 assertedAction  :
   pre=assertion?  //precondition
@@ -1327,8 +1321,8 @@ communicationAction:
 
 subprogramCall:
   id=ID LPAREN fal=formalActualList? RPAREN
-    -> ^( FUNCTION_CALL[$id,
-      "FUNCTION_CALL["+Integer.toString($id.tree.getLine())+"] "] $id $fal )
+    -> ^( SUBPROGRAM_INVOCATION[$id,
+      "SUBPROGRAM_INVOCATION["+Integer.toString($id.tree.getLine())+"] "] $id $fal )
   ;
 
 formalActualList:
@@ -1410,6 +1404,15 @@ doUntilLoop:
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.doUntilLoop,re,$doUntilLoop.tree);}
+
+
+existentialLatticeQuantification:	
+  qv=quantifiedVariables?
+  lc=LCURLY^  ba=behaviorActions RCURLY  //keep the closing }
+  cc=catchClause?
+  ;
+  catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
+     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existentialLatticeQuantification.tree);}
   
 universalLatticeQuantification:
   lf=LITERAL_forall   

@@ -111,9 +111,11 @@ cand(t) ::= "<t; wrap, separator=\" and then \">"
 
 caret(p,cv) ::= "<p>^<cv>"
 
-case_choice(be,exp) ::= "(<be>) -> <exp>"
+case_choice(be,exp) ::= "(<be> -> <exp>)"
 
-case_expression(cc) ::= "(<cc; anchor, wrap, separator=\", \">)"
+case_expression(cc) ::= 
+<<case
+  <cc; separator=<\n>>>>
 
 catch_clause(cct) ::= "catch <cct; separator=\" \">"
 

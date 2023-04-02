@@ -17,7 +17,7 @@ import org.osate.aadl2.Property;
 import org.osate.aadl2.ThreadClassifier;
 import org.osate.xtext.aadl2.properties.util.GetProperties;
 
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.exceptions.YouIdiot;
 import com.multitude.bless.symbol.CompleteStateMapRecord;
 import com.multitude.bless.tree.BAST;
@@ -145,8 +145,8 @@ getThreadPeriod()
 //      if (dispatchProtocol.toString().endsWith("Periodic"))
 //        {
         double periodInMS = GetProperties.getPeriodinMS((NamedElement)context);
-        period = new BAST(String.valueOf(periodInMS),BLESStoASTLexer.INTEGER_LIT,this.ast);
-        period.addChild(new BAST("ms",BLESStoASTLexer.ID,this.ast));
+        period = new BAST(String.valueOf(periodInMS),BLESS3Lexer.INTEGER_LIT,this.ast);
+        period.addChild(new BAST("ms",BLESS3Lexer.ID,this.ast));
 //        }
 //      else
 //        Dump.it(this.name+" does not have a thread period");

@@ -1,11 +1,9 @@
 package com.multitude.bless.toast;
 
 import com.google.common.base.Objects;
-import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.Action;
 import com.multitude.aadl.bless.bLESS.ActionSubclause;
-import com.multitude.aadl.bless.bLESS.ActionTimeout;
 import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.AddSub;
 import com.multitude.aadl.bless.bLESS.Alternative;
@@ -21,7 +19,6 @@ import com.multitude.aadl.bless.bLESS.AssertionLibrary;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
 import com.multitude.aadl.bless.bLESS.BAAlternative;
-import com.multitude.aadl.bless.bLESS.BLESSAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSSubclause;
 import com.multitude.aadl.bless.bLESS.BasicAction;
 import com.multitude.aadl.bless.bLESS.BehaviorActions;
@@ -52,7 +49,6 @@ import com.multitude.aadl.bless.bLESS.DoUntilLoop;
 import com.multitude.aadl.bless.bLESS.EnumerationPair;
 import com.multitude.aadl.bless.bLESS.EnumerationType;
 import com.multitude.aadl.bless.bLESS.EnumerationValue;
-import com.multitude.aadl.bless.bLESS.EventTrigger;
 import com.multitude.aadl.bless.bLESS.ExecuteCondition;
 import com.multitude.aadl.bless.bLESS.ExistentialLatticeQuantification;
 import com.multitude.aadl.bless.bLESS.ExistentialQuantification;
@@ -60,11 +56,9 @@ import com.multitude.aadl.bless.bLESS.Exp;
 import com.multitude.aadl.bless.bLESS.Expression;
 import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
 import com.multitude.aadl.bless.bLESS.ForLoop;
-import com.multitude.aadl.bless.bLESS.ForallVariable;
 import com.multitude.aadl.bless.bLESS.FormalActual;
 import com.multitude.aadl.bless.bLESS.FormalActualList;
 import com.multitude.aadl.bless.bLESS.FormalExpressionPair;
-import com.multitude.aadl.bless.bLESS.FunctionParameters;
 import com.multitude.aadl.bless.bLESS.GuardedAction;
 import com.multitude.aadl.bless.bLESS.IndexExpression;
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange;
@@ -73,7 +67,6 @@ import com.multitude.aadl.bless.bLESS.InvariantClause;
 import com.multitude.aadl.bless.bLESS.Invocation;
 import com.multitude.aadl.bless.bLESS.IssueException;
 import com.multitude.aadl.bless.bLESS.LogicVariables;
-import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
 import com.multitude.aadl.bless.bLESS.NameTick;
@@ -81,13 +74,11 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
-import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
 import com.multitude.aadl.bless.bLESS.PartialName;
 import com.multitude.aadl.bless.bLESS.PeriodShift;
 import com.multitude.aadl.bless.bLESS.PortInput;
 import com.multitude.aadl.bless.bLESS.PortOutput;
-import com.multitude.aadl.bless.bLESS.Predicate;
 import com.multitude.aadl.bless.bLESS.ProductQuantification;
 import com.multitude.aadl.bless.bLESS.PropertyField;
 import com.multitude.aadl.bless.bLESS.PropertyReference;
@@ -101,7 +92,6 @@ import com.multitude.aadl.bless.bLESS.RecordType;
 import com.multitude.aadl.bless.bLESS.RecordValue;
 import com.multitude.aadl.bless.bLESS.Relation;
 import com.multitude.aadl.bless.bLESS.SimultaneousAssignment;
-import com.multitude.aadl.bless.bLESS.StatesSection;
 import com.multitude.aadl.bless.bLESS.StringType;
 import com.multitude.aadl.bless.bLESS.SubProgramParameter;
 import com.multitude.aadl.bless.bLESS.Subexpression;
@@ -112,9 +102,7 @@ import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
 import com.multitude.aadl.bless.bLESS.TriggerLogicalExpression;
 import com.multitude.aadl.bless.bLESS.Type;
-import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
-import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.UniversalLatticeQuantification;
 import com.multitude.aadl.bless.bLESS.UniversalQuantification;
 import com.multitude.aadl.bless.bLESS.Value;
@@ -125,32 +113,18 @@ import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.VariablesSection;
 import com.multitude.aadl.bless.bLESS.WhenThrow;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.tree.BAST;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.antlr.runtime.CommonToken;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
-import org.osate.aadl2.CalledSubprogram;
-import org.osate.aadl2.Classifier;
-import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.Element;
-import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.Parameter;
-import org.osate.aadl2.Port;
-import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyConstant;
-import org.osate.aadl2.SubprogramAccess;
-import org.osate.aadl2.SubprogramSubcomponent;
-import org.osate.aadl2.parsesupport.LocationReference;
 
 @SuppressWarnings("all")
 public class ToAST {
@@ -163,29 +137,9 @@ public class ToAST {
   }
 
   public BAST makeBASTforID(final String id, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = id;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ID, id);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nID cannot be resolved");
   }
 
   public BAST makeBASTforANumber(final ANumber an, final Element parent) {
@@ -214,87 +168,17 @@ public class ToAST {
   }
 
   public BAST makeBASTforPropertyReference(final PropertyReference pr, final Element e) {
-    BAST _xblockexpression = null;
-    {
-      boolean _eIsProxy = pr.eIsProxy();
-      if (_eIsProxy) {
-        EcoreUtil.resolve(pr, e);
-      }
-      BAST _xtrycatchfinallyexpression = null;
-      try {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "#";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
-          it.token = _commonToken;
-          boolean _isSelf = pr.isSelf();
-          if (_isSelf) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-              it_1.myText = "self";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_self, "self");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            it.addChild(_doubleArrow);
-          }
-          Property _pname = pr.getPname();
-          boolean _tripleNotEquals = (_pname != null);
-          if (_tripleNotEquals) {
-            it.addChild(this.makeBASTforPropertyName(pr.getPname().qualifiedName(), e));
-          } else {
-            Property _spname = pr.getSpname();
-            boolean _tripleNotEquals_1 = (_spname != null);
-            if (_tripleNotEquals_1) {
-              it.addChild(this.makeBASTforPropertyName(pr.getSpname().qualifiedName(), e));
-            } else {
-              ComponentClassifier _component = pr.getComponent();
-              boolean _tripleNotEquals_2 = (_component != null);
-              if (_tripleNotEquals_2) {
-                it.addChild(this.makeBASTforComponentClassifier(pr.getComponent().qualifiedName(), e));
-                it.addChild(this.makeBASTforPropertyName(pr.getCpname().qualifiedName(), e));
-              }
-            }
-          }
-          EList<PropertyField> _field = pr.getField();
-          for (final PropertyField f : _field) {
-            it.addChild(this.makeBASTforPropertyField(f, e));
-          }
-        };
-        _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
-          final Exception ex = (Exception)_t;
-          BAST _xblockexpression_1 = null;
-          {
-            ex.printStackTrace();
-            _xblockexpression_1 = ToAST.x;
-          }
-          _xtrycatchfinallyexpression = _xblockexpression_1;
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
-      _xblockexpression = _xtrycatchfinallyexpression;
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nOCTOTHORPE cannot be resolved"
+      + "\nLITERAL_self cannot be resolved");
   }
 
   public BAST makeBASTforComponentClassifier(final String s, final Element e) {
-    BAST _newBAST = this.newBAST(e);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = "::";
-      CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, "::");
-      it.token = _commonToken;
-      List<String> _componentClassifierStrings = null;
-      if (s!=null) {
-        _componentClassifierStrings=this.getComponentClassifierStrings(s);
-      }
-      for (final String c : _componentClassifierStrings) {
-        it.addChild(this.makeBASTforINT(c, e));
-      }
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDOUBLE_COLON cannot be resolved");
   }
 
   public List<String> getComponentClassifierStrings(final String s) {
@@ -316,110 +200,25 @@ public class ToAST {
   }
 
   public BAST makeBASTforPropertyField(final PropertyField f, final Element e) {
-    BAST _xifexpression = null;
-    String _index = f.getIndex();
-    boolean _tripleNotEquals = (_index != null);
-    if (_tripleNotEquals) {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "[";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LBRACKET, "[");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforINT(f.getIndex(), e));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "]";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RBRACKET, "]");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-      };
-      _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } else {
-      BAST _xifexpression_1 = null;
-      Variable _variable = f.getVariable();
-      boolean _tripleNotEquals_1 = (_variable != null);
-      if (_tripleNotEquals_1) {
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it) -> {
-          it.myText = "[";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LBRACKET, "[");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforID(f.getVariable().getName(), e));
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "]";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RBRACKET, "]");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow);
-        };
-        _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-      } else {
-        BAST _xifexpression_2 = null;
-        String _pf = f.getPf();
-        boolean _tripleNotEquals_2 = (_pf != null);
-        if (_tripleNotEquals_2) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it) -> {
-            it.myText = ".";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-            it.token = _commonToken;
-            it.addChild(this.makeBASTforID(f.getPf(), e));
-          };
-          _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        } else {
-          BAST _xifexpression_3 = null;
-          String _upper = f.getUpper();
-          boolean _tripleNotEquals_3 = (_upper != null);
-          if (_tripleNotEquals_3) {
-            BAST _newBAST_3 = this.newBAST(e);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = ".";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-              it.token = _commonToken;
-              BAST _newBAST_4 = this.newBAST(e);
-              final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-                it_1.myText = "upper_bound";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_upper_bound, "upper_bound");
-                it_1.token = _commonToken_1;
-              };
-              BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-              it.addChild(_doubleArrow);
-            };
-            _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          } else {
-            BAST _xifexpression_4 = null;
-            String _lower = f.getLower();
-            boolean _tripleNotEquals_4 = (_lower != null);
-            if (_tripleNotEquals_4) {
-              BAST _newBAST_4 = this.newBAST(e);
-              final Procedure1<BAST> _function_4 = (BAST it) -> {
-                it.myText = ".";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-                it.token = _commonToken;
-                BAST _newBAST_5 = this.newBAST(e);
-                final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-                  it_1.myText = "lower_bound";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_lower_bound, "lower_bound");
-                  it_1.token = _commonToken_1;
-                };
-                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-                it.addChild(_doubleArrow);
-              };
-              _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-            }
-            _xifexpression_3 = _xifexpression_4;
-          }
-          _xifexpression_2 = _xifexpression_3;
-        }
-        _xifexpression_1 = _xifexpression_2;
-      }
-      _xifexpression = _xifexpression_1;
-    }
-    return _xifexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLBRACKET cannot be resolved"
+      + "\nRBRACKET cannot be resolved"
+      + "\nLBRACKET cannot be resolved"
+      + "\nRBRACKET cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nLITERAL_upper_bound cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nLITERAL_lower_bound cannot be resolved");
   }
 
   /**
@@ -427,29 +226,9 @@ public class ToAST {
    * used by AssertionValue , NaturalConstant
    */
   public BAST makeBASTforINT(final String integer_literal, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = integer_literal;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INTEGER_LIT, integer_literal);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nINTEGER_LIT cannot be resolved");
   }
 
   /**
@@ -457,29 +236,9 @@ public class ToAST {
    * used by AssertionValue , ValueConstant
    */
   public BAST makeBASTforREAL_LIT(final String real_literal, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = real_literal;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.REAL_LIT, real_literal);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nREAL_LIT cannot be resolved");
   }
 
   /**
@@ -502,29 +261,9 @@ public class ToAST {
    * used by AssertionValue
    */
   public BAST makeBASTforSTRING(final String string_literal, final Value parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = string_literal;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AADL_STRING_LITERAL, string_literal);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nAADL_STRING_LITERAL cannot be resolved");
   }
 
   /**
@@ -532,64 +271,15 @@ public class ToAST {
    * used by LogicVariableDomain , Range
    */
   public BAST makeBASTforRangeSymbol(final String mySymbol, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _switchResult = null;
-      if (mySymbol != null) {
-        switch (mySymbol) {
-          case "..":
-            BAST _newBAST = this.newBAST(parent);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "..";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-            break;
-          case ",.":
-            BAST _newBAST_1 = this.newBAST(parent);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = ",.";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COMMADOT, ",.");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            break;
-          case ".,":
-            BAST _newBAST_2 = this.newBAST(parent);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = ".,";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOTCOMMA, ".,");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            break;
-          case ",,":
-            BAST _newBAST_3 = this.newBAST(parent);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = ",,";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COMMACOMMA, ",,");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            break;
-        }
-      }
-      _xtrycatchfinallyexpression = _switchResult;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDOTDOT cannot be resolved"
+      + "\nCOMMADOT cannot be resolved"
+      + "\nDOTCOMMA cannot be resolved"
+      + "\nCOMMACOMMA cannot be resolved");
   }
 
   /**
@@ -597,82 +287,19 @@ public class ToAST {
    * used by PredicateRelation, ExpressionOrRelation
    */
   public BAST makeBASTforRelationSymbol(final String mySymbol, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _switchResult = null;
-      if (mySymbol != null) {
-        switch (mySymbol) {
-          case "=":
-            BAST _newBAST = this.newBAST(parent);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "=";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.EQ, "=");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-            break;
-          case "<>":
-            BAST _newBAST_1 = this.newBAST(parent);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "<>";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.NEQ, "<>");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            break;
-          case "<":
-            BAST _newBAST_2 = this.newBAST(parent);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "<";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LT, "<");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            break;
-          case "<=":
-            BAST _newBAST_3 = this.newBAST(parent);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = "<=";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AM, "<=");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            break;
-          case ">=":
-            BAST _newBAST_4 = this.newBAST(parent);
-            final Procedure1<BAST> _function_4 = (BAST it) -> {
-              it.myText = ">=";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AL, ">=");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-            break;
-          case ">":
-            BAST _newBAST_5 = this.newBAST(parent);
-            final Procedure1<BAST> _function_5 = (BAST it) -> {
-              it.myText = ">";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.GT, ">");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-            break;
-        }
-      }
-      _xtrycatchfinallyexpression = _switchResult;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nEQ cannot be resolved"
+      + "\nNEQ cannot be resolved"
+      + "\nLT cannot be resolved"
+      + "\nAM cannot be resolved"
+      + "\nAL cannot be resolved"
+      + "\nGT cannot be resolved");
   }
 
   /**
@@ -680,82 +307,19 @@ public class ToAST {
    * used by BehaviorTime
    */
   public BAST makeBASTforTimeUnit(final String myUnit, final BehaviorTime parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _switchResult = null;
-      if (myUnit != null) {
-        switch (myUnit) {
-          case "ps":
-            BAST _newBAST = this.newBAST(parent);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "ps";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_ps, "ps");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-            break;
-          case "us":
-            BAST _newBAST_1 = this.newBAST(parent);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "us";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_us, "us");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            break;
-          case "ms":
-            BAST _newBAST_2 = this.newBAST(parent);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "ms";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_ms, "ms");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            break;
-          case "sec":
-            BAST _newBAST_3 = this.newBAST(parent);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = "sec";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_sec, "sec");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            break;
-          case "min":
-            BAST _newBAST_4 = this.newBAST(parent);
-            final Procedure1<BAST> _function_4 = (BAST it) -> {
-              it.myText = "min";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_min, "min");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-            break;
-          case "hr":
-            BAST _newBAST_5 = this.newBAST(parent);
-            final Procedure1<BAST> _function_5 = (BAST it) -> {
-              it.myText = "hr";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_hr, "hr");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-            break;
-        }
-      }
-      _xtrycatchfinallyexpression = _switchResult;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_ps cannot be resolved"
+      + "\nLITERAL_us cannot be resolved"
+      + "\nLITERAL_ms cannot be resolved"
+      + "\nLITERAL_sec cannot be resolved"
+      + "\nLITERAL_min cannot be resolved"
+      + "\nLITERAL_hr cannot be resolved");
   }
 
   /**
@@ -763,89 +327,13 @@ public class ToAST {
    * used by
    */
   public BAST makeBASTforPropertyName(final String property_name, final Element parent) {
-    BAST _xblockexpression = null;
-    {
-      if ((property_name == null)) {
-        LocationReference _locationReference = null;
-        if (parent!=null) {
-          _locationReference=parent.getLocationReference();
-        }
-        int _line = 0;
-        if (_locationReference!=null) {
-          _line=_locationReference.getLine();
-        }
-        String _plus = ("Property name was empty on line " + Integer.valueOf(_line));
-        String _plus_1 = (_plus + 
-          " in component ");
-        Classifier _containingClassifier = null;
-        if (parent!=null) {
-          _containingClassifier=parent.getContainingClassifier();
-        }
-        String _qualifiedName = null;
-        if (_containingClassifier!=null) {
-          _qualifiedName=_containingClassifier.qualifiedName();
-        }
-        String _plus_2 = (_plus_1 + _qualifiedName);
-        BlessControl.println(_plus_2);
-        BAST _newBAST = this.newBAST(parent);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "::";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, "::");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforID("NO", parent));
-          it.addChild(this.makeBASTforID("NAME", parent));
-        };
-        return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      }
-      boolean _contains = property_name.contains("::");
-      boolean _not = (!_contains);
-      if (_not) {
-        LocationReference _locationReference_1 = null;
-        if (parent!=null) {
-          _locationReference_1=parent.getLocationReference();
-        }
-        int _line_1 = 0;
-        if (_locationReference_1!=null) {
-          _line_1=_locationReference_1.getLine();
-        }
-        String _plus_3 = ((("Property name had no :: \'" + property_name) + "\' on line ") + Integer.valueOf(_line_1));
-        String _plus_4 = (_plus_3 + 
-          " in component ");
-        Classifier _containingClassifier_1 = null;
-        if (parent!=null) {
-          _containingClassifier_1=parent.getContainingClassifier();
-        }
-        String _qualifiedName_1 = null;
-        if (_containingClassifier_1!=null) {
-          _qualifiedName_1=_containingClassifier_1.qualifiedName();
-        }
-        String _plus_5 = (_plus_4 + _qualifiedName_1);
-        BlessControl.println(_plus_5);
-        BAST _newBAST_1 = this.newBAST(parent);
-        final Procedure1<BAST> _function_1 = (BAST it) -> {
-          it.myText = "::";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, "::");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforID("NO", parent));
-          it.addChild(this.makeBASTforID(property_name, parent));
-        };
-        return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-      }
-      final String property_set = property_name.substring(0, property_name.indexOf("::"));
-      int _indexOf = property_name.indexOf("::");
-      int _plus_6 = (_indexOf + 2);
-      final String property_id = property_name.substring(_plus_6, property_name.length());
-      BAST _newBAST_2 = this.newBAST(parent);
-      final Procedure1<BAST> _function_2 = (BAST it) -> {
-        it.myText = "::";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOUBLE_COLON, "::");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(property_set, parent));
-        it.addChild(this.makeBASTforID(property_id, parent));
-      };
-      _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDOUBLE_COLON cannot be resolved"
+      + "\nDOUBLE_COLON cannot be resolved"
+      + "\nDOUBLE_COLON cannot be resolved");
   }
 
   /**
@@ -853,29 +341,9 @@ public class ToAST {
    * used by
    */
   public BAST makeBASTforPort(final String port_name, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = port_name;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ID, port_name);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nID cannot be resolved");
   }
 
   /**
@@ -883,29 +351,9 @@ public class ToAST {
    * used by
    */
   public BAST makeBASTforAADL_STRING_LITERAL(final String theString, final Element parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(parent);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = theString;
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AADL_STRING_LITERAL, theString);
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nAADL_STRING_LITERAL cannot be resolved");
   }
 
   /**
@@ -934,37 +382,9 @@ public class ToAST {
   }
 
   protected BAST _toAST(final AssertionLibrary e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION_ANNEX, "ASSERTION_ANNEX");
-        it.token = _commonToken;
-        it.myText = "ASSERTION_ANNEX";
-        EList<NamedAssertion> _assertion_list = e.getAssertion_list();
-        for (final NamedAssertion child : _assertion_list) {
-          {
-            final BAST namedAssertion = this.toAST(child);
-            this.putAssertionIntoMap(child.getName(), namedAssertion);
-            it.addChild(namedAssertion);
-          }
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSERTION_ANNEX cannot be resolved");
   }
 
   protected BAST _toAST(final Assertion e) {
@@ -1017,202 +437,39 @@ public class ToAST {
   }
 
   protected BAST _toAST(final AssertionEnumeration e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PLUS_ARROW, "+=>");
-        it.token = _commonToken;
-        it.myText = "+=>";
-        Invocation _pred = e.getPred();
-        boolean _tripleNotEquals = (_pred != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getPred()));
-        } else {
-          EList<EnumerationPair> _pair = e.getPair();
-          for (final EnumerationPair child : _pair) {
-            it.addChild(this.toAST(child));
-          }
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPLUS_ARROW cannot be resolved");
   }
 
   protected BAST _toAST(final SumQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_sum, "sum");
-        it.token = _commonToken;
-        it.myText = "sum";
-        it.addChild(this.toAST(e.getVariables()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          boolean _isIn = e.isIn();
-          if (_isIn) {
-            it_1.addChild(this.toAST(e.getRange()));
-          } else {
-            boolean _isWhich = e.isWhich();
-            if (_isWhich) {
-              Predicate _condition = e.getCondition();
-              it_1.addChild(this.toAST(((Expression) _condition)));
-            }
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_of, "of");
-          it_1.token = _commonToken_1;
-          it_1.myText = "of";
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        it.addChild(this.toAST(e.getNumeric_expression()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_sum cannot be resolved"
+      + "\nLITERAL_in cannot be resolved"
+      + "\nLITERAL_of cannot be resolved");
   }
 
   protected BAST _toAST(final ProductQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_product, "product");
-        it.token = _commonToken;
-        it.myText = "product";
-        it.addChild(this.toAST(e.getVariables()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          boolean _isIn = e.isIn();
-          if (_isIn) {
-            it_1.addChild(this.toAST(e.getRange()));
-          } else {
-            boolean _isWhich = e.isWhich();
-            if (_isWhich) {
-              Predicate _condition = e.getCondition();
-              it_1.addChild(this.toAST(((Expression) _condition)));
-            }
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_of, "of");
-          it_1.token = _commonToken_1;
-          it_1.myText = "of";
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        it.addChild(this.toAST(e.getNumeric_expression()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_product cannot be resolved"
+      + "\nLITERAL_in cannot be resolved"
+      + "\nLITERAL_of cannot be resolved");
   }
 
   protected BAST _toAST(final CountingQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_numberof, "numberof");
-        it.token = _commonToken;
-        it.myText = "numberof";
-        it.addChild(this.toAST(e.getVariables()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          boolean _isIn = e.isIn();
-          if (_isIn) {
-            it_1.addChild(this.toAST(e.getRange()));
-          } else {
-            boolean _isWhich = e.isWhich();
-            if (_isWhich) {
-              Predicate _condition = e.getCondition();
-              it_1.addChild(this.toAST(((Expression) _condition)));
-            }
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_that, "that");
-          it_1.token = _commonToken_1;
-          it_1.myText = "that";
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        Predicate _counted = e.getCounted();
-        it.addChild(this.toAST(((Expression) _counted)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_numberof cannot be resolved"
+      + "\nLITERAL_in cannot be resolved"
+      + "\nLITERAL_that cannot be resolved");
   }
 
   protected BAST _toAST(final AssertionFunctionValue e) {
@@ -1251,808 +508,150 @@ public class ToAST {
   }
 
   protected BAST _toAST(final ConditionValuePair e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "->";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.IMP, "->");
-        it.token = _commonToken;
-        Predicate _condition = e.getCondition();
-        it.addChild(this.parenthesize(this.toAST(((Expression) _condition)), e));
-        AssertionNumericExpression _expression = e.getExpression();
-        it.addChild(this.toAST(((Expression) _expression)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nIMP cannot be resolved");
   }
 
   public BAST parenthesize(final BAST pred, final Element e) {
-    BAST _xblockexpression = null;
-    {
-      if ((((pred.getChildCount() == 0) || pred.hasType(BLESStoASTLexer.AT_SIGN)) || pred.hasType(BLESStoASTLexer.LBRACKET))) {
-        return pred;
-      }
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "(";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LPAREN, "(");
-        it.token = _commonToken;
-        it.addChild(pred);
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = ")";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-      };
-      _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nAT_SIGN cannot be resolved"
+      + "\nLBRACKET cannot be resolved"
+      + "\nLPAREN cannot be resolved"
+      + "\nRPAREN cannot be resolved");
   }
 
   protected BAST _toAST(final ConditionalExpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "CONDITIONAL";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CONDITIONAL, "CONDITIONAL");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getPred()));
-        it.addChild(this.toAST(e.getT()));
-        it.addChild(this.toAST(e.getF()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCONDITIONAL cannot be resolved");
   }
 
   protected BAST _toAST(final ConditionalAssertionFunction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "CONDITIONAL_FUNCTION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CONDITIONAL_FUNCTION, "CONDITIONAL_FUNCTION");
-        it.token = _commonToken;
-        EList<ConditionValuePair> _cvp = e.getCvp();
-        for (final ConditionValuePair child : _cvp) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCONDITIONAL_FUNCTION cannot be resolved");
   }
 
   protected BAST _toAST(final EnumerationPair e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = e.getEnumeration_literal();
-        String _enumeration_literal = e.getEnumeration_literal();
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ID, _enumeration_literal);
-        it.token = _commonToken;
-        Predicate _predicate = e.getPredicate();
-        it.addChild(this.toAST(((Expression) _predicate)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nID cannot be resolved");
   }
 
   protected BAST _toAST(final ExistentialQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "exists";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_exists, "exists");
-        it.token = _commonToken;
-        LogicVariables _variables = e.getVariables();
-        boolean _tripleNotEquals = (_variables != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getVariables()));
-        }
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          boolean _isIn = e.isIn();
-          if (_isIn) {
-            it_1.addChild(this.toAST(e.getRange()));
-          } else {
-            boolean _isWhich = e.isWhich();
-            if (_isWhich) {
-              it_1.addChild(this.toAST(e.getCondition()));
-            }
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        Predicate _predicate = e.getPredicate();
-        it.addChild(this.toAST(((Expression) _predicate)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_exists cannot be resolved"
+      + "\nLITERAL_in cannot be resolved");
   }
 
   protected BAST _toAST(final Variable e) {
-    BAST _xblockexpression = null;
-    {
-      this.makeBASTforID(e.getName(), e);
-      BAST _xtrycatchfinallyexpression = null;
-      try {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TILDE, "~");
-          it.token = _commonToken;
-          it.myText = "~";
-          it.addChild(this.makeBASTforID(e.getName(), e));
-          TypeDeclaration _ref = e.getTod().getRef();
-          boolean _tripleNotEquals = (_ref != null);
-          if (_tripleNotEquals) {
-            it.addChild(this.makeBASTforID(e.getTod().getRef().getName(), e));
-          } else {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ID, "dummytype");
-              it_1.token = _commonToken_1;
-              it_1.myText = "dummytype";
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            it.addChild(_doubleArrow);
-          }
-        };
-        _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
-          final Exception ex = (Exception)_t;
-          BAST _xblockexpression_1 = null;
-          {
-            ex.printStackTrace();
-            _xblockexpression_1 = ToAST.x;
-          }
-          _xtrycatchfinallyexpression = _xblockexpression_1;
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
-      _xblockexpression = _xtrycatchfinallyexpression;
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTILDE cannot be resolved"
+      + "\nID cannot be resolved");
   }
 
   protected BAST _toAST(final VariableList e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isComma = e.isComma();
-      if (_isComma) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COMMA, ",");
-          it.token = _commonToken;
-          it.myText = ",";
-          it.addChild(this.toAST(e.getFirst()));
-          EList<Variable> _parameter = e.getParameter();
-          for (final Variable child : _parameter) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(e.getFirst());
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOMMA cannot be resolved");
   }
 
   protected BAST _toAST(final IndexExpressionOrRange e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isDd = e.isDd();
-      if (_isDd) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "..";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getLeft_hand_side()));
-          it.addChild(this.toAST(e.getRight_hand_side()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(e.getLeft_hand_side());
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDOTDOT cannot be resolved");
   }
 
   protected BAST _toAST(final PeriodShift e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isUnary_minus = e.isUnary_minus();
-      if (_isUnary_minus) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "-";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-");
-          it.token = _commonToken;
-          Value _v = e.getV();
-          boolean _tripleNotEquals = (_v != null);
-          if (_tripleNotEquals) {
-            it.addChild(this.toAST(e.getV()));
-          } else {
-            IndexExpression _index_expression = e.getIndex_expression();
-            boolean _tripleNotEquals_1 = (_index_expression != null);
-            if (_tripleNotEquals_1) {
-              it.addChild(this.parenthesize(e.getIndex_expression()));
-            }
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        Value _v = e.getV();
-        boolean _tripleNotEquals = (_v != null);
-        if (_tripleNotEquals) {
-          _xifexpression_1 = this.toAST(e.getV());
-        } else {
-          BAST _xifexpression_2 = null;
-          IndexExpression _index_expression = e.getIndex_expression();
-          boolean _tripleNotEquals_1 = (_index_expression != null);
-          if (_tripleNotEquals_1) {
-            _xifexpression_2 = this.parenthesize(e.getIndex_expression());
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nUNARY_MINUS cannot be resolved");
   }
 
   /**
    * make IntegerExpression into parenthesized_subexpression
    */
   public BAST parenthesize(final IndexExpression ie) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(ie);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "(";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LPAREN, "(");
-        it.token = _commonToken;
-        it.addChild(this.toAST(ie));
-        BAST _newBAST_1 = this.newBAST(ie);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = ")";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLPAREN cannot be resolved"
+      + "\nRPAREN cannot be resolved");
   }
 
   protected BAST _toAST(final IndexExpression ie) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      if (((ie.getSym() != null) && ie.getSym().equals("-"))) {
-        BAST _newBAST = this.newBAST(ie);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "-";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.MINUS, "-");
-          it.token = _commonToken;
-          it.addChild(this.toAST(ie.getL()));
-          it.addChild(this.toAST(IterableExtensions.<PeriodShift>head(ie.getR())));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        if (((ie.getSym() != null) && ie.getSym().equals("div"))) {
-          BAST _newBAST_1 = this.newBAST(ie);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "/";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DIVIDE, "/");
-            it.token = _commonToken;
-            it.addChild(this.toAST(ie.getL()));
-            it.addChild(this.toAST(IterableExtensions.<PeriodShift>head(ie.getR())));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          if (((ie.getSym() != null) && ie.getSym().equals("mod"))) {
-            BAST _newBAST_2 = this.newBAST(ie);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "mod";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_mod, "/");
-              it.token = _commonToken;
-              it.addChild(this.toAST(ie.getL()));
-              it.addChild(this.toAST(IterableExtensions.<PeriodShift>head(ie.getR())));
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            BAST _xifexpression_3 = null;
-            if (((ie.getSym() != null) && ie.getSym().equals("+"))) {
-              BAST _newBAST_3 = this.newBAST(ie);
-              final Procedure1<BAST> _function_3 = (BAST it) -> {
-                it.myText = "+";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PLUS, "+");
-                it.token = _commonToken;
-                it.addChild(this.toAST(ie.getL()));
-                EList<PeriodShift> _r = ie.getR();
-                for (final PeriodShift ch : _r) {
-                  it.addChild(this.toAST(ch));
-                }
-              };
-              _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            } else {
-              BAST _xifexpression_4 = null;
-              if (((ie.getSym() != null) && ie.getSym().equals("*"))) {
-                BAST _newBAST_4 = this.newBAST(ie);
-                final Procedure1<BAST> _function_4 = (BAST it) -> {
-                  it.myText = "*";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TIMES, "*");
-                  it.token = _commonToken;
-                  it.addChild(this.toAST(ie.getL()));
-                  EList<PeriodShift> _r = ie.getR();
-                  for (final PeriodShift ch : _r) {
-                    it.addChild(this.toAST(ch));
-                  }
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-              } else {
-                _xifexpression_4 = this.toAST(ie.getL());
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nMINUS cannot be resolved"
+      + "\nDIVIDE cannot be resolved"
+      + "\nLITERAL_mod cannot be resolved"
+      + "\nPLUS cannot be resolved"
+      + "\nTIMES cannot be resolved");
   }
 
   protected BAST _toAST(final LogicVariables e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      int _size = e.getLv().size();
-      boolean _tripleEquals = (_size == 1);
-      if (_tripleEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ":";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-          it.token = _commonToken;
-          it.addChild(
-            this.toAST(IterableExtensions.<Variable>head(e.getLv()).getTod()));
-          it.addChild(this.makeBASTforID(IterableExtensions.<Variable>head(e.getLv()).getName(), IterableExtensions.<Variable>head(e.getLv())));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it) -> {
-          it.myText = ":";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-          it.token = _commonToken;
-          it.addChild(
-            this.toAST(IterableExtensions.<Variable>head(e.getLv()).getTod()));
-          EList<Variable> _lv = e.getLv();
-          for (final Variable v : _lv) {
-            it.addChild(this.makeBASTforID(v.getName(), v));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOLON cannot be resolved"
+      + "\nCOLON cannot be resolved");
   }
 
   protected BAST _toAST(final ModeCondition e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "on";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_on, "on");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getTle()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_on cannot be resolved");
   }
 
   protected BAST _toAST(final ValueName e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isDot = e.isDot();
-      if (_isDot) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ".";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-          it.token = _commonToken;
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = e.getId().getName();
-            String _name = e.getId().getName();
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ID, _name);
-            it_1.token = _commonToken_1;
-            EList<IndexExpressionOrRange> _array_index = e.getArray_index();
-            for (final IndexExpressionOrRange index : _array_index) {
-              it_1.addChild(this.toAST(index));
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-          EList<PartialName> _pn = e.getPn();
-          for (final PartialName partial_name : _pn) {
-            it.addChild(this.toAST(partial_name));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isFresh = e.isFresh();
-        if (_isFresh) {
-          String _name = e.getId().getName();
-          String _plus = (_name + "\'fresh");
-          _xifexpression_1 = this.makeBASTforPort(_plus, e);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _isCount = e.isCount();
-          if (_isCount) {
-            String _name_1 = e.getId().getName();
-            String _plus_1 = (_name_1 + "\'count");
-            _xifexpression_2 = this.makeBASTforPort(_plus_1, e);
-          } else {
-            BAST _xifexpression_3 = null;
-            boolean _isUpdated = e.isUpdated();
-            if (_isUpdated) {
-              String _name_2 = e.getId().getName();
-              String _plus_2 = (_name_2 + "\'updated");
-              _xifexpression_3 = this.makeBASTforPort(_plus_2, e);
-            } else {
-              BAST _xifexpression_4 = null;
-              boolean _isQ = e.isQ();
-              if (_isQ) {
-                BAST _newBAST_1 = this.newBAST(e);
-                final Procedure1<BAST> _function_1 = (BAST it) -> {
-                  it.myText = "?";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.QUESTION, "?");
-                  it.token = _commonToken;
-                  it.addChild(this.makeBASTforPort(e.getId().getName(), e));
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-              } else {
-                BAST _xifexpression_5 = null;
-                boolean _isLp = e.isLp();
-                if (_isLp) {
-                  BAST _newBAST_2 = this.newBAST(e);
-                  final Procedure1<BAST> _function_2 = (BAST it) -> {
-                    String _name_3 = e.getId().getName();
-                    String _plus_3 = ("FUNCTION_CALL[" + _name_3);
-                    String _plus_4 = (_plus_3 + "]");
-                    it.myText = _plus_4;
-                    String _name_4 = e.getId().getName();
-                    String _plus_5 = ("FUNCTION_CALL[" + _name_4);
-                    String _plus_6 = (_plus_5 + "]");
-                    CommonToken _commonToken = new CommonToken(BLESStoASTLexer.FUNCTION_CALL, _plus_6);
-                    it.token = _commonToken;
-                    it.addChild(this.makeBASTforID(e.getId().getName(), e));
-                    FunctionParameters _pr = e.getPr();
-                    boolean _tripleNotEquals = (_pr != null);
-                    if (_tripleNotEquals) {
-                      EList<FormalExpressionPair> _parameters = e.getPr().getParameters();
-                      for (final FormalExpressionPair parameter : _parameters) {
-                        it.addChild(this.toAST(parameter));
-                      }
-                    }
-                  };
-                  _xifexpression_5 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-                } else {
-                  BAST _newBAST_3 = this.newBAST(e);
-                  final Procedure1<BAST> _function_3 = (BAST it) -> {
-                    it.myText = e.getId().getName();
-                    String _name_3 = e.getId().getName();
-                    CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ID, _name_3);
-                    it.token = _commonToken;
-                    EList<IndexExpressionOrRange> _array_index = e.getArray_index();
-                    for (final IndexExpressionOrRange index : _array_index) {
-                      it.addChild(this.toAST(index));
-                    }
-                  };
-                  _xifexpression_5 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-                }
-                _xifexpression_4 = _xifexpression_5;
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPERIOD cannot be resolved"
+      + "\nID cannot be resolved"
+      + "\nQUESTION cannot be resolved"
+      + "\nFUNCTION_CALL cannot be resolved"
+      + "\nID cannot be resolved");
   }
 
   protected BAST _toAST(final FormalExpressionPair e) {
-    BAST _newBAST = this.newBAST(e);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = "->";
-      CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ARROW, "->");
-      it.token = _commonToken;
-      it.addChild(this.makeBASTforID(e.getFormal(), e));
-      it.addChild(this.toAST(e.getActual()));
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nARROW cannot be resolved");
   }
 
   protected BAST _toAST(final NamelessAssertion e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "ASSERTION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION, "ASSERTION");
-        it.token = _commonToken;
-        Predicate _predicate = e.getPredicate();
-        it.addChild(this.toAST(((Expression) _predicate)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSERTION cannot be resolved");
   }
 
   protected BAST _toAST(final NamelessFunction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "ASSERTION_FUNCTION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, "ASSERTION_FUNCTION");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getFunctionvalue()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSERTION_FUNCTION cannot be resolved");
   }
 
   protected BAST _toAST(final NamelessEnumeration e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "ASSERTION_ENUMERATION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, "ASSERTION_ENUMERATION");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getEnumeration()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSERTION_ENUMERATION cannot be resolved");
   }
 
   protected BAST _toAST(final PartialName e) {
@@ -2083,120 +682,17 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Invocation e) {
-    BAST _xblockexpression = null;
-    {
-      final NamedAssertion namedAssertion = e.getLabel();
-      BAST _xifexpression = null;
-      boolean _isPred = namedAssertion.isPred();
-      if (_isPred) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          String _name = e.getLabel().getName();
-          String _plus = ("INVOKE[" + _name);
-          String _plus_1 = (_plus + "]");
-          it.myText = _plus_1;
-          String _name_1 = e.getLabel().getName();
-          String _plus_2 = ("INVOKE[" + _name_1);
-          String _plus_3 = (_plus_2 + "]");
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE, _plus_3);
-          it.token = _commonToken;
-          BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            NumericExpression _actual_parameter = e.getActual_parameter();
-            boolean _tripleNotEquals = (_actual_parameter != null);
-            if (_tripleNotEquals) {
-              it_1.addChild(this.toAST(e.getActual_parameter()));
-            }
-            EList<ActualParameter> _params = e.getParams();
-            boolean _tripleNotEquals_1 = (_params != null);
-            if (_tripleNotEquals_1) {
-              EList<ActualParameter> _params_1 = e.getParams();
-              for (final ActualParameter child : _params_1) {
-                boolean _isPredicateParameter = this.isPredicateParameter(namedAssertion, child);
-                if (_isPredicateParameter) {
-                  BAST _newBAST_1 = this.newBAST(e);
-                  final Procedure1<BAST> _function_2 = (BAST it_2) -> {
-                    it_2.myText = "PARAMETER";
-                    CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
-                    it_2.token = _commonToken_1;
-                    BAST _newBAST_2 = this.newBAST(e);
-                    final Procedure1<BAST> _function_3 = (BAST it_3) -> {
-                      it_3.myText = "COLON_TILDE";
-                      CommonToken _commonToken_2 = new CommonToken(BLESStoASTLexer.COLON_TILDE, "COLON_TILDE");
-                      it_3.token = _commonToken_2;
-                    };
-                    BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_3);
-                    it_2.addChild(_doubleArrow);
-                    it_2.addChild(this.makeBASTforID(child.getFormal(), e));
-                    it_2.addChild(this.toAST(child.getActual()));
-                  };
-                  BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_2);
-                  it_1.addChild(_doubleArrow);
-                } else {
-                  it_1.addChild(this.toAST(child));
-                }
-              }
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_1);
-          it.addChild(_doubleArrow);
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isFunc = namedAssertion.isFunc();
-        if (_isFunc) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            String _name = e.getLabel().getName();
-            String _plus = ("INVOKE_FUNCTION[" + _name);
-            String _plus_1 = (_plus + "]");
-            it.myText = _plus_1;
-            String _name_1 = e.getLabel().getName();
-            String _plus_2 = ("INVOKE_FUNCTION[" + _name_1);
-            String _plus_3 = (_plus_2 + "]");
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, _plus_3);
-            it.token = _commonToken;
-            BAST _makeBASTforID = this.makeBASTforID(e.getLabel().getName(), e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              NumericExpression _actual_parameter = e.getActual_parameter();
-              boolean _tripleNotEquals = (_actual_parameter != null);
-              if (_tripleNotEquals) {
-                it_1.addChild(this.toAST(e.getActual_parameter()));
-              }
-              EList<ActualParameter> _params = e.getParams();
-              boolean _tripleNotEquals_1 = (_params != null);
-              if (_tripleNotEquals_1) {
-                EList<ActualParameter> _params_1 = e.getParams();
-                for (final ActualParameter child : _params_1) {
-                  it_1.addChild(this.toAST(child));
-                }
-              }
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function_2);
-            it.addChild(_doubleArrow);
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it) -> {
-            String _name = e.getLabel().getName();
-            String _plus = ("INVOKE_ERROR[" + _name);
-            String _plus_1 = (_plus + "]");
-            it.myText = _plus_1;
-            String _name_1 = e.getLabel().getName();
-            String _plus_2 = ("INVOKE_ERROR[" + _name_1);
-            String _plus_3 = (_plus_2 + "]");
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.INVOKE_FUNCTION, _plus_3);
-            it.token = _commonToken;
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xblockexpression = _xifexpression;
-    }
-    return _xblockexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nINVOKE cannot be resolved"
+      + "\nPARAMETER cannot be resolved"
+      + "\nCOLON_TILDE cannot be resolved"
+      + "\nINVOKE_FUNCTION cannot be resolved"
+      + "\nINVOKE_FUNCTION cannot be resolved");
   }
 
   public boolean isPredicateParameter(final NamedAssertion na, final ActualParameter ap) {
@@ -2213,323 +709,53 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Relation e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _in = e.getIn();
-      boolean _tripleNotEquals = (_in != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "in";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getL()));
-          it.addChild(this.toAST(e.getRange()));
-        };
-        _xifexpression = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-      } else {
-        BAST _xifexpression_1 = null;
-        String _sym = e.getSym();
-        boolean _tripleNotEquals_1 = (_sym != null);
-        if (_tripleNotEquals_1) {
-          BAST _makeBASTforRelationSymbol = this.makeBASTforRelationSymbol(e.getSym(), e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.addChild(this.toAST(e.getL()));
-            it.addChild(this.toAST(e.getR()));
-          };
-          _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforRelationSymbol, _function_1), e);
-        } else {
-          _xifexpression_1 = this.toAST(e.getL());
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_in cannot be resolved");
   }
 
   protected BAST _toAST(final UniversalQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "all";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_all, "all");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getVariables()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          boolean _isIn = e.isIn();
-          if (_isIn) {
-            it_1.addChild(this.toAST(e.getRange()));
-          } else {
-            boolean _isWhich = e.isWhich();
-            if (_isWhich) {
-              Predicate _condition = e.getCondition();
-              it_1.addChild(this.toAST(((Expression) _condition)));
-            }
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        Predicate _predicate = e.getPredicate();
-        it.addChild(this.toAST(((Expression) _predicate)));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_all cannot be resolved"
+      + "\nLITERAL_in cannot be resolved");
   }
 
   protected BAST _toAST(final NamedAssertion e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isPred = e.isPred();
-      if (_isPred) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          String _name = e.getName();
-          String _plus = ("ASSERTION[" + _name);
-          String _plus_1 = (_plus + "]");
-          it.myText = _plus_1;
-          String _name_1 = e.getName();
-          String _plus_2 = ("ASSERTION[" + _name_1);
-          String _plus_3 = (_plus_2 + "]");
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION, _plus_3);
-          it.token = _commonToken;
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "LABEL";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LABEL, "LABEL");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.makeBASTforID(e.getName(), e));
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-          VariableList _formals = e.getFormals();
-          boolean _tripleNotEquals = (_formals != null);
-          if (_tripleNotEquals) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              it_1.myText = "PARAMETERS";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETERS, "PARAMETERS");
-              it_1.token = _commonToken_1;
-              it_1.addChild(this.toAST(e.getFormals()));
-            };
-            BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            it.addChild(_doubleArrow_1);
-          }
-          Predicate _predicate = e.getPredicate();
-          it.addChild(this.toAST(((Expression) _predicate)));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isFunc = e.isFunc();
-        if (_isFunc) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            String _name = e.getName();
-            String _plus = ("ASSERTION_FUNCTION[" + _name);
-            String _plus_1 = (_plus + "]");
-            it.myText = _plus_1;
-            String _name_1 = e.getName();
-            String _plus_2 = ("ASSERTION_FUNCTION[" + _name_1);
-            String _plus_3 = (_plus_2 + "]");
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION_FUNCTION, _plus_3);
-            it.token = _commonToken;
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              it_1.myText = "LABEL";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LABEL, "LABEL");
-              it_1.token = _commonToken_1;
-              it_1.addChild(this.makeBASTforID(e.getName(), e));
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            it.addChild(_doubleArrow);
-            VariableList _formals = e.getFormals();
-            boolean _tripleNotEquals = (_formals != null);
-            if (_tripleNotEquals) {
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-                it_1.myText = "PARAMETERS";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETERS, "PARAMETERS");
-                it_1.token = _commonToken_1;
-                it_1.addChild(this.toAST(e.getFormals()));
-              };
-              BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-              it.addChild(_doubleArrow_1);
-            }
-            it.addChild(this.toAST(e.getFunctionvalue()));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _isEnumer = e.isEnumer();
-          if (_isEnumer) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              String _name = e.getName();
-              String _plus = ("ASSERTION_ENUMERATION[" + _name);
-              String _plus_1 = (_plus + "]");
-              it.myText = _plus_1;
-              String _name_1 = e.getName();
-              String _plus_2 = ("ASSERTION_ENUMERATION[" + _name_1);
-              String _plus_3 = (_plus_2 + "]");
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSERTION_ENUMERATION, _plus_3);
-              it.token = _commonToken;
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-                it_1.myText = "LABEL";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LABEL, "LABEL");
-                it_1.token = _commonToken_1;
-                it_1.addChild(this.makeBASTforID(e.getName(), e));
-              };
-              BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-              it.addChild(_doubleArrow);
-              BAST _newBAST_4 = this.newBAST(e);
-              final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-                it_1.myText = "PARAMETERS";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.PARAMETERS, "PARAMETERS");
-                it_1.token = _commonToken_1;
-                it_1.addChild(this.makeBASTforID(e.getAssertionvariable(), e));
-              };
-              BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-              it.addChild(_doubleArrow_1);
-              it.addChild(this.toAST(e.getEnumeration()));
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSERTION cannot be resolved"
+      + "\nLABEL cannot be resolved"
+      + "\nPARAMETERS cannot be resolved"
+      + "\nASSERTION_FUNCTION cannot be resolved"
+      + "\nLABEL cannot be resolved"
+      + "\nPARAMETERS cannot be resolved"
+      + "\nASSERTION_ENUMERATION cannot be resolved"
+      + "\nLABEL cannot be resolved"
+      + "\nPARAMETERS cannot be resolved");
   }
 
   protected BAST _toAST(final ActionSubclause e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "SUBPROGRAM_ANNEX";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.SUBPROGRAM_ANNEX, "SUBPROGRAM_ANNEX");
-        it.token = _commonToken;
-        AssertClause _assert_clause = e.getAssert_clause();
-        BAST _aST = null;
-        if (_assert_clause!=null) {
-          _aST=this.toAST(_assert_clause);
-        }
-        it.addChild(_aST);
-        Assertion _precondition = e.getPrecondition();
-        boolean _tripleNotEquals = (_precondition != null);
-        if (_tripleNotEquals) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "pre";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_pre, "pre");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getPrecondition()));
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        }
-        Assertion _postcondition = e.getPostcondition();
-        boolean _tripleNotEquals_1 = (_postcondition != null);
-        if (_tripleNotEquals_1) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "post";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_post, "post");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getPostcondition()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        Assertion _invariant = e.getInvariant();
-        boolean _tripleNotEquals_2 = (_invariant != null);
-        if (_tripleNotEquals_2) {
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-            it_1.myText = "post";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getInvariant()));
-          };
-          BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it.addChild(_doubleArrow_2);
-        }
-        it.addChild(this.toAST(e.getElq()));
-        boolean _isNo_proof = e.isNo_proof();
-        if (_isNo_proof) {
-          BAST _newBAST_4 = this.newBAST(e);
-          final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-            it_1.myText = "DO_NOT_PROVE";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DO_NOT_PROVE, "DO_NOT_PROVE");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-          it.addChild(_doubleArrow_3);
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nSUBPROGRAM_ANNEX cannot be resolved"
+      + "\nLITERAL_pre cannot be resolved"
+      + "\nLITERAL_post cannot be resolved"
+      + "\nLITERAL_invariant cannot be resolved"
+      + "\nDO_NOT_PROVE cannot be resolved");
   }
 
   protected BAST _toAST(final Action e) {
@@ -2607,736 +833,127 @@ public class ToAST {
   }
 
   protected BAST _toAST(final ActualParameter e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "PARAMETER";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PARAMETER, "PARAMETER");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getFormal(), e));
-        it.addChild(this.toAST(e.getActual()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPARAMETER cannot be resolved");
   }
 
   protected BAST _toAST(final Alternative e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xblockexpression = null;
-      {
-        final BLESSAlternative b = e.getBlessalt();
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "if";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_if, "if");
-          it.token = _commonToken;
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = ")~>";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.GUARD, ")~>");
-            it_1.token = _commonToken_1;
-            BooleanExpression _guard = e.getGuard();
-            it_1.addChild(this.toAST(((Expression) _guard)));
-            it_1.addChild(this.toAST(b.getAction()));
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-          EList<GuardedAction> _alternative = b.getAlternative();
-          for (final GuardedAction child : _alternative) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      }
-      _xtrycatchfinallyexpression = _xblockexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression_1 = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression_1 = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression_1;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_if cannot be resolved"
+      + "\nGUARD cannot be resolved");
   }
 
   protected BAST _toAST(final ArrayRangeList e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isComma = e.isComma();
-      if (_isComma) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ",";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COMMA, ",");
-          it.token = _commonToken;
-          EList<ArrayRange> _range = e.getRange();
-          for (final ArrayRange child : _range) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(IterableExtensions.<ArrayRange>head(e.getRange()));
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOMMA cannot be resolved");
   }
 
   protected BAST _toAST(final ArrayRange e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      ANumber _ub = e.getUb();
-      boolean _tripleEquals = (_ub == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getLb());
-      } else {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "..";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforANumber(e.getLb(), e));
-          it.addChild(this.makeBASTforANumber(e.getUb(), e));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDOTDOT cannot be resolved");
   }
 
   protected BAST _toAST(final ArrayType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "array";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_array, "array");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getArray_ranges()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "of";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_of, "of");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        it.addChild(this.toAST(e.getTyp()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_array cannot be resolved"
+      + "\nLITERAL_of cannot be resolved");
   }
 
   protected BAST _toAST(final AssertClause e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "assert";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_assert, "assert");
-        it.token = _commonToken;
-        EList<NamedAssertion> _assertions = e.getAssertions();
-        for (final NamedAssertion child : _assertions) {
-          {
-            final BAST namedAssertion = this.toAST(child);
-            this.putAssertionIntoMap(child.getName(), namedAssertion);
-            it.addChild(namedAssertion);
-          }
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_assert cannot be resolved");
   }
 
   protected BAST _toAST(final AssertedAction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "ACTION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ACTION, "ACTION");
-        it.token = _commonToken;
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "P";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.P, "P");
-          it_1.token = _commonToken_1;
-          Assertion _precondition = e.getPrecondition();
-          BAST _aST = null;
-          if (_precondition!=null) {
-            _aST=this.toAST(_precondition);
-          }
-          it_1.addChild(_aST);
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = "S";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.S, "S");
-          it_1.token = _commonToken_1;
-          it_1.addChild(this.toAST(e.getAction()));
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        BAST _newBAST_3 = this.newBAST(e);
-        final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-          it_1.myText = "Q";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.Q, "Q");
-          it_1.token = _commonToken_1;
-          Assertion _postcondition = e.getPostcondition();
-          BAST _aST = null;
-          if (_postcondition!=null) {
-            _aST=this.toAST(_postcondition);
-          }
-          it_1.addChild(_aST);
-        };
-        BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-        it.addChild(_doubleArrow_2);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nACTION cannot be resolved"
+      + "\nP cannot be resolved"
+      + "\nS cannot be resolved"
+      + "\nQ cannot be resolved");
   }
 
   protected BAST _toAST(final Assignment e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ":=";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSIGN, ":=");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getLhs()));
-        it.addChild(this.toAST(e.getRhs()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSIGN cannot be resolved");
   }
 
   protected BAST _toAST(final BAAlternative e) {
-    BAST _newBAST = this.newBAST(e);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = "skip";
-      CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_skip, "skip");
-      it.token = _commonToken;
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_skip cannot be resolved");
   }
 
   protected BAST _toAST(final BasicAction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _skip = e.getSkip();
-      boolean _tripleNotEquals = (_skip != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "skip";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_skip, "skip");
-          it.token = _commonToken;
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        Assignment _assign = e.getAssign();
-        boolean _tripleNotEquals_1 = (_assign != null);
-        if (_tripleNotEquals_1) {
-          _xifexpression_1 = this.toAST(e.getAssign());
-        } else {
-          BAST _xifexpression_2 = null;
-          WhenThrow _when = e.getWhen();
-          boolean _tripleNotEquals_2 = (_when != null);
-          if (_tripleNotEquals_2) {
-            _xifexpression_2 = this.toAST(e.getWhen());
-          } else {
-            BAST _xifexpression_3 = null;
-            CombinableOperation _comb = e.getComb();
-            boolean _tripleNotEquals_3 = (_comb != null);
-            if (_tripleNotEquals_3) {
-              _xifexpression_3 = this.toAST(e.getComb());
-            } else {
-              BAST _xifexpression_4 = null;
-              CommunicationAction _communication = e.getCommunication();
-              boolean _tripleNotEquals_4 = (_communication != null);
-              if (_tripleNotEquals_4) {
-                _xifexpression_4 = this.toAST(e.getCommunication());
-              } else {
-                BAST _xifexpression_5 = null;
-                Computation _computation = e.getComputation();
-                boolean _tripleNotEquals_5 = (_computation != null);
-                if (_tripleNotEquals_5) {
-                  _xifexpression_5 = this.toAST(e.getComputation());
-                } else {
-                  BAST _xifexpression_6 = null;
-                  SimultaneousAssignment _multi_assign = e.getMulti_assign();
-                  boolean _tripleNotEquals_6 = (_multi_assign != null);
-                  if (_tripleNotEquals_6) {
-                    _xifexpression_6 = this.toAST(e.getMulti_assign());
-                  } else {
-                    BAST _xifexpression_7 = null;
-                    IssueException _exc = e.getExc();
-                    boolean _tripleNotEquals_7 = (_exc != null);
-                    if (_tripleNotEquals_7) {
-                      _xifexpression_7 = this.toAST(e.getExc());
-                    }
-                    _xifexpression_6 = _xifexpression_7;
-                  }
-                  _xifexpression_5 = _xifexpression_6;
-                }
-                _xifexpression_4 = _xifexpression_5;
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_skip cannot be resolved");
   }
 
   protected BAST _toAST(final BehaviorActions e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isSemi = e.isSemi();
-      if (_isSemi) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ";";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.SEMICOLON, ";");
-          it.token = _commonToken;
-          EList<AssertedAction> _action = e.getAction();
-          for (final AssertedAction child : _action) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isAmp = e.isAmp();
-        if (_isAmp) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "&";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AMPERSAND, "&");
-            it.token = _commonToken;
-            EList<AssertedAction> _action = e.getAction();
-            for (final AssertedAction child : _action) {
-              it.addChild(this.toAST(child));
-            }
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          _xifexpression_1 = this.toAST(IterableExtensions.<AssertedAction>head(e.getAction()));
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nSEMICOLON cannot be resolved"
+      + "\nAMPERSAND cannot be resolved");
   }
 
   protected BAST _toAST(final BehaviorTime e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "BEHAVIOR_TIME";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.BEHAVIOR_TIME, "BEHAVIOR_TIME");
-        it.token = _commonToken;
-        Quantity _quantity = e.getQuantity();
-        boolean _tripleNotEquals = (_quantity != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getQuantity()));
-        } else {
-          ValueName _value = e.getValue();
-          boolean _tripleNotEquals_1 = (_value != null);
-          if (_tripleNotEquals_1) {
-            it.addChild(this.toAST(e.getValue()));
-          } else {
-            ParenthesizedSubexpression _duration = e.getDuration();
-            boolean _tripleNotEquals_2 = (_duration != null);
-            if (_tripleNotEquals_2) {
-              it.addChild(this.toAST(e.getDuration()));
-            }
-          }
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nBEHAVIOR_TIME cannot be resolved");
   }
 
   protected BAST _toAST(final CaseChoice e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "->";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.IMP, "->");
-        it.token = _commonToken;
-        BooleanExpression _be = e.getBe();
-        it.addChild(this.toAST(((Expression) _be)));
-        it.addChild(this.toAST(e.getExp()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nIMP cannot be resolved");
   }
 
   protected BAST _toAST(final CaseExpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "CASE_EXPRESSION";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CASE_EXPRESSION, "CASE_EXPRESSION");
-        it.token = _commonToken;
-        EList<CaseChoice> _cc = e.getCc();
-        for (final CaseChoice child : _cc) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCASE_EXPRESSION cannot be resolved");
   }
 
   protected BAST _toAST(final CatchClause e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "catch";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_catch, "catch");
-        it.token = _commonToken;
-        EList<CatchClauseTerm> _catches = e.getCatches();
-        for (final CatchClauseTerm child : _catches) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_catch cannot be resolved");
   }
 
   protected BAST _toAST(final CatchClauseTerm e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ":";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-        it.token = _commonToken;
-        boolean _isAll = e.isAll();
-        if (_isAll) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "all";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_all, "all");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        } else {
-          EList<com.multitude.aadl.bless.bLESS.Exception> _exceptions = e.getExceptions();
-          for (final com.multitude.aadl.bless.bLESS.Exception child : _exceptions) {
-            it.addChild(this.makeBASTforID(child.getName(), e));
-          }
-        }
-        it.addChild(this.toAST(e.getAction()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOLON cannot be resolved"
+      + "\nLITERAL_all cannot be resolved");
   }
 
   protected BAST _toAST(final CombinableOperation e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isF_add = e.isF_add();
-      if (_isF_add) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "fetchadd";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_fetchadd, "fetchadd");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforID(e.getTarget().getName(), e));
-          it.addChild(this.toAST(e.getArithmetic()));
-          it.addChild(this.makeBASTforID(e.getResult().getName(), e));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isF_or = e.isF_or();
-        if (_isF_or) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "fetchor";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_fetchor, "fetchor");
-            it.token = _commonToken;
-            it.addChild(this.makeBASTforID(e.getTarget().getName(), e));
-            it.addChild(this.toAST(e.getBool()));
-            it.addChild(this.makeBASTforID(e.getResult().getName(), e));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _isF_xor = e.isF_xor();
-          if (_isF_xor) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "fetchxor";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_fetchxor, "fetchxor");
-              it.token = _commonToken;
-              it.addChild(this.makeBASTforID(e.getTarget().getName(), e));
-              it.addChild(this.toAST(e.getBool()));
-              it.addChild(this.makeBASTforID(e.getResult().getName(), e));
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            BAST _xifexpression_3 = null;
-            boolean _isF_and = e.isF_and();
-            if (_isF_and) {
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it) -> {
-                it.myText = "fetchand";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_fetchand, "fetchand");
-                it.token = _commonToken;
-                it.addChild(this.makeBASTforID(e.getTarget().getName(), e));
-                it.addChild(this.toAST(e.getBool()));
-                it.addChild(this.makeBASTforID(e.getResult().getName(), e));
-              };
-              _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            } else {
-              BAST _xifexpression_4 = null;
-              boolean _isSw = e.isSw();
-              if (_isSw) {
-                BAST _newBAST_4 = this.newBAST(e);
-                final Procedure1<BAST> _function_4 = (BAST it) -> {
-                  it.myText = "swap";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_swap, "swap");
-                  it.token = _commonToken;
-                  it.addChild(this.makeBASTforID(e.getTarget().getName(), e));
-                  it.addChild(this.makeBASTforID(e.getReference().getName(), e));
-                  it.addChild(this.makeBASTforID(e.getResult().getName(), e));
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_fetchadd cannot be resolved"
+      + "\nLITERAL_fetchor cannot be resolved"
+      + "\nLITERAL_fetchxor cannot be resolved"
+      + "\nLITERAL_fetchand cannot be resolved"
+      + "\nLITERAL_swap cannot be resolved");
   }
 
   protected BAST _toAST(final CommunicationAction e) {
@@ -3382,184 +999,37 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Computation e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "computation";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_computation, "computation");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getLb()));
-        BehaviorTime _ub = e.getUb();
-        boolean _tripleNotEquals = (_ub != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getUb()));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_computation cannot be resolved");
   }
 
   protected BAST _toAST(final DoUntilLoop e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "do";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_do, "do");
-        it.token = _commonToken;
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "until";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_until, "until");
-          it_1.token = _commonToken_1;
-          BooleanExpression _guard = e.getGuard();
-          it_1.addChild(this.toAST(((Expression) _guard)));
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        boolean _isInvariant = e.isInvariant();
-        if (_isInvariant) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "invariant";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getInv()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        boolean _isBound = e.isBound();
-        if (_isBound) {
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-            it_1.myText = "bound";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_bound, "bound");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getBnd()));
-          };
-          BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it.addChild(_doubleArrow_2);
-        }
-        it.addChild(this.toAST(e.getActions()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_do cannot be resolved"
+      + "\nLITERAL_until cannot be resolved"
+      + "\nLITERAL_invariant cannot be resolved"
+      + "\nLITERAL_bound cannot be resolved");
   }
 
   protected BAST _toAST(final EnumerationType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "enumeration";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_enumeration, "enumeration");
-        it.token = _commonToken;
-        EList<String> _defining_enumeration_literal = e.getDefining_enumeration_literal();
-        for (final String child : _defining_enumeration_literal) {
-          it.addChild(this.makeBASTforID(child, e));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_enumeration cannot be resolved");
   }
 
   protected BAST _toAST(final ExistentialLatticeQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "{";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LCURLY, "{");
-        it.token = _commonToken;
-        QuantifiedVariables _quantified_variables = e.getQuantified_variables();
-        boolean _tripleNotEquals = (_quantified_variables != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getQuantified_variables()));
-        }
-        it.addChild(this.toAST(e.getActions()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "}";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RCURLY, "}");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        ActionTimeout _timeout = e.getTimeout();
-        boolean _tripleNotEquals_1 = (_timeout != null);
-        if (_tripleNotEquals_1) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "timeout";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getTimeout()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        CatchClause _catch_clause = e.getCatch_clause();
-        boolean _tripleNotEquals_2 = (_catch_clause != null);
-        if (_tripleNotEquals_2) {
-          it.addChild(this.toAST(e.getCatch_clause()));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLCURLY cannot be resolved"
+      + "\nRCURLY cannot be resolved"
+      + "\nLITERAL_timeout cannot be resolved");
   }
 
   protected BAST _toAST(final ExpressionOrAny e) {
@@ -3595,646 +1065,89 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Expression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _elvis = null;
-      BAST _elvis_1 = null;
-      BAST _elvis_2 = null;
-      BAST _elvis_3 = null;
-      BAST _elvis_4 = null;
-      UniversalQuantification _all = e.getAll();
-      BAST _aST = null;
-      if (_all!=null) {
-        _aST=this.toAST(_all);
-      }
-      if (_aST != null) {
-        _elvis_4 = _aST;
-      } else {
-        ExistentialQuantification _exists = e.getExists();
-        BAST _aST_1 = null;
-        if (_exists!=null) {
-          _aST_1=this.toAST(_exists);
-        }
-        _elvis_4 = _aST_1;
-      }
-      if (_elvis_4 != null) {
-        _elvis_3 = _elvis_4;
-      } else {
-        SumQuantification _sum = e.getSum();
-        BAST _aST_2 = null;
-        if (_sum!=null) {
-          _aST_2=this.toAST(_sum);
-        }
-        _elvis_3 = _aST_2;
-      }
-      if (_elvis_3 != null) {
-        _elvis_2 = _elvis_3;
-      } else {
-        ProductQuantification _product = e.getProduct();
-        BAST _aST_3 = null;
-        if (_product!=null) {
-          _aST_3=this.toAST(_product);
-        }
-        _elvis_2 = _aST_3;
-      }
-      if (_elvis_2 != null) {
-        _elvis_1 = _elvis_2;
-      } else {
-        CountingQuantification _numberof = e.getNumberof();
-        BAST _aST_4 = null;
-        if (_numberof!=null) {
-          _aST_4=this.toAST(_numberof);
-        }
-        _elvis_1 = _aST_4;
-      }
-      if (_elvis_1 != null) {
-        _elvis = _elvis_1;
-      } else {
-        BAST _xifexpression = null;
-        String _sym = e.getSym();
-        boolean _tripleEquals = (_sym == null);
-        if (_tripleEquals) {
-          _xifexpression = this.toAST(e.getL());
-        } else {
-          BAST _xifexpression_1 = null;
-          boolean _equals = e.getSym().equals("iff");
-          if (_equals) {
-            BAST _newBAST = this.newBAST(e);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "iff";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_iff, "iff");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getL()));
-              it.addChild(this.toAST(e.getR()));
-            };
-            _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-          } else {
-            BAST _xifexpression_2 = null;
-            boolean _equals_1 = e.getSym().equals("implies");
-            if (_equals_1) {
-              BAST _newBAST_1 = this.newBAST(e);
-              final Procedure1<BAST> _function_1 = (BAST it) -> {
-                it.myText = "implies";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_implies, "implies");
-                it.token = _commonToken;
-                it.addChild(this.toAST(e.getL()));
-                it.addChild(this.toAST(e.getR()));
-              };
-              _xifexpression_2 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1), e);
-            }
-            _xifexpression_1 = _xifexpression_2;
-          }
-          _xifexpression = _xifexpression_1;
-        }
-        _elvis = _xifexpression;
-      }
-      _xtrycatchfinallyexpression = _elvis;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_iff cannot be resolved"
+      + "\nLITERAL_implies cannot be resolved");
   }
 
   protected BAST _toAST(final Disjunction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _sym = e.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getL());
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _equals = e.getSym().equals("or");
-        if (_equals) {
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "or";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_or, "or");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getL()));
-            EList<Conjunction> _r = e.getR();
-            for (final Conjunction rchild : _r) {
-              it.addChild(this.toAST(rchild));
-            }
-          };
-          _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _equals_1 = e.getSym().equals("else");
-          if (_equals_1) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "cor";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_cor, "cor");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getL()));
-              EList<Conjunction> _r = e.getR();
-              for (final Conjunction rchild : _r) {
-                it.addChild(this.toAST(rchild));
-              }
-            };
-            _xifexpression_2 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1), e);
-          } else {
-            BAST _xifexpression_3 = null;
-            boolean _equals_2 = e.getSym().equals("xor");
-            if (_equals_2) {
-              BAST _newBAST_2 = this.newBAST(e);
-              final Procedure1<BAST> _function_2 = (BAST it) -> {
-                it.myText = "xor";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_xor, "xor");
-                it.token = _commonToken;
-                it.addChild(this.toAST(e.getL()));
-                EList<Conjunction> _r = e.getR();
-                for (final Conjunction rchild : _r) {
-                  it.addChild(this.toAST(rchild));
-                }
-              };
-              _xifexpression_3 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2), e);
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_or cannot be resolved"
+      + "\nLITERAL_cor cannot be resolved"
+      + "\nLITERAL_xor cannot be resolved");
   }
 
   protected BAST _toAST(final Conjunction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _sym = e.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getL());
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _equals = e.getSym().equals("and");
-        if (_equals) {
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "and";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_and, "and");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getL()));
-            EList<Relation> _r = e.getR();
-            for (final Relation rchild : _r) {
-              it.addChild(this.toAST(rchild));
-            }
-          };
-          _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _equals_1 = e.getSym().equals("then");
-          if (_equals_1) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "cand";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_cand, "cand");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getL()));
-              EList<Relation> _r = e.getR();
-              for (final Relation rchild : _r) {
-                it.addChild(this.toAST(rchild));
-              }
-            };
-            _xifexpression_2 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1), e);
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_and cannot be resolved"
+      + "\nLITERAL_cand cannot be resolved");
   }
 
   protected BAST _toAST(final AddSub e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _sym = e.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getL());
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _equals = e.getSym().equals("+");
-        if (_equals) {
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "+";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PLUS, "+");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getL()));
-            EList<MultDiv> _r = e.getR();
-            for (final MultDiv rchild : _r) {
-              it.addChild(this.toAST(rchild));
-            }
-          };
-          _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _equals_1 = e.getSym().equals("-");
-          if (_equals_1) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "-";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.MINUS, "-");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getL()));
-              it.addChild(this.toAST(IterableExtensions.<MultDiv>head(e.getR())));
-            };
-            _xifexpression_2 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1), e);
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPLUS cannot be resolved"
+      + "\nMINUS cannot be resolved");
   }
 
   protected BAST _toAST(final MultDiv e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _sym = e.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getL());
-      } else {
-        BAST _xifexpression_1 = null;
-        if ((e.getSym().equals("/") || e.getSym().equals("div"))) {
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "/";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DIVIDE, "/");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getL()));
-            it.addChild(this.toAST(IterableExtensions.<Exp>head(e.getR())));
-          };
-          _xifexpression_1 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _equals = e.getSym().equals("mod");
-          if (_equals) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "mod";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_mod, "mod");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getL()));
-              it.addChild(this.toAST(IterableExtensions.<Exp>head(e.getR())));
-            };
-            _xifexpression_2 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1), e);
-          } else {
-            BAST _xifexpression_3 = null;
-            boolean _equals_1 = e.getSym().equals("rem");
-            if (_equals_1) {
-              BAST _newBAST_2 = this.newBAST(e);
-              final Procedure1<BAST> _function_2 = (BAST it) -> {
-                it.myText = "rem";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_rem, "rem");
-                it.token = _commonToken;
-                it.addChild(this.toAST(e.getL()));
-                it.addChild(this.toAST(IterableExtensions.<Exp>head(e.getR())));
-              };
-              _xifexpression_3 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2), e);
-            } else {
-              BAST _xifexpression_4 = null;
-              boolean _equals_2 = e.getSym().equals("*");
-              if (_equals_2) {
-                BAST _newBAST_3 = this.newBAST(e);
-                final Procedure1<BAST> _function_3 = (BAST it) -> {
-                  it.myText = "*";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TIMES, "*");
-                  it.token = _commonToken;
-                  it.addChild(this.toAST(e.getL()));
-                  EList<Exp> _r = e.getR();
-                  for (final Exp rchild : _r) {
-                    it.addChild(this.toAST(rchild));
-                  }
-                };
-                _xifexpression_4 = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3), e);
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nDIVIDE cannot be resolved"
+      + "\nLITERAL_mod cannot be resolved"
+      + "\nLITERAL_rem cannot be resolved"
+      + "\nTIMES cannot be resolved");
   }
 
   protected BAST _toAST(final Exp e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _sym = e.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getL());
-      } else {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "**";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.EXP, "**");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getL()));
-          it.addChild(this.toAST(e.getR()));
-        };
-        _xifexpression = this.parenthesize(ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function), e);
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nEXP cannot be resolved");
   }
 
   protected BAST _toAST(final ForLoop e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "for";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_for, "for");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getCount().getName(), e));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          it_1.addChild(this.toAST(e.getLower_bound()));
-          it_1.addChild(this.toAST(e.getUpper_bound()));
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = "invariant";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant");
-          it_1.token = _commonToken_1;
-          NamelessAssertion _inv = null;
-          if (e!=null) {
-            _inv=e.getInv();
-          }
-          BAST _aST = null;
-          if (_inv!=null) {
-            _aST=this.toAST(_inv);
-          }
-          it_1.addChild(_aST);
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        it.addChild(this.toAST(e.getAction()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_for cannot be resolved"
+      + "\nLITERAL_in cannot be resolved"
+      + "\nLITERAL_invariant cannot be resolved");
   }
 
   protected BAST _toAST(final FormalActual e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      Parameter _formal = e.getFormal();
-      boolean _tripleEquals = (_formal == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getActual());
-      } else {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ":";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforID(e.getFormal().getName(), e));
-          Constant _constant = e.getActual().getConstant();
-          boolean _tripleNotEquals = (_constant != null);
-          if (_tripleNotEquals) {
-            it.addChild(this.toAST(e.getActual().getConstant()));
-          } else {
-            ValueName _value = e.getActual().getValue();
-            boolean _tripleNotEquals_1 = (_value != null);
-            if (_tripleNotEquals_1) {
-              it.addChild(this.toAST(e.getActual().getValue()));
-            } else {
-              ParenthesizedSubexpression _expression = e.getActual().getExpression();
-              boolean _tripleNotEquals_2 = (_expression != null);
-              if (_tripleNotEquals_2) {
-                it.addChild(this.toAST(e.getActual().getExpression()));
-              }
-            }
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOLON cannot be resolved");
   }
 
   protected BAST _toAST(final FormalActualList e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isComma = e.isComma();
-      if (_isComma) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = ",";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COMMA, ",");
-          it.token = _commonToken;
-          EList<FormalActual> _variables = e.getVariables();
-          for (final FormalActual child : _variables) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(IterableExtensions.<FormalActual>head(e.getVariables()));
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOMMA cannot be resolved");
   }
 
   protected BAST _toAST(final GuardedAction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ")~>";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.GUARD, ")~>");
-        it.token = _commonToken;
-        BooleanExpression _guard = e.getGuard();
-        it.addChild(this.toAST(((Expression) _guard)));
-        it.addChild(this.toAST(e.getAction()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nGUARD cannot be resolved");
   }
 
   protected BAST _toAST(final NameTick e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isTick = e.isTick();
-      if (_isTick) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "\'";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TICK, "\'");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getValue()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(e.getValue());
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTICK cannot be resolved");
   }
 
   protected BAST _toAST(final Quantity e) {
@@ -4242,404 +1155,71 @@ public class ToAST {
   }
 
   protected BAST _toAST(final QuantityType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isWhole = e.isWhole();
-      if (_isWhole) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "integer";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_integer, "integer");
-          it.token = _commonToken;
-          ANumber _lb = e.getLb();
-          boolean _tripleNotEquals = (_lb != null);
-          if (_tripleNotEquals) {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-              it_1.myText = "..";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-              it_1.token = _commonToken_1;
-              it_1.addChild(this.makeBASTforANumber(e.getLb(), e));
-              it_1.addChild(this.makeBASTforANumber(e.getUb(), e));
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            it.addChild(_doubleArrow);
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isScalar = e.isScalar();
-        if (_isScalar) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "real";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_real, "real");
-            it.token = _commonToken;
-            ANumber _lb = e.getLb();
-            boolean _tripleNotEquals = (_lb != null);
-            if (_tripleNotEquals) {
-              BAST _newBAST_2 = this.newBAST(e);
-              final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-                it_1.myText = "..";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-                it_1.token = _commonToken_1;
-                it_1.addChild(this.makeBASTforANumber(e.getLb(), e));
-                it_1.addChild(this.makeBASTforANumber(e.getUb(), e));
-              };
-              BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-              it.addChild(_doubleArrow);
-            }
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          if ((((e.getUnit() != null) && (e.getUnit().getName() != null)) && e.getUnit().getName().equals("s"))) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "time";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_time, "time");
-              it.token = _commonToken;
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            BAST _newBAST_3 = this.newBAST(e);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = "real";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_real, "real");
-              it.token = _commonToken;
-              UnitName _unit = e.getUnit();
-              boolean _tripleNotEquals = (_unit != null);
-              if (_tripleNotEquals) {
-                BAST _newBAST_4 = this.newBAST(e);
-                final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-                  it_1.myText = "units";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_units, "units");
-                  it_1.token = _commonToken_1;
-                  String _name = e.getUnit().getName();
-                  boolean _tripleNotEquals_1 = (_name != null);
-                  if (_tripleNotEquals_1) {
-                    it_1.addChild(this.makeBASTforID(e.getUnit().getName(), e));
-                  }
-                };
-                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-                it.addChild(_doubleArrow);
-              }
-              ANumber _lb = e.getLb();
-              boolean _tripleNotEquals_1 = (_lb != null);
-              if (_tripleNotEquals_1) {
-                BAST _newBAST_5 = this.newBAST(e);
-                final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-                  it_1.myText = "..";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-                  it_1.token = _commonToken_1;
-                  it_1.addChild(this.makeBASTforANumber(e.getLb(), e));
-                  it_1.addChild(this.makeBASTforANumber(e.getUb(), e));
-                };
-                BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-                it.addChild(_doubleArrow_1);
-              }
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_integer cannot be resolved"
+      + "\nDOTDOT cannot be resolved"
+      + "\nLITERAL_real cannot be resolved"
+      + "\nDOTDOT cannot be resolved"
+      + "\nLITERAL_time cannot be resolved"
+      + "\nLITERAL_real cannot be resolved"
+      + "\nLITERAL_units cannot be resolved"
+      + "\nDOTDOT cannot be resolved");
   }
 
   protected BAST _toAST(final ParenthesizedSubexpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      CaseExpression _caseexpression = e.getCaseexpression();
-      boolean _tripleNotEquals = (_caseexpression != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "CASE_EXPRESSION";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CASE_EXPRESSION, "CASE_EXPRESSION");
-          it.token = _commonToken;
-          EList<CaseChoice> _cc = e.getCaseexpression().getCc();
-          for (final CaseChoice c : _cc) {
-            it.addChild(this.toAST(c));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        Expression _t = e.getT();
-        boolean _tripleNotEquals_1 = (_t != null);
-        if (_tripleNotEquals_1) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "CONDITIONAL";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CONDITIONAL, "CONDITIONAL");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getExpression()));
-            it.addChild(this.toAST(e.getT()));
-            it.addChild(this.toAST(e.getF()));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          _xifexpression_1 = this.parenthesize(this.toAST(e.getExpression()), e);
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t_1) {
-      if (_t_1 instanceof Exception) {
-        final Exception ex = (Exception)_t_1;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t_1);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCASE_EXPRESSION cannot be resolved"
+      + "\nCONDITIONAL cannot be resolved");
   }
 
   protected BAST _toAST(final PortInput e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        String _name = e.getPort().getName();
-        String _plus = ("PORT_INPUT[" + _name);
-        String _plus_1 = (_plus + "]");
-        it.myText = _plus_1;
-        String _name_1 = e.getPort().getName();
-        String _plus_2 = ("PORT_INPUT[" + _name_1);
-        String _plus_3 = (_plus_2 + "]");
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PORT_INPUT, _plus_3);
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforPort(e.getPort().getName(), e));
-        it.addChild(this.toAST(e.getTarget()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPORT_INPUT cannot be resolved");
   }
 
   protected BAST _toAST(final PortOutput e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        String _name = e.getPort().getName();
-        String _plus = ("PORT_OUTPUT[" + _name);
-        String _plus_1 = (_plus + "]");
-        it.myText = _plus_1;
-        String _name_1 = e.getPort().getName();
-        String _plus_2 = ("PORT_OUTPUT[" + _name_1);
-        String _plus_3 = (_plus_2 + "]");
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PORT_OUTPUT, _plus_3);
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforPort(e.getPort().getName(), e));
-        Expression _eor = e.getEor();
-        boolean _tripleNotEquals = (_eor != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getEor()));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPORT_OUTPUT cannot be resolved");
   }
 
   protected BAST _toAST(final QuantifiedVariables e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "declare";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_declare, "declare");
-        it.token = _commonToken;
-        EList<VariableDeclaration> _variables = e.getVariables();
-        for (final VariableDeclaration child : _variables) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_declare cannot be resolved");
   }
 
   protected BAST _toAST(final VariableDeclaration e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ":";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getVariable().getName(), e));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "TYPE";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.TYPE, "TYPE");
-          it_1.token = _commonToken_1;
-          it_1.addChild(this.toAST(e.getVariable().getTod()));
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        boolean _isAssign = e.isAssign();
-        if (_isAssign) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = ":=";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ASSIGN, ":=");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getExpression()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        Assertion _assertion = e.getAssertion();
-        BAST _aST = null;
-        if (_assertion!=null) {
-          _aST=this.toAST(_assertion);
-        }
-        it.addChild(_aST);
-        boolean _isConstant = e.isConstant();
-        if (_isConstant) {
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-            it_1.myText = "constant";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_constant, "constant");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it.addChild(_doubleArrow_2);
-        } else {
-          boolean _isNonvolatile = e.isNonvolatile();
-          if (_isNonvolatile) {
-            BAST _newBAST_4 = this.newBAST(e);
-            final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-              it_1.myText = "nonvolatile";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_nonvolatile, "nonvolatile");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-            it.addChild(_doubleArrow_3);
-          } else {
-            boolean _isShared = e.isShared();
-            if (_isShared) {
-              BAST _newBAST_5 = this.newBAST(e);
-              final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-                it_1.myText = "shared";
-                CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_shared, "shared");
-                it_1.token = _commonToken_1;
-              };
-              BAST _doubleArrow_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-              it.addChild(_doubleArrow_4);
-            } else {
-              boolean _isSpread = e.isSpread();
-              if (_isSpread) {
-                BAST _newBAST_6 = this.newBAST(e);
-                final Procedure1<BAST> _function_6 = (BAST it_1) -> {
-                  it_1.myText = "spread";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_spread, "spread");
-                  it_1.token = _commonToken_1;
-                };
-                BAST _doubleArrow_5 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_6, _function_6);
-                it.addChild(_doubleArrow_5);
-              } else {
-                boolean _isFinal = e.isFinal();
-                if (_isFinal) {
-                  BAST _newBAST_7 = this.newBAST(e);
-                  final Procedure1<BAST> _function_7 = (BAST it_1) -> {
-                    it_1.myText = "final";
-                    CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_final, "final");
-                    it_1.token = _commonToken_1;
-                  };
-                  BAST _doubleArrow_6 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_7, _function_7);
-                  it.addChild(_doubleArrow_6);
-                }
-              }
-            }
-          }
-        }
-        BAST _newBAST_8 = this.newBAST(e);
-        final Procedure1<BAST> _function_8 = (BAST it_1) -> {
-          it_1.myText = ";";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.SEMICOLON, ";");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow_7 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_8, _function_8);
-        it.addChild(_doubleArrow_7);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOLON cannot be resolved"
+      + "\nTYPE cannot be resolved"
+      + "\nASSIGN cannot be resolved"
+      + "\nLITERAL_constant cannot be resolved"
+      + "\nLITERAL_nonvolatile cannot be resolved"
+      + "\nLITERAL_shared cannot be resolved"
+      + "\nLITERAL_spread cannot be resolved"
+      + "\nLITERAL_final cannot be resolved"
+      + "\nSEMICOLON cannot be resolved");
   }
 
   protected BAST _toAST(final Range e) {
@@ -4668,288 +1248,57 @@ public class ToAST {
   }
 
   protected BAST _toAST(final RecordField e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ":";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.COLON, ":");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getLabel(), e));
-        it.addChild(this.toAST(e.getTyp()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nCOLON cannot be resolved");
   }
 
   protected BAST _toAST(final RecordTerm e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "RECORD_TERM";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.RECORD_TERM, "RECORD_TERM");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getRecord_type().getName(), e));
-        EList<RecordValue> _record_value = e.getRecord_value();
-        for (final RecordValue child : _record_value) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nRECORD_TERM cannot be resolved");
   }
 
   protected BAST _toAST(final RecordType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "record";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_record, "record");
-        it.token = _commonToken;
-        EList<RecordField> _fields = e.getFields();
-        for (final RecordField child : _fields) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_record cannot be resolved");
   }
 
   protected BAST _toAST(final RecordValue e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "=>";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ARROW, "=>");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getLabel(), e));
-        it.addChild(this.toAST(e.getAval()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nARROW cannot be resolved");
   }
 
   protected BAST _toAST(final SimultaneousAssignment e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = ":=";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ASSIGN, ":=");
-        it.token = _commonToken;
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = ",";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.COMMA, ",");
-          it_1.token = _commonToken_1;
-          EList<NameTick> _lhs = e.getLhs();
-          for (final NameTick left : _lhs) {
-            it_1.addChild(this.toAST(left));
-          }
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = ",";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.COMMA, ",");
-          it_1.token = _commonToken_1;
-          EList<ExpressionOrAny> _rhs = e.getRhs();
-          for (final ExpressionOrAny right : _rhs) {
-            it_1.addChild(this.toAST(right));
-          }
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nASSIGN cannot be resolved"
+      + "\nCOMMA cannot be resolved"
+      + "\nCOMMA cannot be resolved");
   }
 
   protected BAST _toAST(final Subexpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      if (((e.getUnary() != null) && (!((e.getUnary().getTruncate() != null) || (e.getUnary().getRound() != null))))) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          String _unary_minus = e.getUnary().getUnary_minus();
-          boolean _tripleNotEquals = (_unary_minus != null);
-          if (_tripleNotEquals) {
-            it.myText = "-";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.UNARY_MINUS, "-");
-            it.token = _commonToken;
-          } else {
-            String _not = e.getUnary().getNot();
-            boolean _tripleNotEquals_1 = (_not != null);
-            if (_tripleNotEquals_1) {
-              it.myText = "not";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_not, "not");
-              it.token = _commonToken_1;
-            } else {
-              String _absolute_value = e.getUnary().getAbsolute_value();
-              boolean _tripleNotEquals_2 = (_absolute_value != null);
-              if (_tripleNotEquals_2) {
-                it.myText = "abs";
-                CommonToken _commonToken_2 = new CommonToken(BLESStoASTLexer.LITERAL_abs, "abs");
-                it.token = _commonToken_2;
-              }
-            }
-          }
-          it.addChild(this.toAST(e.getTimed_expression()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(e.getTimed_expression());
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nUNARY_MINUS cannot be resolved"
+      + "\nLITERAL_not cannot be resolved"
+      + "\nLITERAL_abs cannot be resolved");
   }
 
   protected BAST _toAST(final TimedExpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _tick = e.getTick();
-      boolean _tripleNotEquals = (_tick != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "\'";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TICK, "\'");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getSubject()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        boolean _isAt = e.isAt();
-        if (_isAt) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "@";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.AT_SIGN, "@");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getSubject()));
-            it.addChild(this.toAST(e.getTime()));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          boolean _isCaret = e.isCaret();
-          if (_isCaret) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "^";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.CARET, "^");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getSubject()));
-              it.addChild(this.toAST(e.getShift()));
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            _xifexpression_2 = this.toAST(e.getSubject());
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTICK cannot be resolved"
+      + "\nAT_SIGN cannot be resolved"
+      + "\nCARET cannot be resolved");
   }
 
   protected BAST _toAST(final TimedSubject e) {
@@ -5022,1079 +1371,179 @@ public class ToAST {
   }
 
   protected BAST _toAST(final SubprogramCall e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        CalledSubprogram _procedure = e.getProcedure();
-        String _plus = ("PROCEDURE_CALL[" + _procedure);
-        String _plus_1 = (_plus + "]");
-        it.myText = _plus_1;
-        CalledSubprogram _procedure_1 = e.getProcedure();
-        String _plus_2 = ("PROCEDURE_CALL[" + _procedure_1);
-        String _plus_3 = (_plus_2 + "]");
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PROCEDURE_CALL, _plus_3);
-        it.token = _commonToken;
-        CalledSubprogram _procedure_2 = e.getProcedure();
-        if ((_procedure_2 instanceof SubprogramAccess)) {
-          CalledSubprogram _procedure_3 = e.getProcedure();
-          it.addChild(this.makeBASTforID(((SubprogramAccess) _procedure_3).getName(), e));
-        } else {
-          CalledSubprogram _procedure_4 = e.getProcedure();
-          if ((_procedure_4 instanceof SubprogramSubcomponent)) {
-            CalledSubprogram _procedure_5 = e.getProcedure();
-            it.addChild(this.makeBASTforID(((SubprogramSubcomponent) _procedure_5).getName(), e));
-          } else {
-            it.addChild(this.makeBASTforID("NOT_ACCESS_NOR_SUBPROGRAM", e));
-          }
-        }
-        FormalActualList _parameters = e.getParameters();
-        BAST _aST = null;
-        if (_parameters!=null) {
-          _aST=this.toAST(_parameters);
-        }
-        it.addChild(_aST);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nPROCEDURE_CALL cannot be resolved");
   }
 
   protected BAST _toAST(final UniversalLatticeQuantification e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "forall";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_forall, "forall");
-        it.token = _commonToken;
-        int _size = e.getVariables().size();
-        boolean _greaterThan = (_size > 1);
-        if (_greaterThan) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = ",";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.COMMA, ",");
-            it_1.token = _commonToken_1;
-            EList<ForallVariable> _variables = e.getVariables();
-            for (final ForallVariable v : _variables) {
-              it_1.addChild(this.makeBASTforID(v.getName(), e));
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        } else {
-          it.addChild(this.makeBASTforID(IterableExtensions.<ForallVariable>head(e.getVariables()).getName(), e));
-        }
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = "in";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_in, "in");
-          it_1.token = _commonToken_1;
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_2) -> {
-            it_2.myText = "..";
-            CommonToken _commonToken_2 = new CommonToken(BLESStoASTLexer.DOTDOT, "..");
-            it_2.token = _commonToken_2;
-            it_2.addChild(this.toAST(e.getLower_bound()));
-            it_2.addChild(this.toAST(e.getUpper_bound()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it_1.addChild(_doubleArrow_1);
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        it.addChild(this.toAST(e.getElq()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_forall cannot be resolved"
+      + "\nCOMMA cannot be resolved"
+      + "\nLITERAL_in cannot be resolved"
+      + "\nDOTDOT cannot be resolved");
   }
 
   protected BAST _toAST(final Value e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      ValueName _value_name = e.getValue_name();
-      boolean _tripleNotEquals = (_value_name != null);
-      if (_tripleNotEquals) {
-        _xifexpression = this.toAST(e.getValue_name());
-      } else {
-        BAST _xifexpression_1 = null;
-        Constant _constant = e.getConstant();
-        boolean _tripleNotEquals_1 = (_constant != null);
-        if (_tripleNotEquals_1) {
-          _xifexpression_1 = this.toAST(e.getConstant());
-        } else {
-          BAST _xifexpression_2 = null;
-          String _timeout = e.getTimeout();
-          boolean _tripleNotEquals_2 = (_timeout != null);
-          if (_tripleNotEquals_2) {
-            BAST _newBAST = this.newBAST(e);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "timeout";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-              it.token = _commonToken;
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-          } else {
-            BAST _xifexpression_3 = null;
-            String _now = e.getNow();
-            boolean _tripleNotEquals_3 = (_now != null);
-            if (_tripleNotEquals_3) {
-              BAST _newBAST_1 = this.newBAST(e);
-              final Procedure1<BAST> _function_1 = (BAST it) -> {
-                it.myText = "now";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_now, "now");
-                it.token = _commonToken;
-              };
-              _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            } else {
-              BAST _xifexpression_4 = null;
-              String _tops = e.getTops();
-              boolean _tripleNotEquals_4 = (_tops != null);
-              if (_tripleNotEquals_4) {
-                BAST _newBAST_2 = this.newBAST(e);
-                final Procedure1<BAST> _function_2 = (BAST it) -> {
-                  it.myText = "tops";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_tops, "tops");
-                  it.token = _commonToken;
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-              } else {
-                BAST _xifexpression_5 = null;
-                EnumerationValue _enum_val = e.getEnum_val();
-                boolean _tripleNotEquals_5 = (_enum_val != null);
-                if (_tripleNotEquals_5) {
-                  _xifexpression_5 = this.toAST(e.getEnum_val());
-                }
-                _xifexpression_4 = _xifexpression_5;
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_timeout cannot be resolved"
+      + "\nLITERAL_now cannot be resolved"
+      + "\nLITERAL_tops cannot be resolved");
   }
 
   protected BAST _toAST(final EnumerationValue e) {
-    BAST _newBAST = this.newBAST(e);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = "\'";
-      CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TICK, "\'");
-      it.token = _commonToken;
-      BAST _newBAST_1 = this.newBAST(e);
-      final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-        it_1.myText = e.getEnumeration_type().getName();
-        String _name = e.getEnumeration_type().getName();
-        CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ID, _name);
-        it_1.token = _commonToken_1;
-      };
-      BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-      it.addChild(_doubleArrow);
-      BAST _newBAST_2 = this.newBAST(e);
-      final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-        it_1.myText = e.getEnumeration_value();
-        String _enumeration_value = e.getEnumeration_value();
-        CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ID, _enumeration_value);
-        it_1.token = _commonToken_1;
-      };
-      BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-      it.addChild(_doubleArrow_1);
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTICK cannot be resolved"
+      + "\nID cannot be resolved"
+      + "\nID cannot be resolved");
   }
 
   protected BAST _toAST(final Constant e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _t = e.getT();
-      boolean _tripleNotEquals = (_t != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "true";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_true, "true");
-          it.token = _commonToken;
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        String _f = e.getF();
-        boolean _tripleNotEquals_1 = (_f != null);
-        if (_tripleNotEquals_1) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "false";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_false, "false");
-            it.token = _commonToken;
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          String _nul = e.getNul();
-          boolean _tripleNotEquals_2 = (_nul != null);
-          if (_tripleNotEquals_2) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "null";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_null, "null");
-              it.token = _commonToken;
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            BAST _xifexpression_3 = null;
-            Quantity _numeric_constant = e.getNumeric_constant();
-            boolean _tripleNotEquals_3 = (_numeric_constant != null);
-            if (_tripleNotEquals_3) {
-              _xifexpression_3 = this.toAST(e.getNumeric_constant());
-            } else {
-              BAST _xifexpression_4 = null;
-              String _string_literal = e.getString_literal();
-              boolean _tripleNotEquals_4 = (_string_literal != null);
-              if (_tripleNotEquals_4) {
-                _xifexpression_4 = this.makeBASTforAADL_STRING_LITERAL(e.getString_literal(), e);
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t_1) {
-      if (_t_1 instanceof Exception) {
-        final Exception ex = (Exception)_t_1;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t_1);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_true cannot be resolved"
+      + "\nLITERAL_false cannot be resolved"
+      + "\nLITERAL_null cannot be resolved");
   }
 
   protected BAST _toAST(final PropertyField e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      String _index = e.getIndex();
-      boolean _tripleNotEquals = (_index != null);
-      if (_tripleNotEquals) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "[";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LBRACKET, "[");
-          it.token = _commonToken;
-          it.addChild(this.makeBASTforINT(e.getIndex(), e));
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "]";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RBRACKET, "]");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        Variable _variable = e.getVariable();
-        boolean _tripleNotEquals_1 = (_variable != null);
-        if (_tripleNotEquals_1) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "[";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LBRACKET, "[");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getVariable()));
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              it_1.myText = "]";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RBRACKET, "]");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            it.addChild(_doubleArrow);
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          String _pf = e.getPf();
-          boolean _tripleNotEquals_2 = (_pf != null);
-          if (_tripleNotEquals_2) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = ".";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-              it.token = _commonToken;
-              it.addChild(this.makeBASTforID(e.getPf(), e));
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            BAST _xifexpression_3 = null;
-            String _upper = e.getUpper();
-            boolean _tripleNotEquals_3 = (_upper != null);
-            if (_tripleNotEquals_3) {
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it) -> {
-                it.myText = ".";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-                it.token = _commonToken;
-                BAST _newBAST_4 = this.newBAST(e);
-                final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-                  it_1.myText = "upper_bound";
-                  CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_upper_bound, "upper_bound");
-                  it_1.token = _commonToken_1;
-                };
-                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-                it.addChild(_doubleArrow);
-              };
-              _xifexpression_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            } else {
-              BAST _xifexpression_4 = null;
-              String _lower = e.getLower();
-              boolean _tripleNotEquals_4 = (_lower != null);
-              if (_tripleNotEquals_4) {
-                BAST _newBAST_4 = this.newBAST(e);
-                final Procedure1<BAST> _function_4 = (BAST it) -> {
-                  it.myText = ".";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.PERIOD, ".");
-                  it.token = _commonToken;
-                  BAST _newBAST_5 = this.newBAST(e);
-                  final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-                    it_1.myText = "lower_bound";
-                    CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_lower_bound, "lower_bound");
-                    it_1.token = _commonToken_1;
-                  };
-                  BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-                  it.addChild(_doubleArrow);
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-              } else {
-                BAST _newBAST_5 = this.newBAST(e);
-                final Procedure1<BAST> _function_5 = (BAST it) -> {
-                  it.myText = "error";
-                  CommonToken _commonToken = new CommonToken(BLESStoASTLexer.ID, "error");
-                  it.token = _commonToken;
-                };
-                _xifexpression_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-              }
-              _xifexpression_3 = _xifexpression_4;
-            }
-            _xifexpression_2 = _xifexpression_3;
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLBRACKET cannot be resolved"
+      + "\nRBRACKET cannot be resolved"
+      + "\nLBRACKET cannot be resolved"
+      + "\nRBRACKET cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nLITERAL_upper_bound cannot be resolved"
+      + "\nPERIOD cannot be resolved"
+      + "\nLITERAL_lower_bound cannot be resolved"
+      + "\nID cannot be resolved");
   }
 
   protected BAST _toAST(final PropertyReference e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isSelf = e.isSelf();
-      if (_isSelf) {
-        BAST _xblockexpression = null;
-        {
-          final Property sp = e.getSpname();
-          EcoreUtil.resolve(sp, e.eContainer());
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "#";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
-            it.token = _commonToken;
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-              it_1.myText = "self";
-              CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_self, "self");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            it.addChild(_doubleArrow);
-            it.addChild(this.makeBASTforPropertyName(sp.qualifiedName(), e));
-            EList<PropertyField> _field = e.getField();
-            for (final PropertyField f : _field) {
-              it.addChild(this.toAST(f));
-            }
-          };
-          _xblockexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-        }
-        _xifexpression = _xblockexpression;
-      } else {
-        BAST _xifexpression_1 = null;
-        ComponentClassifier _component = e.getComponent();
-        boolean _tripleNotEquals = (_component != null);
-        if (_tripleNotEquals) {
-          BAST _xblockexpression_1 = null;
-          {
-            final Property cp = e.getCpname();
-            EcoreUtil.resolve(cp, e.eContainer());
-            BAST _newBAST = this.newBAST(e);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "#";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
-              it.token = _commonToken;
-              it.addChild(this.makeBASTforPropertyName(e.getComponent().qualifiedName(), e));
-              it.addChild(this.makeBASTforPropertyName(cp.qualifiedName(), e));
-              EList<PropertyField> _field = e.getField();
-              for (final PropertyField f : _field) {
-                it.addChild(this.toAST(f));
-              }
-            };
-            _xblockexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-          }
-          _xifexpression_1 = _xblockexpression_1;
-        } else {
-          BAST _xblockexpression_2 = null;
-          {
-            final Property p = e.getPname();
-            EcoreUtil.resolve(p, e.eContainer());
-            BAST _newBAST = this.newBAST(e);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "#";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.OCTOTHORPE, "#");
-              it.token = _commonToken;
-              it.addChild(this.makeBASTforPropertyName(p.qualifiedName(), e));
-              EList<PropertyField> _field = e.getField();
-              for (final PropertyField f : _field) {
-                it.addChild(this.toAST(f));
-              }
-            };
-            _xblockexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-          }
-          _xifexpression_1 = _xblockexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression_3 = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression_3 = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression_3;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nOCTOTHORPE cannot be resolved"
+      + "\nLITERAL_self cannot be resolved"
+      + "\nOCTOTHORPE cannot be resolved"
+      + "\nOCTOTHORPE cannot be resolved");
   }
 
   protected BAST _toAST(final WhenThrow e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "when";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_when, "when");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getExp()));
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          it_1.myText = "throw";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_throw, "throw");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        it.addChild(this.makeBASTforID(e.getException().getName(), e));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_when cannot be resolved"
+      + "\nLITERAL_throw cannot be resolved");
   }
 
   protected BAST _toAST(final WhileLoop e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "while";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_while, "while");
-        it.token = _commonToken;
-        BooleanExpression _test = e.getTest();
-        it.addChild(this.toAST(((Expression) _test)));
-        boolean _isInvariant = e.isInvariant();
-        if (_isInvariant) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "invariant";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.INVARIANT, "invariant");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getInv()));
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        }
-        boolean _isBound = e.isBound();
-        if (_isBound) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "bound";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.BOUND, "bound");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.toAST(e.getBound_function()));
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        it.addChild(this.toAST(e.getElq()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_while cannot be resolved"
+      + "\nINVARIANT cannot be resolved"
+      + "\nBOUND cannot be resolved");
   }
 
   protected BAST _toAST(final BehaviorTransition e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        String _name = e.getName();
-        String _plus = ("TRANSITION[" + _name);
-        String _plus_1 = (_plus + "]");
-        it.myText = _plus_1;
-        String _name_1 = e.getName();
-        String _plus_2 = ("TRANSITION[" + _name_1);
-        String _plus_3 = (_plus_2 + "]");
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.TRANSITION, _plus_3);
-        it.token = _commonToken;
-        BAST _newBAST_1 = this.newBAST(e);
-        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-          String _name_2 = e.getName();
-          String _plus_4 = ("LABEL[" + _name_2);
-          String _plus_5 = (_plus_4 + "]");
-          it_1.myText = _plus_5;
-          String _name_3 = e.getName();
-          String _plus_6 = ("LABEL[" + _name_3);
-          String _plus_7 = (_plus_6 + "]");
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LABEL, _plus_7);
-          it_1.token = _commonToken_1;
-          it_1.addChild(this.makeBASTforID(e.getName(), e));
-        };
-        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        it.addChild(_doubleArrow);
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = "SOURCE";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.SOURCE, "SOURCE");
-          it_1.token = _commonToken_1;
-          EList<BehaviorState> _sources = e.getSources();
-          for (final BehaviorState source : _sources) {
-            it_1.addChild(this.makeBASTforID(source.getName(), e));
-          }
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        BAST _newBAST_3 = this.newBAST(e);
-        final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-          it_1.myText = "CONDITION";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.CONDITION, "CONDITION");
-          it_1.token = _commonToken_1;
-          DispatchCondition _dispatch = e.getDispatch();
-          boolean _tripleNotEquals = (_dispatch != null);
-          if (_tripleNotEquals) {
-            it_1.addChild(this.toAST(e.getDispatch()));
-          } else {
-            ExecuteCondition _execute = e.getExecute();
-            boolean _tripleNotEquals_1 = (_execute != null);
-            if (_tripleNotEquals_1) {
-              it_1.addChild(this.toAST(e.getExecute()));
-            } else {
-              ModeCondition _mode = e.getMode();
-              boolean _tripleNotEquals_2 = (_mode != null);
-              if (_tripleNotEquals_2) {
-                it_1.addChild(this.toAST(e.getMode()));
-              } else {
-                InternalCondition _internal = e.getInternal();
-                boolean _tripleNotEquals_3 = (_internal != null);
-                if (_tripleNotEquals_3) {
-                  it_1.addChild(this.toAST(e.getInternal()));
-                }
-              }
-            }
-          }
-        };
-        BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-        it.addChild(_doubleArrow_2);
-        BAST _newBAST_4 = this.newBAST(e);
-        final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-          it_1.myText = "DESTINATION";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DESTINATION, "DESTINATION");
-          it_1.token = _commonToken_1;
-          it_1.addChild(this.makeBASTforID(e.getDestination().getName(), e));
-        };
-        BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-        it.addChild(_doubleArrow_3);
-        BAST _newBAST_5 = this.newBAST(e);
-        final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-          it_1.myText = "ACTION";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.ACTION, "ACTION");
-          it_1.token = _commonToken_1;
-          BehaviorActions _actions = e.getActions();
-          BAST _aST = null;
-          if (_actions!=null) {
-            _aST=this.toAST(_actions);
-          }
-          it_1.addChild(_aST);
-        };
-        BAST _doubleArrow_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-        it.addChild(_doubleArrow_4);
-        BAST _newBAST_6 = this.newBAST(e);
-        final Procedure1<BAST> _function_6 = (BAST it_1) -> {
-          it_1.myText = "Q";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.Q, "Q");
-          it_1.token = _commonToken_1;
-          Assertion _ass = e.getAss();
-          BAST _aST = null;
-          if (_ass!=null) {
-            _aST=this.toAST(_ass);
-          }
-          it_1.addChild(_aST);
-        };
-        BAST _doubleArrow_5 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_6, _function_6);
-        it.addChild(_doubleArrow_5);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTRANSITION cannot be resolved"
+      + "\nLABEL cannot be resolved"
+      + "\nSOURCE cannot be resolved"
+      + "\nCONDITION cannot be resolved"
+      + "\nDESTINATION cannot be resolved"
+      + "\nACTION cannot be resolved"
+      + "\nQ cannot be resolved");
   }
 
   protected BAST _toAST(final BehaviorState e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "state";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_state, "state");
-        it.token = _commonToken;
-        boolean _isInitial = e.isInitial();
-        if (_isInitial) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "initial";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_initial, "initial");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        }
-        boolean _isComplete = e.isComplete();
-        if (_isComplete) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "complete";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_complete, "complete");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        boolean _isFinal = e.isFinal();
-        if (_isFinal) {
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-            it_1.myText = "final";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_final, "final");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it.addChild(_doubleArrow_2);
-        }
-        it.addChild(this.makeBASTforID(e.getName(), e));
-        Assertion _state_assertion = e.getState_assertion();
-        boolean _tripleNotEquals = (_state_assertion != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.toAST(e.getState_assertion()));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_state cannot be resolved"
+      + "\nLITERAL_initial cannot be resolved"
+      + "\nLITERAL_complete cannot be resolved"
+      + "\nLITERAL_final cannot be resolved");
   }
 
   protected BAST _toAST(final BLESSSubclause e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "THREAD_ANNEX";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.THREAD_ANNEX, "THREAD_ANNEX");
-        it.token = _commonToken;
-        StatesSection _statesSection = e.getStatesSection();
-        boolean _tripleNotEquals = (_statesSection != null);
-        if (_tripleNotEquals) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "states";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LITERAL_states, "states");
-            it_1.token = _commonToken_1;
-            EList<BehaviorState> _states = e.getStatesSection().getStates();
-            for (final BehaviorState state : _states) {
-              it_1.addChild(this.toAST(state));
-            }
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        }
-        AssertClause _assert_clause = e.getAssert_clause();
-        boolean _tripleNotEquals_1 = (_assert_clause != null);
-        if (_tripleNotEquals_1) {
-          it.addChild(this.toAST(e.getAssert_clause()));
-        }
-        InvariantClause _invariant = e.getInvariant();
-        boolean _tripleNotEquals_2 = (_invariant != null);
-        if (_tripleNotEquals_2) {
-          it.addChild(this.toAST(e.getInvariant()));
-        }
-        VariablesSection _variables = e.getVariables();
-        boolean _tripleNotEquals_3 = (_variables != null);
-        if (_tripleNotEquals_3) {
-          it.addChild(this.toAST(e.getVariables()));
-        }
-        Transitions _transitions = e.getTransitions();
-        boolean _tripleNotEquals_4 = (_transitions != null);
-        if (_tripleNotEquals_4) {
-          it.addChild(this.toAST(e.getTransitions()));
-        }
-        boolean _isNo_proof = e.isNo_proof();
-        if (_isNo_proof) {
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = "DO_NOT_PROVE";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.DO_NOT_PROVE, "DO_NOT_PROVE");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-        }
-        BAST _newBAST_3 = this.newBAST(e);
-        final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-          it_1.myText = "STOP";
-          CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.STOP, "STOP");
-          it_1.token = _commonToken_1;
-        };
-        BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-        it.addChild(_doubleArrow_2);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nTHREAD_ANNEX cannot be resolved"
+      + "\nLITERAL_states cannot be resolved"
+      + "\nDO_NOT_PROVE cannot be resolved"
+      + "\nSTOP cannot be resolved");
   }
 
   protected BAST _toAST(final DispatchCondition e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "dispatch";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_dispatch, "dispatch");
-        it.token = _commonToken;
-        DispatchExpression _de = e.getDe();
-        BAST _aST = null;
-        if (_de!=null) {
-          _aST=this.toAST(_de);
-        }
-        it.addChild(_aST);
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_dispatch cannot be resolved");
   }
 
   protected BAST _toAST(final DispatchConjunction e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isAnd = e.isAnd();
-      if (_isAnd) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "and";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_and, "and");
-          it.token = _commonToken;
-          EList<DispatchTrigger> _trigger = e.getTrigger();
-          for (final DispatchTrigger child : _trigger) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(IterableExtensions.<DispatchTrigger>head(e.getTrigger()));
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_and cannot be resolved");
   }
 
   protected BAST _toAST(final DispatchExpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      boolean _isOr = e.isOr();
-      if (_isOr) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "or";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_or, "or");
-          it.token = _commonToken;
-          EList<DispatchConjunction> _dc = e.getDc();
-          for (final DispatchConjunction child : _dc) {
-            it.addChild(this.toAST(child));
-          }
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(IterableExtensions.<DispatchConjunction>head(e.getDc()));
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_or cannot be resolved");
   }
 
   protected BAST _toAST(final DispatchTrigger e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      if (((e.getTimeout() != null) && e.isLp())) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "timeout";
-          CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-          it.token = _commonToken;
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "(";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.LPAREN, "(");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-          EList<NamedElement> _ports = e.getPorts();
-          for (final NamedElement p : _ports) {
-            it.addChild(this.makeBASTforPort(p.getName(), e));
-          }
-          BAST _newBAST_2 = this.newBAST(e);
-          final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-            it_1.myText = ")";
-            CommonToken _commonToken_1 = new CommonToken(BLESStoASTLexer.RPAREN, ")");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          it.addChild(_doubleArrow_1);
-          it.addChild(this.toAST(e.getTime()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        BAST _xifexpression_1 = null;
-        if (((e.getTimeout() != null) && (e.getTime() != null))) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it) -> {
-            it.myText = "timeout";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getTime()));
-          };
-          _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-        } else {
-          BAST _xifexpression_2 = null;
-          String _timeout = e.getTimeout();
-          boolean _tripleNotEquals = (_timeout != null);
-          if (_tripleNotEquals) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "timeout";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_timeout, "timeout");
-              it.token = _commonToken;
-            };
-            _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          } else {
-            _xifexpression_2 = this.makeBASTforPort(e.getPort().getPort().getName(), e);
-          }
-          _xifexpression_1 = _xifexpression_2;
-        }
-        _xifexpression = _xifexpression_1;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_timeout cannot be resolved"
+      + "\nLPAREN cannot be resolved"
+      + "\nRPAREN cannot be resolved"
+      + "\nLITERAL_timeout cannot be resolved"
+      + "\nLITERAL_timeout cannot be resolved");
   }
 
   protected BAST _toAST(final ExecuteCondition e) {
@@ -6103,407 +1552,67 @@ public class ToAST {
   }
 
   protected BAST _toAST(final InternalCondition e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "dispatch";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_dispatch, "dispatch");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforPort(e.getFirst().getName(), e));
-        EList<Port> _ports = e.getPorts();
-        for (final Port p : _ports) {
-          it.addChild(this.makeBASTforPort(p.getName(), e));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_dispatch cannot be resolved");
   }
 
   protected BAST _toAST(final InvariantClause e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "invariant";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_invariant, "invariant");
-        it.token = _commonToken;
-        it.addChild(this.toAST(e.getInv()));
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_invariant cannot be resolved");
   }
 
   protected BAST _toAST(final IssueException e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "exception";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_exception, "exception");
-        it.token = _commonToken;
-        it.addChild(this.makeBASTforID(e.getException().getName(), e));
-        String _message = e.getMessage();
-        boolean _tripleNotEquals = (_message != null);
-        if (_tripleNotEquals) {
-          it.addChild(this.makeBASTforAADL_STRING_LITERAL(e.getMessage(), e));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_exception cannot be resolved");
   }
 
   protected BAST _toAST(final Transitions e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "transitions";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_transitions, "transitions");
-        it.token = _commonToken;
-        EList<BehaviorTransition> _bt = e.getBt();
-        for (final BehaviorTransition child : _bt) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_transitions cannot be resolved");
   }
 
   protected BAST _toAST(final TriggerLogicalExpression e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _xifexpression = null;
-      LogicalOperator _op = e.getOp();
-      boolean _tripleEquals = (_op == null);
-      if (_tripleEquals) {
-        _xifexpression = this.toAST(e.getFirst());
-      } else {
-        BAST _switchResult = null;
-        LogicalOperator _op_1 = e.getOp();
-        boolean _matched = false;
-        if (Objects.equal(_op_1, "and")) {
-          _matched=true;
-          BAST _newBAST = this.newBAST(e);
-          final Procedure1<BAST> _function = (BAST it) -> {
-            it.myText = "and";
-            CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_and, "and");
-            it.token = _commonToken;
-            it.addChild(this.toAST(e.getFirst()));
-            EList<EventTrigger> _trigger = e.getTrigger();
-            for (final EventTrigger tr : _trigger) {
-              it.addChild(this.toAST(tr));
-            }
-          };
-          _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-        }
-        if (!_matched) {
-          if (Objects.equal(_op_1, "or")) {
-            _matched=true;
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "or";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_or, "or");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getFirst()));
-              EList<EventTrigger> _trigger = e.getTrigger();
-              for (final EventTrigger tr : _trigger) {
-                it.addChild(this.toAST(tr));
-              }
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          }
-        }
-        if (!_matched) {
-          if (Objects.equal(_op_1, "xor")) {
-            _matched=true;
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "xor";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_xor, "xor");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getFirst()));
-              EList<EventTrigger> _trigger = e.getTrigger();
-              for (final EventTrigger tr : _trigger) {
-                it.addChild(this.toAST(tr));
-              }
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-          }
-        }
-        if (!_matched) {
-          if (Objects.equal(_op_1, "then")) {
-            _matched=true;
-            BAST _newBAST_3 = this.newBAST(e);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = "cand";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_cand, "cand");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getFirst()));
-              EList<EventTrigger> _trigger = e.getTrigger();
-              for (final EventTrigger tr : _trigger) {
-                it.addChild(this.toAST(tr));
-              }
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          }
-        }
-        if (!_matched) {
-          if (Objects.equal(_op_1, "else")) {
-            _matched=true;
-            BAST _newBAST_4 = this.newBAST(e);
-            final Procedure1<BAST> _function_4 = (BAST it) -> {
-              it.myText = "cor";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_cor, "cor");
-              it.token = _commonToken;
-              it.addChild(this.toAST(e.getFirst()));
-              EList<EventTrigger> _trigger = e.getTrigger();
-              for (final EventTrigger tr : _trigger) {
-                it.addChild(this.toAST(tr));
-              }
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-          }
-        }
-        _xifexpression = _switchResult;
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_and cannot be resolved"
+      + "\nLITERAL_or cannot be resolved"
+      + "\nLITERAL_xor cannot be resolved"
+      + "\nLITERAL_cand cannot be resolved"
+      + "\nLITERAL_cor cannot be resolved");
   }
 
   protected BAST _toAST(final VariablesSection e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "variables";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_variables, "variables");
-        it.token = _commonToken;
-        EList<VariableDeclaration> _behavior_variables = e.getBehavior_variables();
-        for (final VariableDeclaration child : _behavior_variables) {
-          it.addChild(this.toAST(child));
-        }
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_variables cannot be resolved");
   }
 
   protected BAST _toAST(final BooleanType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "boolean";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_boolean, "boolean");
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_boolean cannot be resolved");
   }
 
   protected BAST _toAST(final StringType e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _newBAST = this.newBAST(e);
-      final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "string";
-        CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_string, "string");
-        it.token = _commonToken;
-      };
-      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_string cannot be resolved");
   }
 
   protected BAST _toAST(final TypeOrReference e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _elvis = null;
-      Type _ty = e.getTy();
-      BAST _aST = null;
-      if (_ty!=null) {
-        _aST=this.toAST(_ty);
-      }
-      if (_aST != null) {
-        _elvis = _aST;
-      } else {
-        BAST _xblockexpression = null;
-        {
-          TypeDeclaration _ref = e.getRef();
-          boolean _tripleNotEquals = (_ref != null);
-          if (_tripleNotEquals) {
-            EcoreUtil.resolve(e.getRef(), e);
-          }
-          BAST _xifexpression = null;
-          boolean _and = false;
-          TypeDeclaration _ref_1 = e.getRef();
-          String _name = null;
-          if (_ref_1!=null) {
-            _name=_ref_1.getName();
-          }
-          boolean _tripleNotEquals_1 = (_name != null);
-          if (!_tripleNotEquals_1) {
-            _and = false;
-          } else {
-            TypeDeclaration _ref_2 = e.getRef();
-            String _name_1 = null;
-            if (_ref_2!=null) {
-              _name_1=_ref_2.getName();
-            }
-            boolean _equals = _name_1.equals("time");
-            _and = _equals;
-          }
-          if (_and) {
-            BAST _newBAST = this.newBAST(e);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "time";
-              CommonToken _commonToken = new CommonToken(BLESStoASTLexer.LITERAL_time, "time");
-              it.token = _commonToken;
-            };
-            _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-          } else {
-            BAST _xifexpression_1 = null;
-            TypeDeclaration _ref_3 = e.getRef();
-            Type _type = null;
-            if (_ref_3!=null) {
-              _type=_ref_3.getType();
-            }
-            boolean _tripleNotEquals_2 = (_type != null);
-            if (_tripleNotEquals_2) {
-              _xifexpression_1 = this.toAST(e.getRef().getType());
-            } else {
-              BAST _newBAST_1 = this.newBAST(e);
-              final Procedure1<BAST> _function_1 = (BAST it) -> {
-                it.myText = "UNRESOLVED_TYPE_REFERENCE";
-                CommonToken _commonToken = new CommonToken(BLESStoASTLexer.DUMMY, "UNRESOLVED_TYPE_REFERENCE");
-                it.token = _commonToken;
-              };
-              _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            }
-            _xifexpression = _xifexpression_1;
-          }
-          _xblockexpression = _xifexpression;
-        }
-        _elvis = _xblockexpression;
-      }
-      _xtrycatchfinallyexpression = _elvis;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression_1 = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression_1 = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression_1;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nThe method or field BLESStoASTLexer is undefined"
+      + "\nLITERAL_time cannot be resolved"
+      + "\nDUMMY cannot be resolved");
   }
 
   protected BAST _toAST(final Type e) {

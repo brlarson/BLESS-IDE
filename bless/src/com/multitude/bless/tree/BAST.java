@@ -948,9 +948,9 @@ private static int tab=0;  //tabbing for toStringTree
             && theOtherTree.isNumericLiteral())
       return (this.truncateWholeLiterals().contentEquals(theOtherTree.truncateWholeLiterals()));
     // make INVOKE match FUNCTION_CALL
-    if (!((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.FUNCTION_CALL))
+    if (!((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION))
 // 		      this.hasType(BLESS3Lexer.INVOKE_FUNCTION))
-        && (theOtherTree.hasType(BLESS3Lexer.INVOKE)||theOtherTree.hasType(BLESS3Lexer.FUNCTION_CALL)))
+        && (theOtherTree.hasType(BLESS3Lexer.INVOKE)||theOtherTree.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)))
 //    		  theOtherTree.hasType(BLESS3Lexer.INVOKE_FUNCTION)))
         && !this.hasType(theOtherTree.getType()))
 		return false; // different token types
@@ -1403,7 +1403,7 @@ private static int tab=0;  //tabbing for toStringTree
           StringTemplate typeOutput = (StringTemplate) typ.getTemplate();
           result = typeOutput.toString(Global.wrapLength); // wrap at 72
           break;
-        case BLESS3Lexer.FUNCTION_CALL: // subprogramCall
+        case BLESS3Lexer.SUBPROGRAM_INVOCATION: // subprogramCall
           UnparseBLESS3.subprogramCall_return fc = null;
           fc = unparser.subprogramCall();
           StringTemplate fcOutput = (StringTemplate) fc.getTemplate();
@@ -2002,10 +2002,10 @@ private static int tab=0;  //tabbing for toStringTree
         return true;
       }
     // make INVOKE and FUNCTION_CALL match
-    if ((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.FUNCTION_CALL)
+    if ((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)
  //       || this.hasType(BLESS3Lexer.INVOKE_FUNCTION)
         )
-        && (theOtherNode.hasType(BLESS3Lexer.INVOKE)||theOtherNode.hasType(BLESS3Lexer.FUNCTION_CALL)
+        && (theOtherNode.hasType(BLESS3Lexer.INVOKE)||theOtherNode.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)
 //            || theOtherNode.hasType(BLESS3Lexer.INVOKE_FUNCTION)
         		)) {
 		return true;

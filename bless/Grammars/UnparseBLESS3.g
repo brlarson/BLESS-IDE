@@ -494,7 +494,7 @@ assertionFunctionValue
 
 conditionalAssertionFunction
   :
-  ^( LBRACKET cvp+=conditionValuePair+  RBRACKET )
+  ^( CONDITIONAL_ASSERTION_FUNCTION cvp+=conditionValuePair+ )
     -> conditional_assertion_function(cvp={$cvp})
   ;  
 
@@ -789,7 +789,7 @@ timedExpression
 timedSubject
   :
   ce=conditionalExpression
-    -> {$ce.st}
+   -> {$ce.st}
   | ps=parenthesizedSubexpression 
     -> {$ps.st}
   | rt=recordTerm
@@ -846,8 +846,26 @@ parenthesizedSubexpression
   :
   ^( LPAREN ex=expression RPAREN )
     -> parentheses(be={$ex.st})  
+//  |
+//  ^( LPAREN ^( QQ exp=expression t=expression f=expression ) RPAREN )
+//    -> conditional_expression(be={$exp.st}, t={$t.st}, f={$f.st})
+  |
+  ^( LPAREN ce=caseExpression RPAREN )
+    -> parentheses(be={$ce.st})  
   ;
-  
+
+caseExpression
+  :
+  ^( LITERAL_case cc+=caseChoice+ )
+    -> case_expression(cc={$cc})
+  ;
+
+caseChoice
+  :
+  ^( IMP bool=expression exp=expression )
+    -> case_choice(be={$bool.st}, exp={$exp.st})
+  ;
+    
 recordTerm
   :
   ^( RECORD_TERM typeid=ID prv+=recordValue+ )
@@ -1422,7 +1440,7 @@ dispatchTrigger
   port=portName
     -> {$port.st}
   |
-  ^( LITERAL_timeout ^( LPAREN ports+=ID* ) time=behaviorTime? )
+  ^( LITERAL_timeout ( ^( LPAREN ports+=ID* ) )? time=behaviorTime? )
     -> timeout(bt={$time.st},p={$ports})
   ;
 
