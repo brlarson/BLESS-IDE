@@ -126,10 +126,16 @@ catch_clause_term_all(ba) ::= "(all:<ba>)"
 classifier_type(i) ::=
   "classifier (<i; wrap, anchor, separator=\", \">)"   
 
+combinable(op,t,e,r) ::=
+  "<op>(<t>,<e>,<r>)"
+
 complex()::="complex"
 
 component_classifier_term(uccr) ::=
   "classifier(<uccr>)"
+
+computation(lb,ub,c) ::=
+  "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
 concurrent_composition(g)::=
   "<g; separator=\"\n&\n\">" 
