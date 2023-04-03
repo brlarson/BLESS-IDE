@@ -1125,6 +1125,7 @@ Element returns aadl2::Element:
 	| LogicVariables
 	| MultDiv
 	| NumericExpression
+	| NullType
 	| ParenthesizedSubexpression
 	| PartialName
 	| PeriodShift

@@ -2193,6 +2193,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 * <pre>
 	 * Contexts:
 	 *     NullType returns NullType
+	 *     Element returns NullType
 	 *     Type returns NullType
 	 *
 	 * Constraint:

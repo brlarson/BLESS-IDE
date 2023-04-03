@@ -897,7 +897,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element #//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="s" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullType" eSuperTypes="#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="NullType" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element #//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationType" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element #//Type">

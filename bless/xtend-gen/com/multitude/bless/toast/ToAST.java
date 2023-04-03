@@ -80,6 +80,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
 import com.multitude.aadl.bless.bLESS.PartialName;
@@ -6344,6 +6345,32 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
+  protected BAST _toAST(final NullType e) {
+    BAST _xtrycatchfinallyexpression = null;
+    try {
+      BAST _newBAST = this.newBAST(e);
+      final Procedure1<BAST> _function = (BAST it) -> {
+        it.myText = "null";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_null, "null");
+        it.token = _commonToken;
+      };
+      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception ex = (Exception)_t;
+        BAST _xblockexpression = null;
+        {
+          ex.printStackTrace();
+          _xblockexpression = ToAST.x;
+        }
+        _xtrycatchfinallyexpression = _xblockexpression;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    return _xtrycatchfinallyexpression;
+  }
+
   protected BAST _toAST(final TypeOrReference e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
@@ -6716,6 +6743,8 @@ public class ToAST {
       return _toAST((NamelessEnumeration)e);
     } else if (e instanceof NamelessFunction) {
       return _toAST((NamelessFunction)e);
+    } else if (e instanceof NullType) {
+      return _toAST((NullType)e);
     } else if (e instanceof ParenthesizedSubexpression) {
       return _toAST((ParenthesizedSubexpression)e);
     } else if (e instanceof PartialName) {

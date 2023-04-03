@@ -8642,25 +8642,6 @@ public interface BLESSPackage extends EPackage
   int STRING_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.multitude.aadl.bless.bLESS.impl.TypeImpl
-   * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 147;
-
-  /**
-   * The number of structural features of the '<em>Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.NullTypeImpl <em>Null Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8671,13 +8652,31 @@ public interface BLESSPackage extends EPackage
   int NULL_TYPE = 129;
 
   /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_TYPE__OWNED_ELEMENT = Aadl2Package.ELEMENT__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_TYPE__OWNED_COMMENT = Aadl2Package.ELEMENT__OWNED_COMMENT;
+
+  /**
    * The feature id for the '<em><b>N</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NULL_TYPE__N = TYPE_FEATURE_COUNT + 0;
+  int NULL_TYPE__N = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Null Type</em>' class.
@@ -8686,7 +8685,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NULL_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+  int NULL_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.EnumerationTypeImpl <em>Enumeration Type</em>}' class.
@@ -9811,6 +9810,25 @@ public interface BLESSPackage extends EPackage
    * @ordered
    */
   int QUANTITY_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.multitude.aadl.bless.bLESS.impl.TypeImpl
+   * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 147;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = 0;
 
 
   /**

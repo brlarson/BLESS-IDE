@@ -897,7 +897,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="s" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullType" eSuperTypes="#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="NullType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumerationType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">

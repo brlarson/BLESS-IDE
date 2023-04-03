@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.osate.aadl2.impl.ElementImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Null Type</b></em>'.
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class NullTypeImpl extends TypeImpl implements NullType
+public class NullTypeImpl extends ElementImpl implements NullType
 {
   /**
    * The default value of the '{@link #getN() <em>N</em>}' attribute.

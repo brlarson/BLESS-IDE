@@ -126,6 +126,7 @@ import org.osate.aadl2.SubprogramAccess
 import org.osate.aadl2.SubprogramSubcomponent
 import com.multitude.aadl.bless.bLESS.GhostVariables
 import com.multitude.aadl.bless.bLESS.GhostVariable
+import com.multitude.aadl.bless.bLESS.NullType
 
 class ToAST {
 
@@ -3948,9 +3949,21 @@ toAST(StringType e)
   try {  
   newBAST(e) =>  
     [  
-  	myText = "string"
+    myText = "string"
     token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
-  	]
+    ]
+    } catch (Exception ex) {ex.printStackTrace x}       
+  }
+
+  def dispatch BAST
+toAST(NullType e)
+  {
+  try {  
+  newBAST(e) =>  
+    [  
+    myText = "null"
+    token = new CommonToken(BLESS3Lexer.LITERAL_null, "null")
+    ]
     } catch (Exception ex) {ex.printStackTrace x}       
   }
 
