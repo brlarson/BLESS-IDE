@@ -411,9 +411,9 @@ recordType
 	|
 	^(r=LITERAL_variant rf+=recordField+)
 		-> record_type(rvu={$r.text}, rf={$rf})
-	|
-	^(r=LITERAL_union rf+=recordField+)
-		-> record_type(rvu={$r.text}, rf={$rf})
+//	|
+//	^(r=LITERAL_union rf+=recordField+)
+//		-> record_type(rvu={$r.text}, rf={$rf})
 	;
 
 
@@ -520,6 +520,12 @@ enumerationPair
   ^( IMP id=ID pred=predicate )
     -> enumeration_pair(i={$id.text}, pe={$pred.st})
   ;  
+
+enumerationValue
+  :
+  ^( TICK enumeration_type=ID enumeration_value=ID )
+    -> enumeration_value(t={$enumeration_type.text}, v={$enumeration_value.text})
+  ;
 
 invocation
   :

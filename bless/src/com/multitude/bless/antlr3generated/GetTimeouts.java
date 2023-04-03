@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-02 06:48:55
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-03 12:20:40
 
 //copyright 2022 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -63,7 +63,7 @@ public class GetTimeouts extends TreeRewriter {
 		"LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", "LITERAL_step", 
 		"LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", "LITERAL_sum", 
 		"LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", "LITERAL_throws", 
-		"LITERAL_time", "LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
+		"LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
 		"LITERAL_transitions", "LITERAL_true", "LITERAL_truncate", "LITERAL_type", 
 		"LITERAL_union", "LITERAL_units", "LITERAL_until", "LITERAL_updated", 
 		"LITERAL_upper_bound", "LITERAL_us", "LITERAL_variables", "LITERAL_variant", 
@@ -71,17 +71,17 @@ public class GetTimeouts extends TreeRewriter {
 		"LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", 
 		"NEQ", "NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
 		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
-		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "PROCEDURE_CALL", "Q", 
-		"QCLREF", "QCREF", "QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", 
-		"RCURLY", "REAL_LIT", "RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", 
-		"SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
-		"STOP", "SUBPROGRAM_INVOCATION", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", 
-		"TRIGGER", "TYPE", "TYPE_LIBRARY", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", 
-		"UNARY_MINUS", "UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
-		"VERT", "WP", "WS", "'%'"
+		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", 
+		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", 
+		"RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", 
+		"SOURCE", "START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_INVOCATION", 
+		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
+		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
+		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
+		"WP", "WS", "'%'"
 	};
 	public static final int EOF=-1;
-	public static final int T__296=296;
+	public static final int T__294=294;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -286,94 +286,92 @@ public class GetTimeouts extends TreeRewriter {
 	public static final int LITERAL_then=205;
 	public static final int LITERAL_throw=206;
 	public static final int LITERAL_throws=207;
-	public static final int LITERAL_time=208;
-	public static final int LITERAL_timeout=209;
-	public static final int LITERAL_to=210;
-	public static final int LITERAL_tops=211;
-	public static final int LITERAL_transition=212;
-	public static final int LITERAL_transitions=213;
-	public static final int LITERAL_true=214;
-	public static final int LITERAL_truncate=215;
-	public static final int LITERAL_type=216;
-	public static final int LITERAL_union=217;
-	public static final int LITERAL_units=218;
-	public static final int LITERAL_until=219;
-	public static final int LITERAL_updated=220;
-	public static final int LITERAL_upper_bound=221;
-	public static final int LITERAL_us=222;
-	public static final int LITERAL_variables=223;
-	public static final int LITERAL_variant=224;
-	public static final int LITERAL_when=225;
-	public static final int LITERAL_which=226;
-	public static final int LITERAL_while=227;
-	public static final int LITERAL_whole=228;
-	public static final int LITERAL_with=229;
-	public static final int LITERAL_xor=230;
-	public static final int LPAREN=231;
-	public static final int LT=232;
-	public static final int LTE_STRING=233;
-	public static final int LT_STRING=234;
-	public static final int MINUS=235;
-	public static final int MT_STRING=236;
-	public static final int NEQ=237;
-	public static final int NUMBER=238;
-	public static final int OBLIGATION=239;
-	public static final int OCTOTHORPE=240;
-	public static final int OLD_NEQ=241;
-	public static final int ON=242;
-	public static final int P=243;
-	public static final int PARAMETER=244;
-	public static final int PARAMETERS=245;
-	public static final int PLUS=246;
-	public static final int PLUS_ARROW=247;
-	public static final int PLUS_EQUALS=248;
-	public static final int PORT=249;
-	public static final int PORT_INPUT=250;
-	public static final int PORT_OUTPUT=251;
-	public static final int PREDICATE_RELATION=252;
-	public static final int PROCEDURE=253;
-	public static final int PROCEDURE_CALL=254;
-	public static final int Q=255;
-	public static final int QCLREF=256;
-	public static final int QCREF=257;
-	public static final int QQ=258;
-	public static final int QUANTITY=259;
-	public static final int QUESTION=260;
-	public static final int RASS=261;
-	public static final int RBRACKET=262;
-	public static final int RCON=263;
-	public static final int RCURLY=264;
-	public static final int REAL_LIT=265;
-	public static final int RECORD_TERM=266;
-	public static final int ROOT_DECLARATION=267;
-	public static final int RPAREN=268;
-	public static final int S=269;
-	public static final int SEMICOLON=270;
-	public static final int SLCOMMENT=271;
-	public static final int SOURCE=272;
-	public static final int START=273;
-	public static final int START_ASSERTION_PROPERTY=274;
-	public static final int STOP=275;
-	public static final int SUBPROGRAM_INVOCATION=276;
-	public static final int TICK=277;
-	public static final int TILDE=278;
-	public static final int TIMES=279;
-	public static final int TOP=280;
-	public static final int TRANSITION=281;
-	public static final int TRIGGER=282;
-	public static final int TYPE=283;
-	public static final int TYPE_LIBRARY=284;
-	public static final int TYPE_OPERATOR=285;
-	public static final int TYPE_OPERATOR_INVOCATION=286;
-	public static final int UNARY_MINUS=287;
-	public static final int UNIT_FORMULA=288;
-	public static final int UNIT_LIBRARY=289;
-	public static final int UNIT_NAME=290;
-	public static final int VALUE=291;
-	public static final int VARIABLE_DECLARATION=292;
-	public static final int VERT=293;
-	public static final int WP=294;
-	public static final int WS=295;
+	public static final int LITERAL_timeout=208;
+	public static final int LITERAL_to=209;
+	public static final int LITERAL_tops=210;
+	public static final int LITERAL_transition=211;
+	public static final int LITERAL_transitions=212;
+	public static final int LITERAL_true=213;
+	public static final int LITERAL_truncate=214;
+	public static final int LITERAL_type=215;
+	public static final int LITERAL_union=216;
+	public static final int LITERAL_units=217;
+	public static final int LITERAL_until=218;
+	public static final int LITERAL_updated=219;
+	public static final int LITERAL_upper_bound=220;
+	public static final int LITERAL_us=221;
+	public static final int LITERAL_variables=222;
+	public static final int LITERAL_variant=223;
+	public static final int LITERAL_when=224;
+	public static final int LITERAL_which=225;
+	public static final int LITERAL_while=226;
+	public static final int LITERAL_whole=227;
+	public static final int LITERAL_with=228;
+	public static final int LITERAL_xor=229;
+	public static final int LPAREN=230;
+	public static final int LT=231;
+	public static final int LTE_STRING=232;
+	public static final int LT_STRING=233;
+	public static final int MINUS=234;
+	public static final int MT_STRING=235;
+	public static final int NEQ=236;
+	public static final int NUMBER=237;
+	public static final int OBLIGATION=238;
+	public static final int OCTOTHORPE=239;
+	public static final int OLD_NEQ=240;
+	public static final int ON=241;
+	public static final int P=242;
+	public static final int PARAMETER=243;
+	public static final int PARAMETERS=244;
+	public static final int PLUS=245;
+	public static final int PLUS_ARROW=246;
+	public static final int PLUS_EQUALS=247;
+	public static final int PORT=248;
+	public static final int PORT_INPUT=249;
+	public static final int PORT_OUTPUT=250;
+	public static final int PREDICATE_RELATION=251;
+	public static final int PROCEDURE=252;
+	public static final int Q=253;
+	public static final int QCLREF=254;
+	public static final int QCREF=255;
+	public static final int QQ=256;
+	public static final int QUANTITY=257;
+	public static final int QUESTION=258;
+	public static final int RASS=259;
+	public static final int RBRACKET=260;
+	public static final int RCON=261;
+	public static final int RCURLY=262;
+	public static final int REAL_LIT=263;
+	public static final int RECORD_TERM=264;
+	public static final int ROOT_DECLARATION=265;
+	public static final int RPAREN=266;
+	public static final int S=267;
+	public static final int SEMICOLON=268;
+	public static final int SLCOMMENT=269;
+	public static final int SOURCE=270;
+	public static final int START=271;
+	public static final int START_ASSERTION_PROPERTY=272;
+	public static final int STOP=273;
+	public static final int SUBPROGRAM_INVOCATION=274;
+	public static final int TICK=275;
+	public static final int TILDE=276;
+	public static final int TIMES=277;
+	public static final int TOP=278;
+	public static final int TRANSITION=279;
+	public static final int TRIGGER=280;
+	public static final int TYPE=281;
+	public static final int TYPE_LIBRARY=282;
+	public static final int TYPE_OPERATOR=283;
+	public static final int TYPE_OPERATOR_INVOCATION=284;
+	public static final int UNARY_MINUS=285;
+	public static final int UNIT_FORMULA=286;
+	public static final int UNIT_LIBRARY=287;
+	public static final int UNIT_NAME=288;
+	public static final int VALUE=289;
+	public static final int VARIABLE_DECLARATION=290;
+	public static final int VERT=291;
+	public static final int WP=292;
+	public static final int WS=293;
 
 	// delegates
 	public TreeRewriter[] getDelegates() {
@@ -505,7 +503,7 @@ public class GetTimeouts extends TreeRewriter {
 				while (true) {
 					int alt1=2;
 					int LA1_0 = input.LA(1);
-					if ( ((LA1_0 >= AADL_STRING_LITERAL && LA1_0 <= 296)) ) {
+					if ( ((LA1_0 >= AADL_STRING_LITERAL && LA1_0 <= 294)) ) {
 						alt1=1;
 					}
 

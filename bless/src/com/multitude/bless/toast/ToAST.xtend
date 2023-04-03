@@ -1519,12 +1519,12 @@ toAST(Action e)
   {
   try 
     {  
-    e.basic?.toAST 
-    e.if_fi?.toAST 
-    e.wl?.toAST 
-    e.fl?.toAST 
-    e.du?.toAST 
-    e.elq?.toAST 
+    e.basic?.toAST ?: 
+    e.if_fi?.toAST ?: 
+    e.wl?.toAST ?: 
+    e.fl?.toAST ?: 
+    e.du?.toAST  ?:
+    e.elq?.toAST ?: 
     e.ulq?.toAST 
     } 
   catch (Exception ex) {ex.printStackTrace x}
@@ -1745,12 +1745,12 @@ toAST(BasicAction e)
         token = new CommonToken(BLESS3Lexer.LITERAL_setmode, "setmode")
         addChild(e.mode.name.makeBASTforID(e))
         ] 
-    e.assign?.toAST    
-    e.when?.toAST    
+    e.assign?.toAST   ?:  
+    e.when?.toAST     ?:
     e.comb?.toAST    
-    e.communication?.toAST    
-    e.computation?.toAST    
-    e.multi_assign?.toAST    
+    e.communication?.toAST   ?:  
+    e.computation?.toAST     ?:
+    e.multi_assign?.toAST    ?: 
     e.exc?.toAST    
     } 
   catch (Exception ex) {ex.printStackTrace x}
@@ -1795,8 +1795,8 @@ toAST(BehaviorTime e)
   {
   try 
     {  
-	  e.quantity?.toAST 
-    e.value?.toAST 
+	  e.quantity?.toAST  ?:
+    e.value?.toAST  ?:
     e.duration?.toAST        
     } 
   catch (Exception ex) {ex.printStackTrace x}
@@ -1956,9 +1956,9 @@ toAST(CommunicationAction e)
   {
   try 
     {  
-    e.pc?.toAST 
-    e.po?.toAST 
-    e.pi?.toAST 
+    e.pc?.toAST  ?:
+    e.po?.toAST  ?:
+    e.pi?.toAST  
   // freeze action  port>> ignored  
 //  else if (e.pause!==null)
 //    newBAST(e) =>  
@@ -2583,12 +2583,7 @@ toAST(ParenthesizedSubexpression e)
   catch (Exception ex) {ex.printStackTrace x}       
   }  //end of ParenthesizedSubexpression
 
-//	| PortInput
-//port_input :   
-//    pn2=port_name QUESTION LPAREN n=/*local_variable_ or outgoing_port_ or outgoing_parameter_*/name RPAREN   //input
-//     -> ^( PORT_INPUT[$pn2.tree.getToken(),
-//      "PORT_INPUT["+Integer.toString($pn2.tree.getLine() //+startingLine
-//      )+"]"] $pn2 $n )
+//portInput : ^( PORT_INPUT pn=ID n=valueName )
   def dispatch BAST
 toAST(PortInput e)
   {
@@ -2597,13 +2592,13 @@ toAST(PortInput e)
     [  
   	myText = "PORT_INPUT["+e.port.name+"]"
     token = new CommonToken(BLESS3Lexer.PORT_INPUT, "PORT_INPUT["+e.port.name+"]")
-    addChild(e.port.name.makeBASTforPort(e)) 	//port=PORTNAME //[aadl2::Port|PORTNAME]
-    addChild(e.target.toAST) 	//variable=Name
+    addChild(e.port.name.makeBASTforPort(e)) 	
+    addChild(e.target.toAST) 	
     ]
       } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PortInput
 
-//	| PortOutput
+//portOutput : ^( PORT_OUTPUT pn=ID be=expression? )
   def dispatch BAST
 toAST(PortOutput e)
   {
@@ -2612,14 +2607,15 @@ toAST(PortOutput e)
     [  
   	myText = "PORT_OUTPUT["+e.port.name+"]"
     token = new CommonToken(BLESS3Lexer.PORT_OUTPUT, "PORT_OUTPUT["+e.port.name+"]")
-    addChild(e.port.name.makeBASTforPort(e)) 	//port=PORTNAME //[aadl2::Port|PORTNAME]
+    addChild(e.port.name.makeBASTforPort(e)) 	
     if (e.eor!==null)
-      addChild(e.eor.toAST) 	//( '(' eor=ExpressionOrRelation ')' )?
+      addChild(e.eor.toAST) 	
     ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PortOutput
 
-//	| QuantifiedVariables
+//quantifiedVariables : ^( LITERAL_declare decs+=variableDeclaration+ )
   def dispatch BAST
 toAST(QuantifiedVariables e)
   {
@@ -2631,74 +2627,33 @@ toAST(QuantifiedVariables e)
     for (child : e.variables )
       addChild(child.toAST) 	
     ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of QuantifiedVariables
 
 
-//  def dispatch BAST
-//toAST(RationalLiteral e)
-//  {
-//  newBAST(e) =>  
-//    [  
-//  	myText = "RATIONAL"
-//    token = new CommonToken(BLESS3Lexer.RATIONAL, "RATIONAL")
-//    if (e.up)
-//      addChild(newBAST(e) =>  
-//        [  
-//  	    myText = "-"
-//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
-//      	addChild(e.dividend.makeBASTforINT(e))
-//      	])
-//    else
-//      addChild(e.dividend.makeBASTforINT(e))
-//    if (e.down)
-//      addChild(newBAST(e) =>  
-//        [  
-//  	    myText = "-"
-//        token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
-//      	addChild(e.divisor.makeBASTforINT(e))
-//      	])
-//    else
-//      addChild(e.divisor.makeBASTforINT(e))
-//    ]
-//  }  //end of RationalLiteral
-
-//VariableDeclaration:
-//  variable_names+=ID ( comma?=',' variable_names+=ID 
-//  	  ( ',' variable_names+=ID)* )?
-//  ':' constant?='constant'?  //? was missing causing grammar errors in RateControl.aadl
-//  type=Type 
-//    ( assign?=':=' expression=Expression )? 
-//  assertion=Assertion?  
-//  ';'
+//variableDeclaration :
+//  ^( VARIABLE_DECLARATION v=variable ( ^( ASSIGN exp=expression ) )? a=assertion? 
+//    nv=LITERAL_nonvolatile? sh=LITERAL_shared? c=LITERAL_constant? sp=LITERAL_spread? f=LITERAL_final? )
   def dispatch BAST
 toAST(VariableDeclaration e)
   {  //same as BehaviorVariable
   try {  
 	newBAST(e) =>  
-       [  //COLON is root
-  	   myText = ":"
-       token = new CommonToken(BLESS3Lexer.COLON, ":")
-       addChild(e.variable.name.makeBASTforID(e)) 	//may have multiple variable labels in single declaration 
-//         addChild(v.toAST) 	//may have multiple variable labels in single declaration 
-       //types follow next
-       addChild( newBAST(e) =>  
-         [  
-  	     myText = "TYPE"
-         token = new CommonToken(BLESS3Lexer.TYPE, "TYPE")
-         addChild(e.variable.tod.toAST) 	
-         ] ) 	
-       //then the initialization :=e, if any
+       [
+  	   myText = "VARIABLE_DECLARATION["+e.variable.name+"]"
+       token = new CommonToken(BLESS3Lexer.VARIABLE_DECLARATION, 
+           "VARIABLE_DECLARATION["+e.variable.name+"]")
+       addChild(e.variable.toAST) 	
        if (e.assign)
-       addChild( newBAST(e) =>  
-         [  
-  	     myText = ":="
-         token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
-         addChild(e.expression.toAST) 	
-         ] ) 
+         addChild( newBAST(e) =>  
+           [  
+           myText = ":="
+           token = new CommonToken(BLESS3Lexer.ASSIGN, ":=")
+           addChild(e.expression.toAST)   
+           ] ) 
        //then the Assertion
-       addChild(e.assertion?.toAST)	
-       //then any of the flags
+       addChild(e.assertion?.toAST) 
 //  "nonvolatile" "shared" "constant" "spread"  "final"     
        if (e.constant)
          addChild( newBAST(e) =>  
@@ -2730,17 +2685,16 @@ toAST(VariableDeclaration e)
   	     myText = "final"
          token = new CommonToken(BLESS3Lexer.LITERAL_final, "final")
          ] ) 
-       //finally, always include the semicolon!
-       addChild( newBAST(e) =>  
-         [  
-  	     myText = ";"
-         token = new CommonToken(BLESS3Lexer.SEMICOLON, ";")
-         ] )  
-       ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of VariableDeclaration
   
-//	| Range
+//range :
+//  ^( dd=DOTDOT lb=subexpression ub=subexpression )
+//  |  ^( cd=COMMADOT lb=subexpression ub=subexpression )
+//  |  ^( dc=DOTCOMMA lb=subexpression ub=subexpression )
+//  |  ^( cc=COMMACOMMA lb=subexpression ub=subexpression )
   def dispatch BAST
 toAST(Range e)
   {
@@ -2750,10 +2704,11 @@ toAST(Range e)
     addChild(e.lower_bound.toAST)
     addChild(e.upper_bound.toAST)
     ]   
-      } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of Range
 
-//	| RecordField
+//recordField  :  ^(COLON df=ID ptd=typeOrReference)
   def dispatch BAST
 toAST(RecordField e)
   {
@@ -2765,41 +2720,57 @@ toAST(RecordField e)
     addChild(e.label.makeBASTforID(e))
     addChild(e.typ.toAST)
     ]   
-      } catch (Exception ex) {ex.printStackTrace x}       
+    }
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of RecordField
 
-//	| RecordTerm
+//recordTerm : ^( RECORD_TERM typeid=ID prv+=recordValue+ )
   def dispatch BAST
 toAST(RecordTerm e)
   {
   try {  
   newBAST(e) =>  
     [  //root is RECORD_TERM
-  	myText = "RECORD_TERM"
-    token = new CommonToken(BLESS3Lexer.RECORD_TERM, "RECORD_TERM")
+  	myText = "RECORD_TERM["+e.record_type.name+"]"
+    token = new CommonToken(BLESS3Lexer.RECORD_TERM, 
+        "RECORD_TERM["+e.record_type.name+"]")
     addChild(e.record_type.name.makeBASTforID(e))
     for (child : e.record_value)  //add record_value+=RecordValue+
       addChild(child.toAST)
     ]   
-      } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of RecordTerm
 
-//	| RecordType
+//recordType  :
+//  ^(r=LITERAL_record rf+=recordField+)
+//  | ^(r=LITERAL_variant rf+=recordField+)
   def dispatch BAST
 toAST(RecordType e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-  	myText = "record"
-    token = new CommonToken(BLESS3Lexer.LITERAL_record, "record")
-    for (child : e.fields)  //add '(' fields+=RecordField+ ')'
-      addChild(child.toAST)
-    ]   
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {
+    if (e.record)  
+      newBAST(e) =>  
+        [  
+        myText = "record"
+        token = new CommonToken(BLESS3Lexer.LITERAL_record, "record")
+        for (child : e.fields)  
+          addChild(child.toAST)
+        ]   
+    else if (e.variant)  
+      newBAST(e) =>  
+        [  
+        myText = "variant"
+        token = new CommonToken(BLESS3Lexer.LITERAL_variant, "variant")
+        for (child : e.fields)  
+          addChild(child.toAST)
+        ]   
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of RecordType
 
-//	| RecordValue
+//recordValue : ^( ARROW field=ID v=value )
   def dispatch BAST
 toAST(RecordValue e)
   {
@@ -2811,14 +2782,11 @@ toAST(RecordValue e)
     addChild(e.label.makeBASTforID(e))
     addChild(e.aval.toAST)
     ]   
-      } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of RecordValue
 
-//	| SimultaneousAssignment
-//simultaneous_assignment  :
-//  LPAREN lhs+=name_tick ( left_comma=COMMA lhs+=name_tick )+ 
-//  a=ASSIGN rhs+=expression_or_record_term ( right_comma=COMMA rhs+=expression_or_record_term )+ RPAREN
-//    -> ^($a ^($left_comma $lhs+ )  ^($right_comma $rhs+ )  ;
+//simultaneousAssignment : ^( ASSIGN ^( COMMA lhs+=nameTick+ ) ^( COMMA rhs+=expressionOrAny+ ) )
   def dispatch BAST
 toAST(SimultaneousAssignment e)
   {
@@ -2847,360 +2815,199 @@ toAST(SimultaneousAssignment e)
       } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of SimultaneousAssignment
 
-//	| Subexpression
+//subexpression :
+//  ^( n=LITERAL_not te=timedExpression )
+//  | ^( m=UNARY_MINUS te=timedExpression )
+//  | ^( s=LITERAL_abs te=timedExpression )
+//  | ^( t=LITERAL_truncate te=timedExpression )
+//  | ^( r=LITERAL_round te=timedExpression )
+//  | te=timedExpression 
   def dispatch BAST
 toAST(Subexpression e)
   {
-  try {  
-  if (e.unary !== null && !(e.unary.truncate !== null || e.unary.round !== null))  //unary minus?
-    newBAST(e) =>  
-    [
-    if (e.unary.unary_minus !== null)	 
-  	  { 
-  	  	myText = "-"
-  	  	token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
-  	  }
-    else if (e.unary.not !== null)	 
-  	  { 
-  	  	myText = "not"
-  	  	token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
-  	  }
-    else if (e.unary.absolute_value !== null)	 
-  	  { 
-  	  	myText = "abs"
-  	  	token = new CommonToken(BLESS3Lexer.LITERAL_abs, "abs")
-  	  }
-//DON'T MAKE BAST FOR TURNCATE OR ROUND  	  
-//    else if (e.unary.truncate !== null)	 
-//  	  { 
-//  	  	myText = "truncate"
-//  	  	token = new CommonToken(BLESS3Lexer.DUMMY, "truncate")
-//  	  }
-//    else if (e.unary.round !== null)	 
-//  	  { 
-//  	  	myText = "round"
-//  	  	token = new CommonToken(BLESS3Lexer.DUMMY, "round")
-//  	  }
-  	addChild(e.timed_expression.toAST)  
-  	]
-  else   
-  	e.timed_expression.toAST
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    if (e.unary !== null) 
+      newBAST(e) =>  
+        [
+        if (e.unary.unary_minus !== null)	 
+  	      { 
+  	  	  myText = "-"
+  	  	  token = new CommonToken(BLESS3Lexer.UNARY_MINUS, "-")
+  	      }
+        else if (e.unary.not !== null)	 
+  	      { 
+  	  	  myText = "not"
+  	  	  token = new CommonToken(BLESS3Lexer.LITERAL_not, "not")
+  	      }
+        else if (e.unary.absolute_value !== null)	 
+  	      { 
+  	  	  myText = "abs"
+  	  	  token = new CommonToken(BLESS3Lexer.LITERAL_abs, "abs")
+  	      }
+        else if (e.unary.truncate !== null)	 
+  	      { 
+  	  	  myText = "truncate"
+  	  	  token = new CommonToken(BLESS3Lexer.DUMMY, "truncate")
+  	      }
+        else if (e.unary.round !== null)	 
+  	      { 
+  	  	  myText = "round"
+  	  	  token = new CommonToken(BLESS3Lexer.DUMMY, "round")
+  	      }
+  	    addChild(e.timed_expression.toAST)  
+  	    ]
+    else   
+  	  e.timed_expression.toAST
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of subexpression
-   
+
+//timedExpression :
+//  ^( TICK ts=timedSubject )
+//  | ^( AT_SIGN ts=timedSubject se=subexpression )
+//  | ^( CARET ts=timedSubject ps=periodShift )
+//  | ts=timedSubject  
    def dispatch BAST
 toAST(TimedExpression e)
   {
-  try {  
-  if (e.tick !== null)
-    newBAST(e) =>
-      [
-      myText = "\'"
-      token = new CommonToken(BLESS3Lexer.TICK, "\'")
-      addChild(e.subject.toAST)
-      ]
-   else if (e.at)
+  try 
+    {  
+    if (e.tick !== null)
       newBAST(e) =>
-      [
-      myText = "@"
-      token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
-      addChild(e.subject.toAST)
-      addChild(e.time.toAST)
-      ]
-   else if (e.caret)
+        [
+        myText = "\'"
+        token = new CommonToken(BLESS3Lexer.TICK, "\'")
+        addChild(e.subject.toAST)
+        ]
+    else if (e.at)
       newBAST(e) =>
-      [
-      myText = "^"
-      token = new CommonToken(BLESS3Lexer.CARET, "^")
-      addChild(e.subject.toAST)
-      addChild(e.shift.toAST)
-      ]
-  else
-    e.subject.toAST 
-      } catch (Exception ex) {ex.printStackTrace x}       
+        [
+        myText = "@"
+        token = new CommonToken(BLESS3Lexer.AT_SIGN, "@")
+        addChild(e.subject.toAST)
+        addChild(e.time.toAST)
+        ]
+    else if (e.caret)
+      newBAST(e) =>
+        [
+        myText = "^"
+        token = new CommonToken(BLESS3Lexer.CARET, "^")
+        addChild(e.subject.toAST)
+        addChild(e.shift.toAST)
+        ]
+    else
+      e.subject.toAST 
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }	  //end of TimedExpression
 
-   def dispatch BAST
+//timedSubject :
+//  ce=conditionalExpression
+//  | ps=parenthesizedSubexpression 
+//  | rt=recordTerm
+//  | inv=invocation  
+//  | v=value
+  def dispatch BAST
 toAST(TimedSubject e)
   {
-   try {  
-  e.value?.toAST ?:
-  e.invocation?.toAST ?:
-  e.ps?.toAST ?:
-  e.conditional?.toAST ?:
-  e.record?.toAST
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    e.value?.toAST ?:
+    e.invocation?.toAST ?:
+    e.ps?.toAST ?:
+    e.conditional?.toAST ?:
+    e.record?.toAST
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  // end of TimedSubject
 
-//	| SubprogramCall
-//procedure_call :  
-//  /*requires_subprogram_*/p=identifier /*no '!'*/ LPAREN spb=formal_actual_list? RPAREN 
-//    -> ^( PROCEDURE_CALL[$p.tree.getToken(),
-//      "PROCEDURE_CALL["+Integer.toString($p.tree.getLine() //+startingLine
-//      )+"]"] $p $spb? ) ;
+//subprogramCall : ^( SUBPROGRAM_INVOCATION id=ID fal=formalActualList? )
   def dispatch BAST
 toAST(SubprogramCall e)
   {
-   try {  
-  newBAST(e) =>  
-    [  
-  	myText = "PROCEDURE_CALL["+e.procedure+"]"
-    token = new CommonToken(BLESS3Lexer.PROCEDURE_CALL, "PROCEDURE_CALL["+e.procedure+"]")
-    if (e.procedure instanceof SubprogramAccess)
-      addChild((e.procedure as SubprogramAccess).name.makeBASTforID(e))   
-    else if (e.procedure instanceof SubprogramSubcomponent)
-      addChild((e.procedure as SubprogramSubcomponent).name.makeBASTforID(e)) 
-    else
-      addChild("NOT_ACCESS_NOR_SUBPROGRAM".makeBASTforID(e))
-    addChild(e.parameters?.toAST) 	//( '(' parameters=FormalActualList? ')' )?
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
-   }  //end of SubprogramCall
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+  	  myText = "SUBPROGRAM_INVOCATION["+e.procedure+"]"
+      token = new CommonToken(BLESS3Lexer.SUBPROGRAM_INVOCATION, "SUBPROGRAM_INVOCATION["+e.procedure+"]")
+      if (e.procedure instanceof SubprogramAccess)
+        addChild((e.procedure as SubprogramAccess).name.makeBASTforID(e))   
+      else if (e.procedure instanceof SubprogramSubcomponent)
+        addChild((e.procedure as SubprogramSubcomponent).name.makeBASTforID(e)) 
+      else
+        addChild("NOT_ACCESS_NOR_SUBPROGRAM".makeBASTforID(e))
+      addChild(e.parameters?.toAST) 	//( '(' parameters=FormalActualList? ')' )?
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of SubprogramCall
  
-//	| TimedAction
-//  def dispatch BAST
-//toAST(Computation e)
-//  {
-//  newBAST(e) =>  
-//    [  
-//  	myText = "computation"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_computation, "computation")
-//    addChild(e.lb.toAST) 	
-//    addChild(e.ub?.toAST) 	//( ',' ub=BehaviorTime )?
-//    ]
-//  }  //end of TimedAction
 
-//  def dispatch BAST
-//toAST(BooleanType e)
-//  {
-//    newBAST(e) =>  
-//      [  
-//  	  myText = "boolean"
-//      token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
-//      ]
-//   }
-//
-//  def dispatch BAST
-//toAST(StringType e)
-//  {
-//    newBAST(e) =>  
-//      [  
-//  	  myText = "string"
-//      token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
-//      ]
-//   }
-
-
-//	| Type
-//  def dispatch BAST
-//toAST(Type e)
-//  {
-//   //data_component_reference=[aadl2::DataClassifier|DCCR]
-//  //may want to link to the subject instead
-////  if (e.aadl_data_component_type!==null)
-////    e.aadl_data_component_type.qualifiedName().makeBASTforPropertyName(e) 
-//  if (e.data_component_reference!==null)
-//    {
-////    if (e.data_component_reference.hasName())	
-//      e.data_component_reference.qualifiedName().makeBASTforPropertyName(e) 
-//    
-//    }
-//  else if (e.bt!==null)
-//    newBAST(e) =>  
-//      [  
-//  	  myText = "boolean"
-//      token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
-//      ]
-//  else if (e.st!==null)
-//    newBAST(e) =>  
-//      [  
-//  	  myText = "string"
-//      token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
-//      ]
-//  else if (e.et!==null)
-//    e.et.toAST   //et=EnumerationType
-//  else if (e.nt!==null)
-//    e.nt.toAST   //nt=NumberType
-//  else if (e.at!==null)
-//    e.at.toAST   //at=ArrayType
-//  else if (e.rt!==null)
-//    e.rt.toAST   //rt=RecordType
-//  else //it must be variant
-//    e.vt.toAST     //vt=VariantType     
-//  }  //end of Type
-
-//  def dispatch BAST
-//toAST(TypeConversion e)
-//  {
-//  if (e.natural)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "natural"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_natural, "natural")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  else if (e.integer)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "integer"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_integer, "integer")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  else if (e.rational)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "rational"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_rational, "rational")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  else if (e.real)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "real"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_real, "real")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  else if (e.complex)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "complex"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_complex, "complex")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  else if (e.time)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "time"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
-//    addChild(e.ps.toAST) 	
-//    ]
-//  }  //end of TypeConversion
-
-//  def dispatch BAST
-//toAST(TypeName e)
-//  {
-//  if (e.data_component_reference!==null)
-//    e.data_component_reference.qualifiedName().makeBASTforPropertyName(e) 
-//  else if (e.natural)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "natural"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_natural, "natural")
-//    ]
-//  else if (e.integer)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "integer"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_integer, "integer")
-//    ]
-//  else if (e.rational)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "rational"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_rational, "rational")
-//    ]
-//  else if (e.real)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "real"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_real, "real")
-//    ]
-//  else if (e.complex)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "complex"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_complex, "complex")
-//    ]
-//  else if (e.time)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "time"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
-//    ]
-//  else if (e.string)	
-//  newBAST(e) =>  
-//    [  
-//  	myText = "string"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
-//    ]
-//  }  //end of TypeName
-
-
-//  UniversalLatticeQuantification
-//universal_lattice_quantification : 
-//  lf=LITERAL_forall   
-//  lv=lattice_variables li=LITERAL_in r=range  
-////  av=availability? 
-//  elq=existential_lattice_quantification
-//    -> ^($lf $lv ^($li $r) $elq )  ;
+//universalLatticeQuantification :
+//  ^( LITERAL_forall lv+=ID+ ^( LITERAL_in lb=expression ub=expression ) elq=existentialLatticeQuantification )
   def dispatch BAST
 toAST(UniversalLatticeQuantification e)
   {
-   try {  
-  newBAST(e) =>  
-    [  
-  	myText = "forall"
-    token = new CommonToken(BLESS3Lexer.LITERAL_forall, "forall")
-    if (e.variables.size > 1)  //multiple forall variables
-      addChild(newBAST(e) =>  
+  try 
+    {  
+    newBAST(e) =>  
       [  
-      myText = ","
-      token = new CommonToken(BLESS3Lexer.COMMA, ",")
+  	  myText = "forall"
+      token = new CommonToken(BLESS3Lexer.LITERAL_forall, "forall")
       for (v : e.variables)
-        addChild(v.name.makeBASTforID(e))   
-      ] )
-    else
-       addChild(e.variables.head.name.makeBASTforID(e)) 	//one forall variables
-    addChild(newBAST(e) =>  //^($li $r)
-      [  
-  	  myText = "in"
-      token = new CommonToken(BLESS3Lexer.LITERAL_in, "in")
-      addChild(newBAST(e) =>
+        addChild(v.name.makeBASTforID(e))    
+      addChild(newBAST(e) =>  //^($li $r)
         [  
-        myText = ".."
-        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
+  	    myText = "in"
+        token = new CommonToken(BLESS3Lexer.LITERAL_in, "in")
         addChild(e.lower_bound.toAST)
         addChild(e.upper_bound.toAST)
-        ]
-      ) 	 
-      ] )
-    addChild(e.elq.toAST) 	// elq=ExistentialLatticeQuantification
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+        ] )
+      addChild(e.elq.toAST) 	// elq=ExistentialLatticeQuantification
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of UniversalLatticeQuantification
 
-//	| Value
+//value :
+//  vn=valueName
+//  | c=constant
+//  | to=LITERAL_timeout
+//  | n=LITERAL_now
+//  | t=LITERAL_tops
   def dispatch BAST
 toAST(Value e)
   {
-   try {  
-  if (e.value_name!==null)
-    e.value_name.toAST  //get BAST from Name
-  else if (e.constant!==null)
-    e.constant.toAST  //Constant
-  else if (e.timeout !== null) 
-     newBAST(e) => [
-  	   myText = 'timeout'
-       token = new CommonToken(BLESS3Lexer.LITERAL_timeout, 'timeout')
-      ] 
-//  | now?='now'
+  try 
+    {  
+    if (e.value_name!==null)
+      e.value_name.toAST  //get BAST from Name
+    else if (e.constant!==null)
+      e.constant.toAST  //Constant
+    else if (e.timeout !== null) 
+      newBAST(e) => [
+  	     myText = 'timeout'
+         token = new CommonToken(BLESS3Lexer.LITERAL_timeout, 'timeout')
+        ] 
     else if (e.now !== null) 
       newBAST(e) => [
-  	   myText = 'now'
-       token = new CommonToken(BLESS3Lexer.LITERAL_now, 'now')
-      ] 
-//  | tops?='tops'
+  	    myText = 'now'
+        token = new CommonToken(BLESS3Lexer.LITERAL_now, 'now')
+        ] 
     else if (e.tops !== null) 
       newBAST(e) => [
-  	   myText = 'tops'
-       token = new CommonToken(BLESS3Lexer.LITERAL_tops, 'tops')
-      ] 
+  	    myText = 'tops'
+        token = new CommonToken(BLESS3Lexer.LITERAL_tops, 'tops')
+       ] 
     else if (e.enum_val !== null)
       e.enum_val.toAST
-    } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of Value
 
-//  | EnumerationValue
+//enumerationValue : ^( TICK enumeration_type=ID enumeration_value=ID )
   def dispatch BAST
 toAST(EnumerationValue e)
   {
@@ -3221,480 +3028,410 @@ toAST(EnumerationValue e)
   }
 
   
-//	| ValueConstant
+//constant :
+//  q=quantity
+//  | s=AADL_STRING_LITERAL
+//  | t=LITERAL_true
+//  | f=LITERAL_false
+//  | n=LITERAL_null
   def dispatch BAST
 toAST(Constant e)
   {
-   try {  
-//  	if (e.property!==null)
-//  	  e.property.toAST
-//  	  (e.property as NamedElement).qualifiedName().makeBASTforPropertyName(e)
-//    else 
+  try 
+    {  
     if (e.t !== null) 
       newBAST(e) => [
-  	   myText = 'true'
-       token = new CommonToken(BLESS3Lexer.LITERAL_true, 'true')
-      ] 
+  	    myText = 'true'
+        token = new CommonToken(BLESS3Lexer.LITERAL_true, 'true')
+        ] 
     else if (e.f !== null) 
       newBAST(e) => [
-  	   myText = 'false'
-       token = new CommonToken(BLESS3Lexer.LITERAL_false, 'false')
-      ] 
+  	    myText = 'false'
+        token = new CommonToken(BLESS3Lexer.LITERAL_false, 'false')
+        ] 
     else if (e.nul !== null) 
       newBAST(e) => [
-  	   myText = 'null'
-       token = new CommonToken(BLESS3Lexer.LITERAL_null, 'null')
-      ] 
+  	    myText = 'null'
+        token = new CommonToken(BLESS3Lexer.LITERAL_null, 'null')
+        ] 
     else if (e.numeric_constant !==null)
       e.numeric_constant.toAST()
-//    else if (e.integer_literal!==null)   //intger literal
-//      e.integer_literal.makeBASTforINT(e) 
-//    else if (e.real_literal!==null)  //real literal
-//      e.real_literal.makeBASTforREAL_LIT(e) 
     else if (e.string_literal!==null) //string literal
       e.string_literal.makeBASTforAADL_STRING_LITERAL(e) 
-//    else if (e.property!==null) //AADL property
-//      (e.property as NamedElement).qualifiedName().makeBASTforPropertyName(e)
-//    else if (e.constant!==null) //AADL property constant
-//      e.constant.qualifiedName().makeBASTforPropertyName(e)
      } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of ValueConstant
 
-//	| Variable
-//THIS SHOULD BECOME A NamedElement
-//  def dispatch BAST
-//toAST(Variable e)
-//  {
-////  e.name.makeBASTforID(e)
-//  }  //end of Variable
-
-
-//  def dispatch BAST
-//toAST(PropertyConstant e)
-//  {
-//  	e.constant.qualifiedName().makeBASTforPropertyName(e)
-//  }  //end of Property
-
+//propertyField :
+//  ^( LBRACKET index=NUMBER )
+//  | ^( LBRACKET var=ID )
+//  | ^( DOT pf=ID )
+//  | ^( DOT LITERAL_upper_bound )
+//  | ^( DOT LITERAL_lower_bound )
   def dispatch BAST
 toAST(PropertyField e)
   {
-    try {  
+  try 
+    {  
     if (e.index!==null)
-  	newBAST(e) =>
-  	  [
-  	  myText = "["	
-      token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
-      addChild(e.index.makeBASTforINT(e))
-      addChild(newBAST(e) =>[myText = "]"	
-        token = new CommonToken(BLESS3Lexer.RBRACKET, "]")])
-  	  ]
+  	  newBAST(e) =>
+  	    [
+  	    myText = "["	
+        token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
+        addChild(e.index.makeBASTforINT(e))
+  	    ]
     else if (e.variable!==null)
-  	newBAST(e) =>
-  	  [
-  	  myText = "["	
-      token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
-      addChild(e.variable.toAST)
-      addChild(newBAST(e) =>[myText = "]"	
-        token = new CommonToken(BLESS3Lexer.RBRACKET, "]")])
-  	  ]
+  	  newBAST(e) =>
+  	    [
+  	    myText = "["	
+        token = new CommonToken(BLESS3Lexer.LBRACKET, "[")
+        addChild(e.variable.name.makeBASTforID(e))
+    	  ]
     else if (e.pf!==null)
-  	newBAST(e) =>
-  	  [
-  	  myText = "."	
-      token = new CommonToken(BLESS3Lexer.DOT, ".")
-      addChild(e.pf.makeBASTforID(e))
-  	  ]
+  	  newBAST(e) =>
+  	    [
+  	    myText = "."	
+        token = new CommonToken(BLESS3Lexer.DOT, ".")
+        addChild(e.pf.makeBASTforID(e))
+  	    ]
     else if (e.upper!==null)
-  	newBAST(e) =>
-  	  [
-  	  myText = "."	
-      token = new CommonToken(BLESS3Lexer.DOT, ".")
-      addChild(newBAST(e) =>[myText = "upper_bound"	
-        token = new CommonToken(BLESS3Lexer.LITERAL_upper_bound, "upper_bound")])
-  	  ]
+  	  newBAST(e) =>
+  	    [
+  	    myText = "."	
+        token = new CommonToken(BLESS3Lexer.DOT, ".")
+        addChild(newBAST(e) =>[myText = "upper_bound"	
+          token = new CommonToken(BLESS3Lexer.LITERAL_upper_bound, "upper_bound")])
+  	    ]
     else if (e.lower!==null)
-  	newBAST(e) =>
-  	  [
-  	  myText = "."	
-      token = new CommonToken(BLESS3Lexer.DOT, ".")
-      addChild(newBAST(e) =>[myText = "lower_bound"	
-        token = new CommonToken(BLESS3Lexer.LITERAL_lower_bound, "lower_bound")])
-  	  ]
-    else
-  	newBAST(e) =>
-  	  [
-  	  myText = "error"	
-      token = new CommonToken(BLESS3Lexer.ID, "error")
-      ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+    	newBAST(e) =>
+  	    [
+  	    myText = "."	
+        token = new CommonToken(BLESS3Lexer.DOT, ".")
+        addChild(newBAST(e) =>[myText = "lower_bound"	
+          token = new CommonToken(BLESS3Lexer.LITERAL_lower_bound, "lower_bound")])
+    	  ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PropertyField
 
-//  def dispatch BAST
-//toAST(PropertyName e)
-//  {
-//  var property = e.simple
-////  EcoreUtil.resolve(property,)    	
-//  property.qualifiedName().makeBASTforPropertyName(e)
-//  }  //end of PropertyName
-
+//propertyReference :
+//  ^(oct=OCTOTHORPE pname=QCLREF)
+//  | ^(oct=OCTOTHORPE pname=QCLREF field+=propertyField+)
+//  | ^(oct=OCTOTHORPE self=LITERAL_self pname=QCLREF )
+//  | ^(oct=OCTOTHORPE self=LITERAL_self pname=QCLREF field+=propertyField+)
+//  | ^(oct=OCTOTHORPE component=QCREF pname=QCLREF)
+//  |  ^(oct=OCTOTHORPE component=QCREF pname=QCLREF field+=propertyField+)
   def dispatch BAST
 toAST(PropertyReference e)
   {
-  try {  
-  if (e.self)  //  self#ps::p
-    {
-    val sp = e.spname
-    EcoreUtil.resolve(sp,e.eContainer)    
-  	newBAST(e) =>
-  	  [
-  	  myText = "#"	
-      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
-      addChild(newBAST(e) =>
+  try 
+    {  
+    if (e.self)  //  self#ps::p
+      {
+      val sp = e.spname
+      EcoreUtil.resolve(sp,e.eContainer)    
+  	  newBAST(e) =>
   	    [
-  	    myText = "self"	
-        token = new CommonToken(BLESS3Lexer.LITERAL_self, "self")
-        ] )      
-      addChild(sp.qualifiedName().makeBASTforPropertyName(e))
-      for (f : e.field)
-        addChild(f.toAST)  	  
-      ]
-      
-    }
-//  else if (e.pname!==null)  //subcomponent#ps::p  THERE IS NO SUBCOMPONENT IN GRAMMAR FOR PropertyReference
-//  	newBAST(e) =>
-//  	  [
-//  	  myText = "#"	
-//      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
-////      addChild(e.component_element.makeBASTforID(e))
-//      addChild(e.pname.qualifiedName().makeBASTforPropertyName(e))  	  
-//      for (f : e.field)
-//        addChild(f.toAST)  	  
-//      ]
-  else if (e.component!==null)  //  uccr#ps::p
-    {
-    val cp = e.cpname
-    EcoreUtil.resolve(cp,e.eContainer)
-  	newBAST(e) =>
-  	  [
-  	  myText = "#"	
-      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
-      addChild(e.component.qualifiedName().makeBASTforPropertyName(e))  //it's really a component name
-      addChild(cp.qualifiedName().makeBASTforPropertyName(e))  	  
-      for (f : e.field)
-        addChild(f.toAST)  	  
-      ]
-    }
-  else
-    {
-    val p = e.pname
-    EcoreUtil.resolve(p,e.eContainer)
-  	newBAST(e) =>   //  #ps::p
-  	  [
-  	  myText = "#"	
-      token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
-      addChild(p.qualifiedName().makeBASTforPropertyName(e))
-      for (f : e.field)
-        addChild(f.toAST)  	  
-      ]
-      
-     }
-   } catch (Exception ex) {ex.printStackTrace x}       
+    	  myText = "#"	
+        token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
+        addChild(newBAST(e) =>
+    	    [
+    	    myText = "self"	
+          token = new CommonToken(BLESS3Lexer.LITERAL_self, "self")
+          ] )      
+        addChild(sp.qualifiedName().makeBASTforPropertyName(e))
+        for (f : e.field)
+          addChild(f.toAST)  	  
+        ]     
+      }
+    else if (e.component!==null)  //  uccr#ps::p
+      {
+      val cp = e.cpname
+      EcoreUtil.resolve(cp,e.eContainer)
+    	newBAST(e) =>
+    	  [
+    	  myText = "#"	
+        token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
+        addChild(e.component.qualifiedName().makeBASTforPropertyName(e))  //it's really a component name
+        addChild(cp.qualifiedName().makeBASTforPropertyName(e))  	  
+        for (f : e.field)
+          addChild(f.toAST)  	  
+        ]
+      }
+    else
+      {
+      val p = e.pname
+      EcoreUtil.resolve(p,e.eContainer)
+    	newBAST(e) =>   //  #ps::p
+    	  [
+    	  myText = "#"	
+        token = new CommonToken(BLESS3Lexer.OCTOTHORPE, "#")
+        addChild(p.qualifiedName().makeBASTforPropertyName(e))
+        for (f : e.field)
+          addChild(f.toAST)  	  
+        ]   
+       }
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of PropertyReference
 
-
-
-//	| VariantType
-//variant_type : LITERAL_variant^ //LBRACKET! /*discriminant_*/identifier RBRACKET! LPAREN! record_field+ RPAREN!
-//  def dispatch BAST
-//toAST(VariantType e)
-//  {
-//  newBAST(e) =>  
-//    [  
-//  	myText = "variant"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_variant, "variant")
-//    for (field : e.fields)
-//      addChild(field.toAST) 	//lv=LatticeVariables
-//    ]
-//  }  //end of VariantType
-
-//	| WhenThrow
-//when_throw : LITERAL_when^ LPAREN! /*boolean_*/expression RPAREN! LITERAL_throw /*exception_*/identifier
+//whenThrow:
+//  ^( LITERAL_when LPAREN exp=expression RPAREN LITERAL_throw excep=ID  //[Exception]  
+//      message=AADL_STRING_LITERAL? )  
   def dispatch BAST
 toAST(WhenThrow e)
   {
-    try {  
-  newBAST(e) =>  
-    [  
-  	myText = "when"
-    token = new CommonToken(BLESS3Lexer.LITERAL_when, "when")
-    addChild(e.exp.toAST) //exp=Expression
-    addChild(newBAST(e) =>  // "throw"
+  try
+    {  
+    newBAST(e) =>  
       [  
-  	  myText = "throw"
-      token = new CommonToken(BLESS3Lexer.LITERAL_throw, "throw")
-      ] )
-    addChild(e.exception.name.makeBASTforID(e))  // exception=ID 
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+    	myText = "when"
+      token = new CommonToken(BLESS3Lexer.LITERAL_when, "when")
+      addChild(newBAST(e) =>  
+        [  
+        myText = "("
+        token = new CommonToken(BLESS3Lexer.LPAREN, "(")
+        ] )
+      addChild(e.exp.toAST) //exp=Expression
+      addChild(newBAST(e) =>  
+        [  
+        myText = ")"
+        token = new CommonToken(BLESS3Lexer.RPAREN, ")")
+        ] )
+      addChild(newBAST(e) =>  // "throw"
+        [  
+  	    myText = "throw"
+        token = new CommonToken(BLESS3Lexer.LITERAL_throw, "throw")
+        ] )
+      addChild(e.exception.name.makeBASTforID(e))  // exception=ID 
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of WhenThrow
 
-//	| WhileLoop
-//while_loop : lw=LITERAL_while  
-//  LPAREN be=/*boolean_*/expression_or_relation RPAREN
-////  av=availability?  
-//  ( LITERAL_invariant inv=assertion )?
-//  ( LITERAL_bound bd=/*integer_*/expression )?  
-//  elq=existential_lattice_quantification
-//    -> ^($lw $be ^(INVARIANT[$lw,"INVARIANT"] $inv?) ^(BOUND[$lw,"BOUND"] $bd?) $elq ) ;
+//whileLoop  :
+//  ^( LITERAL_while be=expression ^( INVARIANT inv=assertion? ) ^( BOUND bd=assertion? ) 
+//      elq=existentialLatticeQuantification )
   def dispatch BAST
 toAST(WhileLoop e)
   {
-    try {  
-	newBAST(e) =>  
+  try 
+    {  
+	  newBAST(e) =>  
        [  //'while' as root
   	   myText = "while"
        token = new CommonToken(BLESS3Lexer.LITERAL_while, "while")
-       //expression_or_relation
        addChild((e.test as Expression).toAST)    
-       //have invariant?
-       if (e.invariant)  
-         addChild(newBAST(e) =>  
-           [  //
-  	       myText = "invariant"
-           token = new CommonToken(BLESS3Lexer.INVARIANT, "invariant")
+       addChild(newBAST(e) =>  
+         [  
+  	     myText = "invariant"
+         token = new CommonToken(BLESS3Lexer.INVARIANT, "invariant")
+         if (e.invariant)  
            addChild(e.inv.toAST)
-           ] )
-       //have bound function?    
-       if (e.bound)  
-         addChild(newBAST(e) =>  
-           [  //
-  	       myText = "bound"
-           token = new CommonToken(BLESS3Lexer.BOUND, "bound")
+         ] )
+       addChild(newBAST(e) =>  
+         [  
+  	     myText = "bound"
+         token = new CommonToken(BLESS3Lexer.BOUND, "bound")
+         if (e.bound)  
            addChild(e.bound_function.toAST)
-           ] )
+         ] )
        //finally, actions to do    
        addChild(e.elq.toAST)
        ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+     } 
+   catch (Exception ex) {ex.printStackTrace x}       
    }  //end of WhileLoop
 
 
-//elements from BLESS.xtext
-
-//	  BehaviorTransition
-//behavior_transition :
-//  ( btl=behavior_transition_label COLON )?
-//  /*source_state_*/ssi+=identifier ( COMMA /*source_state_*/ssi+=identifier )*
-//  x=LCON bc=behavior_condition? RCON
-//  /*destination_state*/dsi=identifier 
-//  ( LCURLY s=behavior_actions RCURLY | EMPTY_CURLY )
-//  q=assertion? semi=SEMICOLON
-//    -> 
-//      ^( TRANSITION[$x,"TRANSITION["+Integer.toString($x.getLine()+startingLine)+"]"] 
-//      ^( LABEL[$x,"LABEL["+Integer.toString($x.getLine()+startingLine)+"]"] $btl? ) 
-//      ^( SOURCE[$x,"SOURCE["+Integer.toString($x.getLine()+startingLine)+"]"] $ssi+ ) 
-//      ^( CONDITION[$x,"CONDITION["+Integer.toString($x.getLine()+startingLine)+"]"] $bc? ) 
-//      ^( DESTINATION[$x,"DESTINATION["+Integer.toString($x.getLine()+startingLine)+"]"] $dsi ) 
-//      ^( ACTION[$x,"ACTION["+Integer.toString($x.getLine()+startingLine)+"]"] $s? ) 
-//      ^( Q[$semi,"Q["+Integer.toString($semi.getLine()+startingLine)+"]"] $q?) 
-//      ) ; 
+//behaviorTransition :
+//  ^( TRANSITION ^( LABEL id=ID pr=priority? ) ^( SOURCE ssi+=ID+ ) 
+//    ^( CONDITION bc=behaviorCondition? ) ^( DESTINATION dsi=ID )
+//    ^( ACTION s=behaviorActions? ) ^( Q q=assertion? ) )
   def dispatch BAST
 toAST(BehaviorTransition e)
   {
-    try {  
-  newBAST(e) =>  
-    [  //TRANSITION as root
-  	myText = "TRANSITION["+e.name+"]"
-    token = new CommonToken(BLESS3Lexer.TRANSITION, "TRANSITION["+e.name+"]")
-    addChild(newBAST(e) =>  // "LABEL"
-      [  
-  	  myText = "LABEL["+e.name+"]"
-      token = new CommonToken(BLESS3Lexer.LABEL, "LABEL["+e.name+"]")
-      addChild(e.name.makeBASTforID(e))
-      ] )
-    addChild(newBAST(e) =>  // "SOURCE"
-      [  
-  	  myText = "SOURCE"
-      token = new CommonToken(BLESS3Lexer.SOURCE, "SOURCE")
-      for (source : e.sources)  //multiple source states
-        addChild(source.name.makeBASTforID(e))
-      ] )
-    addChild(newBAST(e) =>  // "CONDITION"
-      [  
-  	  myText = "CONDITION"
-      token = new CommonToken(BLESS3Lexer.CONDITION, "CONDITION")
-      if (e.dispatch!==null)
-        addChild(e.dispatch.toAST)  //either dispatch condition
-      else if (e.execute!==null)
-        addChild(e.execute.toAST)  //or execute condition
-      else if (e.mode!==null)
-        addChild(e.mode.toAST)  //or mode condition
-      else if (e.internal!==null)
-        addChild(e.internal.toAST)  //or internal condition
-      
-      ] )
-    addChild(newBAST(e) =>  // "DESTINATION"
-      [  
-  	  myText = "DESTINATION"
-      token = new CommonToken(BLESS3Lexer.DESTINATION, "DESTINATION")
-      addChild(e.destination.name.makeBASTforID(e))  //destination state
-      ] )
-    addChild(newBAST(e) =>  // "ACTION"
-      [  
-  	  myText = "ACTION"
-      token = new CommonToken(BLESS3Lexer.ACTION, "ACTION")
-      addChild(e.actions?.toAST)  //behavior=BehaviorActions 
-      ] )
-    addChild(newBAST(e) =>  // "Q"  Assertion during transition
-      [  
-  	  myText = "Q"
-      token = new CommonToken(BLESS3Lexer.Q, "Q")
-      addChild(e.ass?.toAST)  //ass=Assertion?
-      ] )
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  
+      [  //TRANSITION as root
+  	  myText = "TRANSITION["+e.name+"]"
+      token = new CommonToken(BLESS3Lexer.TRANSITION, "TRANSITION["+e.name+"]")
+      addChild(newBAST(e) =>  // "LABEL"
+        [  
+  	    myText = "LABEL["+e.name+"]"
+        token = new CommonToken(BLESS3Lexer.LABEL, "LABEL["+e.name+"]")
+        addChild(e.name.makeBASTforID(e))
+        ] )
+      addChild(newBAST(e) =>  // "SOURCE"
+        [  
+    	  myText = "SOURCE"
+        token = new CommonToken(BLESS3Lexer.SOURCE, "SOURCE")
+        for (source : e.sources)  //multiple source states
+          addChild(source.name.makeBASTforID(e))
+        ] )
+      addChild(newBAST(e) =>  // "CONDITION"
+        [  
+    	  myText = "CONDITION"
+        token = new CommonToken(BLESS3Lexer.CONDITION, "CONDITION")
+        if (e.dispatch!==null)
+          addChild(e.dispatch.toAST)  //either dispatch condition
+        else if (e.execute!==null)
+          addChild(e.execute.toAST)  //or execute condition
+        else if (e.mode!==null)
+          addChild(e.mode.toAST)  //or mode condition
+        else if (e.internal!==null)
+          addChild(e.internal.toAST)  //or internal condition      
+        ] )
+      addChild(newBAST(e) =>  // "DESTINATION"
+        [  
+    	  myText = "DESTINATION"
+        token = new CommonToken(BLESS3Lexer.DESTINATION, "DESTINATION")
+        addChild(e.destination.name.makeBASTforID(e))  //destination state
+        ] )
+      addChild(newBAST(e) =>  // "ACTION"
+        [  
+    	  myText = "ACTION"
+        token = new CommonToken(BLESS3Lexer.ACTION, "ACTION")
+        addChild(e.actions?.toAST)  //behavior=BehaviorActions 
+        ] )
+      addChild(newBAST(e) =>  // "Q"  Assertion during transition
+        [  
+    	  myText = "Q"
+        token = new CommonToken(BLESS3Lexer.Q, "Q")
+        addChild(e.ass?.toAST)  //ass=Assertion?
+        ] )
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of BehaviorTransition
  
 
-//	BehaviorState
-//behavior_state : i=identifier 
-//  COLON (init=LITERAL_initial | com=LITERAL_complete | finl=LITERAL_final)? st=LITERAL_state a=assertion? SEMICOLON
-//    -> ^( LITERAL_state[$st,"state["+Integer.toString($st.getLine()+startingLine)+"]"] $init? $com? $finl? $i $a? )
+//behaviorState :
+//  ^( LITERAL_state init=LITERAL_initial? com=LITERAL_complete? finl=LITERAL_final? i=ID a=assertion? )
   def dispatch BAST
 toAST(BehaviorState e)
   {
-    try {  
-  newBAST(e) =>  
-    [  
-  	myText = "state"
-    token = new CommonToken(BLESS3Lexer.LITERAL_state, "state")
-    if (e.initial)
-      addChild(newBAST(e) =>  // "initial"
+  try 
+    {  
+    newBAST(e) =>  
       [  
-  	  myText = "initial"
-      token = new CommonToken(BLESS3Lexer.LITERAL_initial, "initial")
-      ] )
-    if (e.complete)
-      addChild(newBAST(e) =>  // "complete"
-      [  
-  	  myText = "complete"
-      token = new CommonToken(BLESS3Lexer.LITERAL_complete, "complete")
-      ] )
-    if (e.final)
-      addChild(newBAST(e) =>  // "final"
-      [  
-  	  myText = "final"
-      token = new CommonToken(BLESS3Lexer.LITERAL_final, "final")
-      ] )
-    addChild(e.name.makeBASTforID(e))  //add name of state
-    if (e.state_assertion!==null)
-      addChild(e.state_assertion.toAST)  //add Assertion, if any
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+    	myText = "state"
+      token = new CommonToken(BLESS3Lexer.LITERAL_state, "state")
+      if (e.initial)
+        addChild(newBAST(e) =>  // "initial"
+        [  
+    	  myText = "initial"
+        token = new CommonToken(BLESS3Lexer.LITERAL_initial, "initial")
+        ] )
+      if (e.complete)
+        addChild(newBAST(e) =>  // "complete"
+        [  
+    	  myText = "complete"
+        token = new CommonToken(BLESS3Lexer.LITERAL_complete, "complete")
+        ] )
+      if (e.final)
+        addChild(newBAST(e) =>  // "final"
+        [  
+    	  myText = "final"
+        token = new CommonToken(BLESS3Lexer.LITERAL_final, "final")
+        ] )
+      addChild(e.name.makeBASTforID(e))  //add name of state
+      if (e.state_assertion!==null)
+        addChild(e.state_assertion.toAST)  //add Assertion, if any
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of BehaviorState
 
-//	| BLESSAnnexSubclause
-//maps onto thread_behavior
-//thread_behavior :
-//  ANNEX_START?
-//  //no_proof="DO_NOT_PROVE"?
-////  av=availability?
-//  ac=assert_clause?
-//  inv=invariant_clause?
-//  sv=variables?
-//  s=LITERAL_states ( bs+=behavior_state )+
-//  tran=transitions
-//  ANNEX_END?
-//  //  ->{no_proof!==null}? ^( THREAD_ANNEX[$s,"THREAD_ANNEX"+(startingLine>0?"["+startingLine+"]":"")] )
-//    -> ^( THREAD_ANNEX[$s,"THREAD_ANNEX"+(startingLine>0?"["+startingLine+"]":"")]
-//        ^( LITERAL_states[$s,"states["+Integer.toString($s.getLine()+startingLine)+"]"] $bs+ ) 
-//        $ac? $inv? $sv? $tran STOP ) ; 
+//blessSubclause  :
+//  ^( BLESS_SUBCLAUSE 
+//    no_proof=DO_NOT_PROVE?
+//    ac=assertClause?  
+//    inv=invariantClause?
+//    vs=variablesSection?
+//    ss=statesSection?
+//    t=transitions? )
   def dispatch BAST
 toAST(BLESSSubclause e)
   {
-    try {  
-  newBAST(e) =>  //THREAD_ANNEX as root
-    [  
-  	myText = "BLESS_SUBCLAUSE"
-    token = new CommonToken(BLESS3Lexer.BLESS_SUBCLAUSE, "BLESS_SUBCLAUSE")
-    if (e.statesSection !== null)
-      addChild(newBAST(e) =>  // add states
+  try 
+    {  
+    newBAST(e) =>  //THREAD_ANNEX as root
       [  
-  	  myText = "states"
-      token = new CommonToken(BLESS3Lexer.LITERAL_states, "states")
-      for (state : e.statesSection.states)  //add states+=BehaviorState+
-        addChild(state.toAST)
-      ] )
-    //assert_clause?
-    if (e.assert_clause!==null)
-      addChild(e.assert_clause.toAST)
-    //invariant
-    if (e.invariant!==null)
-      addChild(e.invariant.toAST)
-    //variables?
-    if (e.variables!==null)
-      addChild(e.variables.toAST)
-    //transitions?
-    if (e.transitions!==null)
-      addChild(e.transitions.toAST)
-    if (e.no_proof)
-      addChild(newBAST(e) =>  
-      [  
-  	  myText = "DO_NOT_PROVE"
-      token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
-      ] )    
-    //add STOP at end
-    addChild(newBAST(e) =>  
-      [  
-  	  myText = "STOP"
-      token = new CommonToken(BLESS3Lexer.STOP, "STOP")
-      ] )
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+    	myText = "BLESS_SUBCLAUSE"
+      token = new CommonToken(BLESS3Lexer.BLESS_SUBCLAUSE, "BLESS_SUBCLAUSE")
+      if (e.no_proof)
+         addChild(newBAST(e) =>  
+        [  
+        myText = "DO_NOT_PROVE"
+        token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
+        ] )    
+      //assert_clause?
+      if (e.assert_clause!==null)
+        addChild(e.assert_clause.toAST)
+      //invariant
+      if (e.invariant!==null)
+        addChild(e.invariant.toAST)
+      if (e.statesSection !== null)
+        addChild(newBAST(e) =>  // add states
+        [  
+    	  myText = "states"
+        token = new CommonToken(BLESS3Lexer.LITERAL_states, "states")
+        for (state : e.statesSection.states)  //add states+=BehaviorState+
+          addChild(state.toAST)
+        ] )
+      //variables?
+      if (e.variables!==null)
+        addChild(e.variables.toAST)
+      //transitions?
+      if (e.transitions!==null)
+        addChild(e.transitions.toAST)
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of BLESSAnnexSubclause
 
-//	| DispatchCondition
-//dispatch_condition  :  'on'! LITERAL_dispatch^  dispatch_expression? 
+//dispatchCondition : ^( LITERAL_dispatch de=dispatchExpression? )
   def dispatch BAST
 toAST(DispatchCondition e)
   {
-    try {  
-  newBAST(e) =>  //LITERAL_dispatch as root
-    [  
-  	myText = "dispatch"
-    token = new CommonToken(BLESS3Lexer.LITERAL_dispatch, "dispatch")
-    addChild(e.de?.toAST)  // de=DispatchExpression?
-    ]
-     } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  //LITERAL_dispatch as root
+      [  
+    	myText = "dispatch"
+      token = new CommonToken(BLESS3Lexer.LITERAL_dispatch, "dispatch")
+      addChild(e.de?.toAST)  // de=DispatchExpression?
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of DispatchCondition
 
-//	| DispatchConjunction
-//
+//dispatchConjunction :
+//  ^( LITERAL_and tr+=dispatchTrigger+ )
+//  | t=dispatchTrigger
   def dispatch BAST
 toAST(DispatchConjunction e)
   {
-    try {  
-  if (e.and) 
-   newBAST(e) =>  //LITERAL_and as root
-    [  
-  	myText = "and"
-    token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
-    for (child : e.trigger)
-      addChild(child.toAST)  // de=DispatchExpression?
-    ]
-  else  //just one trigger
-    e.trigger.head.toAST
-     } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    if (e.and) 
+      newBAST(e) =>  //LITERAL_and as root
+      [  
+    	myText = "and"
+      token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
+      for (child : e.trigger)
+        addChild(child.toAST)  
+      ]
+    else  //just one trigger
+      e.trigger.head.toAST
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of DispatchConjunction
 
-//	| DispatchExpression
-//dispatch_expression :
-//  dc=dispatch_conjunction ( o=LITERAL_or dc2+=dispatch_conjunction )*
-//    -> {o!==null}? ^($o $dc $dc2+)
-//    -> $dc
-//  |
-//  stop=LITERAL_stop
-//    -> $stop  ;
+//dispatchExpression :
+//  ^( LITERAL_or dc+=dispatchConjunction+ )
+//  | c=dispatchConjunction
   def dispatch BAST
 toAST(DispatchExpression e)
   {
@@ -3711,64 +3448,53 @@ toAST(DispatchExpression e)
      } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of DispatchExpression
 
-//	| DispatchTrigger
-//dispatch_trigger :
-// LITERAL_timeout^ LPAREN /*in_event_port_ or in_event_data_port*/identifier+ RPAREN  behavior_time 
-//  | LITERAL_timeout^ 
-//  | /*in_event_port_ or in_event_data_port*/identifier  ;
+//dispatchTrigger :
+//  port=portName
+//  | ^( LITERAL_timeout ( ^( LPAREN ports+=ID* ) )? time=behaviorTime? )
   def dispatch BAST
 toAST(DispatchTrigger e)
   {
-    try {  
-//  if (e.stop !== null) newBAST(e) =>  //is stop?
-//    [  
-//  	myText = "stop"
-//    token = new CommonToken(BLESS3Lexer.LITERAL_stop, "stop")
-//    ]
-//  else 
-  if (e.timeout !== null && e.lp) newBAST(e) =>  //timeout with port list
-    [  
-  	myText = "timeout"
-    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
-       //LPAREN
-       addChild(newBAST(e) =>  
-           [  //
-  	       myText = "("
-           token = new CommonToken(BLESS3Lexer.LPAREN, "(")
-           ] )
-       //port list
-       for (p : e.ports)
-         addChild(p.name.makeBASTforPort(e))    
-       //RPAREN
-       addChild(newBAST(e) =>  
-           [  //
-  	       myText = ")"
-           token = new CommonToken(BLESS3Lexer.RPAREN, ")")
-           ] )
-       //behavior_time
-       addChild(e.time.toAST)   
-    ]
-  else if (e.timeout !== null && e.time!==null)  //completion relative timeout catch?
-    newBAST(e) =>  
-    [  
-  	myText = "timeout"
-    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
-    //behavior_time
-    addChild(e.time.toAST)   
-    ]
-  else if (e.timeout !== null)  //just timeout?
-    newBAST(e) =>  
-    [  
-  	myText = "timeout"
-    token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
-    ]
-  else  //just a port
-    e.port.port.name.makeBASTforPort(e)
-     } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    if (e.timeout !== null && e.lp) 
+      newBAST(e) =>  //timeout with port list
+        [  
+      	myText = "timeout"
+        token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
+         //LPAREN
+        addChild(newBAST(e) =>  
+          [  //
+  	      myText = "("
+          token = new CommonToken(BLESS3Lexer.LPAREN, "(")
+          ] )
+        //port list
+        for (p : e.ports)
+          addChild(p.name.makeBASTforPort(e))    
+        //behavior_time
+        addChild(e.time.toAST)   
+        ]
+    else if (e.timeout !== null && e.time!==null)  //completion relative timeout catch?
+      newBAST(e) =>  
+        [  
+      	myText = "timeout"
+        token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
+        //behavior_time
+        addChild(e.time.toAST)   
+        ]
+    else if (e.timeout !== null)  //just timeout?
+      newBAST(e) =>  
+        [  
+      	myText = "timeout"
+        token = new CommonToken(BLESS3Lexer.LITERAL_timeout, "timeout")
+        ]
+    else  //just a port
+      e.port.port.name.makeBASTforPort(e)
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of DispatchTrigger
 
 
-//	| ExecuteCondition
+//executeCondition : expression
   def dispatch BAST
 toAST(ExecuteCondition e)
   {
@@ -3776,212 +3502,213 @@ toAST(ExecuteCondition e)
   }  //end of ExecuteCondition
 
 
-//internal condition looks like dispatch condition
+//internalCondition : ^( LITERAL_internal ports+=ID+ )
   def dispatch BAST
 toAST(InternalCondition e)
   {
-    try {  
-  newBAST(e) =>  //have or?
-    [  
-  	myText = "dispatch"
-    token = new CommonToken(BLESS3Lexer.LITERAL_dispatch, "dispatch")
-    addChild(makeBASTforPort(e.first.name,e))
-    for (p : e.ports)
-      addChild(makeBASTforPort(p.name,e))  // dc+=DispatchConjunction
-    ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "internal"
+      token = new CommonToken(BLESS3Lexer.LITERAL_internal, "internal")
+      addChild(makeBASTforPort(e.first.name,e))
+      for (p : e.ports)
+        addChild(makeBASTforPort(p.name,e))  
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of InternalCondition
 
 
-//	| InvariantClause
-//invariant_clause : li=LITERAL_invariant inv=assertion
-//    -> ^(LITERAL_invariant[$li,"invariant["+Integer.toString($li.getLine()+startingLine)+"]"] $inv  )
+//invariantClause : ^( LITERAL_invariant a=assertion )
   def dispatch BAST
 toAST(InvariantClause e)
   {
-    try {  
-  newBAST(e) =>  
-    [  
-  	myText = "invariant"
-    token = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant")
-    addChild(e.inv.toAST)
-    ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "invariant"
+      token = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant")
+      addChild(e.inv.toAST)
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of InvariantClause
 
-//issue_exception :  ^(LITERAL_exception exception_state=ID message=AADL_STRING_LITERAL)
+//issueException : ^( LITERAL_exception exception=ID message=AADL_STRING_LITERAL? )
   def dispatch BAST
 toAST(IssueException e)
   {
-    try {  
-  newBAST(e) =>  
-    [  
-  	myText = "exception"
-    token = new CommonToken(BLESS3Lexer.LITERAL_exception, "exception")
-    addChild(e.exception.name.makeBASTforID(e))
-      if (e.message !== null)
-    addChild(e.message.makeBASTforAADL_STRING_LITERAL(e))
-    ]
-      } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "exception"
+      token = new CommonToken(BLESS3Lexer.LITERAL_exception, "exception")
+      addChild(e.exception.name.makeBASTforID(e))
+        if (e.message !== null)
+      addChild(e.message.makeBASTforAADL_STRING_LITERAL(e))
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of InvariantClause
 
-//	| TransitionLabel
-//behavior_transition_label : id=identifier ( LBRACKET lit=INTEGER_LIT RBRACKET )? -> ^( $id $lit? )
-//  def dispatch BAST
-//toAST(TransitionLabel e)
-//  {
-//    try {  
-//  e.id.makeBASTforID(e) =>  
-//    [  
-//    if (e.priority!==null) 	
-//  	  addChild(e.priority.priority.makeBASTforINT(e))
-//    ]
-//    } catch (Exception ex) {ex.printStackTrace x}       
-//  }  //end of TransitionLabel
-
-//	| Transitions
-//transitions : t=LITERAL_transitions bt+=behavior_transition+
-//    -> ^( LITERAL_transitions[$t,"transitions["+Integer.toString($t.getLine()+startingLine)+"]"] $bt+ )
+//transitions :  ^( LITERAL_transitions bt+=behaviorTransition+ )
   def dispatch BAST
 toAST(Transitions e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-  	myText = "transitions"
-    token = new CommonToken(BLESS3Lexer.LITERAL_transitions, "transitions")
-    for (child : e.bt)
-      addChild(child.toAST)
-    ]
-    } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "transitions"
+      token = new CommonToken(BLESS3Lexer.LITERAL_transitions, "transitions")
+      for (child : e.bt)
+        addChild(child.toAST)
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of Transitions
 
+//triggerLogicalExpression :
+//  ^( LITERAL_and et+=eventTrigger+ )
+//  |  ^( LITERAL_or et+=eventTrigger+ )
+//  |  ^( LITERAL_xor et+=eventTrigger+ )
+//  |  ^( LITERAL_then et+=eventTrigger+ )
+//  |  ^( LITERAL_else et+=eventTrigger+ )
+//  | first=eventTrigger
   def dispatch BAST
 toAST(TriggerLogicalExpression e)
   {
-  try {  
-  if (e.op===null)
-    e.first.toAST
-  else
-    switch e.op
-    {
-  	case 'and' : 
-      newBAST(e) =>  
-        [  
-  	    myText = "and"
-        token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
-        addChild(e.first.toAST)
-        for (tr : e.trigger)
-          addChild(tr.toAST)
-        ]
-  	case 'or' : 
-      newBAST(e) =>  
-        [  
-  	    myText = "or"
-        token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
-        addChild(e.first.toAST)
-        for (tr : e.trigger)
-          addChild(tr.toAST)
-        ]
-  	case 'xor' : 
-      newBAST(e) =>  
-        [  
-  	    myText = "xor"
-        token = new CommonToken(BLESS3Lexer.LITERAL_xor, "xor")
-        addChild(e.first.toAST)
-        for (tr : e.trigger)
-          addChild(tr.toAST)
-        ]
-  	case 'then' :  //and then = cand
-      newBAST(e) =>  
-        [  
-  	    myText = "then"
-        token = new CommonToken(BLESS3Lexer.LITERAL_then, "then")
-        addChild(e.first.toAST)
-        for (tr : e.trigger)
-          addChild(tr.toAST)
-        ]
-  	case 'else' :  //or else = cor
-      newBAST(e) =>  
-        [  
-  	    myText = "else"
-        token = new CommonToken(BLESS3Lexer.LITERAL_else, "else")
-        addChild(e.first.toAST)
-        for (tr : e.trigger)
-          addChild(tr.toAST)
-        ]  	
-  	}   //end of switch
-    } catch (Exception ex) {ex.printStackTrace x}       
+  try 
+    {  
+    if (e.op===null)
+      e.first.toAST
+    else switch e.op
+      {
+    	case 'and' : 
+        newBAST(e) =>  
+          [  
+    	    myText = "and"
+          token = new CommonToken(BLESS3Lexer.LITERAL_and, "and")
+          addChild(e.first.toAST)
+          for (tr : e.trigger)
+            addChild(tr.toAST)
+          ]
+    	case 'or' : 
+        newBAST(e) =>  
+          [  
+    	    myText = "or"
+          token = new CommonToken(BLESS3Lexer.LITERAL_or, "or")
+          addChild(e.first.toAST)
+          for (tr : e.trigger)
+            addChild(tr.toAST)
+          ]
+    	case 'xor' : 
+        newBAST(e) =>  
+          [  
+  	      myText = "xor"
+          token = new CommonToken(BLESS3Lexer.LITERAL_xor, "xor")
+          addChild(e.first.toAST)
+          for (tr : e.trigger)
+            addChild(tr.toAST)
+          ]
+    	case 'then' : 
+        newBAST(e) =>  
+          [  
+    	    myText = "then"
+          token = new CommonToken(BLESS3Lexer.LITERAL_then, "then")
+          addChild(e.first.toAST)
+          for (tr : e.trigger)
+            addChild(tr.toAST)
+          ]
+    	case 'else' :  
+        newBAST(e) =>  
+          [  
+    	    myText = "else"
+          token = new CommonToken(BLESS3Lexer.LITERAL_else, "else")
+          addChild(e.first.toAST)
+          for (tr : e.trigger)
+            addChild(tr.toAST)
+          ]  	
+     	 }   //end of switch
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  //end of TriggerLogicalExpression
 
-//	| Variables
-//variables  :  v=LITERAL_variables ( bv+=behavior_variable )+ 
-//    -> ^( LITERAL_variables[$v,"variables["+Integer.toString($v.getLine()+startingLine)+"]"] $bv* )
+//variablesSection : ^( LITERAL_variables vd+=variableDeclaration+ )
   def dispatch BAST
 toAST(VariablesSection e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-  	myText = "variables"
-    token = new CommonToken(BLESS3Lexer.LITERAL_variables, "variables")
-    for (child : e.behavior_variables)
-      addChild(child.toAST)
-    ]
-    } catch (Exception ex) {ex.printStackTrace x}       
-  }  //end of Variables
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "variables"
+      token = new CommonToken(BLESS3Lexer.LITERAL_variables, "variables")
+      for (child : e.behavior_variables)
+        addChild(child.toAST)
+      ]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of VariablesSection
 
   def dispatch BAST
 toAST(BooleanType e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-  	myText = "boolean"
-    token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
-  	]
-     } catch (Exception ex) {ex.printStackTrace x}       
-  }
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+    	myText = "boolean"
+      token = new CommonToken(BLESS3Lexer.LITERAL_boolean, "boolean")
+    	]
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of BooleanType
 
   def dispatch BAST
 toAST(StringType e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-    myText = "string"
-    token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
-    ]
-    } catch (Exception ex) {ex.printStackTrace x}       
-  }
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+      myText = "string"
+      token = new CommonToken(BLESS3Lexer.LITERAL_string, "string")
+      ]
+    } 
+    catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of StringType
 
   def dispatch BAST
 toAST(NullType e)
   {
-  try {  
-  newBAST(e) =>  
-    [  
-    myText = "null"
-    token = new CommonToken(BLESS3Lexer.LITERAL_null, "null")
-    ]
-    } catch (Exception ex) {ex.printStackTrace x}       
-  }
+  try 
+    {  
+    newBAST(e) =>  
+      [  
+      myText = "null"
+      token = new CommonToken(BLESS3Lexer.LITERAL_null, "null")
+      ]
+    } 
+    catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of NullType
 
+//typeOrReference: ty=type |  ref=ID
   def dispatch BAST
 toAST(TypeOrReference e)
   {
-  try {  
-  e.ty?.toAST ?:
+  try 
     {  
-    if (e.ref !== null) EcoreUtil.resolve(e.ref,e)
-    if (e.ref?.name !==null && e.ref?.name.equals('time'))
-    newBAST(e) =>  
-      [  
-    	myText = "time"
-      token = new CommonToken(BLESS3Lexer.LITERAL_time, "time")
-    	]  
-    else if (e.ref?.type !== null)
-      e.ref.type.toAST
+    e.ty?.toAST ?:
+    {  
+    if (e.ref !== null) 
+      EcoreUtil.resolve(e.ref,e)
+    if (e.ref?.name !== null)
+      e.ref.name.makeBASTforID(e)
     else
       newBAST(e) =>  
         [  
@@ -3989,14 +3716,22 @@ toAST(TypeOrReference e)
         token = new CommonToken(BLESS3Lexer.DUMMY, "UNRESOLVED_TYPE_REFERENCE")
   	    ]  
     }
-    } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }
 
+//type  : 
+//  et=enumerationType
+//  |  nt=quantityType
+//  | at=arrayType
+//  | rt=recordType
+//  | bo=LITERAL_boolean | st=LITERAL_string  | nu=LITERAL_null 
   def dispatch BAST
 toAST(Type e)
   {
-  try {  
-  switch e
+  try 
+    {  
+    switch e
     {
     case ArrayType:
       toAST(e as ArrayType)	
@@ -4004,16 +3739,23 @@ toAST(Type e)
       toAST(e as BooleanType)	
     case EnumerationType:
       toAST(e as EnumerationType)	
+    case NullType:
+      toAST(e as NullType)  
     case QuantityType:
-      toAST(e as QuantityType)	
+      toAST(e as QuantityType)  
     case RecordType:
       toAST(e as RecordType)	
     case StringType:
       toAST(e as StringType)	
     }	
-    } catch (Exception ex) {ex.printStackTrace x}       
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }  // end of type
 
+//aNumber:
+// lit=NUMBER
+// | property=propertyReference
+// | propertyConstant=QCLREF 
   def dispatch BAST
 toAST(ANumber e)
   {
@@ -4022,24 +3764,21 @@ toAST(ANumber e)
     e.lit?.makeBASTforLIT(e) ?:
     e.property?.toAST  ?:
     e.propertyConstant?.qualifiedName().makeBASTforPropertyName(e) 
-//    ELVIS OPERATOR FAILS TO RETURN TREE GENERATED FOR PORPERTY CONSTANT NAME!!!!!!!
-//      ?:    
-//    newBAST(e) =>  
-//        [  
-//        myText = "UNRESOLVED_NUMBER_REFERENCE"
-//        token = new CommonToken(BLESS3Lexer.DUMMY, "UNRESOLVED_NUMBER_REFERENCE")
-//        ]  
     } 
   catch (Exception ex) {ex.printStackTrace x}       
   }  // end of ANumber
 
-
+//subProgramParameter: v=valueName | c=constant | ps=parenthesizedSubexpression
   def dispatch BAST
 toAST(SubProgramParameter e)
   {
+  try 
+    {
     e?.value.toAST ?:
     e?.constant.toAST ?:
     e?.expression.toAST
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
   }	//end of SubProgramParameter
   
 }

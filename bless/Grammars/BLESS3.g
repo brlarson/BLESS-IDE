@@ -51,7 +51,7 @@ PORT_INPUT;
 PORT_OUTPUT; 
 PREDICATE_RELATION; //assertion_subexpression;
 PROCEDURE; 
-PROCEDURE_CALL; 
+//PROCEDURE_CALL; 
 Q; 
 QUANTITY;
 RECORD_TERM; 
@@ -484,7 +484,7 @@ LITERAL_that : 'that';
 LITERAL_then: 'then';
 LITERAL_throw :'throw'; 
 LITERAL_throws : 'throws';
-LITERAL_time: 'time';
+//LITERAL_time: 'time';
 LITERAL_timeout : 'timeout';
 LITERAL_to: 'to';
 LITERAL_tops: 'tops';
@@ -813,6 +813,10 @@ enumerationPair:
   ID IMP^ predicate
 	;	
 
+enumerationValue:
+  enumeration_type=ID TICK^ enumeration_value=ID
+  ;
+
 namelessAssertion:
   LASS pred=predicate RASS
     -> ^( ASSERTION $pred )
@@ -1074,6 +1078,8 @@ value:
   LITERAL_now
   |
   LITERAL_tops
+  |
+  enumerationValue
 	;
 		
 valueName:

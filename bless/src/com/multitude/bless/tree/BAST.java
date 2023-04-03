@@ -1316,7 +1316,7 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.ASSIGN:
         case BLESS3Lexer.LITERAL_skip:
         case BLESS3Lexer.LITERAL_setmode:
-        case BLESS3Lexer.PROCEDURE_CALL:
+   //     case BLESS3Lexer.SUBPROGRAM_INVOCATION:
         case BLESS3Lexer.PORT_OUTPUT:
         case BLESS3Lexer.PORT_INPUT:
         case BLESS3Lexer.LITERAL_computation:

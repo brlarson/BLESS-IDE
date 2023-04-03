@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-02 06:48:55
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-03 12:20:40
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -68,7 +68,7 @@ public class ASTtoAST extends TreeParser {
 		"LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", "LITERAL_step", 
 		"LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", "LITERAL_sum", 
 		"LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", "LITERAL_throws", 
-		"LITERAL_time", "LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
+		"LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
 		"LITERAL_transitions", "LITERAL_true", "LITERAL_truncate", "LITERAL_type", 
 		"LITERAL_union", "LITERAL_units", "LITERAL_until", "LITERAL_updated", 
 		"LITERAL_upper_bound", "LITERAL_us", "LITERAL_variables", "LITERAL_variant", 
@@ -76,17 +76,17 @@ public class ASTtoAST extends TreeParser {
 		"LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", 
 		"NEQ", "NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
 		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
-		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "PROCEDURE_CALL", "Q", 
-		"QCLREF", "QCREF", "QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", 
-		"RCURLY", "REAL_LIT", "RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", 
-		"SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
-		"STOP", "SUBPROGRAM_INVOCATION", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", 
-		"TRIGGER", "TYPE", "TYPE_LIBRARY", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", 
-		"UNARY_MINUS", "UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
-		"VERT", "WP", "WS", "'%'"
+		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", 
+		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", 
+		"RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", 
+		"SOURCE", "START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_INVOCATION", 
+		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
+		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
+		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
+		"WP", "WS", "'%'"
 	};
 	public static final int EOF=-1;
-	public static final int T__296=296;
+	public static final int T__294=294;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -291,94 +291,92 @@ public class ASTtoAST extends TreeParser {
 	public static final int LITERAL_then=205;
 	public static final int LITERAL_throw=206;
 	public static final int LITERAL_throws=207;
-	public static final int LITERAL_time=208;
-	public static final int LITERAL_timeout=209;
-	public static final int LITERAL_to=210;
-	public static final int LITERAL_tops=211;
-	public static final int LITERAL_transition=212;
-	public static final int LITERAL_transitions=213;
-	public static final int LITERAL_true=214;
-	public static final int LITERAL_truncate=215;
-	public static final int LITERAL_type=216;
-	public static final int LITERAL_union=217;
-	public static final int LITERAL_units=218;
-	public static final int LITERAL_until=219;
-	public static final int LITERAL_updated=220;
-	public static final int LITERAL_upper_bound=221;
-	public static final int LITERAL_us=222;
-	public static final int LITERAL_variables=223;
-	public static final int LITERAL_variant=224;
-	public static final int LITERAL_when=225;
-	public static final int LITERAL_which=226;
-	public static final int LITERAL_while=227;
-	public static final int LITERAL_whole=228;
-	public static final int LITERAL_with=229;
-	public static final int LITERAL_xor=230;
-	public static final int LPAREN=231;
-	public static final int LT=232;
-	public static final int LTE_STRING=233;
-	public static final int LT_STRING=234;
-	public static final int MINUS=235;
-	public static final int MT_STRING=236;
-	public static final int NEQ=237;
-	public static final int NUMBER=238;
-	public static final int OBLIGATION=239;
-	public static final int OCTOTHORPE=240;
-	public static final int OLD_NEQ=241;
-	public static final int ON=242;
-	public static final int P=243;
-	public static final int PARAMETER=244;
-	public static final int PARAMETERS=245;
-	public static final int PLUS=246;
-	public static final int PLUS_ARROW=247;
-	public static final int PLUS_EQUALS=248;
-	public static final int PORT=249;
-	public static final int PORT_INPUT=250;
-	public static final int PORT_OUTPUT=251;
-	public static final int PREDICATE_RELATION=252;
-	public static final int PROCEDURE=253;
-	public static final int PROCEDURE_CALL=254;
-	public static final int Q=255;
-	public static final int QCLREF=256;
-	public static final int QCREF=257;
-	public static final int QQ=258;
-	public static final int QUANTITY=259;
-	public static final int QUESTION=260;
-	public static final int RASS=261;
-	public static final int RBRACKET=262;
-	public static final int RCON=263;
-	public static final int RCURLY=264;
-	public static final int REAL_LIT=265;
-	public static final int RECORD_TERM=266;
-	public static final int ROOT_DECLARATION=267;
-	public static final int RPAREN=268;
-	public static final int S=269;
-	public static final int SEMICOLON=270;
-	public static final int SLCOMMENT=271;
-	public static final int SOURCE=272;
-	public static final int START=273;
-	public static final int START_ASSERTION_PROPERTY=274;
-	public static final int STOP=275;
-	public static final int SUBPROGRAM_INVOCATION=276;
-	public static final int TICK=277;
-	public static final int TILDE=278;
-	public static final int TIMES=279;
-	public static final int TOP=280;
-	public static final int TRANSITION=281;
-	public static final int TRIGGER=282;
-	public static final int TYPE=283;
-	public static final int TYPE_LIBRARY=284;
-	public static final int TYPE_OPERATOR=285;
-	public static final int TYPE_OPERATOR_INVOCATION=286;
-	public static final int UNARY_MINUS=287;
-	public static final int UNIT_FORMULA=288;
-	public static final int UNIT_LIBRARY=289;
-	public static final int UNIT_NAME=290;
-	public static final int VALUE=291;
-	public static final int VARIABLE_DECLARATION=292;
-	public static final int VERT=293;
-	public static final int WP=294;
-	public static final int WS=295;
+	public static final int LITERAL_timeout=208;
+	public static final int LITERAL_to=209;
+	public static final int LITERAL_tops=210;
+	public static final int LITERAL_transition=211;
+	public static final int LITERAL_transitions=212;
+	public static final int LITERAL_true=213;
+	public static final int LITERAL_truncate=214;
+	public static final int LITERAL_type=215;
+	public static final int LITERAL_union=216;
+	public static final int LITERAL_units=217;
+	public static final int LITERAL_until=218;
+	public static final int LITERAL_updated=219;
+	public static final int LITERAL_upper_bound=220;
+	public static final int LITERAL_us=221;
+	public static final int LITERAL_variables=222;
+	public static final int LITERAL_variant=223;
+	public static final int LITERAL_when=224;
+	public static final int LITERAL_which=225;
+	public static final int LITERAL_while=226;
+	public static final int LITERAL_whole=227;
+	public static final int LITERAL_with=228;
+	public static final int LITERAL_xor=229;
+	public static final int LPAREN=230;
+	public static final int LT=231;
+	public static final int LTE_STRING=232;
+	public static final int LT_STRING=233;
+	public static final int MINUS=234;
+	public static final int MT_STRING=235;
+	public static final int NEQ=236;
+	public static final int NUMBER=237;
+	public static final int OBLIGATION=238;
+	public static final int OCTOTHORPE=239;
+	public static final int OLD_NEQ=240;
+	public static final int ON=241;
+	public static final int P=242;
+	public static final int PARAMETER=243;
+	public static final int PARAMETERS=244;
+	public static final int PLUS=245;
+	public static final int PLUS_ARROW=246;
+	public static final int PLUS_EQUALS=247;
+	public static final int PORT=248;
+	public static final int PORT_INPUT=249;
+	public static final int PORT_OUTPUT=250;
+	public static final int PREDICATE_RELATION=251;
+	public static final int PROCEDURE=252;
+	public static final int Q=253;
+	public static final int QCLREF=254;
+	public static final int QCREF=255;
+	public static final int QQ=256;
+	public static final int QUANTITY=257;
+	public static final int QUESTION=258;
+	public static final int RASS=259;
+	public static final int RBRACKET=260;
+	public static final int RCON=261;
+	public static final int RCURLY=262;
+	public static final int REAL_LIT=263;
+	public static final int RECORD_TERM=264;
+	public static final int ROOT_DECLARATION=265;
+	public static final int RPAREN=266;
+	public static final int S=267;
+	public static final int SEMICOLON=268;
+	public static final int SLCOMMENT=269;
+	public static final int SOURCE=270;
+	public static final int START=271;
+	public static final int START_ASSERTION_PROPERTY=272;
+	public static final int STOP=273;
+	public static final int SUBPROGRAM_INVOCATION=274;
+	public static final int TICK=275;
+	public static final int TILDE=276;
+	public static final int TIMES=277;
+	public static final int TOP=278;
+	public static final int TRANSITION=279;
+	public static final int TRIGGER=280;
+	public static final int TYPE=281;
+	public static final int TYPE_LIBRARY=282;
+	public static final int TYPE_OPERATOR=283;
+	public static final int TYPE_OPERATOR_INVOCATION=284;
+	public static final int UNARY_MINUS=285;
+	public static final int UNIT_FORMULA=286;
+	public static final int UNIT_LIBRARY=287;
+	public static final int UNIT_NAME=288;
+	public static final int VALUE=289;
+	public static final int VARIABLE_DECLARATION=290;
+	public static final int VERT=291;
+	public static final int WP=292;
+	public static final int WS=293;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -624,7 +622,7 @@ public class ASTtoAST extends TreeParser {
 						int LA1_4 = input.LA(4);
 						if ( (LA1_4==UP) ) {
 							int LA1_5 = input.LA(5);
-							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= 296)) ) {
+							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= 294)) ) {
 								alt1=1;
 							}
 						}
@@ -672,14 +670,14 @@ public class ASTtoAST extends TreeParser {
 				int LA2_1 = input.LA(2);
 				if ( (LA2_1==DOWN) ) {
 					int LA2_3 = input.LA(3);
-					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= 296)) ) {
+					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= 294)) ) {
 						int LA2_4 = input.LA(4);
 						if ( (LA2_4==DOWN) ) {
 							alt2=1;
 						}
 						else if ( (LA2_4==UP) ) {
 							int LA2_6 = input.LA(5);
-							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= 296)) ) {
+							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= 294)) ) {
 								alt2=1;
 							}
 						}
@@ -853,7 +851,7 @@ public class ASTtoAST extends TreeParser {
 						while (true) {
 							int alt3=2;
 							int LA3_0 = input.LA(1);
-							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= 296)) ) {
+							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= 294)) ) {
 								alt3=1;
 							}
 							else if ( (LA3_0==UP) ) {
@@ -938,7 +936,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt5=2;
 						int LA5_0 = input.LA(1);
-						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= 296)) ) {
+						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= 294)) ) {
 							alt5=1;
 						}
 						else if ( (LA5_0==UP) ) {
@@ -1086,11 +1084,11 @@ public class ASTtoAST extends TreeParser {
 						int LA7_6 = input.LA(3);
 						if ( (LA7_6==P) ) {
 							int LA7_10 = input.LA(4);
-							if ( ((LA7_10 >= UP && LA7_10 <= 296)) ) {
+							if ( ((LA7_10 >= UP && LA7_10 <= 294)) ) {
 								alt7=1;
 							}
 						}
-						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= 296)) ) {
+						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= 294)) ) {
 							alt7=1;
 						}
 					}
@@ -1106,11 +1104,11 @@ public class ASTtoAST extends TreeParser {
 						int LA7_7 = input.LA(3);
 						if ( (LA7_7==ACTION) ) {
 							int LA7_11 = input.LA(4);
-							if ( ((LA7_11 >= UP && LA7_11 <= 296)) ) {
+							if ( ((LA7_11 >= UP && LA7_11 <= 294)) ) {
 								alt7=1;
 							}
 						}
-						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= 296)) ) {
+						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= 294)) ) {
 							alt7=1;
 						}
 					}
@@ -1127,7 +1125,7 @@ public class ASTtoAST extends TreeParser {
 							case ACTION:
 								{
 								int LA7_12 = input.LA(4);
-								if ( ((LA7_12 >= UP && LA7_12 <= 296)) ) {
+								if ( ((LA7_12 >= UP && LA7_12 <= 294)) ) {
 									alt7=1;
 								}
 								}
@@ -1135,7 +1133,7 @@ public class ASTtoAST extends TreeParser {
 							case SEMICOLON:
 								{
 								int LA7_13 = input.LA(4);
-								if ( ((LA7_13 >= UP && LA7_13 <= 296)) ) {
+								if ( ((LA7_13 >= UP && LA7_13 <= 294)) ) {
 									alt7=1;
 								}
 								}
@@ -1143,7 +1141,7 @@ public class ASTtoAST extends TreeParser {
 							case AMPERSAND:
 								{
 								int LA7_14 = input.LA(4);
-								if ( ((LA7_14 >= UP && LA7_14 <= 296)) ) {
+								if ( ((LA7_14 >= UP && LA7_14 <= 294)) ) {
 									alt7=1;
 								}
 								}
@@ -1151,7 +1149,7 @@ public class ASTtoAST extends TreeParser {
 							case LCURLY:
 								{
 								int LA7_15 = input.LA(4);
-								if ( ((LA7_15 >= UP && LA7_15 <= 296)) ) {
+								if ( ((LA7_15 >= UP && LA7_15 <= 294)) ) {
 									alt7=1;
 								}
 								}
@@ -1357,7 +1355,6 @@ public class ASTtoAST extends TreeParser {
 							case LITERAL_then:
 							case LITERAL_throw:
 							case LITERAL_throws:
-							case LITERAL_time:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
@@ -1403,7 +1400,6 @@ public class ASTtoAST extends TreeParser {
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
 							case PROCEDURE:
-							case PROCEDURE_CALL:
 							case Q:
 							case QCLREF:
 							case QCREF:
@@ -1444,7 +1440,7 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 296:
+							case 294:
 								{
 								alt7=1;
 								}
@@ -1467,7 +1463,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 296)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1475,7 +1471,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 296)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1483,7 +1479,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 296)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1491,7 +1487,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 296)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1698,7 +1694,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -1744,7 +1739,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -1785,7 +1779,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt7=1;
 										}
@@ -1799,7 +1793,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 296)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1807,7 +1801,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 296)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1815,7 +1809,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 296)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -1823,7 +1817,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 296)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2030,7 +2024,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -2076,7 +2069,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -2117,7 +2109,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt7=1;
 										}
@@ -2131,7 +2123,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 296)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2139,7 +2131,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 296)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2147,7 +2139,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 296)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2155,7 +2147,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 296)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2362,7 +2354,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -2408,7 +2399,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -2449,7 +2439,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt7=1;
 										}
@@ -2463,7 +2453,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 296)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2471,7 +2461,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 296)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2479,7 +2469,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 296)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2487,7 +2477,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 296)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -2694,7 +2684,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -2740,7 +2729,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -2781,7 +2769,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt7=1;
 										}
@@ -2990,7 +2978,6 @@ public class ASTtoAST extends TreeParser {
 							case LITERAL_then:
 							case LITERAL_throw:
 							case LITERAL_throws:
-							case LITERAL_time:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
@@ -3036,7 +3023,6 @@ public class ASTtoAST extends TreeParser {
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
 							case PROCEDURE:
-							case PROCEDURE_CALL:
 							case Q:
 							case QCLREF:
 							case QCREF:
@@ -3077,13 +3063,13 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 296:
+							case 294:
 								{
 								switch ( input.LA(4) ) {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 296)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -3091,7 +3077,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 296)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -3099,7 +3085,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 296)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -3107,7 +3093,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 296)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= 294)) ) {
 											alt7=1;
 										}
 										}
@@ -3314,7 +3300,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -3360,7 +3345,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -3401,7 +3385,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt7=1;
 										}
@@ -3617,7 +3601,6 @@ public class ASTtoAST extends TreeParser {
 				case LITERAL_then:
 				case LITERAL_throw:
 				case LITERAL_throws:
-				case LITERAL_time:
 				case LITERAL_timeout:
 				case LITERAL_to:
 				case LITERAL_tops:
@@ -3663,7 +3646,6 @@ public class ASTtoAST extends TreeParser {
 				case PORT_OUTPUT:
 				case PREDICATE_RELATION:
 				case PROCEDURE:
-				case PROCEDURE_CALL:
 				case Q:
 				case QCLREF:
 				case QCREF:
@@ -3704,7 +3686,7 @@ public class ASTtoAST extends TreeParser {
 				case VERT:
 				case WP:
 				case WS:
-				case 296:
+				case 294:
 					{
 					alt7=1;
 					}
@@ -3916,7 +3898,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
 						int alt8=2;
 						int LA8_0 = input.LA(1);
-						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= 296)) ) {
+						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= 294)) ) {
 							alt8=1;
 						}
 						switch (alt8) {
@@ -3994,7 +3976,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: ( . )?
 						int alt9=2;
 						int LA9_0 = input.LA(1);
-						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= 296)) ) {
+						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= 294)) ) {
 							alt9=1;
 						}
 						switch (alt9) {
@@ -4091,7 +4073,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
 						int alt10=2;
 						int LA10_0 = input.LA(1);
-						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= 296)) ) {
+						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= 294)) ) {
 							alt10=1;
 						}
 						switch (alt10) {
@@ -4169,7 +4151,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: ( . )?
 						int alt11=2;
 						int LA11_0 = input.LA(1);
-						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= 296)) ) {
+						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= 294)) ) {
 							alt11=1;
 						}
 						switch (alt11) {
@@ -4211,7 +4193,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt12=2;
 						int LA12_0 = input.LA(1);
-						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= 296)) ) {
+						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= 294)) ) {
 							alt12=1;
 						}
 						else if ( (LA12_0==UP) ) {
@@ -4443,11 +4425,11 @@ public class ASTtoAST extends TreeParser {
 						int LA15_6 = input.LA(3);
 						if ( (LA15_6==P) ) {
 							int LA15_10 = input.LA(4);
-							if ( ((LA15_10 >= UP && LA15_10 <= 296)) ) {
+							if ( ((LA15_10 >= UP && LA15_10 <= 294)) ) {
 								alt15=1;
 							}
 						}
-						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= 296)) ) {
+						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= 294)) ) {
 							alt15=1;
 						}
 					}
@@ -4463,11 +4445,11 @@ public class ASTtoAST extends TreeParser {
 						int LA15_7 = input.LA(3);
 						if ( (LA15_7==ACTION) ) {
 							int LA15_11 = input.LA(4);
-							if ( ((LA15_11 >= UP && LA15_11 <= 296)) ) {
+							if ( ((LA15_11 >= UP && LA15_11 <= 294)) ) {
 								alt15=1;
 							}
 						}
-						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= 296)) ) {
+						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= 294)) ) {
 							alt15=1;
 						}
 					}
@@ -4484,7 +4466,7 @@ public class ASTtoAST extends TreeParser {
 							case ACTION:
 								{
 								int LA15_12 = input.LA(4);
-								if ( ((LA15_12 >= UP && LA15_12 <= 296)) ) {
+								if ( ((LA15_12 >= UP && LA15_12 <= 294)) ) {
 									alt15=1;
 								}
 								}
@@ -4492,7 +4474,7 @@ public class ASTtoAST extends TreeParser {
 							case SEMICOLON:
 								{
 								int LA15_13 = input.LA(4);
-								if ( ((LA15_13 >= UP && LA15_13 <= 296)) ) {
+								if ( ((LA15_13 >= UP && LA15_13 <= 294)) ) {
 									alt15=1;
 								}
 								}
@@ -4500,7 +4482,7 @@ public class ASTtoAST extends TreeParser {
 							case AMPERSAND:
 								{
 								int LA15_14 = input.LA(4);
-								if ( ((LA15_14 >= UP && LA15_14 <= 296)) ) {
+								if ( ((LA15_14 >= UP && LA15_14 <= 294)) ) {
 									alt15=1;
 								}
 								}
@@ -4508,7 +4490,7 @@ public class ASTtoAST extends TreeParser {
 							case LCURLY:
 								{
 								int LA15_15 = input.LA(4);
-								if ( ((LA15_15 >= UP && LA15_15 <= 296)) ) {
+								if ( ((LA15_15 >= UP && LA15_15 <= 294)) ) {
 									alt15=1;
 								}
 								}
@@ -4714,7 +4696,6 @@ public class ASTtoAST extends TreeParser {
 							case LITERAL_then:
 							case LITERAL_throw:
 							case LITERAL_throws:
-							case LITERAL_time:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
@@ -4760,7 +4741,6 @@ public class ASTtoAST extends TreeParser {
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
 							case PROCEDURE:
-							case PROCEDURE_CALL:
 							case Q:
 							case QCLREF:
 							case QCREF:
@@ -4801,7 +4781,7 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 296:
+							case 294:
 								{
 								alt15=1;
 								}
@@ -4824,7 +4804,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 296)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -4832,7 +4812,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 296)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -4840,7 +4820,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 296)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -4848,7 +4828,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 296)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5055,7 +5035,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -5101,7 +5080,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -5142,7 +5120,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt15=1;
 										}
@@ -5156,7 +5134,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 296)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5164,7 +5142,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 296)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5172,7 +5150,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 296)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5180,7 +5158,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 296)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5387,7 +5365,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -5433,7 +5410,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -5474,7 +5450,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt15=1;
 										}
@@ -5488,7 +5464,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 296)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5496,7 +5472,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 296)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5504,7 +5480,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 296)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5512,7 +5488,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 296)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5719,7 +5695,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -5765,7 +5740,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -5806,7 +5780,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt15=1;
 										}
@@ -5820,7 +5794,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 296)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5828,7 +5802,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 296)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5836,7 +5810,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 296)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -5844,7 +5818,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 296)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -6051,7 +6025,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -6097,7 +6070,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -6138,7 +6110,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt15=1;
 										}
@@ -6347,7 +6319,6 @@ public class ASTtoAST extends TreeParser {
 							case LITERAL_then:
 							case LITERAL_throw:
 							case LITERAL_throws:
-							case LITERAL_time:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
@@ -6393,7 +6364,6 @@ public class ASTtoAST extends TreeParser {
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
 							case PROCEDURE:
-							case PROCEDURE_CALL:
 							case Q:
 							case QCLREF:
 							case QCREF:
@@ -6434,13 +6404,13 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 296:
+							case 294:
 								{
 								switch ( input.LA(4) ) {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 296)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -6448,7 +6418,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 296)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -6456,7 +6426,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 296)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -6464,7 +6434,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 296)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= 294)) ) {
 											alt15=1;
 										}
 										}
@@ -6671,7 +6641,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -6717,7 +6686,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -6758,7 +6726,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt15=1;
 										}
@@ -6974,7 +6942,6 @@ public class ASTtoAST extends TreeParser {
 				case LITERAL_then:
 				case LITERAL_throw:
 				case LITERAL_throws:
-				case LITERAL_time:
 				case LITERAL_timeout:
 				case LITERAL_to:
 				case LITERAL_tops:
@@ -7020,7 +6987,6 @@ public class ASTtoAST extends TreeParser {
 				case PORT_OUTPUT:
 				case PREDICATE_RELATION:
 				case PROCEDURE:
-				case PROCEDURE_CALL:
 				case Q:
 				case QCLREF:
 				case QCREF:
@@ -7061,7 +7027,7 @@ public class ASTtoAST extends TreeParser {
 				case VERT:
 				case WP:
 				case WS:
-				case 296:
+				case 294:
 					{
 					alt15=1;
 					}
@@ -7211,7 +7177,7 @@ public class ASTtoAST extends TreeParser {
 												if ( (LA16_11==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_11 >= UP && LA16_11 <= 296)) ) {
+												else if ( ((LA16_11 >= UP && LA16_11 <= 294)) ) {
 													alt16=2;
 												}
 
@@ -7238,7 +7204,7 @@ public class ASTtoAST extends TreeParser {
 												if ( (LA16_12==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_12 >= UP && LA16_12 <= 296)) ) {
+												else if ( ((LA16_12 >= UP && LA16_12 <= 294)) ) {
 													alt16=2;
 												}
 
@@ -7462,7 +7428,6 @@ public class ASTtoAST extends TreeParser {
 											case LITERAL_then:
 											case LITERAL_throw:
 											case LITERAL_throws:
-											case LITERAL_time:
 											case LITERAL_timeout:
 											case LITERAL_to:
 											case LITERAL_tops:
@@ -7508,7 +7473,6 @@ public class ASTtoAST extends TreeParser {
 											case PORT_OUTPUT:
 											case PREDICATE_RELATION:
 											case PROCEDURE:
-											case PROCEDURE_CALL:
 											case Q:
 											case QCLREF:
 											case QCREF:
@@ -7549,7 +7513,7 @@ public class ASTtoAST extends TreeParser {
 											case VERT:
 											case WP:
 											case WS:
-											case 296:
+											case 294:
 												{
 												alt16=2;
 												}
@@ -7794,7 +7758,6 @@ public class ASTtoAST extends TreeParser {
 									case LITERAL_then:
 									case LITERAL_throw:
 									case LITERAL_throws:
-									case LITERAL_time:
 									case LITERAL_timeout:
 									case LITERAL_to:
 									case LITERAL_tops:
@@ -7839,7 +7802,6 @@ public class ASTtoAST extends TreeParser {
 									case PORT_OUTPUT:
 									case PREDICATE_RELATION:
 									case PROCEDURE:
-									case PROCEDURE_CALL:
 									case Q:
 									case QCLREF:
 									case QCREF:
@@ -7881,7 +7843,7 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 296:
+									case 294:
 										{
 										alt16=2;
 										}
@@ -7906,7 +7868,7 @@ public class ASTtoAST extends TreeParser {
 										}
 									}
 								}
-								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= 296)) ) {
+								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= 294)) ) {
 									alt16=3;
 								}
 
@@ -7926,7 +7888,7 @@ public class ASTtoAST extends TreeParser {
 								}
 
 							}
-							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= 296)) ) {
+							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= 294)) ) {
 								alt16=3;
 							}
 
@@ -7966,7 +7928,7 @@ public class ASTtoAST extends TreeParser {
 						}
 
 					}
-					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= 296)) ) {
+					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= 294)) ) {
 						alt16=3;
 					}
 
@@ -8084,16 +8046,16 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, l, formals, p, a, par
-					// token labels: ass, par, a, l
+					// elements: par, a, ass, formals, p, l
+					// token labels: par, ass, a, l
 					// rule labels: formals, retval
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
-					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
+					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"wildcard p",p);
@@ -8186,7 +8148,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, a, l, ass
+					// elements: p, a, ass, l
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -8677,7 +8639,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:16: ( . )?
 						int alt19=2;
 						int LA19_0 = input.LA(1);
-						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= 296)) ) {
+						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= 294)) ) {
 							alt19=1;
 						}
 						switch (alt19) {
@@ -8755,7 +8717,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:33: (q= . )?
 						int alt20=2;
 						int LA20_0 = input.LA(1);
-						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= 296)) ) {
+						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= 294)) ) {
 							alt20=1;
 						}
 						switch (alt20) {
@@ -8866,7 +8828,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:228:11: ( . )?
 								int alt21=2;
 								int LA21_0 = input.LA(1);
-								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= 296)) ) {
+								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= 294)) ) {
 									alt21=1;
 								}
 								switch (alt21) {
@@ -8944,7 +8906,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:230:13: (q2= . )?
 								int alt22=2;
 								int LA22_0 = input.LA(1);
-								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= 296)) ) {
+								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= 294)) ) {
 									alt22=1;
 								}
 								switch (alt22) {
@@ -9239,7 +9201,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt27=2;
 				int LA27_0 = input.LA(1);
-				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= 296)) ) {
+				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= 294)) ) {
 					alt27=1;
 				}
 				else if ( (LA27_0==UP) ) {
@@ -9320,7 +9282,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt28=2;
 				int LA28_0 = input.LA(1);
-				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= 296)) ) {
+				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= 294)) ) {
 					alt28=1;
 				}
 				else if ( (LA28_0==UP) ) {
@@ -9425,20 +9387,20 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u0128\1\u0108\1\uffff\2\u0128\1\uffff\1\u0128\1\u0108";
+		"\1\u0126\1\u0106\1\uffff\2\u0126\1\uffff\1\u0126\1\u0106";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
-			"\155\2\1\1\u00b7\2",
-			"\1\3\u0105\uffff\1\2",
+			"\155\2\1\1\u00b5\2",
+			"\1\3\u0103\uffff\1\2",
 			"",
-			"\1\5\u0125\4",
-			"\1\5\1\6\u0125\4",
+			"\1\5\u0123\4",
+			"\1\5\1\6\u0123\4",
 			"",
-			"\u0104\5\1\7\40\5",
-			"\1\5\1\2\144\uffff\1\2\u009f\uffff\1\5"
+			"\u0102\5\1\7\40\5",
+			"\1\5\1\2\144\uffff\1\2\u009d\uffff\1\5"
 	};
 
 	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
@@ -9485,7 +9447,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000010000000000L});
 	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
 	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
@@ -9497,10 +9459,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
 	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
 	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
@@ -9513,9 +9475,9 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion626 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_variable_in_variableList667 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
 	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x000001FFFFFFFFFFL});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000007FFFFFFFFFL});
 	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
@@ -9526,7 +9488,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000004000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000001000L});
 	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
