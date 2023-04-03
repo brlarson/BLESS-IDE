@@ -677,89 +677,6 @@ public class ToAST {
   }
 
   /**
-   * make a BAST node for a time_unit : LITERAL_ps | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr    ;
-   * used by BehaviorTime
-   */
-  public BAST makeBASTforTimeUnit(final String myUnit, final BehaviorTime parent) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _switchResult = null;
-      if (myUnit != null) {
-        switch (myUnit) {
-          case "ps":
-            BAST _newBAST = this.newBAST(parent);
-            final Procedure1<BAST> _function = (BAST it) -> {
-              it.myText = "ps";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_ps, "ps");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-            break;
-          case "us":
-            BAST _newBAST_1 = this.newBAST(parent);
-            final Procedure1<BAST> _function_1 = (BAST it) -> {
-              it.myText = "us";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_us, "us");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            break;
-          case "ms":
-            BAST _newBAST_2 = this.newBAST(parent);
-            final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = "ms";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_ms, "ms");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            break;
-          case "sec":
-            BAST _newBAST_3 = this.newBAST(parent);
-            final Procedure1<BAST> _function_3 = (BAST it) -> {
-              it.myText = "sec";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_sec, "sec");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-            break;
-          case "min":
-            BAST _newBAST_4 = this.newBAST(parent);
-            final Procedure1<BAST> _function_4 = (BAST it) -> {
-              it.myText = "min";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_min, "min");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-            break;
-          case "hr":
-            BAST _newBAST_5 = this.newBAST(parent);
-            final Procedure1<BAST> _function_5 = (BAST it) -> {
-              it.myText = "hr";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_hr, "hr");
-              it.token = _commonToken;
-            };
-            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-            break;
-        }
-      }
-      _xtrycatchfinallyexpression = _switchResult;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
-  }
-
-  /**
    * make a BAST node for an AADL Property
    * used by
    */
@@ -4299,8 +4216,9 @@ public class ToAST {
         it.myText = "quantity";
         CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_quantity, "quantity");
         it.token = _commonToken;
-        boolean _isWhole = e.isWhole();
-        if (_isWhole) {
+        String _whole = e.getWhole();
+        boolean _tripleNotEquals = (_whole != null);
+        if (_tripleNotEquals) {
           BAST _newBAST_1 = this.newBAST(e);
           final Procedure1<BAST> _function_1 = (BAST it_1) -> {
             it_1.myText = "whole";
@@ -4311,8 +4229,9 @@ public class ToAST {
           BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           it.addChild(_doubleArrow);
         } else {
-          boolean _isScalar = e.isScalar();
-          if (_isScalar) {
+          String _scalar = e.getScalar();
+          boolean _tripleNotEquals_1 = (_scalar != null);
+          if (_tripleNotEquals_1) {
             BAST _newBAST_2 = this.newBAST(e);
             final Procedure1<BAST> _function_2 = (BAST it_1) -> {
               it_1.myText = "scalar";
@@ -4327,8 +4246,8 @@ public class ToAST {
           }
         }
         ANumber _lb = e.getLb();
-        boolean _tripleNotEquals = (_lb != null);
-        if (_tripleNotEquals) {
+        boolean _tripleNotEquals_2 = (_lb != null);
+        if (_tripleNotEquals_2) {
           BAST _newBAST_3 = this.newBAST(e);
           final Procedure1<BAST> _function_3 = (BAST it_1) -> {
             it_1.myText = "..";
@@ -4341,8 +4260,8 @@ public class ToAST {
           it.addChild(_doubleArrow_2);
         }
         ANumber _step = e.getStep();
-        boolean _tripleNotEquals_1 = (_step != null);
-        if (_tripleNotEquals_1) {
+        boolean _tripleNotEquals_3 = (_step != null);
+        if (_tripleNotEquals_3) {
           BAST _newBAST_4 = this.newBAST(e);
           final Procedure1<BAST> _function_4 = (BAST it_1) -> {
             it_1.myText = "step";
@@ -4354,8 +4273,8 @@ public class ToAST {
           it.addChild(_doubleArrow_3);
         }
         PropertyConstant _representation = e.getRepresentation();
-        boolean _tripleNotEquals_2 = (_representation != null);
-        if (_tripleNotEquals_2) {
+        boolean _tripleNotEquals_4 = (_representation != null);
+        if (_tripleNotEquals_4) {
           BAST _newBAST_5 = this.newBAST(e);
           final Procedure1<BAST> _function_5 = (BAST it_1) -> {
             it_1.myText = "representation";

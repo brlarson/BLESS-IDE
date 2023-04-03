@@ -163,7 +163,7 @@ public class TypeUtil {
   public boolean quantityTypesHaveSameUnits(final QuantityType a, final QuantityType b) {
     boolean _xblockexpression = false;
     {
-      if ((a.isScalar() && b.isScalar())) {
+      if (((a.getScalar() != null) && (b.getScalar() != null))) {
         return true;
       }
       if (((a.getUnit() == null) || a.getUnit().equals(this._unitUtil.nullUnitName()))) {
@@ -229,12 +229,12 @@ public class TypeUtil {
       final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
       boolean _endsWith = str.endsWith("scalar");
       if (_endsWith) {
-        qt.setScalar(true);
+        qt.setScalar("scalar");
         return qt;
       }
       boolean _endsWith_1 = str.endsWith("whole");
       if (_endsWith_1) {
-        qt.setWhole(true);
+        qt.setWhole("whole");
         return qt;
       }
       final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
@@ -251,9 +251,17 @@ public class TypeUtil {
     QuantityType _xblockexpression = null;
     {
       final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-      qt.setScalar(ur.isScalar);
-      qt.setUnit(ur.rootUnit);
-      qt.setWhole(ur.isWhole);
+      if ((ur.rootUnit != null)) {
+        qt.setUnit(ur.rootUnit);
+      } else {
+        if (ur.isScalar) {
+          qt.setScalar("scalar");
+        } else {
+          if (ur.isWhole) {
+            qt.setWhole("whole");
+          }
+        }
+      }
       _xblockexpression = qt;
     }
     return _xblockexpression;
@@ -284,12 +292,14 @@ public class TypeUtil {
           if (_tripleNotEquals) {
             sb.append(qt.getUnit().getName());
           }
-          boolean _isScalar = qt.isScalar();
-          if (_isScalar) {
+          String _scalar = qt.getScalar();
+          boolean _tripleNotEquals_1 = (_scalar != null);
+          if (_tripleNotEquals_1) {
             sb.append("scalar");
           }
-          boolean _isWhole = qt.isWhole();
-          if (_isWhole) {
+          String _whole = qt.getWhole();
+          boolean _tripleNotEquals_2 = (_whole != null);
+          if (_tripleNotEquals_2) {
             sb.append("whole");
           }
         }
@@ -429,7 +439,7 @@ public class TypeUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType wq = BLESSFactory.eINSTANCE.createQuantityType();
-      wq.setWhole(true);
+      wq.setWhole("whole");
       _xblockexpression = wq;
     }
     return _xblockexpression;

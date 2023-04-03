@@ -609,9 +609,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
         AddSub _l_1 = r.getL();
         final Type ty = this.getType(((ValueName) _l_1));
         if ((ty instanceof QuantityType)) {
-          boolean _isWhole = ((QuantityType) ty).isWhole();
-          boolean _not = (!_isWhole);
-          if (_not) {
+          String _whole = ((QuantityType) ty).getWhole();
+          boolean _tripleNotEquals = (_whole != null);
+          if (_tripleNotEquals) {
             this.fError("+= only apples to whole variables.", r, 
               BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
           }
@@ -1573,7 +1573,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isScalar(final Type t) {
-    return (this.isQuantity(t) && ((QuantityType) t).isScalar());
+    return (this.isQuantity(t) && (((QuantityType) t).getScalar() != null));
   }
 
   public boolean isQuantity(final Type t) {
@@ -2642,12 +2642,33 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public Type getType(final Quantity q) {
     final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-    qt.setScalar(q.isScalar());
-    qt.setUnit(q.getUnit());
-    UnitName _unit = qt.getUnit();
-    boolean _tripleEquals = (_unit == null);
-    if (_tripleEquals) {
-      qt.setScalar(true);
+    UnitName _unit = q.getUnit();
+    boolean _tripleNotEquals = (_unit != null);
+    if (_tripleNotEquals) {
+      qt.setUnit(q.getUnit());
+    } else {
+      boolean _isScalar = q.isScalar();
+      if (_isScalar) {
+        qt.setScalar("scalar");
+      } else {
+        boolean _isWhole = q.isWhole();
+        if (_isWhole) {
+          qt.setWhole("whole");
+        } else {
+          String _lit = q.getNumber().getLit();
+          boolean _tripleNotEquals_1 = (_lit != null);
+          if (_tripleNotEquals_1) {
+            boolean _contains = q.getNumber().getLit().contains(".");
+            if (_contains) {
+              qt.setScalar("scalar");
+            } else {
+              qt.setWhole("whole");
+            }
+          } else {
+            qt.setScalar("scalar");
+          }
+        }
+      }
     }
     return qt;
   }
@@ -3484,7 +3505,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isWhole(final Variable v) {
-    return ((this.getType(v.getTod()) instanceof QuantityType) && ((QuantityType) this.getType(v.getTod())).isWhole());
+    return ((this.getType(v.getTod()) instanceof QuantityType) && (((QuantityType) this.getType(v.getTod())).getWhole() != null));
   }
 
   public boolean isWhole(final ForallVariable v) {
@@ -3555,7 +3576,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
         Type _type = this.getType(v.getValue_name());
         if ((_type instanceof QuantityType)) {
           Type _type_1 = this.getType(v.getValue_name());
-          return ((QuantityType) _type_1).isWhole();
+          String _whole = ((QuantityType) _type_1).getWhole();
+          return (_whole != null);
         }
       }
       Constant _constant = v.getConstant();

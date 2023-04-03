@@ -232,13 +232,12 @@ public class PropertyUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType ar = BLESSFactory.eINSTANCE.createQuantityType();
-      ar.setWhole(false);
       UnitsType _referencedUnitsType = e.getReferencedUnitsType();
       boolean _tripleNotEquals = (_referencedUnitsType != null);
       if (_tripleNotEquals) {
         ar.setUnit(this.getUnitName(e, e.getReferencedUnitsType()));
       } else {
-        ar.setScalar(true);
+        ar.setScalar("scalar");
       }
       NumericRange _range = e.getRange();
       boolean _tripleNotEquals_1 = (_range != null);
@@ -257,13 +256,12 @@ public class PropertyUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType ar = BLESSFactory.eINSTANCE.createQuantityType();
-      ar.setWhole(true);
       UnitsType _referencedUnitsType = e.getReferencedUnitsType();
       boolean _tripleNotEquals = (_referencedUnitsType != null);
       if (_tripleNotEquals) {
         ar.setUnit(this.getUnitName(e, e.getReferencedUnitsType()));
       } else {
-        ar.setScalar(true);
+        ar.setWhole("whole");
       }
       NumericRange _range = e.getRange();
       boolean _tripleNotEquals_1 = (_range != null);

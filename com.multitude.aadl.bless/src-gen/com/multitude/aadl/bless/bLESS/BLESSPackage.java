@@ -15508,22 +15508,22 @@ public interface BLESSPackage extends EPackage
   EReference getQuantityType_Unit();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#isScalar <em>Scalar</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#getScalar <em>Scalar</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Scalar</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#isScalar()
+   * @see com.multitude.aadl.bless.bLESS.QuantityType#getScalar()
    * @see #getQuantityType()
    * @generated
    */
   EAttribute getQuantityType_Scalar();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#isWhole <em>Whole</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#getWhole <em>Whole</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Whole</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#isWhole()
+   * @see com.multitude.aadl.bless.bLESS.QuantityType#getWhole()
    * @see #getQuantityType()
    * @generated
    */

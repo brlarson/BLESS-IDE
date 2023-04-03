@@ -103,7 +103,9 @@ public class UnitUtil {
     {
       final UnitRecord ur = new UnitRecord();
       final UnitName un = t.getUnit();
-      ur.isScalar = t.isScalar();
+      String _scalar = t.getScalar();
+      boolean _tripleNotEquals = (_scalar != null);
+      ur.isScalar = _tripleNotEquals;
       if ((un != null)) {
         ur.rootUnit = this._blessIndex.getRootUnit(un);
         RootDeclaration rd = this._blessIndex.getRootDeclaration(ur.rootUnit);
@@ -122,7 +124,9 @@ public class UnitUtil {
         }
         ur.isScalar = false;
       }
-      ur.isWhole = t.isWhole();
+      String _whole = t.getWhole();
+      boolean _tripleNotEquals_1 = (_whole != null);
+      ur.isWhole = _tripleNotEquals_1;
       _xblockexpression = ur;
     }
     return _xblockexpression;

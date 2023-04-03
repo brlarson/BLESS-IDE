@@ -115,13 +115,14 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 
   def boolean quantityTypesHaveSameUnits(QuantityType a, QuantityType b)
     {
-      	if (a.isScalar && b.isScalar)
+      if (a.scalar!==null && b.scalar!==null)
+//      if (a.isScalar && b.isScalar)
      	  return true
-     	if (a.unit === null || a.unit.equals(nullUnitName))
+      if (a.unit === null || a.unit.equals(nullUnitName))
      	  return false
-     	if (b.unit === null || b.unit.equals(nullUnitName))
+      if (b.unit === null || b.unit.equals(nullUnitName))
      	  return false
-     	if (a.unit.equals(b.unit))
+      if (a.unit.equals(b.unit))
     	    return true;
     	//otherwise
     	false
@@ -163,12 +164,12 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
       if (str.endsWith('scalar'))
       {
-        qt.scalar = true
+        qt.scalar = 'scalar' //true
         return qt
       }
       if (str.endsWith('whole'))
       {
-        qt.whole = true
+        qt.whole = 'whole'  //true
         return qt
       }
       val UnitName un = BLESSFactory.eINSTANCE.createUnitName
@@ -187,9 +188,15 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
   def QuantityType toQuantityType(UnitRecord ur)
     {
     val QuantityType qt =	BLESSFactory.eINSTANCE.createQuantityType
-    qt.scalar = ur.isScalar
-    qt.unit = ur.rootUnit
-    qt.whole = ur.isWhole
+    if (ur.rootUnit !== null)
+      qt.unit = ur.rootUnit
+    else if (ur.isScalar)
+      qt.scalar = 'scalar'
+    else if (ur.isWhole)
+      qt.whole = 'whole'
+//    qt.scalar = ur.isScalar
+//    qt.unit = ur.rootUnit
+//    qt.whole = ur.isWhole
     qt
     }
    
@@ -212,8 +219,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
         sb.append('quantity ')
         if (qt.unit !== null)
           sb.append(qt.unit.name)
-        if (qt.scalar) sb.append('scalar')
-        if (qt.whole) sb.append('whole')
+        if (qt.scalar !== null) sb.append('scalar')
+        if (qt.whole !== null) sb.append('whole')
         }
       ArrayType:
         {
@@ -289,7 +296,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
  def Type makeWholeQuantity()
   {
   var wq = BLESSFactory.eINSTANCE.createQuantityType
-  wq.whole = true
+  wq.whole = 'whole' // true
   wq 	
   }
 

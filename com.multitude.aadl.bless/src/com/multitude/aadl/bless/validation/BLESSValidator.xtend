@@ -479,7 +479,8 @@ def void checkPElhsIsWhole(Relation r)
       val ty = (r.l as ValueName).getType
       if (ty instanceof QuantityType)
         {
-        if (!(ty as QuantityType).whole)      
+        if ((ty as QuantityType).whole !== null)      
+//        if (!(ty as QuantityType).whole)      
           fError('+= only apples to whole variables.',r,
             BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
         }
@@ -1216,7 +1217,8 @@ def boolean isBoolean(Type t)
 
 def boolean isScalar(Type t)  
   {
-  return t.isQuantity && (t as QuantityType).scalar
+  return t.isQuantity && (t as QuantityType).scalar!==null
+//  return t.isQuantity && (t as QuantityType).scalar
   }
 
 def boolean isQuantity(Type t)
@@ -1833,10 +1835,26 @@ def Type getType(Constant c)
 def Type getType(Quantity q)
   {
     val qt = BLESSFactory.eINSTANCE.createQuantityType
-    qt.scalar = q.scalar
-    qt.unit = q.unit 
-    if (qt.unit === null) 
-      qt.scalar = true
+    if (q.unit !== null)
+      qt.unit = q.unit 
+    else if (q.scalar)
+      qt.scalar = 'scalar'
+    else if (q.whole)
+      qt.whole = 'whole'
+    else //look for . in number
+      if (q.number.lit !== null)
+        {
+        if (q.number.lit.contains('.'))
+          qt.scalar = 'scalar'
+        else
+          qt.whole = 'whole'
+        }
+    else //assume property is scalar
+      qt.scalar = 'scalar'  
+//    qt.scalar = q.scalar
+//    qt.unit = q.unit 
+//    if (qt.unit === null) 
+//      qt.scalar = true
     return qt    
   }
   
@@ -2408,7 +2426,7 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   
 def boolean isWhole(Variable v)  
   {
-  return (v.tod.getType instanceof QuantityType) && (v.tod.getType as QuantityType).whole
+  return (v.tod.getType instanceof QuantityType) && (v.tod.getType as QuantityType).whole !== null
   }
   
 def boolean isWhole(ForallVariable v)  
@@ -2448,7 +2466,7 @@ def boolean isWhole(Value v)
   {
   if (v.value_name !== null)
     if (v.value_name.getType instanceof QuantityType)
-      return (v.value_name.getType as QuantityType).whole
+      return (v.value_name.getType as QuantityType).whole !== null
 //  if (v.q) return (v.feature as Feature).isWhole
   if (v.constant !== null) return v.constant.isWhole
   false

@@ -12181,7 +12181,7 @@ ruleQuantityType returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityTypeRule());
 						}
-						setWithLastConsumed($current, "scalar", lv_scalar_2_0 != null, "scalar");
+						setWithLastConsumed($current, "scalar", lv_scalar_2_0, "scalar");
 					}
 				)
 			)
@@ -12196,7 +12196,7 @@ ruleQuantityType returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityTypeRule());
 						}
-						setWithLastConsumed($current, "whole", lv_whole_3_0 != null, "whole");
+						setWithLastConsumed($current, "whole", lv_whole_3_0, "whole");
 					}
 				)
 			)

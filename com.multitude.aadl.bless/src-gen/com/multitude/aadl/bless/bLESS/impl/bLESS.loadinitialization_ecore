@@ -906,8 +906,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuantityType" eSuperTypes="http://aadl.info/AADL/2.0#//Element #//Type">
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitName"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lb" eType="#//ANumber"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ub" eType="#//ANumber"

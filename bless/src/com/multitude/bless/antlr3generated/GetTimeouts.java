@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-03 12:20:40
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-03 17:00:42
 
 //copyright 2022 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -47,29 +47,28 @@ public class GetTimeouts extends TreeRewriter {
 		"LITERAL_extends", "LITERAL_extension", "LITERAL_false", "LITERAL_feature", 
 		"LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", 
 		"LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", "LITERAL_forall", 
-		"LITERAL_fresh", "LITERAL_ghost", "LITERAL_hr", "LITERAL_if", "LITERAL_iff", 
-		"LITERAL_implementation", "LITERAL_implies", "LITERAL_in", "LITERAL_inherit", 
-		"LITERAL_initial", "LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", 
-		"LITERAL_is", "LITERAL_list", "LITERAL_lower_bound", "LITERAL_min", "LITERAL_mod", 
-		"LITERAL_mode", "LITERAL_modes", "LITERAL_ms", "LITERAL_nonvolatile", 
-		"LITERAL_not", "LITERAL_now", "LITERAL_ns", "LITERAL_null", "LITERAL_numberof", 
-		"LITERAL_of", "LITERAL_on", "LITERAL_or", "LITERAL_package", "LITERAL_parameter", 
-		"LITERAL_pause", "LITERAL_post", "LITERAL_pre", "LITERAL_private", "LITERAL_product", 
-		"LITERAL_property", "LITERAL_provides", "LITERAL_ps", "LITERAL_public", 
-		"LITERAL_quantity", "LITERAL_range", "LITERAL_record", "LITERAL_reference", 
-		"LITERAL_rem", "LITERAL_renames", "LITERAL_representation", "LITERAL_requires", 
-		"LITERAL_returns", "LITERAL_round", "LITERAL_scalar", "LITERAL_sec", "LITERAL_self", 
-		"LITERAL_sequence", "LITERAL_set", "LITERAL_setmode", "LITERAL_shared", 
-		"LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", "LITERAL_step", 
-		"LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", "LITERAL_sum", 
-		"LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", "LITERAL_throws", 
-		"LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
+		"LITERAL_fresh", "LITERAL_ghost", "LITERAL_if", "LITERAL_iff", "LITERAL_implementation", 
+		"LITERAL_implies", "LITERAL_in", "LITERAL_inherit", "LITERAL_initial", 
+		"LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", 
+		"LITERAL_list", "LITERAL_lower_bound", "LITERAL_mod", "LITERAL_mode", 
+		"LITERAL_modes", "LITERAL_nonvolatile", "LITERAL_not", "LITERAL_now", 
+		"LITERAL_null", "LITERAL_numberof", "LITERAL_of", "LITERAL_on", "LITERAL_or", 
+		"LITERAL_package", "LITERAL_parameter", "LITERAL_pause", "LITERAL_post", 
+		"LITERAL_pre", "LITERAL_private", "LITERAL_product", "LITERAL_property", 
+		"LITERAL_provides", "LITERAL_public", "LITERAL_quantity", "LITERAL_range", 
+		"LITERAL_record", "LITERAL_reference", "LITERAL_rem", "LITERAL_renames", 
+		"LITERAL_representation", "LITERAL_requires", "LITERAL_returns", "LITERAL_round", 
+		"LITERAL_scalar", "LITERAL_self", "LITERAL_sequence", "LITERAL_set", "LITERAL_setmode", 
+		"LITERAL_shared", "LITERAL_skip", "LITERAL_spread", "LITERAL_state", "LITERAL_states", 
+		"LITERAL_step", "LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", 
+		"LITERAL_sum", "LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", 
+		"LITERAL_throws", "LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
 		"LITERAL_transitions", "LITERAL_true", "LITERAL_truncate", "LITERAL_type", 
 		"LITERAL_union", "LITERAL_units", "LITERAL_until", "LITERAL_updated", 
-		"LITERAL_upper_bound", "LITERAL_us", "LITERAL_variables", "LITERAL_variant", 
-		"LITERAL_when", "LITERAL_which", "LITERAL_while", "LITERAL_whole", "LITERAL_with", 
-		"LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", 
-		"NEQ", "NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
+		"LITERAL_upper_bound", "LITERAL_variables", "LITERAL_variant", "LITERAL_when", 
+		"LITERAL_which", "LITERAL_while", "LITERAL_whole", "LITERAL_with", "LITERAL_xor", 
+		"LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", "NEQ", 
+		"NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
 		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
 		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", 
 		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", 
@@ -81,7 +80,7 @@ public class GetTimeouts extends TreeRewriter {
 		"WP", "WS", "'%'"
 	};
 	public static final int EOF=-1;
-	public static final int T__294=294;
+	public static final int T__287=287;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -216,162 +215,155 @@ public class GetTimeouts extends TreeRewriter {
 	public static final int LITERAL_forall=135;
 	public static final int LITERAL_fresh=136;
 	public static final int LITERAL_ghost=137;
-	public static final int LITERAL_hr=138;
-	public static final int LITERAL_if=139;
-	public static final int LITERAL_iff=140;
-	public static final int LITERAL_implementation=141;
-	public static final int LITERAL_implies=142;
-	public static final int LITERAL_in=143;
-	public static final int LITERAL_inherit=144;
-	public static final int LITERAL_initial=145;
-	public static final int LITERAL_internal=146;
-	public static final int LITERAL_invariant=147;
-	public static final int LITERAL_inverse=148;
-	public static final int LITERAL_is=149;
-	public static final int LITERAL_list=150;
-	public static final int LITERAL_lower_bound=151;
-	public static final int LITERAL_min=152;
-	public static final int LITERAL_mod=153;
-	public static final int LITERAL_mode=154;
-	public static final int LITERAL_modes=155;
-	public static final int LITERAL_ms=156;
-	public static final int LITERAL_nonvolatile=157;
-	public static final int LITERAL_not=158;
-	public static final int LITERAL_now=159;
-	public static final int LITERAL_ns=160;
-	public static final int LITERAL_null=161;
-	public static final int LITERAL_numberof=162;
-	public static final int LITERAL_of=163;
-	public static final int LITERAL_on=164;
-	public static final int LITERAL_or=165;
-	public static final int LITERAL_package=166;
-	public static final int LITERAL_parameter=167;
-	public static final int LITERAL_pause=168;
-	public static final int LITERAL_post=169;
-	public static final int LITERAL_pre=170;
-	public static final int LITERAL_private=171;
-	public static final int LITERAL_product=172;
-	public static final int LITERAL_property=173;
-	public static final int LITERAL_provides=174;
-	public static final int LITERAL_ps=175;
-	public static final int LITERAL_public=176;
-	public static final int LITERAL_quantity=177;
-	public static final int LITERAL_range=178;
-	public static final int LITERAL_record=179;
-	public static final int LITERAL_reference=180;
-	public static final int LITERAL_rem=181;
-	public static final int LITERAL_renames=182;
-	public static final int LITERAL_representation=183;
-	public static final int LITERAL_requires=184;
-	public static final int LITERAL_returns=185;
-	public static final int LITERAL_round=186;
-	public static final int LITERAL_scalar=187;
-	public static final int LITERAL_sec=188;
-	public static final int LITERAL_self=189;
-	public static final int LITERAL_sequence=190;
-	public static final int LITERAL_set=191;
-	public static final int LITERAL_setmode=192;
-	public static final int LITERAL_shared=193;
-	public static final int LITERAL_skip=194;
-	public static final int LITERAL_spread=195;
-	public static final int LITERAL_state=196;
-	public static final int LITERAL_states=197;
-	public static final int LITERAL_step=198;
-	public static final int LITERAL_stop=199;
-	public static final int LITERAL_string=200;
-	public static final int LITERAL_subcomponents=201;
-	public static final int LITERAL_sum=202;
-	public static final int LITERAL_swap=203;
-	public static final int LITERAL_that=204;
-	public static final int LITERAL_then=205;
-	public static final int LITERAL_throw=206;
-	public static final int LITERAL_throws=207;
-	public static final int LITERAL_timeout=208;
-	public static final int LITERAL_to=209;
-	public static final int LITERAL_tops=210;
-	public static final int LITERAL_transition=211;
-	public static final int LITERAL_transitions=212;
-	public static final int LITERAL_true=213;
-	public static final int LITERAL_truncate=214;
-	public static final int LITERAL_type=215;
-	public static final int LITERAL_union=216;
-	public static final int LITERAL_units=217;
-	public static final int LITERAL_until=218;
-	public static final int LITERAL_updated=219;
-	public static final int LITERAL_upper_bound=220;
-	public static final int LITERAL_us=221;
-	public static final int LITERAL_variables=222;
-	public static final int LITERAL_variant=223;
-	public static final int LITERAL_when=224;
-	public static final int LITERAL_which=225;
-	public static final int LITERAL_while=226;
-	public static final int LITERAL_whole=227;
-	public static final int LITERAL_with=228;
-	public static final int LITERAL_xor=229;
-	public static final int LPAREN=230;
-	public static final int LT=231;
-	public static final int LTE_STRING=232;
-	public static final int LT_STRING=233;
-	public static final int MINUS=234;
-	public static final int MT_STRING=235;
-	public static final int NEQ=236;
-	public static final int NUMBER=237;
-	public static final int OBLIGATION=238;
-	public static final int OCTOTHORPE=239;
-	public static final int OLD_NEQ=240;
-	public static final int ON=241;
-	public static final int P=242;
-	public static final int PARAMETER=243;
-	public static final int PARAMETERS=244;
-	public static final int PLUS=245;
-	public static final int PLUS_ARROW=246;
-	public static final int PLUS_EQUALS=247;
-	public static final int PORT=248;
-	public static final int PORT_INPUT=249;
-	public static final int PORT_OUTPUT=250;
-	public static final int PREDICATE_RELATION=251;
-	public static final int PROCEDURE=252;
-	public static final int Q=253;
-	public static final int QCLREF=254;
-	public static final int QCREF=255;
-	public static final int QQ=256;
-	public static final int QUANTITY=257;
-	public static final int QUESTION=258;
-	public static final int RASS=259;
-	public static final int RBRACKET=260;
-	public static final int RCON=261;
-	public static final int RCURLY=262;
-	public static final int REAL_LIT=263;
-	public static final int RECORD_TERM=264;
-	public static final int ROOT_DECLARATION=265;
-	public static final int RPAREN=266;
-	public static final int S=267;
-	public static final int SEMICOLON=268;
-	public static final int SLCOMMENT=269;
-	public static final int SOURCE=270;
-	public static final int START=271;
-	public static final int START_ASSERTION_PROPERTY=272;
-	public static final int STOP=273;
-	public static final int SUBPROGRAM_INVOCATION=274;
-	public static final int TICK=275;
-	public static final int TILDE=276;
-	public static final int TIMES=277;
-	public static final int TOP=278;
-	public static final int TRANSITION=279;
-	public static final int TRIGGER=280;
-	public static final int TYPE=281;
-	public static final int TYPE_LIBRARY=282;
-	public static final int TYPE_OPERATOR=283;
-	public static final int TYPE_OPERATOR_INVOCATION=284;
-	public static final int UNARY_MINUS=285;
-	public static final int UNIT_FORMULA=286;
-	public static final int UNIT_LIBRARY=287;
-	public static final int UNIT_NAME=288;
-	public static final int VALUE=289;
-	public static final int VARIABLE_DECLARATION=290;
-	public static final int VERT=291;
-	public static final int WP=292;
-	public static final int WS=293;
+	public static final int LITERAL_if=138;
+	public static final int LITERAL_iff=139;
+	public static final int LITERAL_implementation=140;
+	public static final int LITERAL_implies=141;
+	public static final int LITERAL_in=142;
+	public static final int LITERAL_inherit=143;
+	public static final int LITERAL_initial=144;
+	public static final int LITERAL_internal=145;
+	public static final int LITERAL_invariant=146;
+	public static final int LITERAL_inverse=147;
+	public static final int LITERAL_is=148;
+	public static final int LITERAL_list=149;
+	public static final int LITERAL_lower_bound=150;
+	public static final int LITERAL_mod=151;
+	public static final int LITERAL_mode=152;
+	public static final int LITERAL_modes=153;
+	public static final int LITERAL_nonvolatile=154;
+	public static final int LITERAL_not=155;
+	public static final int LITERAL_now=156;
+	public static final int LITERAL_null=157;
+	public static final int LITERAL_numberof=158;
+	public static final int LITERAL_of=159;
+	public static final int LITERAL_on=160;
+	public static final int LITERAL_or=161;
+	public static final int LITERAL_package=162;
+	public static final int LITERAL_parameter=163;
+	public static final int LITERAL_pause=164;
+	public static final int LITERAL_post=165;
+	public static final int LITERAL_pre=166;
+	public static final int LITERAL_private=167;
+	public static final int LITERAL_product=168;
+	public static final int LITERAL_property=169;
+	public static final int LITERAL_provides=170;
+	public static final int LITERAL_public=171;
+	public static final int LITERAL_quantity=172;
+	public static final int LITERAL_range=173;
+	public static final int LITERAL_record=174;
+	public static final int LITERAL_reference=175;
+	public static final int LITERAL_rem=176;
+	public static final int LITERAL_renames=177;
+	public static final int LITERAL_representation=178;
+	public static final int LITERAL_requires=179;
+	public static final int LITERAL_returns=180;
+	public static final int LITERAL_round=181;
+	public static final int LITERAL_scalar=182;
+	public static final int LITERAL_self=183;
+	public static final int LITERAL_sequence=184;
+	public static final int LITERAL_set=185;
+	public static final int LITERAL_setmode=186;
+	public static final int LITERAL_shared=187;
+	public static final int LITERAL_skip=188;
+	public static final int LITERAL_spread=189;
+	public static final int LITERAL_state=190;
+	public static final int LITERAL_states=191;
+	public static final int LITERAL_step=192;
+	public static final int LITERAL_stop=193;
+	public static final int LITERAL_string=194;
+	public static final int LITERAL_subcomponents=195;
+	public static final int LITERAL_sum=196;
+	public static final int LITERAL_swap=197;
+	public static final int LITERAL_that=198;
+	public static final int LITERAL_then=199;
+	public static final int LITERAL_throw=200;
+	public static final int LITERAL_throws=201;
+	public static final int LITERAL_timeout=202;
+	public static final int LITERAL_to=203;
+	public static final int LITERAL_tops=204;
+	public static final int LITERAL_transition=205;
+	public static final int LITERAL_transitions=206;
+	public static final int LITERAL_true=207;
+	public static final int LITERAL_truncate=208;
+	public static final int LITERAL_type=209;
+	public static final int LITERAL_union=210;
+	public static final int LITERAL_units=211;
+	public static final int LITERAL_until=212;
+	public static final int LITERAL_updated=213;
+	public static final int LITERAL_upper_bound=214;
+	public static final int LITERAL_variables=215;
+	public static final int LITERAL_variant=216;
+	public static final int LITERAL_when=217;
+	public static final int LITERAL_which=218;
+	public static final int LITERAL_while=219;
+	public static final int LITERAL_whole=220;
+	public static final int LITERAL_with=221;
+	public static final int LITERAL_xor=222;
+	public static final int LPAREN=223;
+	public static final int LT=224;
+	public static final int LTE_STRING=225;
+	public static final int LT_STRING=226;
+	public static final int MINUS=227;
+	public static final int MT_STRING=228;
+	public static final int NEQ=229;
+	public static final int NUMBER=230;
+	public static final int OBLIGATION=231;
+	public static final int OCTOTHORPE=232;
+	public static final int OLD_NEQ=233;
+	public static final int ON=234;
+	public static final int P=235;
+	public static final int PARAMETER=236;
+	public static final int PARAMETERS=237;
+	public static final int PLUS=238;
+	public static final int PLUS_ARROW=239;
+	public static final int PLUS_EQUALS=240;
+	public static final int PORT=241;
+	public static final int PORT_INPUT=242;
+	public static final int PORT_OUTPUT=243;
+	public static final int PREDICATE_RELATION=244;
+	public static final int PROCEDURE=245;
+	public static final int Q=246;
+	public static final int QCLREF=247;
+	public static final int QCREF=248;
+	public static final int QQ=249;
+	public static final int QUANTITY=250;
+	public static final int QUESTION=251;
+	public static final int RASS=252;
+	public static final int RBRACKET=253;
+	public static final int RCON=254;
+	public static final int RCURLY=255;
+	public static final int REAL_LIT=256;
+	public static final int RECORD_TERM=257;
+	public static final int ROOT_DECLARATION=258;
+	public static final int RPAREN=259;
+	public static final int S=260;
+	public static final int SEMICOLON=261;
+	public static final int SLCOMMENT=262;
+	public static final int SOURCE=263;
+	public static final int START=264;
+	public static final int START_ASSERTION_PROPERTY=265;
+	public static final int STOP=266;
+	public static final int SUBPROGRAM_INVOCATION=267;
+	public static final int TICK=268;
+	public static final int TILDE=269;
+	public static final int TIMES=270;
+	public static final int TOP=271;
+	public static final int TRANSITION=272;
+	public static final int TRIGGER=273;
+	public static final int TYPE=274;
+	public static final int TYPE_LIBRARY=275;
+	public static final int TYPE_OPERATOR=276;
+	public static final int TYPE_OPERATOR_INVOCATION=277;
+	public static final int UNARY_MINUS=278;
+	public static final int UNIT_FORMULA=279;
+	public static final int UNIT_LIBRARY=280;
+	public static final int UNIT_NAME=281;
+	public static final int VALUE=282;
+	public static final int VARIABLE_DECLARATION=283;
+	public static final int VERT=284;
+	public static final int WP=285;
+	public static final int WS=286;
 
 	// delegates
 	public TreeRewriter[] getDelegates() {
@@ -503,7 +495,7 @@ public class GetTimeouts extends TreeRewriter {
 				while (true) {
 					int alt1=2;
 					int LA1_0 = input.LA(1);
-					if ( ((LA1_0 >= AADL_STRING_LITERAL && LA1_0 <= 294)) ) {
+					if ( ((LA1_0 >= AADL_STRING_LITERAL && LA1_0 <= 287)) ) {
 						alt1=1;
 					}
 

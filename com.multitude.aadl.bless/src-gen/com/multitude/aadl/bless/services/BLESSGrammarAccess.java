@@ -7916,12 +7916,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final CrossReference cRepresentationPropertyConstantCrossReference_4_1_0 = (CrossReference)cRepresentationAssignment_4_1.eContents().get(0);
 		private final RuleCall cRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1 = (RuleCall)cRepresentationPropertyConstantCrossReference_4_1_0.eContents().get(1);
 		
-		////EnumerationLiteral:
-		////    name=ID
-		////;
 		//QuantityType:
 		//  'quantity'
-		//  ( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 		//  ( 'step' step=ANumber )?  //check if positive
 		//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -7929,7 +7926,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'quantity'
-		//( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		//( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 		//( 'step' step=ANumber )?  //check if positive
 		//( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -7938,7 +7935,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'quantity'
 		public Keyword getQuantityKeyword_0() { return cQuantityKeyword_0; }
 		
-		//( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//unit=[UnitName]
@@ -7950,13 +7947,13 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_0_0_1; }
 		
-		//scalar?='scalar'
+		//scalar='scalar'
 		public Assignment getScalarAssignment_1_1() { return cScalarAssignment_1_1; }
 		
 		//'scalar'
 		public Keyword getScalarScalarKeyword_1_1_0() { return cScalarScalarKeyword_1_1_0; }
 		
-		//whole?='whole'
+		//whole='whole'
 		public Assignment getWholeAssignment_1_2() { return cWholeAssignment_1_2; }
 		
 		//'whole'
@@ -12157,12 +12154,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getEnumerationTypeAccess().getRule();
 	}
 	
-	////EnumerationLiteral:
-	////    name=ID
-	////;
 	//QuantityType:
 	//  'quantity'
-	//  ( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+	//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
 	//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 	//  ( 'step' step=ANumber )?  //check if positive
 	//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?

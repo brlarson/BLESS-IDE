@@ -437,51 +437,51 @@ makeBASTforRelationSymbol(String mySymbol, Element parent)
  * make a BAST node for a time_unit : LITERAL_ps | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr    ;	
  * used by BehaviorTime 
  */
-  def BAST 
-makeBASTforTimeUnit(String myUnit, BehaviorTime parent)
-  {
-   try {  
-  switch myUnit
-  	{
-  	case 'ps' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'ps'
-       token = new CommonToken(BLESS3Lexer.LITERAL_ps, 'ps')
-      ]	
-  	case 'us' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'us'
-       token = new CommonToken(BLESS3Lexer.LITERAL_us, 'us')
-      ]	
-  	case 'ms' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'ms'
-       token = new CommonToken(BLESS3Lexer.LITERAL_ms, 'ms')
-      ]	
-  	case 'sec' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'sec'
-       token = new CommonToken(BLESS3Lexer.LITERAL_sec, 'sec')
-      ]	 		
-  	case 'min' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'min'
-       token = new CommonToken(BLESS3Lexer.LITERAL_min, 'min')
-      ]	 		
-  	case 'hr' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = 'hr'
-       token = new CommonToken(BLESS3Lexer.LITERAL_hr, 'hr')
-      ]	 		
-  	}  //end of switch	
-    } catch (Exception ex) {ex.printStackTrace x}
-  }  //end of makeBASTforTimeUnit
+//  def BAST 
+//makeBASTforTimeUnit(String myUnit, BehaviorTime parent)
+//  {
+//   try {  
+//  switch myUnit
+//  	{
+//  	case 'ps' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'ps'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_ps, 'ps')
+//      ]	
+//  	case 'us' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'us'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_us, 'us')
+//      ]	
+//  	case 'ms' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'ms'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_ms, 'ms')
+//      ]	
+//  	case 'sec' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'sec'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_sec, 'sec')
+//      ]	 		
+//  	case 'min' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'min'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_min, 'min')
+//      ]	 		
+//  	case 'hr' :
+//  	newBAST(parent) =>
+//  	  [
+//  	   myText = 'hr'
+//       token = new CommonToken(BLESS3Lexer.LITERAL_hr, 'hr')
+//      ]	 		
+//  	}  //end of switch	
+//    } catch (Exception ex) {ex.printStackTrace x}
+//  }  //end of makeBASTforTimeUnit
 
 
 /**
@@ -2503,14 +2503,14 @@ toAST(QuantityType e)
     [  
   	myText = "quantity"
     token = new CommonToken(BLESS3Lexer.LITERAL_quantity, "quantity")
-    if (e.whole)  
+   if (e.whole !== null)  
       addChild(newBAST(e) =>  
         [  
   	    myText = "whole" 
         token = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole")
         addChild(e.unit.name.makeBASTforID(e))
         ]	)
-    else if (e.scalar)
+    else if (e.scalar !== null)
       addChild(newBAST(e) =>  
         [  
         myText = "scalar" 

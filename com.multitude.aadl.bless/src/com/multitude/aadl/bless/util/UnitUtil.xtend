@@ -73,7 +73,7 @@ def UnitRecord toUnitRecord(QuantityType t)
   {
   val UnitRecord ur = new UnitRecord() 
   val UnitName un = t.unit
-  ur.isScalar = t.scalar
+  ur.isScalar = t.scalar!==null
   if (un !== null)
     {
     ur.rootUnit = getRootUnit(un)
@@ -97,7 +97,7 @@ def UnitRecord toUnitRecord(QuantityType t)
     }
     ur.isScalar = false    
     }
-  ur.isWhole = t.whole
+  ur.isWhole = t.whole!==null
   ur
   }
 

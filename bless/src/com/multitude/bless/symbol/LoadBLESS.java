@@ -76,6 +76,8 @@ import org.osate.xtext.aadl2.properties.util.PropertyUtils;
 import com.google.inject.Injector;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.maps.BlessMaps;
+import com.multitude.aadl.bless.parser.antlr.BLESSParser;
+import com.multitude.aadl.bless.parsing.BlessAnnexParser;
 import com.multitude.aadl.bless.parsing.TypeAnnexParser;
 import com.multitude.aadl.bless.util.TraverseBlessWorkspace;
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
@@ -1266,7 +1268,7 @@ load() throws YouIdiot
           {
           // defaultAnnexSubclause.getName() gets you the name
           String annexName = defaultAnnexSubclause.getName();
-          if (annexName.endsWith("subBLESS"))
+          if (annexName.endsWith("Action"))
             {
             try
               {
@@ -1291,7 +1293,7 @@ load() throws YouIdiot
               // okay, now parse it actionSubclause
               rootOfASTofBLESSbehavior = parser.actionSubclause().getTree();
               // save AST in SubprogramRecord
-              sr                       = new SubprogramRecord(rootOfASTofBLESSbehavior, ci.getName(),
+              sr = new SubprogramRecord(rootOfASTofBLESSbehavior, ci.getName(),
                   ci.getImplementationName(), ci, pr);
               // make and BAST node in the tree find the SubprogramRecord at the
               // top
@@ -1465,27 +1467,32 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
   public static BAST parseTyped(String text, int line, int column, IResource rsrc) 
       throws RecognitionException, YouIdiot
     {
-    if (TypeAnnexParser.eINSTANCE == null)
-       new TypeAnnexParser();
-//    if (rsrc == null)
-//      throw new YouIdiot("Null IResource (file) passed to parseTyped");
-    if (text == null)
-      throw new YouIdiot("Null text passed to parseTyped");
-//   MarkerParseErrorReporter errorReporter = new MarkerParseErrorReporter(rsrc, "type");
-//look for type identifiers
-//    if (text.matches(idregex))
-//      return new BAST(text, BLESS3Lexer.ID,line); 
-//    if (TypeAnnexParser.eINSTANCE == null)
-//      tap = new com.multitude.aadl.bless.parsing.TypeAnnexParser();
-//    
-//  WORKAROUND  change column to line => see issue #2713
-    TypeOrReference t = TypeAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,line, //errorReporter
-        (rsrc == null ? null : new MarkerParseErrorReporter(rsrc, "type")));
-//    TypeOrReference t = TypeAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,column,errorReporter);
-//    Type t = TypeAnnexParser.eINSTANCE.parseType(text,"",line,column,errorReporter);
-    if (t == null)
-      throw new YouIdiot("Type \"" + text + "\" at line " + line + " is ungrammatical.");
-    return ToAST.TOAST.toAST(t);
+    CharStream spec;
+    try
+      {
+      spec = new ANTLRReaderStream(new StringReader(text));
+      }
+    catch (IOException e)
+      {
+      throw new YouIdiot(e);
+      }
+    BLESS3Lexer   lexer      = new BLESS3Lexer(spec);
+    CommonTokenStream tokens     = new CommonTokenStream();
+    BAST.tokens = tokens;
+    tokens.setTokenSource(lexer);
+    BLESS3Parser parser = new BLESS3Parser(tokens);
+    parser.setTreeAdaptor(new BASTTreeAdaptor());
+    parser.setStartingLine(line);
+    BAST result = parser.type().getTree();
+    return result;
+    
+//    if (text == null)
+//      throw new YouIdiot("Null text passed to parseTyped");
+//    TypeOrReference t = BlessAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,line, //errorReporter
+//        (rsrc == null ? null : new MarkerParseErrorReporter(rsrc, "type")));
+//    if (t == null)
+//      throw new YouIdiot("Type \"" + text + "\" at line " + line + " is ungrammatical.");
+//    return ToAST.TOAST.toAST(t);
     } // end of parseTyped
 
   /**
