@@ -590,6 +590,8 @@ expression // throws ProofException
     -> relation(r={$iff.text}, lhs={$l.st}, rhs={$r.st})
   | ^( imp=LITERAL_implies l=disjunction r=disjunction )
     -> relation(r={$imp.text}, lhs={$l.st}, rhs={$r.st})
+  | dis=disjunction
+    -> {$dis.st}
 	;	
 
 universalQuantification
