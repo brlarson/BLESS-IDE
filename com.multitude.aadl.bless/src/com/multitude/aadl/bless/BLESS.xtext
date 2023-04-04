@@ -1,0 +1,1289 @@
+grammar com.multitude.aadl.bless.BLESS hidden(WS, SL_COMMENT)
+
+generate bLESS "http://www.multitude.com/aadl/bless/BLESS"
+
+import "http://aadl.info/AADL/2.0" as aadl2
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+BLESSGrammarRoots : 	 
+  'unitlibrary' unit_library=UnitLibrary 
+  | 'typelibrary' type_library=TypeLibrary
+  | 'assertionlibrary' assertion_library=AssertionLibrary
+  | 'actionsubclause' 	action_subclause=ActionSubclause
+	| 'exceptions' exception_library=ExceptionLibrary
+	| 'blesssubclause' bless_subclause=BLESSSubclause
+;
+
+AnnexLibrary returns aadl2::AnnexLibrary:  
+	UnitLibrary 
+	| TypeLibrary
+	| AssertionLibrary
+	| ExceptionLibrary
+;
+
+AnnexSubclause returns aadl2::AnnexSubclause:
+	 ActionSubclause
+	 | BLESSSubclause 
+	 ;
+
+BLESSSubclause returns BLESSSubclause:
+	{BLESSSubclause}
+	no_proof ?= 'DO_NOT_PROVE'?
+  assert_clause=AssertClause?  
+  invariant=InvariantClause?
+  variables=VariablesSection?
+  statesSection=StatesSection?
+  transitions=Transitions?
+	;
+
+UnitLibrary:
+	unitDeclarations+=UnitDeclaration+
+	;
+
+//assertion_annex_library
+AssertionLibrary returns AssertionLibrary:
+	{AssertionLibrary}
+	( ghosts=GhostVariables )?
+	assertion_list+=NamedAssertion*
+	;
+
+ExceptionLibrary returns ExceptionLibrary:
+	{ExceptionLibrary}
+	exceptiondefinitions+=Exception+
+;
+
+
+ActionSubclause returns ActionSubclause:
+	{ActionSubclause}
+	no_proof ?= 'DO_NOT_PROVE'?
+  throws_clause=ThrowsClause? 
+  assert_clause=AssertClause?  //optionally set av
+  ( 'pre' precondition=Assertion )?
+  ( 'post' postcondition=Assertion )?	
+  ( 'invariant' invariant=Assertion )?	
+  elq=ExistentialLatticeQuantification
+;
+
+
+/////////////////////////////////   BLESS   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+InvariantClause:
+  'invariant' inv=Assertion
+;
+
+VariablesSection:
+	'variables' behavior_variables+=VariableDeclaration+
+;
+	
+
+StatesSection:
+	  ( st='states' states+=BehaviorState+ )
+;
+
+//behavior_state
+//allow states to have more than one:  initial complete final
+//for BA2015 reconciliation
+BehaviorState:
+  name=ID 
+  	':' initial?='initial'?  complete?='complete'?  final?='final'? mode?='mode'?
+  'state' state_assertion=Assertion? ';'?
+;
+
+Transitions:  
+  'transitions' bt+=BehaviorTransition+
+;
+
+
+	/////////////////////////  TRANSITION  /////////////////////////
+
+//behavior_transition
+BehaviorTransition returns BehaviorTransition:
+//  {BehaviorTransition}
+//  transition_label=TransitionLabel
+  name=ID  priority=Priority? colon=':' 
+  ( sources+=[BehaviorState] ( ',' sources+=[BehaviorState] )* )
+  '-[' //transition_condition
+  ( dispatch=DispatchCondition | 
+  	execute=ExecuteCondition | 
+  	mode=ModeCondition |
+  	internal=InternalCondition )? 
+  ']->'
+  destination=[BehaviorState]
+  ( '{' actions=BehaviorActions? '}' )? ass=Assertion? ';'?
+;
+
+//transition_label
+//TransitionLabel:
+//  id=ID priority=Priority?
+//;
+
+@Deprecated
+Priority:
+	'[' priority=NUMBER ']'
+;
+
+//dispatch_condition
+DispatchCondition:
+  'on' dispatch='dispatch' de=DispatchExpression? 
+  //BA2015 reconciliation declare ports to be frozen
+  frozen=FreezePort?
+;
+
+//dispatch_expression
+DispatchExpression:
+  dc+=DispatchConjunction ( or?='or' dc+=DispatchConjunction 
+  	( 'or' dc+=DispatchConjunction )* )?
+  	//BA2015 reconciliation 
+  | subprogramaccessdispatch=SubprogramAccessDispatch
+;
+
+@Deprecated
+SubprogramAccessDispatch:
+	'access' access=[aadl2::SubprogramAccess]
+;
+
+//dispatch_conjunction
+DispatchConjunction:
+  trigger+=DispatchTrigger 
+    ( and?='and' trigger+=DispatchTrigger 
+    	( 'and' trigger+=DispatchTrigger)* )? 
+;
+
+//dispatch_trigger
+//DOES NOT ALLOW PORT INDEXES ON TIMEOUT PORTS
+DispatchTrigger:
+  port=PortName  
+  | timeout='timeout'  
+   ( ( lp?='(' ports+=[aadl2::NamedElement|ID] 
+        ('or'? ports+=[aadl2::NamedElement|ID] )* ')'
+   )?
+   	 time=BehaviorTime )?
+;
+
+PortName:
+  port=[aadl2::NamedElement|ID] 
+  ( '[' index=NUMBER ']' )? 
+;
+
+ExecuteCondition:
+  eor=BooleanExpression  
+//  'timeout' can be reach as Value in BooleanExpression  
+//  | timeout=ExecuteTimeout  //added for BA2015 reconciliation
+  | otherwise=Otherwise  //added for BA2015 reconciliation
+;
+
+@Deprecated
+ExecuteTimeout: t='timeout';
+@Deprecated
+Otherwise: o='otherwise';
+
+ModeCondition:
+	'on' tle=TriggerLogicalExpression
+;
+
+//must check that all the ops are the same
+TriggerLogicalExpression:
+	first=EventTrigger ( op=LogicalOperator trigger+=EventTrigger 
+		  (ops+=LogicalOperator trigger+=EventTrigger)*)?
+;
+
+//event_trigger
+EventTrigger:
+  //subcomponent_port_reference
+  //change to how OSATE references subcomponents?
+//  subcomponent=[aadl2::Subcomponent|ID]	<-just one level down
+	sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+	| '(' tle=TriggerLogicalExpression ')'
+;
+
+LogicalOperator:
+	op='and'
+	| op='or'
+	| op='xor'
+	| 'and' op='then'
+	| 'or' op='else'
+;
+
+@Deprecated
+InternalCondition:
+	'on' 'internal' first=[aadl2::Port] ( 'or' ports+=[aadl2::Port] )*
+;  //note may need to make real port Name with index
+
+
+
+AssertClause:
+  'assert' (assertions+=NamedAssertion)+
+;
+
+/////////////////////////  LATTICE QUANTIFICATION  ////////////////////////
+
+//behavior_action_block
+ExistentialLatticeQuantification:
+  quantified_variables=QuantifiedVariables?
+  '{'  
+  actions=BehaviorActions
+   '}'  
+  timeout=ActionTimeout?
+  catch_clause=CatchClause?
+;
+
+//quanitfied_variables
+QuantifiedVariables:
+  'declare' variables+=VariableDeclaration+
+;
+
+//forall_action
+UniversalLatticeQuantification returns UniversalLatticeQuantification:
+//  {UniversalLatticeQuantification}
+  'forall'   
+  variables+=ForallVariable+ 
+    'in'   lower_bound=Expression  DOTDOT upper_bound=Expression
+  elq=ExistentialLatticeQuantification
+;
+
+ForallVariable:
+  name=ID
+;
+
+
+//////////////////////  Variable  DECLARATION  ////////////////////////////
+
+VariableDeclaration:
+  variable=Variable
+	( //modifier
+	  nonvolatile?='nonvolatile' 
+  	| shared?='shared'  
+  	| constant?='constant'
+    | spread?='spread' 
+    | final?='final'
+  )? 
+  ( assign?=':=' expression=Expression )? 
+  assertion=Assertion?  
+  ';'?
+  ; 
+
+////////////////////////////////  FUNCTION CALL  //////////////////////////////
+
+// put in ValueName
+
+//FunctionCall:  
+//  ( pack+=ID '::' )*   
+//    func=ID
+//    '(' //'$' //BA2015 reconciliation remove $
+//    parameters=FunctionParameters? ')'
+//;
+
+FunctionParameters:
+ 	parameters+=FormalExpressionPair ( comma?=',' parameters+=FormalExpressionPair 
+		( ',' parameters+=FormalExpressionPair)* )? 
+;
+
+FormalExpressionPair:
+  formal=ID  //[aadl2::Parameter] 
+    ':' actual=Expression
+  ;
+
+////////////////////////////  BEHAVIOR ACTIONS  ///////////////////////////////
+
+//behavior_actions
+BehaviorActions:
+  action+=AssertedAction
+  (  //sequential_composition
+  	( semi?=';' action+=AssertedAction ( ';' action+=AssertedAction )* )
+  	|  //concurrent_composition
+  	( amp?='&' action+=AssertedAction ( '&' action+=AssertedAction)* )
+  )?
+;
+
+AssertedAction:
+  precondition=Assertion? action=Action postcondition=Assertion?
+;
+
+	
+Action:
+//  {Action}
+   basic=BasicAction
+  | if_fi=Alternative
+  | wl=WhileLoop
+  | fl=ForLoop
+  | du=DoUntilLoop
+  | elq=ExistentialLatticeQuantification //behavior_action_block
+  | ulq=UniversalLatticeQuantification   //forall_action
+//  //BA2015 reconciliation add LockingAction
+  | la=LockingAction
+;
+
+//basic_action
+BasicAction:
+//  {BasicAction}
+  skip='skip'
+  | assign=Assignment
+  | 'setmode' mode=[aadl2::Mode]
+  | when=WhenThrow
+  | comb=CombinableOperation
+  | communication=CommunicationAction 
+  | computation=Computation
+  | multi_assign=SimultaneousAssignment
+// //BA2015 reconciliation add IssueException
+  | exc=IssueException
+;
+
+//combinable_operation
+CombinableOperation returns CombinableOperation:
+//  {CombinableOperation}
+  f_add?='fetchadd' '(' target=[Variable] ',' arithmetic=Expression ',' result=[Variable] ')'
+  |
+  ( f_or?='fetchor' | f_and?='fetchand' | f_xor?='fetchxor' )
+    '(' target=[Variable] ',' bool=Expression ( ',' result=[Variable] )? ')'
+  |
+  sw?='swap' '(' target=[Variable] ',' reference=[Variable] ',' result=[Variable] ')'
+;
+
+/////////////////////////  COMMUNICATION  /////////////////////////
+
+//communication_action
+CommunicationAction:
+  pc=SubprogramCall
+  |
+  po=PortOutput
+  |
+  pi=PortInput
+  |  //freeze port
+  fp=FreezePort
+  |
+  pause=Pause
+;
+
+//subprogram_invocation
+SubprogramCall:
+  procedure=[aadl2::CalledSubprogram] 
+  '(' parameters=FormalActualList? ')'
+;
+
+//parameter_list
+FormalActualList:
+  variables+=FormalActual ( comma?=',' variables+=FormalActual ( ',' variables+=FormalActual )* )?
+;
+
+//actual_parameter
+FormalActual:
+  ( formal=[aadl2::Parameter] 
+    ':' )? actual=SubProgramParameter
+;
+
+SubProgramParameter:
+	value=ValueName
+	| constant=Constant
+	| expression=ParenthesizedSubexpression
+;
+
+PortOutput:
+  port=[aadl2::Port|ID] 
+    '!' ( '(' eor=Expression  // ExpressionOrRelation 
+    	')' )?
+;
+
+PortInput:
+  port=[aadl2::Port|ID] '?' '(' target=ValueName ')'
+   ;
+
+/////////////////////  ASSIGNMENT  ///////////////////////
+
+Assignment:
+   lhs=NameTick asgn=':=' rhs=ExpressionOrAny
+;
+
+NameTick:
+	value=ValueName  
+  tick?='\''? 
+;
+
+ExpressionOrAny:
+	exp=Expression | any=Any
+;
+
+//@Deprecated
+Any: 'any';
+
+SimultaneousAssignment returns SimultaneousAssignment:
+	'|' 
+	lhs+=NameTick  ( ',' lhs+=NameTick )+
+	asgn=':=' 
+	rhs+=ExpressionOrAny  ( ',' rhs+=ExpressionOrAny )+
+  '|'
+;
+
+//////////////////////////  CONTROL  ////////////////////////////
+
+//alternative
+Alternative:
+  'if' 
+'(' guard=BooleanExpression
+  (
+  blessalt=BLESSAlternative
+  | baalt=BAAlternative
+	)  
+;
+
+BLESSAlternative:
+	 ')~>' action=AssertedAction
+	  ( '[]' alternative+=GuardedAction )+ 
+  'fi'
+;
+
+GuardedAction:
+  '(' guard=BooleanExpression ')~>' action=AssertedAction
+;
+
+WhileLoop:
+  'while'  
+//  availability=Availability?  
+  '(' test=BooleanExpression ')'
+  ( invariant?='invariant' inv=NamelessAssertion )?
+  ( bound?='bound' bound_function=Expression )?  
+  elq=ExistentialLatticeQuantification
+;
+
+ForLoop:
+  'for'
+  count=ForallVariable  
+  'in' lower_bound=Expression DOTDOT upper_bound=Expression 
+  ( invariant?='invariant' inv=NamelessAssertion )?
+  '{'  action=BehaviorActions '}'
+;
+
+DoUntilLoop:
+  'do' 
+//  availability=Availability?  
+  ( invariant?='invariant' inv=NamelessAssertion )?
+  ( bound?='bound' bnd=Expression )?  
+  actions=BehaviorActions
+  'until' '(' guard=BooleanExpression ')'
+;
+
+
+
+//////////////////////////   EXCEPTIONS   ////////////////////////////
+
+ThrowsClause:
+	'throws' exceptions+=[Exception]
+;
+
+//catch_clause
+CatchClause:
+  'catch'
+  ( catches+=CatchClauseTerm )+
+;
+
+CatchClauseTerm:
+  '(' //exception_label
+  ( exceptions+=[Exception]+ | all?='all' ) ':' action=BasicAction 
+  ')'
+;
+
+WhenThrow:
+  'when' '(' exp=Expression ')' 'throw' exception=[Exception]  message=STRING?      
+;
+
+/////////////////////  DEPRICATED  ///////////////////////////////
+
+@Deprecated
+Computation:
+	'computation'
+	'(' lb=BehaviorTime ( ',' ub=BehaviorTime )? ')'
+	( 'in' 'binding' component+=[aadl2::ComponentClassifier|QCREF]+ )?
+;
+
+@Deprecated
+BAAlternative:
+   //BA2015 reconciliation  add if-elsif-else-end if
+  ')' actions=BehaviorActions
+  ( elseifalt+=ElseifAlternative )*
+  ( elsealt=ElseAlternative)?
+  'end' 'if'
+;
+
+ElseifAlternative:
+  'elsif' '(' test=BooleanExpression ')' actions=BehaviorActions 
+;
+
+ElseAlternative:
+  'else' actions=BehaviorActions
+;
+
+ //BA2015 reconciliation add IssueException
+@Deprecated
+IssueException:
+	'exception' '(' exception=[Exception] message=STRING? ')'
+;
+
+
+ //BA2015 reconciliation add LockingAction
+@Deprecated
+LockingAction:
+  entercritical='*!<'
+  | leavecritical='*!>'
+  | required_data_access=[aadl2::DataAccess] lock='!<'
+  | required_data_access=[aadl2::DataAccess] unlock='!>'
+;
+
+//@Deprecated
+//Freeze:
+//  freeze='>>'  //added for BA2015, set `freeze' flag on the port	
+//;
+
+//frosen_ports
+@Deprecated
+FreezePort:
+   'frozen' '(' frozen+=[aadl2::Port|ID] ( ','  frozen+=[aadl2::Port|ID] )* ')'
+//  frozen_port=[aadl2::NamedElement|ID] '>>'
+ ; 
+  
+@Deprecated
+Pause:
+  pause='pause'
+;
+
+@Deprecated
+ActionTimeout:
+  'timeout' duration=BehaviorTime
+;
+
+//behavior_time
+BehaviorTime:
+	quantity=Quantity
+	|
+	value=ValueName
+  |
+  duration=ParenthesizedSubexpression
+;
+
+///////////////////////////////////  EXCEPTION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+@Exported
+Exception:
+	name=ID description=STRING ( code=NUMBER )?  //add check for natural number
+;
+
+
+/////////////////////////////////////   ASSERTION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+GhostVariables
+  :
+  	'ghost' 'variables'
+  	gv+=GhostVariable+
+  ;
+
+@Exported
+GhostVariable:
+ 'def'  name=ID '~' tod=TypeOrReference  
+	;
+
+//assertion
+Assertion :
+	namedassertion=NamedAssertion | 
+	namelessassertion=NamelessAssertion |
+	namelessfunction=NamelessFunction |
+	namelessenumeration=NamelessEnumeration
+	;
+
+@Exported
+NamedAssertion: 
+	'<<'
+	name=ID ':' 
+	(
+		formals=VariableList?
+		  ( //assertion_predicate
+		  pred?=':'  predicate=Predicate 
+		  | //assertion_function
+		  'returns' tod=TypeOrReference func?=':='	functionvalue=AssertionFunctionValue 
+		  ) 
+		| //assertion_enumeration
+		assertionvariable=ID '~' enumerationType=[TypeDeclaration] enumer?='+=>' enumeration=AssertionEnumeration
+	)
+	'>>'
+;	
+
+//assertion_predicate
+NamelessAssertion:  '<<' predicate=Predicate '>>' ;
+
+//assertion_)function
+NamelessFunction:  '<<' 'returns' tod=TypeOrReference func?=':=' functionvalue=AssertionFunctionValue '>>' ;
+
+//assertion_enumeration
+NamelessEnumeration:  '<<' '+=>' enumeration=Invocation '>>';
+
+/////////////////////////////////////   EXPRESSION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+Predicate:  //used within Assertions
+	Expression
+;
+
+AssertionNumericExpression:  //used within Assertions
+	Expression
+;
+
+BooleanExpression:  //used in actions
+	Expression
+;
+
+NumericExpression:  //used in actions
+	Expression
+;
+
+Expression:
+  all=UniversalQuantification
+  | exists=ExistentialQuantification
+  | sum=SumQuantification
+  | product=ProductQuantification
+  | numberof=CountingQuantification
+  | l=Disjunction ( (sym='iff' | sym='implies') r=Disjunction)?
+; 
+
+Disjunction:
+  l=Conjunction 
+     (
+     ( sym='or' r+=Conjunction ( 'or' r+=Conjunction )*)
+     |	
+     ( 'or' sym='else' r+=Conjunction ( 'or' 'else' r+=Conjunction )*)
+     |	
+     ( sym='xor' r+=Conjunction ( 'xor' r+=Conjunction )*)
+     )?
+;
+
+Conjunction:
+  l=Relation
+    ( ( sym='and' r+=Relation ( 'and' r+=Relation )* )
+    |	( 'and' sym='then' r+=Relation ( 'and' 'then' r+=Relation )* )
+    )?
+;
+
+Relation:
+	l=AddSub 
+	( 
+	( sym=('=' | '<>' | '<' | '<=' | '>=' | '>' | '!=' | '+=') r=AddSub )
+	| 
+	( in='in'	range=Range )
+	)?
+;  
+
+AddSub:
+	l=MultDiv
+	( 
+	( sym='+' r+=MultDiv ( '+' r+=MultDiv )* )
+	|
+	( sym='-' r+=MultDiv )	
+	)?
+;
+
+MultDiv:
+	l=Exp
+	( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
+	| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )	
+	)?
+;
+
+Exp:
+	l=Subexpression ( sym='**' r=Subexpression )?
+;
+
+	
+Subexpression:
+  ( unary=UnaryOperator  )?
+  timed_expression=TimedExpression
+;	
+
+TimedExpression:
+	subject=TimedSubject
+  ( tick='\''
+  | at?='@' time=Subexpression  //must ensure no @ in time
+  | caret?='^' shift=PeriodShift 
+  )?     	
+;
+
+TimedSubject:
+  ps=ParenthesizedSubexpression 
+  | value=Value
+  | conditional=ConditionalExpression
+  | record=RecordTerm
+  | invocation=Invocation
+;
+
+ParenthesizedSubexpression:
+	'(' 
+	( expression=Expression ( '??' t=Expression ':' f=Expression )? 
+	| caseexpression=CaseExpression
+  )
+  ')'
+;
+
+UnaryOperator:
+	not='not'
+	| unary_minus='-'
+	| absolute_value='abs'
+	| truncate='truncate'
+	| round='round'
+;
+
+//assertion_range
+Range:
+	lower_bound=Subexpression sym=RangeSymbol upper_bound=Subexpression
+;
+
+RangeSymbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA;
+
+ConditionalExpression:
+	'(' 'if' pred=Expression 'then' t=Expression 'else' f=Expression ')'
+//	|  MOVED TO ParenthesizedSubexpression
+//	'(' pred=Expression '??' t=Expression ':' f=Expression ')'
+;
+
+///////////////////////   VALUE   ///////////////////////////////
+
+Value:
+  value_name=ValueName
+  | constant=Constant
+  | timeout='timeout'
+  | now='now'
+  | tops='tops'
+  | enum_val=EnumerationValue
+;
+
+EnumerationValue:
+  enumeration_type=[TypeDeclaration] tick='\'' enumeration_value=ID
+;
+
+
+Constant:
+  numeric_constant=Quantity
+  | string_literal=STRING  
+  | t='true' 
+  | f='false' 	
+  | nul='null'
+;
+
+///////////////////////   NAME  ////////////////////////////////////
+
+Variable:  
+	name=ID '~' tod=TypeOrReference  
+;
+
+//name and port_name
+ValueName:
+  id=[aadl2::NamedElement|ID] //resolve as variable or feature (port)
+  //either function call or variable or port 
+    ( '$' lp?='('  pr=FunctionParameters? ')' )?
+  	( lb?='[' array_index+=IndexExpressionOrRange ']' 
+  	  ( '[' array_index+=IndexExpressionOrRange ']' )* )? //optional array index
+  	( dot?='.' pn+=PartialName ( '.' pn+=PartialName )* )?
+    (  q?='?'  
+    | '\'' fresh?='fresh' //fresh is boolean
+    | '\'' count?='count'
+    | '\'' updated?='updated' 
+    )?
+;
+ 
+ 
+PartialName:
+	record_id=ID  //[RecordField]
+	 ( lb?='[' array_index+=IndexExpressionOrRange ']' 
+		( '[' array_index+=IndexExpressionOrRange ']' )* )?
+;
+
+/////////////////////  INDEX EXPRESSION   //////////////////////
+
+//integer_expression_or_range
+IndexExpressionOrRange:
+  left_hand_side=IndexExpression 
+    ( dd?=DOTDOT right_hand_side=IndexExpression )?
+;
+
+//period_shift  
+PeriodShift:
+  unary_minus?='-'?
+  (
+  v=Value
+  | '('  index_expression=IndexExpression ')'
+  )
+;
+
+//index_expression
+IndexExpression:
+	l=PeriodShift 
+    ( 
+    sym='-' r+=PeriodShift 
+    |
+    sym='div' r+=PeriodShift 
+    |
+    sym='mod' r+=PeriodShift 
+    |
+    sym='+' r+=PeriodShift ('+' r+=PeriodShift)*   
+    |
+    sym=TIMES r+=PeriodShift (TIMES r+=PeriodShift)*   
+	)?
+;
+
+
+//////////////////  CASE CHOICE //////////////////////////////////////
+
+CaseExpression returns CaseExpression:
+	'case'
+	cc+=CaseChoice+ 
+;
+
+CaseChoice returns CaseChoice:
+	'(' be=BooleanExpression '->' exp=Expression ')' 
+;
+
+
+/////////////////////  QUANTIFICATION   ////////////////////////////  
+ 
+LogicVariables:
+  lv+=Variable (',' lv+=Variable)*  
+;
+ 
+SumQuantification:
+  'sum' variables=LogicVariables 
+    (in?='in' range=Range | which?='which' condition=Predicate ) 
+     'of' numeric_expression=NumericExpression ;
+
+ProductQuantification:
+  'product' variables=LogicVariables 
+    (in?='in' range=Range | which?='which' condition=Predicate ) 
+     'of' numeric_expression=NumericExpression ;
+  
+CountingQuantification:
+  'numberof' variables=LogicVariables 
+    (in?='in' range=Range | which?='which' condition=Predicate ) 
+     'that' counted=Predicate ;
+
+UniversalQuantification:
+  'all' variables=LogicVariables  
+    (in?='in' range=Range | which?='which' condition=Predicate )
+     'are' predicate=Predicate
+;
+
+ExistentialQuantification:
+  'exists' variables=LogicVariables  
+    (in?='in' range=Range | which?='which' condition=Predicate )
+     'that' predicate=Predicate
+;
+
+
+///////////////////   RECORD VALUES   //////////////////////
+
+
+RecordTerm:
+  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
+;
+
+RecordValue:
+  label=ID 
+  '=>' aval=Value ';'?
+;
+  
+//predicate_invocation and assertion_function_invocation  
+Invocation:
+	label=[NamedAssertion|ID]
+	'(' 	//actual_assertion_parameter_list
+	( (params+=ActualParameter ( ',' params+=ActualParameter )* )
+		| 
+		actual_parameter=NumericExpression
+	)?
+	 ')'
+;  
+
+//actual_assertion_parameter  
+ActualParameter:
+	formal=ID ':' actual=Expression
+;
+ 
+
+VariableList:
+	first=Variable ( comma?=',' parameter+=Variable ( ',' parameter+=Variable )* )?
+;
+
+AssertionFunctionValue returns AssertionFunctionValue:
+	cexp=ConditionalAssertionFunction 
+	| pexp=AssertionNumericExpression  
+;
+
+//conditional_assertion_function
+ConditionalAssertionFunction returns ConditionalAssertionFunction:
+	'[' cvp+=ConditionValuePair ( ',' cvp+=ConditionValuePair )+ ']'
+;
+
+//conditional_value_pair
+ConditionValuePair returns ConditionValuePair:
+	'(' condition=Predicate ')->' expression=AssertionNumericExpression
+;
+
+AssertionEnumeration:
+  pred=Invocation 
+  | 
+  ( pair+=EnumerationPair (',' pair+=EnumerationPair)* )
+;
+
+EnumerationPair returns EnumerationPair:
+  //{ EnumerationPair}
+  enumeration_literal=ID '->' predicate=Predicate
+  ;
+
+
+/////////////////////////////////////////   TYPE   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+TypeLibrary:  
+	decs+=TypeDeclaration+
+;
+
+@Exported
+TypeDeclaration:
+	'type' name=ID 'is' type=Type
+;
+
+TypeOrReference:
+	ty=Type | ref=[TypeDeclaration]
+;
+
+BooleanType: b='boolean';
+StringType: s='string';
+//TimeType: t='time';
+
+//NullType cannot appear in program text
+//it is the type of the 'null' constant
+NullType: n='null';
+
+EnumerationType: 
+ 'enumeration' '(' defining_enumeration_literal+=ID+ ')'
+;
+   
+QuantityType: 
+  'quantity' 
+  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
+  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )? 
+  ( 'step' step=ANumber )?  //check if positive
+  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
+;
+
+ANumber:
+  lit=NUMBER
+  | property=PropertyReference
+  | propertyConstant=[aadl2::PropertyConstant|QCLREF]
+;
+
+//array range must be natural
+//array_type
+ArrayType :   
+  'array' '[' array_ranges=ArrayRangeList ']' 'of' typ=TypeOrReference
+;
+
+//array_range_list
+ArrayRangeList : range+=ArrayRange ( comma?=',' range+=ArrayRange ( ',' range+=ArrayRange )* )? ;
+
+//natural_range
+ArrayRange : lb=ANumber ( DOTDOT ub=ANumber)? ;
+
+//NaturalConstant returns NumericConstant:
+//	NumericConstant  //check if non-negative *integer*  aka natural number
+//;
+
+RecordType : 
+	(record?='record' | variant?='variant' | variant?='union' )
+	'(' fields+=RecordField+ // ( ',' fields+=RecordField )* 
+	  ')'
+;
+
+RecordField : 
+	label=ID 
+	':' typ=TypeOrReference 
+;
+
+
+//NumericConstant:
+//	quantity=Quantity //from Unit
+//	| propertyConstant=[aadl2::PropertyConstant|QCLREF] 
+//	| property=PropertyReference
+//;
+
+
+PropertyReference:
+	'#' pname=[aadl2::Property|QCLREF] ( field+=PropertyField )*
+	//component_element_reference
+	| self?='self' '#' spname=[aadl2::Property|QCLREF] ( field+=PropertyField )*
+	| component=[aadl2::ComponentClassifier|QCREF] '#' cpname=[aadl2::Property|QCLREF]
+	   ( field+=PropertyField )*
+;
+
+//PropertyName:
+//	simple=[aadl2::Property|QCLREF] ;
+
+PropertyField:
+	'[' (index=NUMBER | variable=[Variable]) ']'  //must check that number is integer
+	| '.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+;
+
+///////////////////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+@Exported
+UnitName:   
+	( '<' longname+=ID+ '>' )? name=ID  
+;
+
+
+UnitFormula:
+	top+=[UnitName]+ ( slash?='/' bottom+=[UnitName]+ )?
+	|
+	slash?='/' bottom+=[UnitName]+
+;
+	
+UnitDeclaration: 
+	RootDeclaration | UnitExtension
+;
+	
+RootDeclaration:	 
+	( base?='base' | formula=UnitFormula ) '[' kindWords+=ID+ ']' 
+	unitName=UnitName factors+=UnitFactor* ';'
+	;
+
+UnitExtension:
+	'extension' root=[UnitName] factors+=UnitFactor+ ';'
+;
+
+MulDiv: ( TIMES | '/' );
+
+UnitFactor: ',' unit=UnitName op=MulDiv factor=PositiveNumber;
+
+Quantity: number=ANumber 
+	(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+;  
+
+
+PositiveNumber:  
+	NUMBER  //check no leading '-'
+;
+
+//////////////////////// AADL Elements  //////////////////////////////
+
+NamedElement returns aadl2::NamedElement:
+	UnitName
+	| TypeDeclaration
+//	| EnumerationLiteral
+	| NamedAssertion
+  | Variable
+  | Exception
+  | BehaviorState
+  | ForallVariable
+  | GhostVariable
+  | BehaviorTransition
+;
+
+Element returns aadl2::Element:
+	UnitDeclaration
+	| UnitFactor
+	| UnitFormula
+	| Quantity
+	|	EnumerationType
+	| QuantityType
+	| ArrayType
+	| RecordType
+	| BooleanType
+	| StringType
+//	| NumericConstant
+//expression	
+	| PropertyReference
+	| ArrayRange
+	| ArrayRangeList
+	| TypeOrReference
+	| ActualParameter
+	| ANumber
+	| AddSub
+	| AssertionEnumeration
+	| AssertionFunctionValue
+	| AssertionNumericExpression
+	| BooleanExpression
+	| CaseChoice
+	| CaseExpression
+	| ConditionValuePair
+	| ConditionalAssertionFunction
+	| ConditionalExpression
+	| Conjunction
+	| Constant
+	| CountingQuantification
+	| Disjunction
+	| EnumerationPair
+	| EnumerationValue
+	| ExistentialQuantification
+	| Exp
+	| Expression
+	| IndexExpression
+	| Invocation
+	| InvariantClause
+	| LogicVariables
+	| MultDiv
+	| NumericExpression
+	| NullType
+	| ParenthesizedSubexpression
+	| PartialName
+	| PeriodShift
+	| Predicate
+	| ProductQuantification
+	| PropertyField
+	| Range
+  | RecordField
+	| RecordTerm
+	| RecordValue
+	| Relation
+	| Subexpression
+	| SumQuantification
+	| TimedExpression
+	| TimedSubject
+	| UnaryOperator
+	| UniversalQuantification
+	| Value
+  | ValueName
+	| VariableList
+//assertion
+	| Assertion
+  | AssertionLibrary
+  | GhostVariables
+  | NamelessAssertion
+  | NamelessEnumeration
+  | NamelessFunction
+//action
+	| ActionSubclause
+	| Action
+	| ActionTimeout
+	| ActualParameter
+	| Alternative
+	| BLESSAlternative
+	| AssertClause
+	| AssertedAction
+	| Assignment
+	| BAAlternative
+	| BasicAction
+	| BehaviorActions
+	| BehaviorTime
+//	| BooleanExpression
+	| VariableDeclaration
+	| CatchClause
+	| CatchClauseTerm
+	| CombinableOperation
+	| CommunicationAction
+	| Computation
+	| DoUntilLoop
+  | ElseAlternative
+  | ElseifAlternative
+	| ExistentialLatticeQuantification
+	| Expression
+	| ExpressionOrAny
+	| ForLoop
+	| FormalActual 
+	| FormalActualList
+	| FormalExpressionPair
+	| FunctionParameters
+	| GuardedAction
+  | IssueException	
+	| NameTick
+	| PeriodShift
+	| PortInput
+	| PortOutput
+	| QuantifiedVariables
+	| Range
+	| RecordTerm
+	| RecordValue
+	| SimultaneousAssignment
+	| SubprogramCall
+	| SubProgramParameter
+	| UniversalLatticeQuantification
+	| WhenThrow
+	| WhileLoop
+//BLESS
+	| BLESSSubclause
+	| StatesSection
+//	| BehaviorTransition
+	| DispatchCondition
+	| DispatchConjunction
+	| DispatchExpression
+	| DispatchTrigger
+	| EventTrigger
+	| ExecuteCondition
+	| IndexExpressionOrRange
+	| InternalCondition
+	| InvariantClause
+	| LogicalOperator
+	| ModeCondition
+	| Otherwise
+	| Priority
+	| SubprogramAccessDispatch
+	| Transitions
+//	| TransitionLabel
+	| TriggerLogicalExpression
+	| VariablesSection
+;
+
+//this must come after aadl2::Element
+Type:
+	EnumerationType
+	| QuantityType
+	| ArrayType
+	| RecordType
+	| BooleanType
+	| StringType
+	| NullType
+//	| DataComponentReference
+;
+
+//DataComponentReference:
+//  data=[aadl2::DataType|QPREF]
+//;
+///////////////////////  Terminals  /////////////////////////////
+
+terminal WS			: (' '|'\t'|'\r'|'\n')+;
+
+terminal SL_COMMENT:
+	'--' !('\n' | '\r')* ('\r'? '\n')?;
+
+
+//////////////////////  Numbers   //////////////////////////////
+
+
+terminal fragment
+DIGIT     :  ( '0'..'9' ) ;
+
+//add complex literal 12/11/2021
+terminal 
+NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ( 'i' '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? )?;
+
+
+terminal fragment
+LETTER: ('a'..'z'|'A'..'Z');
+
+QCLREF:
+	ID '::' ID;
+
+
+QPREF:
+	ID ('::' ID)?;
+
+QCREF:
+	(ID '::')* ID ('.' ID)?;
+	
+//IDDOTID:	ID '.' ID;	
+	
+TIMES : '*';
+
+terminal STRING : 
+      '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\\') | !('\\'|'"') )* '"' 
+//    |  "'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+    ; 
+
+terminal ID:	LETTER ( ('_')? (LETTER |'0'..'9'))*;
+
+//terminal AID:	'$' LETTER ( ('_')? (LETTER |'0'..'9'))*;
+
+terminal DOTDOT: '..';
+terminal COMMADOT: ',.';
+terminal DOTCOMMA: '.,';
+terminal COMMACOMMA: ',,';
+
+//terminal RELATION_SYMBOL : '=' | '<>' | '<' | '<=' | '>=' | '>' | '!=';	

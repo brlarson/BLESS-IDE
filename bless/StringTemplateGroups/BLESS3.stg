@@ -51,7 +51,7 @@ array_type(arl,t,at)::= "array[<arl>] of <t>"
 assert_clause(a) ::=
 <<
 assert
-  <a; separator=<\n>>
+  <a; separator="\n">
 >>
 
 asserted_action(p,s,q) ::= 
@@ -79,7 +79,7 @@ behavior_state(bsi,i,com,finl,a) ::=
 behavior_time(e,u) ::= "<e> <u>"
 
 behavior_transition(i,pr,ssi,bc,dsi,ba,btq) ::=
-<<<<i><pr>:
+<<<i><pr>:
   <ssi; separator=",">-[<bc>]-\><dsi><if(ba)>
     { <ba; anchor> }<else>{}<endif> <if(btq)><btq><endif>  --end of <i>
 >>
@@ -114,8 +114,8 @@ caret(p,cv) ::= "<p>^<cv>"
 case_choice(be,exp) ::= "(<be> -> <exp>)"
 
 case_expression(cc) ::= 
-<<case
-  <cc; separator=<\n>>>>
+<< case
+  <cc; separator="\n"> >>
 
 catch_clause(cct) ::= "catch <cct; separator=\" \">"
 
@@ -319,7 +319,7 @@ nameless_assertion(a) ::=
 <<\<\< <a> \>\>>>
 
 nameless_enumeration(inv) ::=
-  "\<<\ +=> <inv> \>\>"
+  "\<\< +=> <inv> \>\>"
 
 nameless_function(tod,a) ::=
 <<\<\< returns <tod> := <a> \>\>>>
@@ -406,7 +406,9 @@ quantified_variables(bv) ::=
 
 quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
 <<
-quantity <unit><scalar><whole><if(lb)> [<lb> .. <ub>]<endif><if(step)> step <step><endif><if(representation)> representation <representation><endif>>>
+quantity <unit><scalar><whole><if(lb)> [<lb> .. <ub>]<endif><if(step)> 
+  step <step><endif><if(representation)> 
+  representation <representation><endif> >>
 
 range(rs,lb,ub)::=  "<lb> <rs> <ub>" 
 
@@ -504,13 +506,13 @@ two_element_expression_spaced(op,l,r) ::=
 
 type_declaration(id,ty)::=
 <<
-type <id> is <ty>>>
+type <id> is <ty> >>
 
 type_library(decs) ::=
 <<
 annex Typedef
   {**
-  <decs; separator=<\n>>
+  <decs; separator="\n">
   **};
 >>
 
@@ -579,10 +581,10 @@ variable(id,tod) ::=
 variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
 <<
 <v> <nv><sh><c><sp><f><if(exp)>:= <exp><endif><if(a)>
-  <a><endif>>>
+  <a><endif> >>
 
 variable_list(parameter) ::=
-<<<parameter; wrap, separator=", ">>>
+<<<parameter; wrap, separator=", "> >>
 
 variables(bv) ::=
 <<
