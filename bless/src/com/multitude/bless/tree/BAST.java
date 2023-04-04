@@ -1122,16 +1122,10 @@ private static int tab=0;  //tabbing for toStringTree
     String result = getText();
     try
       {
-      CommonTreeNodeStream nodes    = new CommonTreeNodeStream(this.dupTree());
-      UnparseBLESS3         unparser = new UnparseBLESS3(nodes);
+      CommonTreeNodeStream nodes = new CommonTreeNodeStream(this.dupTree());
+      UnparseBLESS3 unparser = new UnparseBLESS3(nodes);
       unparser.setTemplateLib(Global.templates);
       unparser.setStartingLine(getLine());
-      // UnparseBLESS3.blessSubclause_return tbu = null;
-      // UnparseBLESS3.actionSubclause_return sbu = null;
-      // UnparseBLESS3.assertionLibrary_return aau = null;
-//Parse.templates.getInstanceOf("blessSubclause",new STAttrMap().put("sv", (sv!=null?((StringTemplate)sv.getTemplate()):null)).put("bs", list_bs)
-//      retval.st = new StringTemplate(templateLib, "assert \n  <ass; separator=\"\\n\"> \n",new STAttrMap().put("ass", list_ass));
-
       switch (this.getType())
         {
         case BLESS3Lexer.DUMMY:
