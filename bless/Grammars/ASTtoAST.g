@@ -187,7 +187,7 @@ getPostconditionFromBehaviorActionsInELQ
     -> {$b.post}  
   ;
   catch [RecognitionException re] 
-  {Dump.it("Aw elq.");
+  { //Dump.it("Aw elq.");
   tell("ASTtoAST.getPostconditionFromBehaviorActionsInELQ",re,(BAST)retval.getTree());
   throw re;}
 //  return null;}
@@ -252,7 +252,7 @@ getPostconditionFromBehaviorActions returns [BAST post = null]
     -> {$elq.tree}
   ;
   catch [RecognitionException re] 
-  {Dump.it("Aw shucks.");
+  { //Dump.it("Aw shucks.");
   tell("ASTtoAST.getPostconditionFromBehaviorActions",re,(BAST)retval.getTree());
   throw re;}
 
@@ -273,19 +273,18 @@ get_x_t_from_behavior_variable
  
 get_invariant_from_bless_subclause  
   :  
-  ^( BLESS_SUBCLAUSE DO_NOT_PROVE? ^( LITERAL_assert .+ )
-    ^( ta=LITERAL_invariant ^( ass=ASSERTION ^(LABEL id= ID )  pred=. ) .* )
-  )
-    -> ^($ass $pred)  //get the predicate only
-  |
-  ^( BLESS_SUBCLAUSE DO_NOT_PROVE? ^( LITERAL_assert .+ )
-    ^( ta=LITERAL_invariant ^( ass=ASSERTION pred=. ) .* )
-  )
+  ^( BLESS_SUBCLAUSE 
+    DO_NOT_PROVE? 
+    ( ^( LITERAL_assert .+ ) )?
+    ^( ta=LITERAL_invariant 
+      ^( ass=ASSERTION ( ^(LABEL id=. ) )?  pred=. ) )
+    .*
+    )
     -> ^($ass $pred)  //get the predicate only
   ;  
   catch [RecognitionException re] 
-  {Dump.it("Did you forget an invariant clause, Bub?");
-  tell("Did you forget an invariant clause, Bub?",re,$ta);
+  { //Dump.it("Did you forget an invariant clause, Bub?");
+  tell("Did you forget an invariant clause?",re,$ta);
 //  tell("ASTtoAST.get_invariant_from_bless_subclause",re,(BAST)retval.getTree());
   }
 
