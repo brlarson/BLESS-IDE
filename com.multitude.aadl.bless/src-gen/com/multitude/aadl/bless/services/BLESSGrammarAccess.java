@@ -5387,25 +5387,25 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cRExpParserRuleCall_1_0_1_0 = (RuleCall)cRAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cSymAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSymTIMESParserRuleCall_1_1_0_0 = (RuleCall)cSymAssignment_1_1_0.eContents().get(0);
+		private final Keyword cSymAsteriskKeyword_1_1_0_0 = (Keyword)cSymAssignment_1_1_0.eContents().get(0);
 		private final Assignment cRAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cRExpParserRuleCall_1_1_1_0 = (RuleCall)cRAssignment_1_1_1.eContents().get(0);
 		private final Group cGroup_1_1_2 = (Group)cGroup_1_1.eContents().get(2);
-		private final RuleCall cTIMESParserRuleCall_1_1_2_0 = (RuleCall)cGroup_1_1_2.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
 		private final Assignment cRAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cRExpParserRuleCall_1_1_2_1_0 = (RuleCall)cRAssignment_1_1_2_1.eContents().get(0);
 		
 		//MultDiv:
 		//    l=Exp
 		//    ( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//    | ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//    | ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//    )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//l=Exp
 		//( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//| ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//)?
 		public Group getGroup() { return cGroup; }
 		
@@ -5416,7 +5416,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public RuleCall getLExpParserRuleCall_0_0() { return cLExpParserRuleCall_0_0; }
 		
 		//( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//| ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//)?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -5447,14 +5447,14 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Exp
 		public RuleCall getRExpParserRuleCall_1_0_1_0() { return cRExpParserRuleCall_1_0_1_0; }
 		
-		//( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//( sym='*' r+=Exp ( '*' r+=Exp )* )
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//sym=TIMES
+		//sym='*'
 		public Assignment getSymAssignment_1_1_0() { return cSymAssignment_1_1_0; }
 		
-		//TIMES
-		public RuleCall getSymTIMESParserRuleCall_1_1_0_0() { return cSymTIMESParserRuleCall_1_1_0_0; }
+		//'*'
+		public Keyword getSymAsteriskKeyword_1_1_0_0() { return cSymAsteriskKeyword_1_1_0_0; }
 		
 		//r+=Exp
 		public Assignment getRAssignment_1_1_1() { return cRAssignment_1_1_1; }
@@ -5462,11 +5462,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Exp
 		public RuleCall getRExpParserRuleCall_1_1_1_0() { return cRExpParserRuleCall_1_1_1_0; }
 		
-		//( TIMES r+=Exp )*
+		//( '*' r+=Exp )*
 		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 		
-		//TIMES
-		public RuleCall getTIMESParserRuleCall_1_1_2_0() { return cTIMESParserRuleCall_1_1_2_0; }
+		//'*'
+		public Keyword getAsteriskKeyword_1_1_2_0() { return cAsteriskKeyword_1_1_2_0; }
 		
 		//r+=Exp
 		public Assignment getRAssignment_1_1_2_1() { return cRAssignment_1_1_2_1; }
@@ -11583,7 +11583,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//MultDiv:
 	//    l=Exp
 	//    ( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-	//    | ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+	//    | ( sym='*' r+=Exp ( '*' r+=Exp )* )
 	//    )?
 	//;
 	public MultDivElements getMultDivAccess() {

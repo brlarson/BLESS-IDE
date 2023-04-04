@@ -2076,7 +2076,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns MultDiv
 	 *
 	 * Constraint:
-	 *     (l=Exp (((sym='/' | sym='div' | sym='mod' | sym='rem') r+=Exp) | (sym=TIMES r+=Exp r+=Exp*))?)
+	 *     (l=Exp (((sym='/' | sym='div' | sym='mod' | sym='rem') r+=Exp) | (sym='*' r+=Exp r+=Exp*))?)
 	 * </pre>
 	 */
 	protected void sequence_MultDiv(ISerializationContext context, MultDiv semanticObject) {

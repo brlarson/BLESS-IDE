@@ -5,12 +5,7 @@ action_subclause(no_proof,tc,ac,pre,post,inv,elq) ::=
 <<
 annex Action
   {**  <if(no_proof)>DO_NOT_PROVE<endif>
-  <if(tc)><tc>
-  <endif><if(ac)><ac>
-  <endif><if(pre)>pre <pre>
-  <endif><if(post)>post <post>
-  <endif><if(inv)>inv <inv>
-  <endif><elq>
+  <tc><ac><if(pre)>pre <pre><\n><endif><if(post)>post <post><\n><endif><if(inv)>inv <inv><\n><endif><elq>
   **};  --end of Action annex subclause
 >>
 
@@ -79,9 +74,11 @@ behavior_state(bsi,i,com,finl,a) ::=
 behavior_time(e,u) ::= "<e> <u>"
 
 behavior_transition(i,pr,ssi,bc,dsi,ba,btq) ::=
-<<<i><pr>:
-  <ssi; separator=",">-[<bc>]-\><dsi><if(ba)>
-    { <ba; anchor> }<else>{}<endif> <if(btq)><btq><endif>  --end of <i>
+<<
+<i><pr> : <ssi; separator=",">-[<bc>]-\><dsi>
+  { 
+  <ba> 
+  } --end of <i><if(btq)><\n><btq><endif>  
 >>
 
 behavior_variable_type(d,t,p,s,con,sp,e,finl,ass) ::=
@@ -96,13 +93,9 @@ bless_property_association(bpa,ass) ::=
 bless_subclause(n,ac,inv,vs,ss,t) ::=
 <<
 annex BLESS
-  {** <if(n)>DO_NOT_PROVE
-  <endif><if(ac)><ac>
-  <endif><if(inv)><inv>
-  <endif><if(vs)><vs>
-  <endif><if(ss)><ss>
-  <endif><if(t)><t>
-  <endif>**};
+  {** <if(n)>DO_NOT_PROVE<endif>
+  <ac><inv><vs><ss><t>
+  **};
 >>
 
 boolean()::="boolean"
@@ -114,8 +107,10 @@ caret(p,cv) ::= "<p>^<cv>"
 case_choice(be,exp) ::= "(<be> -> <exp>)"
 
 case_expression(cc) ::= 
-<< case
-  <cc; separator="\n"> >>
+<< 
+case
+  <cc; separator="\n"> 
+>>
 
 catch_clause(cct) ::= "catch <cct; separator=\" \">"
 
@@ -138,7 +133,7 @@ computation(lb,ub,c) ::=
   "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
 concurrent_composition(g)::=
-  "<g; separator=\"\n&\n\">" 
+  "<g; anchor, separator=\"\n&\n\">" 
 
 conditional_assertion_function(cvp) ::=
 <<
@@ -446,7 +441,7 @@ root_declaration(base,formula,kindWords,unit,factors) ::=
 <base><formula> [ <kindWords; separator=" "> ] <unit> <factors; separator=" ">; >>
 
 sequential_composition(f)::=
-  "<f; separator=\"\n;\n\">" 
+  "<f; anchor, separator=\"\n;\n\">" 
 
 simultaneous_assignment(l,r) ::=
 <<
@@ -492,7 +487,9 @@ time()::= "time"
 timeout(bt,p) ::= "timeout <if(p)>(<p; separator=\" \">) <endif><bt>"
 
 transitions(bt) ::=
-<<transitions
+<<
+
+transitions
   <bt; separator="\n\n">
 >>
 

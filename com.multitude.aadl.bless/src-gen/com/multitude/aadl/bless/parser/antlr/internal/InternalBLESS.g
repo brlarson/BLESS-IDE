@@ -8194,20 +8194,15 @@ ruleMultDiv returns [EObject current=null]
 			(
 				(
 					(
+						lv_sym_3_0='*'
 						{
-							newCompositeNode(grammarAccess.getMultDivAccess().getSymTIMESParserRuleCall_1_1_0_0());
+							newLeafNode(lv_sym_3_0, grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0());
 						}
-						lv_sym_3_0=ruleTIMES
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getMultDivRule());
+								$current = createModelElement(grammarAccess.getMultDivRule());
 							}
-							set(
-								$current,
-								"sym",
-								lv_sym_3_0,
-								"com.multitude.aadl.bless.BLESS.TIMES");
-							afterParserOrEnumRuleCall();
+							setWithLastConsumed($current, "sym", lv_sym_3_0, "*");
 						}
 					)
 				)
@@ -8231,12 +8226,9 @@ ruleMultDiv returns [EObject current=null]
 					)
 				)
 				(
+					otherlv_5='*'
 					{
-						newCompositeNode(grammarAccess.getMultDivAccess().getTIMESParserRuleCall_1_1_2_0());
-					}
-					ruleTIMES
-					{
-						afterParserOrEnumRuleCall();
+						newLeafNode(otherlv_5, grammarAccess.getMultDivAccess().getAsteriskKeyword_1_1_2_0());
 					}
 					(
 						(

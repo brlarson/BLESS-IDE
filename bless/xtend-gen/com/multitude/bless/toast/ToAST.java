@@ -657,6 +657,24 @@ public class ToAST {
             };
             _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
             break;
+          case "!=":
+            BAST _newBAST_6 = this.newBAST(parent);
+            final Procedure1<BAST> _function_6 = (BAST it) -> {
+              it.myText = "!=";
+              CommonToken _commonToken = new CommonToken(BLESS3Lexer.OLD_NEQ, "!=");
+              it.token = _commonToken;
+            };
+            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_6, _function_6);
+            break;
+          case "+=":
+            BAST _newBAST_7 = this.newBAST(parent);
+            final Procedure1<BAST> _function_7 = (BAST it) -> {
+              it.myText = "+=";
+              CommonToken _commonToken = new CommonToken(BLESS3Lexer.PLUS_EQUALS, "+=");
+              it.token = _commonToken;
+            };
+            _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_7, _function_7);
+            break;
         }
       }
       _xtrycatchfinallyexpression = _switchResult;
@@ -5805,9 +5823,14 @@ public class ToAST {
         if (_tripleNotEquals_1) {
           it.addChild(this.toAST(e.getInvariant()));
         }
-        StatesSection _statesSection = e.getStatesSection();
-        boolean _tripleNotEquals_2 = (_statesSection != null);
+        VariablesSection _variables = e.getVariables();
+        boolean _tripleNotEquals_2 = (_variables != null);
         if (_tripleNotEquals_2) {
+          it.addChild(this.toAST(e.getVariables()));
+        }
+        StatesSection _statesSection = e.getStatesSection();
+        boolean _tripleNotEquals_3 = (_statesSection != null);
+        if (_tripleNotEquals_3) {
           BAST _newBAST_2 = this.newBAST(e);
           final Procedure1<BAST> _function_2 = (BAST it_1) -> {
             it_1.myText = "states";
@@ -5820,11 +5843,6 @@ public class ToAST {
           };
           BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
           it.addChild(_doubleArrow_1);
-        }
-        VariablesSection _variables = e.getVariables();
-        boolean _tripleNotEquals_3 = (_variables != null);
-        if (_tripleNotEquals_3) {
-          it.addChild(this.toAST(e.getVariables()));
         }
         Transitions _transitions = e.getTransitions();
         boolean _tripleNotEquals_4 = (_transitions != null);

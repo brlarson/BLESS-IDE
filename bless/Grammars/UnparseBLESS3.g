@@ -1385,7 +1385,7 @@ behaviorTransition
   ^( TRANSITION ^( LABEL id=ID pr=priority? ) ^( SOURCE ssi+=ID+ ) 
     ^( CONDITION bc=behaviorCondition? ) ^( DESTINATION dsi=ID )
     ^( ACTION s=behaviorActions? ) ^( Q q=assertion? ) )
-    -> behavior_transition(id={$id.text}, pr={$pr.st}, ssi={$ssi},
+    -> behavior_transition(i={$id.text}, pr={$pr.st}, ssi={$ssi},
         bc={$bc.st}, dsi={$dsi.text}, ba={$s.st}, btq={$q.st})
   ;
 

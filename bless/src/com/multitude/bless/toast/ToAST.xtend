@@ -423,66 +423,27 @@ makeBASTforRelationSymbol(String mySymbol, Element parent)
   	   myText = '>='
        token = new CommonToken(BLESS3Lexer.AL, '>=')
       ]	 		
-  	case '>' :
-  	newBAST(parent) =>
-  	  [
-  	   myText = '>'
+    case '>' :
+    newBAST(parent) =>
+      [
+       myText = '>'
        token = new CommonToken(BLESS3Lexer.GT, '>')
-      ]	 		
+      ]     
+    case '!=' :
+    newBAST(parent) =>
+      [
+       myText = '!='
+       token = new CommonToken(BLESS3Lexer.OLD_NEQ, '!=')
+      ]     
+    case '+=' :
+    newBAST(parent) =>
+      [
+       myText = '+='
+       token = new CommonToken(BLESS3Lexer.PLUS_EQUALS, '+=')
+      ]     
   	}  //end of switch	
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforRelationSymbol
-  
-/**
- * make a BAST node for a time_unit : LITERAL_ps | LITERAL_us | LITERAL_ms | LITERAL_sec | LITERAL_min | LITERAL_hr    ;	
- * used by BehaviorTime 
- */
-//  def BAST 
-//makeBASTforTimeUnit(String myUnit, BehaviorTime parent)
-//  {
-//   try {  
-//  switch myUnit
-//  	{
-//  	case 'ps' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'ps'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_ps, 'ps')
-//      ]	
-//  	case 'us' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'us'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_us, 'us')
-//      ]	
-//  	case 'ms' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'ms'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_ms, 'ms')
-//      ]	
-//  	case 'sec' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'sec'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_sec, 'sec')
-//      ]	 		
-//  	case 'min' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'min'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_min, 'min')
-//      ]	 		
-//  	case 'hr' :
-//  	newBAST(parent) =>
-//  	  [
-//  	   myText = 'hr'
-//       token = new CommonToken(BLESS3Lexer.LITERAL_hr, 'hr')
-//      ]	 		
-//  	}  //end of switch	
-//    } catch (Exception ex) {ex.printStackTrace x}
-//  }  //end of makeBASTforTimeUnit
-
 
 /**
  * make a BAST node for an AADL Property
@@ -2243,8 +2204,7 @@ toAST(AddSub e)
 //  | ^( LITERAL_div l=exponentiation r=exponentiation )
 //  | ^( LITERAL_mod l=exponentiation r=exponentiation )
 //  | ^( LITERAL_rem l=exponentiation r=exponentiation )
-//  | e=exponentiation
-  
+//  | e=exponentiation 
    def dispatch BAST
 toAST(MultDiv e)
   {
@@ -3261,6 +3221,7 @@ toAST(BehaviorTransition e)
   	    myText = "LABEL["+e.name+"]"
         token = new CommonToken(BLESS3Lexer.LABEL, "LABEL["+e.name+"]")
         addChild(e.name.makeBASTforID(e))
+        //add Priority
         ] )
       addChild(newBAST(e) =>  // "SOURCE"
         [  
@@ -3369,9 +3330,13 @@ toAST(BLESSSubclause e)
       //assert_clause?
       if (e.assert_clause!==null)
         addChild(e.assert_clause.toAST)
-      //invariant
+      //invariant?
       if (e.invariant!==null)
         addChild(e.invariant.toAST)
+      //variables?
+      if (e.variables!==null)
+        addChild(e.variables.toAST)
+      //states?  
       if (e.statesSection !== null)
         addChild(newBAST(e) =>  // add states
         [  
@@ -3380,9 +3345,6 @@ toAST(BLESSSubclause e)
         for (state : e.statesSection.states)  //add states+=BehaviorState+
           addChild(state.toAST)
         ] )
-      //variables?
-      if (e.variables!==null)
-        addChild(e.variables.toAST)
       //transitions?
       if (e.transitions!==null)
         addChild(e.transitions.toAST)

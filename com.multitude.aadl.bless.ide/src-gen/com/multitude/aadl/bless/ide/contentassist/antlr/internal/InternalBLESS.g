@@ -18497,9 +18497,9 @@ rule__MultDiv__Group_1_1_2__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getMultDivAccess().getTIMESParserRuleCall_1_1_2_0()); }
-	ruleTIMES
-	{ after(grammarAccess.getMultDivAccess().getTIMESParserRuleCall_1_1_2_0()); }
+	{ before(grammarAccess.getMultDivAccess().getAsteriskKeyword_1_1_2_0()); }
+	'*'
+	{ after(grammarAccess.getMultDivAccess().getAsteriskKeyword_1_1_2_0()); }
 )
 ;
 finally {
@@ -31788,9 +31788,13 @@ rule__MultDiv__SymAssignment_1_1_0
 	}
 :
 	(
-		{ before(grammarAccess.getMultDivAccess().getSymTIMESParserRuleCall_1_1_0_0()); }
-		ruleTIMES
-		{ after(grammarAccess.getMultDivAccess().getSymTIMESParserRuleCall_1_1_0_0()); }
+		{ before(grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0()); }
+		(
+			{ before(grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0()); }
+			'*'
+			{ after(grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0()); }
+		)
+		{ after(grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0()); }
 	)
 ;
 finally {

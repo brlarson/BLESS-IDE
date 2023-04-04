@@ -679,7 +679,7 @@ AddSub:
 MultDiv:
 	l=Exp
 	( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-	| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )	
+	| ( sym='*' r+=Exp ( '*' r+=Exp )* )	
 	)?
 ;
 
