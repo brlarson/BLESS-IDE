@@ -6,6 +6,7 @@ options {
   language = Java;
   output = AST;
   ASTLabelType = BAST;
+  backtrack=true;
 //  k=3;
 //  ignoreCase = true;
 }  //end of options
@@ -290,14 +291,16 @@ SLCOMMENT
   ; 
 
 REAL_LIT :  
-  (DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
+  (DIGIT)+ ( '.' (DIGIT)+ ( EXPONENT )?)
+//  (DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
   ;
 
 INTEGER_LIT : 
-    (DIGIT)+('_' (DIGIT)+)*
-    (( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
-      | (INT_EXPONENT)?
-    )
+    (DIGIT)+
+//    (DIGIT)+('_' (DIGIT)+)*
+//    (( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
+//      | (INT_EXPONENT)?
+//    )
   ;
   
 DOT : '.';
@@ -521,7 +524,7 @@ DIGIT   :  ( '0'..'9' ) ;
 
 fragment
 EXPONENT   :  ('e'|'E') ('+'|'-')? ( DIGIT )+ ;
-
+/*
 fragment
 INT_EXPONENT  :  ('e'|'E') ('+')? ( DIGIT )+ 
   ;
@@ -535,8 +538,8 @@ BASED_INTEGER      :  ( EXTENDED_DIGIT ) ( ('_')? EXTENDED_DIGIT )* ;
 fragment
 BASE        : DIGIT ( DIGIT )?
 ;
-
-NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ( 'i' '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? )?;
+*/
+//NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ;
 
 START_ASSERTION_PROPERTY : '"<<';
 
@@ -637,6 +640,7 @@ identifier
   
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
+number:  INTEGER_LIT | REAL_LIT ;
 
 /////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -677,7 +681,7 @@ mulDiv: ( TIMES | DIVIDE )
   ;
 
 unitFactor: 
-  c=COMMA unit=unitName op=mulDiv factor=NUMBER
+  c=COMMA unit=unitName op=mulDiv factor=number
     -> ^( $c $unit $op $factor )
   ;
 
@@ -755,28 +759,31 @@ ghostVariable:
   ;
 
 namedAssertion: 
-  LASS
-  id=ID COLON 
-  (
+  lass=LASS
+  ( id=ID COLON 
+    (
     formals=variableList?
       ( //assertion_predicate
-      COLON  pred=predicate 
+      col=COLON  pred=predicate 
       | //assertion_function
       ret=LITERAL_returns tod=typeOrReference ASSIGN  functionvalue=assertionFunctionValue 
       ) 
     | //assertion_enumeration
     assertionvariable=ID til=TILDE enumerationTy=ID enumeration=assertionEnumeration
+    )
   )
   RASS
-   -> {formals==null&&pred!=null}? ^( ASSERTION ^( LABEL $id ) $pred )                                          
-   -> {formals!=null&&pred!=null}? ^( ASSERTION ^( LABEL $id ) ^( PARAMETERS $formals ) $pred )
-   -> {formals==null&&tod!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( $ret $tod ) $functionvalue )                                          
-   -> {formals!=null&&tod!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( PARAMETERS $formals ) ^( $ret $tod ) $functionvalue ) 
-   -> {assertionvariable!=null}?  ^( ASSERTION_ENUMERATION ^( LABEL $id ) ^( $til $assertionvariable $enumerationTy ) $enumeration  ) 
-   -> ^( ASSERTION ^( LABEL $id ) DUMMY )                                    
+   -> {id!=null&&formals==null&&col!=null}? ^( ASSERTION ^( LABEL $id ) $pred )                                          
+   -> {id!=null&&formals!=null&&col!=null}? ^( ASSERTION ^( LABEL $id ) ^( PARAMETERS $formals ) $pred )
+   -> {id!=null&&formals==null&&ret!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( $ret $tod ) $functionvalue )                                          
+   -> {id!=null&&formals!=null&&ret!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( PARAMETERS $formals ) ^( $ret $tod ) $functionvalue ) 
+   -> {til!=null}?  ^( ASSERTION_ENUMERATION ^( LABEL $id ) ^( $til $assertionvariable $enumerationTy ) $enumeration  ) 
+   -> $lass  //error
 ; 
 
-predicate:  expression;
+predicate:  ex=expression
+  -> $ex
+  ;
 
 variableList:
   first=variable ( COMMA^ parameter+=variable ( COMMA! parameter+=variable )* )?
@@ -817,6 +824,7 @@ enumerationValue:
   enumeration_type=ID TICK^ enumeration_value=ID
   ;
 
+
 namelessAssertion:
   LASS pred=predicate RASS
     -> ^( ASSERTION $pred )
@@ -832,6 +840,16 @@ namelessEnumeration:
 	  ->  ^( ASSERTION_ENUMERATION $inv )
 	;
 
+assertion
+//  options{backtrack=true;}
+:
+  (LASS ID COLON)=> namedAssertion
+  | (LASS ASSIGN)=> namelessFunction
+  | (LASS PLUS_EQUALS)=> namelessEnumeration
+  | namelessAssertion
+  ;
+
+
 invocation:
 	id=ID LPAREN 
 	( ( params+=actualParameter ( COMMA params+=actualParameter )* )
@@ -841,13 +859,6 @@ invocation:
 
 actualParameter:
   formal=ID COLON^ actual=expression
-  ;
-
-assertion:
-  namedAssertion
-  | namelessAssertion
-  | namelessFunction
-  | namelessEnumeration
   ;
   
 //////////////////////////  EXPRESSION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -968,12 +979,23 @@ exponentiation:
   ;	
 	
 subexpression:
-	( uo=unaryOperator )? te=timedExpression
-	  -> {uo!=null}? ^( $uo $te )
-	  -> $te
+  n=LITERAL_not te=timedExpression
+    -> ^( $n $te )
+	|
+  abs=LITERAL_abs te=timedExpression
+    -> ^( $abs $te )
+	|
+  trunc=LITERAL_truncate te=timedExpression
+    -> ^( $trunc $te )
+	|
+  rnd=LITERAL_round te=timedExpression
+    -> ^( $rnd $te )
 	|
 	MINUS te=timedExpression
 	  -> ^( UNARY_MINUS $te )
+	|
+	te=timedExpression
+	  -> $te
 	;
 
 unaryOperator:
@@ -1138,14 +1160,21 @@ constant:
 	
 
 quantity: 
-  number=aNumber 
-  ( u=ID '%' | 
-  scalar=LITERAL_scalar | whole=LITERAL_whole )?
-   -> ^( QUANTITY $number $u? $scalar? $whole? )
+  num=aNumber u=ID 
+   -> ^( QUANTITY $num $u )
+  | 
+  num=aNumber scalar=LITERAL_scalar 
+   -> ^( QUANTITY $num  $scalar )
+  | 
+  num=aNumber whole=LITERAL_whole 
+   -> ^( QUANTITY $num $whole )
+  |
+  num=aNumber 
+   -> ^( QUANTITY $num )
   ;  
 
 aNumber:
- lit=NUMBER
+ lit=number
  | property=propertyReference
  | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
   ;
@@ -1163,7 +1192,7 @@ propertyReference:
 
 
 propertyField:
-	LBRACKET^ (index=NUMBER | var=ID ) //[Variable]) 
+	LBRACKET^ (index=number | var=ID ) //[Variable]) 
 	   RBRACKET!  //must check that number is integer
 	| DOT^  (pf=ID | upper=LITERAL_upper_bound | lower=LITERAL_lower_bound)
   ;
@@ -1187,7 +1216,7 @@ throwsClause:
   ;
 
 assertClause:
-  LITERAL_assert^ (assertions+=namedAssertion)+
+  LITERAL_assert^ namedAssertion+
   ;
 	
 //actionTimeout:
@@ -1516,7 +1545,7 @@ behaviorTransition
      reportError(re,(BAST)retval.getTree());}
 
 priority:
-	LBRACKET^ NUMBER RBRACKET
+	LBRACKET^ INTEGER_LIT RBRACKET
 ;
 
 behaviorCondition 
@@ -1556,7 +1585,7 @@ dispatchTrigger:
 
 portName:
   port=ID^ //[aadl2::NamedElement|ID] 
-  ( '[' index=NUMBER ']' )? 
+  ( '[' index=INTEGER_LIT ']' )? 
 ;
 
 executeCondition:

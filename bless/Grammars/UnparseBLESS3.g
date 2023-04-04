@@ -214,7 +214,12 @@ identifier
 	;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-
+number
+  :
+  INTEGER_LIT
+  |
+  REAL_LIT
+  ;
 /////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\
 /*
 unitLibrary
@@ -262,10 +267,10 @@ unitExtension
 
 
 unitFactor: 
-  ^( COMMA unit=unitName t=TIMES factor=NUMBER )
+  ^( COMMA unit=unitName t=TIMES factor=number )
     -> unit_factor(unit={$unit.st}, op={$t.text}, factor={$factor.text})
   |
-  ^( COMMA unit=unitName d=DIVIDE factor=NUMBER )
+  ^( COMMA unit=unitName d=DIVIDE factor=number )
     -> unit_factor(unit={$unit.st}, op={$d.text}, factor={$factor.text})
   ;
   
@@ -991,21 +996,21 @@ constant
 
 quantity
   :
-  ^( QUANTITY number=aNumber )
-    -> {$number.st}
+  ^( QUANTITY num=aNumber )
+    -> {$num.st}
   |
-  ^( QUANTITY number=aNumber unit=ID )
-    -> template(number={$number.st}, unit={$unit.text}) "<number> <unit>"
+  ^( QUANTITY num=aNumber unit=ID )
+    -> template(number={$num.st}, unit={$unit.text}) "<number> <unit>"
   |
-  ^( QUANTITY number=aNumber LITERAL_scalar )
-    -> template(number={$number.st}) "<number> scalar"
+  ^( QUANTITY num=aNumber LITERAL_scalar )
+    -> template(number={$num.st}) "<number> scalar"
   |
-  ^( QUANTITY number=aNumber LITERAL_whole )
-    -> template(number={$number.st}) "<number> whole"
+  ^( QUANTITY num=aNumber LITERAL_whole )
+    -> template(number={$num.st}) "<number> whole"
 	;	
 	    
 aNumber:
- lit=NUMBER
+ lit=number
    -> {%{$lit.text}}
  | property=propertyReference
    -> {$property.st}
@@ -1041,7 +1046,7 @@ propertyReference
   
 propertyField
   :
-  ^( LBRACKET index=NUMBER )
+  ^( LBRACKET index=number )
     -> index(i={$index.text})
   |
   ^( LBRACKET var=ID )
@@ -1391,7 +1396,7 @@ behaviorTransition
 
 priority
   :
-	^( LBRACKET num=NUMBER RBRACKET )
+	^( LBRACKET num=INTEGER_LIT RBRACKET )
 	  -> priority(num={$num.text})
   ;
 
@@ -1468,7 +1473,7 @@ behaviorTime:
 
 portName
   :
-  ^( port=ID index=NUMBER? )
+  ^( port=ID index=INTEGER_LIT? )
     -> port_name(port={$port.text},index={$index.text})
   ;
 

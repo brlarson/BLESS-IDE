@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-03 17:00:42
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-04 02:40:35
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -29,33 +29,32 @@ public class ASTtoAST extends TreeParser {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AADL_STRING_LITERAL", "AADL_STRING_PART", 
 		"ACTION", "ACTION_SUBCLAUSE", "AL", "AM", "AMPERSAND", "ANNEX_END", "ANNEX_START", 
 		"ARROW", "ASSERTION", "ASSERTION_ANNEX", "ASSERTION_ENUMERATION", "ASSERTION_FUNCTION", 
-		"ASSIGN", "AT_SIGN", "BASE", "BASED_INTEGER", "BEHAVIOR_GUARD", "BI", 
-		"BLESS_SUBCLAUSE", "BOUND", "BOX", "CARET", "COLON", "COLON_TILDE", "COMMA", 
-		"COMMACOMMA", "COMMADOT", "COMPONENT", "CONDITION", "CONDITIONAL_ASSERTION_FUNCTION", 
-		"COUNTING_TRIGGER", "CVP", "DESTINATION", "DIGIT", "DIVIDE", "DOLLAR", 
-		"DOT", "DOTCOMMA", "DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", "DO_NOT_PROVE", 
-		"DUMMY", "EMPTY_CURLY", "END_ASSERTION_PROPERTY", "EQ", "EXCLAMATION", 
-		"EXP", "EXPONENT", "EXTENDED_DIGIT", "FLOATING", "FUNCTION", "GT", "GUARD", 
-		"HEX_DIGIT", "ID", "IMP", "INMODE", "INOUT", "INTEGER_LIT", "INT_EXPONENT", 
-		"INVARIANT", "INVOKE", "INVOKE_FUNCTION", "IP_NAME", "IP_PE", "IP_PRED", 
-		"LABEL", "LASS", "LBRACKET", "LCON", "LCURLY", "LITERAL_Assertion", "LITERAL_Invariant", 
-		"LITERAL_Postcondition", "LITERAL_Precondition", "LITERAL_Typed", "LITERAL_aadlboolean", 
-		"LITERAL_aadlinteger", "LITERAL_aadlreal", "LITERAL_aadlstring", "LITERAL_abs", 
-		"LITERAL_access", "LITERAL_all", "LITERAL_and", "LITERAL_any", "LITERAL_applies", 
-		"LITERAL_are", "LITERAL_array", "LITERAL_assert", "LITERAL_availability", 
-		"LITERAL_base", "LITERAL_binding", "LITERAL_boolean", "LITERAL_bound", 
-		"LITERAL_call", "LITERAL_calls", "LITERAL_case", "LITERAL_catch", "LITERAL_classifier", 
-		"LITERAL_complete", "LITERAL_component", "LITERAL_computation", "LITERAL_connection", 
-		"LITERAL_connections", "LITERAL_constant", "LITERAL_count", "LITERAL_declare", 
-		"LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", "LITERAL_div", "LITERAL_do", 
-		"LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", "LITERAL_exists", 
-		"LITERAL_extends", "LITERAL_extension", "LITERAL_false", "LITERAL_feature", 
-		"LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", 
-		"LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", "LITERAL_forall", 
-		"LITERAL_fresh", "LITERAL_ghost", "LITERAL_if", "LITERAL_iff", "LITERAL_implementation", 
-		"LITERAL_implies", "LITERAL_in", "LITERAL_inherit", "LITERAL_initial", 
-		"LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", 
-		"LITERAL_list", "LITERAL_lower_bound", "LITERAL_mod", "LITERAL_mode", 
+		"ASSIGN", "AT_SIGN", "BEHAVIOR_GUARD", "BI", "BLESS_SUBCLAUSE", "BOUND", 
+		"BOX", "CARET", "COLON", "COLON_TILDE", "COMMA", "COMMACOMMA", "COMMADOT", 
+		"COMPONENT", "CONDITION", "CONDITIONAL_ASSERTION_FUNCTION", "COUNTING_TRIGGER", 
+		"CVP", "DESTINATION", "DIGIT", "DIVIDE", "DOLLAR", "DOT", "DOTCOMMA", 
+		"DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", "DO_NOT_PROVE", "DUMMY", "EMPTY_CURLY", 
+		"END_ASSERTION_PROPERTY", "EQ", "EXCLAMATION", "EXP", "EXPONENT", "FLOATING", 
+		"FUNCTION", "GT", "GUARD", "HEX_DIGIT", "ID", "IMP", "INMODE", "INOUT", 
+		"INTEGER_LIT", "INVARIANT", "INVOKE", "INVOKE_FUNCTION", "IP_NAME", "IP_PE", 
+		"IP_PRED", "LABEL", "LASS", "LBRACKET", "LCON", "LCURLY", "LITERAL_Assertion", 
+		"LITERAL_Invariant", "LITERAL_Postcondition", "LITERAL_Precondition", 
+		"LITERAL_Typed", "LITERAL_aadlboolean", "LITERAL_aadlinteger", "LITERAL_aadlreal", 
+		"LITERAL_aadlstring", "LITERAL_abs", "LITERAL_access", "LITERAL_all", 
+		"LITERAL_and", "LITERAL_any", "LITERAL_applies", "LITERAL_are", "LITERAL_array", 
+		"LITERAL_assert", "LITERAL_availability", "LITERAL_base", "LITERAL_binding", 
+		"LITERAL_boolean", "LITERAL_bound", "LITERAL_call", "LITERAL_calls", "LITERAL_case", 
+		"LITERAL_catch", "LITERAL_classifier", "LITERAL_complete", "LITERAL_component", 
+		"LITERAL_computation", "LITERAL_connection", "LITERAL_connections", "LITERAL_constant", 
+		"LITERAL_count", "LITERAL_declare", "LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", 
+		"LITERAL_div", "LITERAL_do", "LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", 
+		"LITERAL_exists", "LITERAL_extends", "LITERAL_extension", "LITERAL_false", 
+		"LITERAL_feature", "LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", 
+		"LITERAL_fetchxor", "LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", 
+		"LITERAL_forall", "LITERAL_fresh", "LITERAL_ghost", "LITERAL_if", "LITERAL_iff", 
+		"LITERAL_implementation", "LITERAL_implies", "LITERAL_in", "LITERAL_inherit", 
+		"LITERAL_initial", "LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", 
+		"LITERAL_is", "LITERAL_list", "LITERAL_lower_bound", "LITERAL_mod", "LITERAL_mode", 
 		"LITERAL_modes", "LITERAL_nonvolatile", "LITERAL_not", "LITERAL_now", 
 		"LITERAL_null", "LITERAL_numberof", "LITERAL_of", "LITERAL_on", "LITERAL_or", 
 		"LITERAL_package", "LITERAL_parameter", "LITERAL_pause", "LITERAL_post", 
@@ -73,19 +72,18 @@ public class ASTtoAST extends TreeParser {
 		"LITERAL_upper_bound", "LITERAL_variables", "LITERAL_variant", "LITERAL_when", 
 		"LITERAL_which", "LITERAL_while", "LITERAL_whole", "LITERAL_with", "LITERAL_xor", 
 		"LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", "NEQ", 
-		"NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
-		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
-		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", 
-		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", 
-		"RECORD_TERM", "ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", 
-		"SOURCE", "START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_INVOCATION", 
+		"OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", "PARAMETERS", 
+		"PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", "PORT_OUTPUT", 
+		"PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", "QQ", "QUANTITY", 
+		"QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", "RECORD_TERM", 
+		"ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", 
+		"START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_INVOCATION", 
 		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
 		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
 		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
-		"WP", "WS", "'%'"
+		"WP", "WS"
 	};
 	public static final int EOF=-1;
-	public static final int T__287=287;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
@@ -102,273 +100,268 @@ public class ASTtoAST extends TreeParser {
 	public static final int ASSERTION_FUNCTION=17;
 	public static final int ASSIGN=18;
 	public static final int AT_SIGN=19;
-	public static final int BASE=20;
-	public static final int BASED_INTEGER=21;
-	public static final int BEHAVIOR_GUARD=22;
-	public static final int BI=23;
-	public static final int BLESS_SUBCLAUSE=24;
-	public static final int BOUND=25;
-	public static final int BOX=26;
-	public static final int CARET=27;
-	public static final int COLON=28;
-	public static final int COLON_TILDE=29;
-	public static final int COMMA=30;
-	public static final int COMMACOMMA=31;
-	public static final int COMMADOT=32;
-	public static final int COMPONENT=33;
-	public static final int CONDITION=34;
-	public static final int CONDITIONAL_ASSERTION_FUNCTION=35;
-	public static final int COUNTING_TRIGGER=36;
-	public static final int CVP=37;
-	public static final int DESTINATION=38;
-	public static final int DIGIT=39;
-	public static final int DIVIDE=40;
-	public static final int DOLLAR=41;
-	public static final int DOT=42;
-	public static final int DOTCOMMA=43;
-	public static final int DOTDOT=44;
-	public static final int DOUBLE_COLON=45;
-	public static final int DOUBLE_QUOTE=46;
-	public static final int DO_NOT_PROVE=47;
-	public static final int DUMMY=48;
-	public static final int EMPTY_CURLY=49;
-	public static final int END_ASSERTION_PROPERTY=50;
-	public static final int EQ=51;
-	public static final int EXCLAMATION=52;
-	public static final int EXP=53;
-	public static final int EXPONENT=54;
-	public static final int EXTENDED_DIGIT=55;
-	public static final int FLOATING=56;
-	public static final int FUNCTION=57;
-	public static final int GT=58;
-	public static final int GUARD=59;
-	public static final int HEX_DIGIT=60;
-	public static final int ID=61;
-	public static final int IMP=62;
-	public static final int INMODE=63;
-	public static final int INOUT=64;
-	public static final int INTEGER_LIT=65;
-	public static final int INT_EXPONENT=66;
-	public static final int INVARIANT=67;
-	public static final int INVOKE=68;
-	public static final int INVOKE_FUNCTION=69;
-	public static final int IP_NAME=70;
-	public static final int IP_PE=71;
-	public static final int IP_PRED=72;
-	public static final int LABEL=73;
-	public static final int LASS=74;
-	public static final int LBRACKET=75;
-	public static final int LCON=76;
-	public static final int LCURLY=77;
-	public static final int LITERAL_Assertion=78;
-	public static final int LITERAL_Invariant=79;
-	public static final int LITERAL_Postcondition=80;
-	public static final int LITERAL_Precondition=81;
-	public static final int LITERAL_Typed=82;
-	public static final int LITERAL_aadlboolean=83;
-	public static final int LITERAL_aadlinteger=84;
-	public static final int LITERAL_aadlreal=85;
-	public static final int LITERAL_aadlstring=86;
-	public static final int LITERAL_abs=87;
-	public static final int LITERAL_access=88;
-	public static final int LITERAL_all=89;
-	public static final int LITERAL_and=90;
-	public static final int LITERAL_any=91;
-	public static final int LITERAL_applies=92;
-	public static final int LITERAL_are=93;
-	public static final int LITERAL_array=94;
-	public static final int LITERAL_assert=95;
-	public static final int LITERAL_availability=96;
-	public static final int LITERAL_base=97;
-	public static final int LITERAL_binding=98;
-	public static final int LITERAL_boolean=99;
-	public static final int LITERAL_bound=100;
-	public static final int LITERAL_call=101;
-	public static final int LITERAL_calls=102;
-	public static final int LITERAL_case=103;
-	public static final int LITERAL_catch=104;
-	public static final int LITERAL_classifier=105;
-	public static final int LITERAL_complete=106;
-	public static final int LITERAL_component=107;
-	public static final int LITERAL_computation=108;
-	public static final int LITERAL_connection=109;
-	public static final int LITERAL_connections=110;
-	public static final int LITERAL_constant=111;
-	public static final int LITERAL_count=112;
-	public static final int LITERAL_declare=113;
-	public static final int LITERAL_def=114;
-	public static final int LITERAL_delay=115;
-	public static final int LITERAL_dispatch=116;
-	public static final int LITERAL_div=117;
-	public static final int LITERAL_do=118;
-	public static final int LITERAL_else=119;
-	public static final int LITERAL_enumeration=120;
-	public static final int LITERAL_exception=121;
-	public static final int LITERAL_exists=122;
-	public static final int LITERAL_extends=123;
-	public static final int LITERAL_extension=124;
-	public static final int LITERAL_false=125;
-	public static final int LITERAL_feature=126;
-	public static final int LITERAL_fetchadd=127;
-	public static final int LITERAL_fetchand=128;
-	public static final int LITERAL_fetchor=129;
-	public static final int LITERAL_fetchxor=130;
-	public static final int LITERAL_fi=131;
-	public static final int LITERAL_final=132;
-	public static final int LITERAL_flow=133;
-	public static final int LITERAL_for=134;
-	public static final int LITERAL_forall=135;
-	public static final int LITERAL_fresh=136;
-	public static final int LITERAL_ghost=137;
-	public static final int LITERAL_if=138;
-	public static final int LITERAL_iff=139;
-	public static final int LITERAL_implementation=140;
-	public static final int LITERAL_implies=141;
-	public static final int LITERAL_in=142;
-	public static final int LITERAL_inherit=143;
-	public static final int LITERAL_initial=144;
-	public static final int LITERAL_internal=145;
-	public static final int LITERAL_invariant=146;
-	public static final int LITERAL_inverse=147;
-	public static final int LITERAL_is=148;
-	public static final int LITERAL_list=149;
-	public static final int LITERAL_lower_bound=150;
-	public static final int LITERAL_mod=151;
-	public static final int LITERAL_mode=152;
-	public static final int LITERAL_modes=153;
-	public static final int LITERAL_nonvolatile=154;
-	public static final int LITERAL_not=155;
-	public static final int LITERAL_now=156;
-	public static final int LITERAL_null=157;
-	public static final int LITERAL_numberof=158;
-	public static final int LITERAL_of=159;
-	public static final int LITERAL_on=160;
-	public static final int LITERAL_or=161;
-	public static final int LITERAL_package=162;
-	public static final int LITERAL_parameter=163;
-	public static final int LITERAL_pause=164;
-	public static final int LITERAL_post=165;
-	public static final int LITERAL_pre=166;
-	public static final int LITERAL_private=167;
-	public static final int LITERAL_product=168;
-	public static final int LITERAL_property=169;
-	public static final int LITERAL_provides=170;
-	public static final int LITERAL_public=171;
-	public static final int LITERAL_quantity=172;
-	public static final int LITERAL_range=173;
-	public static final int LITERAL_record=174;
-	public static final int LITERAL_reference=175;
-	public static final int LITERAL_rem=176;
-	public static final int LITERAL_renames=177;
-	public static final int LITERAL_representation=178;
-	public static final int LITERAL_requires=179;
-	public static final int LITERAL_returns=180;
-	public static final int LITERAL_round=181;
-	public static final int LITERAL_scalar=182;
-	public static final int LITERAL_self=183;
-	public static final int LITERAL_sequence=184;
-	public static final int LITERAL_set=185;
-	public static final int LITERAL_setmode=186;
-	public static final int LITERAL_shared=187;
-	public static final int LITERAL_skip=188;
-	public static final int LITERAL_spread=189;
-	public static final int LITERAL_state=190;
-	public static final int LITERAL_states=191;
-	public static final int LITERAL_step=192;
-	public static final int LITERAL_stop=193;
-	public static final int LITERAL_string=194;
-	public static final int LITERAL_subcomponents=195;
-	public static final int LITERAL_sum=196;
-	public static final int LITERAL_swap=197;
-	public static final int LITERAL_that=198;
-	public static final int LITERAL_then=199;
-	public static final int LITERAL_throw=200;
-	public static final int LITERAL_throws=201;
-	public static final int LITERAL_timeout=202;
-	public static final int LITERAL_to=203;
-	public static final int LITERAL_tops=204;
-	public static final int LITERAL_transition=205;
-	public static final int LITERAL_transitions=206;
-	public static final int LITERAL_true=207;
-	public static final int LITERAL_truncate=208;
-	public static final int LITERAL_type=209;
-	public static final int LITERAL_union=210;
-	public static final int LITERAL_units=211;
-	public static final int LITERAL_until=212;
-	public static final int LITERAL_updated=213;
-	public static final int LITERAL_upper_bound=214;
-	public static final int LITERAL_variables=215;
-	public static final int LITERAL_variant=216;
-	public static final int LITERAL_when=217;
-	public static final int LITERAL_which=218;
-	public static final int LITERAL_while=219;
-	public static final int LITERAL_whole=220;
-	public static final int LITERAL_with=221;
-	public static final int LITERAL_xor=222;
-	public static final int LPAREN=223;
-	public static final int LT=224;
-	public static final int LTE_STRING=225;
-	public static final int LT_STRING=226;
-	public static final int MINUS=227;
-	public static final int MT_STRING=228;
-	public static final int NEQ=229;
-	public static final int NUMBER=230;
-	public static final int OBLIGATION=231;
-	public static final int OCTOTHORPE=232;
-	public static final int OLD_NEQ=233;
-	public static final int ON=234;
-	public static final int P=235;
-	public static final int PARAMETER=236;
-	public static final int PARAMETERS=237;
-	public static final int PLUS=238;
-	public static final int PLUS_ARROW=239;
-	public static final int PLUS_EQUALS=240;
-	public static final int PORT=241;
-	public static final int PORT_INPUT=242;
-	public static final int PORT_OUTPUT=243;
-	public static final int PREDICATE_RELATION=244;
-	public static final int PROCEDURE=245;
-	public static final int Q=246;
-	public static final int QCLREF=247;
-	public static final int QCREF=248;
-	public static final int QQ=249;
-	public static final int QUANTITY=250;
-	public static final int QUESTION=251;
-	public static final int RASS=252;
-	public static final int RBRACKET=253;
-	public static final int RCON=254;
-	public static final int RCURLY=255;
-	public static final int REAL_LIT=256;
-	public static final int RECORD_TERM=257;
-	public static final int ROOT_DECLARATION=258;
-	public static final int RPAREN=259;
-	public static final int S=260;
-	public static final int SEMICOLON=261;
-	public static final int SLCOMMENT=262;
-	public static final int SOURCE=263;
-	public static final int START=264;
-	public static final int START_ASSERTION_PROPERTY=265;
-	public static final int STOP=266;
-	public static final int SUBPROGRAM_INVOCATION=267;
-	public static final int TICK=268;
-	public static final int TILDE=269;
-	public static final int TIMES=270;
-	public static final int TOP=271;
-	public static final int TRANSITION=272;
-	public static final int TRIGGER=273;
-	public static final int TYPE=274;
-	public static final int TYPE_LIBRARY=275;
-	public static final int TYPE_OPERATOR=276;
-	public static final int TYPE_OPERATOR_INVOCATION=277;
-	public static final int UNARY_MINUS=278;
-	public static final int UNIT_FORMULA=279;
-	public static final int UNIT_LIBRARY=280;
-	public static final int UNIT_NAME=281;
-	public static final int VALUE=282;
-	public static final int VARIABLE_DECLARATION=283;
-	public static final int VERT=284;
-	public static final int WP=285;
-	public static final int WS=286;
+	public static final int BEHAVIOR_GUARD=20;
+	public static final int BI=21;
+	public static final int BLESS_SUBCLAUSE=22;
+	public static final int BOUND=23;
+	public static final int BOX=24;
+	public static final int CARET=25;
+	public static final int COLON=26;
+	public static final int COLON_TILDE=27;
+	public static final int COMMA=28;
+	public static final int COMMACOMMA=29;
+	public static final int COMMADOT=30;
+	public static final int COMPONENT=31;
+	public static final int CONDITION=32;
+	public static final int CONDITIONAL_ASSERTION_FUNCTION=33;
+	public static final int COUNTING_TRIGGER=34;
+	public static final int CVP=35;
+	public static final int DESTINATION=36;
+	public static final int DIGIT=37;
+	public static final int DIVIDE=38;
+	public static final int DOLLAR=39;
+	public static final int DOT=40;
+	public static final int DOTCOMMA=41;
+	public static final int DOTDOT=42;
+	public static final int DOUBLE_COLON=43;
+	public static final int DOUBLE_QUOTE=44;
+	public static final int DO_NOT_PROVE=45;
+	public static final int DUMMY=46;
+	public static final int EMPTY_CURLY=47;
+	public static final int END_ASSERTION_PROPERTY=48;
+	public static final int EQ=49;
+	public static final int EXCLAMATION=50;
+	public static final int EXP=51;
+	public static final int EXPONENT=52;
+	public static final int FLOATING=53;
+	public static final int FUNCTION=54;
+	public static final int GT=55;
+	public static final int GUARD=56;
+	public static final int HEX_DIGIT=57;
+	public static final int ID=58;
+	public static final int IMP=59;
+	public static final int INMODE=60;
+	public static final int INOUT=61;
+	public static final int INTEGER_LIT=62;
+	public static final int INVARIANT=63;
+	public static final int INVOKE=64;
+	public static final int INVOKE_FUNCTION=65;
+	public static final int IP_NAME=66;
+	public static final int IP_PE=67;
+	public static final int IP_PRED=68;
+	public static final int LABEL=69;
+	public static final int LASS=70;
+	public static final int LBRACKET=71;
+	public static final int LCON=72;
+	public static final int LCURLY=73;
+	public static final int LITERAL_Assertion=74;
+	public static final int LITERAL_Invariant=75;
+	public static final int LITERAL_Postcondition=76;
+	public static final int LITERAL_Precondition=77;
+	public static final int LITERAL_Typed=78;
+	public static final int LITERAL_aadlboolean=79;
+	public static final int LITERAL_aadlinteger=80;
+	public static final int LITERAL_aadlreal=81;
+	public static final int LITERAL_aadlstring=82;
+	public static final int LITERAL_abs=83;
+	public static final int LITERAL_access=84;
+	public static final int LITERAL_all=85;
+	public static final int LITERAL_and=86;
+	public static final int LITERAL_any=87;
+	public static final int LITERAL_applies=88;
+	public static final int LITERAL_are=89;
+	public static final int LITERAL_array=90;
+	public static final int LITERAL_assert=91;
+	public static final int LITERAL_availability=92;
+	public static final int LITERAL_base=93;
+	public static final int LITERAL_binding=94;
+	public static final int LITERAL_boolean=95;
+	public static final int LITERAL_bound=96;
+	public static final int LITERAL_call=97;
+	public static final int LITERAL_calls=98;
+	public static final int LITERAL_case=99;
+	public static final int LITERAL_catch=100;
+	public static final int LITERAL_classifier=101;
+	public static final int LITERAL_complete=102;
+	public static final int LITERAL_component=103;
+	public static final int LITERAL_computation=104;
+	public static final int LITERAL_connection=105;
+	public static final int LITERAL_connections=106;
+	public static final int LITERAL_constant=107;
+	public static final int LITERAL_count=108;
+	public static final int LITERAL_declare=109;
+	public static final int LITERAL_def=110;
+	public static final int LITERAL_delay=111;
+	public static final int LITERAL_dispatch=112;
+	public static final int LITERAL_div=113;
+	public static final int LITERAL_do=114;
+	public static final int LITERAL_else=115;
+	public static final int LITERAL_enumeration=116;
+	public static final int LITERAL_exception=117;
+	public static final int LITERAL_exists=118;
+	public static final int LITERAL_extends=119;
+	public static final int LITERAL_extension=120;
+	public static final int LITERAL_false=121;
+	public static final int LITERAL_feature=122;
+	public static final int LITERAL_fetchadd=123;
+	public static final int LITERAL_fetchand=124;
+	public static final int LITERAL_fetchor=125;
+	public static final int LITERAL_fetchxor=126;
+	public static final int LITERAL_fi=127;
+	public static final int LITERAL_final=128;
+	public static final int LITERAL_flow=129;
+	public static final int LITERAL_for=130;
+	public static final int LITERAL_forall=131;
+	public static final int LITERAL_fresh=132;
+	public static final int LITERAL_ghost=133;
+	public static final int LITERAL_if=134;
+	public static final int LITERAL_iff=135;
+	public static final int LITERAL_implementation=136;
+	public static final int LITERAL_implies=137;
+	public static final int LITERAL_in=138;
+	public static final int LITERAL_inherit=139;
+	public static final int LITERAL_initial=140;
+	public static final int LITERAL_internal=141;
+	public static final int LITERAL_invariant=142;
+	public static final int LITERAL_inverse=143;
+	public static final int LITERAL_is=144;
+	public static final int LITERAL_list=145;
+	public static final int LITERAL_lower_bound=146;
+	public static final int LITERAL_mod=147;
+	public static final int LITERAL_mode=148;
+	public static final int LITERAL_modes=149;
+	public static final int LITERAL_nonvolatile=150;
+	public static final int LITERAL_not=151;
+	public static final int LITERAL_now=152;
+	public static final int LITERAL_null=153;
+	public static final int LITERAL_numberof=154;
+	public static final int LITERAL_of=155;
+	public static final int LITERAL_on=156;
+	public static final int LITERAL_or=157;
+	public static final int LITERAL_package=158;
+	public static final int LITERAL_parameter=159;
+	public static final int LITERAL_pause=160;
+	public static final int LITERAL_post=161;
+	public static final int LITERAL_pre=162;
+	public static final int LITERAL_private=163;
+	public static final int LITERAL_product=164;
+	public static final int LITERAL_property=165;
+	public static final int LITERAL_provides=166;
+	public static final int LITERAL_public=167;
+	public static final int LITERAL_quantity=168;
+	public static final int LITERAL_range=169;
+	public static final int LITERAL_record=170;
+	public static final int LITERAL_reference=171;
+	public static final int LITERAL_rem=172;
+	public static final int LITERAL_renames=173;
+	public static final int LITERAL_representation=174;
+	public static final int LITERAL_requires=175;
+	public static final int LITERAL_returns=176;
+	public static final int LITERAL_round=177;
+	public static final int LITERAL_scalar=178;
+	public static final int LITERAL_self=179;
+	public static final int LITERAL_sequence=180;
+	public static final int LITERAL_set=181;
+	public static final int LITERAL_setmode=182;
+	public static final int LITERAL_shared=183;
+	public static final int LITERAL_skip=184;
+	public static final int LITERAL_spread=185;
+	public static final int LITERAL_state=186;
+	public static final int LITERAL_states=187;
+	public static final int LITERAL_step=188;
+	public static final int LITERAL_stop=189;
+	public static final int LITERAL_string=190;
+	public static final int LITERAL_subcomponents=191;
+	public static final int LITERAL_sum=192;
+	public static final int LITERAL_swap=193;
+	public static final int LITERAL_that=194;
+	public static final int LITERAL_then=195;
+	public static final int LITERAL_throw=196;
+	public static final int LITERAL_throws=197;
+	public static final int LITERAL_timeout=198;
+	public static final int LITERAL_to=199;
+	public static final int LITERAL_tops=200;
+	public static final int LITERAL_transition=201;
+	public static final int LITERAL_transitions=202;
+	public static final int LITERAL_true=203;
+	public static final int LITERAL_truncate=204;
+	public static final int LITERAL_type=205;
+	public static final int LITERAL_union=206;
+	public static final int LITERAL_units=207;
+	public static final int LITERAL_until=208;
+	public static final int LITERAL_updated=209;
+	public static final int LITERAL_upper_bound=210;
+	public static final int LITERAL_variables=211;
+	public static final int LITERAL_variant=212;
+	public static final int LITERAL_when=213;
+	public static final int LITERAL_which=214;
+	public static final int LITERAL_while=215;
+	public static final int LITERAL_whole=216;
+	public static final int LITERAL_with=217;
+	public static final int LITERAL_xor=218;
+	public static final int LPAREN=219;
+	public static final int LT=220;
+	public static final int LTE_STRING=221;
+	public static final int LT_STRING=222;
+	public static final int MINUS=223;
+	public static final int MT_STRING=224;
+	public static final int NEQ=225;
+	public static final int OBLIGATION=226;
+	public static final int OCTOTHORPE=227;
+	public static final int OLD_NEQ=228;
+	public static final int ON=229;
+	public static final int P=230;
+	public static final int PARAMETER=231;
+	public static final int PARAMETERS=232;
+	public static final int PLUS=233;
+	public static final int PLUS_ARROW=234;
+	public static final int PLUS_EQUALS=235;
+	public static final int PORT=236;
+	public static final int PORT_INPUT=237;
+	public static final int PORT_OUTPUT=238;
+	public static final int PREDICATE_RELATION=239;
+	public static final int PROCEDURE=240;
+	public static final int Q=241;
+	public static final int QCLREF=242;
+	public static final int QCREF=243;
+	public static final int QQ=244;
+	public static final int QUANTITY=245;
+	public static final int QUESTION=246;
+	public static final int RASS=247;
+	public static final int RBRACKET=248;
+	public static final int RCON=249;
+	public static final int RCURLY=250;
+	public static final int REAL_LIT=251;
+	public static final int RECORD_TERM=252;
+	public static final int ROOT_DECLARATION=253;
+	public static final int RPAREN=254;
+	public static final int S=255;
+	public static final int SEMICOLON=256;
+	public static final int SLCOMMENT=257;
+	public static final int SOURCE=258;
+	public static final int START=259;
+	public static final int START_ASSERTION_PROPERTY=260;
+	public static final int STOP=261;
+	public static final int SUBPROGRAM_INVOCATION=262;
+	public static final int TICK=263;
+	public static final int TILDE=264;
+	public static final int TIMES=265;
+	public static final int TOP=266;
+	public static final int TRANSITION=267;
+	public static final int TRIGGER=268;
+	public static final int TYPE=269;
+	public static final int TYPE_LIBRARY=270;
+	public static final int TYPE_OPERATOR=271;
+	public static final int TYPE_OPERATOR_INVOCATION=272;
+	public static final int UNARY_MINUS=273;
+	public static final int UNIT_FORMULA=274;
+	public static final int UNIT_LIBRARY=275;
+	public static final int UNIT_NAME=276;
+	public static final int VALUE=277;
+	public static final int VARIABLE_DECLARATION=278;
+	public static final int VERT=279;
+	public static final int WP=280;
+	public static final int WS=281;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -614,7 +607,7 @@ public class ASTtoAST extends TreeParser {
 						int LA1_4 = input.LA(4);
 						if ( (LA1_4==UP) ) {
 							int LA1_5 = input.LA(5);
-							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= 287)) ) {
+							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= WS)) ) {
 								alt1=1;
 							}
 						}
@@ -662,14 +655,14 @@ public class ASTtoAST extends TreeParser {
 				int LA2_1 = input.LA(2);
 				if ( (LA2_1==DOWN) ) {
 					int LA2_3 = input.LA(3);
-					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= 287)) ) {
+					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= WS)) ) {
 						int LA2_4 = input.LA(4);
 						if ( (LA2_4==DOWN) ) {
 							alt2=1;
 						}
 						else if ( (LA2_4==UP) ) {
 							int LA2_6 = input.LA(5);
-							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= 287)) ) {
+							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= WS)) ) {
 								alt2=1;
 							}
 						}
@@ -843,7 +836,7 @@ public class ASTtoAST extends TreeParser {
 						while (true) {
 							int alt3=2;
 							int LA3_0 = input.LA(1);
-							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= 287)) ) {
+							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= WS)) ) {
 								alt3=1;
 							}
 							else if ( (LA3_0==UP) ) {
@@ -928,7 +921,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt5=2;
 						int LA5_0 = input.LA(1);
-						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= 287)) ) {
+						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= WS)) ) {
 							alt5=1;
 						}
 						else if ( (LA5_0==UP) ) {
@@ -1076,11 +1069,11 @@ public class ASTtoAST extends TreeParser {
 						int LA7_6 = input.LA(3);
 						if ( (LA7_6==P) ) {
 							int LA7_10 = input.LA(4);
-							if ( ((LA7_10 >= UP && LA7_10 <= 287)) ) {
+							if ( ((LA7_10 >= UP && LA7_10 <= WS)) ) {
 								alt7=1;
 							}
 						}
-						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= 287)) ) {
+						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= ON)||(LA7_6 >= PARAMETER && LA7_6 <= WS)) ) {
 							alt7=1;
 						}
 					}
@@ -1096,11 +1089,11 @@ public class ASTtoAST extends TreeParser {
 						int LA7_7 = input.LA(3);
 						if ( (LA7_7==ACTION) ) {
 							int LA7_11 = input.LA(4);
-							if ( ((LA7_11 >= UP && LA7_11 <= 287)) ) {
+							if ( ((LA7_11 >= UP && LA7_11 <= WS)) ) {
 								alt7=1;
 							}
 						}
-						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= 287)) ) {
+						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= WS)) ) {
 							alt7=1;
 						}
 					}
@@ -1117,7 +1110,7 @@ public class ASTtoAST extends TreeParser {
 							case ACTION:
 								{
 								int LA7_12 = input.LA(4);
-								if ( ((LA7_12 >= UP && LA7_12 <= 287)) ) {
+								if ( ((LA7_12 >= UP && LA7_12 <= WS)) ) {
 									alt7=1;
 								}
 								}
@@ -1125,7 +1118,7 @@ public class ASTtoAST extends TreeParser {
 							case SEMICOLON:
 								{
 								int LA7_13 = input.LA(4);
-								if ( ((LA7_13 >= UP && LA7_13 <= 287)) ) {
+								if ( ((LA7_13 >= UP && LA7_13 <= WS)) ) {
 									alt7=1;
 								}
 								}
@@ -1133,7 +1126,7 @@ public class ASTtoAST extends TreeParser {
 							case AMPERSAND:
 								{
 								int LA7_14 = input.LA(4);
-								if ( ((LA7_14 >= UP && LA7_14 <= 287)) ) {
+								if ( ((LA7_14 >= UP && LA7_14 <= WS)) ) {
 									alt7=1;
 								}
 								}
@@ -1141,7 +1134,7 @@ public class ASTtoAST extends TreeParser {
 							case LCURLY:
 								{
 								int LA7_15 = input.LA(4);
-								if ( ((LA7_15 >= UP && LA7_15 <= 287)) ) {
+								if ( ((LA7_15 >= UP && LA7_15 <= WS)) ) {
 									alt7=1;
 								}
 								}
@@ -1160,8 +1153,6 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
 							case BEHAVIOR_GUARD:
 							case BI:
 							case BLESS_SUBCLAUSE:
@@ -1195,7 +1186,6 @@ public class ASTtoAST extends TreeParser {
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
 							case FLOATING:
 							case FUNCTION:
 							case GT:
@@ -1206,7 +1196,6 @@ public class ASTtoAST extends TreeParser {
 							case INMODE:
 							case INOUT:
 							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
 							case INVOKE_FUNCTION:
@@ -1369,7 +1358,6 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
-							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
 							case OLD_NEQ:
@@ -1425,7 +1413,6 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 287:
 								{
 								alt7=1;
 								}
@@ -1448,7 +1435,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 287)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1456,7 +1443,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 287)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1464,7 +1451,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 287)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1472,7 +1459,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 287)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1492,8 +1479,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -1527,7 +1512,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -1538,7 +1522,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -1701,7 +1684,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -1757,7 +1739,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt7=1;
 										}
@@ -1771,7 +1752,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 287)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1779,7 +1760,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 287)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1787,7 +1768,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 287)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1795,7 +1776,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 287)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -1815,8 +1796,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -1850,7 +1829,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -1861,7 +1839,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -2024,7 +2001,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -2080,7 +2056,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt7=1;
 										}
@@ -2094,7 +2069,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 287)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2102,7 +2077,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 287)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2110,7 +2085,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 287)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2118,7 +2093,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 287)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2138,8 +2113,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -2173,7 +2146,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -2184,7 +2156,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -2347,7 +2318,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -2403,7 +2373,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt7=1;
 										}
@@ -2417,7 +2386,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 287)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2425,7 +2394,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 287)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2433,7 +2402,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 287)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2441,7 +2410,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 287)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -2461,8 +2430,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -2496,7 +2463,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -2507,7 +2473,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -2670,7 +2635,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -2726,7 +2690,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt7=1;
 										}
@@ -2748,8 +2711,6 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
 							case BEHAVIOR_GUARD:
 							case BI:
 							case BLESS_SUBCLAUSE:
@@ -2783,7 +2744,6 @@ public class ASTtoAST extends TreeParser {
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
 							case FLOATING:
 							case FUNCTION:
 							case GT:
@@ -2794,7 +2754,6 @@ public class ASTtoAST extends TreeParser {
 							case INMODE:
 							case INOUT:
 							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
 							case INVOKE_FUNCTION:
@@ -2957,7 +2916,6 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
-							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
 							case OLD_NEQ:
@@ -3013,13 +2971,12 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 287:
 								{
 								switch ( input.LA(4) ) {
 									case ACTION:
 										{
 										int LA7_22 = input.LA(5);
-										if ( ((LA7_22 >= UP && LA7_22 <= 287)) ) {
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -3027,7 +2984,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA7_23 = input.LA(5);
-										if ( ((LA7_23 >= UP && LA7_23 <= 287)) ) {
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -3035,7 +2992,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA7_24 = input.LA(5);
-										if ( ((LA7_24 >= UP && LA7_24 <= 287)) ) {
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -3043,7 +3000,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA7_25 = input.LA(5);
-										if ( ((LA7_25 >= UP && LA7_25 <= 287)) ) {
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
 											alt7=1;
 										}
 										}
@@ -3063,8 +3020,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -3098,7 +3053,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -3109,7 +3063,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -3272,7 +3225,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -3328,7 +3280,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt7=1;
 										}
@@ -3357,8 +3308,6 @@ public class ASTtoAST extends TreeParser {
 				case ASSERTION_FUNCTION:
 				case ASSIGN:
 				case AT_SIGN:
-				case BASE:
-				case BASED_INTEGER:
 				case BEHAVIOR_GUARD:
 				case BI:
 				case BLESS_SUBCLAUSE:
@@ -3392,7 +3341,6 @@ public class ASTtoAST extends TreeParser {
 				case EXCLAMATION:
 				case EXP:
 				case EXPONENT:
-				case EXTENDED_DIGIT:
 				case FLOATING:
 				case FUNCTION:
 				case GT:
@@ -3403,7 +3351,6 @@ public class ASTtoAST extends TreeParser {
 				case INMODE:
 				case INOUT:
 				case INTEGER_LIT:
-				case INT_EXPONENT:
 				case INVARIANT:
 				case INVOKE:
 				case INVOKE_FUNCTION:
@@ -3566,7 +3513,6 @@ public class ASTtoAST extends TreeParser {
 				case MINUS:
 				case MT_STRING:
 				case NEQ:
-				case NUMBER:
 				case OBLIGATION:
 				case OCTOTHORPE:
 				case OLD_NEQ:
@@ -3622,7 +3568,6 @@ public class ASTtoAST extends TreeParser {
 				case VERT:
 				case WP:
 				case WS:
-				case 287:
 					{
 					alt7=1;
 					}
@@ -3834,7 +3779,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
 						int alt8=2;
 						int LA8_0 = input.LA(1);
-						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= 287)) ) {
+						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= WS)) ) {
 							alt8=1;
 						}
 						switch (alt8) {
@@ -3912,7 +3857,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: ( . )?
 						int alt9=2;
 						int LA9_0 = input.LA(1);
-						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= 287)) ) {
+						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= WS)) ) {
 							alt9=1;
 						}
 						switch (alt9) {
@@ -4009,7 +3954,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
 						int alt10=2;
 						int LA10_0 = input.LA(1);
-						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= 287)) ) {
+						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= WS)) ) {
 							alt10=1;
 						}
 						switch (alt10) {
@@ -4087,7 +4032,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: ( . )?
 						int alt11=2;
 						int LA11_0 = input.LA(1);
-						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= 287)) ) {
+						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= WS)) ) {
 							alt11=1;
 						}
 						switch (alt11) {
@@ -4129,7 +4074,7 @@ public class ASTtoAST extends TreeParser {
 					while (true) {
 						int alt12=2;
 						int LA12_0 = input.LA(1);
-						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= 287)) ) {
+						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= WS)) ) {
 							alt12=1;
 						}
 						else if ( (LA12_0==UP) ) {
@@ -4361,11 +4306,11 @@ public class ASTtoAST extends TreeParser {
 						int LA15_6 = input.LA(3);
 						if ( (LA15_6==P) ) {
 							int LA15_10 = input.LA(4);
-							if ( ((LA15_10 >= UP && LA15_10 <= 287)) ) {
+							if ( ((LA15_10 >= UP && LA15_10 <= WS)) ) {
 								alt15=1;
 							}
 						}
-						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= 287)) ) {
+						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= ON)||(LA15_6 >= PARAMETER && LA15_6 <= WS)) ) {
 							alt15=1;
 						}
 					}
@@ -4381,11 +4326,11 @@ public class ASTtoAST extends TreeParser {
 						int LA15_7 = input.LA(3);
 						if ( (LA15_7==ACTION) ) {
 							int LA15_11 = input.LA(4);
-							if ( ((LA15_11 >= UP && LA15_11 <= 287)) ) {
+							if ( ((LA15_11 >= UP && LA15_11 <= WS)) ) {
 								alt15=1;
 							}
 						}
-						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= 287)) ) {
+						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= WS)) ) {
 							alt15=1;
 						}
 					}
@@ -4402,7 +4347,7 @@ public class ASTtoAST extends TreeParser {
 							case ACTION:
 								{
 								int LA15_12 = input.LA(4);
-								if ( ((LA15_12 >= UP && LA15_12 <= 287)) ) {
+								if ( ((LA15_12 >= UP && LA15_12 <= WS)) ) {
 									alt15=1;
 								}
 								}
@@ -4410,7 +4355,7 @@ public class ASTtoAST extends TreeParser {
 							case SEMICOLON:
 								{
 								int LA15_13 = input.LA(4);
-								if ( ((LA15_13 >= UP && LA15_13 <= 287)) ) {
+								if ( ((LA15_13 >= UP && LA15_13 <= WS)) ) {
 									alt15=1;
 								}
 								}
@@ -4418,7 +4363,7 @@ public class ASTtoAST extends TreeParser {
 							case AMPERSAND:
 								{
 								int LA15_14 = input.LA(4);
-								if ( ((LA15_14 >= UP && LA15_14 <= 287)) ) {
+								if ( ((LA15_14 >= UP && LA15_14 <= WS)) ) {
 									alt15=1;
 								}
 								}
@@ -4426,7 +4371,7 @@ public class ASTtoAST extends TreeParser {
 							case LCURLY:
 								{
 								int LA15_15 = input.LA(4);
-								if ( ((LA15_15 >= UP && LA15_15 <= 287)) ) {
+								if ( ((LA15_15 >= UP && LA15_15 <= WS)) ) {
 									alt15=1;
 								}
 								}
@@ -4445,8 +4390,6 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
 							case BEHAVIOR_GUARD:
 							case BI:
 							case BLESS_SUBCLAUSE:
@@ -4480,7 +4423,6 @@ public class ASTtoAST extends TreeParser {
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
 							case FLOATING:
 							case FUNCTION:
 							case GT:
@@ -4491,7 +4433,6 @@ public class ASTtoAST extends TreeParser {
 							case INMODE:
 							case INOUT:
 							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
 							case INVOKE_FUNCTION:
@@ -4654,7 +4595,6 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
-							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
 							case OLD_NEQ:
@@ -4710,7 +4650,6 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 287:
 								{
 								alt15=1;
 								}
@@ -4733,7 +4672,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 287)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -4741,7 +4680,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 287)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -4749,7 +4688,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 287)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -4757,7 +4696,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 287)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -4777,8 +4716,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -4812,7 +4749,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -4823,7 +4759,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -4986,7 +4921,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -5042,7 +4976,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt15=1;
 										}
@@ -5056,7 +4989,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 287)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5064,7 +4997,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 287)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5072,7 +5005,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 287)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5080,7 +5013,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 287)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5100,8 +5033,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -5135,7 +5066,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -5146,7 +5076,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -5309,7 +5238,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -5365,7 +5293,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt15=1;
 										}
@@ -5379,7 +5306,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 287)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5387,7 +5314,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 287)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5395,7 +5322,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 287)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5403,7 +5330,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 287)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5423,8 +5350,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -5458,7 +5383,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -5469,7 +5393,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -5632,7 +5555,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -5688,7 +5610,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt15=1;
 										}
@@ -5702,7 +5623,7 @@ public class ASTtoAST extends TreeParser {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 287)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5710,7 +5631,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 287)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5718,7 +5639,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 287)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5726,7 +5647,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 287)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -5746,8 +5667,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -5781,7 +5700,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -5792,7 +5710,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -5955,7 +5872,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -6011,7 +5927,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt15=1;
 										}
@@ -6033,8 +5948,6 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
 							case BEHAVIOR_GUARD:
 							case BI:
 							case BLESS_SUBCLAUSE:
@@ -6068,7 +5981,6 @@ public class ASTtoAST extends TreeParser {
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
 							case FLOATING:
 							case FUNCTION:
 							case GT:
@@ -6079,7 +5991,6 @@ public class ASTtoAST extends TreeParser {
 							case INMODE:
 							case INOUT:
 							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
 							case INVOKE_FUNCTION:
@@ -6242,7 +6153,6 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
-							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
 							case OLD_NEQ:
@@ -6298,13 +6208,12 @@ public class ASTtoAST extends TreeParser {
 							case VERT:
 							case WP:
 							case WS:
-							case 287:
 								{
 								switch ( input.LA(4) ) {
 									case ACTION:
 										{
 										int LA15_22 = input.LA(5);
-										if ( ((LA15_22 >= UP && LA15_22 <= 287)) ) {
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -6312,7 +6221,7 @@ public class ASTtoAST extends TreeParser {
 									case SEMICOLON:
 										{
 										int LA15_23 = input.LA(5);
-										if ( ((LA15_23 >= UP && LA15_23 <= 287)) ) {
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -6320,7 +6229,7 @@ public class ASTtoAST extends TreeParser {
 									case AMPERSAND:
 										{
 										int LA15_24 = input.LA(5);
-										if ( ((LA15_24 >= UP && LA15_24 <= 287)) ) {
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -6328,7 +6237,7 @@ public class ASTtoAST extends TreeParser {
 									case LCURLY:
 										{
 										int LA15_25 = input.LA(5);
-										if ( ((LA15_25 >= UP && LA15_25 <= 287)) ) {
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
 											alt15=1;
 										}
 										}
@@ -6348,8 +6257,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -6383,7 +6290,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -6394,7 +6300,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -6557,7 +6462,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -6613,7 +6517,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt15=1;
 										}
@@ -6642,8 +6545,6 @@ public class ASTtoAST extends TreeParser {
 				case ASSERTION_FUNCTION:
 				case ASSIGN:
 				case AT_SIGN:
-				case BASE:
-				case BASED_INTEGER:
 				case BEHAVIOR_GUARD:
 				case BI:
 				case BLESS_SUBCLAUSE:
@@ -6677,7 +6578,6 @@ public class ASTtoAST extends TreeParser {
 				case EXCLAMATION:
 				case EXP:
 				case EXPONENT:
-				case EXTENDED_DIGIT:
 				case FLOATING:
 				case FUNCTION:
 				case GT:
@@ -6688,7 +6588,6 @@ public class ASTtoAST extends TreeParser {
 				case INMODE:
 				case INOUT:
 				case INTEGER_LIT:
-				case INT_EXPONENT:
 				case INVARIANT:
 				case INVOKE:
 				case INVOKE_FUNCTION:
@@ -6851,7 +6750,6 @@ public class ASTtoAST extends TreeParser {
 				case MINUS:
 				case MT_STRING:
 				case NEQ:
-				case NUMBER:
 				case OBLIGATION:
 				case OCTOTHORPE:
 				case OLD_NEQ:
@@ -6907,7 +6805,6 @@ public class ASTtoAST extends TreeParser {
 				case VERT:
 				case WP:
 				case WS:
-				case 287:
 					{
 					alt15=1;
 					}
@@ -7057,7 +6954,7 @@ public class ASTtoAST extends TreeParser {
 												if ( (LA16_11==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_11 >= UP && LA16_11 <= 287)) ) {
+												else if ( ((LA16_11 >= UP && LA16_11 <= WS)) ) {
 													alt16=2;
 												}
 
@@ -7084,7 +6981,7 @@ public class ASTtoAST extends TreeParser {
 												if ( (LA16_12==DOWN) ) {
 													alt16=1;
 												}
-												else if ( ((LA16_12 >= UP && LA16_12 <= 287)) ) {
+												else if ( ((LA16_12 >= UP && LA16_12 <= WS)) ) {
 													alt16=2;
 												}
 
@@ -7121,8 +7018,6 @@ public class ASTtoAST extends TreeParser {
 											case ASSERTION_FUNCTION:
 											case ASSIGN:
 											case AT_SIGN:
-											case BASE:
-											case BASED_INTEGER:
 											case BEHAVIOR_GUARD:
 											case BI:
 											case BLESS_SUBCLAUSE:
@@ -7155,7 +7050,6 @@ public class ASTtoAST extends TreeParser {
 											case EXCLAMATION:
 											case EXP:
 											case EXPONENT:
-											case EXTENDED_DIGIT:
 											case FLOATING:
 											case FUNCTION:
 											case GT:
@@ -7166,7 +7060,6 @@ public class ASTtoAST extends TreeParser {
 											case INMODE:
 											case INOUT:
 											case INTEGER_LIT:
-											case INT_EXPONENT:
 											case INVARIANT:
 											case INVOKE:
 											case INVOKE_FUNCTION:
@@ -7330,7 +7223,6 @@ public class ASTtoAST extends TreeParser {
 											case MINUS:
 											case MT_STRING:
 											case NEQ:
-											case NUMBER:
 											case OBLIGATION:
 											case OCTOTHORPE:
 											case OLD_NEQ:
@@ -7386,7 +7278,6 @@ public class ASTtoAST extends TreeParser {
 											case VERT:
 											case WP:
 											case WS:
-											case 287:
 												{
 												alt16=2;
 												}
@@ -7443,8 +7334,6 @@ public class ASTtoAST extends TreeParser {
 									case ASSERTION_FUNCTION:
 									case ASSIGN:
 									case AT_SIGN:
-									case BASE:
-									case BASED_INTEGER:
 									case BEHAVIOR_GUARD:
 									case BI:
 									case BLESS_SUBCLAUSE:
@@ -7478,7 +7367,6 @@ public class ASTtoAST extends TreeParser {
 									case EXCLAMATION:
 									case EXP:
 									case EXPONENT:
-									case EXTENDED_DIGIT:
 									case FLOATING:
 									case FUNCTION:
 									case GT:
@@ -7489,7 +7377,6 @@ public class ASTtoAST extends TreeParser {
 									case INMODE:
 									case INOUT:
 									case INTEGER_LIT:
-									case INT_EXPONENT:
 									case INVARIANT:
 									case INVOKE:
 									case INVOKE_FUNCTION:
@@ -7653,7 +7540,6 @@ public class ASTtoAST extends TreeParser {
 									case MINUS:
 									case MT_STRING:
 									case NEQ:
-									case NUMBER:
 									case OBLIGATION:
 									case OCTOTHORPE:
 									case OLD_NEQ:
@@ -7709,7 +7595,6 @@ public class ASTtoAST extends TreeParser {
 									case VERT:
 									case WP:
 									case WS:
-									case 287:
 										{
 										alt16=2;
 										}
@@ -7734,7 +7619,7 @@ public class ASTtoAST extends TreeParser {
 										}
 									}
 								}
-								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= 287)) ) {
+								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= WS)) ) {
 									alt16=3;
 								}
 
@@ -7754,7 +7639,7 @@ public class ASTtoAST extends TreeParser {
 								}
 
 							}
-							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= 287)) ) {
+							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= WS)) ) {
 								alt16=3;
 							}
 
@@ -7794,7 +7679,7 @@ public class ASTtoAST extends TreeParser {
 						}
 
 					}
-					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= 287)) ) {
+					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= IP_PRED)||(LA16_2 >= LASS && LA16_2 <= WS)) ) {
 						alt16=3;
 					}
 
@@ -7912,16 +7797,16 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: a, p, par, formals, ass, l
-					// token labels: par, ass, a, l
+					// elements: l, formals, a, p, ass, par
+					// token labels: ass, par, a, l
 					// rule labels: formals, retval
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
-					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
 					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
+					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"wildcard p",p);
@@ -8014,7 +7899,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: l, p, a, ass
+					// elements: p, ass, l, a
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -8505,7 +8390,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:16: ( . )?
 						int alt19=2;
 						int LA19_0 = input.LA(1);
-						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= 287)) ) {
+						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= WS)) ) {
 							alt19=1;
 						}
 						switch (alt19) {
@@ -8583,7 +8468,7 @@ public class ASTtoAST extends TreeParser {
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:33: (q= . )?
 						int alt20=2;
 						int LA20_0 = input.LA(1);
-						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= 287)) ) {
+						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= WS)) ) {
 							alt20=1;
 						}
 						switch (alt20) {
@@ -8694,7 +8579,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:228:11: ( . )?
 								int alt21=2;
 								int LA21_0 = input.LA(1);
-								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= 287)) ) {
+								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= WS)) ) {
 									alt21=1;
 								}
 								switch (alt21) {
@@ -8772,7 +8657,7 @@ public class ASTtoAST extends TreeParser {
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:230:13: (q2= . )?
 								int alt22=2;
 								int LA22_0 = input.LA(1);
-								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= 287)) ) {
+								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= WS)) ) {
 									alt22=1;
 								}
 								switch (alt22) {
@@ -9067,7 +8952,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt27=2;
 				int LA27_0 = input.LA(1);
-				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= 287)) ) {
+				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= WS)) ) {
 					alt27=1;
 				}
 				else if ( (LA27_0==UP) ) {
@@ -9148,7 +9033,7 @@ public class ASTtoAST extends TreeParser {
 			while (true) {
 				int alt28=2;
 				int LA28_0 = input.LA(1);
-				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= 287)) ) {
+				if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= WS)) ) {
 					alt28=1;
 				}
 				else if ( (LA28_0==UP) ) {
@@ -9253,20 +9138,20 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u011f\1\u00ff\1\uffff\2\u011f\1\uffff\1\u011f\1\u00ff";
+		"\1\u0119\1\u00fa\1\uffff\2\u0119\1\uffff\1\u0119\1\u00fa";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
-			"\155\2\1\1\u00ae\2",
-			"\1\3\u00fc\uffff\1\2",
+			"\151\2\1\1\u00ac\2",
+			"\1\3\u00f7\uffff\1\2",
 			"",
-			"\1\5\u011c\4",
-			"\1\5\1\6\u011c\4",
+			"\1\5\u0116\4",
+			"\1\5\1\6\u0116\4",
 			"",
-			"\u00fb\5\1\7\40\5",
-			"\1\5\1\2\144\uffff\1\2\u0096\uffff\1\5"
+			"\u00f6\5\1\7\37\5",
+			"\1\5\1\2\140\uffff\1\2\u0095\uffff\1\5"
 	};
 
 	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
@@ -9310,10 +9195,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_PARAMETERS_in_getPredicateFromAssertion112 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getBehaviorActionsFromELQ150 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ154 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000010000000000L});
+	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000001000000000L});
 	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0400000000000000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
@@ -9325,10 +9210,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000200L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
 	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x8000000000000000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0400000000000000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
@@ -9341,9 +9226,9 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion626 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_variable_in_variableList667 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
 	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000FFFFFFFFL});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000000003FFFFFFL});
 	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
@@ -9354,10 +9239,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000200L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
 	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979 = new BitSet(new long[]{0x0000000000000000L,0x0000000008000000L});
 	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause984 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause999 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1005 = new BitSet(new long[]{0x0000000000000004L});
