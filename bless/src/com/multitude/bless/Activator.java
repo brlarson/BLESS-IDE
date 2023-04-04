@@ -173,7 +173,7 @@ public void start(BundleContext context) throws Exception
 		//read in BLESS.stg (or BA.stg)
 	try
 		{
-		Global.templates=loadStringTemplateGroup(stringTemplateGroupFolder+"BLESS.stg");
+		Global.templates=loadStringTemplateGroup(stringTemplateGroupFolder+"BLESS3.stg");
 		Global.BLESStemplates = Global.templates;
 		}
 	catch(Exception e)
@@ -275,7 +275,7 @@ loadStringTemplateGroup(String templateFileName)
 		}
 		else
 		{
-			//				Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS.stg or BA.stg");
+			//				Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS3.stg or BA.stg");
 			extracted();
 		}
 	}

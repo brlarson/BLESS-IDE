@@ -845,7 +845,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		//make unparser use BLESS templates
 		try
 			{
-			Global.templates = Activator.loadStringTemplateGroup(Activator.stringTemplateGroupFolder + "BLESS.stg");
+			Global.templates = Activator.loadStringTemplateGroup(Activator.stringTemplateGroupFolder + "BLESS3.stg");
 			}
 		catch (YouIdiot e)
 			{

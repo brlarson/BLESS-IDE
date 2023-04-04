@@ -133,7 +133,7 @@ StringTemplateGroup templates=null;
 //set flags if using BA.stg or DataModel.stg instead of BLESS.stg
 Global.usingDataModelStringTemplateGroup  = (templateFileName.compareTo("DataModel.stg")==0);
 Global.usingBAStringTemplateGroup  = (templateFileName.compareTo("BA.stg")==0);
-Global.usingBLESSStringTemplateGroup  = (templateFileName.compareTo("BLESS.stg")==0);
+Global.usingBLESSStringTemplateGroup  = (templateFileName.compareTo("BLESS3.stg")==0);
 //if it ends in .stg
 try
 {
@@ -160,7 +160,7 @@ try
   }
   else
   {
-    //        Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS.stg or BA.stg");
+    //        Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS3.stg or BA.stg");
     extracted();
   }
 }

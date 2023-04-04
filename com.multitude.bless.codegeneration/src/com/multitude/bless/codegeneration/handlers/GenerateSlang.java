@@ -217,7 +217,7 @@ public class GenerateSlang extends AbstractBLESSHandler
 //			}
 		
 		
-//restore BLESS.stg
+//restore BLESS3.stg
     Global.templates = Global.BLESStemplates;
     Global.usingSlangStringTemplateGroup = false;
     Global.usingBLESSStringTemplateGroup = true;
