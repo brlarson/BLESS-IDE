@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-04 15:12:07
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-04 15:22:10
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -7778,7 +7778,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, a, formals, l, p, par
+					// elements: l, formals, ass, par, a, p
 					// token labels: ass, par, a, l
 					// rule labels: formals, retval
 					// token list labels: 
@@ -7880,7 +7880,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p, l, a
+					// elements: l, a, p, ass
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -7950,7 +7950,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p
+					// elements: p, ass
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -8844,7 +8844,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "get_invariant_from_bless_subclause"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:1: get_invariant_from_bless_subclause : ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= ID ) )? pred= . ) ( . )* ) ) -> ^( $ass $pred) ;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:1: get_invariant_from_bless_subclause : ( ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ^( LABEL id= ID ) pred= . ) ( . )* ) ) -> ^( $ass $pred) | ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION pred= . ) ( . )* ) ) -> ^( $ass $pred) );
 	public final ASTtoAST.get_invariant_from_bless_subclause_return get_invariant_from_bless_subclause() throws RecognitionException {
 		ASTtoAST.get_invariant_from_bless_subclause_return retval = new ASTtoAST.get_invariant_from_bless_subclause_return();
 		retval.start = input.LT(1);
@@ -8864,6 +8864,11 @@ public class ASTtoAST extends TreeParser {
 		BAST wildcard49=null;
 		BAST LABEL50=null;
 		BAST wildcard51=null;
+		BAST BLESS_SUBCLAUSE52=null;
+		BAST DO_NOT_PROVE53=null;
+		BAST LITERAL_assert54=null;
+		BAST wildcard55=null;
+		BAST wildcard56=null;
 		BAST pred=null;
 
 		BAST ta_tree=null;
@@ -8875,6 +8880,11 @@ public class ASTtoAST extends TreeParser {
 		BAST wildcard49_tree=null;
 		BAST LABEL50_tree=null;
 		BAST wildcard51_tree=null;
+		BAST BLESS_SUBCLAUSE52_tree=null;
+		BAST DO_NOT_PROVE53_tree=null;
+		BAST LITERAL_assert54_tree=null;
+		BAST wildcard55_tree=null;
+		BAST wildcard56_tree=null;
 		BAST pred_tree=null;
 		RewriteRuleNodeStream stream_BLESS_SUBCLAUSE=new RewriteRuleNodeStream(adaptor,"token BLESS_SUBCLAUSE");
 		RewriteRuleNodeStream stream_ASSERTION=new RewriteRuleNodeStream(adaptor,"token ASSERTION");
@@ -8885,157 +8895,139 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_DO_NOT_PROVE=new RewriteRuleNodeStream(adaptor,"token DO_NOT_PROVE");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:3: ( ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= ID ) )? pred= . ) ( . )* ) ) -> ^( $ass $pred) )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:3: ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= ID ) )? pred= . ) ( . )* ) )
-			{
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_1 = _last;
-			BAST _first_1 = null;
-			BAST root_1 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			BLESS_SUBCLAUSE46=(BAST)match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_BLESS_SUBCLAUSE.add(BLESS_SUBCLAUSE46);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:22: ( DO_NOT_PROVE )?
-			int alt26=2;
-			int LA26_0 = input.LA(1);
-			if ( (LA26_0==DO_NOT_PROVE) ) {
-				alt26=1;
-			}
-			switch (alt26) {
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:3: ( ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ^( LABEL id= ID ) pred= . ) ( . )* ) ) -> ^( $ass $pred) | ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION pred= . ) ( . )* ) ) -> ^( $ass $pred) )
+			int alt32=2;
+			alt32 = dfa32.predict(input);
+			switch (alt32) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:22: DO_NOT_PROVE
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:3: ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ^( LABEL id= ID ) pred= . ) ( . )* ) )
 					{
 					_last = (BAST)input.LT(1);
-					DO_NOT_PROVE47=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979); if (state.failed) return retval;
+					{
+					BAST _save_last_1 = _last;
+					BAST _first_1 = null;
+					BAST root_1 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					BLESS_SUBCLAUSE46=(BAST)match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977); if (state.failed) return retval;
 					 
-					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE47);
+					if ( state.backtracking==0 ) stream_BLESS_SUBCLAUSE.add(BLESS_SUBCLAUSE46);
 
-					if ( state.backtracking==0 ) {
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:22: ( DO_NOT_PROVE )?
+					int alt26=2;
+					int LA26_0 = input.LA(1);
+					if ( (LA26_0==DO_NOT_PROVE) ) {
+						alt26=1;
 					}
+					switch (alt26) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:22: DO_NOT_PROVE
+							{
+							_last = (BAST)input.LT(1);
+							DO_NOT_PROVE47=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause979); if (state.failed) return retval;
+							 
+							if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE47);
 
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_2 = _last;
-			BAST _first_2 = null;
-			BAST root_2 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_assert48=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause984); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert48);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:54: ( . )+
-			int cnt27=0;
-			loop27:
-			while (true) {
-				int alt27=2;
-				int LA27_0 = input.LA(1);
-				if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= WS)) ) {
-					alt27=1;
-				}
-				else if ( (LA27_0==UP) ) {
-					alt27=2;
-				}
-
-				switch (alt27) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:54: .
-					{
-					_last = (BAST)input.LT(1);
-					wildcard49=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard49_tree = (BAST)adaptor.dupTree(wildcard49);
-					adaptor.addChild(root_2, wildcard49_tree);
-					}
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-				default :
-					if ( cnt27 >= 1 ) break loop27;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(27, input);
-					throw eee;
-				}
-				cnt27++;
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_1, root_2);
-			_last = _save_last_2;
-			}
-
-
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_2 = _last;
-			BAST _first_2 = null;
-			BAST root_2 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			ta=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause999); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_invariant.add(ta);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_3 = _last;
-			BAST _first_3 = null;
-			BAST root_3 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1005); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:46: ( ^( LABEL id= ID ) )?
-			int alt28=2;
-			int LA28_0 = input.LA(1);
-			if ( (LA28_0==LABEL) ) {
-				int LA28_1 = input.LA(2);
-				if ( (LA28_1==DOWN) ) {
-					int LA28_3 = input.LA(3);
-					if ( (LA28_3==ID) ) {
-						int LA28_4 = input.LA(4);
-						if ( (LA28_4==UP) ) {
-							int LA28_5 = input.LA(5);
-							if ( ((LA28_5 >= AADL_STRING_LITERAL && LA28_5 <= WS)) ) {
-								alt28=1;
+							if ( state.backtracking==0 ) {
 							}
-						}
+
+							}
+							break;
+
 					}
-				}
-			}
-			switch (alt28) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:48: ^( LABEL id= ID )
+
+					_last = (BAST)input.LT(1);
 					{
+					BAST _save_last_2 = _last;
+					BAST _first_2 = null;
+					BAST root_2 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					LITERAL_assert48=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause984); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert48);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:54: ( . )+
+					int cnt27=0;
+					loop27:
+					while (true) {
+						int alt27=2;
+						int LA27_0 = input.LA(1);
+						if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= WS)) ) {
+							alt27=1;
+						}
+						else if ( (LA27_0==UP) ) {
+							alt27=2;
+						}
+
+						switch (alt27) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:54: .
+							{
+							_last = (BAST)input.LT(1);
+							wildcard49=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							wildcard49_tree = (BAST)adaptor.dupTree(wildcard49);
+							adaptor.addChild(root_2, wildcard49_tree);
+							}
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							if ( cnt27 >= 1 ) break loop27;
+							if (state.backtracking>0) {state.failed=true; return retval;}
+							EarlyExitException eee = new EarlyExitException(27, input);
+							throw eee;
+						}
+						cnt27++;
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_1, root_2);
+					_last = _save_last_2;
+					}
+
+
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_2 = _last;
+					BAST _first_2 = null;
+					BAST root_2 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					ta=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause999); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_LITERAL_invariant.add(ta);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_3 = _last;
+					BAST _first_3 = null;
+					BAST root_3 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1005); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
 					{
 					BAST _save_last_4 = _last;
 					BAST _first_4 = null;
 					BAST root_4 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					LABEL50=(BAST)match(input,LABEL,FOLLOW_LABEL_in_get_invariant_from_bless_subclause1010); if (state.failed) return retval;
+					LABEL50=(BAST)match(input,LABEL,FOLLOW_LABEL_in_get_invariant_from_bless_subclause1008); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_LABEL.add(LABEL50);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					id=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_bless_subclause1015); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_bless_subclause1013); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ID.add(id);
 
@@ -9045,107 +9037,310 @@ public class ASTtoAST extends TreeParser {
 					}
 
 
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			pred=(BAST)input.LT(1);
-			matchAny(input); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			pred_tree = (BAST)adaptor.dupTree(pred);
-			adaptor.addChild(root_3, pred_tree);
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_2, root_3);
-			_last = _save_last_3;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:77: ( . )*
-			loop29:
-			while (true) {
-				int alt29=2;
-				int LA29_0 = input.LA(1);
-				if ( ((LA29_0 >= AADL_STRING_LITERAL && LA29_0 <= WS)) ) {
-					alt29=1;
-				}
-				else if ( (LA29_0==UP) ) {
-					alt29=2;
-				}
-
-				switch (alt29) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:77: .
-					{
 					_last = (BAST)input.LT(1);
-					wildcard51=(BAST)input.LT(1);
+					pred=(BAST)input.LT(1);
 					matchAny(input); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					wildcard51_tree = (BAST)adaptor.dupTree(wildcard51);
-					adaptor.addChild(root_2, wildcard51_tree);
+					pred_tree = (BAST)adaptor.dupTree(pred);
+					adaptor.addChild(root_3, pred_tree);
 					}
 
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_2, root_3);
+					_last = _save_last_3;
+					}
+
+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:73: ( . )*
+					loop28:
+					while (true) {
+						int alt28=2;
+						int LA28_0 = input.LA(1);
+						if ( ((LA28_0 >= AADL_STRING_LITERAL && LA28_0 <= WS)) ) {
+							alt28=1;
+						}
+						else if ( (LA28_0==UP) ) {
+							alt28=2;
+						}
+
+						switch (alt28) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:73: .
+							{
+							_last = (BAST)input.LT(1);
+							wildcard51=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							wildcard51_tree = (BAST)adaptor.dupTree(wildcard51);
+							adaptor.addChild(root_2, wildcard51_tree);
+							}
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							break loop28;
+						}
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_1, root_2);
+					_last = _save_last_2;
+					}
+
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_0, root_1);
+					_last = _save_last_1;
+					}
+
+
+					// AST REWRITE
+					// elements: ass, pred
+					// token labels: ass
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: pred
 					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
+					RewriteRuleSubtreeStream stream_pred=new RewriteRuleSubtreeStream(adaptor,"wildcard pred",pred);
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (BAST)adaptor.nil();
+					// 279:5: -> ^( $ass $pred)
+					{
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:279:8: ^( $ass $pred)
+						{
+						BAST root_1 = (BAST)adaptor.nil();
+						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
+						adaptor.addChild(root_1, stream_pred.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
+
+					}
+					break;
+				case 2 :
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:3: ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION pred= . ) ( . )* ) )
+					{
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_1 = _last;
+					BAST _first_1 = null;
+					BAST root_1 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					BLESS_SUBCLAUSE52=(BAST)match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause1057); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_BLESS_SUBCLAUSE.add(BLESS_SUBCLAUSE52);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:22: ( DO_NOT_PROVE )?
+					int alt29=2;
+					int LA29_0 = input.LA(1);
+					if ( (LA29_0==DO_NOT_PROVE) ) {
+						alt29=1;
+					}
+					switch (alt29) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:22: DO_NOT_PROVE
+							{
+							_last = (BAST)input.LT(1);
+							DO_NOT_PROVE53=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1059); if (state.failed) return retval;
+							 
+							if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE53);
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+					}
+
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_2 = _last;
+					BAST _first_2 = null;
+					BAST root_2 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					LITERAL_assert54=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause1064); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert54);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:54: ( . )+
+					int cnt30=0;
+					loop30:
+					while (true) {
+						int alt30=2;
+						int LA30_0 = input.LA(1);
+						if ( ((LA30_0 >= AADL_STRING_LITERAL && LA30_0 <= WS)) ) {
+							alt30=1;
+						}
+						else if ( (LA30_0==UP) ) {
+							alt30=2;
+						}
+
+						switch (alt30) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:54: .
+							{
+							_last = (BAST)input.LT(1);
+							wildcard55=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							wildcard55_tree = (BAST)adaptor.dupTree(wildcard55);
+							adaptor.addChild(root_2, wildcard55_tree);
+							}
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							if ( cnt30 >= 1 ) break loop30;
+							if (state.backtracking>0) {state.failed=true; return retval;}
+							EarlyExitException eee = new EarlyExitException(30, input);
+							throw eee;
+						}
+						cnt30++;
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_1, root_2);
+					_last = _save_last_2;
+					}
+
+
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_2 = _last;
+					BAST _first_2 = null;
+					BAST root_2 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					ta=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1079); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_LITERAL_invariant.add(ta);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_3 = _last;
+					BAST _first_3 = null;
+					BAST root_3 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1085); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					_last = (BAST)input.LT(1);
+					pred=(BAST)input.LT(1);
+					matchAny(input); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					pred_tree = (BAST)adaptor.dupTree(pred);
+					adaptor.addChild(root_3, pred_tree);
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_2, root_3);
+					_last = _save_last_3;
+					}
+
+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:282:55: ( . )*
+					loop31:
+					while (true) {
+						int alt31=2;
+						int LA31_0 = input.LA(1);
+						if ( ((LA31_0 >= AADL_STRING_LITERAL && LA31_0 <= WS)) ) {
+							alt31=1;
+						}
+						else if ( (LA31_0==UP) ) {
+							alt31=2;
+						}
+
+						switch (alt31) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:282:55: .
+							{
+							_last = (BAST)input.LT(1);
+							wildcard56=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							wildcard56_tree = (BAST)adaptor.dupTree(wildcard56);
+							adaptor.addChild(root_2, wildcard56_tree);
+							}
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							break loop31;
+						}
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_1, root_2);
+					_last = _save_last_2;
+					}
+
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_0, root_1);
+					_last = _save_last_1;
+					}
+
+
+					// AST REWRITE
+					// elements: pred, ass
+					// token labels: ass
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: pred
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
+					RewriteRuleSubtreeStream stream_pred=new RewriteRuleSubtreeStream(adaptor,"wildcard pred",pred);
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (BAST)adaptor.nil();
+					// 284:5: -> ^( $ass $pred)
+					{
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:284:8: ^( $ass $pred)
+						{
+						BAST root_1 = (BAST)adaptor.nil();
+						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
+						adaptor.addChild(root_1, stream_pred.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
 					}
 
 					}
 					break;
 
-				default :
-					break loop29;
-				}
 			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_1, root_2);
-			_last = _save_last_2;
-			}
-
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_0, root_1);
-			_last = _save_last_1;
-			}
-
-
-			// AST REWRITE
-			// elements: ass, pred
-			// token labels: ass
-			// rule labels: retval
-			// token list labels: 
-			// rule list labels: 
-			// wildcard labels: pred
-			if ( state.backtracking==0 ) {
-			retval.tree = root_0;
-			RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
-			RewriteRuleSubtreeStream stream_pred=new RewriteRuleSubtreeStream(adaptor,"wildcard pred",pred);
-			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
-
-			root_0 = (BAST)adaptor.nil();
-			// 279:5: -> ^( $ass $pred)
-			{
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:279:8: ^( $ass $pred)
-				{
-				BAST root_1 = (BAST)adaptor.nil();
-				root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
-				adaptor.addChild(root_1, stream_pred.nextTree());
-				adaptor.addChild(root_0, root_1);
-				}
-
-			}
-
-
-			retval.tree = root_0;
-			}
-
-			}
-
 			if ( state.backtracking==0 ) {
 
 			retval.tree = (BAST)adaptor.rulePostProcessing(root_0);
@@ -9170,6 +9365,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	protected DFA4 dfa4 = new DFA4(this);
+	protected DFA32 dfa32 = new DFA32(this);
 	static final String DFA4_eotS =
 		"\10\uffff";
 	static final String DFA4_eofS =
@@ -9225,6 +9421,79 @@ public class ASTtoAST extends TreeParser {
 		@Override
 		public String getDescription() {
 			return "137:12: ( ^( LITERAL_declare ( . )* ) )?";
+		}
+	}
+
+	static final String DFA32_eotS =
+		"\25\uffff";
+	static final String DFA32_eofS =
+		"\25\uffff";
+	static final String DFA32_minS =
+		"\1\26\1\2\1\55\1\132\1\2\1\4\1\2\1\4\1\u008d\1\3\1\2\1\3\1\16\1\2\1\4"+
+		"\1\2\1\uffff\1\4\2\3\1\uffff";
+	static final String DFA32_maxS =
+		"\1\26\1\2\2\132\1\2\3\u0118\1\u008d\1\u0118\1\2\1\u0118\1\16\1\2\1\u0118"+
+		"\1\3\1\uffff\3\u0118\1\uffff";
+	static final String DFA32_acceptS =
+		"\20\uffff\1\2\3\uffff\1\1";
+	static final String DFA32_specialS =
+		"\25\uffff}>";
+	static final String[] DFA32_transitionS = {
+			"\1\1",
+			"\1\2",
+			"\1\3\54\uffff\1\4",
+			"\1\4",
+			"\1\5",
+			"\u0115\6",
+			"\1\7\1\10\u0115\6",
+			"\u0115\11",
+			"\1\12",
+			"\1\13\u0115\11",
+			"\1\14",
+			"\1\10\u0115\6",
+			"\1\15",
+			"\1\16",
+			"\100\20\1\17\u00d4\20",
+			"\1\21\1\20",
+			"",
+			"\66\20\1\22\u00de\20",
+			"\1\23\u0115\20",
+			"\1\20\u0115\24",
+			""
+	};
+
+	static final short[] DFA32_eot = DFA.unpackEncodedString(DFA32_eotS);
+	static final short[] DFA32_eof = DFA.unpackEncodedString(DFA32_eofS);
+	static final char[] DFA32_min = DFA.unpackEncodedStringToUnsignedChars(DFA32_minS);
+	static final char[] DFA32_max = DFA.unpackEncodedStringToUnsignedChars(DFA32_maxS);
+	static final short[] DFA32_accept = DFA.unpackEncodedString(DFA32_acceptS);
+	static final short[] DFA32_special = DFA.unpackEncodedString(DFA32_specialS);
+	static final short[][] DFA32_transition;
+
+	static {
+		int numStates = DFA32_transitionS.length;
+		DFA32_transition = new short[numStates][];
+		for (int i=0; i<numStates; i++) {
+			DFA32_transition[i] = DFA.unpackEncodedString(DFA32_transitionS[i]);
+		}
+	}
+
+	protected class DFA32 extends DFA {
+
+		public DFA32(BaseRecognizer recognizer) {
+			this.recognizer = recognizer;
+			this.decisionNumber = 32;
+			this.eot = DFA32_eot;
+			this.eof = DFA32_eof;
+			this.min = DFA32_min;
+			this.max = DFA32_max;
+			this.accept = DFA32_accept;
+			this.special = DFA32_special;
+			this.transition = DFA32_transition;
+		}
+		@Override
+		public String getDescription() {
+			return "274:1: get_invariant_from_bless_subclause : ( ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION ^( LABEL id= ID ) pred= . ) ( . )* ) ) -> ^( $ass $pred) | ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ^( LITERAL_assert ( . )+ ) ^(ta= LITERAL_invariant ^(ass= ASSERTION pred= . ) ( . )* ) ) -> ^( $ass $pred) );";
 		}
 	}
 
@@ -9285,6 +9554,11 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause984 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause999 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1005 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_bless_subclause1010 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_bless_subclause1015 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_bless_subclause1008 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_get_invariant_from_bless_subclause1013 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause1057 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1059 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause1064 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1079 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1085 = new BitSet(new long[]{0x0000000000000004L});
 }
