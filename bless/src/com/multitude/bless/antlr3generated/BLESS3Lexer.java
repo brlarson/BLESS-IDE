@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-04 15:12:06
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-04 16:10:30
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -326,7 +326,7 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "HEX_DIGIT"
 	public final void mHEX_DIGIT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:274:3: ( ( '0' .. '9' | 'a' .. 'f' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:250:3: ( ( '0' .. '9' | 'a' .. 'f' ) )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -351,10 +351,10 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:280:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:281:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:256:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:257:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			{
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:281:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:257:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -404,12 +404,12 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = SLCOMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:287:3: ( '--' (~ ( '\\n' | '\\r' ) )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:288:3: '--' (~ ( '\\n' | '\\r' ) )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:263:3: ( '--' (~ ( '\\n' | '\\r' ) )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:264:3: '--' (~ ( '\\n' | '\\r' ) )*
 			{
 			match("--"); 
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:289:3: (~ ( '\\n' | '\\r' ) )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:265:3: (~ ( '\\n' | '\\r' ) )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -455,10 +455,10 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:7: ( ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )? )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:9: ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:7: ( ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:9: ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )?
 			{
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:9: ( '-' )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:9: ( '-' )?
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='-') ) {
@@ -466,7 +466,7 @@ public class BLESS3Lexer extends Lexer {
 			}
 			switch (alt3) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:9: '-'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:9: '-'
 					{
 					match('-'); 
 					}
@@ -474,7 +474,7 @@ public class BLESS3Lexer extends Lexer {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:14: ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:14: ( DIGIT )+
 			int cnt4=0;
 			loop4:
 			while (true) {
@@ -507,7 +507,7 @@ public class BLESS3Lexer extends Lexer {
 				cnt4++;
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:21: ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:21: ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0=='.') ) {
@@ -515,10 +515,10 @@ public class BLESS3Lexer extends Lexer {
 			}
 			switch (alt9) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:22: '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:22: '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )?
 					{
 					match('.'); 
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:26: ( DIGIT )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:26: ( DIGIT )+
 					int cnt5=0;
 					loop5:
 					while (true) {
@@ -551,7 +551,7 @@ public class BLESS3Lexer extends Lexer {
 						cnt5++;
 					}
 
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:33: ( 'e' ( '-' )? ( DIGIT )+ )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:33: ( 'e' ( '-' )? ( DIGIT )+ )?
 					int alt8=2;
 					int LA8_0 = input.LA(1);
 					if ( (LA8_0=='e') ) {
@@ -559,10 +559,10 @@ public class BLESS3Lexer extends Lexer {
 					}
 					switch (alt8) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:34: 'e' ( '-' )? ( DIGIT )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:34: 'e' ( '-' )? ( DIGIT )+
 							{
 							match('e'); 
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:38: ( '-' )?
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:38: ( '-' )?
 							int alt6=2;
 							int LA6_0 = input.LA(1);
 							if ( (LA6_0=='-') ) {
@@ -570,7 +570,7 @@ public class BLESS3Lexer extends Lexer {
 							}
 							switch (alt6) {
 								case 1 :
-									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:38: '-'
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:38: '-'
 									{
 									match('-'); 
 									}
@@ -578,7 +578,7 @@ public class BLESS3Lexer extends Lexer {
 
 							}
 
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:43: ( DIGIT )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:43: ( DIGIT )+
 							int cnt7=0;
 							loop7:
 							while (true) {
@@ -621,7 +621,7 @@ public class BLESS3Lexer extends Lexer {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:55: ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:55: ( 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )? )?
 			int alt17=2;
 			int LA17_0 = input.LA(1);
 			if ( (LA17_0=='i') ) {
@@ -629,10 +629,10 @@ public class BLESS3Lexer extends Lexer {
 			}
 			switch (alt17) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:57: 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:57: 'i' ( '-' )? ( DIGIT )+ ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
 					{
 					match('i'); 
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:61: ( '-' )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:61: ( '-' )?
 					int alt10=2;
 					int LA10_0 = input.LA(1);
 					if ( (LA10_0=='-') ) {
@@ -640,7 +640,7 @@ public class BLESS3Lexer extends Lexer {
 					}
 					switch (alt10) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:61: '-'
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:61: '-'
 							{
 							match('-'); 
 							}
@@ -648,7 +648,7 @@ public class BLESS3Lexer extends Lexer {
 
 					}
 
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:66: ( DIGIT )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:66: ( DIGIT )+
 					int cnt11=0;
 					loop11:
 					while (true) {
@@ -681,7 +681,7 @@ public class BLESS3Lexer extends Lexer {
 						cnt11++;
 					}
 
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:73: ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:73: ( '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )? )?
 					int alt16=2;
 					int LA16_0 = input.LA(1);
 					if ( (LA16_0=='.') ) {
@@ -689,10 +689,10 @@ public class BLESS3Lexer extends Lexer {
 					}
 					switch (alt16) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:74: '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )?
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:74: '.' ( DIGIT )+ ( 'e' ( '-' )? ( DIGIT )+ )?
 							{
 							match('.'); 
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:78: ( DIGIT )+
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:78: ( DIGIT )+
 							int cnt12=0;
 							loop12:
 							while (true) {
@@ -725,7 +725,7 @@ public class BLESS3Lexer extends Lexer {
 								cnt12++;
 							}
 
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:85: ( 'e' ( '-' )? ( DIGIT )+ )?
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:85: ( 'e' ( '-' )? ( DIGIT )+ )?
 							int alt15=2;
 							int LA15_0 = input.LA(1);
 							if ( (LA15_0=='e') ) {
@@ -733,10 +733,10 @@ public class BLESS3Lexer extends Lexer {
 							}
 							switch (alt15) {
 								case 1 :
-									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:86: 'e' ( '-' )? ( DIGIT )+
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:86: 'e' ( '-' )? ( DIGIT )+
 									{
 									match('e'); 
-									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:90: ( '-' )?
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:90: ( '-' )?
 									int alt13=2;
 									int LA13_0 = input.LA(1);
 									if ( (LA13_0=='-') ) {
@@ -744,7 +744,7 @@ public class BLESS3Lexer extends Lexer {
 									}
 									switch (alt13) {
 										case 1 :
-											// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:90: '-'
+											// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:90: '-'
 											{
 											match('-'); 
 											}
@@ -752,7 +752,7 @@ public class BLESS3Lexer extends Lexer {
 
 									}
 
-									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:293:95: ( DIGIT )+
+									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:269:95: ( DIGIT )+
 									int cnt14=0;
 									loop14:
 									while (true) {
@@ -816,8 +816,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:310:5: ( '.' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:310:7: '.'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:286:5: ( '.' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:286:7: '.'
 			{
 			match('.'); 
 			}
@@ -836,8 +836,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOTDOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:313:9: ( '..' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:313:11: '..'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:289:9: ( '..' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:289:11: '..'
 			{
 			match(".."); 
 
@@ -857,8 +857,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = COMMADOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:314:10: ( ',.' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:314:12: ',.'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:290:10: ( ',.' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:290:12: ',.'
 			{
 			match(",."); 
 
@@ -878,8 +878,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOTCOMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:315:12: ( '.,' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:315:14: '.,'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:291:12: ( '.,' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:291:14: '.,'
 			{
 			match(".,"); 
 
@@ -899,8 +899,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = COMMACOMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:316:14: ( ',,' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:316:16: ',,'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:292:14: ( ',,' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:292:16: ',,'
 			{
 			match(",,"); 
 
@@ -920,8 +920,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = PLUS_ARROW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:319:12: ( '+=>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:319:14: '+=>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:295:12: ( '+=>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:295:14: '+=>'
 			{
 			match("+=>"); 
 
@@ -941,8 +941,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:323:6: ( '+' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:323:8: '+'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:299:6: ( '+' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:299:8: '+'
 			{
 			match('+'); 
 			}
@@ -961,8 +961,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = TIMES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:324:7: ( '*' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:324:9: '*'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:300:7: ( '*' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:300:9: '*'
 			{
 			match('*'); 
 			}
@@ -981,8 +981,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:325:7: ( '-' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:325:9: '-'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:301:7: ( '-' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:301:9: '-'
 			{
 			match('-'); 
 			}
@@ -1001,8 +1001,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DIVIDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:326:8: ( '/' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:326:10: '/'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:302:8: ( '/' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:302:10: '/'
 			{
 			match('/'); 
 			}
@@ -1021,8 +1021,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = EXP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:327:5: ( '**' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:327:7: '**'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:303:5: ( '**' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:303:7: '**'
 			{
 			match("**"); 
 
@@ -1042,8 +1042,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = ASSIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:328:8: ( ':=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:328:10: ':='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:304:8: ( ':=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:304:10: ':='
 			{
 			match(":="); 
 
@@ -1063,8 +1063,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = SEMICOLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:329:11: ( ';' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:329:13: ';'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:305:11: ( ';' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:305:13: ';'
 			{
 			match(';'); 
 			}
@@ -1083,8 +1083,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = AMPERSAND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:330:11: ( '&' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:330:13: '&'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:306:11: ( '&' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:306:13: '&'
 			{
 			match('&'); 
 			}
@@ -1103,8 +1103,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:331:8: ( '{' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:331:10: '{'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:307:8: ( '{' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:307:10: '{'
 			{
 			match('{'); 
 			}
@@ -1123,8 +1123,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = RCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:332:8: ( '}' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:332:10: '}'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:308:8: ( '}' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:308:10: '}'
 			{
 			match('}'); 
 			}
@@ -1143,8 +1143,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:333:8: ( '(' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:333:10: '('
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:309:8: ( '(' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:309:10: '('
 			{
 			match('('); 
 			}
@@ -1163,8 +1163,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = RPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:334:8: ( ')' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:334:10: ')'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:310:8: ( ')' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:310:10: ')'
 			{
 			match(')'); 
 			}
@@ -1183,8 +1183,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LBRACKET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:335:10: ( '[' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:335:12: '['
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:311:10: ( '[' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:311:12: '['
 			{
 			match('['); 
 			}
@@ -1203,8 +1203,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = RBRACKET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:336:10: ( ']' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:336:12: ']'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:312:10: ( ']' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:312:12: ']'
 			{
 			match(']'); 
 			}
@@ -1223,8 +1223,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = COLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:337:7: ( ':' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:337:9: ':'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:313:7: ( ':' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:313:9: ':'
 			{
 			match(':'); 
 			}
@@ -1243,8 +1243,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOUBLE_COLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:338:14: ( '::' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:338:16: '::'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:314:14: ( '::' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:314:16: '::'
 			{
 			match("::"); 
 
@@ -1264,8 +1264,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:339:7: ( ',' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:339:9: ','
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:315:7: ( ',' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:315:9: ','
 			{
 			match(','); 
 			}
@@ -1284,8 +1284,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = AT_SIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:340:9: ( '@' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:340:11: '@'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:316:9: ( '@' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:316:11: '@'
 			{
 			match('@'); 
 			}
@@ -1304,8 +1304,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = CARET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:341:7: ( '^' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:341:9: '^'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:317:7: ( '^' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:317:9: '^'
 			{
 			match('^'); 
 			}
@@ -1324,8 +1324,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = EMPTY_CURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:342:13: ( '{}' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:342:15: '{}'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:318:13: ( '{}' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:318:15: '{}'
 			{
 			match("{}"); 
 
@@ -1345,8 +1345,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOLLAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:343:8: ( '$' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:343:10: '$'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:319:8: ( '$' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:319:10: '$'
 			{
 			match('$'); 
 			}
@@ -1365,8 +1365,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = TILDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:344:7: ( '~' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:344:9: '~'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:320:7: ( '~' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:320:9: '~'
 			{
 			match('~'); 
 			}
@@ -1385,8 +1385,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = OCTOTHORPE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:345:12: ( '#' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:345:14: '#'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:321:12: ( '#' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:321:14: '#'
 			{
 			match('#'); 
 			}
@@ -1405,8 +1405,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = CVP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:346:5: ( ')->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:346:7: ')->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:322:5: ( ')->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:322:7: ')->'
 			{
 			match(")->"); 
 
@@ -1426,8 +1426,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = COLON_TILDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:347:13: ( ':~' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:347:15: ':~'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:323:13: ( ':~' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:323:15: ':~'
 			{
 			match(":~"); 
 
@@ -1447,8 +1447,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = VERT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:348:6: ( '|' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:348:8: '|'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:324:6: ( '|' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:324:8: '|'
 			{
 			match('|'); 
 			}
@@ -1467,8 +1467,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DOUBLE_QUOTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:351:14: ( '\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:351:16: '\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:327:14: ( '\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:327:16: '\"'
 			{
 			match('\"'); 
 			}
@@ -1487,8 +1487,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = ANNEX_START;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:353:12: ( '{**' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:353:14: '{**'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:329:12: ( '{**' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:329:14: '{**'
 			{
 			match("{**"); 
 
@@ -1508,8 +1508,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = ANNEX_END;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:354:10: ( '**}' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:354:12: '**}'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:330:10: ( '**}' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:330:12: '**}'
 			{
 			match("**}"); 
 
@@ -1529,8 +1529,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = DO_NOT_PROVE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:356:13: ( 'DO_NOT_PROVE' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:356:15: 'DO_NOT_PROVE'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:332:13: ( 'DO_NOT_PROVE' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:332:15: 'DO_NOT_PROVE'
 			{
 			match("DO_NOT_PROVE"); 
 
@@ -1550,8 +1550,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_and;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:360:13: ( 'and' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:360:15: 'and'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:336:13: ( 'and' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:336:15: 'and'
 			{
 			match("and"); 
 
@@ -1571,8 +1571,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_mod;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:363:13: ( 'mod' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:363:15: 'mod'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:339:13: ( 'mod' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:339:15: 'mod'
 			{
 			match("mod"); 
 
@@ -1592,8 +1592,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_or;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:364:12: ( 'or' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:364:14: 'or'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:340:12: ( 'or' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:340:14: 'or'
 			{
 			match("or"); 
 
@@ -1613,8 +1613,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_rem;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:365:13: ( 'rem' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:365:15: 'rem'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:341:13: ( 'rem' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:341:15: 'rem'
 			{
 			match("rem"); 
 
@@ -1634,8 +1634,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_xor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:366:13: ( 'xor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:366:15: 'xor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:342:13: ( 'xor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:342:15: 'xor'
 			{
 			match("xor"); 
 
@@ -1655,8 +1655,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlboolean;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:369:20: ( 'aadlboolean' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:369:22: 'aadlboolean'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:345:20: ( 'aadlboolean' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:345:22: 'aadlboolean'
 			{
 			match("aadlboolean"); 
 
@@ -1676,8 +1676,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlinteger;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:370:20: ( 'aadlinteger' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:370:22: 'aadlinteger'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:346:20: ( 'aadlinteger' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:346:22: 'aadlinteger'
 			{
 			match("aadlinteger"); 
 
@@ -1697,8 +1697,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlreal;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:371:17: ( 'aadlreal' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:371:19: 'aadlreal'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:347:17: ( 'aadlreal' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:347:19: 'aadlreal'
 			{
 			match("aadlreal"); 
 
@@ -1718,8 +1718,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_aadlstring;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:372:19: ( 'aadlstring' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:372:21: 'aadlstring'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:348:19: ( 'aadlstring' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:348:21: 'aadlstring'
 			{
 			match("aadlstring"); 
 
@@ -1739,8 +1739,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_abs;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:373:12: ( 'abs' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:373:15: 'abs'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:349:12: ( 'abs' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:349:15: 'abs'
 			{
 			match("abs"); 
 
@@ -1760,8 +1760,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_access;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:374:15: ( 'access' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:374:17: 'access'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:350:15: ( 'access' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:350:17: 'access'
 			{
 			match("access"); 
 
@@ -1781,8 +1781,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_all;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:375:13: ( 'all' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:375:15: 'all'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:351:13: ( 'all' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:351:15: 'all'
 			{
 			match("all"); 
 
@@ -1802,8 +1802,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_any;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:376:12: ( 'any' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:376:15: 'any'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:352:12: ( 'any' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:352:15: 'any'
 			{
 			match("any"); 
 
@@ -1823,8 +1823,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_applies;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:377:16: ( 'applies' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:377:18: 'applies'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:353:16: ( 'applies' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:353:18: 'applies'
 			{
 			match("applies"); 
 
@@ -1844,8 +1844,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_are;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:378:13: ( 'are' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:378:15: 'are'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:354:13: ( 'are' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:354:15: 'are'
 			{
 			match("are"); 
 
@@ -1865,8 +1865,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_array;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:379:14: ( 'array' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:379:16: 'array'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:355:14: ( 'array' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:355:16: 'array'
 			{
 			match("array"); 
 
@@ -1886,8 +1886,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_assert;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:380:16: ( 'assert' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:380:18: 'assert'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:356:16: ( 'assert' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:356:18: 'assert'
 			{
 			match("assert"); 
 
@@ -1907,8 +1907,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_Assertion;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:381:18: ( 'Assertion' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:381:20: 'Assertion'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:357:18: ( 'Assertion' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:357:20: 'Assertion'
 			{
 			match("Assertion"); 
 
@@ -1928,8 +1928,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_availability;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:382:22: ( 'availability' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:382:24: 'availability'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:358:22: ( 'availability' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:358:24: 'availability'
 			{
 			match("availability"); 
 
@@ -1949,8 +1949,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_base;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:383:14: ( 'base' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:383:16: 'base'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:359:14: ( 'base' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:359:16: 'base'
 			{
 			match("base"); 
 
@@ -1970,8 +1970,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_binding;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:384:17: ( 'binding' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:384:19: 'binding'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:360:17: ( 'binding' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:360:19: 'binding'
 			{
 			match("binding"); 
 
@@ -1991,8 +1991,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_boolean;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:385:16: ( 'boolean' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:385:19: 'boolean'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:361:16: ( 'boolean' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:361:19: 'boolean'
 			{
 			match("boolean"); 
 
@@ -2012,8 +2012,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:386:15: ( 'bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:386:17: 'bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:362:15: ( 'bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:362:17: 'bound'
 			{
 			match("bound"); 
 
@@ -2033,8 +2033,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_call;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:387:13: ( 'call' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:387:15: 'call'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:363:13: ( 'call' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:363:15: 'call'
 			{
 			match("call"); 
 
@@ -2054,8 +2054,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_calls;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:388:14: ( 'calls' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:388:16: 'calls'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:364:14: ( 'calls' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:364:16: 'calls'
 			{
 			match("calls"); 
 
@@ -2075,8 +2075,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_case;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:389:14: ( 'case' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:389:16: 'case'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:365:14: ( 'case' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:365:16: 'case'
 			{
 			match("case"); 
 
@@ -2096,8 +2096,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_catch;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:390:15: ( 'catch' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:390:16: 'catch'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:366:15: ( 'catch' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:366:16: 'catch'
 			{
 			match("catch"); 
 
@@ -2117,8 +2117,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_classifier;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:391:19: ( 'classifier' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:391:21: 'classifier'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:367:19: ( 'classifier' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:367:21: 'classifier'
 			{
 			match("classifier"); 
 
@@ -2138,8 +2138,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_complete;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:392:17: ( 'complete' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:392:19: 'complete'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:368:17: ( 'complete' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:368:19: 'complete'
 			{
 			match("complete"); 
 
@@ -2159,8 +2159,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_component;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:393:18: ( 'component' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:393:20: 'component'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:369:18: ( 'component' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:369:20: 'component'
 			{
 			match("component"); 
 
@@ -2180,8 +2180,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_computation;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:394:21: ( 'computation' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:394:23: 'computation'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:370:21: ( 'computation' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:370:23: 'computation'
 			{
 			match("computation"); 
 
@@ -2201,8 +2201,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_connection;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:395:19: ( 'connection' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:395:21: 'connection'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:371:19: ( 'connection' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:371:21: 'connection'
 			{
 			match("connection"); 
 
@@ -2222,8 +2222,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_connections;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:396:20: ( 'connections' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:396:22: 'connections'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:372:20: ( 'connections' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:372:22: 'connections'
 			{
 			match("connections"); 
 
@@ -2243,8 +2243,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_constant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:397:17: ( 'constant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:397:19: 'constant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:373:17: ( 'constant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:373:19: 'constant'
 			{
 			match("constant"); 
 
@@ -2264,8 +2264,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_count;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:398:14: ( 'count' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:398:16: 'count'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:374:14: ( 'count' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:374:16: 'count'
 			{
 			match("count"); 
 
@@ -2285,8 +2285,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_declare;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:399:17: ( 'declare' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:399:19: 'declare'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:375:17: ( 'declare' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:375:19: 'declare'
 			{
 			match("declare"); 
 
@@ -2306,8 +2306,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_def;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:400:12: ( 'def' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:400:14: 'def'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:376:12: ( 'def' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:376:14: 'def'
 			{
 			match("def"); 
 
@@ -2327,8 +2327,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_delay;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:401:15: ( 'delay' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:401:17: 'delay'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:377:15: ( 'delay' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:377:17: 'delay'
 			{
 			match("delay"); 
 
@@ -2348,8 +2348,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_dispatch;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:402:18: ( 'dispatch' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:402:20: 'dispatch'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:378:18: ( 'dispatch' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:378:20: 'dispatch'
 			{
 			match("dispatch"); 
 
@@ -2369,8 +2369,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_div;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:403:13: ( 'div' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:403:15: 'div'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:379:13: ( 'div' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:379:15: 'div'
 			{
 			match("div"); 
 
@@ -2390,8 +2390,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_do;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:404:12: ( 'do' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:404:14: 'do'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:380:12: ( 'do' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:380:14: 'do'
 			{
 			match("do"); 
 
@@ -2411,8 +2411,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_else;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:405:13: ( 'else' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:405:15: 'else'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:381:13: ( 'else' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:381:15: 'else'
 			{
 			match("else"); 
 
@@ -2432,8 +2432,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_enumeration;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:406:20: ( 'enumeration' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:406:22: 'enumeration'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:382:20: ( 'enumeration' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:382:22: 'enumeration'
 			{
 			match("enumeration"); 
 
@@ -2453,8 +2453,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_exception;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:407:18: ( 'exception' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:407:20: 'exception'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:383:18: ( 'exception' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:383:20: 'exception'
 			{
 			match("exception"); 
 
@@ -2474,8 +2474,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_extension;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:408:19: ( 'extension' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:408:21: 'extension'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:384:19: ( 'extension' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:384:21: 'extension'
 			{
 			match("extension"); 
 
@@ -2495,8 +2495,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_exists;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:409:16: ( 'exists' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:409:18: 'exists'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:385:16: ( 'exists' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:385:18: 'exists'
 			{
 			match("exists"); 
 
@@ -2516,8 +2516,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_extends;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:410:16: ( 'extends' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:410:18: 'extends'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:386:16: ( 'extends' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:386:18: 'extends'
 			{
 			match("extends"); 
 
@@ -2537,8 +2537,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_false;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:411:15: ( 'false' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:411:17: 'false'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:387:15: ( 'false' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:387:17: 'false'
 			{
 			match("false"); 
 
@@ -2558,8 +2558,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_feature;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:412:16: ( 'feature' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:412:18: 'feature'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:388:16: ( 'feature' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:388:18: 'feature'
 			{
 			match("feature"); 
 
@@ -2579,8 +2579,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchadd;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:413:17: ( 'fetchadd' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:413:19: 'fetchadd'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:389:17: ( 'fetchadd' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:389:19: 'fetchadd'
 			{
 			match("fetchadd"); 
 
@@ -2600,8 +2600,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchand;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:414:17: ( 'fetchand' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:414:19: 'fetchand'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:390:17: ( 'fetchand' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:390:19: 'fetchand'
 			{
 			match("fetchand"); 
 
@@ -2621,8 +2621,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:415:16: ( 'fetchor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:415:18: 'fetchor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:391:16: ( 'fetchor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:391:18: 'fetchor'
 			{
 			match("fetchor"); 
 
@@ -2642,8 +2642,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fetchxor;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:416:17: ( 'fetchxor' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:416:19: 'fetchxor'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:392:17: ( 'fetchxor' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:392:19: 'fetchxor'
 			{
 			match("fetchxor"); 
 
@@ -2663,8 +2663,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fi;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:417:12: ( 'fi' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:417:14: 'fi'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:393:12: ( 'fi' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:393:14: 'fi'
 			{
 			match("fi"); 
 
@@ -2684,8 +2684,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_final;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:418:14: ( 'final' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:418:16: 'final'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:394:14: ( 'final' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:394:16: 'final'
 			{
 			match("final"); 
 
@@ -2705,8 +2705,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_flow;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:419:13: ( 'flow' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:419:15: 'flow'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:395:13: ( 'flow' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:395:15: 'flow'
 			{
 			match("flow"); 
 
@@ -2726,8 +2726,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_for;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:420:13: ( 'for' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:420:15: 'for'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:396:13: ( 'for' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:396:15: 'for'
 			{
 			match("for"); 
 
@@ -2747,8 +2747,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_forall;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:421:16: ( 'forall' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:421:18: 'forall'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:397:16: ( 'forall' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:397:18: 'forall'
 			{
 			match("forall"); 
 
@@ -2768,8 +2768,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_fresh;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:422:14: ( 'fresh' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:422:16: 'fresh'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:398:14: ( 'fresh' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:398:16: 'fresh'
 			{
 			match("fresh"); 
 
@@ -2789,8 +2789,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_ghost;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:423:15: ( 'ghost' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:423:17: 'ghost'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:399:15: ( 'ghost' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:399:17: 'ghost'
 			{
 			match("ghost"); 
 
@@ -2810,8 +2810,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_if;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:425:12: ( 'if' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:425:14: 'if'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:401:12: ( 'if' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:401:14: 'if'
 			{
 			match("if"); 
 
@@ -2831,8 +2831,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_iff;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:426:12: ( 'iff' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:426:14: 'iff'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:402:12: ( 'iff' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:402:14: 'iff'
 			{
 			match("iff"); 
 
@@ -2852,8 +2852,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_implementation;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:427:23: ( 'implementation' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:427:25: 'implementation'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:403:23: ( 'implementation' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:403:25: 'implementation'
 			{
 			match("implementation"); 
 
@@ -2873,8 +2873,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_implies;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:428:16: ( 'implies' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:428:18: 'implies'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:404:16: ( 'implies' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:404:18: 'implies'
 			{
 			match("implies"); 
 
@@ -2894,8 +2894,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_in;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:429:12: ( 'in' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:429:14: 'in'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:405:12: ( 'in' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:405:14: 'in'
 			{
 			match("in"); 
 
@@ -2915,8 +2915,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_inherit;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:430:16: ( 'inherit' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:430:18: 'inherit'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:406:16: ( 'inherit' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:406:18: 'inherit'
 			{
 			match("inherit"); 
 
@@ -2936,8 +2936,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_initial;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:431:16: ( 'initial' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:431:18: 'initial'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:407:16: ( 'initial' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:407:18: 'initial'
 			{
 			match("initial"); 
 
@@ -2957,8 +2957,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_internal;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:432:17: ( 'internal' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:432:19: 'internal'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:408:17: ( 'internal' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:408:19: 'internal'
 			{
 			match("internal"); 
 
@@ -2978,8 +2978,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_invariant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:433:19: ( 'invariant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:433:21: 'invariant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:409:19: ( 'invariant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:409:21: 'invariant'
 			{
 			match("invariant"); 
 
@@ -2999,8 +2999,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_Invariant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:434:18: ( 'Invariant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:434:20: 'Invariant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:410:18: ( 'Invariant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:410:20: 'Invariant'
 			{
 			match("Invariant"); 
 
@@ -3020,8 +3020,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_inverse;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:435:16: ( 'inverse' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:435:18: 'inverse'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:411:16: ( 'inverse' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:411:18: 'inverse'
 			{
 			match("inverse"); 
 
@@ -3041,8 +3041,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_is;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:436:11: ( 'is' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:436:13: 'is'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:412:11: ( 'is' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:412:13: 'is'
 			{
 			match("is"); 
 
@@ -3062,8 +3062,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_list;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:437:13: ( 'list' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:437:15: 'list'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:413:13: ( 'list' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:413:15: 'list'
 			{
 			match("list"); 
 
@@ -3083,8 +3083,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_lower_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:438:20: ( 'lower_bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:438:23: 'lower_bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:414:20: ( 'lower_bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:414:23: 'lower_bound'
 			{
 			match("lower_bound"); 
 
@@ -3104,8 +3104,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_mode;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:440:13: ( 'mode' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:440:15: 'mode'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:416:13: ( 'mode' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:416:15: 'mode'
 			{
 			match("mode"); 
 
@@ -3125,8 +3125,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_modes;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:441:14: ( 'modes' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:441:17: 'modes'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:417:14: ( 'modes' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:417:17: 'modes'
 			{
 			match("modes"); 
 
@@ -3146,8 +3146,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_nonvolatile;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:443:21: ( 'nonvolatile' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:443:23: 'nonvolatile'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:419:21: ( 'nonvolatile' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:419:23: 'nonvolatile'
 			{
 			match("nonvolatile"); 
 
@@ -3167,8 +3167,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_not;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:444:13: ( 'not' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:444:15: 'not'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:420:13: ( 'not' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:420:15: 'not'
 			{
 			match("not"); 
 
@@ -3188,8 +3188,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_now;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:445:13: ( 'now' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:445:15: 'now'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:421:13: ( 'now' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:421:15: 'now'
 			{
 			match("now"); 
 
@@ -3209,8 +3209,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_null;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:447:14: ( 'null' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:447:15: 'null'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:423:14: ( 'null' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:423:15: 'null'
 			{
 			match("null"); 
 
@@ -3230,8 +3230,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_numberof;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:448:17: ( 'numberof' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:448:19: 'numberof'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:424:17: ( 'numberof' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:424:19: 'numberof'
 			{
 			match("numberof"); 
 
@@ -3251,8 +3251,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_of;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:449:11: ( 'of' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:449:13: 'of'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:425:11: ( 'of' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:425:13: 'of'
 			{
 			match("of"); 
 
@@ -3272,8 +3272,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_on;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:450:11: ( 'on' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:450:14: 'on'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:426:11: ( 'on' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:426:14: 'on'
 			{
 			match("on"); 
 
@@ -3293,8 +3293,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_package;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:451:16: ( 'package' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:451:18: 'package'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:427:16: ( 'package' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:427:18: 'package'
 			{
 			match("package"); 
 
@@ -3314,8 +3314,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_parameter;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:452:18: ( 'parameter' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:452:20: 'parameter'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:428:18: ( 'parameter' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:428:20: 'parameter'
 			{
 			match("parameter"); 
 
@@ -3335,8 +3335,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_pause;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:453:14: ( 'pause' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:453:17: 'pause'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:429:14: ( 'pause' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:429:17: 'pause'
 			{
 			match("pause"); 
 
@@ -3356,8 +3356,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_post;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:454:14: ( 'post' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:454:16: 'post'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:430:14: ( 'post' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:430:16: 'post'
 			{
 			match("post"); 
 
@@ -3377,8 +3377,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_Postcondition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:455:22: ( 'Postcondition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:455:24: 'Postcondition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:431:22: ( 'Postcondition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:431:24: 'Postcondition'
 			{
 			match("Postcondition"); 
 
@@ -3398,8 +3398,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_pre;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:456:13: ( 'pre' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:456:15: 'pre'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:432:13: ( 'pre' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:432:15: 'pre'
 			{
 			match("pre"); 
 
@@ -3419,8 +3419,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_Precondition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:457:21: ( 'Precondition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:457:23: 'Precondition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:433:21: ( 'Precondition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:433:23: 'Precondition'
 			{
 			match("Precondition"); 
 
@@ -3440,8 +3440,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_private;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:458:16: ( 'private' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:458:18: 'private'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:434:16: ( 'private' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:434:18: 'private'
 			{
 			match("private"); 
 
@@ -3461,8 +3461,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_product;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:459:16: ( 'product' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:459:18: 'product'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:435:16: ( 'product' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:435:18: 'product'
 			{
 			match("product"); 
 
@@ -3482,8 +3482,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_property;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:460:17: ( 'property' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:460:19: 'property'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:436:17: ( 'property' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:436:19: 'property'
 			{
 			match("property"); 
 
@@ -3503,8 +3503,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_provides;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:461:17: ( 'provides' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:461:19: 'provides'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:437:17: ( 'provides' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:437:19: 'provides'
 			{
 			match("provides"); 
 
@@ -3524,8 +3524,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_public;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:463:15: ( 'public' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:463:17: 'public'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:439:15: ( 'public' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:439:17: 'public'
 			{
 			match("public"); 
 
@@ -3545,8 +3545,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_quantity;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:464:18: ( 'quantity' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:464:20: 'quantity'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:440:18: ( 'quantity' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:440:20: 'quantity'
 			{
 			match("quantity"); 
 
@@ -3566,8 +3566,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_range;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:465:14: ( 'range' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:465:16: 'range'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:441:14: ( 'range' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:441:16: 'range'
 			{
 			match("range"); 
 
@@ -3587,8 +3587,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_record;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:466:16: ( 'record' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:466:18: 'record'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:442:16: ( 'record' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:442:18: 'record'
 			{
 			match("record"); 
 
@@ -3608,8 +3608,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_reference;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:467:18: ( 'reference' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:467:20: 'reference'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:443:18: ( 'reference' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:443:20: 'reference'
 			{
 			match("reference"); 
 
@@ -3629,8 +3629,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_renames;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:468:16: ( 'renames' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:468:18: 'renames'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:444:16: ( 'renames' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:444:18: 'renames'
 			{
 			match("renames"); 
 
@@ -3650,8 +3650,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_returns;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:469:17: ( 'returns' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:469:19: 'returns'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:445:17: ( 'returns' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:445:19: 'returns'
 			{
 			match("returns"); 
 
@@ -3671,8 +3671,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_representation;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:470:24: ( 'representation' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:470:26: 'representation'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:446:24: ( 'representation' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:446:26: 'representation'
 			{
 			match("representation"); 
 
@@ -3692,8 +3692,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_requires;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:471:17: ( 'requires' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:471:19: 'requires'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:447:17: ( 'requires' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:447:19: 'requires'
 			{
 			match("requires"); 
 
@@ -3713,8 +3713,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_round;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:472:14: ( 'round' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:472:16: 'round'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:448:14: ( 'round' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:448:16: 'round'
 			{
 			match("round"); 
 
@@ -3734,8 +3734,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_scalar;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:473:16: ( 'scalar' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:473:18: 'scalar'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:449:16: ( 'scalar' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:449:18: 'scalar'
 			{
 			match("scalar"); 
 
@@ -3755,8 +3755,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_self;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:475:13: ( 'self' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:475:15: 'self'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:451:13: ( 'self' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:451:15: 'self'
 			{
 			match("self"); 
 
@@ -3776,8 +3776,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_sequence;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:476:17: ( 'sequence' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:476:19: 'sequence'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:452:17: ( 'sequence' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:452:19: 'sequence'
 			{
 			match("sequence"); 
 
@@ -3797,8 +3797,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_set;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:477:12: ( 'set' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:477:14: 'set'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:453:12: ( 'set' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:453:14: 'set'
 			{
 			match("set"); 
 
@@ -3818,8 +3818,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_setmode;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:478:17: ( 'setmode' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:478:19: 'setmode'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:454:17: ( 'setmode' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:454:19: 'setmode'
 			{
 			match("setmode"); 
 
@@ -3839,8 +3839,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_shared;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:479:16: ( 'shared' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:479:18: 'shared'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:455:16: ( 'shared' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:455:18: 'shared'
 			{
 			match("shared"); 
 
@@ -3860,8 +3860,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_skip;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:480:14: ( 'skip' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:480:16: 'skip'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:456:14: ( 'skip' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:456:16: 'skip'
 			{
 			match("skip"); 
 
@@ -3881,8 +3881,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_spread;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:481:15: ( 'spread' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:481:17: 'spread'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:457:15: ( 'spread' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:457:17: 'spread'
 			{
 			match("spread"); 
 
@@ -3902,8 +3902,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_state;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:482:15: ( 'state' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:482:17: 'state'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:458:15: ( 'state' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:458:17: 'state'
 			{
 			match("state"); 
 
@@ -3923,8 +3923,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_states;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:483:16: ( 'states' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:483:18: 'states'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:459:16: ( 'states' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:459:18: 'states'
 			{
 			match("states"); 
 
@@ -3944,8 +3944,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_step;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:484:14: ( 'step' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:484:16: 'step'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:460:14: ( 'step' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:460:16: 'step'
 			{
 			match("step"); 
 
@@ -3965,8 +3965,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_stop;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:485:14: ( 'stop' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:485:16: 'stop'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:461:14: ( 'stop' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:461:16: 'stop'
 			{
 			match("stop"); 
 
@@ -3986,8 +3986,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_string;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:486:15: ( 'string' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:486:18: 'string'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:462:15: ( 'string' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:462:18: 'string'
 			{
 			match("string"); 
 
@@ -4007,8 +4007,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_subcomponents;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:487:22: ( 'subcomponents' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:487:24: 'subcomponents'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:463:22: ( 'subcomponents' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:463:24: 'subcomponents'
 			{
 			match("subcomponents"); 
 
@@ -4028,8 +4028,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_sum;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:488:12: ( 'sum' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:488:14: 'sum'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:464:12: ( 'sum' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:464:14: 'sum'
 			{
 			match("sum"); 
 
@@ -4049,8 +4049,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_swap;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:489:13: ( 'swap' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:489:15: 'swap'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:465:13: ( 'swap' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:465:15: 'swap'
 			{
 			match("swap"); 
 
@@ -4070,8 +4070,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_that;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:490:14: ( 'that' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:490:16: 'that'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:466:14: ( 'that' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:466:16: 'that'
 			{
 			match("that"); 
 
@@ -4091,8 +4091,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_then;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:491:13: ( 'then' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:491:15: 'then'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:467:13: ( 'then' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:467:15: 'then'
 			{
 			match("then"); 
 
@@ -4112,8 +4112,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_throw;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:492:15: ( 'throw' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:492:16: 'throw'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:468:15: ( 'throw' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:468:16: 'throw'
 			{
 			match("throw"); 
 
@@ -4133,8 +4133,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_throws;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:493:16: ( 'throws' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:493:18: 'throws'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:469:16: ( 'throws' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:469:18: 'throws'
 			{
 			match("throws"); 
 
@@ -4154,8 +4154,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_timeout;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:495:17: ( 'timeout' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:495:19: 'timeout'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:471:17: ( 'timeout' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:471:19: 'timeout'
 			{
 			match("timeout"); 
 
@@ -4175,8 +4175,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_to;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:496:11: ( 'to' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:496:13: 'to'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:472:11: ( 'to' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:472:13: 'to'
 			{
 			match("to"); 
 
@@ -4196,8 +4196,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_tops;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:497:13: ( 'tops' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:497:15: 'tops'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:473:13: ( 'tops' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:473:15: 'tops'
 			{
 			match("tops"); 
 
@@ -4217,8 +4217,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_transition;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:498:19: ( 'transition' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:498:21: 'transition'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:474:19: ( 'transition' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:474:21: 'transition'
 			{
 			match("transition"); 
 
@@ -4238,8 +4238,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_transitions;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:499:21: ( 'transitions' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:499:23: 'transitions'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:475:21: ( 'transitions' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:475:23: 'transitions'
 			{
 			match("transitions"); 
 
@@ -4259,8 +4259,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_true;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:500:14: ( 'true' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:500:16: 'true'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:476:14: ( 'true' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:476:16: 'true'
 			{
 			match("true"); 
 
@@ -4280,8 +4280,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_truncate;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:501:18: ( 'truncate' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:501:20: 'truncate'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:477:18: ( 'truncate' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:477:20: 'truncate'
 			{
 			match("truncate"); 
 
@@ -4301,8 +4301,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_type;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:502:14: ( 'type' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:502:16: 'type'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:478:14: ( 'type' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:478:16: 'type'
 			{
 			match("type"); 
 
@@ -4322,8 +4322,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_Typed;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:503:14: ( 'Typed' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:503:16: 'Typed'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:479:14: ( 'Typed' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:479:16: 'Typed'
 			{
 			match("Typed"); 
 
@@ -4343,8 +4343,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_union;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:504:15: ( 'union' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:504:17: 'union'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:480:15: ( 'union' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:480:17: 'union'
 			{
 			match("union"); 
 
@@ -4364,8 +4364,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_units;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:505:15: ( 'units' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:505:17: 'units'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:481:15: ( 'units' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:481:17: 'units'
 			{
 			match("units"); 
 
@@ -4385,8 +4385,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_until;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:506:15: ( 'until' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:506:17: 'until'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:482:15: ( 'until' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:482:17: 'until'
 			{
 			match("until"); 
 
@@ -4406,8 +4406,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_updated;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:16: ( 'updated' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:18: 'updated'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:483:16: ( 'updated' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:483:18: 'updated'
 			{
 			match("updated"); 
 
@@ -4427,8 +4427,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_upper_bound;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:508:20: ( 'upper_bound' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:508:23: 'upper_bound'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:484:20: ( 'upper_bound' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:484:23: 'upper_bound'
 			{
 			match("upper_bound"); 
 
@@ -4448,8 +4448,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_variables;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:510:19: ( 'variables' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:510:21: 'variables'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:486:19: ( 'variables' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:486:21: 'variables'
 			{
 			match("variables"); 
 
@@ -4469,8 +4469,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_variant;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:511:16: ( 'variant' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:511:18: 'variant'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:487:16: ( 'variant' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:487:18: 'variant'
 			{
 			match("variant"); 
 
@@ -4490,8 +4490,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_when;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:512:14: ( 'when' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:512:15: 'when'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:488:14: ( 'when' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:488:15: 'when'
 			{
 			match("when"); 
 
@@ -4511,8 +4511,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_while;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:513:15: ( 'while' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:513:17: 'while'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:489:15: ( 'while' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:489:17: 'while'
 			{
 			match("while"); 
 
@@ -4532,8 +4532,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_which;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:514:15: ( 'which' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:514:17: 'which'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:490:15: ( 'which' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:490:17: 'which'
 			{
 			match("which"); 
 
@@ -4553,8 +4553,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_whole;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:515:15: ( 'whole' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:515:17: 'whole'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:491:15: ( 'whole' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:491:17: 'whole'
 			{
 			match("whole"); 
 
@@ -4574,8 +4574,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LITERAL_with;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:516:13: ( 'with' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:516:15: 'with'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:492:13: ( 'with' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:492:15: 'with'
 			{
 			match("with"); 
 
@@ -4595,8 +4595,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = ID;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:520:4: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:520:7: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:496:4: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:496:7: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -4606,7 +4606,7 @@ public class BLESS3Lexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:521:3: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:497:3: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
 			loop18:
 			while (true) {
 				int alt18=2;
@@ -4649,7 +4649,7 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:528:9: ( ( '0' .. '9' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:504:9: ( ( '0' .. '9' ) )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -4672,8 +4672,8 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "EXPONENT"
 	public final void mEXPONENT() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:531:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:531:15: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+ )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:15: ( 'e' | 'E' ) ( '+' | '-' )? ( DIGIT )+
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
 				input.consume();
@@ -4683,7 +4683,7 @@ public class BLESS3Lexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:531:25: ( '+' | '-' )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:25: ( '+' | '-' )?
 			int alt19=2;
 			int LA19_0 = input.LA(1);
 			if ( (LA19_0=='+'||LA19_0=='-') ) {
@@ -4706,7 +4706,7 @@ public class BLESS3Lexer extends Lexer {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:531:36: ( DIGIT )+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:507:36: ( DIGIT )+
 			int cnt20=0;
 			loop20:
 			while (true) {
@@ -4753,8 +4753,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = START_ASSERTION_PROPERTY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:548:26: ( '\"<<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:548:28: '\"<<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:524:26: ( '\"<<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:524:28: '\"<<'
 			{
 			match("\"<<"); 
 
@@ -4774,8 +4774,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = END_ASSERTION_PROPERTY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:550:24: ( '>>\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:550:26: '>>\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:526:24: ( '>>\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:526:26: '>>\"'
 			{
 			match(">>\""); 
 
@@ -4793,8 +4793,8 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "LT_STRING"
 	public final void mLT_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:554:11: ( '\"<\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:554:13: '\"<\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:530:11: ( '\"<\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:530:13: '\"<\"'
 			{
 			match("\"<\""); 
 
@@ -4810,8 +4810,8 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "LTE_STRING"
 	public final void mLTE_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:557:12: ( '\"<=\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:557:14: '\"<=\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:533:12: ( '\"<=\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:533:14: '\"<=\"'
 			{
 			match("\"<=\""); 
 
@@ -4827,8 +4827,8 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "MT_STRING"
 	public final void mMT_STRING() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:560:11: ( '\"\"' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:560:13: '\"\"'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:536:11: ( '\"\"' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:536:13: '\"\"'
 			{
 			match("\"\""); 
 
@@ -4844,7 +4844,7 @@ public class BLESS3Lexer extends Lexer {
 	// $ANTLR start "AADL_STRING_PART"
 	public final void mAADL_STRING_PART() throws RecognitionException {
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:563:18: ( LT_STRING | LTE_STRING | MT_STRING | '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:539:18: ( LT_STRING | LTE_STRING | MT_STRING | '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' ) )
 			int alt22=4;
 			int LA22_0 = input.LA(1);
 			if ( (LA22_0=='\"') ) {
@@ -4910,28 +4910,28 @@ public class BLESS3Lexer extends Lexer {
 
 			switch (alt22) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:564:1: LT_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:540:1: LT_STRING
 					{
 					mLT_STRING(); 
 
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:564:13: LTE_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:540:13: LTE_STRING
 					{
 					mLTE_STRING(); 
 
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:564:26: MT_STRING
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:540:26: MT_STRING
 					{
 					mMT_STRING(); 
 
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:1: '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:1: '\"' ~ ( '<' ) ( ( '\"\"' |~ ( '\"' ) )* '\"' )
 					{
 					match('\"'); 
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= ';')||(input.LA(1) >= '=' && input.LA(1) <= '\uFFFF') ) {
@@ -4942,10 +4942,10 @@ public class BLESS3Lexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:12: ( ( '\"\"' |~ ( '\"' ) )* '\"' )
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:14: ( '\"\"' |~ ( '\"' ) )* '\"'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:12: ( ( '\"\"' |~ ( '\"' ) )* '\"' )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:14: ( '\"\"' |~ ( '\"' ) )* '\"'
 					{
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:14: ( '\"\"' |~ ( '\"' ) )*
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:14: ( '\"\"' |~ ( '\"' ) )*
 					loop21:
 					while (true) {
 						int alt21=3;
@@ -4963,14 +4963,14 @@ public class BLESS3Lexer extends Lexer {
 
 						switch (alt21) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:16: '\"\"'
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:16: '\"\"'
 							{
 							match("\"\""); 
 
 							}
 							break;
 						case 2 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:23: ~ ( '\"' )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:542:23: ~ ( '\"' )
 							{
 							if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '\uFFFF') ) {
 								input.consume();
@@ -5015,8 +5015,8 @@ public class BLESS3Lexer extends Lexer {
 
 			StringBuffer sb = new StringBuffer();
 			         boolean hasMore=false;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:572:3: (p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )* )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:573:3: p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:548:3: (p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )* )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:549:3: p= AADL_STRING_PART ( '+' r= AADL_STRING_PART )*
 			{
 			int pStart1626 = getCharIndex();
 			int pStartLine1626 = getLine();
@@ -5027,7 +5027,7 @@ public class BLESS3Lexer extends Lexer {
 			p.setCharPositionInLine(pStartCharPos1626);
 
 			sb.append(p.getText());
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:575:3: ( '+' r= AADL_STRING_PART )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:551:3: ( '+' r= AADL_STRING_PART )*
 			loop23:
 			while (true) {
 				int alt23=2;
@@ -5038,7 +5038,7 @@ public class BLESS3Lexer extends Lexer {
 
 				switch (alt23) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:575:5: '+' r= AADL_STRING_PART
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:551:5: '+' r= AADL_STRING_PART
 					{
 					match('+'); 
 					int rStart1643 = getCharIndex();
@@ -5076,8 +5076,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:583:4: ( '<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:583:7: '<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:559:4: ( '<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:559:7: '<'
 			{
 			match('<'); 
 			}
@@ -5096,8 +5096,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:584:4: ( '>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:584:7: '>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:560:4: ( '>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:560:7: '>'
 			{
 			match('>'); 
 			}
@@ -5116,8 +5116,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = TICK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:586:6: ( '\\'' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:586:8: '\\''
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:562:6: ( '\\'' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:562:8: '\\''
 			{
 			match('\''); 
 			}
@@ -5136,8 +5136,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = ARROW;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:588:7: ( '=>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:588:9: '=>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:564:7: ( '=>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:564:9: '=>'
 			{
 			match("=>"); 
 
@@ -5157,8 +5157,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = IMP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:590:5: ( '->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:590:7: '->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:5: ( '->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:566:7: '->'
 			{
 			match("->"); 
 
@@ -5178,8 +5178,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = BI;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:592:4: ( '<->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:592:6: '<->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:568:4: ( '<->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:568:6: '<->'
 			{
 			match("<->"); 
 
@@ -5199,8 +5199,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = EQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:594:4: ( '=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:594:6: '='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:570:4: ( '=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:570:6: '='
 			{
 			match('='); 
 			}
@@ -5219,8 +5219,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = NEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:597:5: ( '<>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:597:7: '<>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:573:5: ( '<>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:573:7: '<>'
 			{
 			match("<>"); 
 
@@ -5240,8 +5240,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = OLD_NEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:598:9: ( '!=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:598:11: '!='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:574:9: ( '!=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:574:11: '!='
 			{
 			match("!="); 
 
@@ -5261,8 +5261,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = AM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:600:4: ( '<=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:600:6: '<='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:576:4: ( '<=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:576:6: '<='
 			{
 			match("<="); 
 
@@ -5282,8 +5282,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = AL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:602:4: ( '>=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:602:6: '>='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:578:4: ( '>=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:578:6: '>='
 			{
 			match(">="); 
 
@@ -5303,8 +5303,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = PLUS_EQUALS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:604:13: ( '+=' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:604:15: '+='
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:580:13: ( '+=' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:580:15: '+='
 			{
 			match("+="); 
 
@@ -5324,8 +5324,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LCON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:606:6: ( '-[' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:606:8: '-['
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:582:6: ( '-[' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:582:8: '-['
 			{
 			match("-["); 
 
@@ -5345,8 +5345,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = RCON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:608:6: ( ']->' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:608:8: ']->'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:584:6: ( ']->' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:584:8: ']->'
 			{
 			match("]->"); 
 
@@ -5366,8 +5366,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = BOX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:610:5: ( '[]' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:610:7: '[]'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:586:5: ( '[]' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:586:7: '[]'
 			{
 			match("[]"); 
 
@@ -5387,8 +5387,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = EXCLAMATION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:13: ( '!' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:15: '!'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:588:13: ( '!' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:588:15: '!'
 			{
 			match('!'); 
 			}
@@ -5407,8 +5407,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = QUESTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:614:10: ( '?' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:614:12: '?'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:590:10: ( '?' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:590:12: '?'
 			{
 			match('?'); 
 			}
@@ -5427,8 +5427,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = GUARD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:616:7: ( ')~>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:616:9: ')~>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:592:7: ( ')~>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:592:9: ')~>'
 			{
 			match(")~>"); 
 
@@ -5448,8 +5448,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = LASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:618:6: ( '<<' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:618:8: '<<'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:594:6: ( '<<' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:594:8: '<<'
 			{
 			match("<<"); 
 
@@ -5469,8 +5469,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = RASS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:620:6: ( '>>' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:620:8: '>>'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:596:6: ( '>>' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:596:8: '>>'
 			{
 			match(">>"); 
 
@@ -5490,8 +5490,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = QQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:622:4: ( '??' )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:622:6: '??'
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:598:4: ( '??' )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:598:6: '??'
 			{
 			match("??"); 
 
@@ -5511,8 +5511,8 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = QCLREF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:632:7: ( ID DOUBLE_COLON ID )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:633:3: ID DOUBLE_COLON ID
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:608:7: ( ID DOUBLE_COLON ID )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:609:3: ID DOUBLE_COLON ID
 			{
 			mID(); 
 
@@ -5536,17 +5536,17 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = QCREF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:635:6: ( ( ID '::' )* ID ( '.' ID )? )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:636:2: ( ID '::' )* ID ( '.' ID )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:611:6: ( ( ID '::' )* ID ( '.' ID )? )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:2: ( ID '::' )* ID ( '.' ID )?
 			{
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:636:2: ( ID '::' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:2: ( ID '::' )*
 			loop24:
 			while (true) {
 				int alt24=2;
 				alt24 = dfa24.predict(input);
 				switch (alt24) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:636:3: ID '::'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:3: ID '::'
 					{
 					mID(); 
 
@@ -5562,7 +5562,7 @@ public class BLESS3Lexer extends Lexer {
 
 			mID(); 
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:636:16: ( '.' ID )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:16: ( '.' ID )?
 			int alt25=2;
 			int LA25_0 = input.LA(1);
 			if ( (LA25_0=='.') ) {
@@ -5570,7 +5570,7 @@ public class BLESS3Lexer extends Lexer {
 			}
 			switch (alt25) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:636:17: '.' ID
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:612:17: '.' ID
 					{
 					match('.'); 
 					mID(); 
@@ -5596,17 +5596,17 @@ public class BLESS3Lexer extends Lexer {
 		try {
 			int _type = TRIGGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:638:8: ( ( ID '.' )* ID )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:639:3: ( ID '.' )* ID
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:614:8: ( ( ID '.' )* ID )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:615:3: ( ID '.' )* ID
 			{
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:639:3: ( ID '.' )*
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:615:3: ( ID '.' )*
 			loop26:
 			while (true) {
 				int alt26=2;
 				alt26 = dfa26.predict(input);
 				switch (alt26) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:639:4: ID '.'
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:615:4: ID '.'
 					{
 					mID(); 
 
@@ -7181,7 +7181,7 @@ public class BLESS3Lexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "()* loopback of 636:2: ( ID '::' )*";
+			return "()* loopback of 612:2: ( ID '::' )*";
 		}
 	}
 
@@ -7236,7 +7236,7 @@ public class BLESS3Lexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "()* loopback of 639:3: ( ID '.' )*";
+			return "()* loopback of 615:3: ( ID '.' )*";
 		}
 	}
 

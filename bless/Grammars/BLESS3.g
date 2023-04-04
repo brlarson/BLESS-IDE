@@ -87,7 +87,8 @@ import java.util.Vector;
 import org.antlr.runtime.Parser;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.UnwantedTokenException;
-import com.multitude.bless.exceptions.*;
+import com.multitude.bless.exceptions.YouIdiot;
+import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.app.Global;
@@ -212,32 +213,7 @@ public String timeAlias = "T";
 //  Dump.it(msg);
 //  }
 
-public void recover(IntStream input, RecognitionException re) {}
- 
-
-//tell user of BNF when they make a mistake 
-public boolean toldBNF=false;         
-public void tellBNF(String s, RecognitionException re)
-  {
-  if (!toldBNF)
-    {
-    Dump.it("BNF reminder:\n"+s);
-    toldBNF=true;
-    }
-  } //end of tellBNF(String s, RecognitionException re)
-  
-public void tellBNF(String s, RecognitionException re, BAST errorTree)
-  {
-  if (errorTree!=null)
-    {
-    errorTree.showParseTree(errorTree.getText()!=null?errorTree.getText():"error");
-    Dump.it("error on line "+Integer.toString(errorTree.getLine()+startingLine)+": "+
-      (errorTree.getText()!=null?errorTree.getText():""));
-    }
-  else Dump.it("error tree is null");
-  tellBNF(s,re);
-  }  //end of tellBNF(String s, RecognitionException re, BAST errorTree)
-  
+public void recover(IntStream input, RecognitionException re) {}  
   
 } //end of parser members
 
@@ -1283,7 +1259,7 @@ assertedAction  :
          )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.assertedAction,re,$assertedAction.tree);}
+     reportError(re,(BAST)retval.getTree()); }
 
 action:
   basicAction
@@ -1406,13 +1382,13 @@ alternative:
 //    -> ^( $lif $av? $alt+ )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.alternative,re,$alternative.tree);}
+     reportError(re,(BAST)retval.getTree()); }
 
 guardedAction:
   LPAREN! /*boolean_*/expression GUARD^ assertedAction
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.guardedAction,re,$guardedAction.tree);}
+     reportError(re,(BAST)retval.getTree()); }
   
 whileLoop:
   lw=LITERAL_while  
@@ -1424,7 +1400,7 @@ whileLoop:
     -> ^($lw $be ^(INVARIANT[$lw,"INVARIANT"] $inv?) ^(BOUND[$lw,"BOUND"] $bd?) $elq )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.whileLoop,re,$whileLoop.tree);}
+     reportError(re,(BAST)retval.getTree()); }
 
 forLoop:
   lf=LITERAL_for
@@ -1434,7 +1410,7 @@ forLoop:
     ->^($lf $a ^($li $lb $ub) ^(INVARIANT[$lf,"INVARIANT"] $inv?) $act ) 
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.forLoop,re,$forLoop.tree);}
+     reportError(re,(BAST)retval.getTree()); }
  
 doUntilLoop:
   ld=LITERAL_do 
@@ -1445,7 +1421,7 @@ doUntilLoop:
     ->^($ld ^($lu $be) ^(INVARIANT[$ld,"INVARIANT"] $inv?) ^(BOUND[$ld,"BOUND"] $bd?) $ba )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.doUntilLoop,re,$doUntilLoop.tree);}
+     reportError(re,(BAST)retval.getTree()); }
 
 
 existentialLatticeQuantification:	
@@ -1454,7 +1430,7 @@ existentialLatticeQuantification:
   cc=catchClause?
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.elq,re,$existentialLatticeQuantification.tree);}
+     reportError(re,(BAST)retval.getTree()); }
   
 universalLatticeQuantification:
   lf=LITERAL_forall   
@@ -1464,7 +1440,7 @@ universalLatticeQuantification:
     -> ^($lf $lv+ ^($li $lb $ub) $elq )
   ;
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.ulq,re,$universalLatticeQuantification.tree);}
+     reportError(re,(BAST)retval.getTree()); }
 
 issueException:
 	LITERAL_exception^ LPAREN exception=ID  //[Exception]
@@ -1505,7 +1481,7 @@ behaviorState:
     -> ^( LITERAL_state[$st,"state["+Integer.toString($st.getLine()+startingLine)+"]"] $init? $com? $finl? $i $a? )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
-     reportError(re,(BAST)retval.getTree()); tellBNF(GrammarStrings.behaviorState,re,$behaviorState.tree);}
+     reportError(re,(BAST)retval.getTree());}
 
 transitions 
   : 
@@ -1515,8 +1491,7 @@ transitions
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree()); Dump.it("If you get \"mismatched input"+
       " '<<' expecting 'transitions'\" then you might have put a semicolon "+
-      "between an action and a Assertion, instead of afterwards.");
-    tellBNF(GrammarStrings.transitions,re,$transitions.tree);}
+      "between an action and a Assertion, instead of afterwards.");}
  
 behaviorTransition
   :
@@ -1541,7 +1516,6 @@ behaviorTransition
     Dump.it("\nDo you have either behavior actions or empty curly brackets?");
     Dump.it("Is there a space between your empty curly brackets?\nYou stink!  Take a bath.\n");
     Dump.it("Is your execute condition grammatically-correct? ");
-    tellBNF(GrammarStrings.behaviorTransition,re,$behaviorTransition.tree);
     Dump.it("error token text=\""+retval.start.getText()+"\"");
      reportError(re,(BAST)retval.getTree());}
 
