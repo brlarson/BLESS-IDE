@@ -433,7 +433,7 @@ public class ToAST {
       BAST _newBAST = this.newBAST(parent);
       final Procedure1<BAST> _function = (BAST it) -> {
         it.myText = integer_literal;
-        CommonToken _commonToken = new CommonToken(BLESS3Lexer.INTEGER_LIT, integer_literal);
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.NUMBER, integer_literal);
         it.token = _commonToken;
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
@@ -463,7 +463,7 @@ public class ToAST {
       BAST _newBAST = this.newBAST(parent);
       final Procedure1<BAST> _function = (BAST it) -> {
         it.myText = real_literal;
-        CommonToken _commonToken = new CommonToken(BLESS3Lexer.REAL_LIT, real_literal);
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.NUMBER, real_literal);
         it.token = _commonToken;
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);

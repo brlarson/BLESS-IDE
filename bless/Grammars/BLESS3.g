@@ -289,19 +289,23 @@ SLCOMMENT
   ( ~( '\n' | '\r' ) )*   
   { $channel=COMMENT_CHANNEL; }
   ; 
+ 
+NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ( 'i' '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? )?;
 
-REAL_LIT :  
+/*
+NUMBER :  
   (DIGIT)+ ( '.' (DIGIT)+ ( EXPONENT )?)
 //  (DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
   ;
 
-INTEGER_LIT : 
+NUMBER : 
     (DIGIT)+
 //    (DIGIT)+('_' (DIGIT)+)*
 //    (( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
 //      | (INT_EXPONENT)?
 //    )
   ;
+*/
   
 DOT : '.';
 
@@ -637,10 +641,7 @@ TRIGGER:
 identifier 
   : ID ;
   catch [RecognitionException re] {reportError(re,(BAST)retval.getTree()); Dump.it("\nYou may be using a reserved word inappropriately.\n");throw(re);}
-  
-/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-number:  INTEGER_LIT | REAL_LIT ;
 
 /////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -681,7 +682,7 @@ mulDiv: ( TIMES | DIVIDE )
   ;
 
 unitFactor: 
-  c=COMMA unit=unitName op=mulDiv factor=number
+  c=COMMA unit=unitName op=mulDiv factor=NUMBER
     -> ^( $c $unit $op $factor )
   ;
 
@@ -1174,7 +1175,7 @@ quantity:
   ;  
 
 aNumber:
- lit=number
+ lit=NUMBER
  | property=propertyReference
  | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
   ;
@@ -1192,7 +1193,7 @@ propertyReference:
 
 
 propertyField:
-	LBRACKET^ (index=number | var=ID ) //[Variable]) 
+	LBRACKET^ (index=NUMBER | var=ID ) //[Variable]) 
 	   RBRACKET!  //must check that number is integer
 	| DOT^  (pf=ID | upper=LITERAL_upper_bound | lower=LITERAL_lower_bound)
   ;
@@ -1545,7 +1546,7 @@ behaviorTransition
      reportError(re,(BAST)retval.getTree());}
 
 priority:
-	LBRACKET^ INTEGER_LIT RBRACKET
+	LBRACKET^ NUMBER RBRACKET
 ;
 
 behaviorCondition 
@@ -1585,7 +1586,7 @@ dispatchTrigger:
 
 portName:
   port=ID^ //[aadl2::NamedElement|ID] 
-  ( '[' index=INTEGER_LIT ']' )? 
+  ( '[' index=NUMBER ']' )? 
 ;
 
 executeCondition:

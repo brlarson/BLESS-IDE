@@ -275,7 +275,7 @@ assertionBody ="assertion_body ::= \n"+
 	//6.4
 	public static final String
 	dispatchTrigger = "dispatch_trigger ::= [ not ] ( ( dispatch_logical_expression ) |"+
-		"input_event_port_identifier [ ( ( value_constant | others ) ) ] | integer_literal"+
+		"input_event_port_identifier [ ( ( value_constant | others ) ) ] | NUMBEReral"+
 		"[ ormore | orless ] ( dispatch_trigger { , dispatch_trigger }+ ) ) | timeout [ behavior_time ]" +
 		" 'timeout'^ ( LPAREN /*in_event_port_ or in_event_data_port*/identifier+ RPAREN behavior_time)?";
 	
@@ -338,7 +338,7 @@ assertionBody ="assertion_body ::= \n"+
 	
 	//7.5
 	public static final String
-	naturalRange = "natural_range ::= positive_integer_literal | "+
+	naturalRange = "natural_range ::= positive_NUMBEReral | "+
 		"( natural_literal | natural_identifier ) .. ( natural_literal | natural_identifier ) ";
 
 //ENUMERATION RANGE REMOVED	

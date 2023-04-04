@@ -294,7 +294,7 @@ makeBASTforINT(String integer_literal, Element parent)
   	newBAST(parent) =>
   	  [
   	   myText = integer_literal
-       token = new CommonToken(BLESS3Lexer.INTEGER_LIT, integer_literal)
+       token = new CommonToken(BLESS3Lexer.NUMBER, integer_literal)
       ]	
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforINT
@@ -310,7 +310,7 @@ makeBASTforREAL_LIT(String real_literal, Element parent)
     newBAST(parent) =>
       [
        myText = real_literal
-       token = new CommonToken(BLESS3Lexer.REAL_LIT, real_literal)
+       token = new CommonToken(BLESS3Lexer.NUMBER, real_literal)
       ] 
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of makeBASTforREAL_LIT

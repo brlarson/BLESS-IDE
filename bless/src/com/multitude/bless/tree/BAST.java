@@ -996,7 +996,7 @@ private static int tab=0;  //tabbing for toStringTree
   public String truncateWholeLiterals()
   {
   String s = this.getText();
-  if (hasType(BLESS3Lexer.INTEGER_LIT))
+  if (hasType(BLESS3Lexer.NUMBER))
     return s;
   if (s.contains(".") && !s.contains("e"))
     {
@@ -2084,9 +2084,9 @@ private static int tab=0;  //tabbing for toStringTree
   public boolean hasPositiveNumericValue()
     { // is it a number starting with - ?
 	  boolean result = false;
-    if (hasType(BLESS3Lexer.INTEGER_LIT)) 
+    if (hasType(BLESS3Lexer.NUMBER)) 
 		  result = (0<Integer.parseInt(getText()));
-	  else if (hasType(BLESS3Lexer.REAL_LIT)) 
+	  else if (hasType(BLESS3Lexer.NUMBER)) 
 		  result = (0.0<Double.valueOf(getText()));
     return result;
     }
@@ -2094,7 +2094,7 @@ private static int tab=0;  //tabbing for toStringTree
 
   public boolean isNumericLiteral()
   {
-  return hasType(BLESS3Lexer.INTEGER_LIT) || hasType(BLESS3Lexer.REAL_LIT);
+  return hasType(BLESS3Lexer.NUMBER) || hasType(BLESS3Lexer.NUMBER);
   }
     
   

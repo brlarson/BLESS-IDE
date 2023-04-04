@@ -145,7 +145,7 @@ getThreadPeriod()
 //      if (dispatchProtocol.toString().endsWith("Periodic"))
 //        {
         double periodInMS = GetProperties.getPeriodinMS((NamedElement)context);
-        period = new BAST(String.valueOf(periodInMS),BLESS3Lexer.INTEGER_LIT,this.ast);
+        period = new BAST(String.valueOf(periodInMS),BLESS3Lexer.NUMBER,this.ast);
         period.addChild(new BAST("ms",BLESS3Lexer.ID,this.ast));
 //        }
 //      else

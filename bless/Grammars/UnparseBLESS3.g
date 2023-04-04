@@ -213,13 +213,6 @@ identifier
 		->{%{$word.text}}  //template(w={$word.text})"<w>"
 	;
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-number
-  :
-  INTEGER_LIT
-  |
-  REAL_LIT
-  ;
 /////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\
 /*
 unitLibrary
@@ -267,10 +260,10 @@ unitExtension
 
 
 unitFactor: 
-  ^( COMMA unit=unitName t=TIMES factor=number )
+  ^( COMMA unit=unitName t=TIMES factor=NUMBER )
     -> unit_factor(unit={$unit.st}, op={$t.text}, factor={$factor.text})
   |
-  ^( COMMA unit=unitName d=DIVIDE factor=number )
+  ^( COMMA unit=unitName d=DIVIDE factor=NUMBER )
     -> unit_factor(unit={$unit.st}, op={$d.text}, factor={$factor.text})
   ;
   
@@ -1010,7 +1003,7 @@ quantity
 	;	
 	    
 aNumber:
- lit=number
+ lit=NUMBER
    -> {%{$lit.text}}
  | property=propertyReference
    -> {$property.st}
@@ -1046,7 +1039,7 @@ propertyReference
   
 propertyField
   :
-  ^( LBRACKET index=number )
+  ^( LBRACKET index=NUMBER )
     -> index(i={$index.text})
   |
   ^( LBRACKET var=ID )
@@ -1396,7 +1389,7 @@ behaviorTransition
 
 priority
   :
-	^( LBRACKET num=INTEGER_LIT RBRACKET )
+	^( LBRACKET num=NUMBER RBRACKET )
 	  -> priority(num={$num.text})
   ;
 
@@ -1473,7 +1466,7 @@ behaviorTime:
 
 portName
   :
-  ^( port=ID index=INTEGER_LIT? )
+  ^( port=ID index=NUMBER? )
     -> port_name(port={$port.text},index={$index.text})
   ;
 
