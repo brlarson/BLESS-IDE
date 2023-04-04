@@ -274,7 +274,7 @@ get_x_t_from_behavior_variable
 get_invariant_from_bless_subclause  
   :  
   ^( BLESS_SUBCLAUSE DO_NOT_PROVE? ^( LITERAL_assert .+ )
-    ^( ta=LITERAL_invariant ^( ass=ASSERTION pred=. ) .* )
+    ^( ta=LITERAL_invariant ^( ass=ASSERTION ( ^(LABEL id= ID ) )? pred=. ) .* )
   )
     -> ^($ass $pred)  //get the predicate only
   ;  
