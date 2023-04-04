@@ -1297,14 +1297,20 @@ private static int tab=0;  //tabbing for toStringTree
             throw new YouIdiot("null return from UnparseBLESS3.predicate", this);
             }
           break;
-        // constructs unparsed by behaviorActions
+        //assertedAction  
         case BLESS3Lexer.ACTION:
-        case BLESS3Lexer.AMPERSAND:
+          UnparseBLESS3.assertedAction_return aa = null;
+          aa = unparser.assertedAction();
+          StringTemplate actionOutput = (StringTemplate) aa.getTemplate();
+          result = actionOutput.toString(Global.wrapLength); // wrap at 72
+        break;
+        // constructs unparsed by behaviorActions
+       case BLESS3Lexer.AMPERSAND:
         case BLESS3Lexer.SEMICOLON:
           UnparseBLESS3.behaviorActions_return bau = null;
           bau = unparser.behaviorActions();
-          StringTemplate actionOutput = (StringTemplate) bau.getTemplate();
-          result = actionOutput.toString(Global.wrapLength); // wrap at 72
+          StringTemplate behaviorActionsOutput = (StringTemplate) bau.getTemplate();
+          result = behaviorActionsOutput.toString(Global.wrapLength); // wrap at 72
           break;
         // constructs unparsed by action
         case BLESS3Lexer.ASSIGN:

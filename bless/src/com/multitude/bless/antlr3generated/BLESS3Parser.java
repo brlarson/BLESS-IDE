@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-04 16:10:30
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-04 17:05:08
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -5976,7 +5976,7 @@ public class BLESS3Parser extends Parser {
 
 
 	// $ANTLR start "existentialQuantification"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:862:1: existentialQuantification : ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) ar= LITERAL_are pred= predicate -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $ar $pred) ) -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $ar $pred) ) -> $ex;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:862:1: existentialQuantification : ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) th= LITERAL_that pred= predicate -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $th $pred) ) -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $th $pred) ) -> $ex;
 	public final BLESS3Parser.existentialQuantification_return existentialQuantification() throws RecognitionException {
 		BLESS3Parser.existentialQuantification_return retval = new BLESS3Parser.existentialQuantification_return();
 		retval.start = input.LT(1);
@@ -5986,7 +5986,6 @@ public class BLESS3Parser extends Parser {
 		Token ex=null;
 		Token i=null;
 		Token th=null;
-		Token ar=null;
 		ParserRuleReturnScope lv =null;
 		ParserRuleReturnScope r =null;
 		ParserRuleReturnScope b =null;
@@ -5995,18 +5994,16 @@ public class BLESS3Parser extends Parser {
 		BAST ex_tree=null;
 		BAST i_tree=null;
 		BAST th_tree=null;
-		BAST ar_tree=null;
 		RewriteRuleTokenStream stream_LITERAL_in=new RewriteRuleTokenStream(adaptor,"token LITERAL_in");
 		RewriteRuleTokenStream stream_LITERAL_that=new RewriteRuleTokenStream(adaptor,"token LITERAL_that");
 		RewriteRuleTokenStream stream_LITERAL_exists=new RewriteRuleTokenStream(adaptor,"token LITERAL_exists");
-		RewriteRuleTokenStream stream_LITERAL_are=new RewriteRuleTokenStream(adaptor,"token LITERAL_are");
 		RewriteRuleSubtreeStream stream_predicate=new RewriteRuleSubtreeStream(adaptor,"rule predicate");
 		RewriteRuleSubtreeStream stream_range=new RewriteRuleSubtreeStream(adaptor,"rule range");
 		RewriteRuleSubtreeStream stream_logicVariables=new RewriteRuleSubtreeStream(adaptor,"rule logicVariables");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:862:26: (ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) ar= LITERAL_are pred= predicate -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $ar $pred) ) -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $ar $pred) ) -> $ex)
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:863:3: ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) ar= LITERAL_are pred= predicate
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:862:26: (ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) th= LITERAL_that pred= predicate -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $th $pred) ) -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $th $pred) ) -> $ex)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:863:3: ex= LITERAL_exists lv= logicVariables (i= LITERAL_in r= range |th= LITERAL_that b= predicate ) th= LITERAL_that pred= predicate
 			{
 			ex=(Token)match(input,LITERAL_exists,FOLLOW_LITERAL_exists_in_existentialQuantification4480); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_LITERAL_exists.add(ex);
@@ -6063,8 +6060,8 @@ public class BLESS3Parser extends Parser {
 
 			}
 
-			ar=(Token)match(input,LITERAL_are,FOLLOW_LITERAL_are_in_existentialQuantification4520); if (state.failed) return retval; 
-			if ( state.backtracking==0 ) stream_LITERAL_are.add(ar);
+			th=(Token)match(input,LITERAL_that,FOLLOW_LITERAL_that_in_existentialQuantification4520); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_LITERAL_that.add(th);
 
 			pushFollow(FOLLOW_predicate_in_existentialQuantification4524);
 			pred=predicate();
@@ -6072,15 +6069,14 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_predicate.add(pred.getTree());
 			// AST REWRITE
-			// elements: i, pred, lv, ar, pred, th, ex, b, r, ex, lv, ar, ex
-			// token labels: ar, ex, th, i
+			// elements: i, pred, lv, th, pred, th, ex, b, r, ex, lv, th, ex
+			// token labels: ex, th, i
 			// rule labels: b, r, pred, lv, retval
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
-			RewriteRuleTokenStream stream_ar=new RewriteRuleTokenStream(adaptor,"token ar",ar);
 			RewriteRuleTokenStream stream_ex=new RewriteRuleTokenStream(adaptor,"token ex",ex);
 			RewriteRuleTokenStream stream_th=new RewriteRuleTokenStream(adaptor,"token th",th);
 			RewriteRuleTokenStream stream_i=new RewriteRuleTokenStream(adaptor,"token i",i);
@@ -6091,9 +6087,9 @@ public class BLESS3Parser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (BAST)adaptor.nil();
-			// 866:4: -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $ar $pred) )
+			// 866:4: -> {i!=null}? ^( $ex $lv ^( $i $r) ^( $th $pred) )
 			if (i!=null) {
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:866:18: ^( $ex $lv ^( $i $r) ^( $ar $pred) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:866:18: ^( $ex $lv ^( $i $r) ^( $th $pred) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ex.nextNode(), root_1);
@@ -6106,10 +6102,10 @@ public class BLESS3Parser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:866:40: ^( $ar $pred)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:866:40: ^( $th $pred)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
-				root_2 = (BAST)adaptor.becomeRoot(stream_ar.nextNode(), root_2);
+				root_2 = (BAST)adaptor.becomeRoot(stream_th.nextNode(), root_2);
 				adaptor.addChild(root_2, stream_pred.nextTree());
 				adaptor.addChild(root_1, root_2);
 				}
@@ -6119,9 +6115,9 @@ public class BLESS3Parser extends Parser {
 
 			}
 
-			else // 867:4: -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $ar $pred) )
+			else // 867:4: -> {th!=null}? ^( $ex $lv ^( $th $b) ^( $th $pred) )
 			if (th!=null) {
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:867:19: ^( $ex $lv ^( $th $b) ^( $ar $pred) )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:867:19: ^( $ex $lv ^( $th $b) ^( $th $pred) )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ex.nextNode(), root_1);
@@ -6134,10 +6130,10 @@ public class BLESS3Parser extends Parser {
 				adaptor.addChild(root_1, root_2);
 				}
 
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:867:42: ^( $ar $pred)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g:867:42: ^( $th $pred)
 				{
 				BAST root_2 = (BAST)adaptor.nil();
-				root_2 = (BAST)adaptor.becomeRoot(stream_ar.nextNode(), root_2);
+				root_2 = (BAST)adaptor.becomeRoot(stream_th.nextNode(), root_2);
 				adaptor.addChild(root_2, stream_pred.nextTree());
 				adaptor.addChild(root_1, root_2);
 				}
@@ -20595,10 +20591,10 @@ public class BLESS3Parser extends Parser {
 	public static final BitSet FOLLOW_LITERAL_exists_in_existentialQuantification4480 = new BitSet(new long[]{0x0400000000000000L});
 	public static final BitSet FOLLOW_logicVariables_in_existentialQuantification4484 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L,0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_in_in_existentialQuantification4495 = new BitSet(new long[]{0x0400000000000010L,0x0100000000040040L,0x0005000001C00000L,0x000C000A44000CA0L});
-	public static final BitSet FOLLOW_range_in_existentialQuantification4499 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+	public static final BitSet FOLLOW_range_in_existentialQuantification4499 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_that_in_existentialQuantification4505 = new BitSet(new long[]{0x0400000000000010L,0x0120000000140040L,0x8005000803C00000L,0x000C000A44000CA0L});
-	public static final BitSet FOLLOW_predicate_in_existentialQuantification4509 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
-	public static final BitSet FOLLOW_LITERAL_are_in_existentialQuantification4520 = new BitSet(new long[]{0x0400000000000010L,0x0120000000140040L,0x8005000803C00000L,0x000C000A44000CA0L});
+	public static final BitSet FOLLOW_predicate_in_existentialQuantification4509 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_that_in_existentialQuantification4520 = new BitSet(new long[]{0x0400000000000010L,0x0120000000140040L,0x8005000803C00000L,0x000C000A44000CA0L});
 	public static final BitSet FOLLOW_predicate_in_existentialQuantification4524 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LITERAL_sum_in_sumQuantification4620 = new BitSet(new long[]{0x0400000000000000L});
 	public static final BitSet FOLLOW_logicVariables_in_sumQuantification4624 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L,0x0000000000200000L});

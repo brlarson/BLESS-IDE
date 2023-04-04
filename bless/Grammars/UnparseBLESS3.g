@@ -611,7 +611,7 @@ in_which
 
 existentialQuantification
   :
-  ^( e=LITERAL_exists lv=logicVariables iw=in_which ^( LITERAL_are pred=predicate ) )
+  ^( e=LITERAL_exists lv=logicVariables iw=in_which ^( LITERAL_that pred=predicate ) )
     -> existential_quantification(e={$e.text},  lv2={$lv.st}, d2={$iw.st}, p2={$pred.st})
 	;
 
@@ -639,6 +639,7 @@ logicVariables
     -> variable_list(parameter={$lv})
   |
   v=variable
+    -> {$v.st}
   ;
     
 disjunction
@@ -652,7 +653,8 @@ disjunction
   ^( LITERAL_xor c+=conjunction+ )
     -> xor(terms={$c})
   |
-  con=conjunction
+  con=conjunction 
+    -> {$con.st}
   ;  
 
 conjunction
@@ -887,7 +889,8 @@ recordValue
 
 predicate
   :
-  expression
+  exp=expression
+    -> {$exp.st}
 	;
 	  
 //////////////////////////   VALUE   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -1285,6 +1288,7 @@ formalActual
     -> formal_actual(f={$formal.text}, ap={$actual.st})
   |
   spp=subProgramParameter
+    -> {$spp.st}
 	;  
 
 subProgramParameter:
@@ -1382,9 +1386,13 @@ transitions
 
 behaviorTransition
   :
-  ^( TRANSITION ^( LABEL id=ID pr=priority? ) ^( SOURCE ssi+=ID+ ) 
-    ^( CONDITION bc=behaviorCondition? ) ^( DESTINATION dsi=ID )
-    ^( ACTION s=behaviorActions? ) ^( Q q=assertion? ) )
+  ^( TRANSITION 
+    ^( LABEL id=ID pr=priority? ) 
+    ^( SOURCE ssi+=ID+ ) 
+    ^( CONDITION bc=behaviorCondition? ) 
+    ^( DESTINATION dsi=ID )
+    ^( ACTION s=behaviorActions? ) 
+    ^( Q q=assertion? ) )
     -> behavior_transition(i={$id.text}, pr={$pr.st}, ssi={$ssi},
         bc={$bc.st}, dsi={$dsi.text}, ba={$s.st}, btq={$q.st})
   ;
@@ -1415,7 +1423,8 @@ dispatchCondition
   
 executeCondition
   :
-  expression
+  exp=expression
+    -> {$exp.st}
   ;  
   
 modeCondition

@@ -862,9 +862,9 @@ universalQuantification:
 existentialQuantification:
   ex=LITERAL_exists lv=logicVariables  
     (i=LITERAL_in r=range | th=LITERAL_that b=predicate )
-     ar=LITERAL_are pred=predicate
-   -> {i!=null}? ^( $ex $lv ^( $i $r ) ^( $ar $pred ) )
-   -> {th!=null}? ^( $ex $lv ^( $th $b ) ^( $ar $pred ) )
+     th=LITERAL_that pred=predicate
+   -> {i!=null}? ^( $ex $lv ^( $i $r ) ^( $th $pred ) )
+   -> {th!=null}? ^( $ex $lv ^( $th $b ) ^( $th $pred ) )
    -> $ex
   ;
 
