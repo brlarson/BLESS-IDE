@@ -798,13 +798,13 @@ timedExpression
 
 timedSubject
   :
-  ce=conditionalExpression
+  (LPAREN QQ)=> ce=conditionalExpression
    -> {$ce.st}
-  | ps=parenthesizedSubexpression 
+  | (LPAREN)=>  ps=parenthesizedSubexpression 
     -> {$ps.st}
-  | rt=recordTerm
+  | (RECORD_TERM)=> rt=recordTerm
     -> {$rt.st}
-  | inv=invocation  
+  | (ID LPAREN)=> inv=invocation  
     -> {$inv.st}
   | v=value
     -> {$v.st}

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-04-05 13:47:04
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-04-05 15:52:09
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -20,6 +20,8 @@ import org.antlr.runtime.tree.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.stringtemplate.*;
 import org.antlr.stringtemplate.language.*;
@@ -569,14 +571,16 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:211:2: (word= ID -> {%{$word.text}})
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:212:2: word= ID
 			{
-			word=(BAST)match(input,ID,FOLLOW_ID_in_identifier66); 
+			word=(BAST)match(input,ID,FOLLOW_ID_in_identifier66); if (state.failed) return retval;
 			// TEMPLATE REWRITE
-			// 213:3: -> {%{$word.text}}
-			{
-				retval.st = new StringTemplate(templateLib,(word!=null?word.getText():null));
+			if ( state.backtracking==0 ) {
+			  // 213:3: -> {%{$word.text}}
+			  {
+			  	retval.st = new StringTemplate(templateLib,(word!=null?word.getText():null));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -634,9 +638,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:225:3: ( ^( UNIT_NAME id= ID (longname+= ID )* ) -> unit_name(id=$id.textlongname=$longname))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:226:3: ^( UNIT_NAME id= ID (longname+= ID )* )
 			{
-			match(input,UNIT_NAME,FOLLOW_UNIT_NAME_in_unitName92); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_unitName96); 
+			match(input,UNIT_NAME,FOLLOW_UNIT_NAME_in_unitName92); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_unitName96); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:226:30: (longname+= ID )*
 			loop1:
 			while (true) {
@@ -650,7 +654,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:226:30: longname+= ID
 					{
-					longname=(BAST)match(input,ID,FOLLOW_ID_in_unitName100); 
+					longname=(BAST)match(input,ID,FOLLOW_ID_in_unitName100); if (state.failed) return retval;
 					if (list_longname==null) list_longname=new ArrayList<Object>();
 					list_longname.add(longname);
 					}
@@ -661,15 +665,17 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 227:5: -> unit_name(id=$id.textlongname=$longname)
-			{
-				retval.st = templateLib.getInstanceOf("unit_name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("longname", list_longname));
+			if ( state.backtracking==0 ) {
+			  // 227:5: -> unit_name(id=$id.textlongname=$longname)
+			  {
+			  	retval.st = templateLib.getInstanceOf("unit_name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("longname", list_longname));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -732,8 +738,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:232:3: ^( UNIT_FORMULA (top+= ID )+ )
 					{
-					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula140); 
-					match(input, Token.DOWN, null); 
+					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula140); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:232:22: (top+= ID )+
 					int cnt2=0;
 					loop2:
@@ -748,7 +754,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:232:22: top+= ID
 							{
-							top=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula144); 
+							top=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula144); if (state.failed) return retval;
 							if (list_top==null) list_top=new ArrayList<Object>();
 							list_top.add(top);
 							}
@@ -756,29 +762,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt2 >= 1 ) break loop2;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(2, input);
 							throw eee;
 						}
 						cnt2++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 233:5: -> unit_formula(top=$top)
-					{
-						retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("top", list_top));
+					if ( state.backtracking==0 ) {
+					  // 233:5: -> unit_formula(top=$top)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("top", list_top));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:235:3: ^( UNIT_FORMULA (top+= ID )+ DIVIDE (bottom+= ID )+ )
 					{
-					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula170); 
-					match(input, Token.DOWN, null); 
+					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula170); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:235:22: (top+= ID )+
 					int cnt3=0;
 					loop3:
@@ -793,7 +802,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:235:22: top+= ID
 							{
-							top=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula174); 
+							top=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula174); if (state.failed) return retval;
 							if (list_top==null) list_top=new ArrayList<Object>();
 							list_top.add(top);
 							}
@@ -801,13 +810,14 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt3 >= 1 ) break loop3;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(3, input);
 							throw eee;
 						}
 						cnt3++;
 					}
 
-					match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFormula177); 
+					match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFormula177); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:235:41: (bottom+= ID )+
 					int cnt4=0;
 					loop4:
@@ -822,7 +832,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:235:41: bottom+= ID
 							{
-							bottom=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula181); 
+							bottom=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula181); if (state.failed) return retval;
 							if (list_bottom==null) list_bottom=new ArrayList<Object>();
 							list_bottom.add(bottom);
 							}
@@ -830,30 +840,33 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt4 >= 1 ) break loop4;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(4, input);
 							throw eee;
 						}
 						cnt4++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 236:5: -> unit_formula(top=$topbottom=$bottom)
-					{
-						retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("top", list_top).put("bottom", list_bottom));
+					if ( state.backtracking==0 ) {
+					  // 236:5: -> unit_formula(top=$topbottom=$bottom)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("top", list_top).put("bottom", list_bottom));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:238:3: ^( UNIT_FORMULA DIVIDE (bottom+= ID )+ )
 					{
-					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula212); 
-					match(input, Token.DOWN, null); 
-					match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFormula214); 
+					match(input,UNIT_FORMULA,FOLLOW_UNIT_FORMULA_in_unitFormula212); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFormula214); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:238:32: (bottom+= ID )+
 					int cnt5=0;
 					loop5:
@@ -868,7 +881,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:238:32: bottom+= ID
 							{
-							bottom=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula218); 
+							bottom=(BAST)match(input,ID,FOLLOW_ID_in_unitFormula218); if (state.failed) return retval;
 							if (list_bottom==null) list_bottom=new ArrayList<Object>();
 							list_bottom.add(bottom);
 							}
@@ -876,21 +889,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt5 >= 1 ) break loop5;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(5, input);
 							throw eee;
 						}
 						cnt5++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 239:5: -> unit_formula(bottom=$bottom)
-					{
-						retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("bottom", list_bottom));
+					if ( state.backtracking==0 ) {
+					  // 239:5: -> unit_formula(bottom=$bottom)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unit_formula",new STAttrMap().put("bottom", list_bottom));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -954,6 +970,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 7, 0, input);
 				throw nvae;
@@ -966,7 +983,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_rootDeclaration_in_unitDeclaration247);
 					rootDeclaration();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 				case 2 :
@@ -975,7 +992,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_unitExtension_in_unitDeclaration251);
 					unitExtension();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
@@ -1049,6 +1066,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -1065,6 +1083,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -1079,6 +1098,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 12, 0, input);
 				throw nvae;
@@ -1088,11 +1108,11 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:248:3: ^( ROOT_DECLARATION base= LITERAL_base ^( LBRACKET (kindWords+= ID )+ ) unit= unitName (factors+= unitFactor )* )
 					{
-					match(input,ROOT_DECLARATION,FOLLOW_ROOT_DECLARATION_in_rootDeclaration268); 
-					match(input, Token.DOWN, null); 
-					base=(BAST)match(input,LITERAL_base,FOLLOW_LITERAL_base_in_rootDeclaration272); 
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_rootDeclaration276); 
-					match(input, Token.DOWN, null); 
+					match(input,ROOT_DECLARATION,FOLLOW_ROOT_DECLARATION_in_rootDeclaration268); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					base=(BAST)match(input,LITERAL_base,FOLLOW_LITERAL_base_in_rootDeclaration272); if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_rootDeclaration276); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:248:62: (kindWords+= ID )+
 					int cnt8=0;
 					loop8:
@@ -1107,7 +1127,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:248:62: kindWords+= ID
 							{
-							kindWords=(BAST)match(input,ID,FOLLOW_ID_in_rootDeclaration280); 
+							kindWords=(BAST)match(input,ID,FOLLOW_ID_in_rootDeclaration280); if (state.failed) return retval;
 							if (list_kindWords==null) list_kindWords=new ArrayList<Object>();
 							list_kindWords.add(kindWords);
 							}
@@ -1115,18 +1135,19 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt8 >= 1 ) break loop8;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(8, input);
 							throw eee;
 						}
 						cnt8++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_unitName_in_rootDeclaration287);
 					unit=unitName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:248:91: (factors+= unitFactor )*
 					loop9:
 					while (true) {
@@ -1143,7 +1164,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_unitFactor_in_rootDeclaration291);
 							factors=unitFactor();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_factors==null) list_factors=new ArrayList<Object>();
 							list_factors.add(factors.getTemplate());
 							}
@@ -1154,29 +1175,31 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 249:5: -> root_declaration(base=$base.textkindWords=$kindWordsunit=$unit.stfactors=$factors)
-					{
-						retval.st = templateLib.getInstanceOf("root_declaration",new STAttrMap().put("base", (base!=null?base.getText():null)).put("kindWords", list_kindWords).put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("factors", list_factors));
+					if ( state.backtracking==0 ) {
+					  // 249:5: -> root_declaration(base=$base.textkindWords=$kindWordsunit=$unit.stfactors=$factors)
+					  {
+					  	retval.st = templateLib.getInstanceOf("root_declaration",new STAttrMap().put("base", (base!=null?base.getText():null)).put("kindWords", list_kindWords).put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("factors", list_factors));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:251:3: ^( ROOT_DECLARATION formula= unitFormula ^( LBRACKET (kindWords+= ID )+ ) unit= unitName (factors+= unitFactor )* )
 					{
-					match(input,ROOT_DECLARATION,FOLLOW_ROOT_DECLARATION_in_rootDeclaration332); 
-					match(input, Token.DOWN, null); 
+					match(input,ROOT_DECLARATION,FOLLOW_ROOT_DECLARATION_in_rootDeclaration332); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_unitFormula_in_rootDeclaration336);
 					formula=unitFormula();
 					state._fsp--;
-
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_rootDeclaration340); 
-					match(input, Token.DOWN, null); 
+					if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_rootDeclaration340); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:251:64: (kindWords+= ID )+
 					int cnt10=0;
 					loop10:
@@ -1191,7 +1214,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:251:64: kindWords+= ID
 							{
-							kindWords=(BAST)match(input,ID,FOLLOW_ID_in_rootDeclaration344); 
+							kindWords=(BAST)match(input,ID,FOLLOW_ID_in_rootDeclaration344); if (state.failed) return retval;
 							if (list_kindWords==null) list_kindWords=new ArrayList<Object>();
 							list_kindWords.add(kindWords);
 							}
@@ -1199,18 +1222,19 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt10 >= 1 ) break loop10;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(10, input);
 							throw eee;
 						}
 						cnt10++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_unitName_in_rootDeclaration351);
 					unit=unitName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:251:93: (factors+= unitFactor )*
 					loop11:
 					while (true) {
@@ -1227,7 +1251,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_unitFactor_in_rootDeclaration355);
 							factors=unitFactor();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_factors==null) list_factors=new ArrayList<Object>();
 							list_factors.add(factors.getTemplate());
 							}
@@ -1238,15 +1262,17 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 252:5: -> root_declaration(formula=$formula.stkindWords=$kindWordsunit=$unit.stfactors=$factors)
-					{
-						retval.st = templateLib.getInstanceOf("root_declaration",new STAttrMap().put("formula", (formula!=null?((StringTemplate)formula.getTemplate()):null)).put("kindWords", list_kindWords).put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("factors", list_factors));
+					if ( state.backtracking==0 ) {
+					  // 252:5: -> root_declaration(formula=$formula.stkindWords=$kindWordsunit=$unit.stfactors=$factors)
+					  {
+					  	retval.st = templateLib.getInstanceOf("root_declaration",new STAttrMap().put("formula", (formula!=null?((StringTemplate)formula.getTemplate()):null)).put("kindWords", list_kindWords).put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("factors", list_factors));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1305,9 +1331,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:256:3: ( ^( LITERAL_extension root= ID (factors+= unitFactor )+ ) -> unit_extension(root=$root.textfactors=$factors))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:257:3: ^( LITERAL_extension root= ID (factors+= unitFactor )+ )
 			{
-			match(input,LITERAL_extension,FOLLOW_LITERAL_extension_in_unitExtension403); 
-			match(input, Token.DOWN, null); 
-			root=(BAST)match(input,ID,FOLLOW_ID_in_unitExtension407); 
+			match(input,LITERAL_extension,FOLLOW_LITERAL_extension_in_unitExtension403); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			root=(BAST)match(input,ID,FOLLOW_ID_in_unitExtension407); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:257:39: (factors+= unitFactor )+
 			int cnt13=0;
 			loop13:
@@ -1325,7 +1351,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_unitFactor_in_unitExtension411);
 					factors=unitFactor();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_factors==null) list_factors=new ArrayList<Object>();
 					list_factors.add(factors.getTemplate());
 					}
@@ -1333,21 +1359,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt13 >= 1 ) break loop13;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(13, input);
 					throw eee;
 				}
 				cnt13++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 258:5: -> unit_extension(root=$root.textfactors=$factors)
-			{
-				retval.st = templateLib.getInstanceOf("unit_extension",new STAttrMap().put("root", (root!=null?root.getText():null)).put("factors", list_factors));
+			if ( state.backtracking==0 ) {
+			  // 258:5: -> unit_extension(root=$root.textfactors=$factors)
+			  {
+			  	retval.st = templateLib.getInstanceOf("unit_extension",new STAttrMap().put("root", (root!=null?root.getText():null)).put("factors", list_factors));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -1410,46 +1439,50 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:263:3: ^( COMMA unit= unitName t= TIMES factor= NUMBER )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_unitFactor448); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_unitFactor448); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_unitName_in_unitFactor452);
 					unit=unitName();
 					state._fsp--;
-
-					t=(BAST)match(input,TIMES,FOLLOW_TIMES_in_unitFactor456); 
-					factor=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_unitFactor460); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					t=(BAST)match(input,TIMES,FOLLOW_TIMES_in_unitFactor456); if (state.failed) return retval;
+					factor=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_unitFactor460); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 264:5: -> unit_factor(unit=$unit.stop=$t.textfactor=$factor.text)
-					{
-						retval.st = templateLib.getInstanceOf("unit_factor",new STAttrMap().put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("op", (t!=null?t.getText():null)).put("factor", (factor!=null?factor.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 264:5: -> unit_factor(unit=$unit.stop=$t.textfactor=$factor.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unit_factor",new STAttrMap().put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("op", (t!=null?t.getText():null)).put("factor", (factor!=null?factor.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:266:3: ^( COMMA unit= unitName d= DIVIDE factor= NUMBER )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_unitFactor495); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_unitFactor495); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_unitName_in_unitFactor499);
 					unit=unitName();
 					state._fsp--;
-
-					d=(BAST)match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFactor503); 
-					factor=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_unitFactor507); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					d=(BAST)match(input,DIVIDE,FOLLOW_DIVIDE_in_unitFactor503); if (state.failed) return retval;
+					factor=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_unitFactor507); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 267:5: -> unit_factor(unit=$unit.stop=$d.textfactor=$factor.text)
-					{
-						retval.st = templateLib.getInstanceOf("unit_factor",new STAttrMap().put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("op", (d!=null?d.getText():null)).put("factor", (factor!=null?factor.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 267:5: -> unit_factor(unit=$unit.stop=$d.textfactor=$factor.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unit_factor",new STAttrMap().put("unit", (unit!=null?((StringTemplate)unit.getTemplate()):null)).put("op", (d!=null?d.getText():null)).put("factor", (factor!=null?factor.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1524,7 +1557,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_typeDeclaration_in_typeLibrary554);
 					decs=typeDeclaration();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_decs==null) list_decs=new ArrayList<Object>();
 					list_decs.add(decs.getTemplate());
 					}
@@ -1532,6 +1565,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt15 >= 1 ) break loop15;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(15, input);
 					throw eee;
 				}
@@ -1539,12 +1573,14 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			// TEMPLATE REWRITE
-			// 275:5: -> type_library(decs=$decs)
-			{
-				retval.st = templateLib.getInstanceOf("type_library",new STAttrMap().put("decs", list_decs));
+			if ( state.backtracking==0 ) {
+			  // 275:5: -> type_library(decs=$decs)
+			  {
+			  	retval.st = templateLib.getInstanceOf("type_library",new STAttrMap().put("decs", list_decs));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -1601,22 +1637,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:278:16: ( ^( LITERAL_type id= ID ty= type ) -> type_declaration(id=$id.textty=$ty.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:279:3: ^( LITERAL_type id= ID ty= type )
 			{
-			match(input,LITERAL_type,FOLLOW_LITERAL_type_in_typeDeclaration582); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_typeDeclaration586); 
+			match(input,LITERAL_type,FOLLOW_LITERAL_type_in_typeDeclaration582); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_typeDeclaration586); if (state.failed) return retval;
 			pushFollow(FOLLOW_type_in_typeDeclaration590);
 			ty=type();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 280:5: -> type_declaration(id=$id.textty=$ty.st)
-			{
-				retval.st = templateLib.getInstanceOf("type_declaration",new STAttrMap().put("id", (id!=null?id.getText():null)).put("ty", (ty!=null?((StringTemplate)ty.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 280:5: -> type_declaration(id=$id.textty=$ty.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("type_declaration",new STAttrMap().put("id", (id!=null?id.getText():null)).put("ty", (ty!=null?((StringTemplate)ty.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -1715,6 +1753,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 16, 0, input);
 				throw nvae;
@@ -1726,14 +1765,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_enumerationType_in_type629);
 					et=enumerationType();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 288:3: -> {$et.st}
-					{
-						retval.st = (et!=null?((StringTemplate)et.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 288:3: -> {$et.st}
+					  {
+					  	retval.st = (et!=null?((StringTemplate)et.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1743,14 +1784,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_quantityType_in_type642);
 					nt=quantityType();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 291:3: -> {$nt.st}
-					{
-						retval.st = (nt!=null?((StringTemplate)nt.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 291:3: -> {$nt.st}
+					  {
+					  	retval.st = (nt!=null?((StringTemplate)nt.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1760,14 +1803,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_arrayType_in_type655);
 					at=arrayType();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 294:3: -> {$at.st}
-					{
-						retval.st = (at!=null?((StringTemplate)at.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 294:3: -> {$at.st}
+					  {
+					  	retval.st = (at!=null?((StringTemplate)at.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1777,56 +1822,64 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_recordType_in_type668);
 					rt=recordType();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 297:3: -> {$rt.st}
-					{
-						retval.st = (rt!=null?((StringTemplate)rt.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 297:3: -> {$rt.st}
+					  {
+					  	retval.st = (rt!=null?((StringTemplate)rt.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:299:2: bo= LITERAL_boolean
 					{
-					bo=(BAST)match(input,LITERAL_boolean,FOLLOW_LITERAL_boolean_in_type681); 
+					bo=(BAST)match(input,LITERAL_boolean,FOLLOW_LITERAL_boolean_in_type681); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 299:21: -> boolean(
-					{
-						retval.st = templateLib.getInstanceOf("boolean");
+					if ( state.backtracking==0 ) {
+					  // 299:21: -> boolean(
+					  {
+					  	retval.st = templateLib.getInstanceOf("boolean");
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:301:2: st= LITERAL_string
 					{
-					st=(BAST)match(input,LITERAL_string,FOLLOW_LITERAL_string_in_type697); 
+					st=(BAST)match(input,LITERAL_string,FOLLOW_LITERAL_string_in_type697); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 301:20: -> string(
-					{
-						retval.st = templateLib.getInstanceOf("string");
+					if ( state.backtracking==0 ) {
+					  // 301:20: -> string(
+					  {
+					  	retval.st = templateLib.getInstanceOf("string");
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:303:2: nu= LITERAL_null
 					{
-					nu=(BAST)match(input,LITERAL_null,FOLLOW_LITERAL_null_in_type713); 
+					nu=(BAST)match(input,LITERAL_null,FOLLOW_LITERAL_null_in_type713); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 303:18: -> {%{$nu.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(nu!=null?nu.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 303:18: -> {%{$nu.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(nu!=null?nu.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1873,6 +1926,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 17, 0, input);
 				throw nvae;
@@ -1885,28 +1939,32 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_type_in_typeOrReference740);
 					ty=type();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 310:5: -> {$ty.st}
-					{
-						retval.st = (ty!=null?((StringTemplate)ty.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 310:5: -> {$ty.st}
+					  {
+					  	retval.st = (ty!=null?((StringTemplate)ty.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:312:3: ref= ID
 					{
-					ref=(BAST)match(input,ID,FOLLOW_ID_in_typeOrReference760); 
+					ref=(BAST)match(input,ID,FOLLOW_ID_in_typeOrReference760); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 313:5: -> {%{$ref.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(ref!=null?ref.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 313:5: -> {%{$ref.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(ref!=null?ref.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -1965,8 +2023,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:317:3: ( ^( LITERAL_enumeration (id+= ID )+ ) -> enumeration_type(id=$id))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:318:3: ^( LITERAL_enumeration (id+= ID )+ )
 			{
-			match(input,LITERAL_enumeration,FOLLOW_LITERAL_enumeration_in_enumerationType787); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_enumeration,FOLLOW_LITERAL_enumeration_in_enumerationType787); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:318:27: (id+= ID )+
 			int cnt18=0;
 			loop18:
@@ -1981,7 +2039,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:318:27: id+= ID
 					{
-					id=(BAST)match(input,ID,FOLLOW_ID_in_enumerationType791); 
+					id=(BAST)match(input,ID,FOLLOW_ID_in_enumerationType791); if (state.failed) return retval;
 					if (list_id==null) list_id=new ArrayList<Object>();
 					list_id.add(id);
 					}
@@ -1989,21 +2047,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt18 >= 1 ) break loop18;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(18, input);
 					throw eee;
 				}
 				cnt18++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 319:5: -> enumeration_type(id=$id)
-			{
-				retval.st = templateLib.getInstanceOf("enumeration_type",new STAttrMap().put("id", list_id));
+			if ( state.backtracking==0 ) {
+			  // 319:5: -> enumeration_type(id=$id)
+			  {
+			  	retval.st = templateLib.getInstanceOf("enumeration_type",new STAttrMap().put("id", list_id));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -2069,561 +2130,597 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:324:3: ^( LITERAL_quantity unit= ID )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType826); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType830); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType826); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType830); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 325:5: -> quantity_type(unit=$unit.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 325:5: -> quantity_type(unit=$unit.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:327:3: ^( LITERAL_quantity scalar= LITERAL_scalar )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType855); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType859); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType855); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType859); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 328:5: -> quantity_type(scalar=$scalar.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 328:5: -> quantity_type(scalar=$scalar.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:330:3: ^( LITERAL_quantity whole= LITERAL_whole )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType884); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType888); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType884); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType888); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 331:5: -> quantity_type(whole=$whole.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 331:5: -> quantity_type(whole=$whole.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:333:3: ^( LITERAL_quantity unit= ID ^( DOTDOT lb= aNumber ub= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType913); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType917); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType920); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType913); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType917); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType920); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType924);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType928);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 334:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 334:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:336:3: ^( LITERAL_quantity scalar= LITERAL_scalar ^( DOTDOT lb= aNumber ub= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType964); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType968); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType971); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType964); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType968); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType971); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType975);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType979);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 337:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 337:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:339:3: ^( LITERAL_quantity whole= LITERAL_whole ^( DOTDOT lb= aNumber ub= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1015); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1019); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1022); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1015); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1019); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1022); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1026);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1030);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 340:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 340:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:342:3: ^( LITERAL_quantity unit= ID ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1066); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1070); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1073); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1066); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1070); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1073); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1077);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1081);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1085); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1085); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1089);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 343:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.ststep=$step.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 343:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.ststep=$step.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 8 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:345:3: ^( LITERAL_quantity scalar= LITERAL_scalar ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1130); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1134); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1137); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1130); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1134); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1137); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1141);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1145);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1149); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1149); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1153);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 346:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.ststep=$step.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 346:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.ststep=$step.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 9 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:348:3: ^( LITERAL_quantity whole= LITERAL_whole ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1194); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1198); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1201); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1194); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1198); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1201); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1205);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1209);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1213); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1213); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1217);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 349:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.ststep=$step.st)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 349:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.ststep=$step.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 10 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:351:3: ^( LITERAL_quantity unit= ID ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1258); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1262); 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1265); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1269); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1258); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1262); if (state.failed) return retval;
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1265); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1269); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 352:5: -> quantity_type(unit=$unit.textrepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 352:5: -> quantity_type(unit=$unit.textrepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 11 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:354:3: ^( LITERAL_quantity scalar= LITERAL_scalar ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1301); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1305); 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1308); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1312); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1301); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1305); if (state.failed) return retval;
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1308); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1312); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 355:5: -> quantity_type(scalar=$scalar.textrepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 355:5: -> quantity_type(scalar=$scalar.textrepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 12 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:357:3: ^( LITERAL_quantity whole= LITERAL_whole ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1344); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1348); 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1351); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1355); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1344); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1348); if (state.failed) return retval;
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1351); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1355); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 358:5: -> quantity_type(whole=$whole.textrepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 358:5: -> quantity_type(whole=$whole.textrepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 13 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:360:3: ^( LITERAL_quantity unit= ID ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1387); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1391); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1394); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1387); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1391); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1394); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1398);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1402);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1406); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1410); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1406); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1410); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 361:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 361:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 14 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:363:3: ^( LITERAL_quantity scalar= LITERAL_scalar ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1452); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1456); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1459); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1452); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1456); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1459); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1463);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1467);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1471); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1475); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1471); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1475); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 364:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 364:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 15 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:366:3: ^( LITERAL_quantity whole= LITERAL_whole ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1517); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1521); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1524); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1517); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1521); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1524); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1528);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1532);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1536); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1540); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1536); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1540); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 367:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 367:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 16 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:369:3: ^( LITERAL_quantity unit= ID ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1582); 
-					match(input, Token.DOWN, null); 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1586); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1589); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1582); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantityType1586); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1589); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1593);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1597);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1601); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1601); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1605);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1609); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1613); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1609); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1613); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 370:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 370:5: -> quantity_type(unit=$unit.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("unit", (unit!=null?unit.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 17 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:372:3: ^( LITERAL_quantity scalar= LITERAL_scalar ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1660); 
-					match(input, Token.DOWN, null); 
-					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1664); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1667); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1660); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					scalar=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantityType1664); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1667); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1671);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1675);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1679); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1679); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1683);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1687); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1691); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1687); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1691); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 373:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 373:5: -> quantity_type(scalar=$scalar.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("scalar", (scalar!=null?scalar.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 18 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:375:3: ^( LITERAL_quantity whole= LITERAL_whole ^( DOTDOT lb= aNumber ub= aNumber ) ^( LITERAL_step step= aNumber ) ^( LITERAL_representation representation= QCLREF ) )
 					{
-					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1738); 
-					match(input, Token.DOWN, null); 
-					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1742); 
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1745); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_quantity,FOLLOW_LITERAL_quantity_in_quantityType1738); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					whole=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantityType1742); if (state.failed) return retval;
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_quantityType1745); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1749);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1753);
 					ub=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1757); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_step,FOLLOW_LITERAL_step_in_quantityType1757); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_quantityType1761);
 					step=aNumber();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1765); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1769); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_representation,FOLLOW_LITERAL_representation_in_quantityType1765); 
-					match(input, Token.DOWN, null); 
-					representation=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_quantityType1769); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 376:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
-					{
-						retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 376:5: -> quantity_type(whole=$whole.textlb=$lb.stub=$ub.ststep=$step.strepresentation=$representation.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("quantity_type",new STAttrMap().put("whole", (whole!=null?whole.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("step", (step!=null?((StringTemplate)step.getTemplate()):null)).put("representation", (representation!=null?representation.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -2682,26 +2779,28 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:381:2: ( ^( LITERAL_array arl= arrayRangeList LITERAL_of t= typeOrReference ) -> array_type(arl=$arl.stt=$t.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:382:2: ^( LITERAL_array arl= arrayRangeList LITERAL_of t= typeOrReference )
 			{
-			match(input,LITERAL_array,FOLLOW_LITERAL_array_in_arrayType1825); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_array,FOLLOW_LITERAL_array_in_arrayType1825); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_arrayRangeList_in_arrayType1829);
 			arl=arrayRangeList();
 			state._fsp--;
-
-			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_arrayType1831); 
+			if (state.failed) return retval;
+			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_arrayType1831); if (state.failed) return retval;
 			pushFollow(FOLLOW_typeOrReference_in_arrayType1835);
 			t=typeOrReference();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 383:3: -> array_type(arl=$arl.stt=$t.st)
-			{
-				retval.st = templateLib.getInstanceOf("array_type",new STAttrMap().put("arl", (arl!=null?((StringTemplate)arl.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 383:3: -> array_type(arl=$arl.stt=$t.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("array_type",new STAttrMap().put("arl", (arl!=null?((StringTemplate)arl.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -2766,6 +2865,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 21, 0, input);
 				throw nvae;
@@ -2778,22 +2878,24 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_arrayRange_in_arrayRangeList1868);
 					nr=arrayRange();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 390:4: -> {$nr.st}
-					{
-						retval.st = (nr!=null?((StringTemplate)nr.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 390:4: -> {$nr.st}
+					  {
+					  	retval.st = (nr!=null?((StringTemplate)nr.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:392:2: ^( COMMA (ranges+= arrayRange )+ )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_arrayRangeList1882); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_arrayRangeList1882); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:392:16: (ranges+= arrayRange )+
 					int cnt20=0;
 					loop20:
@@ -2811,7 +2913,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_arrayRange_in_arrayRangeList1886);
 							ranges=arrayRange();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_ranges==null) list_ranges=new ArrayList<Object>();
 							list_ranges.add(ranges.getTemplate());
 							}
@@ -2819,21 +2921,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt20 >= 1 ) break loop20;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(20, input);
 							throw eee;
 						}
 						cnt20++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 393:4: -> array_range_list(r=$ranges)
-					{
-						retval.st = templateLib.getInstanceOf("array_range_list",new STAttrMap().put("r", list_ranges));
+					if ( state.backtracking==0 ) {
+					  // 393:4: -> array_range_list(r=$ranges)
+					  {
+					  	retval.st = templateLib.getInstanceOf("array_range_list",new STAttrMap().put("r", list_ranges));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -2901,6 +3006,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 22, 0, input);
 				throw nvae;
@@ -2913,39 +3019,43 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_aNumber_in_arrayRange1917);
 					n=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 399:5: -> {$n.st}
-					{
-						retval.st = (n!=null?((StringTemplate)n.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 399:5: -> {$n.st}
+					  {
+					  	retval.st = (n!=null?((StringTemplate)n.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:401:3: ^( DOTDOT lb= aNumber ub= aNumber )
 					{
-					match(input,DOTDOT,FOLLOW_DOTDOT_in_arrayRange1935); 
-					match(input, Token.DOWN, null); 
+					match(input,DOTDOT,FOLLOW_DOTDOT_in_arrayRange1935); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_arrayRange1939);
 					lb=aNumber();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_aNumber_in_arrayRange1943);
 					ub=aNumber();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 402:5: -> array_range(l=$lb.str=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("array_range",new STAttrMap().put("l", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("r", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 402:5: -> array_range(l=$lb.str=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("array_range",new STAttrMap().put("l", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("r", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -3012,6 +3122,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 25, 0, input);
 				throw nvae;
@@ -3021,8 +3132,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:407:2: ^(r= LITERAL_record (rf+= recordField )+ )
 					{
-					r=(BAST)match(input,LITERAL_record,FOLLOW_LITERAL_record_in_recordType1980); 
-					match(input, Token.DOWN, null); 
+					r=(BAST)match(input,LITERAL_record,FOLLOW_LITERAL_record_in_recordType1980); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:407:23: (rf+= recordField )+
 					int cnt23=0;
 					loop23:
@@ -3040,7 +3151,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_recordField_in_recordType1984);
 							rf=recordField();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_rf==null) list_rf=new ArrayList<Object>();
 							list_rf.add(rf.getTemplate());
 							}
@@ -3048,29 +3159,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt23 >= 1 ) break loop23;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(23, input);
 							throw eee;
 						}
 						cnt23++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 408:3: -> record_type(rvu=$r.textrf=$rf)
-					{
-						retval.st = templateLib.getInstanceOf("record_type",new STAttrMap().put("rvu", (r!=null?r.getText():null)).put("rf", list_rf));
+					if ( state.backtracking==0 ) {
+					  // 408:3: -> record_type(rvu=$r.textrf=$rf)
+					  {
+					  	retval.st = templateLib.getInstanceOf("record_type",new STAttrMap().put("rvu", (r!=null?r.getText():null)).put("rf", list_rf));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:410:2: ^(r= LITERAL_variant (rf+= recordField )+ )
 					{
-					r=(BAST)match(input,LITERAL_variant,FOLLOW_LITERAL_variant_in_recordType2011); 
-					match(input, Token.DOWN, null); 
+					r=(BAST)match(input,LITERAL_variant,FOLLOW_LITERAL_variant_in_recordType2011); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:410:24: (rf+= recordField )+
 					int cnt24=0;
 					loop24:
@@ -3088,7 +3202,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_recordField_in_recordType2015);
 							rf=recordField();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_rf==null) list_rf=new ArrayList<Object>();
 							list_rf.add(rf.getTemplate());
 							}
@@ -3096,21 +3210,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt24 >= 1 ) break loop24;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(24, input);
 							throw eee;
 						}
 						cnt24++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 411:3: -> record_type(rvu=$r.textrf=$rf)
-					{
-						retval.st = templateLib.getInstanceOf("record_type",new STAttrMap().put("rvu", (r!=null?r.getText():null)).put("rf", list_rf));
+					if ( state.backtracking==0 ) {
+					  // 411:3: -> record_type(rvu=$r.textrf=$rf)
+					  {
+					  	retval.st = templateLib.getInstanceOf("record_type",new STAttrMap().put("rvu", (r!=null?r.getText():null)).put("rf", list_rf));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -3169,22 +3286,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:419:2: ( ^( COLON df= ID ptd= typeOrReference ) -> record_field(df=$df.textptd=$ptd.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:420:2: ^( COLON df= ID ptd= typeOrReference )
 			{
-			match(input,COLON,FOLLOW_COLON_in_recordField2052); 
-			match(input, Token.DOWN, null); 
-			df=(BAST)match(input,ID,FOLLOW_ID_in_recordField2056); 
+			match(input,COLON,FOLLOW_COLON_in_recordField2052); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			df=(BAST)match(input,ID,FOLLOW_ID_in_recordField2056); if (state.failed) return retval;
 			pushFollow(FOLLOW_typeOrReference_in_recordField2060);
 			ptd=typeOrReference();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 421:3: -> record_field(df=$df.textptd=$ptd.st)
-			{
-				retval.st = templateLib.getInstanceOf("record_field",new STAttrMap().put("df", (df!=null?df.getText():null)).put("ptd", (ptd!=null?((StringTemplate)ptd.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 421:3: -> record_field(df=$df.textptd=$ptd.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("record_field",new STAttrMap().put("df", (df!=null?df.getText():null)).put("ptd", (ptd!=null?((StringTemplate)ptd.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -3253,6 +3372,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -3269,6 +3389,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -3283,6 +3404,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 28, 0, input);
 				throw nvae;
@@ -3292,12 +3414,12 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:431:3: ^( ASSERTION_ANNEX ghosts= ghostVariables (ass+= namedAssertion )+ )
 					{
-					match(input,ASSERTION_ANNEX,FOLLOW_ASSERTION_ANNEX_in_assertionLibrary2097); 
-					match(input, Token.DOWN, null); 
+					match(input,ASSERTION_ANNEX,FOLLOW_ASSERTION_ANNEX_in_assertionLibrary2097); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_ghostVariables_in_assertionLibrary2101);
 					ghosts=ghostVariables();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:431:46: (ass+= namedAssertion )+
 					int cnt26=0;
 					loop26:
@@ -3315,7 +3437,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_namedAssertion_in_assertionLibrary2105);
 							ass=namedAssertion();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_ass==null) list_ass=new ArrayList<Object>();
 							list_ass.add(ass.getTemplate());
 							}
@@ -3323,29 +3445,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt26 >= 1 ) break loop26;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(26, input);
 							throw eee;
 						}
 						cnt26++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 432:4: -> annex_library_assertion(ghosts=$ghosts.stass=$ass)
-					{
-						retval.st = templateLib.getInstanceOf("annex_library_assertion",new STAttrMap().put("ghosts", (ghosts!=null?((StringTemplate)ghosts.getTemplate()):null)).put("ass", list_ass));
+					if ( state.backtracking==0 ) {
+					  // 432:4: -> annex_library_assertion(ghosts=$ghosts.stass=$ass)
+					  {
+					  	retval.st = templateLib.getInstanceOf("annex_library_assertion",new STAttrMap().put("ghosts", (ghosts!=null?((StringTemplate)ghosts.getTemplate()):null)).put("ass", list_ass));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:434:3: ^( ASSERTION_ANNEX (ass+= namedAssertion )+ )
 					{
-					match(input,ASSERTION_ANNEX,FOLLOW_ASSERTION_ANNEX_in_assertionLibrary2132); 
-					match(input, Token.DOWN, null); 
+					match(input,ASSERTION_ANNEX,FOLLOW_ASSERTION_ANNEX_in_assertionLibrary2132); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:434:24: (ass+= namedAssertion )+
 					int cnt27=0;
 					loop27:
@@ -3363,7 +3488,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_namedAssertion_in_assertionLibrary2136);
 							ass=namedAssertion();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_ass==null) list_ass=new ArrayList<Object>();
 							list_ass.add(ass.getTemplate());
 							}
@@ -3371,21 +3496,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt27 >= 1 ) break loop27;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(27, input);
 							throw eee;
 						}
 						cnt27++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 435:4: -> annex_library_assertion(ass=$ass)
-					{
-						retval.st = templateLib.getInstanceOf("annex_library_assertion",new STAttrMap().put("ass", list_ass));
+					if ( state.backtracking==0 ) {
+					  // 435:4: -> annex_library_assertion(ass=$ass)
+					  {
+					  	retval.st = templateLib.getInstanceOf("annex_library_assertion",new STAttrMap().put("ass", list_ass));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -3443,8 +3571,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:440:3: ( ^( LITERAL_ghost (gv+= ghostVariable )+ ) -> ghost_variables(gv=$gv))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:441:3: ^( LITERAL_ghost (gv+= ghostVariable )+ )
 			{
-			match(input,LITERAL_ghost,FOLLOW_LITERAL_ghost_in_ghostVariables2172); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_ghost,FOLLOW_LITERAL_ghost_in_ghostVariables2172); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:441:22: (gv+= ghostVariable )+
 			int cnt29=0;
 			loop29:
@@ -3462,7 +3590,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_ghostVariable_in_ghostVariables2176);
 					gv=ghostVariable();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_gv==null) list_gv=new ArrayList<Object>();
 					list_gv.add(gv.getTemplate());
 					}
@@ -3470,21 +3598,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt29 >= 1 ) break loop29;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(29, input);
 					throw eee;
 				}
 				cnt29++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 442:5: -> ghost_variables(gv=$gv)
-			{
-				retval.st = templateLib.getInstanceOf("ghost_variables",new STAttrMap().put("gv", list_gv));
+			if ( state.backtracking==0 ) {
+			  // 442:5: -> ghost_variables(gv=$gv)
+			  {
+			  	retval.st = templateLib.getInstanceOf("ghost_variables",new STAttrMap().put("gv", list_gv));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -3541,22 +3672,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:446:3: ( ^( LITERAL_def id= ID tod= typeOrReference ) -> ghost_variable(id=$id.texttod=$tod.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:447:3: ^( LITERAL_def id= ID tod= typeOrReference )
 			{
-			match(input,LITERAL_def,FOLLOW_LITERAL_def_in_ghostVariable2209); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_ghostVariable2214); 
+			match(input,LITERAL_def,FOLLOW_LITERAL_def_in_ghostVariable2209); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_ghostVariable2214); if (state.failed) return retval;
 			pushFollow(FOLLOW_typeOrReference_in_ghostVariable2218);
 			tod=typeOrReference();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 448:5: -> ghost_variable(id=$id.texttod=$tod.st)
-			{
-				retval.st = templateLib.getInstanceOf("ghost_variable",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 448:5: -> ghost_variable(id=$id.texttod=$tod.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("ghost_variable",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -3640,6 +3773,7 @@ public class UnparseBLESS3 extends TreeParser {
 									}
 
 									else {
+										if (state.backtracking>0) {state.failed=true; return retval;}
 										int nvaeMark = input.mark();
 										try {
 											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
@@ -3656,6 +3790,7 @@ public class UnparseBLESS3 extends TreeParser {
 								}
 
 								else {
+									if (state.backtracking>0) {state.failed=true; return retval;}
 									int nvaeMark = input.mark();
 									try {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
@@ -3672,6 +3807,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 
 							else {
+								if (state.backtracking>0) {state.failed=true; return retval;}
 								int nvaeMark = input.mark();
 								try {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
@@ -3688,6 +3824,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -3704,6 +3841,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -3720,6 +3858,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -3754,6 +3893,7 @@ public class UnparseBLESS3 extends TreeParser {
 									}
 
 									else {
+										if (state.backtracking>0) {state.failed=true; return retval;}
 										int nvaeMark = input.mark();
 										try {
 											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
@@ -3770,6 +3910,7 @@ public class UnparseBLESS3 extends TreeParser {
 								}
 
 								else {
+									if (state.backtracking>0) {state.failed=true; return retval;}
 									int nvaeMark = input.mark();
 									try {
 										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
@@ -3786,6 +3927,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 
 							else {
+								if (state.backtracking>0) {state.failed=true; return retval;}
 								int nvaeMark = input.mark();
 								try {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
@@ -3802,6 +3944,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -3818,6 +3961,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -3834,6 +3978,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -3853,6 +3998,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 30, 0, input);
 				throw nvae;
@@ -3861,168 +4007,178 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:453:3: ^( ASSERTION ^( LABEL id= ID ) pred= predicate )
 					{
-					match(input,ASSERTION,FOLLOW_ASSERTION_in_namedAssertion2255); 
-					match(input, Token.DOWN, null); 
-					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2259); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2263); 
-					match(input, Token.UP, null); 
+					match(input,ASSERTION,FOLLOW_ASSERTION_in_namedAssertion2255); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2259); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2263); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_predicate_in_namedAssertion2269);
 					pred=predicate();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 454:5: -> named_assertion(id=$id.textpred=$pred.st)
-					{
-						retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 454:5: -> named_assertion(id=$id.textpred=$pred.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:456:3: ^( ASSERTION ^( LABEL id= ID ) ^( PARAMETERS formals= variableList ) pred= predicate )
 					{
-					match(input,ASSERTION,FOLLOW_ASSERTION_in_namedAssertion2299); 
-					match(input, Token.DOWN, null); 
-					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2303); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2307); 
-					match(input, Token.UP, null); 
+					match(input,ASSERTION,FOLLOW_ASSERTION_in_namedAssertion2299); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2303); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2307); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,PARAMETERS,FOLLOW_PARAMETERS_in_namedAssertion2313); 
-					match(input, Token.DOWN, null); 
+					match(input,PARAMETERS,FOLLOW_PARAMETERS_in_namedAssertion2313); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_variableList_in_namedAssertion2317);
 					formals=variableList();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_predicate_in_namedAssertion2323);
 					pred=predicate();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 457:5: -> named_assertion(id=$id.textformals=$formals.stpred=$pred.st)
-					{
-						retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("formals", (formals!=null?((StringTemplate)formals.getTemplate()):null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 457:5: -> named_assertion(id=$id.textformals=$formals.stpred=$pred.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("formals", (formals!=null?((StringTemplate)formals.getTemplate()):null)).put("pred", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:459:3: ^( ASSERTION_FUNCTION ^( LABEL id= ID ) ^( LITERAL_returns tod= typeOrReference ) functionvalue= assertionFunctionValue )
 					{
-					match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namedAssertion2358); 
-					match(input, Token.DOWN, null); 
-					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2362); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2366); 
-					match(input, Token.UP, null); 
+					match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namedAssertion2358); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2362); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2366); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namedAssertion2372); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namedAssertion2372); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_typeOrReference_in_namedAssertion2376);
 					tod=typeOrReference();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_assertionFunctionValue_in_namedAssertion2382);
 					functionvalue=assertionFunctionValue();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 460:5: -> named_assertion(id=$id.texttod=$tod.stfunctionvalue=$functionvalue.st)
-					{
-						retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("functionvalue", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 460:5: -> named_assertion(id=$id.texttod=$tod.stfunctionvalue=$functionvalue.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("functionvalue", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:462:3: ^( ASSERTION_FUNCTION ^( LABEL id= ID ) ^( PARAMETERS formals= variableList ) ^( LITERAL_returns tod= typeOrReference ) functionvalue= assertionFunctionValue )
 					{
-					match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namedAssertion2417); 
-					match(input, Token.DOWN, null); 
-					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2421); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2425); 
-					match(input, Token.UP, null); 
+					match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namedAssertion2417); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2421); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2425); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,PARAMETERS,FOLLOW_PARAMETERS_in_namedAssertion2431); 
-					match(input, Token.DOWN, null); 
+					match(input,PARAMETERS,FOLLOW_PARAMETERS_in_namedAssertion2431); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_variableList_in_namedAssertion2435);
 					formals=variableList();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
-
-					match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namedAssertion2441); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namedAssertion2441); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_typeOrReference_in_namedAssertion2445);
 					tod=typeOrReference();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_assertionFunctionValue_in_namedAssertion2451);
 					functionvalue=assertionFunctionValue();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 463:5: -> named_assertion(id=$id.textformals=$formals.sttod=$tod.stfunctionvalue=$functionvalue.st)
-					{
-						retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("formals", (formals!=null?((StringTemplate)formals.getTemplate()):null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("functionvalue", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 463:5: -> named_assertion(id=$id.textformals=$formals.sttod=$tod.stfunctionvalue=$functionvalue.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("named_assertion",new STAttrMap().put("id", (id!=null?id.getText():null)).put("formals", (formals!=null?((StringTemplate)formals.getTemplate()):null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("functionvalue", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:465:3: ^( ASSERTION_ENUMERATION ^( LABEL id= ID ) ^( TILDE assertionvariable= ID enumerationTy= ID ) enumeration= assertionEnumeration )
 					{
-					match(input,ASSERTION_ENUMERATION,FOLLOW_ASSERTION_ENUMERATION_in_namedAssertion2491); 
-					match(input, Token.DOWN, null); 
-					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2495); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2499); 
-					match(input, Token.UP, null); 
+					match(input,ASSERTION_ENUMERATION,FOLLOW_ASSERTION_ENUMERATION_in_namedAssertion2491); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LABEL,FOLLOW_LABEL_in_namedAssertion2495); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2499); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,TILDE,FOLLOW_TILDE_in_namedAssertion2505); 
-					match(input, Token.DOWN, null); 
-					assertionvariable=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2509); 
-					enumerationTy=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2513); 
-					match(input, Token.UP, null); 
+					match(input,TILDE,FOLLOW_TILDE_in_namedAssertion2505); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					assertionvariable=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2509); if (state.failed) return retval;
+					enumerationTy=(BAST)match(input,ID,FOLLOW_ID_in_namedAssertion2513); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					pushFollow(FOLLOW_assertionEnumeration_in_namedAssertion2519);
 					enumeration=assertionEnumeration();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 466:5: -> named_assertion_enum(id=$id.textenumerationTy=$enumerationTy.textenumeration=$enumeration.st)
-					{
-						retval.st = templateLib.getInstanceOf("named_assertion_enum",new STAttrMap().put("id", (id!=null?id.getText():null)).put("enumerationTy", (enumerationTy!=null?enumerationTy.getText():null)).put("enumeration", (enumeration!=null?((StringTemplate)enumeration.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 466:5: -> named_assertion_enum(id=$id.textenumerationTy=$enumerationTy.textenumeration=$enumeration.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("named_assertion_enum",new STAttrMap().put("id", (id!=null?id.getText():null)).put("enumerationTy", (enumerationTy!=null?enumerationTy.getText():null)).put("enumeration", (enumeration!=null?((StringTemplate)enumeration.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -4089,6 +4245,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 32, 0, input);
 				throw nvae;
@@ -4101,22 +4258,24 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_variable_in_variableList2563);
 					v=variable();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 472:5: -> {$v.st}
-					{
-						retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 472:5: -> {$v.st}
+					  {
+					  	retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:474:3: ^( COMMA (parameter+= variable )+ )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_variableList2581); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_variableList2581); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:474:21: (parameter+= variable )+
 					int cnt31=0;
 					loop31:
@@ -4134,7 +4293,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_variable_in_variableList2585);
 							parameter=variable();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_parameter==null) list_parameter=new ArrayList<Object>();
 							list_parameter.add(parameter.getTemplate());
 							}
@@ -4142,21 +4301,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt31 >= 1 ) break loop31;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(31, input);
 							throw eee;
 						}
 						cnt31++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 475:5: -> variable_list(parameter=$parameter)
-					{
-						retval.st = templateLib.getInstanceOf("variable_list",new STAttrMap().put("parameter", list_parameter));
+					if ( state.backtracking==0 ) {
+					  // 475:5: -> variable_list(parameter=$parameter)
+					  {
+					  	retval.st = templateLib.getInstanceOf("variable_list",new STAttrMap().put("parameter", list_parameter));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -4215,22 +4377,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:479:3: ( ^( TILDE id= ID tod= typeOrReference ) -> variable(id=$id.texttod=$tod.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:480:3: ^( TILDE id= ID tod= typeOrReference )
 			{
-			match(input,TILDE,FOLLOW_TILDE_in_variable2619); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_variable2623); 
+			match(input,TILDE,FOLLOW_TILDE_in_variable2619); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_variable2623); if (state.failed) return retval;
 			pushFollow(FOLLOW_typeOrReference_in_variable2627);
 			tod=typeOrReference();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 481:5: -> variable(id=$id.texttod=$tod.st)
-			{
-				retval.st = templateLib.getInstanceOf("variable",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 481:5: -> variable(id=$id.texttod=$tod.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("variable",new STAttrMap().put("id", (id!=null?id.getText():null)).put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -4295,6 +4459,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 33, 0, input);
 				throw nvae;
@@ -4307,14 +4472,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_conditionalAssertionFunction_in_assertionFunctionValue2664);
 					caf=conditionalAssertionFunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 487:5: -> {$caf.st}
-					{
-						retval.st = (caf!=null?((StringTemplate)caf.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 487:5: -> {$caf.st}
+					  {
+					  	retval.st = (caf!=null?((StringTemplate)caf.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -4324,14 +4491,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_expression_in_assertionFunctionValue2680);
 					exp=expression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 489:5: -> {$exp.st}
-					{
-						retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 489:5: -> {$exp.st}
+					  {
+					  	retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -4389,8 +4558,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:493:3: ( ^( CONDITIONAL_ASSERTION_FUNCTION (cvp+= conditionValuePair )+ ) -> conditional_assertion_function(cvp=$cvp))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:494:3: ^( CONDITIONAL_ASSERTION_FUNCTION (cvp+= conditionValuePair )+ )
 			{
-			match(input,CONDITIONAL_ASSERTION_FUNCTION,FOLLOW_CONDITIONAL_ASSERTION_FUNCTION_in_conditionalAssertionFunction2707); 
-			match(input, Token.DOWN, null); 
+			match(input,CONDITIONAL_ASSERTION_FUNCTION,FOLLOW_CONDITIONAL_ASSERTION_FUNCTION_in_conditionalAssertionFunction2707); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:494:40: (cvp+= conditionValuePair )+
 			int cnt34=0;
 			loop34:
@@ -4408,7 +4577,7 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_conditionValuePair_in_conditionalAssertionFunction2711);
 					cvp=conditionValuePair();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_cvp==null) list_cvp=new ArrayList<Object>();
 					list_cvp.add(cvp.getTemplate());
 					}
@@ -4416,21 +4585,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt34 >= 1 ) break loop34;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(34, input);
 					throw eee;
 				}
 				cnt34++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 495:5: -> conditional_assertion_function(cvp=$cvp)
-			{
-				retval.st = templateLib.getInstanceOf("conditional_assertion_function",new STAttrMap().put("cvp", list_cvp));
+			if ( state.backtracking==0 ) {
+			  // 495:5: -> conditional_assertion_function(cvp=$cvp)
+			  {
+			  	retval.st = templateLib.getInstanceOf("conditional_assertion_function",new STAttrMap().put("cvp", list_cvp));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -4487,25 +4659,27 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:499:3: ( ^( CVP pred= predicate exp= expression ) -> condition_value_pair(pp=$pred.stpe=$exp.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:500:3: ^( CVP pred= predicate exp= expression )
 			{
-			match(input,CVP,FOLLOW_CVP_in_conditionValuePair2745); 
-			match(input, Token.DOWN, null); 
+			match(input,CVP,FOLLOW_CVP_in_conditionValuePair2745); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_predicate_in_conditionValuePair2749);
 			pred=predicate();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_expression_in_conditionValuePair2753);
 			exp=expression();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 501:5: -> condition_value_pair(pp=$pred.stpe=$exp.st)
-			{
-				retval.st = templateLib.getInstanceOf("condition_value_pair",new STAttrMap().put("pp", (pred!=null?((StringTemplate)pred.getTemplate()):null)).put("pe", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 501:5: -> condition_value_pair(pp=$pred.stpe=$exp.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("condition_value_pair",new STAttrMap().put("pp", (pred!=null?((StringTemplate)pred.getTemplate()):null)).put("pe", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -4583,6 +4757,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 						break;
 					default:
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -4598,6 +4773,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -4612,6 +4788,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 36, 0, input);
 				throw nvae;
@@ -4621,52 +4798,56 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:506:3: ^( PLUS_ARROW inv= invocation )
 					{
-					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2792); 
-					match(input, Token.DOWN, null); 
+					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2792); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_invocation_in_assertionEnumeration2796);
 					inv=invocation();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 507:5: -> assertion_enumeration_predicate_invocation(pi=$inv.st)
-					{
-						retval.st = templateLib.getInstanceOf("assertion_enumeration_predicate_invocation",new STAttrMap().put("pi", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 507:5: -> assertion_enumeration_predicate_invocation(pi=$inv.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("assertion_enumeration_predicate_invocation",new STAttrMap().put("pi", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:509:3: ^( PLUS_ARROW ep= enumerationPair )
 					{
-					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2821); 
-					match(input, Token.DOWN, null); 
+					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2821); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_enumerationPair_in_assertionEnumeration2825);
 					ep=enumerationPair();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 510:5: -> assertion_enumeration_pairs(ep=$ep.st)
-					{
-						retval.st = templateLib.getInstanceOf("assertion_enumeration_pairs",new STAttrMap().put("ep", (ep!=null?((StringTemplate)ep.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 510:5: -> assertion_enumeration_pairs(ep=$ep.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("assertion_enumeration_pairs",new STAttrMap().put("ep", (ep!=null?((StringTemplate)ep.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:512:3: ^( PLUS_ARROW ^( COMMA (pair+= enumerationPair )+ ) )
 					{
-					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2851); 
-					match(input, Token.DOWN, null); 
-					match(input,COMMA,FOLLOW_COMMA_in_assertionEnumeration2855); 
-					match(input, Token.DOWN, null); 
+					match(input,PLUS_ARROW,FOLLOW_PLUS_ARROW_in_assertionEnumeration2851); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,COMMA,FOLLOW_COMMA_in_assertionEnumeration2855); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:512:30: (pair+= enumerationPair )+
 					int cnt35=0;
 					loop35:
@@ -4684,7 +4865,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_enumerationPair_in_assertionEnumeration2859);
 							pair=enumerationPair();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_pair==null) list_pair=new ArrayList<Object>();
 							list_pair.add(pair.getTemplate());
 							}
@@ -4692,23 +4873,26 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt35 >= 1 ) break loop35;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(35, input);
 							throw eee;
 						}
 						cnt35++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 513:5: -> assertion_enumeration_pairs(ep=$pair)
-					{
-						retval.st = templateLib.getInstanceOf("assertion_enumeration_pairs",new STAttrMap().put("ep", list_pair));
+					if ( state.backtracking==0 ) {
+					  // 513:5: -> assertion_enumeration_pairs(ep=$pair)
+					  {
+					  	retval.st = templateLib.getInstanceOf("assertion_enumeration_pairs",new STAttrMap().put("ep", list_pair));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -4767,22 +4951,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:517:3: ( ^( IMP id= ID pred= predicate ) -> enumeration_pair(i=$id.textpe=$pred.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:518:3: ^( IMP id= ID pred= predicate )
 			{
-			match(input,IMP,FOLLOW_IMP_in_enumerationPair2896); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_enumerationPair2900); 
+			match(input,IMP,FOLLOW_IMP_in_enumerationPair2896); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_enumerationPair2900); if (state.failed) return retval;
 			pushFollow(FOLLOW_predicate_in_enumerationPair2904);
 			pred=predicate();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 519:5: -> enumeration_pair(i=$id.textpe=$pred.st)
-			{
-				retval.st = templateLib.getInstanceOf("enumeration_pair",new STAttrMap().put("i", (id!=null?id.getText():null)).put("pe", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 519:5: -> enumeration_pair(i=$id.textpe=$pred.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("enumeration_pair",new STAttrMap().put("i", (id!=null?id.getText():null)).put("pe", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -4839,19 +5025,21 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:523:3: ( ^( TICK enumeration_type= ID enumeration_value= ID ) -> enumeration_value(t=$enumeration_type.textv=$enumeration_value.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:524:3: ^( TICK enumeration_type= ID enumeration_value= ID )
 			{
-			match(input,TICK,FOLLOW_TICK_in_enumerationValue2943); 
-			match(input, Token.DOWN, null); 
-			enumeration_type=(BAST)match(input,ID,FOLLOW_ID_in_enumerationValue2947); 
-			enumeration_value=(BAST)match(input,ID,FOLLOW_ID_in_enumerationValue2951); 
-			match(input, Token.UP, null); 
+			match(input,TICK,FOLLOW_TICK_in_enumerationValue2943); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			enumeration_type=(BAST)match(input,ID,FOLLOW_ID_in_enumerationValue2947); if (state.failed) return retval;
+			enumeration_value=(BAST)match(input,ID,FOLLOW_ID_in_enumerationValue2951); if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 525:5: -> enumeration_value(t=$enumeration_type.textv=$enumeration_value.text)
-			{
-				retval.st = templateLib.getInstanceOf("enumeration_value",new STAttrMap().put("t", (enumeration_type!=null?enumeration_type.getText():null)).put("v", (enumeration_value!=null?enumeration_value.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 525:5: -> enumeration_value(t=$enumeration_type.textv=$enumeration_value.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("enumeration_value",new STAttrMap().put("t", (enumeration_type!=null?enumeration_type.getText():null)).put("v", (enumeration_value!=null?enumeration_value.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -4980,6 +5168,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 							break;
 						default:
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -4995,6 +5184,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -5011,6 +5201,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -5025,6 +5216,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 38, 0, input);
 				throw nvae;
@@ -5034,27 +5226,29 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:530:3: ^( INVOKE id= ID )
 					{
-					match(input,INVOKE,FOLLOW_INVOKE_in_invocation2988); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation2992); 
-					match(input, Token.UP, null); 
+					match(input,INVOKE,FOLLOW_INVOKE_in_invocation2988); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation2992); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 531:5: -> invocation(i=$id.text)
-					{
-						retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 531:5: -> invocation(i=$id.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:533:3: ^( INVOKE id= ID (params+= actualParameter )+ )
 					{
-					match(input,INVOKE,FOLLOW_INVOKE_in_invocation3017); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation3021); 
+					match(input,INVOKE,FOLLOW_INVOKE_in_invocation3017); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation3021); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:533:25: (params+= actualParameter )+
 					int cnt37=0;
 					loop37:
@@ -5072,7 +5266,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_actualParameter_in_invocation3025);
 							params=actualParameter();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_params==null) list_params=new ArrayList<Object>();
 							list_params.add(params.getTemplate());
 							}
@@ -5080,43 +5274,48 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt37 >= 1 ) break loop37;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(37, input);
 							throw eee;
 						}
 						cnt37++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 534:5: -> invocation(i=$id.textp=$params)
-					{
-						retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)).put("p", list_params));
+					if ( state.backtracking==0 ) {
+					  // 534:5: -> invocation(i=$id.textp=$params)
+					  {
+					  	retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)).put("p", list_params));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:536:3: ^( INVOKE id= ID exp= expression )
 					{
-					match(input,INVOKE,FOLLOW_INVOKE_in_invocation3056); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation3060); 
+					match(input,INVOKE,FOLLOW_INVOKE_in_invocation3056); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_invocation3060); if (state.failed) return retval;
 					pushFollow(FOLLOW_expression_in_invocation3064);
 					exp=expression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 537:5: -> invocation(i=$id.textp=$exp.st)
-					{
-						retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)).put("p", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 537:5: -> invocation(i=$id.textp=$exp.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("invocation",new STAttrMap().put("i", (id!=null?id.getText():null)).put("p", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5175,22 +5374,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:541:3: ( ^( COLON formal= ID actual= expression ) -> actual_parameter(formal=$formal.textactual=$actual.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:542:3: ^( COLON formal= ID actual= expression )
 			{
-			match(input,COLON,FOLLOW_COLON_in_actualParameter3101); 
-			match(input, Token.DOWN, null); 
-			formal=(BAST)match(input,ID,FOLLOW_ID_in_actualParameter3105); 
+			match(input,COLON,FOLLOW_COLON_in_actualParameter3101); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			formal=(BAST)match(input,ID,FOLLOW_ID_in_actualParameter3105); if (state.failed) return retval;
 			pushFollow(FOLLOW_expression_in_actualParameter3109);
 			actual=expression();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 543:5: -> actual_parameter(formal=$formal.textactual=$actual.st)
-			{
-				retval.st = templateLib.getInstanceOf("actual_parameter",new STAttrMap().put("formal", (formal!=null?formal.getText():null)).put("actual", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 543:5: -> actual_parameter(formal=$formal.textactual=$actual.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("actual_parameter",new STAttrMap().put("formal", (formal!=null?formal.getText():null)).put("actual", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -5246,21 +5447,23 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:547:3: ( ^( ASSERTION pred= predicate ) -> nameless_assertion(a=$pred.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:548:3: ^( ASSERTION pred= predicate )
 			{
-			match(input,ASSERTION,FOLLOW_ASSERTION_in_namelessAssertion3148); 
-			match(input, Token.DOWN, null); 
+			match(input,ASSERTION,FOLLOW_ASSERTION_in_namelessAssertion3148); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_predicate_in_namelessAssertion3152);
 			pred=predicate();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 549:5: -> nameless_assertion(a=$pred.st)
-			{
-				retval.st = templateLib.getInstanceOf("nameless_assertion",new STAttrMap().put("a", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 549:5: -> nameless_assertion(a=$pred.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("nameless_assertion",new STAttrMap().put("a", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -5317,29 +5520,31 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:553:3: ( ^( ASSERTION_FUNCTION ^( LITERAL_returns tod= typeOrReference ) functionvalue= assertionFunctionValue ) -> nameless_function(tod=$tod.sta=$functionvalue.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:554:3: ^( ASSERTION_FUNCTION ^( LITERAL_returns tod= typeOrReference ) functionvalue= assertionFunctionValue )
 			{
-			match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namelessFunction3186); 
-			match(input, Token.DOWN, null); 
-			match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namelessFunction3190); 
-			match(input, Token.DOWN, null); 
+			match(input,ASSERTION_FUNCTION,FOLLOW_ASSERTION_FUNCTION_in_namelessFunction3186); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,LITERAL_returns,FOLLOW_LITERAL_returns_in_namelessFunction3190); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_typeOrReference_in_namelessFunction3194);
 			tod=typeOrReference();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			pushFollow(FOLLOW_assertionFunctionValue_in_namelessFunction3200);
 			functionvalue=assertionFunctionValue();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 555:5: -> nameless_function(tod=$tod.sta=$functionvalue.st)
-			{
-				retval.st = templateLib.getInstanceOf("nameless_function",new STAttrMap().put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("a", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 555:5: -> nameless_function(tod=$tod.sta=$functionvalue.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("nameless_function",new STAttrMap().put("tod", (tod!=null?((StringTemplate)tod.getTemplate()):null)).put("a", (functionvalue!=null?((StringTemplate)functionvalue.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -5395,21 +5600,23 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:559:3: ( ^( ASSERTION_ENUMERATION inv= invocation ) -> nameless_enumeration(inv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:560:2: ^( ASSERTION_ENUMERATION inv= invocation )
 			{
-			match(input,ASSERTION_ENUMERATION,FOLLOW_ASSERTION_ENUMERATION_in_namelessEnumeration3238); 
-			match(input, Token.DOWN, null); 
+			match(input,ASSERTION_ENUMERATION,FOLLOW_ASSERTION_ENUMERATION_in_namelessEnumeration3238); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_invocation_in_namelessEnumeration3242);
 			inv=invocation();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 561:4: -> nameless_enumeration(inv=$inv.st)
-			{
-				retval.st = templateLib.getInstanceOf("nameless_enumeration",new STAttrMap().put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 561:4: -> nameless_enumeration(inv=$inv.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("nameless_enumeration",new STAttrMap().put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -5481,6 +5688,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -5497,6 +5705,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -5523,6 +5732,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -5539,6 +5749,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -5565,6 +5776,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -5581,6 +5793,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -5595,6 +5808,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 39, 0, input);
 				throw nvae;
@@ -5606,14 +5820,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_namedAssertion_in_assertion3271);
 					na=namedAssertion();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 566:5: -> {$na.st}
-					{
-						retval.st = (na!=null?((StringTemplate)na.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 566:5: -> {$na.st}
+					  {
+					  	retval.st = (na!=null?((StringTemplate)na.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5623,14 +5839,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_namelessAssertion_in_assertion3287);
 					a=namelessAssertion();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 568:5: -> {$a.st}
-					{
-						retval.st = (a!=null?((StringTemplate)a.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 568:5: -> {$a.st}
+					  {
+					  	retval.st = (a!=null?((StringTemplate)a.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5640,14 +5858,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_namelessFunction_in_assertion3303);
 					f=namelessFunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 570:5: -> {$f.st}
-					{
-						retval.st = (f!=null?((StringTemplate)f.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 570:5: -> {$f.st}
+					  {
+					  	retval.st = (f!=null?((StringTemplate)f.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5657,14 +5877,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_namelessEnumeration_in_assertion3319);
 					e=namelessEnumeration();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 572:5: -> {$e.st}
-					{
-						retval.st = (e!=null?((StringTemplate)e.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 572:5: -> {$e.st}
+					  {
+					  	retval.st = (e!=null?((StringTemplate)e.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5814,6 +6036,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 40, 0, input);
 				throw nvae;
@@ -5825,14 +6048,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_universalQuantification_in_expression3351);
 					all=universalQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 580:5: -> {$all.st}
-					{
-						retval.st = (all!=null?((StringTemplate)all.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 580:5: -> {$all.st}
+					  {
+					  	retval.st = (all!=null?((StringTemplate)all.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5842,14 +6067,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_existentialQuantification_in_expression3367);
 					exists=existentialQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 582:5: -> {$exists.st}
-					{
-						retval.st = (exists!=null?((StringTemplate)exists.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 582:5: -> {$exists.st}
+					  {
+					  	retval.st = (exists!=null?((StringTemplate)exists.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5859,14 +6086,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_sumQuantification_in_expression3383);
 					sum=sumQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 584:5: -> {$sum.st}
-					{
-						retval.st = (sum!=null?((StringTemplate)sum.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 584:5: -> {$sum.st}
+					  {
+					  	retval.st = (sum!=null?((StringTemplate)sum.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5876,14 +6105,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_productQuantification_in_expression3399);
 					product=productQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 586:5: -> {$product.st}
-					{
-						retval.st = (product!=null?((StringTemplate)product.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 586:5: -> {$product.st}
+					  {
+					  	retval.st = (product!=null?((StringTemplate)product.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5893,64 +6124,70 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_countingQuantification_in_expression3415);
 					numberof=countingQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 588:5: -> {$numberof.st}
-					{
-						retval.st = (numberof!=null?((StringTemplate)numberof.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 588:5: -> {$numberof.st}
+					  {
+					  	retval.st = (numberof!=null?((StringTemplate)numberof.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:589:5: ^(iff= LITERAL_iff l= disjunction r= disjunction )
 					{
-					iff=(BAST)match(input,LITERAL_iff,FOLLOW_LITERAL_iff_in_expression3433); 
-					match(input, Token.DOWN, null); 
+					iff=(BAST)match(input,LITERAL_iff,FOLLOW_LITERAL_iff_in_expression3433); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_disjunction_in_expression3437);
 					l=disjunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_disjunction_in_expression3441);
 					r=disjunction();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 590:5: -> relation(r=$iff.textlhs=$l.strhs=$r.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (iff!=null?iff.getText():null)).put("lhs", (l!=null?((StringTemplate)l.getTemplate()):null)).put("rhs", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 590:5: -> relation(r=$iff.textlhs=$l.strhs=$r.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (iff!=null?iff.getText():null)).put("lhs", (l!=null?((StringTemplate)l.getTemplate()):null)).put("rhs", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:591:5: ^(imp= LITERAL_implies l= disjunction r= disjunction )
 					{
-					imp=(BAST)match(input,LITERAL_implies,FOLLOW_LITERAL_implies_in_expression3476); 
-					match(input, Token.DOWN, null); 
+					imp=(BAST)match(input,LITERAL_implies,FOLLOW_LITERAL_implies_in_expression3476); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_disjunction_in_expression3480);
 					l=disjunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_disjunction_in_expression3484);
 					r=disjunction();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 592:5: -> relation(r=$imp.textlhs=$l.strhs=$r.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (imp!=null?imp.getText():null)).put("lhs", (l!=null?((StringTemplate)l.getTemplate()):null)).put("rhs", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 592:5: -> relation(r=$imp.textlhs=$l.strhs=$r.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (imp!=null?imp.getText():null)).put("lhs", (l!=null?((StringTemplate)l.getTemplate()):null)).put("rhs", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -5960,14 +6197,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_disjunction_in_expression3517);
 					dis=disjunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 594:5: -> {$dis.st}
-					{
-						retval.st = (dis!=null?((StringTemplate)dis.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 594:5: -> {$dis.st}
+					  {
+					  	retval.st = (dis!=null?((StringTemplate)dis.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -6028,33 +6267,35 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:598:3: ( ^(a= LITERAL_all lv= logicVariables iw= in_which ^( LITERAL_are pred= predicate ) ) -> universal_quantification(a=$a.textlv=$lv.std=$iw.stp=$pred.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:599:3: ^(a= LITERAL_all lv= logicVariables iw= in_which ^( LITERAL_are pred= predicate ) )
 			{
-			a=(BAST)match(input,LITERAL_all,FOLLOW_LITERAL_all_in_universalQuantification3544); 
-			match(input, Token.DOWN, null); 
+			a=(BAST)match(input,LITERAL_all,FOLLOW_LITERAL_all_in_universalQuantification3544); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_logicVariables_in_universalQuantification3548);
 			lv=logicVariables();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_in_which_in_universalQuantification3552);
 			iw=in_which();
 			state._fsp--;
-
-			match(input,LITERAL_are,FOLLOW_LITERAL_are_in_universalQuantification3556); 
-			match(input, Token.DOWN, null); 
+			if (state.failed) return retval;
+			match(input,LITERAL_are,FOLLOW_LITERAL_are_in_universalQuantification3556); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_predicate_in_universalQuantification3560);
 			pred=predicate();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 600:5: -> universal_quantification(a=$a.textlv=$lv.std=$iw.stp=$pred.st)
-			{
-				retval.st = templateLib.getInstanceOf("universal_quantification",new STAttrMap().put("a", (a!=null?a.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("p", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 600:5: -> universal_quantification(a=$a.textlv=$lv.std=$iw.stp=$pred.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("universal_quantification",new STAttrMap().put("a", (a!=null?a.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("p", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -6119,6 +6360,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 41, 0, input);
 				throw nvae;
@@ -6128,42 +6370,46 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:605:3: ^( LITERAL_in r= range )
 					{
-					match(input,LITERAL_in,FOLLOW_LITERAL_in_in_in_which3609); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_in,FOLLOW_LITERAL_in_in_in_which3609); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_range_in_in_which3613);
 					r=range();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 606:5: -> template(r=$r.st) \"in <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "in <r>",new STAttrMap().put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 606:5: -> template(r=$r.st) \"in <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "in <r>",new STAttrMap().put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:608:3: ^( LITERAL_which b= predicate )
 					{
-					match(input,LITERAL_which,FOLLOW_LITERAL_which_in_in_which3640); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_which,FOLLOW_LITERAL_which_in_in_which3640); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_predicate_in_in_which3644);
 					b=predicate();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 609:5: -> template(b=$b.st) \"which <b>\"
-					{
-						retval.st = new StringTemplate(templateLib, "which <b>",new STAttrMap().put("b", (b!=null?((StringTemplate)b.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 609:5: -> template(b=$b.st) \"which <b>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "which <b>",new STAttrMap().put("b", (b!=null?((StringTemplate)b.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -6224,33 +6470,35 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:613:3: ( ^(e= LITERAL_exists lv= logicVariables iw= in_which ^( LITERAL_that pred= predicate ) ) -> existential_quantification(e=$e.textlv2=$lv.std2=$iw.stp2=$pred.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:614:3: ^(e= LITERAL_exists lv= logicVariables iw= in_which ^( LITERAL_that pred= predicate ) )
 			{
-			e=(BAST)match(input,LITERAL_exists,FOLLOW_LITERAL_exists_in_existentialQuantification3680); 
-			match(input, Token.DOWN, null); 
+			e=(BAST)match(input,LITERAL_exists,FOLLOW_LITERAL_exists_in_existentialQuantification3680); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_logicVariables_in_existentialQuantification3684);
 			lv=logicVariables();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_in_which_in_existentialQuantification3688);
 			iw=in_which();
 			state._fsp--;
-
-			match(input,LITERAL_that,FOLLOW_LITERAL_that_in_existentialQuantification3692); 
-			match(input, Token.DOWN, null); 
+			if (state.failed) return retval;
+			match(input,LITERAL_that,FOLLOW_LITERAL_that_in_existentialQuantification3692); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_predicate_in_existentialQuantification3696);
 			pred=predicate();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 615:5: -> existential_quantification(e=$e.textlv2=$lv.std2=$iw.stp2=$pred.st)
-			{
-				retval.st = templateLib.getInstanceOf("existential_quantification",new STAttrMap().put("e", (e!=null?e.getText():null)).put("lv2", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d2", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("p2", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 615:5: -> existential_quantification(e=$e.textlv2=$lv.std2=$iw.stp2=$pred.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("existential_quantification",new STAttrMap().put("e", (e!=null?e.getText():null)).put("lv2", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d2", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("p2", (pred!=null?((StringTemplate)pred.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -6309,33 +6557,35 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:619:3: ( ^(s= LITERAL_sum lv= logicVariables iw= in_which ^( LITERAL_of ex= expression ) ) -> sum(s=$s.textlv=$lv.std=$iw.stpe=$ex.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:620:3: ^(s= LITERAL_sum lv= logicVariables iw= in_which ^( LITERAL_of ex= expression ) )
 			{
-			s=(BAST)match(input,LITERAL_sum,FOLLOW_LITERAL_sum_in_sumQuantification3747); 
-			match(input, Token.DOWN, null); 
+			s=(BAST)match(input,LITERAL_sum,FOLLOW_LITERAL_sum_in_sumQuantification3747); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_logicVariables_in_sumQuantification3751);
 			lv=logicVariables();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_in_which_in_sumQuantification3755);
 			iw=in_which();
 			state._fsp--;
-
-			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_sumQuantification3759); 
-			match(input, Token.DOWN, null); 
+			if (state.failed) return retval;
+			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_sumQuantification3759); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_expression_in_sumQuantification3763);
 			ex=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 621:5: -> sum(s=$s.textlv=$lv.std=$iw.stpe=$ex.st)
-			{
-				retval.st = templateLib.getInstanceOf("sum",new STAttrMap().put("s", (s!=null?s.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 621:5: -> sum(s=$s.textlv=$lv.std=$iw.stpe=$ex.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("sum",new STAttrMap().put("s", (s!=null?s.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -6394,33 +6644,35 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:625:3: ( ^(p= LITERAL_product lv= logicVariables iw= in_which ^( LITERAL_of ex= expression ) ) -> product(p=$p.textlv=$lv.std=$iw.stpe=$ex.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:626:3: ^(p= LITERAL_product lv= logicVariables iw= in_which ^( LITERAL_of ex= expression ) )
 			{
-			p=(BAST)match(input,LITERAL_product,FOLLOW_LITERAL_product_in_productQuantification3815); 
-			match(input, Token.DOWN, null); 
+			p=(BAST)match(input,LITERAL_product,FOLLOW_LITERAL_product_in_productQuantification3815); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_logicVariables_in_productQuantification3819);
 			lv=logicVariables();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_in_which_in_productQuantification3823);
 			iw=in_which();
 			state._fsp--;
-
-			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_productQuantification3827); 
-			match(input, Token.DOWN, null); 
+			if (state.failed) return retval;
+			match(input,LITERAL_of,FOLLOW_LITERAL_of_in_productQuantification3827); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_expression_in_productQuantification3831);
 			ex=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 627:6: -> product(p=$p.textlv=$lv.std=$iw.stpe=$ex.st)
-			{
-				retval.st = templateLib.getInstanceOf("product",new STAttrMap().put("p", (p!=null?p.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 627:6: -> product(p=$p.textlv=$lv.std=$iw.stpe=$ex.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("product",new STAttrMap().put("p", (p!=null?p.getText():null)).put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -6478,33 +6730,35 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:631:3: ( ^( LITERAL_numberof lv= logicVariables iw= in_which ^( LITERAL_that ex= expression ) ) -> numberof(lv=$lv.std=$iw.stpe=$ex.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:632:3: ^( LITERAL_numberof lv= logicVariables iw= in_which ^( LITERAL_that ex= expression ) )
 			{
-			match(input,LITERAL_numberof,FOLLOW_LITERAL_numberof_in_countingQuantification3882); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_numberof,FOLLOW_LITERAL_numberof_in_countingQuantification3882); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_logicVariables_in_countingQuantification3886);
 			lv=logicVariables();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			pushFollow(FOLLOW_in_which_in_countingQuantification3890);
 			iw=in_which();
 			state._fsp--;
-
-			match(input,LITERAL_that,FOLLOW_LITERAL_that_in_countingQuantification3894); 
-			match(input, Token.DOWN, null); 
+			if (state.failed) return retval;
+			match(input,LITERAL_that,FOLLOW_LITERAL_that_in_countingQuantification3894); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			pushFollow(FOLLOW_expression_in_countingQuantification3898);
 			ex=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 633:5: -> numberof(lv=$lv.std=$iw.stpe=$ex.st)
-			{
-				retval.st = templateLib.getInstanceOf("numberof",new STAttrMap().put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 633:5: -> numberof(lv=$lv.std=$iw.stpe=$ex.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("numberof",new STAttrMap().put("lv", (lv!=null?((StringTemplate)lv.getTemplate()):null)).put("d", (iw!=null?((StringTemplate)iw.getTemplate()):null)).put("pe", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -6569,6 +6823,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 43, 0, input);
 				throw nvae;
@@ -6578,8 +6833,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:638:3: ^( COMMA (lv+= variable )+ )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_logicVariables3945); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_logicVariables3945); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:638:14: (lv+= variable )+
 					int cnt42=0;
 					loop42:
@@ -6597,7 +6852,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_variable_in_logicVariables3949);
 							lv=variable();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_lv==null) list_lv=new ArrayList<Object>();
 							list_lv.add(lv.getTemplate());
 							}
@@ -6605,21 +6860,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt42 >= 1 ) break loop42;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(42, input);
 							throw eee;
 						}
 						cnt42++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 639:5: -> variable_list(parameter=$lv)
-					{
-						retval.st = templateLib.getInstanceOf("variable_list",new STAttrMap().put("parameter", list_lv));
+					if ( state.backtracking==0 ) {
+					  // 639:5: -> variable_list(parameter=$lv)
+					  {
+					  	retval.st = templateLib.getInstanceOf("variable_list",new STAttrMap().put("parameter", list_lv));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -6629,14 +6887,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_variable_in_logicVariables3975);
 					v=variable();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 642:5: -> {$v.st}
-					{
-						retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 642:5: -> {$v.st}
+					  {
+					  	retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -6755,6 +7015,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 47, 0, input);
 				throw nvae;
@@ -6763,8 +7024,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:647:3: ^( LITERAL_or (c+= conjunction )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_disjunction4004); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_disjunction4004); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:647:18: (c+= conjunction )+
 					int cnt44=0;
 					loop44:
@@ -6782,7 +7043,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_conjunction_in_disjunction4008);
 							c=conjunction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_c==null) list_c=new ArrayList<Object>();
 							list_c.add(c.getTemplate());
 							}
@@ -6790,29 +7051,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt44 >= 1 ) break loop44;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(44, input);
 							throw eee;
 						}
 						cnt44++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 648:5: -> disjunction(bopt=$c)
-					{
-						retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_c));
+					if ( state.backtracking==0 ) {
+					  // 648:5: -> disjunction(bopt=$c)
+					  {
+					  	retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_c));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:650:3: ^( LITERAL_else (c+= conjunction )+ )
 					{
-					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_disjunction4034); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_disjunction4034); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:650:20: (c+= conjunction )+
 					int cnt45=0;
 					loop45:
@@ -6830,7 +7094,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_conjunction_in_disjunction4038);
 							c=conjunction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_c==null) list_c=new ArrayList<Object>();
 							list_c.add(c.getTemplate());
 							}
@@ -6838,29 +7102,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt45 >= 1 ) break loop45;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(45, input);
 							throw eee;
 						}
 						cnt45++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 651:5: -> cor(t=$c)
-					{
-						retval.st = templateLib.getInstanceOf("cor",new STAttrMap().put("t", list_c));
+					if ( state.backtracking==0 ) {
+					  // 651:5: -> cor(t=$c)
+					  {
+					  	retval.st = templateLib.getInstanceOf("cor",new STAttrMap().put("t", list_c));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:653:3: ^( LITERAL_xor (c+= conjunction )+ )
 					{
-					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_disjunction4064); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_disjunction4064); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:653:19: (c+= conjunction )+
 					int cnt46=0;
 					loop46:
@@ -6878,7 +7145,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_conjunction_in_disjunction4068);
 							c=conjunction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_c==null) list_c=new ArrayList<Object>();
 							list_c.add(c.getTemplate());
 							}
@@ -6886,21 +7153,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt46 >= 1 ) break loop46;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(46, input);
 							throw eee;
 						}
 						cnt46++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 654:5: -> xor(terms=$c)
-					{
-						retval.st = templateLib.getInstanceOf("xor",new STAttrMap().put("terms", list_c));
+					if ( state.backtracking==0 ) {
+					  // 654:5: -> xor(terms=$c)
+					  {
+					  	retval.st = templateLib.getInstanceOf("xor",new STAttrMap().put("terms", list_c));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -6910,14 +7180,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_conjunction_in_disjunction4094);
 					con=conjunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 657:5: -> {$con.st}
-					{
-						retval.st = (con!=null?((StringTemplate)con.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 657:5: -> {$con.st}
+					  {
+					  	retval.st = (con!=null?((StringTemplate)con.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7029,6 +7301,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 50, 0, input);
 				throw nvae;
@@ -7037,8 +7310,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:662:3: ^( LITERAL_and (r+= relation )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_conjunction4122); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_conjunction4122); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:662:19: (r+= relation )+
 					int cnt48=0;
 					loop48:
@@ -7056,7 +7329,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_relation_in_conjunction4126);
 							r=relation();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_r==null) list_r=new ArrayList<Object>();
 							list_r.add(r.getTemplate());
 							}
@@ -7064,29 +7337,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt48 >= 1 ) break loop48;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(48, input);
 							throw eee;
 						}
 						cnt48++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 663:5: -> conjunction(bopt=$r)
-					{
-						retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_r));
+					if ( state.backtracking==0 ) {
+					  // 663:5: -> conjunction(bopt=$r)
+					  {
+					  	retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_r));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:665:3: ^( LITERAL_then (r+= relation )+ )
 					{
-					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_conjunction4152); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_conjunction4152); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:665:20: (r+= relation )+
 					int cnt49=0;
 					loop49:
@@ -7104,7 +7380,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_relation_in_conjunction4156);
 							r=relation();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_r==null) list_r=new ArrayList<Object>();
 							list_r.add(r.getTemplate());
 							}
@@ -7112,21 +7388,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt49 >= 1 ) break loop49;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(49, input);
 							throw eee;
 						}
 						cnt49++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 666:5: -> cand(t=$r)
-					{
-						retval.st = templateLib.getInstanceOf("cand",new STAttrMap().put("t", list_r));
+					if ( state.backtracking==0 ) {
+					  // 666:5: -> cand(t=$r)
+					  {
+					  	retval.st = templateLib.getInstanceOf("cand",new STAttrMap().put("t", list_r));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7136,14 +7415,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_relation_in_conjunction4182);
 					rel=relation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 669:5: -> {$rel.st}
-					{
-						retval.st = (rel!=null?((StringTemplate)rel.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 669:5: -> {$rel.st}
+					  {
+					  	retval.st = (rel!=null?((StringTemplate)rel.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7292,6 +7573,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 51, 0, input);
 				throw nvae;
@@ -7300,225 +7582,243 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:674:3: ^(eq= EQ lhs= addSub rhs= addSub )
 					{
-					eq=(BAST)match(input,EQ,FOLLOW_EQ_in_relation4211); 
-					match(input, Token.DOWN, null); 
+					eq=(BAST)match(input,EQ,FOLLOW_EQ_in_relation4211); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4216);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4220);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 675:5: -> relation(r=$eq.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (eq!=null?eq.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 675:5: -> relation(r=$eq.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (eq!=null?eq.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:677:3: ^(lt= LT lhs= addSub rhs= addSub )
 					{
-					lt=(BAST)match(input,LT,FOLLOW_LT_in_relation4257); 
-					match(input, Token.DOWN, null); 
+					lt=(BAST)match(input,LT,FOLLOW_LT_in_relation4257); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4262);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4266);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 678:5: -> relation(r=$lt.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (lt!=null?lt.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 678:5: -> relation(r=$lt.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (lt!=null?lt.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:680:3: ^(am= AM lhs= addSub rhs= addSub )
 					{
-					am=(BAST)match(input,AM,FOLLOW_AM_in_relation4304); 
-					match(input, Token.DOWN, null); 
+					am=(BAST)match(input,AM,FOLLOW_AM_in_relation4304); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4309);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4313);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 681:5: -> relation(r=$am.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (am!=null?am.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 681:5: -> relation(r=$am.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (am!=null?am.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:683:3: ^(al= AL lhs= addSub rhs= addSub )
 					{
-					al=(BAST)match(input,AL,FOLLOW_AL_in_relation4351); 
-					match(input, Token.DOWN, null); 
+					al=(BAST)match(input,AL,FOLLOW_AL_in_relation4351); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4356);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4360);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 684:5: -> relation(r=$al.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (al!=null?al.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 684:5: -> relation(r=$al.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (al!=null?al.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:686:3: ^(gt= GT lhs= addSub rhs= addSub )
 					{
-					gt=(BAST)match(input,GT,FOLLOW_GT_in_relation4398); 
-					match(input, Token.DOWN, null); 
+					gt=(BAST)match(input,GT,FOLLOW_GT_in_relation4398); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4403);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4407);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 687:5: -> relation(r=$gt.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (gt!=null?gt.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 687:5: -> relation(r=$gt.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (gt!=null?gt.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:689:3: ^(pe= PLUS_EQUALS lhs= addSub rhs= addSub )
 					{
-					pe=(BAST)match(input,PLUS_EQUALS,FOLLOW_PLUS_EQUALS_in_relation4445); 
-					match(input, Token.DOWN, null); 
+					pe=(BAST)match(input,PLUS_EQUALS,FOLLOW_PLUS_EQUALS_in_relation4445); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4450);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4454);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 690:5: -> relation(r=$pe.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (pe!=null?pe.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 690:5: -> relation(r=$pe.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (pe!=null?pe.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:692:3: ^(ne= NEQ lhs= addSub rhs= addSub )
 					{
-					ne=(BAST)match(input,NEQ,FOLLOW_NEQ_in_relation4492); 
-					match(input, Token.DOWN, null); 
+					ne=(BAST)match(input,NEQ,FOLLOW_NEQ_in_relation4492); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4497);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4501);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 693:5: -> relation(r=$ne.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (ne!=null?ne.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 693:5: -> relation(r=$ne.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (ne!=null?ne.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 8 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:695:3: ^(one= OLD_NEQ lhs= addSub rhs= addSub )
 					{
-					one=(BAST)match(input,OLD_NEQ,FOLLOW_OLD_NEQ_in_relation4538); 
-					match(input, Token.DOWN, null); 
+					one=(BAST)match(input,OLD_NEQ,FOLLOW_OLD_NEQ_in_relation4538); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4543);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4547);
 					rhs=addSub();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 696:5: -> relation(r=$one.textlhs=$lhs.strhs=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (one!=null?one.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 696:5: -> relation(r=$one.textlhs=$lhs.strhs=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (one!=null?one.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rhs", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 9 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:698:3: ^(in= LITERAL_in lhs= addSub rng= range )
 					{
-					in=(BAST)match(input,LITERAL_in,FOLLOW_LITERAL_in_in_relation4582); 
-					match(input, Token.DOWN, null); 
+					in=(BAST)match(input,LITERAL_in,FOLLOW_LITERAL_in_in_relation4582); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_addSub_in_relation4586);
 					lhs=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_range_in_relation4590);
 					rng=range();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 699:6: -> relation(r=$in.textlhs=$lhs.strng=$rhs.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (in!=null?in.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rng", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 699:6: -> relation(r=$in.textlhs=$lhs.strng=$rhs.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (in!=null?in.getText():null)).put("lhs", (lhs!=null?((StringTemplate)lhs.getTemplate()):null)).put("rng", (rhs!=null?((StringTemplate)rhs.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7528,14 +7828,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_addSub_in_relation4624);
 					as=addSub();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 702:5: -> {$as.st}
-					{
-						retval.st = (as!=null?((StringTemplate)as.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 702:5: -> {$as.st}
+					  {
+					  	retval.st = (as!=null?((StringTemplate)as.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7619,6 +7921,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 52, 0, input);
 				throw nvae;
@@ -7627,100 +7930,108 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:707:3: ^(dd= DOTDOT lb= subexpression ub= subexpression )
 					{
-					dd=(BAST)match(input,DOTDOT,FOLLOW_DOTDOT_in_range4651); 
-					match(input, Token.DOWN, null); 
+					dd=(BAST)match(input,DOTDOT,FOLLOW_DOTDOT_in_range4651); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4655);
 					lb=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4659);
 					ub=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 708:5: -> range(rs=$dd.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (dd!=null?dd.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 708:5: -> range(rs=$dd.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (dd!=null?dd.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:710:4: ^(cd= COMMADOT lb= subexpression ub= subexpression )
 					{
-					cd=(BAST)match(input,COMMADOT,FOLLOW_COMMADOT_in_range4697); 
-					match(input, Token.DOWN, null); 
+					cd=(BAST)match(input,COMMADOT,FOLLOW_COMMADOT_in_range4697); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4701);
 					lb=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4705);
 					ub=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 711:5: -> range(rs=$cd.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (cd!=null?cd.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 711:5: -> range(rs=$cd.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (cd!=null?cd.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:713:4: ^(dc= DOTCOMMA lb= subexpression ub= subexpression )
 					{
-					dc=(BAST)match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_range4743); 
-					match(input, Token.DOWN, null); 
+					dc=(BAST)match(input,DOTCOMMA,FOLLOW_DOTCOMMA_in_range4743); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4747);
 					lb=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4751);
 					ub=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 714:5: -> range(rs=$dc.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (dc!=null?dc.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 714:5: -> range(rs=$dc.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (dc!=null?dc.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:716:4: ^(cc= COMMACOMMA lb= subexpression ub= subexpression )
 					{
-					cc=(BAST)match(input,COMMACOMMA,FOLLOW_COMMACOMMA_in_range4789); 
-					match(input, Token.DOWN, null); 
+					cc=(BAST)match(input,COMMACOMMA,FOLLOW_COMMACOMMA_in_range4789); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4793);
 					lb=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_range4797);
 					ub=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 717:5: -> range(rs=$cc.textlb=$lb.stub=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (cc!=null?cc.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 717:5: -> range(rs=$cc.textlb=$lb.stub=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("range",new STAttrMap().put("rs", (cc!=null?cc.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7823,6 +8134,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 54, 0, input);
 				throw nvae;
@@ -7831,8 +8143,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:722:3: ^( PLUS (md+= multDiv )+ )
 					{
-					match(input,PLUS,FOLLOW_PLUS_in_addSub4840); 
-					match(input, Token.DOWN, null); 
+					match(input,PLUS,FOLLOW_PLUS_in_addSub4840); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:722:13: (md+= multDiv )+
 					int cnt53=0;
 					loop53:
@@ -7850,7 +8162,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_multDiv_in_addSub4844);
 							md=multDiv();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_md==null) list_md=new ArrayList<Object>();
 							list_md.add(md.getTemplate());
 							}
@@ -7858,46 +8170,51 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt53 >= 1 ) break loop53;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(53, input);
 							throw eee;
 						}
 						cnt53++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 723:5: -> add(terms=$md)
-					{
-						retval.st = templateLib.getInstanceOf("add",new STAttrMap().put("terms", list_md));
+					if ( state.backtracking==0 ) {
+					  // 723:5: -> add(terms=$md)
+					  {
+					  	retval.st = templateLib.getInstanceOf("add",new STAttrMap().put("terms", list_md));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:725:3: ^( MINUS l= multDiv r= multDiv )
 					{
-					match(input,MINUS,FOLLOW_MINUS_in_addSub4870); 
-					match(input, Token.DOWN, null); 
+					match(input,MINUS,FOLLOW_MINUS_in_addSub4870); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_multDiv_in_addSub4874);
 					l=multDiv();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_multDiv_in_addSub4878);
 					r=multDiv();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 726:5: -> template(l=$l.str=$r.st) \"<l> - <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> - <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 726:5: -> template(l=$l.str=$r.st) \"<l> - <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> - <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -7907,14 +8224,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_multDiv_in_addSub4910);
 					m=multDiv();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 729:5: -> {$m.st}
-					{
-						retval.st = (m!=null?((StringTemplate)m.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 729:5: -> {$m.st}
+					  {
+					  	retval.st = (m!=null?((StringTemplate)m.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8027,6 +8346,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 56, 0, input);
 				throw nvae;
@@ -8035,8 +8355,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:734:3: ^( TIMES (exp+= exponentiation )+ )
 					{
-					match(input,TIMES,FOLLOW_TIMES_in_multDiv4941); 
-					match(input, Token.DOWN, null); 
+					match(input,TIMES,FOLLOW_TIMES_in_multDiv4941); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:734:15: (exp+= exponentiation )+
 					int cnt55=0;
 					loop55:
@@ -8054,7 +8374,7 @@ public class UnparseBLESS3 extends TreeParser {
 							pushFollow(FOLLOW_exponentiation_in_multDiv4945);
 							exp=exponentiation();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_exp==null) list_exp=new ArrayList<Object>();
 							list_exp.add(exp.getTemplate());
 							}
@@ -8062,121 +8382,132 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt55 >= 1 ) break loop55;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(55, input);
 							throw eee;
 						}
 						cnt55++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 735:5: -> multiply(terms=$exp)
-					{
-						retval.st = templateLib.getInstanceOf("multiply",new STAttrMap().put("terms", list_exp));
+					if ( state.backtracking==0 ) {
+					  // 735:5: -> multiply(terms=$exp)
+					  {
+					  	retval.st = templateLib.getInstanceOf("multiply",new STAttrMap().put("terms", list_exp));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:737:3: ^( DIVIDE l= exponentiation r= exponentiation )
 					{
-					match(input,DIVIDE,FOLLOW_DIVIDE_in_multDiv4971); 
-					match(input, Token.DOWN, null); 
+					match(input,DIVIDE,FOLLOW_DIVIDE_in_multDiv4971); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv4975);
 					l=exponentiation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv4979);
 					r=exponentiation();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 738:5: -> template(l=$l.str=$r.st) \"<l> / <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> / <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 738:5: -> template(l=$l.str=$r.st) \"<l> / <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> / <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:740:3: ^( LITERAL_div l= exponentiation r= exponentiation )
 					{
-					match(input,LITERAL_div,FOLLOW_LITERAL_div_in_multDiv5011); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_div,FOLLOW_LITERAL_div_in_multDiv5011); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5015);
 					l=exponentiation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5019);
 					r=exponentiation();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 741:5: -> template(l=$l.str=$r.st) \"<l> div <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> div <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 741:5: -> template(l=$l.str=$r.st) \"<l> div <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> div <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:743:3: ^( LITERAL_mod l= exponentiation r= exponentiation )
 					{
-					match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_multDiv5051); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_multDiv5051); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5055);
 					l=exponentiation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5059);
 					r=exponentiation();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 744:5: -> template(l=$l.str=$r.st) \"<l> mod <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> mod <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 744:5: -> template(l=$l.str=$r.st) \"<l> mod <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> mod <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:746:3: ^( LITERAL_rem l= exponentiation r= exponentiation )
 					{
-					match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_multDiv5091); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_multDiv5091); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5095);
 					l=exponentiation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_exponentiation_in_multDiv5099);
 					r=exponentiation();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 747:5: -> template(l=$l.str=$r.st) \"<l> rem <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> rem <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 747:5: -> template(l=$l.str=$r.st) \"<l> rem <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> rem <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8186,14 +8517,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_exponentiation_in_multDiv5131);
 					e=exponentiation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 750:5: -> {$e.st}
-					{
-						retval.st = (e!=null?((StringTemplate)e.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 750:5: -> {$e.st}
+					  {
+					  	retval.st = (e!=null?((StringTemplate)e.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8261,6 +8594,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 57, 0, input);
 				throw nvae;
@@ -8270,25 +8604,27 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:756:3: ^( EXP l= subexpression r= subexpression )
 					{
-					match(input,EXP,FOLLOW_EXP_in_exponentiation5163); 
-					match(input, Token.DOWN, null); 
+					match(input,EXP,FOLLOW_EXP_in_exponentiation5163); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_exponentiation5167);
 					l=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_exponentiation5171);
 					r=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 757:5: -> template(l=$l.str=$r.st) \"<l> ** <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> ** <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 757:5: -> template(l=$l.str=$r.st) \"<l> ** <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> ** <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8298,14 +8634,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_subexpression_in_exponentiation5203);
 					s=subexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 760:5: -> {$s.st}
-					{
-						retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 760:5: -> {$s.st}
+					  {
+					  	retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8414,6 +8752,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 58, 0, input);
 				throw nvae;
@@ -8422,105 +8761,115 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:765:3: ^(n= LITERAL_not te= timedExpression )
 					{
-					n=(BAST)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_subexpression5234); 
-					match(input, Token.DOWN, null); 
+					n=(BAST)match(input,LITERAL_not,FOLLOW_LITERAL_not_in_subexpression5234); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedExpression_in_subexpression5238);
 					te=timedExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 766:5: -> unary(sym=$n.textex=$te.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (n!=null?n.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 766:5: -> unary(sym=$n.textex=$te.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (n!=null?n.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:768:3: ^(m= UNARY_MINUS te= timedExpression )
 					{
-					m=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_subexpression5270); 
-					match(input, Token.DOWN, null); 
+					m=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_subexpression5270); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedExpression_in_subexpression5274);
 					te=timedExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 769:5: -> unary(sym=$m.textex=$te.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (m!=null?m.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 769:5: -> unary(sym=$m.textex=$te.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (m!=null?m.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:771:3: ^(s= LITERAL_abs te= timedExpression )
 					{
-					s=(BAST)match(input,LITERAL_abs,FOLLOW_LITERAL_abs_in_subexpression5306); 
-					match(input, Token.DOWN, null); 
+					s=(BAST)match(input,LITERAL_abs,FOLLOW_LITERAL_abs_in_subexpression5306); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedExpression_in_subexpression5310);
 					te=timedExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 772:5: -> unary(sym=$s.textex=$te.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (s!=null?s.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 772:5: -> unary(sym=$s.textex=$te.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (s!=null?s.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:774:3: ^(t= LITERAL_truncate te= timedExpression )
 					{
-					t=(BAST)match(input,LITERAL_truncate,FOLLOW_LITERAL_truncate_in_subexpression5342); 
-					match(input, Token.DOWN, null); 
+					t=(BAST)match(input,LITERAL_truncate,FOLLOW_LITERAL_truncate_in_subexpression5342); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedExpression_in_subexpression5346);
 					te=timedExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 775:5: -> unary(sym=$t.textex=$te.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (t!=null?t.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 775:5: -> unary(sym=$t.textex=$te.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (t!=null?t.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:777:3: ^(r= LITERAL_round te= timedExpression )
 					{
-					r=(BAST)match(input,LITERAL_round,FOLLOW_LITERAL_round_in_subexpression5378); 
-					match(input, Token.DOWN, null); 
+					r=(BAST)match(input,LITERAL_round,FOLLOW_LITERAL_round_in_subexpression5378); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedExpression_in_subexpression5382);
 					te=timedExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 778:5: -> unary(sym=$r.textex=$te.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (r!=null?r.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 778:5: -> unary(sym=$r.textex=$te.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (r!=null?r.getText():null)).put("ex", (te!=null?((StringTemplate)te.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8530,14 +8879,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_timedExpression_in_subexpression5412);
 					te=timedExpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 781:5: -> {$te.st}
-					{
-						retval.st = (te!=null?((StringTemplate)te.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 781:5: -> {$te.st}
+					  {
+					  	retval.st = (te!=null?((StringTemplate)te.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8612,6 +8963,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -8631,6 +8983,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -8647,6 +9000,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -8688,6 +9042,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 59, 0, input);
 				throw nvae;
@@ -8696,71 +9051,77 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:786:3: ^( TICK ts= timedSubject )
 					{
-					match(input,TICK,FOLLOW_TICK_in_timedExpression5442); 
-					match(input, Token.DOWN, null); 
+					match(input,TICK,FOLLOW_TICK_in_timedExpression5442); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedSubject_in_timedExpression5446);
 					ts=timedSubject();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 787:5: -> tick(tp=$ts.st)
-					{
-						retval.st = templateLib.getInstanceOf("tick",new STAttrMap().put("tp", (ts!=null?((StringTemplate)ts.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 787:5: -> tick(tp=$ts.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("tick",new STAttrMap().put("tp", (ts!=null?((StringTemplate)ts.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:789:3: ^( AT_SIGN ts= timedSubject se= subexpression )
 					{
-					match(input,AT_SIGN,FOLLOW_AT_SIGN_in_timedExpression5471); 
-					match(input, Token.DOWN, null); 
+					match(input,AT_SIGN,FOLLOW_AT_SIGN_in_timedExpression5471); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedSubject_in_timedExpression5475);
 					ts=timedSubject();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_subexpression_in_timedExpression5479);
 					se=subexpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 790:5: -> at(p=$ts.stt=$se.st)
-					{
-						retval.st = templateLib.getInstanceOf("at",new STAttrMap().put("p", (ts!=null?((StringTemplate)ts.getTemplate()):null)).put("t", (se!=null?((StringTemplate)se.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 790:5: -> at(p=$ts.stt=$se.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("at",new STAttrMap().put("p", (ts!=null?((StringTemplate)ts.getTemplate()):null)).put("t", (se!=null?((StringTemplate)se.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:792:3: ^( CARET ts= timedSubject ps= periodShift )
 					{
-					match(input,CARET,FOLLOW_CARET_in_timedExpression5509); 
-					match(input, Token.DOWN, null); 
+					match(input,CARET,FOLLOW_CARET_in_timedExpression5509); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					pushFollow(FOLLOW_timedSubject_in_timedExpression5513);
 					ts=timedSubject();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					pushFollow(FOLLOW_periodShift_in_timedExpression5517);
 					ps=periodShift();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 793:5: -> caret(p=$ts.stcv=$ps.st)
-					{
-						retval.st = templateLib.getInstanceOf("caret",new STAttrMap().put("p", (ts!=null?((StringTemplate)ts.getTemplate()):null)).put("cv", (ps!=null?((StringTemplate)ps.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 793:5: -> caret(p=$ts.stcv=$ps.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("caret",new STAttrMap().put("p", (ts!=null?((StringTemplate)ts.getTemplate()):null)).put("cv", (ps!=null?((StringTemplate)ps.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8770,14 +9131,16 @@ public class UnparseBLESS3 extends TreeParser {
 					pushFollow(FOLLOW_timedSubject_in_timedExpression5547);
 					ts=timedSubject();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 796:5: -> {$ts.st}
-					{
-						retval.st = (ts!=null?((StringTemplate)ts.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 796:5: -> {$ts.st}
+					  {
+					  	retval.st = (ts!=null?((StringTemplate)ts.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -8824,7 +9187,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 
 	// $ANTLR start "timedSubject"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:799:1: timedSubject : (ce= conditionalExpression -> {$ce.st}|ps= parenthesizedSubexpression -> {$ps.st}|rt= recordTerm -> {$rt.st}|inv= invocation -> {$inv.st}|v= value -> {$v.st});
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:799:1: timedSubject : ( ( LPAREN QQ )=>ce= conditionalExpression -> {$ce.st}| ( LPAREN )=>ps= parenthesizedSubexpression -> {$ps.st}| ( RECORD_TERM )=>rt= recordTerm -> {$rt.st}| ( ID LPAREN )=>inv= invocation -> {$inv.st}|v= value -> {$v.st});
 	public final UnparseBLESS3.timedSubject_return timedSubject() throws RecognitionException {
 		UnparseBLESS3.timedSubject_return retval = new UnparseBLESS3.timedSubject_return();
 		retval.start = input.LT(1);
@@ -8836,38 +9199,174 @@ public class UnparseBLESS3 extends TreeParser {
 		TreeRuleReturnScope v =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:800:3: (ce= conditionalExpression -> {$ce.st}|ps= parenthesizedSubexpression -> {$ps.st}|rt= recordTerm -> {$rt.st}|inv= invocation -> {$inv.st}|v= value -> {$v.st})
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:800:3: ( ( LPAREN QQ )=>ce= conditionalExpression -> {$ce.st}| ( LPAREN )=>ps= parenthesizedSubexpression -> {$ps.st}| ( RECORD_TERM )=>rt= recordTerm -> {$rt.st}| ( ID LPAREN )=>inv= invocation -> {$inv.st}|v= value -> {$v.st})
 			int alt60=5;
-			switch ( input.LA(1) ) {
-			case LPAREN:
-				{
+			int LA60_0 = input.LA(1);
+			if ( (LA60_0==LPAREN) ) {
 				int LA60_1 = input.LA(2);
 				if ( (LA60_1==DOWN) ) {
 					int LA60_5 = input.LA(3);
-					if ( (LA60_5==QQ) ) {
+					if ( (LA60_5==QQ) && (synpred1_UnparseBLESS3())) {
 						alt60=1;
 					}
-					else if ( (LA60_5==AADL_STRING_LITERAL||(LA60_5 >= AL && LA60_5 <= AM)||LA60_5==AT_SIGN||LA60_5==CARET||LA60_5==DIVIDE||LA60_5==EQ||LA60_5==EXP||LA60_5==GT||LA60_5==ID||LA60_5==INVOKE||LA60_5==LITERAL_abs||(LA60_5 >= LITERAL_all && LA60_5 <= LITERAL_and)||LA60_5==LITERAL_case||LA60_5==LITERAL_div||LA60_5==LITERAL_else||LA60_5==LITERAL_exists||LA60_5==LITERAL_false||LA60_5==LITERAL_iff||(LA60_5 >= LITERAL_implies && LA60_5 <= LITERAL_in)||LA60_5==LITERAL_mod||(LA60_5 >= LITERAL_not && LA60_5 <= LITERAL_numberof)||LA60_5==LITERAL_or||LA60_5==LITERAL_product||LA60_5==LITERAL_rem||LA60_5==LITERAL_round||LA60_5==LITERAL_sum||LA60_5==LITERAL_then||LA60_5==LITERAL_timeout||LA60_5==LITERAL_tops||(LA60_5 >= LITERAL_true && LA60_5 <= LITERAL_truncate)||(LA60_5 >= LITERAL_xor && LA60_5 <= LT)||LA60_5==MINUS||LA60_5==NEQ||LA60_5==OLD_NEQ||LA60_5==PLUS||LA60_5==PLUS_EQUALS||(LA60_5 >= QUANTITY && LA60_5 <= QUESTION)||LA60_5==RECORD_TERM||LA60_5==TICK||LA60_5==TIMES||LA60_5==UNARY_MINUS) ) {
+					else if ( (LA60_5==LITERAL_all) && (synpred2_UnparseBLESS3())) {
 						alt60=2;
 					}
-
-					else {
-						int nvaeMark = input.mark();
-						try {
-							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
-								input.consume();
-							}
-							NoViableAltException nvae =
-								new NoViableAltException("", 60, 5, input);
-							throw nvae;
-						} finally {
-							input.rewind(nvaeMark);
-						}
+					else if ( (LA60_5==LITERAL_exists) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_sum) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_product) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_numberof) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_iff) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_implies) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_or) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_else) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_xor) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_and) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_then) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==EQ) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LT) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==AM) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==AL) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==GT) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==PLUS_EQUALS) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==NEQ) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==OLD_NEQ) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_in) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==PLUS) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==MINUS) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==TIMES) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==DIVIDE) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_div) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_mod) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_rem) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==EXP) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_not) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==UNARY_MINUS) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_abs) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_truncate) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_round) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==TICK) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==AT_SIGN) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==CARET) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LPAREN) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==RECORD_TERM) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==INVOKE) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==ID) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==QUESTION) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==QUANTITY) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==AADL_STRING_LITERAL) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_true) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_false) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_null) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_timeout) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_now) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_tops) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
+					}
+					else if ( (LA60_5==LITERAL_case) && (synpred2_UnparseBLESS3())) {
+						alt60=2;
 					}
 
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -8879,121 +9378,117 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 				}
 
-				}
-				break;
-			case RECORD_TERM:
-				{
+			}
+			else if ( (LA60_0==RECORD_TERM) && (synpred3_UnparseBLESS3())) {
 				alt60=3;
-				}
-				break;
-			case INVOKE:
-				{
+			}
+			else if ( (LA60_0==INVOKE) && (synpred4_UnparseBLESS3())) {
 				alt60=4;
-				}
-				break;
-			case AADL_STRING_LITERAL:
-			case ID:
-			case LITERAL_false:
-			case LITERAL_now:
-			case LITERAL_null:
-			case LITERAL_timeout:
-			case LITERAL_tops:
-			case LITERAL_true:
-			case QUANTITY:
-			case QUESTION:
-			case TICK:
-				{
+			}
+			else if ( (LA60_0==AADL_STRING_LITERAL||LA60_0==ID||LA60_0==LITERAL_false||(LA60_0 >= LITERAL_now && LA60_0 <= LITERAL_null)||LA60_0==LITERAL_timeout||LA60_0==LITERAL_tops||LA60_0==LITERAL_true||(LA60_0 >= QUANTITY && LA60_0 <= QUESTION)||LA60_0==TICK) ) {
 				alt60=5;
-				}
-				break;
-			default:
+			}
+
+			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 60, 0, input);
 				throw nvae;
 			}
+
 			switch (alt60) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:801:3: ce= conditionalExpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:801:3: ( LPAREN QQ )=>ce= conditionalExpression
 					{
-					pushFollow(FOLLOW_conditionalExpression_in_timedSubject5574);
+					pushFollow(FOLLOW_conditionalExpression_in_timedSubject5581);
 					ce=conditionalExpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 802:4: -> {$ce.st}
-					{
-						retval.st = (ce!=null?((StringTemplate)ce.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 802:4: -> {$ce.st}
+					  {
+					  	retval.st = (ce!=null?((StringTemplate)ce.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:803:5: ps= parenthesizedSubexpression
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:803:5: ( LPAREN )=>ps= parenthesizedSubexpression
 					{
-					pushFollow(FOLLOW_parenthesizedSubexpression_in_timedSubject5589);
+					pushFollow(FOLLOW_parenthesizedSubexpression_in_timedSubject5602);
 					ps=parenthesizedSubexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 804:5: -> {$ps.st}
-					{
-						retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 804:5: -> {$ps.st}
+					  {
+					  	retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:805:5: rt= recordTerm
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:805:5: ( RECORD_TERM )=>rt= recordTerm
 					{
-					pushFollow(FOLLOW_recordTerm_in_timedSubject5606);
+					pushFollow(FOLLOW_recordTerm_in_timedSubject5624);
 					rt=recordTerm();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 806:5: -> {$rt.st}
-					{
-						retval.st = (rt!=null?((StringTemplate)rt.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 806:5: -> {$rt.st}
+					  {
+					  	retval.st = (rt!=null?((StringTemplate)rt.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:807:5: inv= invocation
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:807:5: ( ID LPAREN )=>inv= invocation
 					{
-					pushFollow(FOLLOW_invocation_in_timedSubject5622);
+					pushFollow(FOLLOW_invocation_in_timedSubject5647);
 					inv=invocation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 808:5: -> {$inv.st}
-					{
-						retval.st = (inv!=null?((StringTemplate)inv.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 808:5: -> {$inv.st}
+					  {
+					  	retval.st = (inv!=null?((StringTemplate)inv.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:809:5: v= value
 					{
-					pushFollow(FOLLOW_value_in_timedSubject5640);
+					pushFollow(FOLLOW_value_in_timedSubject5665);
 					v=value();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 810:5: -> {$v.st}
-					{
-						retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 810:5: -> {$v.st}
+					  {
+					  	retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -9066,6 +9561,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -9082,6 +9578,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -9116,6 +9613,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 61, 0, input);
 				throw nvae;
@@ -9124,86 +9622,94 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:815:3: ^(um= UNARY_MINUS v= value )
 					{
-					um=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_periodShift5669); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_value_in_periodShift5673);
+					um=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_periodShift5694); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_value_in_periodShift5698);
 					v=value();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 816:5: -> unary(sym=$um.textex=$v.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (um!=null?um.getText():null)).put("ex", (v!=null?((StringTemplate)v.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 816:5: -> unary(sym=$um.textex=$v.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary",new STAttrMap().put("sym", (um!=null?um.getText():null)).put("ex", (v!=null?((StringTemplate)v.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:818:3: ^(um= UNARY_MINUS ^( LPAREN ie= indexExpression RPAREN ) )
 					{
-					um=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_periodShift5705); 
-					match(input, Token.DOWN, null); 
-					match(input,LPAREN,FOLLOW_LPAREN_in_periodShift5709); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_indexExpression_in_periodShift5713);
+					um=(BAST)match(input,UNARY_MINUS,FOLLOW_UNARY_MINUS_in_periodShift5730); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_periodShift5734); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_indexExpression_in_periodShift5738);
 					ie=indexExpression();
 					state._fsp--;
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_periodShift5740); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,RPAREN,FOLLOW_RPAREN_in_periodShift5715); 
-					match(input, Token.UP, null); 
-
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 819:5: -> unary_paren(sym=$um.textex=$v.st)
-					{
-						retval.st = templateLib.getInstanceOf("unary_paren",new STAttrMap().put("sym", (um!=null?um.getText():null)).put("ex", (v!=null?((StringTemplate)v.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 819:5: -> unary_paren(sym=$um.textex=$v.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("unary_paren",new STAttrMap().put("sym", (um!=null?um.getText():null)).put("ex", (v!=null?((StringTemplate)v.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:821:3: v= value
 					{
-					pushFollow(FOLLOW_value_in_periodShift5747);
+					pushFollow(FOLLOW_value_in_periodShift5772);
 					v=value();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 822:5: -> {$v.st}
-					{
-						retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 822:5: -> {$v.st}
+					  {
+					  	retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:824:3: ^( LPAREN ie= indexExpression RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_periodShift5765); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_indexExpression_in_periodShift5769);
+					match(input,LPAREN,FOLLOW_LPAREN_in_periodShift5790); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_indexExpression_in_periodShift5794);
 					ie=indexExpression();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_periodShift5771); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_periodShift5796); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 825:5: -> parentheses(be=$ie.st)
-					{
-						retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ie!=null?((StringTemplate)ie.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 825:5: -> parentheses(be=$ie.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ie!=null?((StringTemplate)ie.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -9295,6 +9801,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 64, 0, input);
 				throw nvae;
@@ -9303,108 +9810,116 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:830:3: ^(m= MINUS l= periodShift r= periodShift )
 					{
-					m=(BAST)match(input,MINUS,FOLLOW_MINUS_in_indexExpression5807); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_periodShift_in_indexExpression5811);
+					m=(BAST)match(input,MINUS,FOLLOW_MINUS_in_indexExpression5832); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5836);
 					l=periodShift();
 					state._fsp--;
-
-					pushFollow(FOLLOW_periodShift_in_indexExpression5815);
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5840);
 					r=periodShift();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 831:5: -> template(l=$l.str=$r.st) \"<l> / <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> / <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 831:5: -> template(l=$l.str=$r.st) \"<l> / <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> / <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:833:3: ^(m= LITERAL_div l= periodShift r= periodShift )
 					{
-					m=(BAST)match(input,LITERAL_div,FOLLOW_LITERAL_div_in_indexExpression5849); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_periodShift_in_indexExpression5853);
+					m=(BAST)match(input,LITERAL_div,FOLLOW_LITERAL_div_in_indexExpression5874); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5878);
 					l=periodShift();
 					state._fsp--;
-
-					pushFollow(FOLLOW_periodShift_in_indexExpression5857);
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5882);
 					r=periodShift();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 834:5: -> template(l=$l.str=$r.st) \"<l> div <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> div <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 834:5: -> template(l=$l.str=$r.st) \"<l> div <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> div <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:836:3: ^(m= LITERAL_mod l= periodShift r= periodShift )
 					{
-					m=(BAST)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_indexExpression5891); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_periodShift_in_indexExpression5895);
+					m=(BAST)match(input,LITERAL_mod,FOLLOW_LITERAL_mod_in_indexExpression5916); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5920);
 					l=periodShift();
 					state._fsp--;
-
-					pushFollow(FOLLOW_periodShift_in_indexExpression5899);
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5924);
 					r=periodShift();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 837:5: -> template(l=$l.str=$r.st) \"<l> mod <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> mod <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 837:5: -> template(l=$l.str=$r.st) \"<l> mod <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> mod <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:839:3: ^(m= LITERAL_rem l= periodShift r= periodShift )
 					{
-					m=(BAST)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_indexExpression5933); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_periodShift_in_indexExpression5937);
+					m=(BAST)match(input,LITERAL_rem,FOLLOW_LITERAL_rem_in_indexExpression5958); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5962);
 					l=periodShift();
 					state._fsp--;
-
-					pushFollow(FOLLOW_periodShift_in_indexExpression5941);
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_periodShift_in_indexExpression5966);
 					r=periodShift();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 840:5: -> template(l=$l.str=$r.st) \"<l> rem <r>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<l> rem <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 840:5: -> template(l=$l.str=$r.st) \"<l> rem <r>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<l> rem <r>",new STAttrMap().put("l", (l!=null?((StringTemplate)l.getTemplate()):null)).put("r", (r!=null?((StringTemplate)r.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:842:3: ^( PLUS (ps+= periodShift )+ )
 					{
-					match(input,PLUS,FOLLOW_PLUS_in_indexExpression5973); 
-					match(input, Token.DOWN, null); 
+					match(input,PLUS,FOLLOW_PLUS_in_indexExpression5998); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:842:13: (ps+= periodShift )+
 					int cnt62=0;
 					loop62:
@@ -9419,10 +9934,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:842:13: ps+= periodShift
 							{
-							pushFollow(FOLLOW_periodShift_in_indexExpression5977);
+							pushFollow(FOLLOW_periodShift_in_indexExpression6002);
 							ps=periodShift();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_ps==null) list_ps=new ArrayList<Object>();
 							list_ps.add(ps.getTemplate());
 							}
@@ -9430,29 +9945,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt62 >= 1 ) break loop62;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(62, input);
 							throw eee;
 						}
 						cnt62++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 843:5: -> add(terms=$ps)
-					{
-						retval.st = templateLib.getInstanceOf("add",new STAttrMap().put("terms", list_ps));
+					if ( state.backtracking==0 ) {
+					  // 843:5: -> add(terms=$ps)
+					  {
+					  	retval.st = templateLib.getInstanceOf("add",new STAttrMap().put("terms", list_ps));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:845:3: ^( TIMES (ps+= periodShift )+ )
 					{
-					match(input,TIMES,FOLLOW_TIMES_in_indexExpression6003); 
-					match(input, Token.DOWN, null); 
+					match(input,TIMES,FOLLOW_TIMES_in_indexExpression6028); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:845:14: (ps+= periodShift )+
 					int cnt63=0;
 					loop63:
@@ -9467,10 +9985,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:845:14: ps+= periodShift
 							{
-							pushFollow(FOLLOW_periodShift_in_indexExpression6007);
+							pushFollow(FOLLOW_periodShift_in_indexExpression6032);
 							ps=periodShift();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_ps==null) list_ps=new ArrayList<Object>();
 							list_ps.add(ps.getTemplate());
 							}
@@ -9478,21 +9996,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt63 >= 1 ) break loop63;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(63, input);
 							throw eee;
 						}
 						cnt63++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 846:5: -> multiply(terms=$ps)
-					{
-						retval.st = templateLib.getInstanceOf("multiply",new STAttrMap().put("terms", list_ps));
+					if ( state.backtracking==0 ) {
+					  // 846:5: -> multiply(terms=$ps)
+					  {
+					  	retval.st = templateLib.getInstanceOf("multiply",new STAttrMap().put("terms", list_ps));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -9552,34 +10073,36 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:850:3: ( ^( LPAREN ^( QQ pred= expression t= expression f= expression ) RPAREN ) -> conditional_expression(be=$pred.stt=$t.stf=$f.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:851:3: ^( LPAREN ^( QQ pred= expression t= expression f= expression ) RPAREN )
 			{
-			match(input,LPAREN,FOLLOW_LPAREN_in_conditionalExpression6042); 
-			match(input, Token.DOWN, null); 
-			match(input,QQ,FOLLOW_QQ_in_conditionalExpression6046); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_conditionalExpression6050);
+			match(input,LPAREN,FOLLOW_LPAREN_in_conditionalExpression6067); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,QQ,FOLLOW_QQ_in_conditionalExpression6071); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_conditionalExpression6075);
 			pred=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expression_in_conditionalExpression6054);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_conditionalExpression6079);
 			t=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expression_in_conditionalExpression6058);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_conditionalExpression6083);
 			f=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input,RPAREN,FOLLOW_RPAREN_in_conditionalExpression6063); 
-			match(input, Token.UP, null); 
+			match(input,RPAREN,FOLLOW_RPAREN_in_conditionalExpression6088); if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 852:5: -> conditional_expression(be=$pred.stt=$t.stf=$f.st)
-			{
-				retval.st = templateLib.getInstanceOf("conditional_expression",new STAttrMap().put("be", (pred!=null?((StringTemplate)pred.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)).put("f", (f!=null?((StringTemplate)f.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 852:5: -> conditional_expression(be=$pred.stt=$t.stf=$f.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("conditional_expression",new STAttrMap().put("be", (pred!=null?((StringTemplate)pred.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)).put("f", (f!=null?((StringTemplate)f.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -9648,6 +10171,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -9664,6 +10188,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -9678,6 +10203,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 65, 0, input);
 				throw nvae;
@@ -9687,44 +10213,48 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:857:3: ^( LPAREN ex= expression RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedSubexpression6109); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_parenthesizedSubexpression6113);
+					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedSubexpression6134); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_parenthesizedSubexpression6138);
 					ex=expression();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedSubexpression6115); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedSubexpression6140); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 858:5: -> parentheses(be=$ex.st)
-					{
-						retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 858:5: -> parentheses(be=$ex.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ex!=null?((StringTemplate)ex.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:863:3: ^( LPAREN ce= caseExpression RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedSubexpression6145); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_caseExpression_in_parenthesizedSubexpression6149);
+					match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedSubexpression6170); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_caseExpression_in_parenthesizedSubexpression6174);
 					ce=caseExpression();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedSubexpression6151); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedSubexpression6176); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 864:5: -> parentheses(be=$ce.st)
-					{
-						retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ce!=null?((StringTemplate)ce.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 864:5: -> parentheses(be=$ce.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (ce!=null?((StringTemplate)ce.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -9782,8 +10312,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:868:3: ( ^( LITERAL_case (cc+= caseChoice )+ ) -> case_expression(cc=$cc))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:869:3: ^( LITERAL_case (cc+= caseChoice )+ )
 			{
-			match(input,LITERAL_case,FOLLOW_LITERAL_case_in_caseExpression6185); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_case,FOLLOW_LITERAL_case_in_caseExpression6210); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:869:21: (cc+= caseChoice )+
 			int cnt66=0;
 			loop66:
@@ -9798,10 +10328,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:869:21: cc+= caseChoice
 					{
-					pushFollow(FOLLOW_caseChoice_in_caseExpression6189);
+					pushFollow(FOLLOW_caseChoice_in_caseExpression6214);
 					cc=caseChoice();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_cc==null) list_cc=new ArrayList<Object>();
 					list_cc.add(cc.getTemplate());
 					}
@@ -9809,21 +10339,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt66 >= 1 ) break loop66;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(66, input);
 					throw eee;
 				}
 				cnt66++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 870:5: -> case_expression(cc=$cc)
-			{
-				retval.st = templateLib.getInstanceOf("case_expression",new STAttrMap().put("cc", list_cc));
+			if ( state.backtracking==0 ) {
+			  // 870:5: -> case_expression(cc=$cc)
+			  {
+			  	retval.st = templateLib.getInstanceOf("case_expression",new STAttrMap().put("cc", list_cc));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -9880,25 +10413,27 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:874:3: ( ^( IMP bool= expression exp= expression ) -> case_choice(be=$bool.stexp=$exp.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:875:3: ^( IMP bool= expression exp= expression )
 			{
-			match(input,IMP,FOLLOW_IMP_in_caseChoice6222); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_caseChoice6226);
+			match(input,IMP,FOLLOW_IMP_in_caseChoice6247); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_caseChoice6251);
 			bool=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expression_in_caseChoice6230);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_caseChoice6255);
 			exp=expression();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 876:5: -> case_choice(be=$bool.stexp=$exp.st)
-			{
-				retval.st = templateLib.getInstanceOf("case_choice",new STAttrMap().put("be", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("exp", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 876:5: -> case_choice(be=$bool.stexp=$exp.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("case_choice",new STAttrMap().put("be", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("exp", (exp!=null?((StringTemplate)exp.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -9955,9 +10490,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:880:3: ( ^( RECORD_TERM typeid= ID (prv+= recordValue )+ ) -> record_term(typeid=$typeid.textprv=$prv))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:881:3: ^( RECORD_TERM typeid= ID (prv+= recordValue )+ )
 			{
-			match(input,RECORD_TERM,FOLLOW_RECORD_TERM_in_recordTerm6271); 
-			match(input, Token.DOWN, null); 
-			typeid=(BAST)match(input,ID,FOLLOW_ID_in_recordTerm6275); 
+			match(input,RECORD_TERM,FOLLOW_RECORD_TERM_in_recordTerm6296); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			typeid=(BAST)match(input,ID,FOLLOW_ID_in_recordTerm6300); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:881:31: (prv+= recordValue )+
 			int cnt67=0;
 			loop67:
@@ -9972,10 +10507,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:881:31: prv+= recordValue
 					{
-					pushFollow(FOLLOW_recordValue_in_recordTerm6279);
+					pushFollow(FOLLOW_recordValue_in_recordTerm6304);
 					prv=recordValue();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_prv==null) list_prv=new ArrayList<Object>();
 					list_prv.add(prv.getTemplate());
 					}
@@ -9983,21 +10518,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt67 >= 1 ) break loop67;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(67, input);
 					throw eee;
 				}
 				cnt67++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 882:5: -> record_term(typeid=$typeid.textprv=$prv)
-			{
-				retval.st = templateLib.getInstanceOf("record_term",new STAttrMap().put("typeid", (typeid!=null?typeid.getText():null)).put("prv", list_prv));
+			if ( state.backtracking==0 ) {
+			  // 882:5: -> record_term(typeid=$typeid.textprv=$prv)
+			  {
+			  	retval.st = templateLib.getInstanceOf("record_term",new STAttrMap().put("typeid", (typeid!=null?typeid.getText():null)).put("prv", list_prv));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -10054,22 +10592,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:886:3: ( ^( ARROW field= ID v= value ) -> record_value(id=$field.textv=$v.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:887:3: ^( ARROW field= ID v= value )
 			{
-			match(input,ARROW,FOLLOW_ARROW_in_recordValue6318); 
-			match(input, Token.DOWN, null); 
-			field=(BAST)match(input,ID,FOLLOW_ID_in_recordValue6322); 
-			pushFollow(FOLLOW_value_in_recordValue6326);
+			match(input,ARROW,FOLLOW_ARROW_in_recordValue6343); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			field=(BAST)match(input,ID,FOLLOW_ID_in_recordValue6347); if (state.failed) return retval;
+			pushFollow(FOLLOW_value_in_recordValue6351);
 			v=value();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 888:5: -> record_value(id=$field.textv=$v.st)
-			{
-				retval.st = templateLib.getInstanceOf("record_value",new STAttrMap().put("id", (field!=null?field.getText():null)).put("v", (v!=null?((StringTemplate)v.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 888:5: -> record_value(id=$field.textv=$v.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("record_value",new STAttrMap().put("id", (field!=null?field.getText():null)).put("v", (v!=null?((StringTemplate)v.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -10125,17 +10665,19 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:892:3: (exp= expression -> {$exp.st})
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:893:3: exp= expression
 			{
-			pushFollow(FOLLOW_expression_in_predicate6365);
+			pushFollow(FOLLOW_expression_in_predicate6390);
 			exp=expression();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			// TEMPLATE REWRITE
-			// 894:5: -> {$exp.st}
-			{
-				retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+			if ( state.backtracking==0 ) {
+			  // 894:5: -> {$exp.st}
+			  {
+			  	retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -10227,6 +10769,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 68, 0, input);
 				throw nvae;
@@ -10235,76 +10778,86 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:901:3: vn= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_value6394);
+					pushFollow(FOLLOW_valueName_in_value6419);
 					vn=valueName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 902:5: -> {$vn.st}
-					{
-						retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 902:5: -> {$vn.st}
+					  {
+					  	retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:904:3: c= constant
 					{
-					pushFollow(FOLLOW_constant_in_value6412);
+					pushFollow(FOLLOW_constant_in_value6437);
 					c=constant();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 905:5: -> {$c.st}
-					{
-						retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 905:5: -> {$c.st}
+					  {
+					  	retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:907:3: to= LITERAL_timeout
 					{
-					to=(BAST)match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_value6430); 
+					to=(BAST)match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_value6455); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 908:5: -> {%{$to.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(to!=null?to.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 908:5: -> {%{$to.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(to!=null?to.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:910:3: n= LITERAL_now
 					{
-					n=(BAST)match(input,LITERAL_now,FOLLOW_LITERAL_now_in_value6448); 
+					n=(BAST)match(input,LITERAL_now,FOLLOW_LITERAL_now_in_value6473); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 911:5: -> {%{$n.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(n!=null?n.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 911:5: -> {%{$n.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(n!=null?n.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:913:3: t= LITERAL_tops
 					{
-					t=(BAST)match(input,LITERAL_tops,FOLLOW_LITERAL_tops_in_value6466); 
+					t=(BAST)match(input,LITERAL_tops,FOLLOW_LITERAL_tops_in_value6491); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 914:5: -> {%{$t.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(t!=null?t.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 914:5: -> {%{$t.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(t!=null?t.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -10388,6 +10941,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 						break;
 					default:
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -10406,6 +10960,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -10447,6 +11002,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 							break;
 						default:
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -10462,6 +11018,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -10478,6 +11035,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -10492,6 +11050,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 72, 0, input);
 				throw nvae;
@@ -10500,32 +11059,34 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:919:3: ^(id= ID DOLLAR pr= functionParameters )
 					{
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6493); 
-					match(input, Token.DOWN, null); 
-					match(input,DOLLAR,FOLLOW_DOLLAR_in_valueName6495); 
-					pushFollow(FOLLOW_functionParameters_in_valueName6499);
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6518); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,DOLLAR,FOLLOW_DOLLAR_in_valueName6520); if (state.failed) return retval;
+					pushFollow(FOLLOW_functionParameters_in_valueName6524);
 					pr=functionParameters();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 920:5: -> function_call(f=$id.textpl=$pr.st)
-					{
-						retval.st = templateLib.getInstanceOf("function_call",new STAttrMap().put("f", (id!=null?id.getText():null)).put("pl", (pr!=null?((StringTemplate)pr.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 920:5: -> function_call(f=$id.textpl=$pr.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("function_call",new STAttrMap().put("f", (id!=null?id.getText():null)).put("pl", (pr!=null?((StringTemplate)pr.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:922:3: ^(id= ID ^( LBRACKET (array_index+= indexExpressionOrRange )+ ) ^( DOT (pn+= partialName )* ) )
 					{
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6531); 
-					match(input, Token.DOWN, null); 
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_valueName6535); 
-					match(input, Token.DOWN, null); 
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6556); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_valueName6560); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:922:35: (array_index+= indexExpressionOrRange )+
 					int cnt69=0;
 					loop69:
@@ -10540,10 +11101,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:922:35: array_index+= indexExpressionOrRange
 							{
-							pushFollow(FOLLOW_indexExpressionOrRange_in_valueName6539);
+							pushFollow(FOLLOW_indexExpressionOrRange_in_valueName6564);
 							array_index=indexExpressionOrRange();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_array_index==null) list_array_index=new ArrayList<Object>();
 							list_array_index.add(array_index.getTemplate());
 							}
@@ -10551,17 +11112,18 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt69 >= 1 ) break loop69;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(69, input);
 							throw eee;
 						}
 						cnt69++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input,DOT,FOLLOW_DOT_in_valueName6546); 
+					match(input,DOT,FOLLOW_DOT_in_valueName6571); if (state.failed) return retval;
 					if ( input.LA(1)==Token.DOWN ) {
-						match(input, Token.DOWN, null); 
+						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:922:72: (pn+= partialName )*
 						loop70:
 						while (true) {
@@ -10575,10 +11137,10 @@ public class UnparseBLESS3 extends TreeParser {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:922:72: pn+= partialName
 								{
-								pushFollow(FOLLOW_partialName_in_valueName6550);
+								pushFollow(FOLLOW_partialName_in_valueName6575);
 								pn=partialName();
 								state._fsp--;
-
+								if (state.failed) return retval;
 								if (list_pn==null) list_pn=new ArrayList<Object>();
 								list_pn.add(pn.getTemplate());
 								}
@@ -10589,28 +11151,30 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 						}
 
-						match(input, Token.UP, null); 
+						match(input, Token.UP, null); if (state.failed) return retval;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 923:5: -> name(id=$id.textindex=$array_indexrec=$pn)
-					{
-						retval.st = templateLib.getInstanceOf("name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("index", list_array_index).put("rec", list_pn));
+					if ( state.backtracking==0 ) {
+					  // 923:5: -> name(id=$id.textindex=$array_indexrec=$pn)
+					  {
+					  	retval.st = templateLib.getInstanceOf("name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("index", list_array_index).put("rec", list_pn));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:925:3: ^(id= ID ^( DOT (pn+= partialName )+ ) )
 					{
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6591); 
-					match(input, Token.DOWN, null); 
-					match(input,DOT,FOLLOW_DOT_in_valueName6595); 
-					match(input, Token.DOWN, null); 
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6616); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,DOT,FOLLOW_DOT_in_valueName6620); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:925:21: (pn+= partialName )+
 					int cnt71=0;
 					loop71:
@@ -10625,10 +11189,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:925:21: pn+= partialName
 							{
-							pushFollow(FOLLOW_partialName_in_valueName6599);
+							pushFollow(FOLLOW_partialName_in_valueName6624);
 							pn=partialName();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_pn==null) list_pn=new ArrayList<Object>();
 							list_pn.add(pn.getTemplate());
 							}
@@ -10636,112 +11200,125 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt71 >= 1 ) break loop71;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(71, input);
 							throw eee;
 						}
 						cnt71++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 926:5: -> name(id=$id.textrec=$pn)
-					{
-						retval.st = templateLib.getInstanceOf("name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("rec", list_pn));
+					if ( state.backtracking==0 ) {
+					  // 926:5: -> name(id=$id.textrec=$pn)
+					  {
+					  	retval.st = templateLib.getInstanceOf("name",new STAttrMap().put("id", (id!=null?id.getText():null)).put("rec", list_pn));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:928:3: ^(q= QUESTION id= ID )
 					{
-					q=(BAST)match(input,QUESTION,FOLLOW_QUESTION_in_valueName6635); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6639); 
-					match(input, Token.UP, null); 
+					q=(BAST)match(input,QUESTION,FOLLOW_QUESTION_in_valueName6660); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6664); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 929:5: -> template(id=$id.text) \"<id>?\"
-					{
-						retval.st = new StringTemplate(templateLib, "<id>?",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 929:5: -> template(id=$id.text) \"<id>?\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<id>?",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:931:3: ^( TICK id= ID LITERAL_fresh )
 					{
-					match(input,TICK,FOLLOW_TICK_in_valueName6666); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6670); 
-					match(input,LITERAL_fresh,FOLLOW_LITERAL_fresh_in_valueName6672); 
-					match(input, Token.UP, null); 
+					match(input,TICK,FOLLOW_TICK_in_valueName6691); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6695); if (state.failed) return retval;
+					match(input,LITERAL_fresh,FOLLOW_LITERAL_fresh_in_valueName6697); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 932:5: -> port_fresh(id=$id.text)
-					{
-						retval.st = templateLib.getInstanceOf("port_fresh",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 932:5: -> port_fresh(id=$id.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("port_fresh",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:934:3: ^( TICK id= ID LITERAL_count )
 					{
-					match(input,TICK,FOLLOW_TICK_in_valueName6697); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6701); 
-					match(input,LITERAL_count,FOLLOW_LITERAL_count_in_valueName6703); 
-					match(input, Token.UP, null); 
+					match(input,TICK,FOLLOW_TICK_in_valueName6722); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6726); if (state.failed) return retval;
+					match(input,LITERAL_count,FOLLOW_LITERAL_count_in_valueName6728); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 935:5: -> port_count(id=$id.text)
-					{
-						retval.st = templateLib.getInstanceOf("port_count",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 935:5: -> port_count(id=$id.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("port_count",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:937:3: ^( TICK id= ID LITERAL_updated )
 					{
-					match(input,TICK,FOLLOW_TICK_in_valueName6728); 
-					match(input, Token.DOWN, null); 
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6732); 
-					match(input,LITERAL_updated,FOLLOW_LITERAL_updated_in_valueName6734); 
-					match(input, Token.UP, null); 
+					match(input,TICK,FOLLOW_TICK_in_valueName6753); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6757); if (state.failed) return retval;
+					match(input,LITERAL_updated,FOLLOW_LITERAL_updated_in_valueName6759); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 938:5: -> port_updated(id=$id.text)
-					{
-						retval.st = templateLib.getInstanceOf("port_updated",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 938:5: -> port_updated(id=$id.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("port_updated",new STAttrMap().put("id", (id!=null?id.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 8 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:940:3: id= ID
 					{
-					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6759); 
+					id=(BAST)match(input,ID,FOLLOW_ID_in_valueName6784); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 941:5: -> {%{$id.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(id!=null?id.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 941:5: -> {%{$id.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(id!=null?id.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -10808,6 +11385,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 73, 0, input);
 				throw nvae;
@@ -10817,40 +11395,44 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:946:3: ^( COMMA parameters+= formalExpressionPair )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_functionParameters6784); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_formalExpressionPair_in_functionParameters6788);
+					match(input,COMMA,FOLLOW_COMMA_in_functionParameters6809); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_formalExpressionPair_in_functionParameters6813);
 					parameters=formalExpressionPair();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_parameters==null) list_parameters=new ArrayList<Object>();
 					list_parameters.add(parameters.getTemplate());
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 947:5: -> array_range_list(r=$parameters)
-					{
-						retval.st = templateLib.getInstanceOf("array_range_list",new STAttrMap().put("r", list_parameters));
+					if ( state.backtracking==0 ) {
+					  // 947:5: -> array_range_list(r=$parameters)
+					  {
+					  	retval.st = templateLib.getInstanceOf("array_range_list",new STAttrMap().put("r", list_parameters));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:949:3: parameter= formalExpressionPair
 					{
-					pushFollow(FOLLOW_formalExpressionPair_in_functionParameters6813);
+					pushFollow(FOLLOW_formalExpressionPair_in_functionParameters6838);
 					parameter=formalExpressionPair();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 950:5: -> {$parameter.st}
-					{
-						retval.st = (parameter!=null?((StringTemplate)parameter.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 950:5: -> {$parameter.st}
+					  {
+					  	retval.st = (parameter!=null?((StringTemplate)parameter.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -10909,22 +11491,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:954:3: ( ^( COLON formal= ID actual= expression ) -> formal_actual(f=$formal.textap=$actual.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:955:3: ^( COLON formal= ID actual= expression )
 			{
-			match(input,COLON,FOLLOW_COLON_in_formalExpressionPair6838); 
-			match(input, Token.DOWN, null); 
-			formal=(BAST)match(input,ID,FOLLOW_ID_in_formalExpressionPair6842); 
-			pushFollow(FOLLOW_expression_in_formalExpressionPair6846);
+			match(input,COLON,FOLLOW_COLON_in_formalExpressionPair6863); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			formal=(BAST)match(input,ID,FOLLOW_ID_in_formalExpressionPair6867); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_formalExpressionPair6871);
 			actual=expression();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 956:5: -> formal_actual(f=$formal.textap=$actual.st)
-			{
-				retval.st = templateLib.getInstanceOf("formal_actual",new STAttrMap().put("f", (formal!=null?formal.getText():null)).put("ap", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 956:5: -> formal_actual(f=$formal.textap=$actual.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("formal_actual",new STAttrMap().put("f", (formal!=null?formal.getText():null)).put("ap", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -10991,6 +11575,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 74, 0, input);
 				throw nvae;
@@ -11000,42 +11585,46 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:961:3: ^(dd= DOTDOT lb= indexExpression ub= indexExpression )
 					{
-					dd=(BAST)match(input,DOTDOT,FOLLOW_DOTDOT_in_indexExpressionOrRange6889); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6893);
+					dd=(BAST)match(input,DOTDOT,FOLLOW_DOTDOT_in_indexExpressionOrRange6914); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6918);
 					lb=indexExpression();
 					state._fsp--;
-
-					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6897);
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6922);
 					ub=indexExpression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 962:5: -> relation(r=$dd.textlhs=$lb.strhs=$ub.st)
-					{
-						retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (dd!=null?dd.getText():null)).put("lhs", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("rhs", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 962:5: -> relation(r=$dd.textlhs=$lb.strhs=$ub.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("relation",new STAttrMap().put("r", (dd!=null?dd.getText():null)).put("lhs", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("rhs", (ub!=null?((StringTemplate)ub.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:964:3: index= indexExpression
 					{
-					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6932);
+					pushFollow(FOLLOW_indexExpression_in_indexExpressionOrRange6957);
 					index=indexExpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 965:5: -> {$index.st}
-					{
-						retval.st = (index!=null?((StringTemplate)index.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 965:5: -> {$index.st}
+					  {
+					  	retval.st = (index!=null?((StringTemplate)index.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -11104,6 +11693,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -11118,6 +11708,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 75, 0, input);
 				throw nvae;
@@ -11127,41 +11718,45 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:970:3: ^(record_id= ID ^( LBRACKET array_index+= indexExpressionOrRange ) )
 					{
-					record_id=(BAST)match(input,ID,FOLLOW_ID_in_partialName6959); 
-					match(input, Token.DOWN, null); 
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_partialName6963); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_indexExpressionOrRange_in_partialName6967);
+					record_id=(BAST)match(input,ID,FOLLOW_ID_in_partialName6984); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_partialName6988); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_indexExpressionOrRange_in_partialName6992);
 					array_index=indexExpressionOrRange();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_array_index==null) list_array_index=new ArrayList<Object>();
 					list_array_index.add(array_index.getTemplate());
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 971:5: -> partial_name(i=$record_id.textp=$array_index)
-					{
-						retval.st = templateLib.getInstanceOf("partial_name",new STAttrMap().put("i", (record_id!=null?record_id.getText():null)).put("p", list_array_index));
+					if ( state.backtracking==0 ) {
+					  // 971:5: -> partial_name(i=$record_id.textp=$array_index)
+					  {
+					  	retval.st = templateLib.getInstanceOf("partial_name",new STAttrMap().put("i", (record_id!=null?record_id.getText():null)).put("p", list_array_index));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:973:3: record_id= ID
 					{
-					record_id=(BAST)match(input,ID,FOLLOW_ID_in_partialName6999); 
+					record_id=(BAST)match(input,ID,FOLLOW_ID_in_partialName7024); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 974:5: -> {%{$record_id.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(record_id!=null?record_id.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 974:5: -> {%{$record_id.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(record_id!=null?record_id.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -11249,6 +11844,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 76, 0, input);
 				throw nvae;
@@ -11257,73 +11853,83 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:980:3: q= quantity
 					{
-					pushFollow(FOLLOW_quantity_in_constant7026);
+					pushFollow(FOLLOW_quantity_in_constant7051);
 					q=quantity();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 981:5: -> {$q.st}
-					{
-						retval.st = (q!=null?((StringTemplate)q.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 981:5: -> {$q.st}
+					  {
+					  	retval.st = (q!=null?((StringTemplate)q.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:983:3: s= AADL_STRING_LITERAL
 					{
-					s=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_constant7044); 
+					s=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_constant7069); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 984:5: -> {%{$s.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(s!=null?s.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 984:5: -> {%{$s.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(s!=null?s.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:986:3: t= LITERAL_true
 					{
-					t=(BAST)match(input,LITERAL_true,FOLLOW_LITERAL_true_in_constant7062); 
+					t=(BAST)match(input,LITERAL_true,FOLLOW_LITERAL_true_in_constant7087); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 987:5: -> {%{$t.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(t!=null?t.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 987:5: -> {%{$t.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(t!=null?t.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:989:3: f= LITERAL_false
 					{
-					f=(BAST)match(input,LITERAL_false,FOLLOW_LITERAL_false_in_constant7080); 
+					f=(BAST)match(input,LITERAL_false,FOLLOW_LITERAL_false_in_constant7105); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 990:5: -> {%{$f.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(f!=null?f.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 990:5: -> {%{$f.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(f!=null?f.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:992:3: n= LITERAL_null
 					{
-					n=(BAST)match(input,LITERAL_null,FOLLOW_LITERAL_null_in_constant7098); 
+					n=(BAST)match(input,LITERAL_null,FOLLOW_LITERAL_null_in_constant7123); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 993:5: -> {%{$n.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(n!=null?n.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 993:5: -> {%{$n.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(n!=null?n.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -11386,87 +11992,95 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:998:3: ^( QUANTITY num= aNumber )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7123); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7127);
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7148); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_aNumber_in_quantity7152);
 					num=aNumber();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 999:5: -> {$num.st}
-					{
-						retval.st = (num!=null?((StringTemplate)num.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 999:5: -> {$num.st}
+					  {
+					  	retval.st = (num!=null?((StringTemplate)num.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1001:3: ^( QUANTITY num= aNumber unit= ID )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7147); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7151);
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7172); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_aNumber_in_quantity7176);
 					num=aNumber();
 					state._fsp--;
-
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantity7155); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantity7180); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1002:5: -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"
-					{
-						retval.st = new StringTemplate(templateLib, "<number> <unit>",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (unit!=null?unit.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1002:5: -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<number> <unit>",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (unit!=null?unit.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1004:3: ^( QUANTITY num= aNumber LITERAL_scalar )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7187); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7191);
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7212); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_aNumber_in_quantity7216);
 					num=aNumber();
 					state._fsp--;
-
-					match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantity7193); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantity7218); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1005:5: -> template(number=$num.st) \"<number> scalar\"
-					{
-						retval.st = new StringTemplate(templateLib, "<number> scalar",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1005:5: -> template(number=$num.st) \"<number> scalar\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<number> scalar",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1007:3: ^( QUANTITY num= aNumber LITERAL_whole )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7220); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7224);
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7245); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_aNumber_in_quantity7249);
 					num=aNumber();
 					state._fsp--;
-
-					match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantity7226); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantity7251); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1008:5: -> template(number=$num.st) \"<number> whole\"
-					{
-						retval.st = new StringTemplate(templateLib, "<number> whole",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1008:5: -> template(number=$num.st) \"<number> whole\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "<number> whole",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -11542,6 +12156,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 78, 0, input);
 				throw nvae;
@@ -11550,45 +12165,51 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1012:2: lit= NUMBER
 					{
-					lit=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_aNumber7261); 
+					lit=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_aNumber7286); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1013:4: -> {%{$lit.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(lit!=null?lit.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 1013:4: -> {%{$lit.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(lit!=null?lit.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1014:4: property= propertyReference
 					{
-					pushFollow(FOLLOW_propertyReference_in_aNumber7275);
+					pushFollow(FOLLOW_propertyReference_in_aNumber7300);
 					property=propertyReference();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1015:4: -> {$property.st}
-					{
-						retval.st = (property!=null?((StringTemplate)property.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1015:4: -> {$property.st}
+					  {
+					  	retval.st = (property!=null?((StringTemplate)property.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1016:4: propertyConstant= QCLREF
 					{
-					propertyConstant=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_aNumber7289); 
+					propertyConstant=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_aNumber7314); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1017:4: -> {%{$propertyConstant.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(propertyConstant!=null?propertyConstant.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 1017:4: -> {%{$propertyConstant.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(propertyConstant!=null?propertyConstant.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -11665,6 +12286,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -11693,6 +12315,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 
 							else {
+								if (state.backtracking>0) {state.failed=true; return retval;}
 								int nvaeMark = input.mark();
 								try {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
@@ -11709,6 +12332,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -11737,6 +12361,7 @@ public class UnparseBLESS3 extends TreeParser {
 							}
 
 							else {
+								if (state.backtracking>0) {state.failed=true; return retval;}
 								int nvaeMark = input.mark();
 								try {
 									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
@@ -11753,6 +12378,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -11769,6 +12395,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 						break;
 					default:
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -11784,6 +12411,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -11798,6 +12426,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 82, 0, input);
 				throw nvae;
@@ -11807,32 +12436,34 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1023:3: ^(oct= OCTOTHORPE pname= QCLREF )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7321); 
-					match(input, Token.DOWN, null); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7325); 
-					match(input, Token.UP, null); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7346); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7350); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1024:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
-					if (lookUpPropertyValues) {
-						retval.st = getAadlPropertyValue((BAST)oct.getChild(0));
+					if ( state.backtracking==0 ) {
+					  // 1024:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
+					  if (lookUpPropertyValues) {
+					  	retval.st = getAadlPropertyValue((BAST)oct.getChild(0));
+					  }
+
+					  else // 1025:5: -> property_reference(pname=$pname.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("pname", (pname!=null?pname.getText():null)));
+					  }
+
+
 					}
-
-					else // 1025:5: -> property_reference(pname=$pname.text)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("pname", (pname!=null?pname.getText():null)));
-					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1027:3: ^(oct= OCTOTHORPE pname= QCLREF (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7362); 
-					match(input, Token.DOWN, null); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7366); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7387); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7391); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1027:38: (field+= propertyField )+
 					int cnt79=0;
 					loop79:
@@ -11847,10 +12478,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1027:38: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7370);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7395);
 							field=propertyField();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_field==null) list_field=new ArrayList<Object>();
 							list_field.add(field.getTemplate());
 							}
@@ -11858,60 +12489,65 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt79 >= 1 ) break loop79;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(79, input);
 							throw eee;
 						}
 						cnt79++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1028:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
-					if (lookUpPropertyValues) {
-						retval.st = getAadlPropertyValue((BAST)oct.getChild(0));
+					if ( state.backtracking==0 ) {
+					  // 1028:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
+					  if (lookUpPropertyValues) {
+					  	retval.st = getAadlPropertyValue((BAST)oct.getChild(0));
+					  }
+
+					  else // 1029:5: -> property_reference(pname=$pname.textf=$field)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					  }
+
+
 					}
-
-					else // 1029:5: -> property_reference(pname=$pname.textf=$field)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
-					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1031:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= QCLREF )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7412); 
-					match(input, Token.DOWN, null); 
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7416); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7420); 
-					match(input, Token.UP, null); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7437); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7441); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7445); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1032:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
-					if (lookUpPropertyValues) {
-						retval.st = getAadlPropertyValue((BAST)oct.getChild(1));
+					if ( state.backtracking==0 ) {
+					  // 1032:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
+					  if (lookUpPropertyValues) {
+					  	retval.st = getAadlPropertyValue((BAST)oct.getChild(1));
+					  }
+
+					  else // 1033:5: -> property_reference(component=$self.textpname=$pname.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (self!=null?self.getText():null)).put("pname", (pname!=null?pname.getText():null)));
+					  }
+
+
 					}
-
-					else // 1033:5: -> property_reference(component=$self.textpname=$pname.text)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (self!=null?self.getText():null)).put("pname", (pname!=null?pname.getText():null)));
-					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1035:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= QCLREF (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7462); 
-					match(input, Token.DOWN, null); 
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7466); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7470); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7487); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7491); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7495); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1035:56: (field+= propertyField )+
 					int cnt80=0;
 					loop80:
@@ -11926,10 +12562,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1035:56: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7474);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7499);
 							field=propertyField();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_field==null) list_field=new ArrayList<Object>();
 							list_field.add(field.getTemplate());
 							}
@@ -11937,55 +12573,60 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt80 >= 1 ) break loop80;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(80, input);
 							throw eee;
 						}
 						cnt80++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1036:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
-					if (lookUpPropertyValues) {
-						retval.st = getAadlPropertyValue((BAST)oct.getChild(1));
+					if ( state.backtracking==0 ) {
+					  // 1036:5: -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
+					  if (lookUpPropertyValues) {
+					  	retval.st = getAadlPropertyValue((BAST)oct.getChild(1));
+					  }
+
+					  else // 1037:5: -> property_reference(component=$self.textpname=$pname.textf=$field)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (self!=null?self.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					  }
+
+
 					}
-
-					else // 1037:5: -> property_reference(component=$self.textpname=$pname.textf=$field)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (self!=null?self.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
-					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1039:3: ^(oct= OCTOTHORPE component= QCREF pname= QCLREF )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7520); 
-					match(input, Token.DOWN, null); 
-					component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_propertyReference7524); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7528); 
-					match(input, Token.UP, null); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7545); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_propertyReference7549); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7553); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1040:5: -> property_reference(component=$component.textpname=$pname.textf=$field)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (component!=null?component.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					if ( state.backtracking==0 ) {
+					  // 1040:5: -> property_reference(component=$component.textpname=$pname.textf=$field)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (component!=null?component.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1042:3: ^(oct= OCTOTHORPE component= QCREF pname= QCLREF (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7563); 
-					match(input, Token.DOWN, null); 
-					component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_propertyReference7567); 
-					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7571); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7588); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_propertyReference7592); if (state.failed) return retval;
+					pname=(BAST)match(input,QCLREF,FOLLOW_QCLREF_in_propertyReference7596); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1042:54: (field+= propertyField )+
 					int cnt81=0;
 					loop81:
@@ -12000,10 +12641,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1042:54: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7575);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7600);
 							field=propertyField();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_field==null) list_field=new ArrayList<Object>();
 							list_field.add(field.getTemplate());
 							}
@@ -12011,21 +12652,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt81 >= 1 ) break loop81;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(81, input);
 							throw eee;
 						}
 						cnt81++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1043:5: -> property_reference(component=$component.textpname=$pname.textf=$field)
-					{
-						retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (component!=null?component.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					if ( state.backtracking==0 ) {
+					  // 1043:5: -> property_reference(component=$component.textpname=$pname.textf=$field)
+					  {
+					  	retval.st = templateLib.getInstanceOf("property_reference",new STAttrMap().put("component", (component!=null?component.getText():null)).put("pname", (pname!=null?pname.getText():null)).put("f", list_field));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -12097,6 +12741,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -12113,6 +12758,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -12145,6 +12791,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 						break;
 					default:
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -12160,6 +12807,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -12174,6 +12822,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 83, 0, input);
 				throw nvae;
@@ -12183,90 +12832,100 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1048:3: ^( LBRACKET index= NUMBER )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7617); 
-					match(input, Token.DOWN, null); 
-					index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_propertyField7621); 
-					match(input, Token.UP, null); 
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7642); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_propertyField7646); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1049:5: -> index(i=$index.text)
-					{
-						retval.st = templateLib.getInstanceOf("index",new STAttrMap().put("i", (index!=null?index.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1049:5: -> index(i=$index.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("index",new STAttrMap().put("i", (index!=null?index.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1051:3: ^( LBRACKET var= ID )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7646); 
-					match(input, Token.DOWN, null); 
-					var=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7650); 
-					match(input, Token.UP, null); 
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7671); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					var=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7675); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1052:5: -> index(i=$var.text)
-					{
-						retval.st = templateLib.getInstanceOf("index",new STAttrMap().put("i", (var!=null?var.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1052:5: -> index(i=$var.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("index",new STAttrMap().put("i", (var!=null?var.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1054:3: ^( DOT pf= ID )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7675); 
-					match(input, Token.DOWN, null); 
-					pf=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7679); 
-					match(input, Token.UP, null); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7700); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pf=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7704); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1055:5: -> template(pf=$pf.text) \".<pf>\"
-					{
-						retval.st = new StringTemplate(templateLib, ".<pf>",new STAttrMap().put("pf", (pf!=null?pf.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1055:5: -> template(pf=$pf.text) \".<pf>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, ".<pf>",new STAttrMap().put("pf", (pf!=null?pf.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1057:3: ^( DOT LITERAL_upper_bound )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7706); 
-					match(input, Token.DOWN, null); 
-					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_propertyField7708); 
-					match(input, Token.UP, null); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7731); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_propertyField7733); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1058:5: -> template( \".upper_bound\"
-					{
-						retval.st = new StringTemplate(templateLib, ".upper_bound");
+					if ( state.backtracking==0 ) {
+					  // 1058:5: -> template( \".upper_bound\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, ".upper_bound");
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1060:3: ^( DOT LITERAL_lower_bound )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7732); 
-					match(input, Token.DOWN, null); 
-					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_propertyField7734); 
-					match(input, Token.UP, null); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7757); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_propertyField7759); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1061:5: -> template( \".lower_bound\"
-					{
-						retval.st = new StringTemplate(templateLib, ".lower_bound");
+					if ( state.backtracking==0 ) {
+					  // 1061:5: -> template( \".lower_bound\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, ".lower_bound");
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -12330,8 +12989,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1069:3: ( ^( ACTION_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (tc= throwsClause )? (ac= assertClause )? ^( LITERAL_pre (precondition= assertion )? ) ^( LITERAL_post (postcondition= assertion )? ) ^( LITERAL_invariant (invariant= assertion )? ) elq= existentialLatticeQuantification ) -> action_subclause(no_proof=$no_proof.texttc=$tc.stac=$ac.stpre=$precondition.stpost=$postcondition.stinv=$invariant.stelq=$elq.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1070:3: ^( ACTION_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (tc= throwsClause )? (ac= assertClause )? ^( LITERAL_pre (precondition= assertion )? ) ^( LITERAL_post (postcondition= assertion )? ) ^( LITERAL_invariant (invariant= assertion )? ) elq= existentialLatticeQuantification )
 			{
-			match(input,ACTION_SUBCLAUSE,FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause7769); 
-			match(input, Token.DOWN, null); 
+			match(input,ACTION_SUBCLAUSE,FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause7794); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1070:23: (no_proof= DO_NOT_PROVE )?
 			int alt84=2;
 			int LA84_0 = input.LA(1);
@@ -12342,7 +13001,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1070:24: no_proof= DO_NOT_PROVE
 					{
-					no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_actionSubclause7774); 
+					no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_actionSubclause7799); if (state.failed) return retval;
 					}
 					break;
 
@@ -12358,10 +13017,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1070:49: tc= throwsClause
 					{
-					pushFollow(FOLLOW_throwsClause_in_actionSubclause7781);
+					pushFollow(FOLLOW_throwsClause_in_actionSubclause7806);
 					tc=throwsClause();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
@@ -12377,18 +13036,18 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1070:68: ac= assertClause
 					{
-					pushFollow(FOLLOW_assertClause_in_actionSubclause7788);
+					pushFollow(FOLLOW_assertClause_in_actionSubclause7813);
 					ac=assertClause();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input,LITERAL_pre,FOLLOW_LITERAL_pre_in_actionSubclause7799); 
+			match(input,LITERAL_pre,FOLLOW_LITERAL_pre_in_actionSubclause7824); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1071:20: (precondition= assertion )?
 				int alt87=2;
 				int LA87_0 = input.LA(1);
@@ -12399,21 +13058,21 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1071:21: precondition= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause7804);
+						pushFollow(FOLLOW_assertion_in_actionSubclause7829);
 						precondition=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,LITERAL_post,FOLLOW_LITERAL_post_in_actionSubclause7816); 
+			match(input,LITERAL_post,FOLLOW_LITERAL_post_in_actionSubclause7841); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1072:21: (postcondition= assertion )?
 				int alt88=2;
 				int LA88_0 = input.LA(1);
@@ -12424,21 +13083,21 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1072:22: postcondition= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause7821);
+						pushFollow(FOLLOW_assertion_in_actionSubclause7846);
 						postcondition=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_actionSubclause7834); 
+			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_actionSubclause7859); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1073:26: (invariant= assertion )?
 				int alt89=2;
 				int LA89_0 = input.LA(1);
@@ -12449,31 +13108,33 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1073:27: invariant= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause7839);
+						pushFollow(FOLLOW_assertion_in_actionSubclause7864);
 						invariant=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_actionSubclause7852);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_actionSubclause7877);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1075:3: -> action_subclause(no_proof=$no_proof.texttc=$tc.stac=$ac.stpre=$precondition.stpost=$postcondition.stinv=$invariant.stelq=$elq.st)
-			{
-				retval.st = templateLib.getInstanceOf("action_subclause",new STAttrMap().put("no_proof", (no_proof!=null?no_proof.getText():null)).put("tc", (tc!=null?((StringTemplate)tc.getTemplate()):null)).put("ac", (ac!=null?((StringTemplate)ac.getTemplate()):null)).put("pre", (precondition!=null?((StringTemplate)precondition.getTemplate()):null)).put("post", (postcondition!=null?((StringTemplate)postcondition.getTemplate()):null)).put("inv", (invariant!=null?((StringTemplate)invariant.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1075:3: -> action_subclause(no_proof=$no_proof.texttc=$tc.stac=$ac.stpre=$precondition.stpost=$postcondition.stinv=$invariant.stelq=$elq.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("action_subclause",new STAttrMap().put("no_proof", (no_proof!=null?no_proof.getText():null)).put("tc", (tc!=null?((StringTemplate)tc.getTemplate()):null)).put("ac", (ac!=null?((StringTemplate)ac.getTemplate()):null)).put("pre", (precondition!=null?((StringTemplate)precondition.getTemplate()):null)).put("post", (postcondition!=null?((StringTemplate)postcondition.getTemplate()):null)).put("inv", (invariant!=null?((StringTemplate)invariant.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -12530,8 +13191,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1081:3: ( ^( LITERAL_throws (exceptions+= ID )+ ) -> throws_clause(ex=$exceptions))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1082:2: ^( LITERAL_throws (exceptions+= ID )+ )
 			{
-			match(input,LITERAL_throws,FOLLOW_LITERAL_throws_in_throwsClause7925); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_throws,FOLLOW_LITERAL_throws_in_throwsClause7950); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1082:30: (exceptions+= ID )+
 			int cnt90=0;
 			loop90:
@@ -12546,7 +13207,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1082:30: exceptions+= ID
 					{
-					exceptions=(BAST)match(input,ID,FOLLOW_ID_in_throwsClause7929); 
+					exceptions=(BAST)match(input,ID,FOLLOW_ID_in_throwsClause7954); if (state.failed) return retval;
 					if (list_exceptions==null) list_exceptions=new ArrayList<Object>();
 					list_exceptions.add(exceptions);
 					}
@@ -12554,21 +13215,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt90 >= 1 ) break loop90;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(90, input);
 					throw eee;
 				}
 				cnt90++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1083:4: -> throws_clause(ex=$exceptions)
-			{
-				retval.st = templateLib.getInstanceOf("throws_clause",new STAttrMap().put("ex", list_exceptions));
+			if ( state.backtracking==0 ) {
+			  // 1083:4: -> throws_clause(ex=$exceptions)
+			  {
+			  	retval.st = templateLib.getInstanceOf("throws_clause",new STAttrMap().put("ex", list_exceptions));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -12624,8 +13288,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1087:3: ( ^( LITERAL_assert (assertions+= namedAssertion )+ ) -> assert_clause(a=$assertions))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1088:3: ^( LITERAL_assert (assertions+= namedAssertion )+ )
 			{
-			match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_assertClause7962); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_assertClause7987); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1088:31: (assertions+= namedAssertion )+
 			int cnt91=0;
 			loop91:
@@ -12640,10 +13304,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1088:31: assertions+= namedAssertion
 					{
-					pushFollow(FOLLOW_namedAssertion_in_assertClause7966);
+					pushFollow(FOLLOW_namedAssertion_in_assertClause7991);
 					assertions=namedAssertion();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_assertions==null) list_assertions=new ArrayList<Object>();
 					list_assertions.add(assertions.getTemplate());
 					}
@@ -12651,21 +13315,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt91 >= 1 ) break loop91;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(91, input);
 					throw eee;
 				}
 				cnt91++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1089:5: -> assert_clause(a=$assertions)
-			{
-				retval.st = templateLib.getInstanceOf("assert_clause",new STAttrMap().put("a", list_assertions));
+			if ( state.backtracking==0 ) {
+			  // 1089:5: -> assert_clause(a=$assertions)
+			  {
+			  	retval.st = templateLib.getInstanceOf("assert_clause",new STAttrMap().put("a", list_assertions));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -12723,8 +13390,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1093:3: ( ^( LCURLY (qv= quantifiedVariables )? actions= behaviorActions RCURLY (cc= catchClause )? ) -> elq(v=$qv.stba=$actions.stcc=$cc.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1094:3: ^( LCURLY (qv= quantifiedVariables )? actions= behaviorActions RCURLY (cc= catchClause )? )
 			{
-			match(input,LCURLY,FOLLOW_LCURLY_in_existentialLatticeQuantification7999); 
-			match(input, Token.DOWN, null); 
+			match(input,LCURLY,FOLLOW_LCURLY_in_existentialLatticeQuantification8024); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1094:13: (qv= quantifiedVariables )?
 			int alt92=2;
 			int LA92_0 = input.LA(1);
@@ -12735,20 +13402,20 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1094:15: qv= quantifiedVariables
 					{
-					pushFollow(FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8005);
+					pushFollow(FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8030);
 					qv=quantifiedVariables();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_existentialLatticeQuantification8012);
+			pushFollow(FOLLOW_behaviorActions_in_existentialLatticeQuantification8037);
 			actions=behaviorActions();
 			state._fsp--;
-
-			match(input,RCURLY,FOLLOW_RCURLY_in_existentialLatticeQuantification8014); 
+			if (state.failed) return retval;
+			match(input,RCURLY,FOLLOW_RCURLY_in_existentialLatticeQuantification8039); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1094:72: (cc= catchClause )?
 			int alt93=2;
 			int LA93_0 = input.LA(1);
@@ -12759,24 +13426,26 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1094:74: cc= catchClause
 					{
-					pushFollow(FOLLOW_catchClause_in_existentialLatticeQuantification8020);
+					pushFollow(FOLLOW_catchClause_in_existentialLatticeQuantification8045);
 					cc=catchClause();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1095:5: -> elq(v=$qv.stba=$actions.stcc=$cc.st)
-			{
-				retval.st = templateLib.getInstanceOf("elq",new STAttrMap().put("v", (qv!=null?((StringTemplate)qv.getTemplate()):null)).put("ba", (actions!=null?((StringTemplate)actions.getTemplate()):null)).put("cc", (cc!=null?((StringTemplate)cc.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1095:5: -> elq(v=$qv.stba=$actions.stcc=$cc.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("elq",new STAttrMap().put("v", (qv!=null?((StringTemplate)qv.getTemplate()):null)).put("ba", (actions!=null?((StringTemplate)actions.getTemplate()):null)).put("cc", (cc!=null?((StringTemplate)cc.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -12832,8 +13501,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1099:3: ( ^( LITERAL_declare (decs+= variableDeclaration )+ ) -> quantified_variables(bv=$decs))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1100:3: ^( LITERAL_declare (decs+= variableDeclaration )+ )
 			{
-			match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_quantifiedVariables8065); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_quantifiedVariables8090); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1100:26: (decs+= variableDeclaration )+
 			int cnt94=0;
 			loop94:
@@ -12848,10 +13517,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1100:26: decs+= variableDeclaration
 					{
-					pushFollow(FOLLOW_variableDeclaration_in_quantifiedVariables8069);
+					pushFollow(FOLLOW_variableDeclaration_in_quantifiedVariables8094);
 					decs=variableDeclaration();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_decs==null) list_decs=new ArrayList<Object>();
 					list_decs.add(decs.getTemplate());
 					}
@@ -12859,21 +13528,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt94 >= 1 ) break loop94;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(94, input);
 					throw eee;
 				}
 				cnt94++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1101:5: -> quantified_variables(bv=$decs)
-			{
-				retval.st = templateLib.getInstanceOf("quantified_variables",new STAttrMap().put("bv", list_decs));
+			if ( state.backtracking==0 ) {
+			  // 1101:5: -> quantified_variables(bv=$decs)
+			  {
+			  	retval.st = templateLib.getInstanceOf("quantified_variables",new STAttrMap().put("bv", list_decs));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -12936,12 +13608,12 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1105:3: ( ^( VARIABLE_DECLARATION v= variable ( ^( ASSIGN exp= expression ) )? (a= assertion )? (nv= LITERAL_nonvolatile )? (sh= LITERAL_shared )? (c= LITERAL_constant )? (sp= LITERAL_spread )? (f= LITERAL_final )? ) -> variable_declaration(v=$v.stexp=$exp.sta=$a.stnv=$nv.textsh=$sh.textc=$c.textsp=$sp.textf=$f.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:3: ^( VARIABLE_DECLARATION v= variable ( ^( ASSIGN exp= expression ) )? (a= assertion )? (nv= LITERAL_nonvolatile )? (sh= LITERAL_shared )? (c= LITERAL_constant )? (sp= LITERAL_spread )? (f= LITERAL_final )? )
 			{
-			match(input,VARIABLE_DECLARATION,FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8101); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_variable_in_variableDeclaration8105);
+			match(input,VARIABLE_DECLARATION,FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8126); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_variable_in_variableDeclaration8130);
 			v=variable();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:38: ( ^( ASSIGN exp= expression ) )?
 			int alt95=2;
 			int LA95_0 = input.LA(1);
@@ -12952,13 +13624,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:40: ^( ASSIGN exp= expression )
 					{
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration8111); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_variableDeclaration8115);
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration8136); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_variableDeclaration8140);
 					exp=expression();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					}
 					break;
@@ -12975,10 +13647,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:71: a= assertion
 					{
-					pushFollow(FOLLOW_assertion_in_variableDeclaration8124);
+					pushFollow(FOLLOW_assertion_in_variableDeclaration8149);
 					a=assertion();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
@@ -12994,7 +13666,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1107:7: nv= LITERAL_nonvolatile
 					{
-					nv=(BAST)match(input,LITERAL_nonvolatile,FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8134); 
+					nv=(BAST)match(input,LITERAL_nonvolatile,FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8159); if (state.failed) return retval;
 					}
 					break;
 
@@ -13010,7 +13682,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1107:31: sh= LITERAL_shared
 					{
-					sh=(BAST)match(input,LITERAL_shared,FOLLOW_LITERAL_shared_in_variableDeclaration8139); 
+					sh=(BAST)match(input,LITERAL_shared,FOLLOW_LITERAL_shared_in_variableDeclaration8164); if (state.failed) return retval;
 					}
 					break;
 
@@ -13026,7 +13698,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1107:49: c= LITERAL_constant
 					{
-					c=(BAST)match(input,LITERAL_constant,FOLLOW_LITERAL_constant_in_variableDeclaration8144); 
+					c=(BAST)match(input,LITERAL_constant,FOLLOW_LITERAL_constant_in_variableDeclaration8169); if (state.failed) return retval;
 					}
 					break;
 
@@ -13042,7 +13714,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1107:70: sp= LITERAL_spread
 					{
-					sp=(BAST)match(input,LITERAL_spread,FOLLOW_LITERAL_spread_in_variableDeclaration8149); 
+					sp=(BAST)match(input,LITERAL_spread,FOLLOW_LITERAL_spread_in_variableDeclaration8174); if (state.failed) return retval;
 					}
 					break;
 
@@ -13058,21 +13730,23 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1107:88: f= LITERAL_final
 					{
-					f=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_variableDeclaration8154); 
+					f=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_variableDeclaration8179); if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1108:5: -> variable_declaration(v=$v.stexp=$exp.sta=$a.stnv=$nv.textsh=$sh.textc=$c.textsp=$sp.textf=$f.text)
-			{
-				retval.st = templateLib.getInstanceOf("variable_declaration",new STAttrMap().put("v", (v!=null?((StringTemplate)v.getTemplate()):null)).put("exp", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("a", (a!=null?((StringTemplate)a.getTemplate()):null)).put("nv", (nv!=null?nv.getText():null)).put("sh", (sh!=null?sh.getText():null)).put("c", (c!=null?c.getText():null)).put("sp", (sp!=null?sp.getText():null)).put("f", (f!=null?f.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 1108:5: -> variable_declaration(v=$v.stexp=$exp.sta=$a.stnv=$nv.textsh=$sh.textc=$c.textsp=$sp.textf=$f.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("variable_declaration",new STAttrMap().put("v", (v!=null?((StringTemplate)v.getTemplate()):null)).put("exp", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("a", (a!=null?((StringTemplate)a.getTemplate()):null)).put("nv", (nv!=null?nv.getText():null)).put("sh", (sh!=null?sh.getText():null)).put("c", (c!=null?c.getText():null)).put("sp", (sp!=null?sp.getText():null)).put("f", (f!=null?f.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -13128,8 +13802,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1112:3: ( ^( LITERAL_catch (cct+= catchClauseTerm )+ ) -> catch_clause(cct=$cct))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1113:2: ^( LITERAL_catch (cct+= catchClauseTerm )+ )
 			{
-			match(input,LITERAL_catch,FOLLOW_LITERAL_catch_in_catchClause8214); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_catch,FOLLOW_LITERAL_catch_in_catchClause8239); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1113:22: (cct+= catchClauseTerm )+
 			int cnt102=0;
 			loop102:
@@ -13144,10 +13818,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1113:22: cct+= catchClauseTerm
 					{
-					pushFollow(FOLLOW_catchClauseTerm_in_catchClause8218);
+					pushFollow(FOLLOW_catchClauseTerm_in_catchClause8243);
 					cct=catchClauseTerm();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_cct==null) list_cct=new ArrayList<Object>();
 					list_cct.add(cct.getTemplate());
 					}
@@ -13155,21 +13829,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt102 >= 1 ) break loop102;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(102, input);
 					throw eee;
 				}
 				cnt102++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1114:4: -> catch_clause(cct=$cct)
-			{
-				retval.st = templateLib.getInstanceOf("catch_clause",new STAttrMap().put("cct", list_cct));
+			if ( state.backtracking==0 ) {
+			  // 1114:4: -> catch_clause(cct=$cct)
+			  {
+			  	retval.st = templateLib.getInstanceOf("catch_clause",new STAttrMap().put("cct", list_cct));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -13240,6 +13917,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -13256,6 +13934,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -13270,6 +13949,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 104, 0, input);
 				throw nvae;
@@ -13279,8 +13959,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1119:3: ^( LPAREN (exceptions+= ID )+ colon= COLON act= basicAction RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8250); 
-					match(input, Token.DOWN, null); 
+					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8275); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1119:23: (exceptions+= ID )+
 					int cnt103=0;
 					loop103:
@@ -13295,7 +13975,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1119:23: exceptions+= ID
 							{
-							exceptions=(BAST)match(input,ID,FOLLOW_ID_in_catchClauseTerm8254); 
+							exceptions=(BAST)match(input,ID,FOLLOW_ID_in_catchClauseTerm8279); if (state.failed) return retval;
 							if (list_exceptions==null) list_exceptions=new ArrayList<Object>();
 							list_exceptions.add(exceptions);
 							}
@@ -13303,51 +13983,56 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt103 >= 1 ) break loop103;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(103, input);
 							throw eee;
 						}
 						cnt103++;
 					}
 
-					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8260); 
-					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8264);
+					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8285); if (state.failed) return retval;
+					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8289);
 					act=basicAction();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8266); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8291); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1120:5: -> catch_clause_term(ei=$exceptionsba=$act.st)
-					{
-						retval.st = templateLib.getInstanceOf("catch_clause_term",new STAttrMap().put("ei", list_exceptions).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1120:5: -> catch_clause_term(ei=$exceptionsba=$act.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("catch_clause_term",new STAttrMap().put("ei", list_exceptions).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1122:3: ^( LPAREN LITERAL_all colon= COLON act= basicAction RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8296); 
-					match(input, Token.DOWN, null); 
-					match(input,LITERAL_all,FOLLOW_LITERAL_all_in_catchClauseTerm8298); 
-					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8302); 
-					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8306);
+					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8321); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					match(input,LITERAL_all,FOLLOW_LITERAL_all_in_catchClauseTerm8323); if (state.failed) return retval;
+					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8327); if (state.failed) return retval;
+					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8331);
 					act=basicAction();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8308); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8333); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1123:5: -> catch_clause_term_all(ba=$act.st)
-					{
-						retval.st = templateLib.getInstanceOf("catch_clause_term_all",new STAttrMap().put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1123:5: -> catch_clause_term_all(ba=$act.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("catch_clause_term_all",new STAttrMap().put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -13422,6 +14107,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 107, 0, input);
 				throw nvae;
@@ -13430,8 +14116,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1128:3: ^( SEMICOLON (aa+= assertedAction )+ )
 					{
-					match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behaviorActions8340); 
-					match(input, Token.DOWN, null); 
+					match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behaviorActions8365); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1128:18: (aa+= assertedAction )+
 					int cnt105=0;
 					loop105:
@@ -13446,10 +14132,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1128:18: aa+= assertedAction
 							{
-							pushFollow(FOLLOW_assertedAction_in_behaviorActions8344);
+							pushFollow(FOLLOW_assertedAction_in_behaviorActions8369);
 							aa=assertedAction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_aa==null) list_aa=new ArrayList<Object>();
 							list_aa.add(aa.getTemplate());
 							}
@@ -13457,29 +14143,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt105 >= 1 ) break loop105;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(105, input);
 							throw eee;
 						}
 						cnt105++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1129:5: -> sequential_composition(f=$aa)
-					{
-						retval.st = templateLib.getInstanceOf("sequential_composition",new STAttrMap().put("f", list_aa));
+					if ( state.backtracking==0 ) {
+					  // 1129:5: -> sequential_composition(f=$aa)
+					  {
+					  	retval.st = templateLib.getInstanceOf("sequential_composition",new STAttrMap().put("f", list_aa));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1131:3: ^( AMPERSAND (aa+= assertedAction )+ )
 					{
-					match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behaviorActions8370); 
-					match(input, Token.DOWN, null); 
+					match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behaviorActions8395); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1131:18: (aa+= assertedAction )+
 					int cnt106=0;
 					loop106:
@@ -13494,10 +14183,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1131:18: aa+= assertedAction
 							{
-							pushFollow(FOLLOW_assertedAction_in_behaviorActions8374);
+							pushFollow(FOLLOW_assertedAction_in_behaviorActions8399);
 							aa=assertedAction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_aa==null) list_aa=new ArrayList<Object>();
 							list_aa.add(aa.getTemplate());
 							}
@@ -13505,38 +14194,43 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt106 >= 1 ) break loop106;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(106, input);
 							throw eee;
 						}
 						cnt106++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1132:5: -> concurrent_composition(g=$aa)
-					{
-						retval.st = templateLib.getInstanceOf("concurrent_composition",new STAttrMap().put("g", list_aa));
+					if ( state.backtracking==0 ) {
+					  // 1132:5: -> concurrent_composition(g=$aa)
+					  {
+					  	retval.st = templateLib.getInstanceOf("concurrent_composition",new STAttrMap().put("g", list_aa));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1134:3: a= assertedAction
 					{
-					pushFollow(FOLLOW_assertedAction_in_behaviorActions8400);
+					pushFollow(FOLLOW_assertedAction_in_behaviorActions8425);
 					a=assertedAction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1135:5: -> {$a.st}
-					{
-						retval.st = (a!=null?((StringTemplate)a.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1135:5: -> {$a.st}
+					  {
+					  	retval.st = (a!=null?((StringTemplate)a.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -13596,11 +14290,11 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1139:3: ( ^( ACTION ^( P (pre= assertion )? ) ^( S s= action ) ^( Q (post= assertion )? ) ) -> asserted_action(p=$pre.sts=$s.stq=$post.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:3: ^( ACTION ^( P (pre= assertion )? ) ^( S s= action ) ^( Q (post= assertion )? ) )
 			{
-			match(input,ACTION,FOLLOW_ACTION_in_assertedAction8425); 
-			match(input, Token.DOWN, null); 
-			match(input,P,FOLLOW_P_in_assertedAction8429); 
+			match(input,ACTION,FOLLOW_ACTION_in_assertedAction8450); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,P,FOLLOW_P_in_assertedAction8454); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:21: (pre= assertion )?
 				int alt108=2;
 				int LA108_0 = input.LA(1);
@@ -13611,29 +14305,29 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:21: pre= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_assertedAction8433);
+						pushFollow(FOLLOW_assertion_in_assertedAction8458);
 						pre=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,S,FOLLOW_S_in_assertedAction8440); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_action_in_assertedAction8444);
+			match(input,S,FOLLOW_S_in_assertedAction8465); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_action_in_assertedAction8469);
 			s=action();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input,Q,FOLLOW_Q_in_assertedAction8450); 
+			match(input,Q,FOLLOW_Q_in_assertedAction8475); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:60: (post= assertion )?
 				int alt109=2;
 				int LA109_0 = input.LA(1);
@@ -13644,27 +14338,29 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:60: post= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_assertedAction8454);
+						pushFollow(FOLLOW_assertion_in_assertedAction8479);
 						post=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1141:5: -> asserted_action(p=$pre.sts=$s.stq=$post.st)
-			{
-				retval.st = templateLib.getInstanceOf("asserted_action",new STAttrMap().put("p", (pre!=null?((StringTemplate)pre.getTemplate()):null)).put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("q", (post!=null?((StringTemplate)post.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1141:5: -> asserted_action(p=$pre.sts=$s.stq=$post.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("asserted_action",new STAttrMap().put("p", (pre!=null?((StringTemplate)pre.getTemplate()):null)).put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("q", (post!=null?((StringTemplate)post.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -13774,6 +14470,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 110, 0, input);
 				throw nvae;
@@ -13782,119 +14479,133 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1145:3: ba= basicAction
 					{
-					pushFollow(FOLLOW_basicAction_in_action8496);
+					pushFollow(FOLLOW_basicAction_in_action8521);
 					ba=basicAction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1146:5: -> {$ba.st}
-					{
-						retval.st = (ba!=null?((StringTemplate)ba.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1146:5: -> {$ba.st}
+					  {
+					  	retval.st = (ba!=null?((StringTemplate)ba.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1147:5: if_fi= alternative
 					{
-					pushFollow(FOLLOW_alternative_in_action8512);
+					pushFollow(FOLLOW_alternative_in_action8537);
 					if_fi=alternative();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1148:5: -> {$if_fi.st}
-					{
-						retval.st = (if_fi!=null?((StringTemplate)if_fi.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1148:5: -> {$if_fi.st}
+					  {
+					  	retval.st = (if_fi!=null?((StringTemplate)if_fi.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1149:5: wl= whileLoop
 					{
-					pushFollow(FOLLOW_whileLoop_in_action8528);
+					pushFollow(FOLLOW_whileLoop_in_action8553);
 					wl=whileLoop();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1150:5: -> {$wl.st}
-					{
-						retval.st = (wl!=null?((StringTemplate)wl.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1150:5: -> {$wl.st}
+					  {
+					  	retval.st = (wl!=null?((StringTemplate)wl.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1151:5: fl= forLoop
 					{
-					pushFollow(FOLLOW_forLoop_in_action8544);
+					pushFollow(FOLLOW_forLoop_in_action8569);
 					fl=forLoop();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1152:5: -> {$fl.st}
-					{
-						retval.st = (fl!=null?((StringTemplate)fl.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1152:5: -> {$fl.st}
+					  {
+					  	retval.st = (fl!=null?((StringTemplate)fl.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1153:5: du= doUntilLoop
 					{
-					pushFollow(FOLLOW_doUntilLoop_in_action8560);
+					pushFollow(FOLLOW_doUntilLoop_in_action8585);
 					du=doUntilLoop();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1154:5: -> {$du.st}
-					{
-						retval.st = (du!=null?((StringTemplate)du.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1154:5: -> {$du.st}
+					  {
+					  	retval.st = (du!=null?((StringTemplate)du.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1155:5: elq= existentialLatticeQuantification
 					{
-					pushFollow(FOLLOW_existentialLatticeQuantification_in_action8576);
+					pushFollow(FOLLOW_existentialLatticeQuantification_in_action8601);
 					elq=existentialLatticeQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1156:5: -> {$elq.st}
-					{
-						retval.st = (elq!=null?((StringTemplate)elq.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1156:5: -> {$elq.st}
+					  {
+					  	retval.st = (elq!=null?((StringTemplate)elq.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1157:5: ulq= universalLatticeQuantification
 					{
-					pushFollow(FOLLOW_universalLatticeQuantification_in_action8593);
+					pushFollow(FOLLOW_universalLatticeQuantification_in_action8618);
 					ulq=universalLatticeQuantification();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1158:5: -> {$ulq.st}
-					{
-						retval.st = (ulq!=null?((StringTemplate)ulq.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1158:5: -> {$ulq.st}
+					  {
+					  	retval.st = (ulq!=null?((StringTemplate)ulq.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -13977,6 +14688,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -13993,6 +14705,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -14038,6 +14751,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 111, 0, input);
 				throw nvae;
@@ -14046,134 +14760,150 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1163:3: sk= LITERAL_skip
 					{
-					sk=(BAST)match(input,LITERAL_skip,FOLLOW_LITERAL_skip_in_basicAction8622); 
+					sk=(BAST)match(input,LITERAL_skip,FOLLOW_LITERAL_skip_in_basicAction8647); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1164:4: -> {%{$sk.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(sk!=null?sk.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 1164:4: -> {%{$sk.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(sk!=null?sk.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1165:5: ass= assignment
 					{
-					pushFollow(FOLLOW_assignment_in_basicAction8638);
+					pushFollow(FOLLOW_assignment_in_basicAction8663);
 					ass=assignment();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1166:5: -> {$ass.st}
-					{
-						retval.st = (ass!=null?((StringTemplate)ass.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1166:5: -> {$ass.st}
+					  {
+					  	retval.st = (ass!=null?((StringTemplate)ass.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1167:5: ^( LITERAL_setmode mode= ID )
 					{
-					match(input,LITERAL_setmode,FOLLOW_LITERAL_setmode_in_basicAction8654); 
-					match(input, Token.DOWN, null); 
-					mode=(BAST)match(input,ID,FOLLOW_ID_in_basicAction8658); 
-					match(input, Token.UP, null); 
+					match(input,LITERAL_setmode,FOLLOW_LITERAL_setmode_in_basicAction8679); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					mode=(BAST)match(input,ID,FOLLOW_ID_in_basicAction8683); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1168:5: -> template(mode=$mode.text) \"setmode <mode>\"
-					{
-						retval.st = new StringTemplate(templateLib, "setmode <mode>",new STAttrMap().put("mode", (mode!=null?mode.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1168:5: -> template(mode=$mode.text) \"setmode <mode>\"
+					  {
+					  	retval.st = new StringTemplate(templateLib, "setmode <mode>",new STAttrMap().put("mode", (mode!=null?mode.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1169:5: wt= whenThrow
 					{
-					pushFollow(FOLLOW_whenThrow_in_basicAction8684);
+					pushFollow(FOLLOW_whenThrow_in_basicAction8709);
 					wt=whenThrow();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1170:5: -> {$wt.st}
-					{
-						retval.st = (wt!=null?((StringTemplate)wt.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1170:5: -> {$wt.st}
+					  {
+					  	retval.st = (wt!=null?((StringTemplate)wt.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1171:5: co= combinableOperation
 					{
-					pushFollow(FOLLOW_combinableOperation_in_basicAction8700);
+					pushFollow(FOLLOW_combinableOperation_in_basicAction8725);
 					co=combinableOperation();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1172:5: -> {$co.st}
-					{
-						retval.st = (co!=null?((StringTemplate)co.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1172:5: -> {$co.st}
+					  {
+					  	retval.st = (co!=null?((StringTemplate)co.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:5: ca= communicationAction
 					{
-					pushFollow(FOLLOW_communicationAction_in_basicAction8716);
+					pushFollow(FOLLOW_communicationAction_in_basicAction8741);
 					ca=communicationAction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1174:5: -> {$ca.st}
-					{
-						retval.st = (ca!=null?((StringTemplate)ca.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1174:5: -> {$ca.st}
+					  {
+					  	retval.st = (ca!=null?((StringTemplate)ca.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1175:5: sa= simultaneousAssignment
 					{
-					pushFollow(FOLLOW_simultaneousAssignment_in_basicAction8733);
+					pushFollow(FOLLOW_simultaneousAssignment_in_basicAction8758);
 					sa=simultaneousAssignment();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1176:5: -> {$sa.st}
-					{
-						retval.st = (sa!=null?((StringTemplate)sa.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1176:5: -> {$sa.st}
+					  {
+					  	retval.st = (sa!=null?((StringTemplate)sa.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 8 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1177:5: ie= issueException
 					{
-					pushFollow(FOLLOW_issueException_in_basicAction8749);
+					pushFollow(FOLLOW_issueException_in_basicAction8774);
 					ie=issueException();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1178:5: -> {$ie.st}
-					{
-						retval.st = (ie!=null?((StringTemplate)ie.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1178:5: -> {$ie.st}
+					  {
+					  	retval.st = (ie!=null?((StringTemplate)ie.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -14232,9 +14962,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1182:3: ( ^( LITERAL_exception exception= ID (message= AADL_STRING_LITERAL )? ) -> issue_exception(ex=$exception.textm=$message.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1183:3: ^( LITERAL_exception exception= ID (message= AADL_STRING_LITERAL )? )
 			{
-			match(input,LITERAL_exception,FOLLOW_LITERAL_exception_in_issueException8775); 
-			match(input, Token.DOWN, null); 
-			exception=(BAST)match(input,ID,FOLLOW_ID_in_issueException8779); 
+			match(input,LITERAL_exception,FOLLOW_LITERAL_exception_in_issueException8800); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			exception=(BAST)match(input,ID,FOLLOW_ID_in_issueException8804); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1183:44: (message= AADL_STRING_LITERAL )?
 			int alt112=2;
 			int LA112_0 = input.LA(1);
@@ -14245,21 +14975,23 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1183:44: message= AADL_STRING_LITERAL
 					{
-					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_issueException8783); 
+					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_issueException8808); if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1184:5: -> issue_exception(ex=$exception.textm=$message.text)
-			{
-				retval.st = templateLib.getInstanceOf("issue_exception",new STAttrMap().put("ex", (exception!=null?exception.getText():null)).put("m", (message!=null?message.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 1184:5: -> issue_exception(ex=$exception.textm=$message.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("issue_exception",new STAttrMap().put("ex", (exception!=null?exception.getText():null)).put("m", (message!=null?message.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -14316,25 +15048,27 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1188:3: ( ^( ASSIGN n= nameTick e= expressionOrAny ) -> assignment(nt=$n.steort=$e.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1189:3: ^( ASSIGN n= nameTick e= expressionOrAny )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment8823); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_nameTick_in_assignment8827);
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment8848); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_nameTick_in_assignment8852);
 			n=nameTick();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expressionOrAny_in_assignment8831);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expressionOrAny_in_assignment8856);
 			e=expressionOrAny();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1190:5: -> assignment(nt=$n.steort=$e.st)
-			{
-				retval.st = templateLib.getInstanceOf("assignment",new STAttrMap().put("nt", (n!=null?((StringTemplate)n.getTemplate()):null)).put("eort", (e!=null?((StringTemplate)e.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1190:5: -> assignment(nt=$n.steort=$e.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("assignment",new STAttrMap().put("nt", (n!=null?((StringTemplate)n.getTemplate()):null)).put("eort", (e!=null?((StringTemplate)e.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -14404,6 +15138,7 @@ public class UnparseBLESS3 extends TreeParser {
 						}
 
 						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							int nvaeMark = input.mark();
 							try {
 								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
@@ -14423,6 +15158,7 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
@@ -14439,6 +15175,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -14456,6 +15193,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 113, 0, input);
 				throw nvae;
@@ -14465,38 +15203,42 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1195:3: ^( TICK vn= valueName )
 					{
-					match(input,TICK,FOLLOW_TICK_in_nameTick8870); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_valueName_in_nameTick8874);
+					match(input,TICK,FOLLOW_TICK_in_nameTick8895); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_valueName_in_nameTick8899);
 					vn=valueName();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1196:5: -> name_tick(vn=$vn.st)
-					{
-						retval.st = templateLib.getInstanceOf("name_tick",new STAttrMap().put("vn", (vn!=null?((StringTemplate)vn.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1196:5: -> name_tick(vn=$vn.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("name_tick",new STAttrMap().put("vn", (vn!=null?((StringTemplate)vn.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1198:3: vn= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_nameTick8899);
+					pushFollow(FOLLOW_valueName_in_nameTick8924);
 					vn=valueName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1199:5: -> {$vn.st}
-					{
-						retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1199:5: -> {$vn.st}
+					  {
+					  	retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -14563,6 +15305,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 114, 0, input);
 				throw nvae;
@@ -14572,31 +15315,35 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1204:3: exp= expression
 					{
-					pushFollow(FOLLOW_expression_in_expressionOrAny8926);
+					pushFollow(FOLLOW_expression_in_expressionOrAny8951);
 					exp=expression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1205:5: -> {$exp.st}
-					{
-						retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1205:5: -> {$exp.st}
+					  {
+					  	retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1207:3: any= LITERAL_any
 					{
-					any=(BAST)match(input,LITERAL_any,FOLLOW_LITERAL_any_in_expressionOrAny8946); 
+					any=(BAST)match(input,LITERAL_any,FOLLOW_LITERAL_any_in_expressionOrAny8971); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1208:4: -> {%{$any.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(any!=null?any.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 1208:4: -> {%{$any.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(any!=null?any.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -14656,10 +15403,10 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1212:3: ( ^( ASSIGN ^( COMMA (lhs+= nameTick )+ ) ^( COMMA (rhs+= expressionOrAny )+ ) ) -> simultaneous_assignment(l=$lhsr=$rhs))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1213:3: ^( ASSIGN ^( COMMA (lhs+= nameTick )+ ) ^( COMMA (rhs+= expressionOrAny )+ ) )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_simultaneousAssignment8972); 
-			match(input, Token.DOWN, null); 
-			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment8976); 
-			match(input, Token.DOWN, null); 
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_simultaneousAssignment8997); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9001); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1213:25: (lhs+= nameTick )+
 			int cnt115=0;
 			loop115:
@@ -14674,10 +15421,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1213:25: lhs+= nameTick
 					{
-					pushFollow(FOLLOW_nameTick_in_simultaneousAssignment8980);
+					pushFollow(FOLLOW_nameTick_in_simultaneousAssignment9005);
 					lhs=nameTick();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_lhs==null) list_lhs=new ArrayList<Object>();
 					list_lhs.add(lhs.getTemplate());
 					}
@@ -14685,16 +15432,17 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt115 >= 1 ) break loop115;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(115, input);
 					throw eee;
 				}
 				cnt115++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment8987); 
-			match(input, Token.DOWN, null); 
+			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9012); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1213:51: (rhs+= expressionOrAny )+
 			int cnt116=0;
 			loop116:
@@ -14709,10 +15457,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1213:51: rhs+= expressionOrAny
 					{
-					pushFollow(FOLLOW_expressionOrAny_in_simultaneousAssignment8991);
+					pushFollow(FOLLOW_expressionOrAny_in_simultaneousAssignment9016);
 					rhs=expressionOrAny();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_rhs==null) list_rhs=new ArrayList<Object>();
 					list_rhs.add(rhs.getTemplate());
 					}
@@ -14720,23 +15468,26 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt116 >= 1 ) break loop116;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(116, input);
 					throw eee;
 				}
 				cnt116++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1214:5: -> simultaneous_assignment(l=$lhsr=$rhs)
-			{
-				retval.st = templateLib.getInstanceOf("simultaneous_assignment",new STAttrMap().put("l", list_lhs).put("r", list_rhs));
+			if ( state.backtracking==0 ) {
+			  // 1214:5: -> simultaneous_assignment(l=$lhsr=$rhs)
+			  {
+			  	retval.st = templateLib.getInstanceOf("simultaneous_assignment",new STAttrMap().put("l", list_lhs).put("r", list_rhs));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -14794,16 +15545,16 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1217:10: ( ^( LITERAL_when LPAREN exp= expression RPAREN LITERAL_throw excep= ID (message= AADL_STRING_LITERAL )? ) -> when_throw(e=$exp.sti=$excep.textm=$message.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1218:3: ^( LITERAL_when LPAREN exp= expression RPAREN LITERAL_throw excep= ID (message= AADL_STRING_LITERAL )? )
 			{
-			match(input,LITERAL_when,FOLLOW_LITERAL_when_in_whenThrow9031); 
-			match(input, Token.DOWN, null); 
-			match(input,LPAREN,FOLLOW_LPAREN_in_whenThrow9033); 
-			pushFollow(FOLLOW_expression_in_whenThrow9037);
+			match(input,LITERAL_when,FOLLOW_LITERAL_when_in_whenThrow9056); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,LPAREN,FOLLOW_LPAREN_in_whenThrow9058); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_whenThrow9062);
 			exp=expression();
 			state._fsp--;
-
-			match(input,RPAREN,FOLLOW_RPAREN_in_whenThrow9039); 
-			match(input,LITERAL_throw,FOLLOW_LITERAL_throw_in_whenThrow9041); 
-			excep=(BAST)match(input,ID,FOLLOW_ID_in_whenThrow9045); 
+			if (state.failed) return retval;
+			match(input,RPAREN,FOLLOW_RPAREN_in_whenThrow9064); if (state.failed) return retval;
+			match(input,LITERAL_throw,FOLLOW_LITERAL_throw_in_whenThrow9066); if (state.failed) return retval;
+			excep=(BAST)match(input,ID,FOLLOW_ID_in_whenThrow9070); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1219:14: (message= AADL_STRING_LITERAL )?
 			int alt117=2;
 			int LA117_0 = input.LA(1);
@@ -14814,21 +15565,23 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1219:14: message= AADL_STRING_LITERAL
 					{
-					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_whenThrow9057); 
+					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_whenThrow9082); if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1220:5: -> when_throw(e=$exp.sti=$excep.textm=$message.text)
-			{
-				retval.st = templateLib.getInstanceOf("when_throw",new STAttrMap().put("e", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("i", (excep!=null?excep.getText():null)).put("m", (message!=null?message.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 1220:5: -> when_throw(e=$exp.sti=$excep.textm=$message.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("when_throw",new STAttrMap().put("e", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("i", (excep!=null?excep.getText():null)).put("m", (message!=null?message.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -14919,6 +15672,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 118, 0, input);
 				throw nvae;
@@ -14927,112 +15681,122 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1224:3: ^(fa= LITERAL_fetchadd target= ID arithmetic= expression result= ID )
 					{
-					fa=(BAST)match(input,LITERAL_fetchadd,FOLLOW_LITERAL_fetchadd_in_combinableOperation9103); 
-					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9107); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9111);
+					fa=(BAST)match(input,LITERAL_fetchadd,FOLLOW_LITERAL_fetchadd_in_combinableOperation9128); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9132); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_combinableOperation9136);
 					arithmetic=expression();
 					state._fsp--;
-
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9115); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9140); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1225:4: -> combinable(op=$fa.textt=$target.texte=$arithmetic.str=$result.text)
-					{
-						retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fa!=null?fa.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (arithmetic!=null?((StringTemplate)arithmetic.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1225:4: -> combinable(op=$fa.textt=$target.texte=$arithmetic.str=$result.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fa!=null?fa.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (arithmetic!=null?((StringTemplate)arithmetic.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1227:3: ^(fo= LITERAL_fetchor target= ID bool= expression result= ID )
 					{
-					fo=(BAST)match(input,LITERAL_fetchor,FOLLOW_LITERAL_fetchor_in_combinableOperation9157); 
-					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9161); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9165);
+					fo=(BAST)match(input,LITERAL_fetchor,FOLLOW_LITERAL_fetchor_in_combinableOperation9182); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9186); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_combinableOperation9190);
 					bool=expression();
 					state._fsp--;
-
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9169); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9194); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1228:4: -> combinable(op=$fo.textt=$target.texte=$bool.str=$result.text)
-					{
-						retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fo!=null?fo.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1228:4: -> combinable(op=$fo.textt=$target.texte=$bool.str=$result.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fo!=null?fo.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1230:3: ^(fan= LITERAL_fetchand target= ID bool= expression result= ID )
 					{
-					fan=(BAST)match(input,LITERAL_fetchand,FOLLOW_LITERAL_fetchand_in_combinableOperation9211); 
-					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9215); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9219);
+					fan=(BAST)match(input,LITERAL_fetchand,FOLLOW_LITERAL_fetchand_in_combinableOperation9236); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9240); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_combinableOperation9244);
 					bool=expression();
 					state._fsp--;
-
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9223); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9248); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1231:4: -> combinable(op=$fan.textt=$target.texte=$bool.str=$result.text)
-					{
-						retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fan!=null?fan.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1231:4: -> combinable(op=$fan.textt=$target.texte=$bool.str=$result.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fan!=null?fan.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1233:3: ^(fx= LITERAL_fetchxor target= ID bool= expression result= ID )
 					{
-					fx=(BAST)match(input,LITERAL_fetchxor,FOLLOW_LITERAL_fetchxor_in_combinableOperation9265); 
-					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9269); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9273);
+					fx=(BAST)match(input,LITERAL_fetchxor,FOLLOW_LITERAL_fetchxor_in_combinableOperation9290); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9294); if (state.failed) return retval;
+					pushFollow(FOLLOW_expression_in_combinableOperation9298);
 					bool=expression();
 					state._fsp--;
-
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9277); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9302); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1234:4: -> combinable(op=$fx.textt=$target.texte=$bool.str=$result.text)
-					{
-						retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fx!=null?fx.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1234:4: -> combinable(op=$fx.textt=$target.texte=$bool.str=$result.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (fx!=null?fx.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (bool!=null?((StringTemplate)bool.getTemplate()):null)).put("r", (result!=null?result.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1236:3: ^(sw= LITERAL_swap target= ID reference= ID result= ID )
 					{
-					sw=(BAST)match(input,LITERAL_swap,FOLLOW_LITERAL_swap_in_combinableOperation9319); 
-					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9323); 
-					reference=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9327); 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9331); 
-					match(input, Token.UP, null); 
+					sw=(BAST)match(input,LITERAL_swap,FOLLOW_LITERAL_swap_in_combinableOperation9344); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9348); if (state.failed) return retval;
+					reference=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9352); if (state.failed) return retval;
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9356); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1237:4: -> combinable(op=$sw.textt=$target.texte=$reference.textr=$result.text)
-					{
-						retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (sw!=null?sw.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (reference!=null?reference.getText():null)).put("r", (result!=null?result.getText():null)));
+					if ( state.backtracking==0 ) {
+					  // 1237:4: -> combinable(op=$sw.textt=$target.texte=$reference.textr=$result.text)
+					  {
+					  	retval.st = templateLib.getInstanceOf("combinable",new STAttrMap().put("op", (sw!=null?sw.getText():null)).put("t", (target!=null?target.getText():null)).put("e", (reference!=null?reference.getText():null)).put("r", (result!=null?result.getText():null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -15108,6 +15872,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 119, 0, input);
 				throw nvae;
@@ -15116,51 +15881,57 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1241:3: pc= subprogramCall
 					{
-					pushFollow(FOLLOW_subprogramCall_in_communicationAction9377);
+					pushFollow(FOLLOW_subprogramCall_in_communicationAction9402);
 					pc=subprogramCall();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1242:5: -> {$pc.st}
-					{
-						retval.st = (pc!=null?((StringTemplate)pc.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1242:5: -> {$pc.st}
+					  {
+					  	retval.st = (pc!=null?((StringTemplate)pc.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1244:3: po= portOutput
 					{
-					pushFollow(FOLLOW_portOutput_in_communicationAction9395);
+					pushFollow(FOLLOW_portOutput_in_communicationAction9420);
 					po=portOutput();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1245:5: -> {$po.st}
-					{
-						retval.st = (po!=null?((StringTemplate)po.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1245:5: -> {$po.st}
+					  {
+					  	retval.st = (po!=null?((StringTemplate)po.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1247:3: pi= portInput
 					{
-					pushFollow(FOLLOW_portInput_in_communicationAction9413);
+					pushFollow(FOLLOW_portInput_in_communicationAction9438);
 					pi=portInput();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1248:5: -> {$pi.st}
-					{
-						retval.st = (pi!=null?((StringTemplate)pi.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1248:5: -> {$pi.st}
+					  {
+					  	retval.st = (pi!=null?((StringTemplate)pi.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -15220,12 +15991,12 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1252:3: ( ^( LITERAL_computation lb= behaviorTime (ub= behaviorTime )? ( ^( LITERAL_binding (component= QCREF )+ ) )? ) -> computation(lb=$lb.stub=$ub.stc=$component))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:3: ^( LITERAL_computation lb= behaviorTime (ub= behaviorTime )? ( ^( LITERAL_binding (component= QCREF )+ ) )? )
 			{
-			match(input,LITERAL_computation,FOLLOW_LITERAL_computation_in_computation9439); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_behaviorTime_in_computation9443);
+			match(input,LITERAL_computation,FOLLOW_LITERAL_computation_in_computation9464); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_behaviorTime_in_computation9468);
 			lb=behaviorTime();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:44: (ub= behaviorTime )?
 			int alt120=2;
 			int LA120_0 = input.LA(1);
@@ -15236,10 +16007,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:44: ub= behaviorTime
 					{
-					pushFollow(FOLLOW_behaviorTime_in_computation9447);
+					pushFollow(FOLLOW_behaviorTime_in_computation9472);
 					ub=behaviorTime();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
@@ -15255,8 +16026,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:61: ^( LITERAL_binding (component= QCREF )+ )
 					{
-					match(input,LITERAL_binding,FOLLOW_LITERAL_binding_in_computation9454); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_binding,FOLLOW_LITERAL_binding_in_computation9479); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:89: (component= QCREF )+
 					int cnt121=0;
 					loop121:
@@ -15271,34 +16042,37 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1253:89: component= QCREF
 							{
-							component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_computation9458); 
+							component=(BAST)match(input,QCREF,FOLLOW_QCREF_in_computation9483); if (state.failed) return retval;
 							}
 							break;
 
 						default :
 							if ( cnt121 >= 1 ) break loop121;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(121, input);
 							throw eee;
 						}
 						cnt121++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1254:5: -> computation(lb=$lb.stub=$ub.stc=$component)
-			{
-				retval.st = templateLib.getInstanceOf("computation",new STAttrMap().put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("c", component));
+			if ( state.backtracking==0 ) {
+			  // 1254:5: -> computation(lb=$lb.stub=$ub.stc=$component)
+			  {
+			  	retval.st = templateLib.getInstanceOf("computation",new STAttrMap().put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("c", component));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -15355,9 +16129,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1258:3: ( ^( PORT_OUTPUT pn= ID (be= expression )? ) -> port_output(o=$pn.textbe=$be.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1259:3: ^( PORT_OUTPUT pn= ID (be= expression )? )
 			{
-			match(input,PORT_OUTPUT,FOLLOW_PORT_OUTPUT_in_portOutput9509); 
-			match(input, Token.DOWN, null); 
-			pn=(BAST)match(input,ID,FOLLOW_ID_in_portOutput9513); 
+			match(input,PORT_OUTPUT,FOLLOW_PORT_OUTPUT_in_portOutput9534); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pn=(BAST)match(input,ID,FOLLOW_ID_in_portOutput9538); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1259:26: (be= expression )?
 			int alt123=2;
 			int LA123_0 = input.LA(1);
@@ -15368,24 +16142,26 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1259:26: be= expression
 					{
-					pushFollow(FOLLOW_expression_in_portOutput9517);
+					pushFollow(FOLLOW_expression_in_portOutput9542);
 					be=expression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1260:5: -> port_output(o=$pn.textbe=$be.st)
-			{
-				retval.st = templateLib.getInstanceOf("port_output",new STAttrMap().put("o", (pn!=null?pn.getText():null)).put("be", (be!=null?((StringTemplate)be.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1260:5: -> port_output(o=$pn.textbe=$be.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("port_output",new STAttrMap().put("o", (pn!=null?pn.getText():null)).put("be", (be!=null?((StringTemplate)be.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -15442,22 +16218,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1264:3: ( ^( PORT_INPUT pn= ID n= valueName ) -> port_input(i=$pn.textn=$n.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1265:3: ^( PORT_INPUT pn= ID n= valueName )
 			{
-			match(input,PORT_INPUT,FOLLOW_PORT_INPUT_in_portInput9559); 
-			match(input, Token.DOWN, null); 
-			pn=(BAST)match(input,ID,FOLLOW_ID_in_portInput9563); 
-			pushFollow(FOLLOW_valueName_in_portInput9567);
+			match(input,PORT_INPUT,FOLLOW_PORT_INPUT_in_portInput9584); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pn=(BAST)match(input,ID,FOLLOW_ID_in_portInput9588); if (state.failed) return retval;
+			pushFollow(FOLLOW_valueName_in_portInput9592);
 			n=valueName();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1266:5: -> port_input(i=$pn.textn=$n.st)
-			{
-				retval.st = templateLib.getInstanceOf("port_input",new STAttrMap().put("i", (pn!=null?pn.getText():null)).put("n", (n!=null?((StringTemplate)n.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1266:5: -> port_input(i=$pn.textn=$n.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("port_input",new STAttrMap().put("i", (pn!=null?pn.getText():null)).put("n", (n!=null?((StringTemplate)n.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -15514,9 +16292,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1271:3: ( ^( SUBPROGRAM_INVOCATION id= ID (fal= formalActualList )? ) -> function_call(f=$id.textpl=$fal.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1272:3: ^( SUBPROGRAM_INVOCATION id= ID (fal= formalActualList )? )
 			{
-			match(input,SUBPROGRAM_INVOCATION,FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9611); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_subprogramCall9615); 
+			match(input,SUBPROGRAM_INVOCATION,FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9636); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_subprogramCall9640); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1272:37: (fal= formalActualList )?
 			int alt124=2;
 			int LA124_0 = input.LA(1);
@@ -15527,24 +16305,26 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1272:37: fal= formalActualList
 					{
-					pushFollow(FOLLOW_formalActualList_in_subprogramCall9619);
+					pushFollow(FOLLOW_formalActualList_in_subprogramCall9644);
 					fal=formalActualList();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1273:5: -> function_call(f=$id.textpl=$fal.st)
-			{
-				retval.st = templateLib.getInstanceOf("function_call",new STAttrMap().put("f", (id!=null?id.getText():null)).put("pl", (fal!=null?((StringTemplate)fal.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1273:5: -> function_call(f=$id.textpl=$fal.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("function_call",new STAttrMap().put("f", (id!=null?id.getText():null)).put("pl", (fal!=null?((StringTemplate)fal.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -15609,6 +16389,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 126, 0, input);
 				throw nvae;
@@ -15618,8 +16399,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1279:3: ^( COMMA (fa+= formalActual )+ )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_formalActualList9664); 
-					match(input, Token.DOWN, null); 
+					match(input,COMMA,FOLLOW_COMMA_in_formalActualList9689); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1279:14: (fa+= formalActual )+
 					int cnt125=0;
 					loop125:
@@ -15634,10 +16415,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1279:14: fa+= formalActual
 							{
-							pushFollow(FOLLOW_formalActual_in_formalActualList9668);
+							pushFollow(FOLLOW_formalActual_in_formalActualList9693);
 							fa=formalActual();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_fa==null) list_fa=new ArrayList<Object>();
 							list_fa.add(fa.getTemplate());
 							}
@@ -15645,38 +16426,43 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt125 >= 1 ) break loop125;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(125, input);
 							throw eee;
 						}
 						cnt125++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1280:5: -> formal_actual_list(ns=$fa)
-					{
-						retval.st = templateLib.getInstanceOf("formal_actual_list",new STAttrMap().put("ns", list_fa));
+					if ( state.backtracking==0 ) {
+					  // 1280:5: -> formal_actual_list(ns=$fa)
+					  {
+					  	retval.st = templateLib.getInstanceOf("formal_actual_list",new STAttrMap().put("ns", list_fa));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1282:3: s= formalActual
 					{
-					pushFollow(FOLLOW_formalActual_in_formalActualList9694);
+					pushFollow(FOLLOW_formalActual_in_formalActualList9719);
 					s=formalActual();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1283:5: -> {$s.st}
-					{
-						retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1283:5: -> {$s.st}
+					  {
+					  	retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -15744,6 +16530,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 127, 0, input);
 				throw nvae;
@@ -15753,39 +16540,43 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1288:3: ^( COLON formal= ID actual= subProgramParameter )
 					{
-					match(input,COLON,FOLLOW_COLON_in_formalActual9723); 
-					match(input, Token.DOWN, null); 
-					formal=(BAST)match(input,ID,FOLLOW_ID_in_formalActual9727); 
-					pushFollow(FOLLOW_subProgramParameter_in_formalActual9731);
+					match(input,COLON,FOLLOW_COLON_in_formalActual9748); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					formal=(BAST)match(input,ID,FOLLOW_ID_in_formalActual9752); if (state.failed) return retval;
+					pushFollow(FOLLOW_subProgramParameter_in_formalActual9756);
 					actual=subProgramParameter();
 					state._fsp--;
-
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1289:5: -> formal_actual(f=$formal.textap=$actual.st)
-					{
-						retval.st = templateLib.getInstanceOf("formal_actual",new STAttrMap().put("f", (formal!=null?formal.getText():null)).put("ap", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1289:5: -> formal_actual(f=$formal.textap=$actual.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("formal_actual",new STAttrMap().put("f", (formal!=null?formal.getText():null)).put("ap", (actual!=null?((StringTemplate)actual.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1291:3: spp= subProgramParameter
 					{
-					pushFollow(FOLLOW_subProgramParameter_in_formalActual9761);
+					pushFollow(FOLLOW_subProgramParameter_in_formalActual9786);
 					spp=subProgramParameter();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1292:5: -> {$spp.st}
-					{
-						retval.st = (spp!=null?((StringTemplate)spp.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1292:5: -> {$spp.st}
+					  {
+					  	retval.st = (spp!=null?((StringTemplate)spp.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -15867,6 +16658,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 128, 0, input);
 				throw nvae;
@@ -15875,51 +16667,57 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1296:2: v= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_subProgramParameter9783);
+					pushFollow(FOLLOW_valueName_in_subProgramParameter9808);
 					v=valueName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1297:5: -> {$v.st}
-					{
-						retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1297:5: -> {$v.st}
+					  {
+					  	retval.st = (v!=null?((StringTemplate)v.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1298:4: c= constant
 					{
-					pushFollow(FOLLOW_constant_in_subProgramParameter9798);
+					pushFollow(FOLLOW_constant_in_subProgramParameter9823);
 					c=constant();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1299:5: -> {$c.st}
-					{
-						retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1299:5: -> {$c.st}
+					  {
+					  	retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1300:4: ps= parenthesizedSubexpression
 					{
-					pushFollow(FOLLOW_parenthesizedSubexpression_in_subProgramParameter9813);
+					pushFollow(FOLLOW_parenthesizedSubexpression_in_subProgramParameter9838);
 					ps=parenthesizedSubexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1301:5: -> {$ps.st}
-					{
-						retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1301:5: -> {$ps.st}
+					  {
+					  	retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -15977,8 +16775,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1305:3: ( ^( LITERAL_if (alt+= guardedAction )+ ) -> alternative(gf=$alt))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1306:3: ^( LITERAL_if (alt+= guardedAction )+ )
 			{
-			match(input,LITERAL_if,FOLLOW_LITERAL_if_in_alternative9841); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_if,FOLLOW_LITERAL_if_in_alternative9866); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1306:20: (alt+= guardedAction )+
 			int cnt129=0;
 			loop129:
@@ -15993,10 +16791,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1306:20: alt+= guardedAction
 					{
-					pushFollow(FOLLOW_guardedAction_in_alternative9845);
+					pushFollow(FOLLOW_guardedAction_in_alternative9870);
 					alt=guardedAction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_alt==null) list_alt=new ArrayList<Object>();
 					list_alt.add(alt.getTemplate());
 					}
@@ -16004,21 +16802,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt129 >= 1 ) break loop129;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(129, input);
 					throw eee;
 				}
 				cnt129++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1307:5: -> alternative(gf=$alt)
-			{
-				retval.st = templateLib.getInstanceOf("alternative",new STAttrMap().put("gf", list_alt));
+			if ( state.backtracking==0 ) {
+			  // 1307:5: -> alternative(gf=$alt)
+			  {
+			  	retval.st = templateLib.getInstanceOf("alternative",new STAttrMap().put("gf", list_alt));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16075,25 +16876,27 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1311:3: ( ^( GUARD exp= expression aa= assertedAction ) -> guarded_action(be=$exp.stba=$aa.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1312:3: ^( GUARD exp= expression aa= assertedAction )
 			{
-			match(input,GUARD,FOLLOW_GUARD_in_guardedAction9882); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_guardedAction9886);
+			match(input,GUARD,FOLLOW_GUARD_in_guardedAction9907); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_guardedAction9911);
 			exp=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_assertedAction_in_guardedAction9890);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_assertedAction_in_guardedAction9915);
 			aa=assertedAction();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1313:5: -> guarded_action(be=$exp.stba=$aa.st)
-			{
-				retval.st = templateLib.getInstanceOf("guarded_action",new STAttrMap().put("be", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("ba", (aa!=null?((StringTemplate)aa.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1313:5: -> guarded_action(be=$exp.stba=$aa.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("guarded_action",new STAttrMap().put("be", (exp!=null?((StringTemplate)exp.getTemplate()):null)).put("ba", (aa!=null?((StringTemplate)aa.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16152,15 +16955,15 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1317:3: ( ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1318:3: ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) elq= existentialLatticeQuantification )
 			{
-			match(input,LITERAL_while,FOLLOW_LITERAL_while_in_whileLoop9929); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_whileLoop9933);
+			match(input,LITERAL_while,FOLLOW_LITERAL_while_in_whileLoop9954); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_whileLoop9958);
 			be=expression();
 			state._fsp--;
-
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_whileLoop9937); 
+			if (state.failed) return retval;
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_whileLoop9962); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1318:50: (inv= assertion )?
 				int alt130=2;
 				int LA130_0 = input.LA(1);
@@ -16171,21 +16974,21 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1318:50: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_whileLoop9941);
+						pushFollow(FOLLOW_assertion_in_whileLoop9966);
 						inv=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,BOUND,FOLLOW_BOUND_in_whileLoop9948); 
+			match(input,BOUND,FOLLOW_BOUND_in_whileLoop9973); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1318:75: (bd= assertion )?
 				int alt131=2;
 				int LA131_0 = input.LA(1);
@@ -16196,31 +16999,33 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1318:75: bd= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_whileLoop9952);
+						pushFollow(FOLLOW_assertion_in_whileLoop9977);
 						bd=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_whileLoop9966);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_whileLoop9991);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1320:5: -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st)
-			{
-				retval.st = templateLib.getInstanceOf("while_loop",new STAttrMap().put("be", (be!=null?((StringTemplate)be.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)).put("bd", (bd!=null?((StringTemplate)bd.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1320:5: -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("while_loop",new STAttrMap().put("be", (be!=null?((StringTemplate)be.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)).put("bd", (bd!=null?((StringTemplate)bd.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16280,24 +17085,24 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1324:3: ( ^( LITERAL_for id= ID ^( LITERAL_in lb= expression ub= expression ) ^( INVARIANT (inv= assertion )? ) act= behaviorActions ) -> for_loop(a=$id.textlb=$lb.stub=$ub.stba=$act.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1325:3: ^( LITERAL_for id= ID ^( LITERAL_in lb= expression ub= expression ) ^( INVARIANT (inv= assertion )? ) act= behaviorActions )
 			{
-			match(input,LITERAL_for,FOLLOW_LITERAL_for_in_forLoop10015); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_forLoop10019); 
-			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_forLoop10023); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_forLoop10027);
+			match(input,LITERAL_for,FOLLOW_LITERAL_for_in_forLoop10040); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_forLoop10044); if (state.failed) return retval;
+			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_forLoop10048); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_forLoop10052);
 			lb=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expression_in_forLoop10031);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_forLoop10056);
 			ub=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_forLoop10037); 
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_forLoop10062); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1325:84: (inv= assertion )?
 				int alt132=2;
 				int LA132_0 = input.LA(1);
@@ -16308,31 +17113,33 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1325:84: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_forLoop10041);
+						pushFollow(FOLLOW_assertion_in_forLoop10066);
 						inv=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_forLoop10055);
+			pushFollow(FOLLOW_behaviorActions_in_forLoop10080);
 			act=behaviorActions();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1327:5: -> for_loop(a=$id.textlb=$lb.stub=$ub.stba=$act.stinv=$inv.st)
-			{
-				retval.st = templateLib.getInstanceOf("for_loop",new STAttrMap().put("a", (id!=null?id.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1327:5: -> for_loop(a=$id.textlb=$lb.stub=$ub.stba=$act.stinv=$inv.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("for_loop",new STAttrMap().put("a", (id!=null?id.getText():null)).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16391,19 +17198,19 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1331:3: ( ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1332:3: ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) act= behaviorActions )
 			{
-			match(input,LITERAL_do,FOLLOW_LITERAL_do_in_doUntilLoop10110); 
-			match(input, Token.DOWN, null); 
-			match(input,LITERAL_until,FOLLOW_LITERAL_until_in_doUntilLoop10114); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_doUntilLoop10118);
+			match(input,LITERAL_do,FOLLOW_LITERAL_do_in_doUntilLoop10135); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,LITERAL_until,FOLLOW_LITERAL_until_in_doUntilLoop10139); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_doUntilLoop10143);
 			be=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_doUntilLoop10124); 
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_doUntilLoop10149); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1332:66: (inv= assertion )?
 				int alt133=2;
 				int LA133_0 = input.LA(1);
@@ -16414,21 +17221,21 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1332:66: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_doUntilLoop10128);
+						pushFollow(FOLLOW_assertion_in_doUntilLoop10153);
 						inv=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,BOUND,FOLLOW_BOUND_in_doUntilLoop10135); 
+			match(input,BOUND,FOLLOW_BOUND_in_doUntilLoop10160); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1332:91: (bd= assertion )?
 				int alt134=2;
 				int LA134_0 = input.LA(1);
@@ -16439,31 +17246,33 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1332:91: bd= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_doUntilLoop10139);
+						pushFollow(FOLLOW_assertion_in_doUntilLoop10164);
 						bd=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_doUntilLoop10152);
+			pushFollow(FOLLOW_behaviorActions_in_doUntilLoop10177);
 			act=behaviorActions();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1334:5: -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st)
-			{
-				retval.st = templateLib.getInstanceOf("do_until",new STAttrMap().put("be", (be!=null?((StringTemplate)be.getTemplate()):null)).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)).put("bd", (bd!=null?((StringTemplate)bd.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1334:5: -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("do_until",new STAttrMap().put("be", (be!=null?((StringTemplate)be.getTemplate()):null)).put("ba", (act!=null?((StringTemplate)act.getTemplate()):null)).put("bd", (bd!=null?((StringTemplate)bd.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16523,8 +17332,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1338:3: ( ^( LITERAL_forall (lv+= ID )+ ^( LITERAL_in lb= expression ub= expression ) elq= existentialLatticeQuantification ) -> ulq(lv=$lvlb=$lb.stub=$ub.stelq=$elq.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:3: ^( LITERAL_forall (lv+= ID )+ ^( LITERAL_in lb= expression ub= expression ) elq= existentialLatticeQuantification )
 			{
-			match(input,LITERAL_forall,FOLLOW_LITERAL_forall_in_universalLatticeQuantification10205); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_forall,FOLLOW_LITERAL_forall_in_universalLatticeQuantification10230); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:23: (lv+= ID )+
 			int cnt135=0;
 			loop135:
@@ -16539,7 +17348,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:23: lv+= ID
 					{
-					lv=(BAST)match(input,ID,FOLLOW_ID_in_universalLatticeQuantification10209); 
+					lv=(BAST)match(input,ID,FOLLOW_ID_in_universalLatticeQuantification10234); if (state.failed) return retval;
 					if (list_lv==null) list_lv=new ArrayList<Object>();
 					list_lv.add(lv);
 					}
@@ -16547,37 +17356,40 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt135 >= 1 ) break loop135;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(135, input);
 					throw eee;
 				}
 				cnt135++;
 			}
 
-			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_universalLatticeQuantification10214); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10218);
+			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_universalLatticeQuantification10239); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10243);
 			lb=expression();
 			state._fsp--;
-
-			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10222);
+			if (state.failed) return retval;
+			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10247);
 			ub=expression();
 			state._fsp--;
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input, Token.UP, null); 
-
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10228);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10253);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1340:5: -> ulq(lv=$lvlb=$lb.stub=$ub.stelq=$elq.st)
-			{
-				retval.st = templateLib.getInstanceOf("ulq",new STAttrMap().put("lv", list_lv).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1340:5: -> ulq(lv=$lvlb=$lb.stub=$ub.stelq=$elq.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("ulq",new STAttrMap().put("lv", list_lv).put("lb", (lb!=null?((StringTemplate)lb.getTemplate()):null)).put("ub", (ub!=null?((StringTemplate)ub.getTemplate()):null)).put("elq", (elq!=null?((StringTemplate)elq.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16638,9 +17450,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1347:3: ( ^( BLESS_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (ac= assertClause )? (inv= invariantClause )? (vs= variablesSection )? (ss= statesSection )? (t= transitions )? ) -> bless_subclause(n=$no_proof.textac=$ac.stinv=$inv.stvs=$vs.stss=$ss.stt=$t.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1348:3: ^( BLESS_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (ac= assertClause )? (inv= invariantClause )? (vs= variablesSection )? (ss= statesSection )? (t= transitions )? )
 			{
-			match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10278); 
+			match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10303); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1349:12: (no_proof= DO_NOT_PROVE )?
 				int alt136=2;
 				int LA136_0 = input.LA(1);
@@ -16651,7 +17463,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1349:12: no_proof= DO_NOT_PROVE
 						{
-						no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_blessSubclause10286); 
+						no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_blessSubclause10311); if (state.failed) return retval;
 						}
 						break;
 
@@ -16667,10 +17479,10 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1350:7: ac= assertClause
 						{
-						pushFollow(FOLLOW_assertClause_in_blessSubclause10295);
+						pushFollow(FOLLOW_assertClause_in_blessSubclause10320);
 						ac=assertClause();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
@@ -16686,10 +17498,10 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:8: inv= invariantClause
 						{
-						pushFollow(FOLLOW_invariantClause_in_blessSubclause10306);
+						pushFollow(FOLLOW_invariantClause_in_blessSubclause10331);
 						inv=invariantClause();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
@@ -16705,10 +17517,10 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1352:7: vs= variablesSection
 						{
-						pushFollow(FOLLOW_variablesSection_in_blessSubclause10315);
+						pushFollow(FOLLOW_variablesSection_in_blessSubclause10340);
 						vs=variablesSection();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
@@ -16724,10 +17536,10 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1353:7: ss= statesSection
 						{
-						pushFollow(FOLLOW_statesSection_in_blessSubclause10324);
+						pushFollow(FOLLOW_statesSection_in_blessSubclause10349);
 						ss=statesSection();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
@@ -16743,25 +17555,27 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1354:6: t= transitions
 						{
-						pushFollow(FOLLOW_transitions_in_blessSubclause10333);
+						pushFollow(FOLLOW_transitions_in_blessSubclause10358);
 						t=transitions();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
 			// TEMPLATE REWRITE
-			// 1355:5: -> bless_subclause(n=$no_proof.textac=$ac.stinv=$inv.stvs=$vs.stss=$ss.stt=$t.st)
-			{
-				retval.st = templateLib.getInstanceOf("bless_subclause",new STAttrMap().put("n", (no_proof!=null?no_proof.getText():null)).put("ac", (ac!=null?((StringTemplate)ac.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)).put("vs", (vs!=null?((StringTemplate)vs.getTemplate()):null)).put("ss", (ss!=null?((StringTemplate)ss.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1355:5: -> bless_subclause(n=$no_proof.textac=$ac.stinv=$inv.stvs=$vs.stss=$ss.stt=$t.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("bless_subclause",new STAttrMap().put("n", (no_proof!=null?no_proof.getText():null)).put("ac", (ac!=null?((StringTemplate)ac.getTemplate()):null)).put("inv", (inv!=null?((StringTemplate)inv.getTemplate()):null)).put("vs", (vs!=null?((StringTemplate)vs.getTemplate()):null)).put("ss", (ss!=null?((StringTemplate)ss.getTemplate()):null)).put("t", (t!=null?((StringTemplate)t.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16817,21 +17631,23 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1359:3: ( ^( LITERAL_invariant a= assertion ) -> invariant_clause(a=$a.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1360:3: ^( LITERAL_invariant a= assertion )
 			{
-			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_invariantClause10395); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_assertion_in_invariantClause10399);
+			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_invariantClause10420); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_assertion_in_invariantClause10424);
 			a=assertion();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1361:5: -> invariant_clause(a=$a.st)
-			{
-				retval.st = templateLib.getInstanceOf("invariant_clause",new STAttrMap().put("a", (a!=null?((StringTemplate)a.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1361:5: -> invariant_clause(a=$a.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("invariant_clause",new STAttrMap().put("a", (a!=null?((StringTemplate)a.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16887,8 +17703,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:3: ( ^( LITERAL_variables (vd+= variableDeclaration )+ ) -> variables(bv=$vd))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1366:2: ^( LITERAL_variables (vd+= variableDeclaration )+ )
 			{
-			match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_variablesSection10431); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_variablesSection10456); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1366:25: (vd+= variableDeclaration )+
 			int cnt142=0;
 			loop142:
@@ -16903,10 +17719,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1366:25: vd+= variableDeclaration
 					{
-					pushFollow(FOLLOW_variableDeclaration_in_variablesSection10435);
+					pushFollow(FOLLOW_variableDeclaration_in_variablesSection10460);
 					vd=variableDeclaration();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_vd==null) list_vd=new ArrayList<Object>();
 					list_vd.add(vd.getTemplate());
 					}
@@ -16914,21 +17730,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt142 >= 1 ) break loop142;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(142, input);
 					throw eee;
 				}
 				cnt142++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1367:4: -> variables(bv=$vd)
-			{
-				retval.st = templateLib.getInstanceOf("variables",new STAttrMap().put("bv", list_vd));
+			if ( state.backtracking==0 ) {
+			  // 1367:4: -> variables(bv=$vd)
+			  {
+			  	retval.st = templateLib.getInstanceOf("variables",new STAttrMap().put("bv", list_vd));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -16984,8 +17803,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1371:3: ( ^( LITERAL_states (states+= behaviorState )+ ) -> states_section(bs=$states))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:2: ^( LITERAL_states (states+= behaviorState )+ )
 			{
-			match(input,LITERAL_states,FOLLOW_LITERAL_states_in_statesSection10466); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_states,FOLLOW_LITERAL_states_in_statesSection10491); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:26: (states+= behaviorState )+
 			int cnt143=0;
 			loop143:
@@ -17000,10 +17819,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:26: states+= behaviorState
 					{
-					pushFollow(FOLLOW_behaviorState_in_statesSection10470);
+					pushFollow(FOLLOW_behaviorState_in_statesSection10495);
 					states=behaviorState();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_states==null) list_states=new ArrayList<Object>();
 					list_states.add(states.getTemplate());
 					}
@@ -17011,21 +17830,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt143 >= 1 ) break loop143;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(143, input);
 					throw eee;
 				}
 				cnt143++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1373:4: -> states_section(bs=$states)
-			{
-				retval.st = templateLib.getInstanceOf("states_section",new STAttrMap().put("bs", list_states));
+			if ( state.backtracking==0 ) {
+			  // 1373:4: -> states_section(bs=$states)
+			  {
+			  	retval.st = templateLib.getInstanceOf("states_section",new STAttrMap().put("bs", list_states));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17085,8 +17907,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1377:3: ( ^( LITERAL_state (init= LITERAL_initial )? (com= LITERAL_complete )? (finl= LITERAL_final )? i= ID (a= assertion )? ) -> behavior_state(bsi=$i.texti=$init.textcom=$com.textfinl=$finl.texta=$a.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:3: ^( LITERAL_state (init= LITERAL_initial )? (com= LITERAL_complete )? (finl= LITERAL_final )? i= ID (a= assertion )? )
 			{
-			match(input,LITERAL_state,FOLLOW_LITERAL_state_in_behaviorState10502); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_state,FOLLOW_LITERAL_state_in_behaviorState10527); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:24: (init= LITERAL_initial )?
 			int alt144=2;
 			int LA144_0 = input.LA(1);
@@ -17097,7 +17919,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:24: init= LITERAL_initial
 					{
-					init=(BAST)match(input,LITERAL_initial,FOLLOW_LITERAL_initial_in_behaviorState10506); 
+					init=(BAST)match(input,LITERAL_initial,FOLLOW_LITERAL_initial_in_behaviorState10531); if (state.failed) return retval;
 					}
 					break;
 
@@ -17113,7 +17935,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:45: com= LITERAL_complete
 					{
-					com=(BAST)match(input,LITERAL_complete,FOLLOW_LITERAL_complete_in_behaviorState10511); 
+					com=(BAST)match(input,LITERAL_complete,FOLLOW_LITERAL_complete_in_behaviorState10536); if (state.failed) return retval;
 					}
 					break;
 
@@ -17129,13 +17951,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:68: finl= LITERAL_final
 					{
-					finl=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behaviorState10516); 
+					finl=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behaviorState10541); if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			i=(BAST)match(input,ID,FOLLOW_ID_in_behaviorState10521); 
+			i=(BAST)match(input,ID,FOLLOW_ID_in_behaviorState10546); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:90: (a= assertion )?
 			int alt147=2;
 			int LA147_0 = input.LA(1);
@@ -17146,24 +17968,26 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1378:90: a= assertion
 					{
-					pushFollow(FOLLOW_assertion_in_behaviorState10525);
+					pushFollow(FOLLOW_assertion_in_behaviorState10550);
 					a=assertion();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1379:5: -> behavior_state(bsi=$i.texti=$init.textcom=$com.textfinl=$finl.texta=$a.st)
-			{
-				retval.st = templateLib.getInstanceOf("behavior_state",new STAttrMap().put("bsi", (i!=null?i.getText():null)).put("i", (init!=null?init.getText():null)).put("com", (com!=null?com.getText():null)).put("finl", (finl!=null?finl.getText():null)).put("a", (a!=null?((StringTemplate)a.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1379:5: -> behavior_state(bsi=$i.texti=$init.textcom=$com.textfinl=$finl.texta=$a.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("behavior_state",new STAttrMap().put("bsi", (i!=null?i.getText():null)).put("i", (init!=null?init.getText():null)).put("com", (com!=null?com.getText():null)).put("finl", (finl!=null?finl.getText():null)).put("a", (a!=null?((StringTemplate)a.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17219,8 +18043,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1383:3: ( ^( LITERAL_transitions (bt+= behaviorTransition )+ ) -> transitions(bt=$bt))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1384:3: ^( LITERAL_transitions (bt+= behaviorTransition )+ )
 			{
-			match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_transitions10580); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_transitions10605); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1384:28: (bt+= behaviorTransition )+
 			int cnt148=0;
 			loop148:
@@ -17235,10 +18059,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1384:28: bt+= behaviorTransition
 					{
-					pushFollow(FOLLOW_behaviorTransition_in_transitions10584);
+					pushFollow(FOLLOW_behaviorTransition_in_transitions10609);
 					bt=behaviorTransition();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					if (list_bt==null) list_bt=new ArrayList<Object>();
 					list_bt.add(bt.getTemplate());
 					}
@@ -17246,21 +18070,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt148 >= 1 ) break loop148;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(148, input);
 					throw eee;
 				}
 				cnt148++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1385:5: -> transitions(bt=$bt)
-			{
-				retval.st = templateLib.getInstanceOf("transitions",new STAttrMap().put("bt", list_bt));
+			if ( state.backtracking==0 ) {
+			  // 1385:5: -> transitions(bt=$bt)
+			  {
+			  	retval.st = templateLib.getInstanceOf("transitions",new STAttrMap().put("bt", list_bt));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17323,11 +18150,11 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1389:3: ( ^( TRANSITION ^( LABEL id= ID (pr= priority )? ) ^( SOURCE (ssi+= ID )+ ) ^( CONDITION (bc= behaviorCondition )? ) ^( DESTINATION dsi= ID ) ^( ACTION (s= behaviorActions )? ) ^( Q (q= assertion )? ) ) -> behavior_transition(i=$id.textpr=$pr.stssi=$ssibc=$bc.stdsi=$dsi.textba=$s.stbtq=$q.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1390:3: ^( TRANSITION ^( LABEL id= ID (pr= priority )? ) ^( SOURCE (ssi+= ID )+ ) ^( CONDITION (bc= behaviorCondition )? ) ^( DESTINATION dsi= ID ) ^( ACTION (s= behaviorActions )? ) ^( Q (q= assertion )? ) )
 			{
-			match(input,TRANSITION,FOLLOW_TRANSITION_in_behaviorTransition10617); 
-			match(input, Token.DOWN, null); 
-			match(input,LABEL,FOLLOW_LABEL_in_behaviorTransition10626); 
-			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10630); 
+			match(input,TRANSITION,FOLLOW_TRANSITION_in_behaviorTransition10642); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			match(input,LABEL,FOLLOW_LABEL_in_behaviorTransition10651); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			id=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10655); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1391:22: (pr= priority )?
 			int alt149=2;
 			int LA149_0 = input.LA(1);
@@ -17338,19 +18165,19 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1391:22: pr= priority
 					{
-					pushFollow(FOLLOW_priority_in_behaviorTransition10634);
+					pushFollow(FOLLOW_priority_in_behaviorTransition10659);
 					pr=priority();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					}
 					break;
 
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input,SOURCE,FOLLOW_SOURCE_in_behaviorTransition10646); 
-			match(input, Token.DOWN, null); 
+			match(input,SOURCE,FOLLOW_SOURCE_in_behaviorTransition10671); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1392:18: (ssi+= ID )+
 			int cnt150=0;
 			loop150:
@@ -17365,7 +18192,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1392:18: ssi+= ID
 					{
-					ssi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10650); 
+					ssi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10675); if (state.failed) return retval;
 					if (list_ssi==null) list_ssi=new ArrayList<Object>();
 					list_ssi.add(ssi);
 					}
@@ -17373,17 +18200,18 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt150 >= 1 ) break loop150;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(150, input);
 					throw eee;
 				}
 				cnt150++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input,CONDITION,FOLLOW_CONDITION_in_behaviorTransition10662); 
+			match(input,CONDITION,FOLLOW_CONDITION_in_behaviorTransition10687); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1393:20: (bc= behaviorCondition )?
 				int alt151=2;
 				int LA151_0 = input.LA(1);
@@ -17394,26 +18222,26 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1393:20: bc= behaviorCondition
 						{
-						pushFollow(FOLLOW_behaviorCondition_in_behaviorTransition10666);
+						pushFollow(FOLLOW_behaviorCondition_in_behaviorTransition10691);
 						bc=behaviorCondition();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,DESTINATION,FOLLOW_DESTINATION_in_behaviorTransition10678); 
-			match(input, Token.DOWN, null); 
-			dsi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10682); 
-			match(input, Token.UP, null); 
+			match(input,DESTINATION,FOLLOW_DESTINATION_in_behaviorTransition10703); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			dsi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10707); if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
-			match(input,ACTION,FOLLOW_ACTION_in_behaviorTransition10692); 
+			match(input,ACTION,FOLLOW_ACTION_in_behaviorTransition10717); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1395:16: (s= behaviorActions )?
 				int alt152=2;
 				int LA152_0 = input.LA(1);
@@ -17424,21 +18252,21 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1395:16: s= behaviorActions
 						{
-						pushFollow(FOLLOW_behaviorActions_in_behaviorTransition10696);
+						pushFollow(FOLLOW_behaviorActions_in_behaviorTransition10721);
 						s=behaviorActions();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input,Q,FOLLOW_Q_in_behaviorTransition10708); 
+			match(input,Q,FOLLOW_Q_in_behaviorTransition10733); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1396:11: (q= assertion )?
 				int alt153=2;
 				int LA153_0 = input.LA(1);
@@ -17449,27 +18277,29 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1396:11: q= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_behaviorTransition10712);
+						pushFollow(FOLLOW_assertion_in_behaviorTransition10737);
 						q=assertion();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1397:5: -> behavior_transition(i=$id.textpr=$pr.stssi=$ssibc=$bc.stdsi=$dsi.textba=$s.stbtq=$q.st)
-			{
-				retval.st = templateLib.getInstanceOf("behavior_transition",new STAttrMap().put("i", (id!=null?id.getText():null)).put("pr", (pr!=null?((StringTemplate)pr.getTemplate()):null)).put("ssi", list_ssi).put("bc", (bc!=null?((StringTemplate)bc.getTemplate()):null)).put("dsi", (dsi!=null?dsi.getText():null)).put("ba", (s!=null?((StringTemplate)s.getTemplate()):null)).put("btq", (q!=null?((StringTemplate)q.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1397:5: -> behavior_transition(i=$id.textpr=$pr.stssi=$ssibc=$bc.stdsi=$dsi.textba=$s.stbtq=$q.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("behavior_transition",new STAttrMap().put("i", (id!=null?id.getText():null)).put("pr", (pr!=null?((StringTemplate)pr.getTemplate()):null)).put("ssi", list_ssi).put("bc", (bc!=null?((StringTemplate)bc.getTemplate()):null)).put("dsi", (dsi!=null?dsi.getText():null)).put("ba", (s!=null?((StringTemplate)s.getTemplate()):null)).put("btq", (q!=null?((StringTemplate)q.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17525,19 +18355,21 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1402:3: ( ^( LBRACKET num= NUMBER RBRACKET ) -> priority(num=$num.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1403:2: ^( LBRACKET num= NUMBER RBRACKET )
 			{
-			match(input,LBRACKET,FOLLOW_LBRACKET_in_priority10784); 
-			match(input, Token.DOWN, null); 
-			num=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_priority10788); 
-			match(input,RBRACKET,FOLLOW_RBRACKET_in_priority10790); 
-			match(input, Token.UP, null); 
+			match(input,LBRACKET,FOLLOW_LBRACKET_in_priority10809); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			num=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_priority10813); if (state.failed) return retval;
+			match(input,RBRACKET,FOLLOW_RBRACKET_in_priority10815); if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1404:4: -> priority(num=$num.text)
-			{
-				retval.st = templateLib.getInstanceOf("priority",new STAttrMap().put("num", (num!=null?num.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 1404:4: -> priority(num=$num.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("priority",new STAttrMap().put("num", (num!=null?num.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17666,6 +18498,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 154, 0, input);
 				throw nvae;
@@ -17674,68 +18507,76 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1409:3: dc= dispatchCondition
 					{
-					pushFollow(FOLLOW_dispatchCondition_in_behaviorCondition10821);
+					pushFollow(FOLLOW_dispatchCondition_in_behaviorCondition10846);
 					dc=dispatchCondition();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1410:5: -> {$dc.st}
-					{
-						retval.st = (dc!=null?((StringTemplate)dc.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1410:5: -> {$dc.st}
+					  {
+					  	retval.st = (dc!=null?((StringTemplate)dc.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:5: ec= executeCondition
 					{
-					pushFollow(FOLLOW_executeCondition_in_behaviorCondition10838);
+					pushFollow(FOLLOW_executeCondition_in_behaviorCondition10863);
 					ec=executeCondition();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1412:5: -> {$ec.st}
-					{
-						retval.st = (ec!=null?((StringTemplate)ec.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1412:5: -> {$ec.st}
+					  {
+					  	retval.st = (ec!=null?((StringTemplate)ec.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1413:5: mc= modeCondition
 					{
-					pushFollow(FOLLOW_modeCondition_in_behaviorCondition10856);
+					pushFollow(FOLLOW_modeCondition_in_behaviorCondition10881);
 					mc=modeCondition();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1414:5: -> {$mc.st}
-					{
-						retval.st = (mc!=null?((StringTemplate)mc.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1414:5: -> {$mc.st}
+					  {
+					  	retval.st = (mc!=null?((StringTemplate)mc.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1415:5: ic= internalCondition
 					{
-					pushFollow(FOLLOW_internalCondition_in_behaviorCondition10874);
+					pushFollow(FOLLOW_internalCondition_in_behaviorCondition10899);
 					ic=internalCondition();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1416:5: -> {$ic.st}
-					{
-						retval.st = (ic!=null?((StringTemplate)ic.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1416:5: -> {$ic.st}
+					  {
+					  	retval.st = (ic!=null?((StringTemplate)ic.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -17793,9 +18634,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1420:3: ( ^( LITERAL_dispatch (de= dispatchExpression )? ) -> dispatch_condition(dle=$de.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1421:3: ^( LITERAL_dispatch (de= dispatchExpression )? )
 			{
-			match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatchCondition10902); 
+			match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatchCondition10927); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1421:25: (de= dispatchExpression )?
 				int alt155=2;
 				int LA155_0 = input.LA(1);
@@ -17806,25 +18647,27 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1421:25: de= dispatchExpression
 						{
-						pushFollow(FOLLOW_dispatchExpression_in_dispatchCondition10906);
+						pushFollow(FOLLOW_dispatchExpression_in_dispatchCondition10931);
 						de=dispatchExpression();
 						state._fsp--;
-
+						if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
 			// TEMPLATE REWRITE
-			// 1422:5: -> dispatch_condition(dle=$de.st)
-			{
-				retval.st = templateLib.getInstanceOf("dispatch_condition",new STAttrMap().put("dle", (de!=null?((StringTemplate)de.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1422:5: -> dispatch_condition(dle=$de.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("dispatch_condition",new STAttrMap().put("dle", (de!=null?((StringTemplate)de.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17880,17 +18723,19 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1426:3: (exp= expression -> {$exp.st})
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1427:3: exp= expression
 			{
-			pushFollow(FOLLOW_expression_in_executeCondition10943);
+			pushFollow(FOLLOW_expression_in_executeCondition10968);
 			exp=expression();
 			state._fsp--;
-
+			if (state.failed) return retval;
 			// TEMPLATE REWRITE
-			// 1428:5: -> {$exp.st}
-			{
-				retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+			if ( state.backtracking==0 ) {
+			  // 1428:5: -> {$exp.st}
+			  {
+			  	retval.st = (exp!=null?((StringTemplate)exp.getTemplate()):null);
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -17946,21 +18791,23 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1432:3: ( ^( LITERAL_on tle= triggerLogicalExpression ) -> mode_condition(tle=$tle.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1433:3: ^( LITERAL_on tle= triggerLogicalExpression )
 			{
-			match(input,LITERAL_on,FOLLOW_LITERAL_on_in_modeCondition10972); 
-			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_triggerLogicalExpression_in_modeCondition10976);
+			match(input,LITERAL_on,FOLLOW_LITERAL_on_in_modeCondition10997); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			pushFollow(FOLLOW_triggerLogicalExpression_in_modeCondition11001);
 			tle=triggerLogicalExpression();
 			state._fsp--;
-
-			match(input, Token.UP, null); 
+			if (state.failed) return retval;
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1434:5: -> mode_condition(tle=$tle.st)
-			{
-				retval.st = templateLib.getInstanceOf("mode_condition",new STAttrMap().put("tle", (tle!=null?((StringTemplate)tle.getTemplate()):null)));
+			if ( state.backtracking==0 ) {
+			  // 1434:5: -> mode_condition(tle=$tle.st)
+			  {
+			  	retval.st = templateLib.getInstanceOf("mode_condition",new STAttrMap().put("tle", (tle!=null?((StringTemplate)tle.getTemplate()):null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -18017,8 +18864,8 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1438:3: ( ^( LITERAL_internal (ports+= ID )+ ) -> internal_condition(p=$ports))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1439:3: ^( LITERAL_internal (ports+= ID )+ )
 			{
-			match(input,LITERAL_internal,FOLLOW_LITERAL_internal_in_internalCondition11010); 
-			match(input, Token.DOWN, null); 
+			match(input,LITERAL_internal,FOLLOW_LITERAL_internal_in_internalCondition11035); if (state.failed) return retval;
+			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1439:28: (ports+= ID )+
 			int cnt156=0;
 			loop156:
@@ -18033,7 +18880,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1439:28: ports+= ID
 					{
-					ports=(BAST)match(input,ID,FOLLOW_ID_in_internalCondition11014); 
+					ports=(BAST)match(input,ID,FOLLOW_ID_in_internalCondition11039); if (state.failed) return retval;
 					if (list_ports==null) list_ports=new ArrayList<Object>();
 					list_ports.add(ports);
 					}
@@ -18041,21 +18888,24 @@ public class UnparseBLESS3 extends TreeParser {
 
 				default :
 					if ( cnt156 >= 1 ) break loop156;
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					EarlyExitException eee = new EarlyExitException(156, input);
 					throw eee;
 				}
 				cnt156++;
 			}
 
-			match(input, Token.UP, null); 
+			match(input, Token.UP, null); if (state.failed) return retval;
 
 			// TEMPLATE REWRITE
-			// 1440:5: -> internal_condition(p=$ports)
-			{
-				retval.st = templateLib.getInstanceOf("internal_condition",new STAttrMap().put("p", list_ports));
+			if ( state.backtracking==0 ) {
+			  // 1440:5: -> internal_condition(p=$ports)
+			  {
+			  	retval.st = templateLib.getInstanceOf("internal_condition",new STAttrMap().put("p", list_ports));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -18120,6 +18970,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 158, 0, input);
 				throw nvae;
@@ -18129,8 +18980,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1445:3: ^( LITERAL_or (dc+= dispatchConjunction )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatchExpression11050); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatchExpression11075); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1445:19: (dc+= dispatchConjunction )+
 					int cnt157=0;
 					loop157:
@@ -18145,10 +18996,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1445:19: dc+= dispatchConjunction
 							{
-							pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11054);
+							pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11079);
 							dc=dispatchConjunction();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_dc==null) list_dc=new ArrayList<Object>();
 							list_dc.add(dc.getTemplate());
 							}
@@ -18156,38 +19007,43 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt157 >= 1 ) break loop157;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(157, input);
 							throw eee;
 						}
 						cnt157++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1446:5: -> disjunction(bopt=$dc)
-					{
-						retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_dc));
+					if ( state.backtracking==0 ) {
+					  // 1446:5: -> disjunction(bopt=$dc)
+					  {
+					  	retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_dc));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1448:3: c= dispatchConjunction
 					{
-					pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11080);
+					pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11105);
 					c=dispatchConjunction();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1449:5: -> {$c.st}
-					{
-						retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1449:5: -> {$c.st}
+					  {
+					  	retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -18254,6 +19110,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 160, 0, input);
 				throw nvae;
@@ -18263,8 +19120,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:3: ^( LITERAL_and (tr+= dispatchTrigger )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatchConjunction11111); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatchConjunction11136); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:20: (tr+= dispatchTrigger )+
 					int cnt159=0;
 					loop159:
@@ -18279,10 +19136,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:20: tr+= dispatchTrigger
 							{
-							pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11115);
+							pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11140);
 							tr=dispatchTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_tr==null) list_tr=new ArrayList<Object>();
 							list_tr.add(tr.getTemplate());
 							}
@@ -18290,38 +19147,43 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt159 >= 1 ) break loop159;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(159, input);
 							throw eee;
 						}
 						cnt159++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1455:5: -> conjunction(bopt=$tr)
-					{
-						retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_tr));
+					if ( state.backtracking==0 ) {
+					  // 1455:5: -> conjunction(bopt=$tr)
+					  {
+					  	retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_tr));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1457:3: t= dispatchTrigger
 					{
-					pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11141);
+					pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11166);
 					t=dispatchTrigger();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1458:5: -> {$t.st}
-					{
-						retval.st = (t!=null?((StringTemplate)t.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1458:5: -> {$t.st}
+					  {
+					  	retval.st = (t!=null?((StringTemplate)t.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -18390,6 +19252,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 164, 0, input);
 				throw nvae;
@@ -18399,26 +19262,28 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1463:3: port= portName
 					{
-					pushFollow(FOLLOW_portName_in_dispatchTrigger11167);
+					pushFollow(FOLLOW_portName_in_dispatchTrigger11192);
 					port=portName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1464:5: -> {$port.st}
-					{
-						retval.st = (port!=null?((StringTemplate)port.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1464:5: -> {$port.st}
+					  {
+					  	retval.st = (port!=null?((StringTemplate)port.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:3: ^( LITERAL_timeout ( ^( LPAREN (ports+= ID )* ) )? (time= behaviorTime )? )
 					{
-					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatchTrigger11185); 
+					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatchTrigger11210); if (state.failed) return retval;
 					if ( input.LA(1)==Token.DOWN ) {
-						match(input, Token.DOWN, null); 
+						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:22: ( ^( LPAREN (ports+= ID )* ) )?
 						int alt162=2;
 						int LA162_0 = input.LA(1);
@@ -18441,9 +19306,9 @@ public class UnparseBLESS3 extends TreeParser {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:24: ^( LPAREN (ports+= ID )* )
 								{
-								match(input,LPAREN,FOLLOW_LPAREN_in_dispatchTrigger11191); 
+								match(input,LPAREN,FOLLOW_LPAREN_in_dispatchTrigger11216); if (state.failed) return retval;
 								if ( input.LA(1)==Token.DOWN ) {
-									match(input, Token.DOWN, null); 
+									match(input, Token.DOWN, null); if (state.failed) return retval;
 									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:39: (ports+= ID )*
 									loop161:
 									while (true) {
@@ -18457,7 +19322,7 @@ public class UnparseBLESS3 extends TreeParser {
 										case 1 :
 											// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:39: ports+= ID
 											{
-											ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatchTrigger11195); 
+											ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatchTrigger11220); if (state.failed) return retval;
 											if (list_ports==null) list_ports=new ArrayList<Object>();
 											list_ports.add(ports);
 											}
@@ -18468,7 +19333,7 @@ public class UnparseBLESS3 extends TreeParser {
 										}
 									}
 
-									match(input, Token.UP, null); 
+									match(input, Token.UP, null); if (state.failed) return retval;
 								}
 
 								}
@@ -18486,25 +19351,27 @@ public class UnparseBLESS3 extends TreeParser {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:54: time= behaviorTime
 								{
-								pushFollow(FOLLOW_behaviorTime_in_dispatchTrigger11205);
+								pushFollow(FOLLOW_behaviorTime_in_dispatchTrigger11230);
 								time=behaviorTime();
 								state._fsp--;
-
+								if (state.failed) return retval;
 								}
 								break;
 
 						}
 
-						match(input, Token.UP, null); 
+						match(input, Token.UP, null); if (state.failed) return retval;
 					}
 
 					// TEMPLATE REWRITE
-					// 1467:5: -> timeout(bt=$time.stp=$ports)
-					{
-						retval.st = templateLib.getInstanceOf("timeout",new STAttrMap().put("bt", (time!=null?((StringTemplate)time.getTemplate()):null)).put("p", list_ports));
+					if ( state.backtracking==0 ) {
+					  // 1467:5: -> timeout(bt=$time.stp=$ports)
+					  {
+					  	retval.st = templateLib.getInstanceOf("timeout",new STAttrMap().put("bt", (time!=null?((StringTemplate)time.getTemplate()):null)).put("p", list_ports));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -18582,6 +19449,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 165, 0, input);
 				throw nvae;
@@ -18590,51 +19458,57 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1471:3: q= quantity
 					{
-					pushFollow(FOLLOW_quantity_in_behaviorTime11239);
+					pushFollow(FOLLOW_quantity_in_behaviorTime11264);
 					q=quantity();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1472:5: -> {$q.st}
-					{
-						retval.st = (q!=null?((StringTemplate)q.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1472:5: -> {$q.st}
+					  {
+					  	retval.st = (q!=null?((StringTemplate)q.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1473:5: vn= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_behaviorTime11255);
+					pushFollow(FOLLOW_valueName_in_behaviorTime11280);
 					vn=valueName();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1474:5: -> {$vn.st}
-					{
-						retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1474:5: -> {$vn.st}
+					  {
+					  	retval.st = (vn!=null?((StringTemplate)vn.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1475:5: ps= parenthesizedSubexpression
 					{
-					pushFollow(FOLLOW_parenthesizedSubexpression_in_behaviorTime11271);
+					pushFollow(FOLLOW_parenthesizedSubexpression_in_behaviorTime11296);
 					ps=parenthesizedSubexpression();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1476:5: -> {$ps.st}
-					{
-						retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1476:5: -> {$ps.st}
+					  {
+					  	retval.st = (ps!=null?((StringTemplate)ps.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -18693,9 +19567,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1480:3: ( ^(port= ID (index= NUMBER )? ) -> port_name(port=$port.textindex=$index.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1481:3: ^(port= ID (index= NUMBER )? )
 			{
-			port=(BAST)match(input,ID,FOLLOW_ID_in_portName11299); 
+			port=(BAST)match(input,ID,FOLLOW_ID_in_portName11324); if (state.failed) return retval;
 			if ( input.LA(1)==Token.DOWN ) {
-				match(input, Token.DOWN, null); 
+				match(input, Token.DOWN, null); if (state.failed) return retval;
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1481:19: (index= NUMBER )?
 				int alt166=2;
 				int LA166_0 = input.LA(1);
@@ -18706,22 +19580,24 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1481:19: index= NUMBER
 						{
-						index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_portName11303); 
+						index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_portName11328); if (state.failed) return retval;
 						}
 						break;
 
 				}
 
-				match(input, Token.UP, null); 
+				match(input, Token.UP, null); if (state.failed) return retval;
 			}
 
 			// TEMPLATE REWRITE
-			// 1482:5: -> port_name(port=$port.textindex=$index.text)
-			{
-				retval.st = templateLib.getInstanceOf("port_name",new STAttrMap().put("port", (port!=null?port.getText():null)).put("index", (index!=null?index.getText():null)));
+			if ( state.backtracking==0 ) {
+			  // 1482:5: -> port_name(port=$port.textindex=$index.text)
+			  {
+			  	retval.st = templateLib.getInstanceOf("port_name",new STAttrMap().put("port", (port!=null?port.getText():null)).put("index", (index!=null?index.getText():null)));
+			  }
+
+
 			}
-
-
 
 			}
 
@@ -18810,6 +19686,7 @@ public class UnparseBLESS3 extends TreeParser {
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 172, 0, input);
 				throw nvae;
@@ -18818,8 +19695,8 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:3: ^( LITERAL_and (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_triggerLogicalExpression11340); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_triggerLogicalExpression11365); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:20: (et+= eventTrigger )+
 					int cnt167=0;
 					loop167:
@@ -18834,10 +19711,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:20: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11344);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11369);
 							et=eventTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_et==null) list_et=new ArrayList<Object>();
 							list_et.add(et.getTemplate());
 							}
@@ -18845,29 +19722,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt167 >= 1 ) break loop167;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(167, input);
 							throw eee;
 						}
 						cnt167++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1488:5: -> conjunction(bopt=$et)
-					{
-						retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_et));
+					if ( state.backtracking==0 ) {
+					  // 1488:5: -> conjunction(bopt=$et)
+					  {
+					  	retval.st = templateLib.getInstanceOf("conjunction",new STAttrMap().put("bopt", list_et));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1490:3: ^( LITERAL_or (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_triggerLogicalExpression11371); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_triggerLogicalExpression11396); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1490:19: (et+= eventTrigger )+
 					int cnt168=0;
 					loop168:
@@ -18882,10 +19762,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1490:19: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11375);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11400);
 							et=eventTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_et==null) list_et=new ArrayList<Object>();
 							list_et.add(et.getTemplate());
 							}
@@ -18893,29 +19773,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt168 >= 1 ) break loop168;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(168, input);
 							throw eee;
 						}
 						cnt168++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1491:5: -> disjunction(bopt=$et)
-					{
-						retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_et));
+					if ( state.backtracking==0 ) {
+					  // 1491:5: -> disjunction(bopt=$et)
+					  {
+					  	retval.st = templateLib.getInstanceOf("disjunction",new STAttrMap().put("bopt", list_et));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1493:3: ^( LITERAL_xor (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_triggerLogicalExpression11402); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_triggerLogicalExpression11427); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1493:20: (et+= eventTrigger )+
 					int cnt169=0;
 					loop169:
@@ -18930,10 +19813,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1493:20: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11406);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11431);
 							et=eventTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_et==null) list_et=new ArrayList<Object>();
 							list_et.add(et.getTemplate());
 							}
@@ -18941,29 +19824,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt169 >= 1 ) break loop169;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(169, input);
 							throw eee;
 						}
 						cnt169++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1494:5: -> xor(terms=$et)
-					{
-						retval.st = templateLib.getInstanceOf("xor",new STAttrMap().put("terms", list_et));
+					if ( state.backtracking==0 ) {
+					  // 1494:5: -> xor(terms=$et)
+					  {
+					  	retval.st = templateLib.getInstanceOf("xor",new STAttrMap().put("terms", list_et));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1496:3: ^( LITERAL_then (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_triggerLogicalExpression11433); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_triggerLogicalExpression11458); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1496:21: (et+= eventTrigger )+
 					int cnt170=0;
 					loop170:
@@ -18978,10 +19864,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1496:21: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11437);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11462);
 							et=eventTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_et==null) list_et=new ArrayList<Object>();
 							list_et.add(et.getTemplate());
 							}
@@ -18989,29 +19875,32 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt170 >= 1 ) break loop170;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(170, input);
 							throw eee;
 						}
 						cnt170++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1497:5: -> cand(t=$et)
-					{
-						retval.st = templateLib.getInstanceOf("cand",new STAttrMap().put("t", list_et));
+					if ( state.backtracking==0 ) {
+					  // 1497:5: -> cand(t=$et)
+					  {
+					  	retval.st = templateLib.getInstanceOf("cand",new STAttrMap().put("t", list_et));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:3: ^( LITERAL_else (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_triggerLogicalExpression11464); 
-					match(input, Token.DOWN, null); 
+					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_triggerLogicalExpression11489); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:21: (et+= eventTrigger )+
 					int cnt171=0;
 					loop171:
@@ -19026,10 +19915,10 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:21: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11468);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11493);
 							et=eventTrigger();
 							state._fsp--;
-
+							if (state.failed) return retval;
 							if (list_et==null) list_et=new ArrayList<Object>();
 							list_et.add(et.getTemplate());
 							}
@@ -19037,38 +19926,43 @@ public class UnparseBLESS3 extends TreeParser {
 
 						default :
 							if ( cnt171 >= 1 ) break loop171;
+							if (state.backtracking>0) {state.failed=true; return retval;}
 							EarlyExitException eee = new EarlyExitException(171, input);
 							throw eee;
 						}
 						cnt171++;
 					}
 
-					match(input, Token.UP, null); 
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1500:5: -> cor(t=$et)
-					{
-						retval.st = templateLib.getInstanceOf("cor",new STAttrMap().put("t", list_et));
+					if ( state.backtracking==0 ) {
+					  // 1500:5: -> cor(t=$et)
+					  {
+					  	retval.st = templateLib.getInstanceOf("cor",new STAttrMap().put("t", list_et));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1502:3: first= eventTrigger
 					{
-					pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11494);
+					pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11519);
 					first=eventTrigger();
 					state._fsp--;
-
+					if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1503:5: -> {$first.st}
-					{
-						retval.st = (first!=null?((StringTemplate)first.getTemplate()):null);
+					if ( state.backtracking==0 ) {
+					  // 1503:5: -> {$first.st}
+					  {
+					  	retval.st = (first!=null?((StringTemplate)first.getTemplate()):null);
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -19135,6 +20029,7 @@ public class UnparseBLESS3 extends TreeParser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 173, 0, input);
 				throw nvae;
@@ -19144,36 +20039,40 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1508:3: tr= TRIGGER
 					{
-					tr=(BAST)match(input,TRIGGER,FOLLOW_TRIGGER_in_eventTrigger11519); 
+					tr=(BAST)match(input,TRIGGER,FOLLOW_TRIGGER_in_eventTrigger11544); if (state.failed) return retval;
 					// TEMPLATE REWRITE
-					// 1509:5: -> {%{$tr.text}}
-					{
-						retval.st = new StringTemplate(templateLib,(tr!=null?tr.getText():null));
+					if ( state.backtracking==0 ) {
+					  // 1509:5: -> {%{$tr.text}}
+					  {
+					  	retval.st = new StringTemplate(templateLib,(tr!=null?tr.getText():null));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1511:3: ^( LPAREN tle= triggerLogicalExpression RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_eventTrigger11538); 
-					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_triggerLogicalExpression_in_eventTrigger11542);
+					match(input,LPAREN,FOLLOW_LPAREN_in_eventTrigger11563); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_triggerLogicalExpression_in_eventTrigger11567);
 					tle=triggerLogicalExpression();
 					state._fsp--;
-
-					match(input,RPAREN,FOLLOW_RPAREN_in_eventTrigger11544); 
-					match(input, Token.UP, null); 
+					if (state.failed) return retval;
+					match(input,RPAREN,FOLLOW_RPAREN_in_eventTrigger11569); if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
 
 					// TEMPLATE REWRITE
-					// 1512:5: -> parentheses(be=$tle.st)
-					{
-						retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (tle!=null?((StringTemplate)tle.getTemplate()):null)));
+					if ( state.backtracking==0 ) {
+					  // 1512:5: -> parentheses(be=$tle.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("parentheses",new STAttrMap().put("be", (tle!=null?((StringTemplate)tle.getTemplate()):null)));
+					  }
+
+
 					}
-
-
 
 					}
 					break;
@@ -19211,7 +20110,110 @@ public class UnparseBLESS3 extends TreeParser {
 	}
 	// $ANTLR end "eventTrigger"
 
+	// $ANTLR start synpred1_UnparseBLESS3
+	public final void synpred1_UnparseBLESS3_fragment() throws RecognitionException {
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:801:3: ( LPAREN QQ )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:801:4: LPAREN QQ
+		{
+		match(input,LPAREN,FOLLOW_LPAREN_in_synpred1_UnparseBLESS35573); if (state.failed) return;
+		match(input,QQ,FOLLOW_QQ_in_synpred1_UnparseBLESS35575); if (state.failed) return;
+		}
+
+	}
+	// $ANTLR end synpred1_UnparseBLESS3
+
+	// $ANTLR start synpred2_UnparseBLESS3
+	public final void synpred2_UnparseBLESS3_fragment() throws RecognitionException {
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:803:5: ( LPAREN )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:803:6: LPAREN
+		{
+		match(input,LPAREN,FOLLOW_LPAREN_in_synpred2_UnparseBLESS35595); if (state.failed) return;
+		}
+
+	}
+	// $ANTLR end synpred2_UnparseBLESS3
+
+	// $ANTLR start synpred3_UnparseBLESS3
+	public final void synpred3_UnparseBLESS3_fragment() throws RecognitionException {
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:805:5: ( RECORD_TERM )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:805:6: RECORD_TERM
+		{
+		match(input,RECORD_TERM,FOLLOW_RECORD_TERM_in_synpred3_UnparseBLESS35618); if (state.failed) return;
+		}
+
+	}
+	// $ANTLR end synpred3_UnparseBLESS3
+
+	// $ANTLR start synpred4_UnparseBLESS3
+	public final void synpred4_UnparseBLESS3_fragment() throws RecognitionException {
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:807:5: ( ID LPAREN )
+		// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:807:6: ID LPAREN
+		{
+		match(input,ID,FOLLOW_ID_in_synpred4_UnparseBLESS35639); if (state.failed) return;
+		match(input,LPAREN,FOLLOW_LPAREN_in_synpred4_UnparseBLESS35641); if (state.failed) return;
+		}
+
+	}
+	// $ANTLR end synpred4_UnparseBLESS3
+
 	// Delegated rules
+
+	public final boolean synpred2_UnparseBLESS3() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred2_UnparseBLESS3_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
+	public final boolean synpred3_UnparseBLESS3() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred3_UnparseBLESS3_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
+	public final boolean synpred4_UnparseBLESS3() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred4_UnparseBLESS3_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
+	public final boolean synpred1_UnparseBLESS3() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred1_UnparseBLESS3_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
 
 
 	protected DFA6 dfa6 = new DFA6(this);
@@ -20498,405 +21500,411 @@ public class UnparseBLESS3 extends TreeParser {
 	public static final BitSet FOLLOW_timedSubject_in_timedExpression5513 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
 	public static final BitSet FOLLOW_periodShift_in_timedExpression5517 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_timedSubject_in_timedExpression5547 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_conditionalExpression_in_timedSubject5574 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenthesizedSubexpression_in_timedSubject5589 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_recordTerm_in_timedSubject5606 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_invocation_in_timedSubject5622 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_value_in_timedSubject5640 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_UNARY_MINUS_in_periodShift5669 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_value_in_periodShift5673 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_UNARY_MINUS_in_periodShift5705 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_periodShift5709 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_indexExpression_in_periodShift5713 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_periodShift5715 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_value_in_periodShift5747 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_periodShift5765 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_indexExpression_in_periodShift5769 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_periodShift5771 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MINUS_in_indexExpression5807 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5811 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5815 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_div_in_indexExpression5849 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5853 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5857 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_mod_in_indexExpression5891 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5895 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5899 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_rem_in_indexExpression5933 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5937 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5941 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PLUS_in_indexExpression5973 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression5977 = new BitSet(new long[]{0x0400000000000018L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_TIMES_in_indexExpression6003 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_periodShift_in_indexExpression6007 = new BitSet(new long[]{0x0400000000000018L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
-	public static final BitSet FOLLOW_LPAREN_in_conditionalExpression6042 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QQ_in_conditionalExpression6046 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_conditionalExpression6050 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_conditionalExpression6054 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_conditionalExpression6058 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RPAREN_in_conditionalExpression6063 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_parenthesizedSubexpression6109 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_parenthesizedSubexpression6113 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_parenthesizedSubexpression6115 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_parenthesizedSubexpression6145 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_caseExpression_in_parenthesizedSubexpression6149 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_parenthesizedSubexpression6151 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_case_in_caseExpression6185 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_caseChoice_in_caseExpression6189 = new BitSet(new long[]{0x0800000000000008L});
-	public static final BitSet FOLLOW_IMP_in_caseChoice6222 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_caseChoice6226 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_caseChoice6230 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RECORD_TERM_in_recordTerm6271 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_recordTerm6275 = new BitSet(new long[]{0x0000000000002000L});
-	public static final BitSet FOLLOW_recordValue_in_recordTerm6279 = new BitSet(new long[]{0x0000000000002008L});
-	public static final BitSet FOLLOW_ARROW_in_recordValue6318 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_recordValue6322 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000000000250L,0x0000000000000020L});
-	public static final BitSet FOLLOW_value_in_recordValue6326 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_expression_in_predicate6365 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_valueName_in_value6394 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_constant_in_value6412 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_value6430 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_now_in_value6448 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_tops_in_value6466 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_valueName6493 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DOLLAR_in_valueName6495 = new BitSet(new long[]{0x0000000014000000L});
-	public static final BitSet FOLLOW_functionParameters_in_valueName6499 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_valueName6531 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LBRACKET_in_valueName6535 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_indexExpressionOrRange_in_valueName6539 = new BitSet(new long[]{0x0000040000000008L,0x0000800000000000L,0x0000040000020000L,0x0000010020000000L,0x0000000000000080L});
-	public static final BitSet FOLLOW_DOT_in_valueName6546 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_partialName_in_valueName6550 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_ID_in_valueName6591 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DOT_in_valueName6595 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_partialName_in_valueName6599 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_QUESTION_in_valueName6635 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_valueName6639 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_TICK_in_valueName6666 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_valueName6670 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_fresh_in_valueName6672 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_TICK_in_valueName6697 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_valueName6701 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-	public static final BitSet FOLLOW_LITERAL_count_in_valueName6703 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_TICK_in_valueName6728 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_valueName6732 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
-	public static final BitSet FOLLOW_LITERAL_updated_in_valueName6734 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_valueName6759 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMMA_in_functionParameters6784 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_formalExpressionPair_in_functionParameters6788 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_formalExpressionPair_in_functionParameters6813 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COLON_in_formalExpressionPair6838 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_formalExpressionPair6842 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_formalExpressionPair6846 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOTDOT_in_indexExpressionOrRange6889 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6893 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L,0x0000040000020000L,0x0000010020000000L,0x0000000000000080L});
-	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6897 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6932 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_partialName6959 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LBRACKET_in_partialName6963 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_indexExpressionOrRange_in_partialName6967 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_partialName6999 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_quantity_in_constant7026 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_constant7044 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_true_in_constant7062 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_false_in_constant7080 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_null_in_constant7098 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7123 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7127 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7147 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7151 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_quantity7155 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7187 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7191 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0001000000000000L});
-	public static final BitSet FOLLOW_LITERAL_scalar_in_quantity7193 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7220 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7224 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_LITERAL_whole_in_quantity7226 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NUMBER_in_aNumber7261 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_propertyReference_in_aNumber7275 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_QCLREF_in_aNumber7289 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7321 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7325 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7366 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7370 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7412 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7416 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7420 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7462 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7466 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7470 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7474 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7520 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QCREF_in_propertyReference7524 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7528 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7563 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QCREF_in_propertyReference7567 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
-	public static final BitSet FOLLOW_QCLREF_in_propertyReference7571 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7575 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_LBRACKET_in_propertyField7617 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_propertyField7621 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_propertyField7646 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_propertyField7650 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7675 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_propertyField7679 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7706 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_upper_bound_in_propertyField7708 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7732 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_lower_bound_in_propertyField7734 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause7769 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_actionSubclause7774 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000100000000L,0x0000000000000008L});
-	public static final BitSet FOLLOW_throwsClause_in_actionSubclause7781 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_assertClause_in_actionSubclause7788 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_LITERAL_pre_in_actionSubclause7799 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause7804 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_post_in_actionSubclause7816 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause7821 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_actionSubclause7834 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause7839 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_actionSubclause7852 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_throws_in_throwsClause7925 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_throwsClause7929 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_LITERAL_assert_in_assertClause7962 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_namedAssertion_in_assertClause7966 = new BitSet(new long[]{0x0000000000034008L});
-	public static final BitSet FOLLOW_LCURLY_in_existentialLatticeQuantification7999 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8005 = new BitSet(new long[]{0x0000000000000440L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_behaviorActions_in_existentialLatticeQuantification8012 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0200000000000000L});
-	public static final BitSet FOLLOW_RCURLY_in_existentialLatticeQuantification8014 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L});
-	public static final BitSet FOLLOW_catchClause_in_existentialLatticeQuantification8020 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_declare_in_quantifiedVariables8065 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variableDeclaration_in_quantifiedVariables8069 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8101 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableDeclaration8105 = new BitSet(new long[]{0x0000000000074008L,0x4000020000000000L,0x00A0000000100000L});
-	public static final BitSet FOLLOW_ASSIGN_in_variableDeclaration8111 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_variableDeclaration8115 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_assertion_in_variableDeclaration8124 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x00A0000000100000L});
-	public static final BitSet FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8134 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x00A0000000000000L});
-	public static final BitSet FOLLOW_LITERAL_shared_in_variableDeclaration8139 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x0080000000000000L});
-	public static final BitSet FOLLOW_LITERAL_constant_in_variableDeclaration8144 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L,0x0080000000000000L});
-	public static final BitSet FOLLOW_LITERAL_spread_in_variableDeclaration8149 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
-	public static final BitSet FOLLOW_LITERAL_final_in_variableDeclaration8154 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_catch_in_catchClause8214 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_catchClauseTerm_in_catchClause8218 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
-	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8250 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_catchClauseTerm8254 = new BitSet(new long[]{0x0400000004000000L});
-	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8260 = new BitSet(new long[]{0x0000000000040000L,0x1E08000000000000L,0x8050000000000000L,0x0000300000080000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8266 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8296 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_all_in_catchClauseTerm8298 = new BitSet(new long[]{0x0000000004000000L});
-	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8302 = new BitSet(new long[]{0x0000000000040000L,0x1E08000000000000L,0x8050000000000000L,0x0000300000080000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8306 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8308 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SEMICOLON_in_behaviorActions8340 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8344 = new BitSet(new long[]{0x0000000000000048L});
-	public static final BitSet FOLLOW_AMPERSAND_in_behaviorActions8370 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8374 = new BitSet(new long[]{0x0000000000000048L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8400 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ACTION_in_assertedAction8425 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_assertedAction8429 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_assertedAction8433 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_S_in_assertedAction8440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_action_in_assertedAction8444 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Q_in_assertedAction8450 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_assertedAction8454 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_basicAction_in_action8496 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_alternative_in_action8512 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whileLoop_in_action8528 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_forLoop_in_action8544 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_doUntilLoop_in_action8560 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_action8576 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_universalLatticeQuantification_in_action8593 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_skip_in_basicAction8622 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assignment_in_basicAction8638 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_setmode_in_basicAction8654 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_basicAction8658 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_whenThrow_in_basicAction8684 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_combinableOperation_in_basicAction8700 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_communicationAction_in_basicAction8716 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_simultaneousAssignment_in_basicAction8733 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_issueException_in_basicAction8749 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_exception_in_issueException8775 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_issueException8779 = new BitSet(new long[]{0x0000000000000018L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_issueException8783 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignment8823 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_nameTick_in_assignment8827 = new BitSet(new long[]{0x848A004002080310L,0x00928000003A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expressionOrAny_in_assignment8831 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_TICK_in_nameTick8870 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_valueName_in_nameTick8874 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_valueName_in_nameTick8899 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_expression_in_expressionOrAny8926 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_any_in_expressionOrAny8946 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASSIGN_in_simultaneousAssignment8972 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment8976 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_nameTick_in_simultaneousAssignment8980 = new BitSet(new long[]{0x0400000000000008L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment8987 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expressionOrAny_in_simultaneousAssignment8991 = new BitSet(new long[]{0x848A004002080318L,0x00928000003A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_LITERAL_when_in_whenThrow9031 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_whenThrow9033 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_whenThrow9037 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_whenThrow9039 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_throw_in_whenThrow9041 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_whenThrow9045 = new BitSet(new long[]{0x0000000000000018L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_whenThrow9057 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchadd_in_combinableOperation9103 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9107 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9111 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9115 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchor_in_combinableOperation9157 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9161 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9165 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9169 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchand_in_combinableOperation9211 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9215 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9219 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9223 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchxor_in_combinableOperation9265 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9269 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9273 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9277 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_swap_in_combinableOperation9319 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9323 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9327 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9331 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_subprogramCall_in_communicationAction9377 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portOutput_in_communicationAction9395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portInput_in_communicationAction9413 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_computation_in_computation9439 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorTime_in_computation9443 = new BitSet(new long[]{0x0400000000000008L,0x0000000010000000L,0x0000000000000000L,0x0030000002000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_behaviorTime_in_computation9447 = new BitSet(new long[]{0x0000000000000008L,0x0000000010000000L});
-	public static final BitSet FOLLOW_LITERAL_binding_in_computation9454 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_QCREF_in_computation9458 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0004000000000000L});
-	public static final BitSet FOLLOW_PORT_OUTPUT_in_portOutput9509 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_portOutput9513 = new BitSet(new long[]{0x848A004002080318L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_portOutput9517 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PORT_INPUT_in_portInput9559 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_portInput9563 = new BitSet(new long[]{0x0400000000000000L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_valueName_in_portInput9567 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9611 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_subprogramCall9615 = new BitSet(new long[]{0x0400000014000018L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
-	public static final BitSet FOLLOW_formalActualList_in_subprogramCall9619 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMMA_in_formalActualList9664 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_formalActual_in_formalActualList9668 = new BitSet(new long[]{0x0400000004000018L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
-	public static final BitSet FOLLOW_formalActual_in_formalActualList9694 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COLON_in_formalActual9723 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_formalActual9727 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
-	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9731 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9761 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_valueName_in_subProgramParameter9783 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_constant_in_subProgramParameter9798 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenthesizedSubexpression_in_subProgramParameter9813 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_if_in_alternative9841 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_guardedAction_in_alternative9845 = new BitSet(new long[]{0x0100000000000008L});
-	public static final BitSet FOLLOW_GUARD_in_guardedAction9882 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_guardedAction9886 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_assertedAction_in_guardedAction9890 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_while_in_whileLoop9929 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_whileLoop9933 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_INVARIANT_in_whileLoop9937 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_whileLoop9941 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOUND_in_whileLoop9948 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_whileLoop9952 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_whileLoop9966 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_for_in_forLoop10015 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_forLoop10019 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_LITERAL_in_in_forLoop10023 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_forLoop10027 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_forLoop10031 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVARIANT_in_forLoop10037 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_forLoop10041 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_behaviorActions_in_forLoop10055 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_do_in_doUntilLoop10110 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_until_in_doUntilLoop10114 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_doUntilLoop10118 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVARIANT_in_doUntilLoop10124 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_doUntilLoop10128 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOUND_in_doUntilLoop10135 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_doUntilLoop10139 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_behaviorActions_in_doUntilLoop10152 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_forall_in_universalLatticeQuantification10205 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_universalLatticeQuantification10209 = new BitSet(new long[]{0x0400000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_LITERAL_in_in_universalLatticeQuantification10214 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10218 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
-	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10222 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10228 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10278 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_blessSubclause10286 = new BitSet(new long[]{0x0000000000000008L,0x0000000002000000L,0x0200000000001000L,0x0000000000020100L});
-	public static final BitSet FOLLOW_assertClause_in_blessSubclause10295 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000001000L,0x0000000000020100L});
-	public static final BitSet FOLLOW_invariantClause_in_blessSubclause10306 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000000000L,0x0000000000020100L});
-	public static final BitSet FOLLOW_variablesSection_in_blessSubclause10315 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_statesSection_in_blessSubclause10324 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_transitions_in_blessSubclause10333 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_invariantClause10395 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_invariantClause10399 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_variables_in_variablesSection10431 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variableDeclaration_in_variablesSection10435 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_LITERAL_states_in_statesSection10466 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorState_in_statesSection10470 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0100000000000000L});
-	public static final BitSet FOLLOW_LITERAL_state_in_behaviorState10502 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_initial_in_behaviorState10506 = new BitSet(new long[]{0x0400000000000000L,0x4000001000000000L});
-	public static final BitSet FOLLOW_LITERAL_complete_in_behaviorState10511 = new BitSet(new long[]{0x0400000000000000L,0x4000000000000000L});
-	public static final BitSet FOLLOW_LITERAL_final_in_behaviorState10516 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_ID_in_behaviorState10521 = new BitSet(new long[]{0x0000000000034008L});
-	public static final BitSet FOLLOW_assertion_in_behaviorState10525 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_transitions_in_transitions10580 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorTransition_in_transitions10584 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_TRANSITION_in_behaviorTransition10617 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_behaviorTransition10626 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10630 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_priority_in_behaviorTransition10634 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SOURCE_in_behaviorTransition10646 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10650 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_CONDITION_in_behaviorTransition10662 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorCondition_in_behaviorTransition10666 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DESTINATION_in_behaviorTransition10678 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10682 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ACTION_in_behaviorTransition10692 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorActions_in_behaviorTransition10696 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Q_in_behaviorTransition10708 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_behaviorTransition10712 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_priority10784 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_priority10788 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
-	public static final BitSet FOLLOW_RBRACKET_in_priority10790 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_dispatchCondition_in_behaviorCondition10821 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_executeCondition_in_behaviorCondition10838 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_modeCondition_in_behaviorCondition10856 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_internalCondition_in_behaviorCondition10874 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatchCondition10902 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchExpression_in_dispatchCondition10906 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_expression_in_executeCondition10943 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_on_in_modeCondition10972 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_triggerLogicalExpression_in_modeCondition10976 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_internal_in_internalCondition11010 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_internalCondition11014 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_LITERAL_or_in_dispatchExpression11050 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11054 = new BitSet(new long[]{0x0400000000000008L,0x0000000000100000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11080 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_and_in_dispatchConjunction11111 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11115 = new BitSet(new long[]{0x0400000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11141 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portName_in_dispatchTrigger11167 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatchTrigger11185 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_dispatchTrigger11191 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_dispatchTrigger11195 = new BitSet(new long[]{0x0400000000000008L});
-	public static final BitSet FOLLOW_behaviorTime_in_dispatchTrigger11205 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_quantity_in_behaviorTime11239 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_valueName_in_behaviorTime11255 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenthesizedSubexpression_in_behaviorTime11271 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_portName11299 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_portName11303 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_and_in_triggerLogicalExpression11340 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11344 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_LITERAL_or_in_triggerLogicalExpression11371 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11375 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_LITERAL_xor_in_triggerLogicalExpression11402 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11406 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_LITERAL_then_in_triggerLogicalExpression11433 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11437 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_LITERAL_else_in_triggerLogicalExpression11464 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11468 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11494 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TRIGGER_in_eventTrigger11519 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_eventTrigger11538 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_triggerLogicalExpression_in_eventTrigger11542 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_eventTrigger11544 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_conditionalExpression_in_timedSubject5581 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenthesizedSubexpression_in_timedSubject5602 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_recordTerm_in_timedSubject5624 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_invocation_in_timedSubject5647 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_value_in_timedSubject5665 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_UNARY_MINUS_in_periodShift5694 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_value_in_periodShift5698 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_UNARY_MINUS_in_periodShift5730 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_periodShift5734 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_indexExpression_in_periodShift5738 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_periodShift5740 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_value_in_periodShift5772 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_periodShift5790 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_indexExpression_in_periodShift5794 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_periodShift5796 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MINUS_in_indexExpression5832 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5836 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5840 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_div_in_indexExpression5874 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5878 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5882 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_mod_in_indexExpression5916 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5920 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5924 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_rem_in_indexExpression5958 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5962 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression5966 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PLUS_in_indexExpression5998 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression6002 = new BitSet(new long[]{0x0400000000000018L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_TIMES_in_indexExpression6028 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_periodShift_in_indexExpression6032 = new BitSet(new long[]{0x0400000000000018L,0x0080000000000000L,0x0000000000C00000L,0x0030000002000250L,0x0000000000008020L});
+	public static final BitSet FOLLOW_LPAREN_in_conditionalExpression6067 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QQ_in_conditionalExpression6071 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_conditionalExpression6075 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_conditionalExpression6079 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_conditionalExpression6083 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RPAREN_in_conditionalExpression6088 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_parenthesizedSubexpression6134 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_parenthesizedSubexpression6138 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_parenthesizedSubexpression6140 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_parenthesizedSubexpression6170 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_caseExpression_in_parenthesizedSubexpression6174 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_parenthesizedSubexpression6176 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_case_in_caseExpression6210 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_caseChoice_in_caseExpression6214 = new BitSet(new long[]{0x0800000000000008L});
+	public static final BitSet FOLLOW_IMP_in_caseChoice6247 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_caseChoice6251 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_caseChoice6255 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RECORD_TERM_in_recordTerm6296 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_recordTerm6300 = new BitSet(new long[]{0x0000000000002000L});
+	public static final BitSet FOLLOW_recordValue_in_recordTerm6304 = new BitSet(new long[]{0x0000000000002008L});
+	public static final BitSet FOLLOW_ARROW_in_recordValue6343 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_recordValue6347 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000C00000L,0x0030000000000250L,0x0000000000000020L});
+	public static final BitSet FOLLOW_value_in_recordValue6351 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_expression_in_predicate6390 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_valueName_in_value6419 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_constant_in_value6437 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_value6455 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_now_in_value6473 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_tops_in_value6491 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_valueName6518 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DOLLAR_in_valueName6520 = new BitSet(new long[]{0x0000000014000000L});
+	public static final BitSet FOLLOW_functionParameters_in_valueName6524 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_in_valueName6556 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LBRACKET_in_valueName6560 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_indexExpressionOrRange_in_valueName6564 = new BitSet(new long[]{0x0000040000000008L,0x0000800000000000L,0x0000040000020000L,0x0000010020000000L,0x0000000000000080L});
+	public static final BitSet FOLLOW_DOT_in_valueName6571 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_partialName_in_valueName6575 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_ID_in_valueName6616 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DOT_in_valueName6620 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_partialName_in_valueName6624 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_QUESTION_in_valueName6660 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_valueName6664 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_TICK_in_valueName6691 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_valueName6695 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_fresh_in_valueName6697 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_TICK_in_valueName6722 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_valueName6726 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_LITERAL_count_in_valueName6728 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_TICK_in_valueName6753 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_valueName6757 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+	public static final BitSet FOLLOW_LITERAL_updated_in_valueName6759 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_in_valueName6784 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMA_in_functionParameters6809 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_formalExpressionPair_in_functionParameters6813 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_formalExpressionPair_in_functionParameters6838 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COLON_in_formalExpressionPair6863 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_formalExpressionPair6867 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_formalExpressionPair6871 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOTDOT_in_indexExpressionOrRange6914 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6918 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L,0x0000040000020000L,0x0000010020000000L,0x0000000000000080L});
+	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6922 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_indexExpression_in_indexExpressionOrRange6957 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_partialName6984 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LBRACKET_in_partialName6988 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_indexExpressionOrRange_in_partialName6992 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_in_partialName7024 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_quantity_in_constant7051 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_constant7069 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_true_in_constant7087 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_false_in_constant7105 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_null_in_constant7123 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7148 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7152 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7172 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7176 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_quantity7180 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7212 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7216 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0001000000000000L});
+	public static final BitSet FOLLOW_LITERAL_scalar_in_quantity7218 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7245 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7249 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_LITERAL_whole_in_quantity7251 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NUMBER_in_aNumber7286 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_propertyReference_in_aNumber7300 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_QCLREF_in_aNumber7314 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7346 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7350 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7387 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7391 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7395 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7437 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7441 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7445 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7487 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7491 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7495 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7499 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7545 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QCREF_in_propertyReference7549 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7553 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7588 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QCREF_in_propertyReference7592 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0002000000000000L});
+	public static final BitSet FOLLOW_QCLREF_in_propertyReference7596 = new BitSet(new long[]{0x0000010000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7600 = new BitSet(new long[]{0x0000010000000008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_LBRACKET_in_propertyField7642 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_propertyField7646 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_propertyField7671 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_propertyField7675 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7700 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_propertyField7704 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7731 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_upper_bound_in_propertyField7733 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7757 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_lower_bound_in_propertyField7759 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause7794 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_actionSubclause7799 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000100000000L,0x0000000000000008L});
+	public static final BitSet FOLLOW_throwsClause_in_actionSubclause7806 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000100000000L});
+	public static final BitSet FOLLOW_assertClause_in_actionSubclause7813 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000100000000L});
+	public static final BitSet FOLLOW_LITERAL_pre_in_actionSubclause7824 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause7829 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_post_in_actionSubclause7841 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause7846 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_actionSubclause7859 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause7864 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_actionSubclause7877 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_throws_in_throwsClause7950 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_throwsClause7954 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_LITERAL_assert_in_assertClause7987 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_namedAssertion_in_assertClause7991 = new BitSet(new long[]{0x0000000000034008L});
+	public static final BitSet FOLLOW_LCURLY_in_existentialLatticeQuantification8024 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8030 = new BitSet(new long[]{0x0000000000000440L,0x0000000000000000L,0x0000000000000000L,0x4000000000000000L});
+	public static final BitSet FOLLOW_behaviorActions_in_existentialLatticeQuantification8037 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0200000000000000L});
+	public static final BitSet FOLLOW_RCURLY_in_existentialLatticeQuantification8039 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L});
+	public static final BitSet FOLLOW_catchClause_in_existentialLatticeQuantification8045 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_declare_in_quantifiedVariables8090 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variableDeclaration_in_quantifiedVariables8094 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8126 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variable_in_variableDeclaration8130 = new BitSet(new long[]{0x0000000000074008L,0x4000020000000000L,0x00A0000000100000L});
+	public static final BitSet FOLLOW_ASSIGN_in_variableDeclaration8136 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_variableDeclaration8140 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_assertion_in_variableDeclaration8149 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x00A0000000100000L});
+	public static final BitSet FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8159 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x00A0000000000000L});
+	public static final BitSet FOLLOW_LITERAL_shared_in_variableDeclaration8164 = new BitSet(new long[]{0x0000000000000008L,0x4000020000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_LITERAL_constant_in_variableDeclaration8169 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_LITERAL_spread_in_variableDeclaration8174 = new BitSet(new long[]{0x0000000000000008L,0x4000000000000000L});
+	public static final BitSet FOLLOW_LITERAL_final_in_variableDeclaration8179 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_catch_in_catchClause8239 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_catchClauseTerm_in_catchClause8243 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
+	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8275 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_catchClauseTerm8279 = new BitSet(new long[]{0x0400000004000000L});
+	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8285 = new BitSet(new long[]{0x0000000000040000L,0x1E08000000000000L,0x8050000000000000L,0x0000300000080000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8289 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8291 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8321 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_all_in_catchClauseTerm8323 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8327 = new BitSet(new long[]{0x0000000000040000L,0x1E08000000000000L,0x8050000000000000L,0x0000300000080000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8331 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8333 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SEMICOLON_in_behaviorActions8365 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8369 = new BitSet(new long[]{0x0000000000000048L});
+	public static final BitSet FOLLOW_AMPERSAND_in_behaviorActions8395 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8399 = new BitSet(new long[]{0x0000000000000048L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8425 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ACTION_in_assertedAction8450 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_assertedAction8454 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_assertedAction8458 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_S_in_assertedAction8465 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_action_in_assertedAction8469 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Q_in_assertedAction8475 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_assertedAction8479 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_basicAction_in_action8521 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_alternative_in_action8537 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whileLoop_in_action8553 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_forLoop_in_action8569 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_doUntilLoop_in_action8585 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_action8601 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_universalLatticeQuantification_in_action8618 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_skip_in_basicAction8647 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assignment_in_basicAction8663 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_setmode_in_basicAction8679 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_basicAction8683 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_whenThrow_in_basicAction8709 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_combinableOperation_in_basicAction8725 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_communicationAction_in_basicAction8741 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_simultaneousAssignment_in_basicAction8758 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_issueException_in_basicAction8774 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_exception_in_issueException8800 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_issueException8804 = new BitSet(new long[]{0x0000000000000018L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_issueException8808 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignment8848 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_nameTick_in_assignment8852 = new BitSet(new long[]{0x848A004002080310L,0x00928000003A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expressionOrAny_in_assignment8856 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_TICK_in_nameTick8895 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_valueName_in_nameTick8899 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_valueName_in_nameTick8924 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expression_in_expressionOrAny8951 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_any_in_expressionOrAny8971 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ASSIGN_in_simultaneousAssignment8997 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9001 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_nameTick_in_simultaneousAssignment9005 = new BitSet(new long[]{0x0400000000000008L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9012 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expressionOrAny_in_simultaneousAssignment9016 = new BitSet(new long[]{0x848A004002080318L,0x00928000003A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_LITERAL_when_in_whenThrow9056 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_whenThrow9058 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_whenThrow9062 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_whenThrow9064 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_throw_in_whenThrow9066 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_whenThrow9070 = new BitSet(new long[]{0x0000000000000018L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_whenThrow9082 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchadd_in_combinableOperation9128 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9132 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9136 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9140 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchor_in_combinableOperation9182 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9186 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9190 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9194 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchand_in_combinableOperation9236 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9240 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9244 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9248 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchxor_in_combinableOperation9290 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9294 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9298 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9302 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_swap_in_combinableOperation9344 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9348 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9352 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9356 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_subprogramCall_in_communicationAction9402 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portOutput_in_communicationAction9420 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portInput_in_communicationAction9438 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_computation_in_computation9464 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorTime_in_computation9468 = new BitSet(new long[]{0x0400000000000008L,0x0000000010000000L,0x0000000000000000L,0x0030000002000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_behaviorTime_in_computation9472 = new BitSet(new long[]{0x0000000000000008L,0x0000000010000000L});
+	public static final BitSet FOLLOW_LITERAL_binding_in_computation9479 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_QCREF_in_computation9483 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0004000000000000L});
+	public static final BitSet FOLLOW_PORT_OUTPUT_in_portOutput9534 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_portOutput9538 = new BitSet(new long[]{0x848A004002080318L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_portOutput9542 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PORT_INPUT_in_portInput9584 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_portInput9588 = new BitSet(new long[]{0x0400000000000000L,0x0000000000000000L,0x0000000000000000L,0x0020000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_valueName_in_portInput9592 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9636 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_subprogramCall9640 = new BitSet(new long[]{0x0400000014000018L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
+	public static final BitSet FOLLOW_formalActualList_in_subprogramCall9644 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMMA_in_formalActualList9689 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_formalActual_in_formalActualList9693 = new BitSet(new long[]{0x0400000004000018L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
+	public static final BitSet FOLLOW_formalActual_in_formalActualList9719 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COLON_in_formalActual9748 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_formalActual9752 = new BitSet(new long[]{0x0400000000000010L,0x0080000000000000L,0x0000000000800000L,0x0030000002000200L,0x0000000000000020L});
+	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9756 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9786 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_valueName_in_subProgramParameter9808 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_constant_in_subProgramParameter9823 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenthesizedSubexpression_in_subProgramParameter9838 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_if_in_alternative9866 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_guardedAction_in_alternative9870 = new BitSet(new long[]{0x0100000000000008L});
+	public static final BitSet FOLLOW_GUARD_in_guardedAction9907 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_guardedAction9911 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_assertedAction_in_guardedAction9915 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_while_in_whileLoop9954 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_whileLoop9958 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_INVARIANT_in_whileLoop9962 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_whileLoop9966 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOUND_in_whileLoop9973 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_whileLoop9977 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_whileLoop9991 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_for_in_forLoop10040 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_forLoop10044 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_LITERAL_in_in_forLoop10048 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_forLoop10052 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_forLoop10056 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INVARIANT_in_forLoop10062 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_forLoop10066 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_behaviorActions_in_forLoop10080 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_do_in_doUntilLoop10135 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_until_in_doUntilLoop10139 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_doUntilLoop10143 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INVARIANT_in_doUntilLoop10149 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_doUntilLoop10153 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOUND_in_doUntilLoop10160 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_doUntilLoop10164 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_behaviorActions_in_doUntilLoop10177 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_forall_in_universalLatticeQuantification10230 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_universalLatticeQuantification10234 = new BitSet(new long[]{0x0400000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_LITERAL_in_in_universalLatticeQuantification10239 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10243 = new BitSet(new long[]{0x848A004002080310L,0x00928000001A0000L,0x4000840409E201A0L,0x04300508A7000652L,0x00000000000080A0L});
+	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10247 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10253 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10303 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_blessSubclause10311 = new BitSet(new long[]{0x0000000000000008L,0x0000000002000000L,0x0200000000001000L,0x0000000000020100L});
+	public static final BitSet FOLLOW_assertClause_in_blessSubclause10320 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000001000L,0x0000000000020100L});
+	public static final BitSet FOLLOW_invariantClause_in_blessSubclause10331 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000000000L,0x0000000000020100L});
+	public static final BitSet FOLLOW_variablesSection_in_blessSubclause10340 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0200000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_statesSection_in_blessSubclause10349 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000100L});
+	public static final BitSet FOLLOW_transitions_in_blessSubclause10358 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_invariantClause10420 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_invariantClause10424 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_variables_in_variablesSection10456 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variableDeclaration_in_variablesSection10460 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_LITERAL_states_in_statesSection10491 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorState_in_statesSection10495 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0100000000000000L});
+	public static final BitSet FOLLOW_LITERAL_state_in_behaviorState10527 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_initial_in_behaviorState10531 = new BitSet(new long[]{0x0400000000000000L,0x4000001000000000L});
+	public static final BitSet FOLLOW_LITERAL_complete_in_behaviorState10536 = new BitSet(new long[]{0x0400000000000000L,0x4000000000000000L});
+	public static final BitSet FOLLOW_LITERAL_final_in_behaviorState10541 = new BitSet(new long[]{0x0400000000000000L});
+	public static final BitSet FOLLOW_ID_in_behaviorState10546 = new BitSet(new long[]{0x0000000000034008L});
+	public static final BitSet FOLLOW_assertion_in_behaviorState10550 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_transitions_in_transitions10605 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorTransition_in_transitions10609 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_TRANSITION_in_behaviorTransition10642 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_behaviorTransition10651 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10655 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_priority_in_behaviorTransition10659 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SOURCE_in_behaviorTransition10671 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10675 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_CONDITION_in_behaviorTransition10687 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorCondition_in_behaviorTransition10691 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DESTINATION_in_behaviorTransition10703 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10707 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ACTION_in_behaviorTransition10717 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorActions_in_behaviorTransition10721 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Q_in_behaviorTransition10733 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_behaviorTransition10737 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_priority10809 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_priority10813 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_RBRACKET_in_priority10815 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_dispatchCondition_in_behaviorCondition10846 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_executeCondition_in_behaviorCondition10863 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_modeCondition_in_behaviorCondition10881 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_internalCondition_in_behaviorCondition10899 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatchCondition10927 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchExpression_in_dispatchCondition10931 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_expression_in_executeCondition10968 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_on_in_modeCondition10997 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_triggerLogicalExpression_in_modeCondition11001 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_internal_in_internalCondition11035 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_internalCondition11039 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_LITERAL_or_in_dispatchExpression11075 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11079 = new BitSet(new long[]{0x0400000000000008L,0x0000000000100000L,0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11105 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_and_in_dispatchConjunction11136 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11140 = new BitSet(new long[]{0x0400000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11166 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portName_in_dispatchTrigger11192 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatchTrigger11210 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_dispatchTrigger11216 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_dispatchTrigger11220 = new BitSet(new long[]{0x0400000000000008L});
+	public static final BitSet FOLLOW_behaviorTime_in_dispatchTrigger11230 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_quantity_in_behaviorTime11264 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_valueName_in_behaviorTime11280 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenthesizedSubexpression_in_behaviorTime11296 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_portName11324 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_portName11328 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_and_in_triggerLogicalExpression11365 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11369 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LITERAL_or_in_triggerLogicalExpression11396 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11400 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LITERAL_xor_in_triggerLogicalExpression11427 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11431 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LITERAL_then_in_triggerLogicalExpression11458 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11462 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LITERAL_else_in_triggerLogicalExpression11489 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11493 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11519 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TRIGGER_in_eventTrigger11544 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_eventTrigger11563 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_triggerLogicalExpression_in_eventTrigger11567 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_eventTrigger11569 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_synpred1_UnparseBLESS35573 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0008000000000000L});
+	public static final BitSet FOLLOW_QQ_in_synpred1_UnparseBLESS35575 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_synpred2_UnparseBLESS35595 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_RECORD_TERM_in_synpred3_UnparseBLESS35618 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_synpred4_UnparseBLESS35639 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000002000000L});
+	public static final BitSet FOLLOW_LPAREN_in_synpred4_UnparseBLESS35641 = new BitSet(new long[]{0x0000000000000002L});
 }
