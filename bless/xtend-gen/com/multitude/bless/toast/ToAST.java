@@ -2790,8 +2790,82 @@ public class ToAST {
   protected BAST _toAST(final BasicAction e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
-      BAST _xblockexpression = null;
-      {
+      BAST _elvis = null;
+      BAST _elvis_1 = null;
+      BAST _elvis_2 = null;
+      BAST _elvis_3 = null;
+      BAST _elvis_4 = null;
+      BAST _elvis_5 = null;
+      BAST _elvis_6 = null;
+      Assignment _assign = e.getAssign();
+      BAST _aST = null;
+      if (_assign!=null) {
+        _aST=this.toAST(_assign);
+      }
+      if (_aST != null) {
+        _elvis_6 = _aST;
+      } else {
+        WhenThrow _when = e.getWhen();
+        BAST _aST_1 = null;
+        if (_when!=null) {
+          _aST_1=this.toAST(_when);
+        }
+        _elvis_6 = _aST_1;
+      }
+      if (_elvis_6 != null) {
+        _elvis_5 = _elvis_6;
+      } else {
+        CombinableOperation _comb = e.getComb();
+        BAST _aST_2 = null;
+        if (_comb!=null) {
+          _aST_2=this.toAST(_comb);
+        }
+        _elvis_5 = _aST_2;
+      }
+      if (_elvis_5 != null) {
+        _elvis_4 = _elvis_5;
+      } else {
+        CommunicationAction _communication = e.getCommunication();
+        BAST _aST_3 = null;
+        if (_communication!=null) {
+          _aST_3=this.toAST(_communication);
+        }
+        _elvis_4 = _aST_3;
+      }
+      if (_elvis_4 != null) {
+        _elvis_3 = _elvis_4;
+      } else {
+        Computation _computation = e.getComputation();
+        BAST _aST_4 = null;
+        if (_computation!=null) {
+          _aST_4=this.toAST(_computation);
+        }
+        _elvis_3 = _aST_4;
+      }
+      if (_elvis_3 != null) {
+        _elvis_2 = _elvis_3;
+      } else {
+        SimultaneousAssignment _multi_assign = e.getMulti_assign();
+        BAST _aST_5 = null;
+        if (_multi_assign!=null) {
+          _aST_5=this.toAST(_multi_assign);
+        }
+        _elvis_2 = _aST_5;
+      }
+      if (_elvis_2 != null) {
+        _elvis_1 = _elvis_2;
+      } else {
+        IssueException _exc = e.getExc();
+        BAST _aST_6 = null;
+        if (_exc!=null) {
+          _aST_6=this.toAST(_exc);
+        }
+        _elvis_1 = _aST_6;
+      }
+      if (_elvis_1 != null) {
+        _elvis = _elvis_1;
+      } else {
+        BAST _xifexpression = null;
         String _skip = e.getSkip();
         boolean _tripleNotEquals = (_skip != null);
         if (_tripleNotEquals) {
@@ -2801,8 +2875,9 @@ public class ToAST {
             CommonToken _commonToken = new CommonToken(BLESS3Lexer.LITERAL_skip, "skip");
             it.token = _commonToken;
           };
-          ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+          _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
         } else {
+          BAST _xifexpression_1 = null;
           Mode _mode = e.getMode();
           boolean _tripleNotEquals_1 = (_mode != null);
           if (_tripleNotEquals_1) {
@@ -2813,86 +2888,22 @@ public class ToAST {
               it.token = _commonToken;
               it.addChild(this.makeBASTforID(e.getMode().getName(), e));
             };
-            ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+            _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           }
+          _xifexpression = _xifexpression_1;
         }
-        BAST _elvis = null;
-        BAST _elvis_1 = null;
-        Assignment _assign = e.getAssign();
-        BAST _aST = null;
-        if (_assign!=null) {
-          _aST=this.toAST(_assign);
-        }
-        if (_aST != null) {
-          _elvis_1 = _aST;
-        } else {
-          WhenThrow _when = e.getWhen();
-          BAST _aST_1 = null;
-          if (_when!=null) {
-            _aST_1=this.toAST(_when);
-          }
-          _elvis_1 = _aST_1;
-        }
-        if (_elvis_1 != null) {
-          _elvis = _elvis_1;
-        } else {
-          CombinableOperation _comb = e.getComb();
-          BAST _aST_2 = null;
-          if (_comb!=null) {
-            _aST_2=this.toAST(_comb);
-          }
-          _elvis = _aST_2;
-        }
-        BAST _elvis_2 = null;
-        BAST _elvis_3 = null;
-        BAST _elvis_4 = null;
-        CommunicationAction _communication = e.getCommunication();
-        BAST _aST_3 = null;
-        if (_communication!=null) {
-          _aST_3=this.toAST(_communication);
-        }
-        if (_aST_3 != null) {
-          _elvis_4 = _aST_3;
-        } else {
-          Computation _computation = e.getComputation();
-          BAST _aST_4 = null;
-          if (_computation!=null) {
-            _aST_4=this.toAST(_computation);
-          }
-          _elvis_4 = _aST_4;
-        }
-        if (_elvis_4 != null) {
-          _elvis_3 = _elvis_4;
-        } else {
-          SimultaneousAssignment _multi_assign = e.getMulti_assign();
-          BAST _aST_5 = null;
-          if (_multi_assign!=null) {
-            _aST_5=this.toAST(_multi_assign);
-          }
-          _elvis_3 = _aST_5;
-        }
-        if (_elvis_3 != null) {
-          _elvis_2 = _elvis_3;
-        } else {
-          IssueException _exc = e.getExc();
-          BAST _aST_6 = null;
-          if (_exc!=null) {
-            _aST_6=this.toAST(_exc);
-          }
-          _elvis_2 = _aST_6;
-        }
-        _xblockexpression = _elvis_2;
+        _elvis = _xifexpression;
       }
-      _xtrycatchfinallyexpression = _xblockexpression;
+      _xtrycatchfinallyexpression = _elvis;
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception ex = (Exception)_t;
-        BAST _xblockexpression_1 = null;
+        BAST _xblockexpression = null;
         {
           ex.printStackTrace();
-          _xblockexpression_1 = ToAST.x;
+          _xblockexpression = ToAST.x;
         }
-        _xtrycatchfinallyexpression = _xblockexpression_1;
+        _xtrycatchfinallyexpression = _xblockexpression;
       } else {
         throw Exceptions.sneakyThrow(_t);
       }
@@ -5988,13 +5999,13 @@ public class ToAST {
             it_1.myText = "(";
             CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LPAREN, "(");
             it_1.token = _commonToken_1;
+            EList<NamedElement> _ports = e.getPorts();
+            for (final NamedElement p : _ports) {
+              it_1.addChild(this.makeBASTforPort(p.getName(), e));
+            }
           };
           BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           it.addChild(_doubleArrow);
-          EList<NamedElement> _ports = e.getPorts();
-          for (final NamedElement p : _ports) {
-            it.addChild(this.makeBASTforPort(p.getName(), e));
-          }
           it.addChild(this.toAST(e.getTime()));
         };
         _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);

@@ -671,32 +671,33 @@ conjunction
   
  relation
   :
-  ^(EQ  lhs=addSub rhs=addSub )
-    -> equal_relation(lhs={$lhs.st},rhs={$rhs.st})
+  ^(eq=EQ  lhs=addSub rhs=addSub )
+    -> relation(r={$eq.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(LT  lhs=addSub rhs=addSub )
-    ->  template(lhs={$lhs.st},rhs={$rhs.st})"<lhs> \< <rhs>"
+  ^(lt=LT  lhs=addSub rhs=addSub )
+    ->  relation(r={$lt.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(AM  lhs=addSub rhs=addSub )
-    ->  template(lhs={$lhs.st},rhs={$rhs.st})"<lhs> \<= <rhs>"
+  ^(am=AM  lhs=addSub rhs=addSub )
+    ->  relation(r={$am.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(AL  lhs=addSub rhs=addSub )
-    ->  template(lhs={$lhs.st},rhs={$rhs.st})"<lhs> \>= <rhs>"
+  ^(al=AL  lhs=addSub rhs=addSub )
+    ->  relation(r={$al.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(GT  lhs=addSub rhs=addSub )
-    ->  template(lhs={$lhs.st},rhs={$rhs.st})"<lhs> \> <rhs>"
+  ^(gt=GT  lhs=addSub rhs=addSub )
+    ->  relation(r={$gt.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(PLUS_EQUALS  lhs=addSub rhs=addSub )
-    ->  template(lhs={$lhs.st},rhs={$rhs.st})"<lhs> += <rhs>"
+  ^(pe=PLUS_EQUALS  lhs=addSub rhs=addSub )
+    ->  relation(r={$pe.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(NEQ  lhs=addSub rhs=addSub )
-    -> not_equal_relation(lhs={$lhs.st},rhs={$rhs.st})
+  ^(ne=NEQ  lhs=addSub rhs=addSub )
+    -> relation(r={$ne.text}, lhs={$lhs.st},rhs={$rhs.st})
   |  
-  ^(OLD_NEQ  lhs=addSub rhs=addSub )
-    -> not_equal_relation(lhs={$lhs.st},rhs={$rhs.st})
+  ^(one=OLD_NEQ  lhs=addSub rhs=addSub )
+    -> relation(r={$one.text}, lhs={$lhs.st},rhs={$rhs.st})
   |
-  ^(LITERAL_in lhs=addSub rng=range )
-  |
+  ^(in=LITERAL_in lhs=addSub rng=range )
+     -> relation(r={$in.text}, lhs={$lhs.st},rng={$rhs.st})
+ |
   as=addSub
     -> {$as.st}
   ;

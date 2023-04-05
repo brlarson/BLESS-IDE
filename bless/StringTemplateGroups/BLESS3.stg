@@ -183,12 +183,6 @@ enumeration_type(id)::=
 enumeration_value(t,v) ::=
   "<t>'<v>"
 
-equal_relation(lhs,rhs) ::= // "<lhs> = <rhs>"
-<<
-<lhs>
-=
-<rhs> >>
-
 event_port_output(o) ::= "<o>!"
 
 existential_quantification(e,lv2,d2,p2)::=
@@ -261,7 +255,7 @@ internal_condition(p) ::=
   "on internal <p; separator=\" or \">"
 
 invocation(i,p) ::=
-  "i(<p; separator=\", \">)"
+  "<i>(<p; separator=\", \">)"
 
 in_port_value(pn)::="<pn>?"  
 
@@ -324,8 +318,6 @@ name_tick(vn) ::= "<vn>'"
 natural()::="quantity whole"
 
 not(bt) ::= "not <bt>"  
-
-not_equal_relation(lhs,rhs) ::= "<lhs> \<\> <rhs>"
 
 not_paren(bt) ::= "not (<bt>)"  
 

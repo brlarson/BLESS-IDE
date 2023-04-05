@@ -1480,12 +1480,12 @@ toAST(Action e)
   {
   try 
     {  
-    e.basic?.toAST ?: 
-    e.if_fi?.toAST ?: 
-    e.wl?.toAST ?: 
-    e.fl?.toAST ?: 
-    e.du?.toAST  ?:
-    e.elq?.toAST ?: 
+    e.basic?.toAST  ?: 
+    e.if_fi?.toAST  ?: 
+    e.wl?.toAST     ?: 
+    e.fl?.toAST     ?: 
+    e.du?.toAST     ?:
+    e.elq?.toAST    ?: 
     e.ulq?.toAST 
     } 
   catch (Exception ex) {ex.printStackTrace x}
@@ -1693,6 +1693,13 @@ toAST(BasicAction e)
   {
   try 
     {  
+    e.assign?.toAST         ?:  
+    e.when?.toAST           ?:
+    e.comb?.toAST           ?:
+    e.communication?.toAST  ?:  
+    e.computation?.toAST    ?:
+    e.multi_assign?.toAST   ?: 
+    e.exc?.toAST            ?:    
     if (e.skip !== null)	
       newBAST(e) =>  
         [  
@@ -1706,13 +1713,6 @@ toAST(BasicAction e)
         token = new CommonToken(BLESS3Lexer.LITERAL_setmode, "setmode")
         addChild(e.mode.name.makeBASTforID(e))
         ] 
-    e.assign?.toAST   ?:  
-    e.when?.toAST     ?:
-    e.comb?.toAST    
-    e.communication?.toAST   ?:  
-    e.computation?.toAST     ?:
-    e.multi_assign?.toAST    ?: 
-    e.exc?.toAST    
     } 
   catch (Exception ex) {ex.printStackTrace x}
   }  //end of BasicAction
@@ -3428,10 +3428,10 @@ toAST(DispatchTrigger e)
           [  //
   	      myText = "("
           token = new CommonToken(BLESS3Lexer.LPAREN, "(")
-          ] )
         //port list
-        for (p : e.ports)
-          addChild(p.name.makeBASTforPort(e))    
+          for (p : e.ports)
+            addChild(p.name.makeBASTforPort(e))    
+          ] )
         //behavior_time
         addChild(e.time.toAST)   
         ]
