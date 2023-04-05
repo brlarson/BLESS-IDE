@@ -37,7 +37,7 @@ INMODE;  //for 'in mode' clause
 INOUT;  //both in and out direction for port
 INVARIANT; 
 INVOKE; 
-INVOKE_FUNCTION; 
+//INVOKE_FUNCTION; 
 IP_NAME; 
 IP_PE; 
 IP_PRED;  //invoctionParameter tags
