@@ -1975,7 +1975,9 @@ private static int tab=0;  //tabbing for toStringTree
       return false;
       }
     else if (((BAST) getParent()).hasType(BLESS3Lexer.PLUS)
-        || ((BAST) getParent()).hasType(BLESS3Lexer.MINUS))
+        || ((BAST) getParent()).hasType(BLESS3Lexer.MINUS)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.ASSERTION_FUNCTION)
+        )
       {
       return true;
       }
@@ -1992,7 +1994,9 @@ private static int tab=0;  //tabbing for toStringTree
         || ((BAST) getParent()).hasType(BLESS3Lexer.DIVIDE)
         || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_div)  
         || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_mod)  
-        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_rem))
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_rem)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.ASSERTION_FUNCTION)
+        )
       {
       return true;
       }
@@ -2013,23 +2017,27 @@ private static int tab=0;  //tabbing for toStringTree
     return false;
     } // end of myParentIsExp
 
-//  public boolean myParentIsNotLogicalOperator()
-//    {
-//    if (getParent() == null)
-//      {
-//      return true;
-//      }
-//    else if (((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_and)
-//        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_or)
-//        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_xor)
-//        || ((BAST) getParent()).hasType(BLESS3Lexer.ARROW)
-//        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_implies) 
-//        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_not))
-//      {
-//      return false;
-//      }
-//    return true;
-//    } // end of myParentIsNotTimed
+  public boolean myParentIsLogicalOperator()
+    {
+    if (getParent() == null)
+      {
+      return true;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_and)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_or)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_xor)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_else)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_then)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_implies) 
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_iff)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.ASSERTION)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.INVOKE)
+        )
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsLogicalOperator
 
   public void setParseRecord(ParseRecord pr)
     {
