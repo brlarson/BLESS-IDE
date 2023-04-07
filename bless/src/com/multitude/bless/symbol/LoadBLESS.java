@@ -1483,7 +1483,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
     BLESS3Parser parser = new BLESS3Parser(tokens);
     parser.setTreeAdaptor(new BASTTreeAdaptor());
     parser.setStartingLine(line);
-    BAST result = parser.type().getTree();
+    BAST result = parser.typeOrReference().getTree();
     return result;
     
 //    if (text == null)
