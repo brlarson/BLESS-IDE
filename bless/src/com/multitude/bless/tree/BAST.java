@@ -945,15 +945,15 @@ private static int tab=0;  //tabbing for toStringTree
     {
     //  check for numeric literals
     if (this.isNumericLiteral()
-            && theOtherTree.isNumericLiteral())
+        && theOtherTree.isNumericLiteral())
       return (this.truncateWholeLiterals().contentEquals(theOtherTree.truncateWholeLiterals()));
     // make INVOKE match FUNCTION_CALL
     if (!((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION))
-// 		      this.hasType(BLESS3Lexer.INVOKE_FUNCTION))
+        // 		      this.hasType(BLESS3Lexer.INVOKE_FUNCTION))
         && (theOtherTree.hasType(BLESS3Lexer.INVOKE)||theOtherTree.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)))
-//    		  theOtherTree.hasType(BLESS3Lexer.INVOKE_FUNCTION)))
+        //    		  theOtherTree.hasType(BLESS3Lexer.INVOKE_FUNCTION)))
         && !this.hasType(theOtherTree.getType()))
-		return false; // different token types
+      return false; // different token types
     // then check alphabetic IDs
     if (this.hasType(BLESS3Lexer.ID)
         && theOtherTree.hasType(BLESS3Lexer.ID))
@@ -962,34 +962,37 @@ private static int tab=0;  //tabbing for toStringTree
           && this.getText().startsWith("#")
           && theOtherTree.getText().startsWith("#"))
         { // check quantified variables
-        if (qvMap.containsKey(this.getText())) {
-			// does the other string match to one in the map?
-			  return qvMap.get(this.getText())
-			      .equalsIgnoreCase(theOtherTree.getText());
-		} else
-          { // put this pair in map
-          qvMap.put(this.getText(), theOtherTree.getText());
-          return true;
-          }
+        if (qvMap.containsKey(this.getText())) 
+          {
+          // does the other string match to one in the map?
+          return qvMap.get(this.getText())
+              .equalsIgnoreCase(theOtherTree.getText());
+          } else
+            { // put this pair in map
+            qvMap.put(this.getText(), theOtherTree.getText());
+            return true;
+            }
         } // done with quantified variables
       else if (!this.isText(theOtherTree.getText()))
-		    return false; // not equal
+        return false; // not equal
       }
     // still equal token types and equal IDs (if any)
     if (this.getChildCount() != theOtherTree.getChildCount())
-	 {
-		// children?
-		  return false; // not same number of children
-	}
-
+      {
+      // children?
+      return false; // not same number of children
+      }
+    if (!this.equalsNode(theOtherTree))
+      return false;
     // okay, parents match, let's try children
     boolean childrenStillEqual = true;
     if (this.getChildCount() > 0) {
-		for (int j = 0; childrenStillEqual && (j < this.getChildCount()); j++) {
-			childrenStillEqual = ((BAST) this.getChild(j))
-		        .equalsTree((BAST) theOtherTree.getChild(j));
-		}
-	}
+    for (int j = 0; childrenStillEqual && (j < this.getChildCount()); j++) 
+      {
+      childrenStillEqual = ((BAST) this.getChild(j))
+          .equalsTree((BAST) theOtherTree.getChild(j));
+      }
+    }
     return childrenStillEqual;
     } // end of equalsTree
 
@@ -2071,37 +2074,42 @@ private static int tab=0;  //tabbing for toStringTree
     {
     //  check for numeric literals
     if (this.isNumericLiteral()
-            && theOtherNode.isNumericLiteral())
+        && theOtherNode.isNumericLiteral())
       {
       if (this.truncateWholeLiterals().contentEquals(theOtherNode.truncateWholeLiterals()))
         return true;
       }
     // make INVOKE and FUNCTION_CALL match
     if ((this.hasType(BLESS3Lexer.INVOKE)||this.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)
- //       || this.hasType(BLESS3Lexer.INVOKE_FUNCTION)
+        //       || this.hasType(BLESS3Lexer.INVOKE_FUNCTION)
         )
         && (theOtherNode.hasType(BLESS3Lexer.INVOKE)||theOtherNode.hasType(BLESS3Lexer.SUBPROGRAM_INVOCATION)
-//            || theOtherNode.hasType(BLESS3Lexer.INVOKE_FUNCTION)
-        		)) {
-		return true;
-	}
+            //            || theOtherNode.hasType(BLESS3Lexer.INVOKE_FUNCTION)
+            )) {
+            return true;
+    }
     // first check token types
     if (!this.hasType(theOtherNode.getType()))
-	 {
-		return false; // different token types
-	}
-    if (!this.isText(theOtherNode.getText())) {
-		return false; // not equal
-	} else {
-		return true;
-	}
+      {
+      return false; // different token types
+      }
+    if ((this.hasType(BLESS3Lexer.ID)||this.hasType(BLESS3Lexer.QCLREF)||
+          this.hasType(BLESS3Lexer.QCREF)||this.hasType(BLESS3Lexer.TRIGGER))&&
+        !this.isText(theOtherNode.getText())) 
+      {
+      return false; // not equal
+      } 
+    else 
+      {
+      return true;
+      }
     } // end of equalsNode
 
   /**
    * replaces all occurrences of nodes, not trees
    */
   public BAST replaceNodes(BAST ofThis, BAST withThis) throws YouIdiot
-    { // replace all occurances of ofThis, with a duplicate of withThat
+    { // replace all occurrences of ofThis, with a duplicate of withThat
     // look through children for match
     if (getChildCount() > 0)
       {
