@@ -1966,7 +1966,52 @@ private static int tab=0;  //tabbing for toStringTree
       return true;
       }
     return false;
-    } // end of myParentIsNotTimed
+    } // end of myParentIsRelation
+
+  public boolean myParentIsAddSub()
+    {
+    if (getParent() == null)
+      {
+      return false;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.PLUS)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.MINUS))
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsAddSub
+
+  public boolean myParentIsMultDiv()
+    {
+    if (getParent() == null)
+      {
+      return false;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.TIMES)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.DIVIDE)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_div)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_mod)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_rem))
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsRelation
+
+
+  public boolean myParentIsExp()
+    {
+    if (getParent() == null)
+      {
+      return false;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.EXP))
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsExp
 
 //  public boolean myParentIsNotLogicalOperator()
 //    {
