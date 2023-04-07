@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-06 20:54:19
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-07 10:31:03
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -7740,7 +7740,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: formals, ass, a, par, l, p
+					// elements: ass, l, a, par, formals, p
 					// token labels: ass, par, a, l
 					// rule labels: formals, retval
 					// token list labels: 
@@ -7842,7 +7842,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, l, a, ass
+					// elements: a, l, p, ass
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -7912,7 +7912,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p
+					// elements: p, ass
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 

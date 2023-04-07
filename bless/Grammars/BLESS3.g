@@ -26,7 +26,7 @@ BOUND;  //for loops
 //CASE_EXPRESSION;  //case expression
 COMPONENT;
 CONDITION;
-//CONDITIONAL;  //conditional expression, replaces QQ='??'
+//QQ;  //conditional expression, replaces QQ='??'
 CONDITIONAL_ASSERTION_FUNCTION;
 COUNTING_TRIGGER;  //for counting dispatch triggers in a dispatch condition, ormore/orless
 DESTINATION; 
