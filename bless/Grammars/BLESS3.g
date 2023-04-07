@@ -75,7 +75,7 @@ UNIT_LIBRARY;
 UNIT_NAME;
 VALUE;
 VARIABLE_DECLARATION; 
-WP;  //weakest precondition
+//WP;  //weakest precondition
 } //end of tokens
 
 

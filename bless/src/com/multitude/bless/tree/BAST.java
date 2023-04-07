@@ -1223,7 +1223,7 @@ private static int tab=0;  //tabbing for toStringTree
             }
           break;
         case BLESS3Lexer.INVOKE:
-        case BLESS3Lexer.WP:
+//        case BLESS3Lexer.WP:
           UnparseBLESS3.invocation_return pi = null;
           pi = unparser.invocation();
           if (pi == null)

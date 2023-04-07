@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-06 19:47:31
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/GetTimeouts.g 2023-04-06 20:54:19
 
 //copyright 2022 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -76,7 +76,7 @@ public class GetTimeouts extends TreeRewriter {
 		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
 		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
 		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
-		"WP", "WS"
+		"WS"
 	};
 	public static final int EOF=-1;
 	public static final int AADL_STRING_LITERAL=4;
@@ -353,8 +353,7 @@ public class GetTimeouts extends TreeRewriter {
 	public static final int VALUE=275;
 	public static final int VARIABLE_DECLARATION=276;
 	public static final int VERT=277;
-	public static final int WP=278;
-	public static final int WS=279;
+	public static final int WS=278;
 
 	// delegates
 	public TreeRewriter[] getDelegates() {

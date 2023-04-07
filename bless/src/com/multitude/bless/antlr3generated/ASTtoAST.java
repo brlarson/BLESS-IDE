@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-06 19:47:31
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-06 20:54:19
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -81,7 +81,7 @@ public class ASTtoAST extends TreeParser {
 		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
 		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
 		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
-		"WP", "WS"
+		"WS"
 	};
 	public static final int EOF=-1;
 	public static final int AADL_STRING_LITERAL=4;
@@ -358,8 +358,7 @@ public class ASTtoAST extends TreeParser {
 	public static final int VALUE=275;
 	public static final int VARIABLE_DECLARATION=276;
 	public static final int VERT=277;
-	public static final int WP=278;
-	public static final int WS=279;
+	public static final int WS=278;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -1407,7 +1406,6 @@ public class ASTtoAST extends TreeParser {
 							case VALUE:
 							case VARIABLE_DECLARATION:
 							case VERT:
-							case WP:
 							case WS:
 								{
 								alt7=1;
@@ -1731,7 +1729,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt7=1;
@@ -2046,7 +2043,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt7=1;
@@ -2361,7 +2357,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt7=1;
@@ -2676,7 +2671,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt7=1;
@@ -2955,7 +2949,6 @@ public class ASTtoAST extends TreeParser {
 							case VALUE:
 							case VARIABLE_DECLARATION:
 							case VERT:
-							case WP:
 							case WS:
 								{
 								switch ( input.LA(4) ) {
@@ -3262,7 +3255,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt7=1;
@@ -3548,7 +3540,6 @@ public class ASTtoAST extends TreeParser {
 				case VALUE:
 				case VARIABLE_DECLARATION:
 				case VERT:
-				case WP:
 				case WS:
 					{
 					alt7=1;
@@ -4628,7 +4619,6 @@ public class ASTtoAST extends TreeParser {
 							case VALUE:
 							case VARIABLE_DECLARATION:
 							case VERT:
-							case WP:
 							case WS:
 								{
 								alt15=1;
@@ -4952,7 +4942,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt15=1;
@@ -5267,7 +5256,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt15=1;
@@ -5582,7 +5570,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt15=1;
@@ -5897,7 +5884,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt15=1;
@@ -6176,7 +6162,6 @@ public class ASTtoAST extends TreeParser {
 							case VALUE:
 							case VARIABLE_DECLARATION:
 							case VERT:
-							case WP:
 							case WS:
 								{
 								switch ( input.LA(4) ) {
@@ -6483,7 +6468,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt15=1;
@@ -6769,7 +6753,6 @@ public class ASTtoAST extends TreeParser {
 				case VALUE:
 				case VARIABLE_DECLARATION:
 				case VERT:
-				case WP:
 				case WS:
 					{
 					alt15=1;
@@ -7240,7 +7223,6 @@ public class ASTtoAST extends TreeParser {
 											case VALUE:
 											case VARIABLE_DECLARATION:
 											case VERT:
-											case WP:
 											case WS:
 												{
 												alt16=2;
@@ -7555,7 +7537,6 @@ public class ASTtoAST extends TreeParser {
 									case VALUE:
 									case VARIABLE_DECLARATION:
 									case VERT:
-									case WP:
 									case WS:
 										{
 										alt16=2;
@@ -9181,19 +9162,19 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u0117\1\u00f9\1\uffff\2\u0117\1\uffff\1\u0117\1\u00f9";
+		"\1\u0116\1\u00f9\1\uffff\2\u0116\1\uffff\1\u0116\1\u00f9";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
-			"\147\2\1\1\u00ac\2",
+			"\147\2\1\1\u00ab\2",
 			"\1\3\u00f6\uffff\1\2",
 			"",
-			"\1\5\u0114\4",
-			"\1\5\1\6\u0114\4",
+			"\1\5\u0113\4",
+			"\1\5\1\6\u0113\4",
 			"",
-			"\u00f5\5\1\7\36\5",
+			"\u00f5\5\1\7\35\5",
 			"\1\5\1\2\136\uffff\1\2\u0096\uffff\1\5"
 	};
 
@@ -9271,7 +9252,7 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
 	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000000000FFFFFFL});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000007FFFFFL});
 	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
