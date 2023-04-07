@@ -547,6 +547,8 @@ namelessAssertion
   :
   ^( ASSERTION pred=predicate )
     -> nameless_assertion(a={$pred.st})
+  |
+  ^( ASSERTION DUMMY )  //dson't return anything
   ;
   
 namelessFunction

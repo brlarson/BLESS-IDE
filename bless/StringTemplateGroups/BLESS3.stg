@@ -145,7 +145,7 @@ conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
 condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
 
 conjunction(bopt) ::=
-  "<bopt; wrap, anchor,  separator=\"\n and \">"
+  "<bopt; wrap, anchor, separator=\"\nand \">"
 
 cor(t) ::= "<t; wrap, separator=\" or else \">" 
 

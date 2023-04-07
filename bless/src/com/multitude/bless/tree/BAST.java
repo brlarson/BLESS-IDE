@@ -1947,6 +1947,27 @@ private static int tab=0;  //tabbing for toStringTree
     return true;
     } // end of myParentIsNotTimed
 
+  public boolean myParentIsRelation()
+    {
+    if (getParent() == null)
+      {
+      return false;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.EQ)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LT)
+        || ((BAST) getParent()).hasType(BLESS3Lexer.AM)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.AL)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.GT)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.PLUS_EQUALS)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.NEQ)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.OLD_NEQ)  
+        || ((BAST) getParent()).hasType(BLESS3Lexer.LITERAL_in))
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsNotTimed
+
 //  public boolean myParentIsNotLogicalOperator()
 //    {
 //    if (getParent() == null)
