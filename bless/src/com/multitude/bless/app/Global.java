@@ -169,7 +169,8 @@ public static HashSet<Integer> normalizationReason = new HashSet<Integer>();	//s
 
 //holds flags and constants
 public static int YouIdiotShowParseTreeLimit = 3;	//how many YI parse trees to show?
-public static int YouIdiotReportLimit = 100;	//how many YI reports to show?
+public static int YouIdiotReportLimit = 10; //how many YI exception reports to show?
+public static int UnparserReportLimit = 2; //how many unparser exception reports to show?
 //public static boolean stopProof = false;	//set by ProofException.handleException() to stop further proof
 public static boolean automaticallyNormalizeAfterAssertionLabelSubstitution = false;  //automatically normalize P and Q after Assertion label substition
 //public static boolean replaceImplicationWithNotAorB = false;		//in Law.replaceImplication; changes A=>B to not A or B

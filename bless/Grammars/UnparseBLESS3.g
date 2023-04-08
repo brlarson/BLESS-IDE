@@ -31,7 +31,7 @@ import com.multitude.aadl.bless.maps.BlessMaps;
 
 @members
 {
-public static int countRecognitionErrors = 0; //accumulates count of recognition errors
+public static int countUnparserErrors = 0; //accumulates count of recognition errors
 public static boolean recognitionErrorOccurred = false;    //did a parse error occur?
 public static boolean suppressRecognitionException = false;  //inhibit report error of RecognitionException 
 //public static StringTemplateGroup templates=null;	//templates currently used by UnparseBLESS
@@ -70,30 +70,26 @@ text(String t)
   return new StringTemplate(Global.templates,t);
   }
 
-  public void 
-reportError(RecognitionException ex)
-  {
-  if (!suppressRecognitionException)
-  {
- // if (true)
- // {
-  if (countRecognitionErrors<Global.YouIdiotReportLimit)
-    {
-//   Dump.it("\nUnparseBLESS.reportError(RecognitionException ex)=>"+
-//    Integer.toString(countRecognitionErrors)+" ");
-  Dump.it(getErrorHeader(ex));
-  Dump.it(ex);
-   recognitionErrorOccurred = true;
-   ex.line = ex.line+startingLine;
-   super.reportError(ex);
-  ex.printStackTrace();
-//  Dump.re(ex);
-    }
-  countRecognitionErrors++;
-//  }
-//  // Global.stopProof = true;	//stop proving!
-  }
-  } //end of reportError
+	  public void 
+	reportError(Exception ex)
+	  {
+	  if (!suppressRecognitionException)
+	    {
+	    if (countUnparserErrors<Global.UnparserReportLimit)
+	      {
+	      if (ex instanceof RecognitionException)
+	        {
+	        RecognitionException re = (RecognitionException)ex;
+  	      Dump.it(getErrorHeader(re));
+	        recognitionErrorOccurred = true;
+	        re.line = re.line+startingLine;
+	        super.reportError(re);
+	        }
+        Dump.it(ex);
+	      ex.printStackTrace();
+	      }
+	    }
+	  } //end of reportError
 
 static int typeNameNumber = 0;	//counts type names created
 
@@ -183,26 +179,24 @@ static StringTemplate getSlangFunctionCall(String functionID)
 
 @rulecatch
 {
-catch (RecognitionException re) 
+catch (Exception re) 
 	{
-	countRecognitionErrors++;
-	Dump.it("recognition error #"+countRecognitionErrors);
+	countUnparserErrors++;
+	Dump.it("unparse exception #"+countUnparserErrors);
 	recognitionErrorOccurred=true;
   if (retval==null)
     Dump.it("null retval");
   else 
-  {
-  Dump.it("retval.getClass()="+retval.getClass());
-  if (retval.start==null)
-    Dump.it("null retval.start");
-  else if (retval.start instanceof BAST)
-	BLESSmarker.setWarningMarker("UnparseBLESS recognition error:  "+
-	  ((BAST)retval.start).toStringTree(),(BAST)retval.start);
-	else
-	  {
+    {
+    Dump.it("retval.getClass()="+retval.getClass());
+    if (retval.start==null)
+      Dump.it("null retval.start");
+    else if (retval.start instanceof BAST)
+	    BLESSmarker.setWarningMarker("UnparseBLESS3 exception:  "+
+	      ((BAST)retval.start).toStringTree(),(BAST)retval.start);
+	  else
 	  Dump.it("retval.start not instanceof BAST:  "+retval.toString());
 	  }
-	}
   reportError(re);
 	}
 }	//end of rulecatch
