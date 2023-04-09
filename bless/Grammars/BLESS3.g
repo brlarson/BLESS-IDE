@@ -808,7 +808,7 @@ enumerationValue:
 
 namelessAssertion:
   la=LASS pred=predicate RASS
-    -> ^( ASSERTION[$la,"ASSERTION["+Integer.toString($la.getLine()+startingLine)+"]"] $la )
+    -> ^( ASSERTION[$la,"ASSERTION["+Integer.toString($la.getLine()+startingLine)+"]"] $pred )
   ;
   
 namelessFunction:
@@ -835,7 +835,7 @@ invocation:
 	id=ID LPAREN 
 	( ( params+=actualParameter ( COMMA params+=actualParameter )* )
 	  | exp=expression )? RPAREN
-	  -> ^( INVOKE[$id, "INVOKE["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"] " ] $id $params* $exp? )
+	  -> ^( INVOKE[$id, "INVOKE["+$id.text+":"+Integer.toString($id.getLine()+startingLine)+"] " ] $id $params* $exp? )
 	;
 
 actualParameter:
@@ -1344,7 +1344,7 @@ computation:
 subprogramCall:
   id=ID LPAREN fal=formalActualList? RPAREN
     -> ^( SUBPROGRAM_INVOCATION[$id,
-      "SUBPROGRAM_INVOCATION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"] "] $id $fal )
+      "SUBPROGRAM_INVOCATION["+$id.text+":"+Integer.toString($id.getLine()+startingLine)+"] "] $id $fal )
   ;
 
 formalActualList:
