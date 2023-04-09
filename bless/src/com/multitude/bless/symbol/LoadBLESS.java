@@ -252,6 +252,7 @@ load() throws YouIdiot
                 {
                 // then put it in the map
                 pr.assertions_in_library.put(((BAST) ass.getChild(0).getChild(0)).getText(), ass);
+                Global.label_assertion_map.put(((BAST) ass.getChild(0).getChild(0)).getText(), ass);
                 }
               }
             }

@@ -793,8 +793,8 @@ assertionEnumeration:
 	  -> ^( $pa $inv )
 	|
 	( pa=PLUS_ARROW pair+=enumerationPair ( com=COMMA pair+=enumerationPair ( COMMA pair+=enumerationPair )* )? )
-	  -> {com!=null}? ^( $pa ^( $com $pair+ ) )
-	  -> ^( $pa $pair )
+//	  -> {com!=null}? ^( $pa ^( $com $pair+ ) )
+	  -> ^( $pa $pair+ )
 	;
 	
 enumerationPair:

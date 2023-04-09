@@ -505,11 +505,8 @@ assertionEnumeration
   :
   ^( PLUS_ARROW inv=invocation )
     -> assertion_enumeration_predicate_invocation(pi={$inv.st})
-  |
-  ^( PLUS_ARROW ep=enumerationPair )
-    -> assertion_enumeration_pairs(ep={$ep.st})
   | 
-  ^( PLUS_ARROW ^( COMMA pair+=enumerationPair+ ) )
+  ^( PLUS_ARROW pair+=enumerationPair+ )
     -> assertion_enumeration_pairs(ep={$pair})
   ;  
 

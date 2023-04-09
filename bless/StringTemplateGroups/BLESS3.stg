@@ -56,7 +56,7 @@ assertion(a,lv,p)::=
    "\<\< <if(a)><a>:<lv; separator=\" \"> :<endif><p> \>\>"
     
 assertion_enumeration_pairs(ep) ::=
-  "+=\> <ep; separator=\", \">"
+  "+=\> <ep; separator=\",\n  \">"
 
 assertion_enumeration_predicate_invocation(pi) ::=
   "+=\> <pi>" 
