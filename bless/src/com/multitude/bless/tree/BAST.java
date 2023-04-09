@@ -73,7 +73,7 @@ public class BAST //extends CommonTree
   public static final Tree INVALID_NODE = new BAST(Token.INVALID_TOKEN);
 
   /** Pointer to the token stream */
-  public static CommonTokenStream tokens;
+//  public static CommonTokenStream tokens;
 
   /** index of the last token used to make a BAST */
   public static int lastTokenIndex = 0;

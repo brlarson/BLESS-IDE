@@ -1285,7 +1285,7 @@ load() throws YouIdiot
               CharStream        spec       = new ANTLRReaderStream(new StringReader(sourceText));
               BLESS3Lexer   lexer      = new BLESS3Lexer(spec);
               CommonTokenStream tokens     = new CommonTokenStream();
-              BAST.tokens = tokens;
+ //             BAST.tokens = tokens;
               tokens.setTokenSource(lexer);
               BLESS3Parser parser = new BLESS3Parser(tokens);
               parser.setTreeAdaptor(new BASTTreeAdaptor());
@@ -1423,7 +1423,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
     CharStream        spec   = new ANTLRStringStream(text);
     BLESS3Lexer   lexer  = new BLESS3Lexer(spec);
     CommonTokenStream tokens = new CommonTokenStream();
-    BAST.tokens = tokens;
+//    BAST.tokens = tokens;
     tokens.setTokenSource(lexer);
 
     BLESS3Parser parser = new BLESS3Parser(tokens);
@@ -1442,27 +1442,6 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
 //      }
     return tb;
     } // end of parseAssertion
-
-//  public static BAST 
-//parseAssertion(String text, int line, int column, IResource rsrc)
-//      throws RecognitionException
-//    {
-//    MarkerParseErrorReporter errorReporter = new MarkerParseErrorReporter(rsrc, "assertion");
-//    if (text.matches(namedassertion))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamedAssertion(text,
-//          "",line,column,errorReporter));
-//    if (text.matches(namelessfunction))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamelessFunction(text,
-//          "",line,column,errorReporter));
-//    if (text.matches(namelessenumeration))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamelessEnumeration(text,
-//          "",line,column,errorReporter));
-//    NamelessAssertion na = BlessAnnexParser.eINSTANCE.parseNamelessAssertion(text,
-//        "",line,column,errorReporter);
-//    if (na != null)
-//      return ToAST.TOAST.toAST(na);
-//    throw new YouIdiot("Assertion \"" + text + "\" at line " + line + " is ungrammatical.");
-//    } // end of parseAssertion
   
   public static BAST parseTyped(String text, int line, int column, IResource rsrc) 
       throws RecognitionException, YouIdiot
@@ -1478,7 +1457,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
       }
     BLESS3Lexer   lexer      = new BLESS3Lexer(spec);
     CommonTokenStream tokens     = new CommonTokenStream();
-    BAST.tokens = tokens;
+//    BAST.tokens = tokens;
     tokens.setTokenSource(lexer);
     BLESS3Parser parser = new BLESS3Parser(tokens);
     parser.setTreeAdaptor(new BASTTreeAdaptor());
