@@ -903,6 +903,9 @@ value
   vn=valueName
     -> {$vn.st}
   |
+  ev=enumerationValue
+    -> {$ev.st}
+  |
   c=constant
     -> {$c.st}
   |
