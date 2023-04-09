@@ -39,7 +39,7 @@ import com.multitude.bless.tree.BAST;
 	public class
 Global	//global variables
 {
-public static String CopyrightYear = "2022";
+public static String CopyrightYear = "2023";
 public static String OsateVersion = "2.11.0";
 public static String EclipseVersion = "22_06";
 

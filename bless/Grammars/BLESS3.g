@@ -158,10 +158,10 @@ public void reportError(RecognitionException ex)
     Dump.it("In File "+currentPackageRecord.file.getName());
   else if (fileName != null)
     Dump.it("In File "+fileName);
-  Dump.it("\nBLESS Syntax Error #"+
-    Integer.toString(countRecognitionErrors)+"\n");
+  Dump.it("BLESS Syntax Error #"+
+    Integer.toString(countRecognitionErrors));
   error_messages.add(getErrorHeader(ex));  
-  Dump.it("\nSome "+Global.dope+", made another "+
+  Dump.it("Some "+Global.dope+", made another "+
      (Global.kindMessages?"unfortunate":"stupid")+" grammatical mistake. \n"+
       "We know this because the token we\'re trying to parse has token-type \""+
       ((ex.getUnexpectedType()>0)&&(ex.getUnexpectedType()<tokenNames.length)?tokenNames[ex.getUnexpectedType()]:Integer.toString(ex.getUnexpectedType()))+
@@ -179,24 +179,19 @@ public void reportError(RecognitionException ex)
     Dump.it("Expecting:  "+tokenNames[ute.expecting]);
     Dump.it("\nHint: Don\'t include units for numeric literals in BLESS::Assertion property strings.\n");
     }
+  recognitionErrorOccurred = true;
+  ex.line = ex.line+startingLine;
+  Dump.it("offending text = \""+input.toString()+"\"");
+  Dump.it(getErrorHeader(ex));
   if (countRecognitionErrors<Global.YouIdiotReportLimit)
     {
-    recognitionErrorOccurred = true;
-    ex.line = ex.line+startingLine;
-    Dump.it("offending text = \""+input.toString()+"\"");
-    Dump.it(getErrorHeader(ex));
-//    super.reportError(ex);
-  ex.printStackTrace();
-//    StackTraceElement[] ste = ex.getStackTrace(); 
-//    for (int k=0;k<ste.length;k++)
-//      Dump.it("   "+ste[k].toString());     
-//    HelpfulHints.giveHint();
+    ex.printStackTrace();
     }
-  else
-    {
-    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
-    x=(x+x)/(x-5);
-    }
+//  else
+//    {
+//    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
+//    x=(x+x)/(x-5);
+//    }
   countRecognitionErrors++;
 //  // Global.stopProof = true; 
   } //end of reportError
@@ -821,8 +816,8 @@ assertion
 //  options{backtrack=true;}
 :
   (LASS ID COLON)=> namedAssertion
-  | (LASS ASSIGN)=> namelessFunction
-  | (LASS PLUS_EQUALS)=> namelessEnumeration
+  | (LASS LITERAL_returns)=> namelessFunction
+  | (LASS PLUS_ARROW)=> namelessEnumeration
   | namelessAssertion
   ;
 

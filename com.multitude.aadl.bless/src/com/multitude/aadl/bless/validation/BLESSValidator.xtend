@@ -602,8 +602,27 @@ def void checkNamedAssertionHasNoNow(Value v)
 
 @Check(CheckType.NORMAL)
 def void checkNamedAssertionInvocation(Invocation i)
-  {  //first check no parameter
-  if (i.label.formals === null)
+  { //first check for named enumeration
+  if (i.label.assertionvariable !==null )
+    {
+    if (i.params.size != 1)  
+      fError('Assertion enumeration invocation must have a single value.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+    else 
+      {
+      val vd = i.params.head.actual?.l?.l?.l?.l?.l?.l?.l?.timed_expression?.subject?.value?.enum_val  
+      if (!(vd instanceof EnumerationValue))
+        fError('Parameter for assertion enumeration invocation must be enumeration value.',i,
+          BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+      else if ((vd as EnumerationValue).enumeration_type.name !=  i.label.enumerationType.name) 
+      fError('Parameter for assertion enumeration invocation must have the same enumeration type: '+
+        (vd as EnumerationValue).enumeration_type.name+" is not "+ 
+        i.label.enumerationType.name+".",i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+      }
+    }
+  //then check no parameter
+  else if (i.label.formals === null)
     {
     if (i.params !== null  && i.params.size > 0)
         fError('Invoked assertion has no parameters.',i,
