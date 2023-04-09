@@ -244,52 +244,53 @@ public static Activator getDefault()
 public static StringTemplateGroup
 loadStringTemplateGroup(String templateFileName)
 		throws YouIdiot
-{
-	StringTemplateGroup templates=null;
-//Dump.it("opening StringTemplateGroup file:  "+templateFileName);
-	//set flags if using BA.stg or DataModel.stg instead of BLESS.stg
-	Global.usingDataModelStringTemplateGroup  = (templateFileName.compareTo("DataModel.stg")==0);
-	Global.usingBAStringTemplateGroup  = (templateFileName.compareTo("BA.stg")==0);
-	Global.usingBLESSStringTemplateGroup  = (templateFileName.compareTo("BLESS.stg")==0);
-	//if it ends in .stg
-	try
-	{
-		if ((templateFileName.length()>4) &&
-				templateFileName.substring(templateFileName.length()-4).equals(".stg"))
-		{
-			if (Global.runningAsOSATEplugin)
-			{  //I'm a plugin
-				// code to retrieve an java.io.InputStream
-				Path stgPath =  new Path(templateFileName);
-				if (stgPath==null) {
-					throw new YouIdiot(templateFileName+" cannot be found!");
-				}
-				InputStream inputStream = FileLocator.openStream(
-						Activator.getDefault().getBundle(),stgPath, false);
-				InputStreamReader isr = new InputStreamReader(inputStream);
-				templates = new StringTemplateGroup(isr,AngleBracketTemplateLexer.class);
-			} else {
-				templates = new StringTemplateGroup(new FileReader(templateFileName),
-						AngleBracketTemplateLexer.class);
-			}
-		}
-		else
-		{
-			//				Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS3.stg or BA.stg");
-			extracted();
-		}
-	}
-	catch (FileNotFoundException fnfe)
-	{
-		Dump.it(fnfe);
-		throw new YouIdiot("The StringTemplateGroup "+templateFileName+" file could not be found");
-	}
-	catch (IOException ioe)
-	{
-		Dump.it(ioe);
-		throw new YouIdiot("The StringTemplateGroup "+templateFileName+" file caused an IO exception.");
-	}
-	return templates;
+  {
+  StringTemplateGroup templates=null;
+  //Dump.it("opening StringTemplateGroup file:  "+templateFileName);
+  //set flags if using BA.stg or DataModel.stg instead of BLESS.stg
+  Global.usingDataModelStringTemplateGroup  = (templateFileName.compareTo("DataModel.stg")==0);
+  Global.usingBAStringTemplateGroup  = (templateFileName.compareTo("BA.stg")==0);
+  Global.usingBLESSStringTemplateGroup  = (templateFileName.compareTo("BLESS.stg")==0);
+  //if it ends in .stg
+  try
+    {
+    if ((templateFileName.length()>4) &&
+        templateFileName.substring(templateFileName.length()-4).equals(".stg"))
+      {
+      if (Global.runningAsOSATEplugin)
+        {  //I'm a plugin
+        // code to retrieve an java.io.InputStream
+        Path stgPath =  new Path(templateFileName);
+        if (stgPath==null) 
+          throw new YouIdiot(templateFileName+" cannot be found!");
+        InputStream inputStream = FileLocator.openStream(
+            Activator.getDefault().getBundle(),stgPath, false);
+        InputStreamReader isr = new InputStreamReader(inputStream);
+        templates = new StringTemplateGroup(isr,AngleBracketTemplateLexer.class);
+        } 
+      else 
+        {
+        templates = new StringTemplateGroup(new FileReader(templateFileName),
+            AngleBracketTemplateLexer.class);
+        }
+      }
+    else
+      {
+      //				Dump.it("The first parameter must be a StringTemplateGroup file: *.stg like BLESS3.stg or BA.stg");
+      extracted();
+      }
+    }
+  catch (FileNotFoundException fnfe)
+    {
+    Dump.it(fnfe);
+    throw new YouIdiot("The StringTemplateGroup "+templateFileName+" file could not be found");
+    }
+  catch (IOException ioe)
+    {
+    Dump.it(ioe);
+    throw new YouIdiot("The StringTemplateGroup "+templateFileName+" file caused an IO exception.");
+    }
+  return templates;
 } 	//end of loadStringTemplateGroup
 
 private static void extracted() throws YouIdiot
