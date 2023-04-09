@@ -1420,8 +1420,9 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
   throws RecognitionException
     {
 // set up ANTLR string reader
-    CharStream        spec   = new ANTLRStringStream(text);
-    BLESS3Lexer   lexer  = new BLESS3Lexer(spec);
+ //KLUDGE FOR MISSING formal=ID IN INVOCATION
+    CharStream spec = new ANTLRStringStream(text.replace(":=", "%%%").replace(":", " : ").replace("%%%", ":="));
+    BLESS3Lexer lexer = new BLESS3Lexer(spec);
     CommonTokenStream tokens = new CommonTokenStream();
 //    BAST.tokens = tokens;
     tokens.setTokenSource(lexer);

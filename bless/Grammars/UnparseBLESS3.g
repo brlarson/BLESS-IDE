@@ -89,7 +89,13 @@ text(String t)
 	      ex.printStackTrace();
 	      }
 	    }
-	  } //end of reportError
+	  if (countUnparserErrors > Global.YouIdiotReportLimit)
+      {
+      int x = 5;
+      Dump.it(countUnparserErrors+" unparser errors occurred; divide by zero to stop runaway unparser");
+      x=(x+x)/(x-5);
+      }
+  } //end of reportError
 
 static int typeNameNumber = 0;	//counts type names created
 

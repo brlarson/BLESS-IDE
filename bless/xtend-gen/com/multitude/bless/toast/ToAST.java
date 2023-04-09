@@ -1795,13 +1795,22 @@ public class ToAST {
           if (_isDot) {
             BAST _newBAST_2 = this.newBAST(e);
             final Procedure1<BAST> _function_2 = (BAST it) -> {
-              it.myText = ".";
-              CommonToken _commonToken = new CommonToken(BLESS3Lexer.DOT, ".");
+              it.myText = e.getId().getName();
+              String _name = e.getId().getName();
+              CommonToken _commonToken = new CommonToken(BLESS3Lexer.ID, _name);
               it.token = _commonToken;
-              EList<PartialName> _pn = e.getPn();
-              for (final PartialName partial_name : _pn) {
-                it.addChild(this.toAST(partial_name));
-              }
+              BAST _newBAST_3 = this.newBAST(e);
+              final Procedure1<BAST> _function_3 = (BAST it_1) -> {
+                it_1.myText = ".";
+                CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.DOT, ".");
+                it_1.token = _commonToken_1;
+                EList<PartialName> _pn = e.getPn();
+                for (final PartialName partial_name : _pn) {
+                  it_1.addChild(this.toAST(partial_name));
+                }
+              };
+              BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
+              it.addChild(_doubleArrow);
             };
             _xifexpression_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
           } else {

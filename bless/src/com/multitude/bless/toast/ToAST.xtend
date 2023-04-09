@@ -1125,12 +1125,16 @@ toAST(ValueName e)
             ])
         ]  
 	  else if (e.dot) //partial names?
-	     newBAST(e) =>  [
-  	     myText = '.'
-         token = new CommonToken(BLESS3Lexer.DOT, '.')
-         for (partial_name: e.pn)  //then add the variables
-           addChild(partial_name.toAST)
-       	 ]
+	     newBAST(e) => [
+        myText = e.id.name
+        token = new CommonToken(BLESS3Lexer.ID, e.id.name)
+        addChild(newBAST(e) =>  [
+  	      myText = '.'
+          token = new CommonToken(BLESS3Lexer.DOT, '.')
+          for (partial_name: e.pn)  //then add the variables
+            addChild(partial_name.toAST)
+       	  ])
+       	]
    else if (e.q) 
      newBAST(e) => [
        myText = '?'
