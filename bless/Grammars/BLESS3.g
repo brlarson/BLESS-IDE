@@ -196,8 +196,8 @@ public void reportError(RecognitionException ex)
 //  // Global.stopProof = true; 
   } //end of reportError
 
-public int errorCount = 0;
-public final int errorLimit=3;
+//public int errorCount = 0;
+//public final int errorLimit=3;
 
 //REPLACE THIS WITH LOOK-UP OF OSATE RENAMES CLAUSE
 //public String timeAlias = "T";
@@ -745,14 +745,23 @@ namedAssertion:
     )
   )
   RASS
-   -> {id!=null&&formals==null&&col!=null}? ^( ASSERTION ^( LABEL $id ) $pred )                                          
-   -> {id!=null&&formals!=null&&col!=null}? ^( ASSERTION ^( LABEL $id ) ^( PARAMETERS $formals ) $pred )
-   -> {id!=null&&formals==null&&ret!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( $ret $tod ) $functionvalue )                                          
-   -> {id!=null&&formals!=null&&ret!=null}? ^( ASSERTION_FUNCTION ^( LABEL $id ) ^( PARAMETERS $formals ) ^( $ret $tod ) $functionvalue ) 
-   -> {til!=null}?  ^( ASSERTION_ENUMERATION ^( LABEL $id ) ^( $til $assertionvariable $enumerationTy ) $enumeration  ) 
+   -> {id!=null&&formals==null&&col!=null}? 
+     ^( ASSERTION[$id,"ASSERTION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"]"] 
+       ^( LABEL $id ) $pred )                                          
+   -> {id!=null&&formals!=null&&col!=null}? 
+     ^( ASSERTION[$id,"ASSERTION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"]"] 
+       ^( LABEL $id ) ^( PARAMETERS $formals ) $pred )
+   -> {id!=null&&formals==null&&ret!=null}? 
+     ^( ASSERTION_FUNCTION[$id,"ASSERTION_FUNCTION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"]"] 
+       ^( LABEL $id ) ^( $ret $tod ) $functionvalue )                                          
+   -> {id!=null&&formals!=null&&ret!=null}? 
+     ^( ASSERTION_FUNCTION[$id,"ASSERTION_FUNCTION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"]"] 
+       ^( LABEL $id ) ^( PARAMETERS $formals ) ^( $ret $tod ) $functionvalue ) 
+   -> {til!=null}?  
+     ^( ASSERTION_ENUMERATION[$id,"ASSERTION_ENUMERATION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"]"] 
+       ^( LABEL $id ) ^( $til $assertionvariable $enumerationTy ) $enumeration  ) 
    -> $lass  //error
 ; 
-
 predicate:  ex=expression
   -> $ex
   ;
@@ -798,18 +807,18 @@ enumerationValue:
 
 
 namelessAssertion:
-  LASS pred=predicate RASS
-    -> ^( ASSERTION $pred )
+  la=LASS pred=predicate RASS
+    -> ^( ASSERTION[$la,"ASSERTION["+Integer.toString($la.getLine()+startingLine)+"]"] $la )
   ;
   
 namelessFunction:
   LASS ret=LITERAL_returns tod=typeOrReference ASSIGN functionvalue=assertionFunctionValue RASS
-    -> ^( ASSERTION_FUNCTION ^( $ret $tod ) $functionvalue  )
+    -> ^( ASSERTION_FUNCTION[$ret,"ASSERTION_FUNCTION["+Integer.toString($ret.getLine()+startingLine)+"]"] ^( $ret $tod ) $functionvalue  )
   ;	
 		
 namelessEnumeration:
 	LASS pa=PLUS_ARROW inv=invocation RASS
-	  ->  ^( ASSERTION_ENUMERATION $inv )
+	  ->  ^( ASSERTION_ENUMERATION[$pa,"ASSERTION_ENUMERATION["+Integer.toString($pa.getLine()+startingLine)+"]"] $inv )
 	;
 
 assertion
@@ -826,7 +835,7 @@ invocation:
 	id=ID LPAREN 
 	( ( params+=actualParameter ( COMMA params+=actualParameter )* )
 	  | exp=expression )? RPAREN
-	  -> ^( INVOKE $id $params* $exp? )
+	  -> ^( INVOKE[$id, "INVOKE["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"] " ] $id $params* $exp? )
 	;
 
 actualParameter:
@@ -1335,7 +1344,7 @@ computation:
 subprogramCall:
   id=ID LPAREN fal=formalActualList? RPAREN
     -> ^( SUBPROGRAM_INVOCATION[$id,
-      "SUBPROGRAM_INVOCATION["+Integer.toString($id.tree.getLine())+"] "] $id $fal )
+      "SUBPROGRAM_INVOCATION["+$id.text+":"+Integer.toString($id.tree.getLine()+startingLine)+"] "] $id $fal )
   ;
 
 formalActualList:

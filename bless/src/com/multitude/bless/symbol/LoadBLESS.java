@@ -1432,8 +1432,6 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
     parser.setTreeAdaptor(new BASTTreeAdaptor());
     parser.currentPackageRecord = pr;
 //parser.putAssertionsIntoMap = putAssertionsIntoMap; // put Assertions found into map?
-// parser.setLine(line);
-// parser.setColumn(column);
     BAST tb = null;
 //   try {
     tb = parser.assertion().getTree();
