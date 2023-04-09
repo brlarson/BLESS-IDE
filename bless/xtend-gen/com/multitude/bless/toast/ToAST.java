@@ -890,23 +890,9 @@ public class ToAST {
         if (_tripleNotEquals) {
           it.addChild(this.toAST(e.getPred()));
         } else {
-          int _size = e.getPair().size();
-          boolean _equals = (_size == 1);
-          if (_equals) {
-            it.addChild(this.toAST(IterableExtensions.<EnumerationPair>head(e.getPair())));
-          } else {
-            BAST _newBAST_1 = this.newBAST(e);
-            final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-              CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.COMMA, ",");
-              it_1.token = _commonToken_1;
-              it_1.myText = ",";
-              EList<EnumerationPair> _pair = e.getPair();
-              for (final EnumerationPair child : _pair) {
-                it_1.addChild(this.toAST(child));
-              }
-            };
-            BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-            it.addChild(_doubleArrow);
+          EList<EnumerationPair> _pair = e.getPair();
+          for (final EnumerationPair child : _pair) {
+            it.addChild(this.toAST(child));
           }
         }
       };

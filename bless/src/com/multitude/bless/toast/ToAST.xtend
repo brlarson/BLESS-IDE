@@ -588,17 +588,8 @@ toAST(AssertionEnumeration e)
           //add either a PredicateInvocation, or one or more EnumerationPair
         if (e.pred !== null)  
           addChild(e.pred.toAST)  
-        else if (e.pair.size==1)
-          addChild(e.pair.head.toAST)
-        else
-          addChild(
-            newBAST(e) =>
-            [
-            token = new CommonToken(BLESS3Lexer.COMMA, ',')
-            myText = ','
-            for (child : e.pair)  //add enumeration pairs
+        else for (child : e.pair)  //add enumeration pairs
               addChild(child.toAST)                   
-            ] )
       ]
     } catch (Exception ex) {ex.printStackTrace x}
   }  //end of AssertionEnumeration
