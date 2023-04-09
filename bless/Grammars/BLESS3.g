@@ -200,7 +200,7 @@ public int errorCount = 0;
 public final int errorLimit=3;
 
 //REPLACE THIS WITH LOOK-UP OF OSATE RENAMES CLAUSE
-public String timeAlias = "T";
+//public String timeAlias = "T";
 
 //public void emitErrorMessage(String msg) 
 //  {

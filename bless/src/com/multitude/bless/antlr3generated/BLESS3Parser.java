@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-08 21:25:23
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-08 22:01:23
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -492,7 +492,7 @@ public class BLESS3Parser extends Parser {
 	public final int errorLimit=3;
 
 	//REPLACE THIS WITH LOOK-UP OF OSATE RENAMES CLAUSE
-	public String timeAlias = "T";
+	//public String timeAlias = "T";
 
 	//public void emitErrorMessage(String msg) 
 	//  {
