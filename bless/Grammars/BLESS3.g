@@ -187,11 +187,11 @@ public void reportError(RecognitionException ex)
     {
     ex.printStackTrace();
     }
-//  else
-//    {
-//    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
-//    x=(x+x)/(x-5);
-//    }
+  else
+    {
+    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
+    x=(x+x)/(x-5);
+    }
   countRecognitionErrors++;
 //  // Global.stopProof = true; 
   } //end of reportError

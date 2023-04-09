@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-08 21:21:44
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-04-08 21:25:23
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -479,11 +479,11 @@ public class BLESS3Parser extends Parser {
 	    {
 	    ex.printStackTrace();
 	    }
-	//  else
-	//    {
-	//    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
-	//    x=(x+x)/(x-5);
-	//    }
+	  else
+	    {
+	    Dump.it(countRecognitionErrors+" recognition errors occurred; divide by zero to stop runaway parser");
+	    x=(x+x)/(x-5);
+	    }
 	  countRecognitionErrors++;
 	//  // Global.stopProof = true; 
 	  } //end of reportError
