@@ -1148,10 +1148,11 @@ toAST(ValueName e)
    else if (e.updated)
       makeBASTforPort(e.id.name+'\'updated',e)
    else  //just id 
-      newBAST(e) =>  [
-       	myText = e.id.name
-       	token = new CommonToken(BLESS3Lexer.ID, e.id.name)
-        ]
+     e.id.name.makeBASTforID(e)
+//      newBAST(e) =>  [
+//       	myText = e.id.name
+//       	token = new CommonToken(BLESS3Lexer.ID, e.id.name)
+//        ]
     } 
   catch (Exception ex) {ex.printStackTrace x}
   }   //end of ValueName

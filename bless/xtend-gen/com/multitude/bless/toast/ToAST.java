@@ -1847,14 +1847,7 @@ public class ToAST {
                     String _plus_2 = (_name_2 + "\'updated");
                     _xifexpression_6 = this.makeBASTforPort(_plus_2, e);
                   } else {
-                    BAST _newBAST_4 = this.newBAST(e);
-                    final Procedure1<BAST> _function_4 = (BAST it) -> {
-                      it.myText = e.getId().getName();
-                      String _name_3 = e.getId().getName();
-                      CommonToken _commonToken = new CommonToken(BLESS3Lexer.ID, _name_3);
-                      it.token = _commonToken;
-                    };
-                    _xifexpression_6 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
+                    _xifexpression_6 = this.makeBASTforID(e.getId().getName(), e);
                   }
                   _xifexpression_5 = _xifexpression_6;
                 }
