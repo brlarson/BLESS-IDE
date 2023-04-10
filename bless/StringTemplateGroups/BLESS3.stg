@@ -301,7 +301,7 @@ named_assertion(id,pred,formals,tod,functionvalue) ::=
 
 named_assertion_enum(id,assertionvariable,enumerationTy,enumeration) ::=
 <<
-\<\<<id>: <assertionvariable> ~ <enumerationTy> +=> 
+\<\<<id>: <assertionvariable> ~ <enumerationTy> 
   <enumeration> \>\> >>
 
 nameless_assertion(a) ::=
