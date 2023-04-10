@@ -695,7 +695,7 @@ conjunction
     -> relation(r={$one.text}, lhs={$lhs.st},rhs={$rhs.st})
   |
   ^(in=LITERAL_in lhs=addSub rng=range )
-     -> relation(r={$in.text}, lhs={$lhs.st},rng={$rng.st})
+     -> relation(r={$in.text}, lhs={$lhs.st},rhs={$rng.st})
  |
   as=addSub
     -> {$as.st}
