@@ -843,6 +843,9 @@ indexExpression
   |
   ^( TIMES ps+=periodShift+ )
     -> multiply(terms={$ps})
+  | 
+  l=periodShift
+    -> {$l.st}
   ;
   
 conditionalExpression
