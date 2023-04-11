@@ -463,7 +463,7 @@ namedAssertion
     -> named_assertion(id={$id.text}, formals={$formals.st}, tod={$tod.st}, functionvalue={$functionvalue.st})
   |
   ^( ASSERTION_ENUMERATION ^( LABEL id=ID ) ^( TILDE assertionvariable=ID enumerationTy=ID ) enumeration=assertionEnumeration  ) 
-    -> named_assertion_enum(id={$id.text}, enumerationTy={$enumerationTy.text}, enumeration={$enumeration.st})
+    -> named_assertion_enum(id={$id.text}, assertionvariable={$assertionvariable.text}, enumerationTy={$enumerationTy.text}, enumeration={$enumeration.st})
  ;
  
 variableList
