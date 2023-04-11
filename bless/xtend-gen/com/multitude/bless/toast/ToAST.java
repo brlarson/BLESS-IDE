@@ -1972,9 +1972,20 @@ public class ToAST {
     try {
       BAST _makeBASTforID = this.makeBASTforID(e.getRecord_id(), e);
       final Procedure1<BAST> _function = (BAST it) -> {
-        EList<IndexExpressionOrRange> _array_index = e.getArray_index();
-        for (final IndexExpressionOrRange index : _array_index) {
-          it.addChild(this.toAST(index));
+        boolean _isLb = e.isLb();
+        if (_isLb) {
+          BAST _newBAST = this.newBAST(e);
+          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+            it_1.myText = "[";
+            CommonToken _commonToken = new CommonToken(BLESS3Lexer.LBRACKET, "[");
+            it_1.token = _commonToken;
+            EList<IndexExpressionOrRange> _array_index = e.getArray_index();
+            for (final IndexExpressionOrRange index : _array_index) {
+              it_1.addChild(this.toAST(index));
+            }
+          };
+          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function_1);
+          it.addChild(_doubleArrow);
         }
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_makeBASTforID, _function);

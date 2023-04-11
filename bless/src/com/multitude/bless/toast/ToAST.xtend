@@ -1222,9 +1222,16 @@ toAST(PartialName e)
   try 
     {  
   	e.record_id.makeBASTforID(e) =>
-  	  [  //add index children, if any
-  	  for (index : e.array_index)
-  	    addChild(index.toAST)	
+  	  [  //any indexes?
+  	  if (e.lb)
+  	    addChild(newBAST(e) =>  
+  	      [
+          myText = '['
+          token = new CommonToken(BLESS3Lexer.LBRACKET, '[')
+          //add index children
+          for (index : e.array_index)
+            addChild(index.toAST)    
+          ])
   	  ]
     } 
   catch (Exception ex) {ex.printStackTrace x}
