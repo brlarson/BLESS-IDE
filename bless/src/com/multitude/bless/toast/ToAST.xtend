@@ -2471,14 +2471,12 @@ toAST(QuantityType e)
         [  
   	    myText = "whole" 
         token = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole")
-        addChild(e.unit.name.makeBASTforID(e))
         ]	)
     else if (e.scalar !== null)
       addChild(newBAST(e) =>  
         [  
         myText = "scalar" 
         token = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar")
-        addChild(e.unit.name.makeBASTforID(e))
         ] )
     else  //it has a unit
       addChild(e.unit.name.makeBASTforID(e))

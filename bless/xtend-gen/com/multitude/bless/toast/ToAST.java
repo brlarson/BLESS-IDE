@@ -4252,7 +4252,6 @@ public class ToAST {
             it_1.myText = "whole";
             CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole");
             it_1.token = _commonToken_1;
-            it_1.addChild(this.makeBASTforID(e.getUnit().getName(), e));
           };
           BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           it.addChild(_doubleArrow);
@@ -4265,7 +4264,6 @@ public class ToAST {
               it_1.myText = "scalar";
               CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar");
               it_1.token = _commonToken_1;
-              it_1.addChild(this.makeBASTforID(e.getUnit().getName(), e));
             };
             BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
             it.addChild(_doubleArrow_1);
