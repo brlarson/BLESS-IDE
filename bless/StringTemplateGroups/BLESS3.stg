@@ -156,7 +156,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; wrap, separator=\" or \">"
+  "<bopt; wrap, separator=\"\n  or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
