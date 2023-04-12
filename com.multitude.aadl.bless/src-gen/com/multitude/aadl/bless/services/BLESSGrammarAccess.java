@@ -1404,9 +1404,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cSubAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
 		private final RuleCall cSubIDTerminalRuleCall_0_1_1_0 = (RuleCall)cSubAssignment_0_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cPortAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final CrossReference cPortNamedElementCrossReference_0_3_0 = (CrossReference)cPortAssignment_0_3.eContents().get(0);
-		private final RuleCall cPortNamedElementIDTerminalRuleCall_0_3_0_1 = (RuleCall)cPortNamedElementCrossReference_0_3_0.eContents().get(1);
+		private final Assignment cSubAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cSubIDTerminalRuleCall_0_3_0 = (RuleCall)cSubAssignment_0_3.eContents().get(0);
 		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
 		private final Keyword cLeftSquareBracketKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
 		private final Assignment cIndexAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
@@ -1423,7 +1422,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		//    | '(' tle=TriggerLogicalExpression ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -1431,14 +1430,14 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		//    | '(' tle=TriggerLogicalExpression ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//  //subcomponent_port_reference
@@ -1465,14 +1464,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'.'
 		public Keyword getFullStopKeyword_0_2() { return cFullStopKeyword_0_2; }
 		
-		//port=[aadl2::NamedElement|ID]
-		public Assignment getPortAssignment_0_3() { return cPortAssignment_0_3; }
-		
-		//[aadl2::NamedElement|ID]
-		public CrossReference getPortNamedElementCrossReference_0_3_0() { return cPortNamedElementCrossReference_0_3_0; }
+		//sub+=ID
+		public Assignment getSubAssignment_0_3() { return cSubAssignment_0_3; }
 		
 		//ID
-		public RuleCall getPortNamedElementIDTerminalRuleCall_0_3_0_1() { return cPortNamedElementIDTerminalRuleCall_0_3_0_1; }
+		public RuleCall getSubIDTerminalRuleCall_0_3_0() { return cSubIDTerminalRuleCall_0_3_0; }
 		
 		//( '[' index=NUMBER ']' )?
 		public Group getGroup_0_4() { return cGroup_0_4; }
@@ -10663,7 +10659,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//  //subcomponent_port_reference
 	//  //change to how OSATE references subcomponents?
 	////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-	//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+	//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 	//    | '(' tle=TriggerLogicalExpression ')'
 	//;
 	public EventTriggerElements getEventTriggerAccess() {

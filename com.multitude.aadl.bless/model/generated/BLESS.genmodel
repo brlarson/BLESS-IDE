@@ -125,7 +125,6 @@
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//EventTrigger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//EventTrigger/sub"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//EventTrigger/port"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//EventTrigger/index"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//EventTrigger/tle"/>
     </genClasses>

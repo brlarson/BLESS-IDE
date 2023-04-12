@@ -13,6 +13,7 @@ import com.multitude.aadl.bless.util.BlessUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -163,8 +164,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
                   }
                 }
               } else {
-                EReference _eventTrigger_Port = BLESSPackage.eINSTANCE.getEventTrigger_Port();
-                boolean _equals_5 = Objects.equal(ref, _eventTrigger_Port);
+                EAttribute _eventTrigger_Sub = BLESSPackage.eINSTANCE.getEventTrigger_Sub();
+                boolean _equals_5 = Objects.equal(ref, _eventTrigger_Sub);
                 if (_equals_5) {
                   if ((context instanceof EventTrigger)) {
                     final ComponentClassifier component_1 = this._blessUtil.getSubcomponentFromListOfIDs(context, ((EventTrigger) context).getSub());

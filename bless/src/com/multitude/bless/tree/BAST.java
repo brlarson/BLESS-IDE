@@ -2093,8 +2093,7 @@ private static int tab=0;  //tabbing for toStringTree
       {
       return false; // different token types
       }
-    if ((this.hasType(BLESS3Lexer.ID)||this.hasType(BLESS3Lexer.QCLREF)||
-          this.hasType(BLESS3Lexer.QCREF)||this.hasType(BLESS3Lexer.TRIGGER))&&
+    if (this.hasType(BLESS3Lexer.ID)&&
         !this.isText(theOtherNode.getText())) 
       {
       return false; // not equal

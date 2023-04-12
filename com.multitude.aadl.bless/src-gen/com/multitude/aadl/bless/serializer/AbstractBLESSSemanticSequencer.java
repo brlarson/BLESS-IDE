@@ -1558,7 +1558,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns EventTrigger
 	 *
 	 * Constraint:
-	 *     ((sub+=ID sub+=ID* port=[NamedElement|ID] index=NUMBER?) | tle=TriggerLogicalExpression)
+	 *     ((sub+=ID sub+=ID* sub+=ID index=NUMBER?) | tle=TriggerLogicalExpression)
 	 * </pre>
 	 */
 	protected void sequence_EventTrigger(ISerializationContext context, EventTrigger semanticObject) {

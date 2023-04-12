@@ -1761,22 +1761,13 @@ public interface BLESSPackage extends EPackage
   int EVENT_TRIGGER__SUB = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Port</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT_TRIGGER__PORT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Index</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER__INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int EVENT_TRIGGER__INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Tle</b></em>' containment reference.
@@ -1785,7 +1776,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER__TLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+  int EVENT_TRIGGER__TLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Event Trigger</em>' class.
@@ -1794,7 +1785,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
+  int EVENT_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.LogicalOperatorImpl <em>Logical Operator</em>}' class.
@@ -10850,17 +10841,6 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EAttribute getEventTrigger_Sub();
-
-  /**
-   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.EventTrigger#getPort <em>Port</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Port</em>'.
-   * @see com.multitude.aadl.bless.bLESS.EventTrigger#getPort()
-   * @see #getEventTrigger()
-   * @generated
-   */
-  EReference getEventTrigger_Port();
 
   /**
    * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.EventTrigger#getIndex <em>Index</em>}'.

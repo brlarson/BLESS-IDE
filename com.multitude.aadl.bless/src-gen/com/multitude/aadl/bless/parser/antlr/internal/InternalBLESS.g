@@ -2130,14 +2130,19 @@ ruleEventTrigger returns [EObject current=null]
 			}
 			(
 				(
+					lv_sub_4_0=RULE_ID
+					{
+						newLeafNode(lv_sub_4_0, grammarAccess.getEventTriggerAccess().getSubIDTerminalRuleCall_0_3_0());
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getEventTriggerRule());
 						}
-					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getEventTriggerAccess().getPortNamedElementCrossReference_0_3_0());
+						addWithLastConsumed(
+							$current,
+							"sub",
+							lv_sub_4_0,
+							"com.multitude.aadl.bless.BLESS.ID");
 					}
 				)
 			)

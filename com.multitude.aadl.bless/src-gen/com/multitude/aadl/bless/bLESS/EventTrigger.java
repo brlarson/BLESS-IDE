@@ -10,7 +10,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import org.osate.aadl2.Element;
-import org.osate.aadl2.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,6 @@ import org.osate.aadl2.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.EventTrigger#getSub <em>Sub</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.EventTrigger#getPort <em>Port</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.EventTrigger#getIndex <em>Index</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.EventTrigger#getTle <em>Tle</em>}</li>
  * </ul>
@@ -44,28 +42,6 @@ public interface EventTrigger extends EObject, Element
    * @generated
    */
   EList<String> getSub();
-
-  /**
-   * Returns the value of the '<em><b>Port</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Port</em>' reference.
-   * @see #setPort(NamedElement)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getEventTrigger_Port()
-   * @model
-   * @generated
-   */
-  NamedElement getPort();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.EventTrigger#getPort <em>Port</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Port</em>' reference.
-   * @see #getPort()
-   * @generated
-   */
-  void setPort(NamedElement value);
 
   /**
    * Returns the value of the '<em><b>Index</b></em>' attribute.

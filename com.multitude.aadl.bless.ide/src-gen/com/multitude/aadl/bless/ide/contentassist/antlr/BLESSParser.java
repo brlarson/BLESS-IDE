@@ -434,7 +434,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTriggerLogicalExpressionAccess().getTriggerAssignment_1_2_1(), "rule__TriggerLogicalExpression__TriggerAssignment_1_2_1");
 			builder.put(grammarAccess.getEventTriggerAccess().getSubAssignment_0_0(), "rule__EventTrigger__SubAssignment_0_0");
 			builder.put(grammarAccess.getEventTriggerAccess().getSubAssignment_0_1_1(), "rule__EventTrigger__SubAssignment_0_1_1");
-			builder.put(grammarAccess.getEventTriggerAccess().getPortAssignment_0_3(), "rule__EventTrigger__PortAssignment_0_3");
+			builder.put(grammarAccess.getEventTriggerAccess().getSubAssignment_0_3(), "rule__EventTrigger__SubAssignment_0_3");
 			builder.put(grammarAccess.getEventTriggerAccess().getIndexAssignment_0_4_1(), "rule__EventTrigger__IndexAssignment_0_4_1");
 			builder.put(grammarAccess.getEventTriggerAccess().getTleAssignment_1_1(), "rule__EventTrigger__TleAssignment_1_1");
 			builder.put(grammarAccess.getLogicalOperatorAccess().getOpAssignment_0(), "rule__LogicalOperator__OpAssignment_0");

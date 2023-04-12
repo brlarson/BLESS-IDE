@@ -127,6 +127,7 @@ import org.osate.aadl2.SubprogramSubcomponent
 import com.multitude.aadl.bless.bLESS.GhostVariables
 import com.multitude.aadl.bless.bLESS.GhostVariable
 import com.multitude.aadl.bless.bLESS.NullType
+import com.multitude.aadl.bless.bLESS.EventTrigger
 
 class ToAST {
 
@@ -197,7 +198,7 @@ makeBASTforPropertyReference(PropertyReference pr, Element e)
     } catch (Exception ex) {ex.printStackTrace x}
   }
 
-
+//MAY NOT HANDLE .imp AT THE END
   def BAST
 makeBASTforComponentClassifier(String s, Element e) 
   {
@@ -206,7 +207,7 @@ makeBASTforComponentClassifier(String s, Element e)
     myText = '::'
     token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, '::')
     for (c : s?.getComponentClassifierStrings)
-      addChild(c.makeBASTforINT(e))
+      addChild(c.makeBASTforID(e))
     ]  
   } 
 
@@ -450,13 +451,25 @@ makeBASTforRelationSymbol(String mySymbol, Element parent)
  * used by  
  */
   def BAST 
-makeBASTforPropertyName(String property_name, Element parent)
+makeBASTforPropertyName(String property_name, Element e)
   {
-  	newBAST(parent) =>
-  	  [
-  	   myText = property_name
-       token = new CommonToken(BLESS3Lexer.QCLREF, property_name)
-      ]	
+  newBAST(e) =>
+  	[
+  	myText = "::"
+    token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, property_name)
+    val ps = property_name.substring(1,property_name.indexOf("::")-1)
+    val prop = property_name.substring(property_name.indexOf("::")+2, property_name.length)
+    addChild(newBAST(e) =>
+      [
+      myText = ps
+      token = new CommonToken(BLESS3Lexer.ID, ps)
+      ])
+    addChild(newBAST(e) =>
+      [
+      myText = prop
+      token = new CommonToken(BLESS3Lexer.ID, prop)
+      ])  
+    ]	
   }  //end of makeBASTforPropertyName
 
 
@@ -3608,6 +3621,29 @@ toAST(TriggerLogicalExpression e)
     } 
   catch (Exception ex) {ex.printStackTrace x}       
   }  //end of TriggerLogicalExpression
+
+//eventTrigger :
+//  tr=modeTrigger
+//  | ^( LPAREN tle=triggerLogicalExpression RPAREN )
+//modeTrigger : ^(DOT mt+=ID+)
+  def dispatch BAST
+toAST(EventTrigger e)
+  {
+  try 
+    {  
+    e?.tle.toAST ?:
+    newBAST(e) =>  
+      [  
+      myText = "."
+      token = new CommonToken(BLESS3Lexer.DOT, ".")
+      for (tr : e.sub)
+        addChild(tr.makeBASTforID(e))
+      ]     
+    } 
+  catch (Exception ex) {ex.printStackTrace x}       
+  }
+
+
 
 //variablesSection : ^( LITERAL_variables vd+=variableDeclaration+ )
   def dispatch BAST

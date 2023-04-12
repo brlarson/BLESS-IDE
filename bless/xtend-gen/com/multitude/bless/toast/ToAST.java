@@ -292,7 +292,7 @@ public class ToAST {
         _componentClassifierStrings=this.getComponentClassifierStrings(s);
       }
       for (final String c : _componentClassifierStrings) {
-        it.addChild(this.makeBASTforINT(c, e));
+        it.addChild(this.makeBASTforID(c, e));
       }
     };
     return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
@@ -698,9 +698,36 @@ public class ToAST {
    * make a BAST node for an AADL Property
    * used by
    */
-  public BAST makeBASTforPropertyName(final String property_name, final Element parent) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field QCLREF is undefined for the type Class<BLESS3Lexer>");
+  public BAST makeBASTforPropertyName(final String property_name, final Element e) {
+    BAST _newBAST = this.newBAST(e);
+    final Procedure1<BAST> _function = (BAST it) -> {
+      it.myText = "::";
+      CommonToken _commonToken = new CommonToken(BLESS3Lexer.DOUBLE_COLON, property_name);
+      it.token = _commonToken;
+      int _indexOf = property_name.indexOf("::");
+      int _minus = (_indexOf - 1);
+      final String ps = property_name.substring(1, _minus);
+      int _indexOf_1 = property_name.indexOf("::");
+      int _plus = (_indexOf_1 + 2);
+      final String prop = property_name.substring(_plus, property_name.length());
+      BAST _newBAST_1 = this.newBAST(e);
+      final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+        it_1.myText = ps;
+        CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.ID, ps);
+        it_1.token = _commonToken_1;
+      };
+      BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+      it.addChild(_doubleArrow);
+      BAST _newBAST_2 = this.newBAST(e);
+      final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+        it_1.myText = prop;
+        CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.ID, prop);
+        it_1.token = _commonToken_1;
+      };
+      BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+      it.addChild(_doubleArrow_1);
+    };
+    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
   }
 
   /**
@@ -6296,6 +6323,47 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
+  protected BAST _toAST(final EventTrigger e) {
+    BAST _xtrycatchfinallyexpression = null;
+    try {
+      BAST _elvis = null;
+      TriggerLogicalExpression _tle = null;
+      if (e!=null) {
+        _tle=e.getTle();
+      }
+      BAST _aST = this.toAST(_tle);
+      if (_aST != null) {
+        _elvis = _aST;
+      } else {
+        BAST _newBAST = this.newBAST(e);
+        _elvis = _newBAST;
+      }
+      final Procedure1<BAST> _function = (BAST it) -> {
+        it.myText = ".";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.DOT, ".");
+        it.token = _commonToken;
+        EList<String> _sub = e.getSub();
+        for (final String tr : _sub) {
+          it.addChild(this.makeBASTforID(tr, e));
+        }
+      };
+      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_elvis, _function);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception ex = (Exception)_t;
+        BAST _xblockexpression = null;
+        {
+          ex.printStackTrace();
+          _xblockexpression = ToAST.x;
+        }
+        _xtrycatchfinallyexpression = _xblockexpression;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    return _xtrycatchfinallyexpression;
+  }
+
   protected BAST _toAST(final VariablesSection e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
@@ -6720,6 +6788,8 @@ public class ToAST {
       return _toAST((EnumerationType)e);
     } else if (e instanceof EnumerationValue) {
       return _toAST((EnumerationValue)e);
+    } else if (e instanceof EventTrigger) {
+      return _toAST((EventTrigger)e);
     } else if (e instanceof ExecuteCondition) {
       return _toAST((ExecuteCondition)e);
     } else if (e instanceof ExistentialLatticeQuantification) {

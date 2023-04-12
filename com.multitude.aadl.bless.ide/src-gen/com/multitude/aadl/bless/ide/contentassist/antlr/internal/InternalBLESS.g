@@ -9119,9 +9119,9 @@ rule__EventTrigger__Group_0__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getEventTriggerAccess().getPortAssignment_0_3()); }
-	(rule__EventTrigger__PortAssignment_0_3)
-	{ after(grammarAccess.getEventTriggerAccess().getPortAssignment_0_3()); }
+	{ before(grammarAccess.getEventTriggerAccess().getSubAssignment_0_3()); }
+	(rule__EventTrigger__SubAssignment_0_3)
+	{ after(grammarAccess.getEventTriggerAccess().getSubAssignment_0_3()); }
 )
 ;
 finally {
@@ -28006,19 +28006,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__EventTrigger__PortAssignment_0_3
+rule__EventTrigger__SubAssignment_0_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getEventTriggerAccess().getPortNamedElementCrossReference_0_3_0()); }
-		(
-			{ before(grammarAccess.getEventTriggerAccess().getPortNamedElementIDTerminalRuleCall_0_3_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getEventTriggerAccess().getPortNamedElementIDTerminalRuleCall_0_3_0_1()); }
-		)
-		{ after(grammarAccess.getEventTriggerAccess().getPortNamedElementCrossReference_0_3_0()); }
+		{ before(grammarAccess.getEventTriggerAccess().getSubIDTerminalRuleCall_0_3_0()); }
+		RULE_ID
+		{ after(grammarAccess.getEventTriggerAccess().getSubIDTerminalRuleCall_0_3_0()); }
 	)
 ;
 finally {

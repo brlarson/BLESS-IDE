@@ -132,7 +132,8 @@ getLinkedObjects(EObject context, EReference ref, INode node) throws IllegalNode
         }
       }
     } //end of parameter
-  else if (ref == BLESSPackage.eINSTANCE.eventTrigger_Port)
+  //THIS IS UNLIKELY TO FIND THE MODE TRIGGER PORT  
+  else if (ref == BLESSPackage.eINSTANCE.eventTrigger_Sub)
     {  //walk the subcompont ID list to find intended subcomponent
     if (context instanceof EventTrigger)
       {

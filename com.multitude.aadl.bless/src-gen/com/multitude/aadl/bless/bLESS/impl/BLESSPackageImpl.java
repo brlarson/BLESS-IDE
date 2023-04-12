@@ -2297,20 +2297,9 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EReference getEventTrigger_Port()
-  {
-        return (EReference)getEventTrigger().getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EAttribute getEventTrigger_Index()
   {
-        return (EAttribute)getEventTrigger().getEStructuralFeatures().get(2);
+        return (EAttribute)getEventTrigger().getEStructuralFeatures().get(1);
   }
 
   /**
@@ -2321,7 +2310,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EReference getEventTrigger_Tle()
   {
-        return (EReference)getEventTrigger().getEStructuralFeatures().get(3);
+        return (EReference)getEventTrigger().getEStructuralFeatures().get(2);
   }
 
   /**
