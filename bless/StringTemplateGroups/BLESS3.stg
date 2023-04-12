@@ -129,6 +129,9 @@ complex()::="complex"
 component_classifier_term(uccr) ::=
   "classifier(<uccr>)"
 
+component_name(ci,imp) ::=
+  "<ci; separator=\"::\"><if(imp)>.<imp><endif>"
+
 computation(lb,ub,c) ::=
   "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
@@ -289,6 +292,9 @@ mod(l,r) ::= "<l> mod <r>"
 mode_condition(tle) ::=
   "on <tle>"
 
+mode_trigger(mt) ::=
+  "<mt; separator=\".\">"
+  
 multiply(terms) ::=
   "<terms; wrap, separator=\" * \">" 
 

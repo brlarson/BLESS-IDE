@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g 2023-04-08 23:05:44
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/GetTimeoutDispatchTriggers.g 2023-04-12 09:35:55
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.codegeneration.antlr3generated;
@@ -75,14 +75,13 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 		"LPAREN", "LT", "LTE_STRING", "LT_STRING", "MINUS", "MT_STRING", "NEQ", 
 		"NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", "ON", "P", "PARAMETER", 
 		"PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT", "PORT_INPUT", 
-		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QCLREF", "QCREF", 
-		"QQ", "QUANTITY", "QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "RECORD_TERM", 
-		"ROOT_DECLARATION", "RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", 
-		"START", "START_ASSERTION_PROPERTY", "STOP", "SUBPROGRAM_INVOCATION", 
-		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TRIGGER", "TYPE", "TYPE_LIBRARY", 
-		"TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "UNIT_FORMULA", 
-		"UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", "VERT", 
-		"WS"
+		"PORT_OUTPUT", "PREDICATE_RELATION", "PROCEDURE", "Q", "QQ", "QUANTITY", 
+		"QUESTION", "RASS", "RBRACKET", "RCON", "RCURLY", "RECORD_TERM", "ROOT_DECLARATION", 
+		"RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
+		"STOP", "SUBPROGRAM_INVOCATION", "TICK", "TILDE", "TIMES", "TOP", "TRANSITION", 
+		"TYPE", "TYPE_LIBRARY", "TYPE_OPERATOR", "TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", 
+		"UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
+		"VERT", "WS"
 	};
 	public static final int EOF=-1;
 	public static final int AADL_STRING_LITERAL=4;
@@ -322,44 +321,41 @@ public class GetTimeoutDispatchTriggers extends TreeRewriter {
 	public static final int PREDICATE_RELATION=238;
 	public static final int PROCEDURE=239;
 	public static final int Q=240;
-	public static final int QCLREF=241;
-	public static final int QCREF=242;
-	public static final int QQ=243;
-	public static final int QUANTITY=244;
-	public static final int QUESTION=245;
-	public static final int RASS=246;
-	public static final int RBRACKET=247;
-	public static final int RCON=248;
-	public static final int RCURLY=249;
-	public static final int RECORD_TERM=250;
-	public static final int ROOT_DECLARATION=251;
-	public static final int RPAREN=252;
-	public static final int S=253;
-	public static final int SEMICOLON=254;
-	public static final int SLCOMMENT=255;
-	public static final int SOURCE=256;
-	public static final int START=257;
-	public static final int START_ASSERTION_PROPERTY=258;
-	public static final int STOP=259;
-	public static final int SUBPROGRAM_INVOCATION=260;
-	public static final int TICK=261;
-	public static final int TILDE=262;
-	public static final int TIMES=263;
-	public static final int TOP=264;
-	public static final int TRANSITION=265;
-	public static final int TRIGGER=266;
-	public static final int TYPE=267;
-	public static final int TYPE_LIBRARY=268;
-	public static final int TYPE_OPERATOR=269;
-	public static final int TYPE_OPERATOR_INVOCATION=270;
-	public static final int UNARY_MINUS=271;
-	public static final int UNIT_FORMULA=272;
-	public static final int UNIT_LIBRARY=273;
-	public static final int UNIT_NAME=274;
-	public static final int VALUE=275;
-	public static final int VARIABLE_DECLARATION=276;
-	public static final int VERT=277;
-	public static final int WS=278;
+	public static final int QQ=241;
+	public static final int QUANTITY=242;
+	public static final int QUESTION=243;
+	public static final int RASS=244;
+	public static final int RBRACKET=245;
+	public static final int RCON=246;
+	public static final int RCURLY=247;
+	public static final int RECORD_TERM=248;
+	public static final int ROOT_DECLARATION=249;
+	public static final int RPAREN=250;
+	public static final int S=251;
+	public static final int SEMICOLON=252;
+	public static final int SLCOMMENT=253;
+	public static final int SOURCE=254;
+	public static final int START=255;
+	public static final int START_ASSERTION_PROPERTY=256;
+	public static final int STOP=257;
+	public static final int SUBPROGRAM_INVOCATION=258;
+	public static final int TICK=259;
+	public static final int TILDE=260;
+	public static final int TIMES=261;
+	public static final int TOP=262;
+	public static final int TRANSITION=263;
+	public static final int TYPE=264;
+	public static final int TYPE_LIBRARY=265;
+	public static final int TYPE_OPERATOR=266;
+	public static final int TYPE_OPERATOR_INVOCATION=267;
+	public static final int UNARY_MINUS=268;
+	public static final int UNIT_FORMULA=269;
+	public static final int UNIT_LIBRARY=270;
+	public static final int UNIT_NAME=271;
+	public static final int VALUE=272;
+	public static final int VARIABLE_DECLARATION=273;
+	public static final int VERT=274;
+	public static final int WS=275;
 
 	// delegates
 	public TreeRewriter[] getDelegates() {

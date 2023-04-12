@@ -699,13 +699,8 @@ public class ToAST {
    * used by
    */
   public BAST makeBASTforPropertyName(final String property_name, final Element parent) {
-    BAST _newBAST = this.newBAST(parent);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = property_name;
-      CommonToken _commonToken = new CommonToken(BLESS3Lexer.QCLREF, property_name);
-      it.token = _commonToken;
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field QCLREF is undefined for the type Class<BLESS3Lexer>");
   }
 
   /**

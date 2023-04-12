@@ -168,8 +168,8 @@ static StringTemplate  makeDimensionFromRange(StringTemplate l, StringTemplate r
 	
 static StringTemplate getAadlPropertyValue(BAST dc)
 	  {
-	  if (!dc.hasType(DOUBLE_COLON))
-	    return text("parameter to UnparseBLESS.getAadlPropertyValue must have root DOUBLE_COLON");
+//	  if (!dc.hasType(DOUBLE_COLON))
+//	    return text("parameter to UnparseBLESS.getAadlPropertyValue must have root DOUBLE_COLON");
 	  return text(Global.getAadlPropertyValue(dc.getChild(0).getText(),dc.getChild(1).getText()));
 	  }  //end of getAadlPropertyValue
 	  
@@ -210,9 +210,37 @@ catch (Exception re)
 identifier 
 	:	
 	word=ID
-		->{%{$word.text}}  //template(w={$word.text})"<w>"
+		-> {%{$word.text}}  //template(w={$word.text})"<w>"
 	;
 
+propertyName
+  :
+  ^(DOUBLE_COLON ps=ID p=ID)
+    -> property_name(ps={$ps.text},p={$p.text})
+  ;
+  
+componentName
+  :
+  ^(DOUBLE_COLON ci+=ID+ ^(DOT imp=ID) )
+    -> component_name(ci={$ci}, imp={$imp.text})
+  |
+  ^(DOUBLE_COLON ci+=ID+ )
+    -> component_name(ci={$ci})
+  |
+  ^(id=ID ^(DOT imp=ID) )
+    -> component_name(ci={$id.text}, imp={$imp.text})
+  |
+  id=ID
+    -> {%{$id.text}}
+  ; 
+
+modeTrigger
+  :
+  ^(DOT mt+=ID+)
+    -> mode_trigger(mt={$mt})
+  ;
+  
+    
 /////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\
 /*
 unitLibrary
@@ -348,32 +376,32 @@ quantityType
   ^( LITERAL_quantity whole=LITERAL_whole ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) )
     -> quantity_type(whole={$whole.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st})
   |
-  ^( LITERAL_quantity unit=ID ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(unit={$unit.text}, representation={$representation.text})
+  ^( LITERAL_quantity unit=ID ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(unit={$unit.text}, representation={$representation.st})
   |
-  ^( LITERAL_quantity scalar=LITERAL_scalar ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(scalar={$scalar.text}, representation={$representation.text})
+  ^( LITERAL_quantity scalar=LITERAL_scalar ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(scalar={$scalar.text}, representation={$representation.st})
   |
-  ^( LITERAL_quantity whole=LITERAL_whole ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(whole={$whole.text}, representation={$representation.text})
+  ^( LITERAL_quantity whole=LITERAL_whole ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(whole={$whole.text}, representation={$representation.st})
   |
-  ^( LITERAL_quantity unit=ID ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(unit={$unit.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.text})
+  ^( LITERAL_quantity unit=ID ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(unit={$unit.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.st})
   |
-  ^( LITERAL_quantity scalar=LITERAL_scalar ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(scalar={$scalar.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.text})
+  ^( LITERAL_quantity scalar=LITERAL_scalar ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(scalar={$scalar.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.st})
   |
-  ^( LITERAL_quantity whole=LITERAL_whole ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(whole={$whole.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.text})
+  ^( LITERAL_quantity whole=LITERAL_whole ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(whole={$whole.text}, lb={$lb.st}, ub={$ub.st}, representation={$representation.st})
   |
-  ^( LITERAL_quantity unit=ID ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(unit={$unit.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.text})
+  ^( LITERAL_quantity unit=ID ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(unit={$unit.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.st})
   |
-  ^( LITERAL_quantity scalar=LITERAL_scalar ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(scalar={$scalar.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.text})
+  ^( LITERAL_quantity scalar=LITERAL_scalar ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(scalar={$scalar.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.st})
   |
-  ^( LITERAL_quantity whole=LITERAL_whole ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=QCLREF ) )
-    -> quantity_type(whole={$whole.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.text})
+  ^( LITERAL_quantity whole=LITERAL_whole ^(DOTDOT lb=aNumber ub=aNumber) ^(LITERAL_step step=aNumber) ^(LITERAL_representation representation=propertyName ) )
+    -> quantity_type(whole={$whole.text}, lb={$lb.st}, ub={$ub.st}, step={$step.st}, representation={$representation.st})
   ;	
 	
 
@@ -1018,34 +1046,34 @@ aNumber:
    -> {%{$lit.text}}
  | property=propertyReference
    -> {$property.st}
- | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
-   -> {%{$propertyConstant.text}}
+ | propertyConstant=propertyName //[aadl2::PropertyConstant|QCLREF]
+   -> {$propertyConstant.st}
   ;
     
 propertyReference
  :
   //just property name
-  ^(oct=OCTOTHORPE pname=QCLREF)
+  ^(oct=OCTOTHORPE pname=propertyName)
     -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
-    -> property_reference(pname={$pname.text})
+    -> property_reference(pname={$pname.st})
   |  //with record field(s)
-  ^(oct=OCTOTHORPE pname=QCLREF field+=propertyField+)
+  ^(oct=OCTOTHORPE pname=propertyName field+=propertyField+)
     -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(0))}
-    -> property_reference(pname={$pname.text},f={$field})
+    -> property_reference(pname={$pname.st},f={$field})
   |  //self property
-  ^(oct=OCTOTHORPE self=LITERAL_self pname=QCLREF )
+  ^(oct=OCTOTHORPE self=LITERAL_self pname=propertyName )
     -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
-    -> property_reference(component={$self.text},pname={$pname.text})
+    -> property_reference(component={$self.text},pname={$pname.st})
   |  //self property with record filed(s)
-  ^(oct=OCTOTHORPE self=LITERAL_self pname=QCLREF field+=propertyField+)
+  ^(oct=OCTOTHORPE self=LITERAL_self pname=propertyName field+=propertyField+)
     -> {lookUpPropertyValues}? {getAadlPropertyValue((BAST)$oct.getChild(1))}
-    -> property_reference(component={$self.text},pname={$pname.text},f={$field})
+    -> property_reference(component={$self.text},pname={$pname.st},f={$field})
   |  //component property
-  ^(oct=OCTOTHORPE component=QCREF pname=QCLREF)
-    -> property_reference(component={$component.text},pname={$pname.text},f={$field})
+  ^(oct=OCTOTHORPE component=componentName pname=propertyName)
+    -> property_reference(component={$component.st},pname={$pname.st},f={$field})
   |  //component property with record filed(s)
-  ^(oct=OCTOTHORPE component=QCREF pname=QCLREF field+=propertyField+)
-    -> property_reference(component={$component.text},pname={$pname.text},f={$field})
+  ^(oct=OCTOTHORPE component=componentName pname=propertyName field+=propertyField+)
+    -> property_reference(component={$component.st},pname={$pname.st},f={$field})
   ;
   
 propertyField
@@ -1255,7 +1283,7 @@ communicationAction:
  
 computation
   :
-  ^( LITERAL_computation lb=behaviorTime ub=behaviorTime? ( ^( LITERAL_binding component=QCREF+ ) )? )
+  ^( LITERAL_computation lb=behaviorTime ub=behaviorTime? ( ^( LITERAL_binding component+=componentName+ ) )? )
     -> computation(lb={$lb.st}, ub={$ub.st}, c={$component})
   ; 
   
@@ -1510,8 +1538,8 @@ triggerLogicalExpression
 
 eventTrigger
   :
-  tr=TRIGGER
-    -> {%{$tr.text}}
+  tr=modeTrigger
+    -> {$tr.st}
   | 
   ^( LPAREN tle=triggerLogicalExpression RPAREN )
     -> parentheses(be={$tle.st})

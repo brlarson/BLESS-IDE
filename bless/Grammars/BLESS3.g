@@ -592,22 +592,33 @@ RASS : '>>';  //right side of assertion
 
 QQ : '??';  //used for conditional expression
  
-relation_symbol
+relationSymbol
   :
   EQ | NEQ | LT | AM | AL | GT | OLD_NEQ | PLUS_EQUALS
   ;
 
 
-range_symbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA; 
+rangeSymbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA; 
 
-QCLREF:
-  ID DOUBLE_COLON ID;
+propertyName
+  :
+  propertyset=ID dc=DOUBLE_COLON propertyid=ID
+    -> ^($dc $propertyset $propertyid)
+  ;
 
-QCREF:
-	(ID '::')* ID ('.' ID)?;
+componentName
+  :
+	id=ID ( dc=DOUBLE_COLON id2+=ID ( DOUBLE_COLON id2+=ID )  )? (dot=DOT imp=ID)?
+	  -> {dc!=null&&dot!=null}?  ^($dc $id $id2* ^($dot $imp) )
+	  -> {dc!=null&&dot==null}?  ^($dc $id $id2* )
+	  -> {dc==null&&dot!=null}?  ^($id ^($dot $imp) )
+	  -> $id
+	;
 
-TRIGGER:
-  (ID '.')* ID;	
+modeTrigger
+  :
+  ID ( DOT^ ID ( DOT ID )* )?
+  ;	
 
 identifier 
   : ID ;
@@ -690,7 +701,7 @@ quantityType:
   ( unit=ID | scalar=LITERAL_scalar | whole=LITERAL_whole )
   ( LBRACKET! lb=aNumber dd=DOTDOT^ ub=aNumber RBRACKET! 
   ( st=LITERAL_step^ step=aNumber )? )? //check if positive
-  ( rep=LITERAL_representation^ representation=QCLREF )?
+  ( rep=LITERAL_representation^ representation=propertyName )?
   ;
 
 arrayType :   
@@ -924,16 +935,13 @@ conjunction:
 relation:
 	addSub
 	(
-	  ( relation_symbol^ addSub )
+	  ( relationSymbol^ addSub )
 	  |
 	  ( LITERAL_in^ range )
 	)?
 	;
 
 range: subexpression rangeSymbol^ subexpression ;
-
-rangeSymbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA;
-
 
 addSub:
   multDiv
@@ -1157,17 +1165,17 @@ quantity:
 aNumber:
  lit=NUMBER
  | property=propertyReference
- | propertyConstant=QCLREF //[aadl2::PropertyConstant|QCLREF]
+ | propertyConstant=propertyName //[aadl2::PropertyConstant|propertyName]
   ;
   
 propertyReference:
-	OCTOTHORPE^ pname=QCLREF  //[aadl2::Property|QCLREF] 
+	OCTOTHORPE^ pname=propertyName  //[aadl2::Property|propertyName] 
 	  ( field+=propertyField )*
 	//component_element_reference
-	| LITERAL_self OCTOTHORPE^ spname=QCLREF  //[aadl2::Property|QCLREF] 
+	| LITERAL_self OCTOTHORPE^ spname=propertyName  //[aadl2::Property|propertyName] 
 	  ( field+=propertyField )*
-	| component=QCREF //[aadl2::ComponentClassifier|QCREF] 
-	  OCTOTHORPE^ cpname=QCLREF  //[aadl2::Property|QCLREF]
+	| component=componentName //[aadl2::ComponentClassifier|componentName] 
+	  OCTOTHORPE^ cpname=propertyName  //[aadl2::Property|propertyName]
 	   ( field+=propertyField )*
   ;
 
@@ -1338,7 +1346,7 @@ communicationAction:
 
 computation:
   LITERAL_computation^ LPAREN! lb=behaviorTime ( COMMA! ub=behaviorTime )? RPAREN!
-    ( LITERAL_in! LITERAL_binding^ component=QCREF+ )?
+    ( LITERAL_in! LITERAL_binding^ component=componentName+ )?
   ;
 
 subprogramCall:
@@ -1596,7 +1604,7 @@ logicalOperator
   ;
  
 eventTrigger:
-  tr=TRIGGER
+  tr=modeTrigger
   | LPAREN^ triggerLogicalExpression RPAREN
   ;
 
