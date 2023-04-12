@@ -457,7 +457,7 @@ makeBASTforPropertyName(String property_name, Element e)
   	[
   	myText = "::"
     token = new CommonToken(BLESS3Lexer.DOUBLE_COLON, property_name)
-    val ps = property_name.substring(1,property_name.indexOf("::")-1)
+    val ps = property_name.substring(0,property_name.indexOf("::"))
     val prop = property_name.substring(property_name.indexOf("::")+2, property_name.length)
     addChild(newBAST(e) =>
       [

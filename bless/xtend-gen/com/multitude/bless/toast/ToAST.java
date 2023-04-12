@@ -704,11 +704,9 @@ public class ToAST {
       it.myText = "::";
       CommonToken _commonToken = new CommonToken(BLESS3Lexer.DOUBLE_COLON, property_name);
       it.token = _commonToken;
+      final String ps = property_name.substring(0, property_name.indexOf("::"));
       int _indexOf = property_name.indexOf("::");
-      int _minus = (_indexOf - 1);
-      final String ps = property_name.substring(1, _minus);
-      int _indexOf_1 = property_name.indexOf("::");
-      int _plus = (_indexOf_1 + 2);
+      int _plus = (_indexOf + 2);
       final String prop = property_name.substring(_plus, property_name.length());
       BAST _newBAST_1 = this.newBAST(e);
       final Procedure1<BAST> _function_1 = (BAST it_1) -> {
