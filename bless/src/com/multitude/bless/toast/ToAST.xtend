@@ -1390,6 +1390,14 @@ toAST(NamedAssertion e)
   	       myText = 'PARAMETERS'  
            token = new CommonToken(BLESS3Lexer.PARAMETERS, 'PARAMETERS')
 	         addChild(e.formals.toAST)])
+	     //returns
+       addChild(  //make LITERAL_returns subroot
+         newBAST(e) =>  [  //make ^(LITERAL_returns tod)
+           myText = 'returns'  //LITERAL_returns subroot
+           token = new CommonToken(BLESS3Lexer.LITERAL_returns, 'returns')
+           addChild(e.tod.toAST)
+           ])
+	     
        //finally, put the function on    
        addChild(e.functionvalue.toAST) // pfv=AssertionFunctionValue 
        ]

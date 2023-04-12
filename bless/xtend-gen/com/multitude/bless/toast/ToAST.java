@@ -2228,6 +2228,15 @@ public class ToAST {
               BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
               it.addChild(_doubleArrow_1);
             }
+            BAST _newBAST_4 = this.newBAST(e);
+            final Procedure1<BAST> _function_4 = (BAST it_1) -> {
+              it_1.myText = "returns";
+              CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_returns, "returns");
+              it_1.token = _commonToken_1;
+              it_1.addChild(this.toAST(e.getTod()));
+            };
+            BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
+            it.addChild(_doubleArrow_2);
             it.addChild(this.toAST(e.getFunctionvalue()));
           };
           _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
