@@ -17,9 +17,11 @@ add(terms) ::=
 
 alternative(gf) ::=
 <<
-if 
-<gf; separator="\n[]\n">
-fi>>
+
+  if 
+  <gf; separator="\n[]\n">
+  fi
+>>
 
 and(terms) ::=
   "<terms; wrap, separator=\"\n and \">" 
@@ -136,7 +138,10 @@ computation(lb,ub,c) ::=
   "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
 concurrent_composition(g)::=
-  "<g; anchor, separator=\"\n&\n\">" 
+<<
+
+  <g; anchor, separator="\n&\n"> 
+>>
 
 conditional_assertion_function(cvp) ::=
 <<
@@ -159,7 +164,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; wrap, separator=\"\n  or \">"
+  "<bopt; wrap, separator=\"\n or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
@@ -226,8 +231,8 @@ ghost variables
 >>
 
 guarded_action(be,ba) ::=
- <<(<be>)~> 
-  <ba> >>
+ <<  (<be>)~> 
+    <ba> >>
 
 id_cc_id(fst,snd) ::=
   "<fst>::<snd>"  
@@ -439,7 +444,10 @@ root_declaration(base,formula,kindWords,unit,factors) ::=
 <base><formula> [ <kindWords; separator=" "> ] <unit> <factors; separator=" ">; >>
 
 sequential_composition(f)::=
-  "<f; anchor, separator=\"\n;\n\">" 
+<<
+
+  <f; anchor, separator="\n;\n"> 
+>> 
 
 simultaneous_assignment(l,r) ::=
 <<
