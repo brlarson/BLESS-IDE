@@ -159,7 +159,7 @@ public class Parse
 //			// use lint for debugging
 //			//StringTemplate.setLintMode(true);
 //			Global.compilationUnits.add(result);
-//			Global.compilationUnitStartingProductions.add(new Integer(startingProduction));
+//			Global.compilationUnitStartingProductions.add(Integer.valueOf(startingProduction));
 //			if (!parser.recognitionErrorOccurred)
 //			{
 //				//unparse with BLESS.stg
