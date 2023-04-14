@@ -221,9 +221,6 @@ public class TypeUtil {
     if (_startsWith) {
       return this.booleanType();
     }
-    if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
-      return BlessMaps.typeMapGet(str).getType();
-    }
     boolean _startsWith_1 = str.startsWith("quantity");
     if (_startsWith_1) {
       final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
@@ -243,6 +240,9 @@ public class TypeUtil {
       un.setName(str.substring(_plus));
       qt.setUnit(un);
       return qt;
+    }
+    if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
+      return BlessMaps.typeMapGet(str).getType();
     }
     return null;
   }

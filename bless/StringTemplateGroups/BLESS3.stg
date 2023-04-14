@@ -17,7 +17,6 @@ add(terms) ::=
 
 alternative(gf) ::=
 <<
-
   if 
   <gf; separator="\n[]\n">
   fi
@@ -139,7 +138,6 @@ computation(lb,ub,c) ::=
 
 concurrent_composition(g)::=
 <<
-
   <g; anchor, separator="\n&\n"> 
 >>
 
@@ -153,7 +151,7 @@ conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
 condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
 
 conjunction(bopt) ::=
-  "<bopt; wrap, anchor, separator=\"\nand \">"
+  "<bopt; anchor, separator=\"\nand \">"
 
 cor(t) ::= "<t; wrap, separator=\" or else \">" 
 
@@ -164,7 +162,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; wrap, separator=\"\n or \">"
+  "<bopt; separator=\"\n  or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
@@ -301,7 +299,7 @@ mode_trigger(mt) ::=
   "<mt; separator=\".\">"
   
 multiply(terms) ::=
-  "<terms; wrap, separator=\" * \">" 
+  "<terms; wrap, separator=\"*\">" 
 
 name(id,index,rec) ::= 
   "<id><if(index)>[<index; separator=\"][\">]<endif><if(rec)>.<rec; separator=\".\"><endif>"
@@ -445,7 +443,6 @@ root_declaration(base,formula,kindWords,unit,factors) ::=
 
 sequential_composition(f)::=
 <<
-
   <f; anchor, separator="\n;\n"> 
 >> 
 

@@ -1151,7 +1151,6 @@ private static int tab=0;  //tabbing for toStringTree
             {
             result = threadOutput.toString(Global.wrapLength); // wrap
             }
-          // at 72
           break;
         case BLESS3Lexer.ACTION_SUBCLAUSE:
           UnparseBLESS3.actionSubclause_return sbu = null;
@@ -1172,8 +1171,6 @@ private static int tab=0;  //tabbing for toStringTree
             {
             result = annexLibraryeOutput.toString(Global.wrapLength); // wrap
             }
-          // at
-          // 72
           break;
         case BLESS3Lexer.ASSERTION:
         case BLESS3Lexer.ASSERTION_ENUMERATION:
@@ -1185,7 +1182,8 @@ private static int tab=0;  //tabbing for toStringTree
           if ((getChild(0) != null) && ((BAST) getChild(0)).hasType(BLESS3Lexer.ASSERTION_ENUMERATION))
             {
             result = ((BAST) getChild(0)).unparse();
-            } else
+            } 
+          else
             {
             UnparseBLESS3.assertion_return a = null;
             a = unparser.assertion();
@@ -1199,8 +1197,6 @@ private static int tab=0;  //tabbing for toStringTree
               throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
               }
             result = assertionOutput.toString(Global.wrapLength); // wrap
-            // at
-            // 72
             }
           break;
         case BLESS3Lexer.LPAREN:
@@ -1218,7 +1214,6 @@ private static int tab=0;  //tabbing for toStringTree
               throw new RecognitionException(); // YI("null return from UnparseBLESS3.getTemplate",this);
               }
             result = lparenOutput.toString(Global.wrapLength); // wrap
-            // at 72
             } catch (RecognitionException re)
             {
             Dump.it("Tree rooted in LPAREN wouldn\'t unparse.  Using toStringTree instead.");
@@ -1240,20 +1235,20 @@ private static int tab=0;  //tabbing for toStringTree
             }
           result = piOutput.toString(Global.wrapLength); // wrap at 72
           break;
-//        case BLESS3Lexer.INVOKE_FUNCTION:
-//          UnparseBLESS3.assertion_function_invocation_return afi = null;
-//          afi = unparser.assertion_function_invocation();
-//          if (afi == null)
-//            {
-//            throw new YouIdiot("null return from UnparseBLESS3.invocation", this);
-//            }
-//          StringTemplate afiOutput = (StringTemplate) afi.getTemplate();
-//          if (afiOutput == null)
-//            {
-//            throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
-//            }
-//          result = afiOutput.toString(Global.wrapLength); // wrap at 72
-//          break;
+        case BLESS3Lexer.QUANTITY:
+          UnparseBLESS3.quantity_return quant = null;
+          quant = unparser.quantity();
+          if (quant == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.quantity", this);
+            }
+          StringTemplate quantOutput = (StringTemplate) quant.getTemplate();
+          if (quantOutput == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
+            }
+          result = quantOutput.toString(Global.wrapLength); 
+          break;
         case BLESS3Lexer.LITERAL_all:
         case BLESS3Lexer.LITERAL_exists:
         case BLESS3Lexer.LITERAL_and:

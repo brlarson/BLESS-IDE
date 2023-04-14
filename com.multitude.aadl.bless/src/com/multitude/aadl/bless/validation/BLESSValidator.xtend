@@ -959,18 +959,41 @@ def void checkPortOutput(PortOutput o)
   {
   if (!o.port.direction.outgoing)
     fError('Port output of port that is not \'out\'.', o,
-      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_NOT_ALLOWED)  
+  if (o.port instanceof DataPort  && o.eor===null)   
+    fError('Port output of data port lacks parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_LACKS_PARAMETER)  
+  if (o.port instanceof EventDataPort && o.eor===null)   
+    fError('Port output of event data port lacks parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_LACKS_PARAMETER)  
+  if (o.port instanceof EventPort  && o.eor!==null)   
+    fError('Port output of event port has parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Eor, IssueCodes.PORT_OUTPUT_HAS_PARAMETER)  
+  if (o.port instanceof EventPort  && !isBoolean(o.port.getFeatureType))   
+    fError('Event port must have boolean type.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)  
+  if (o.port instanceof DataPort  && !o.port.getFeatureType.sameStructuralType(o.eor.getType))   
+    fError('Port output parameter must have same type as its data port.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)  
+  if (o.port instanceof EventDataPort  && !o.port.getFeatureType.sameStructuralType(o.eor.getType))   
+    fError('Port output parameter must have same type as its event data port.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)   
   }
 
 @Check(CheckType.NORMAL)
 def void checkPortInput(PortInput n)
   {
-  if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
+  if ((n.target.q ||n.target.fresh ||n.target.count ||n.target.updated ) &&
+       !(n.target.id!==null && n.target.id instanceof Variable))
     fError('Target of port input must be a variable name.',n,
       BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
   if (!n.port.direction.incoming)
     fError('Port input of port that is not \'in\'.',n,
       BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  if (n.target.id!==null && n.target.id instanceof Variable && 
+        !n.port.featureType.sameStructuralType((n.target.id as Variable).tod.getType))
+    fError('Target of port input must have same type as its port.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_WRONG_TYPE)   
   }
 
 //@Check(CheckType.NORMAL)

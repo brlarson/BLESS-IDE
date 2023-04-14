@@ -1419,13 +1419,38 @@ public class BLESSValidator extends AbstractBLESSValidator {
     boolean _not = (!_outgoing);
     if (_not) {
       this.fError("Port output of port that is not \'out\'.", o, 
-        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_NOT_ALLOWED);
+    }
+    if (((o.getPort() instanceof DataPort) && (o.getEor() == null))) {
+      this.fError("Port output of data port lacks parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_LACKS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventDataPort) && (o.getEor() == null))) {
+      this.fError("Port output of event data port lacks parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_LACKS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventPort) && (o.getEor() != null))) {
+      this.fError("Port output of event port has parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Eor(), IssueCodes.PORT_OUTPUT_HAS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventPort) && (!this.isBoolean(this._typeUtil.getFeatureType(o.getPort()))))) {
+      this.fError("Event port must have boolean type.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
+    }
+    if (((o.getPort() instanceof DataPort) && (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(o.getPort()), this.getType(o.getEor()))))) {
+      this.fError("Port output parameter must have same type as its data port.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
+    }
+    if (((o.getPort() instanceof EventDataPort) && (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(o.getPort()), this.getType(o.getEor()))))) {
+      this.fError("Port output parameter must have same type as its event data port.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
     }
   }
 
   @Check(CheckType.NORMAL)
   public void checkPortInput(final PortInput n) {
-    if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
+    if (((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated()) && 
+      (!((n.getTarget().getId() != null) && (n.getTarget().getId() instanceof Variable))))) {
       this.fError("Target of port input must be a variable name.", n, 
         BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
     }
@@ -1434,6 +1459,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_not) {
       this.fError("Port input of port that is not \'in\'.", n, 
         BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+    if ((((n.getTarget().getId() != null) && (n.getTarget().getId() instanceof Variable)) && 
+      (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(n.getPort()), this.getType(((Variable) n.getTarget().getId()).getTod()))))) {
+      this.fError("Target of port input must have same type as its port.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_WRONG_TYPE);
     }
   }
 

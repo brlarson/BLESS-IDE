@@ -157,19 +157,17 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
   {
     if (str.startsWith("boolean"))
       return booleanType
-    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
-      return BlessMaps.typeMapGet(str).type
     if (str.startsWith('quantity'))
     { // kludge quantity type because parsing doesn't fill in unit
       val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
       if (str.endsWith('scalar'))
       {
-        qt.scalar = 'scalar' //true
+        qt.scalar = 'scalar' // true
         return qt
       }
       if (str.endsWith('whole'))
       {
-        qt.whole = 'whole'  //true
+        qt.whole = 'whole' // true
         return qt
       }
       val UnitName un = BLESSFactory.eINSTANCE.createUnitName
@@ -177,6 +175,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       qt.unit = un
       return qt
     }
+    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
+      return BlessMaps.typeMapGet(str).type
   } // end of getTypeOfString
   
   
