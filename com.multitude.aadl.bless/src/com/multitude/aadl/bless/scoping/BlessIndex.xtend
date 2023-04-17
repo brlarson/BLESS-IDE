@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
+import com.multitude.aadl.bless.BlessControl
 
 //import org.example.smalljava.smallJava.SmallJavaPackage
 class BlessIndex
@@ -139,14 +140,24 @@ getBaseUnitDeclarations(EObject o)
 
 	def UnitName 
 getRootUnit(UnitName o)
-	{
-		val root = EcoreUtil2.getContainerOfType(o, RootDeclaration)
-		if (root === null) {
-			EcoreUtil2.getContainerOfType(o, UnitExtension).root
-		} else {
-			root.unitName
-		}
-	}
+  {
+    val root = EcoreUtil2.getContainerOfType(o, RootDeclaration)
+    if (root === null)
+    {
+      val ext = EcoreUtil2.getContainerOfType(o, UnitExtension)
+      if (ext !== null)
+        ext.root
+      else
+      {
+        BlessControl.println("Unit name \"" + o.name + "\" has neither root declaration, nor unit extension.")
+        o
+      }
+    }
+    else
+    {
+      root.unitName
+    }
+  }
 
 	def RootDeclaration 
 getRootDeclaration(UnitName o)

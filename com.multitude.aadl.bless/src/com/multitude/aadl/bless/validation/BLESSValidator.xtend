@@ -203,7 +203,7 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
  @Check(CheckType.NORMAL)
 def checkInvariantHasNoParameters(InvariantClause ic)
   {
-    if (ic.inv?.namedassertion.formals !== null)
+    if (ic.inv?.namedassertion?.formals !== null)
     fError('Assertions used as invariants must not have parameters.', ic.inv.namedassertion,
       BLESSPackage.eINSTANCE.namedAssertion_Formals) 
   }  
@@ -2080,13 +2080,11 @@ def UnitRecord getUnitRecord(TimedExpression a)
  
 def UnitRecord getUnitRecord(TimedSubject a)  
   {
-  try {
   a.ps?.getUnitRecord ?:  
   a.value?.getUnitRecord ?: 
   a.conditional?.getUnitRecord ?: 
   a.record?.getUnitRecord ?:  
   a.invocation?.getUnitRecord   
-  } catch (Exception ex) {ex.printStackTrace} null
   }
  
 def UnitRecord getUnitRecord(ParenthesizedSubexpression a)  

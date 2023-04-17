@@ -234,7 +234,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_inv!=null) {
       _namedassertion=_inv.getNamedassertion();
     }
-    VariableList _formals = _namedassertion.getFormals();
+    VariableList _formals = null;
+    if (_namedassertion!=null) {
+      _formals=_namedassertion.getFormals();
+    }
     boolean _tripleNotEquals = (_formals != null);
     if (_tripleNotEquals) {
       this.fError("Assertions used as invariants must not have parameters.", ic.getInv().getNamedassertion(), 
@@ -3006,69 +3009,56 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public UnitRecord getUnitRecord(final TimedSubject a) {
-    Object _xblockexpression = null;
-    {
-      try {
-        UnitRecord _elvis = null;
-        UnitRecord _elvis_1 = null;
-        UnitRecord _elvis_2 = null;
-        UnitRecord _elvis_3 = null;
-        ParenthesizedSubexpression _ps = a.getPs();
-        UnitRecord _unitRecord = null;
-        if (_ps!=null) {
-          _unitRecord=this.getUnitRecord(_ps);
-        }
-        if (_unitRecord != null) {
-          _elvis_3 = _unitRecord;
-        } else {
-          Value _value = a.getValue();
-          UnitRecord _unitRecord_1 = null;
-          if (_value!=null) {
-            _unitRecord_1=this.getUnitRecord(_value);
-          }
-          _elvis_3 = _unitRecord_1;
-        }
-        if (_elvis_3 != null) {
-          _elvis_2 = _elvis_3;
-        } else {
-          ConditionalExpression _conditional = a.getConditional();
-          UnitRecord _unitRecord_2 = null;
-          if (_conditional!=null) {
-            _unitRecord_2=this.getUnitRecord(_conditional);
-          }
-          _elvis_2 = _unitRecord_2;
-        }
-        if (_elvis_2 != null) {
-          _elvis_1 = _elvis_2;
-        } else {
-          RecordTerm _record = a.getRecord();
-          UnitRecord _unitRecord_3 = null;
-          if (_record!=null) {
-            _unitRecord_3=this.getUnitRecord(_record);
-          }
-          _elvis_1 = _unitRecord_3;
-        }
-        if (_elvis_1 != null) {
-          _elvis = _elvis_1;
-        } else {
-          Invocation _invocation = a.getInvocation();
-          UnitRecord _unitRecord_4 = null;
-          if (_invocation!=null) {
-            _unitRecord_4=this.getUnitRecord(_invocation);
-          }
-          _elvis = _unitRecord_4;
-        }
-      } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
-          final Exception ex = (Exception)_t;
-          ex.printStackTrace();
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
-      _xblockexpression = null;
+    UnitRecord _elvis = null;
+    UnitRecord _elvis_1 = null;
+    UnitRecord _elvis_2 = null;
+    UnitRecord _elvis_3 = null;
+    ParenthesizedSubexpression _ps = a.getPs();
+    UnitRecord _unitRecord = null;
+    if (_ps!=null) {
+      _unitRecord=this.getUnitRecord(_ps);
     }
-    return ((UnitRecord)_xblockexpression);
+    if (_unitRecord != null) {
+      _elvis_3 = _unitRecord;
+    } else {
+      Value _value = a.getValue();
+      UnitRecord _unitRecord_1 = null;
+      if (_value!=null) {
+        _unitRecord_1=this.getUnitRecord(_value);
+      }
+      _elvis_3 = _unitRecord_1;
+    }
+    if (_elvis_3 != null) {
+      _elvis_2 = _elvis_3;
+    } else {
+      ConditionalExpression _conditional = a.getConditional();
+      UnitRecord _unitRecord_2 = null;
+      if (_conditional!=null) {
+        _unitRecord_2=this.getUnitRecord(_conditional);
+      }
+      _elvis_2 = _unitRecord_2;
+    }
+    if (_elvis_2 != null) {
+      _elvis_1 = _elvis_2;
+    } else {
+      RecordTerm _record = a.getRecord();
+      UnitRecord _unitRecord_3 = null;
+      if (_record!=null) {
+        _unitRecord_3=this.getUnitRecord(_record);
+      }
+      _elvis_1 = _unitRecord_3;
+    }
+    if (_elvis_1 != null) {
+      _elvis = _elvis_1;
+    } else {
+      Invocation _invocation = a.getInvocation();
+      UnitRecord _unitRecord_4 = null;
+      if (_invocation!=null) {
+        _unitRecord_4=this.getUnitRecord(_invocation);
+      }
+      _elvis = _unitRecord_4;
+    }
+    return _elvis;
   }
 
   public UnitRecord getUnitRecord(final ParenthesizedSubexpression a) {

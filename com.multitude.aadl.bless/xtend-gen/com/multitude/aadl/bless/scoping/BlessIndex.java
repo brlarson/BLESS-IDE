@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.BLESSRuntimeModule;
+import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
@@ -222,7 +223,26 @@ public class BlessIndex {
       final RootDeclaration root = EcoreUtil2.<RootDeclaration>getContainerOfType(o, RootDeclaration.class);
       UnitName _xifexpression = null;
       if ((root == null)) {
-        _xifexpression = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class).getRoot();
+        UnitName _xblockexpression_1 = null;
+        {
+          final UnitExtension ext = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class);
+          UnitName _xifexpression_1 = null;
+          if ((ext != null)) {
+            _xifexpression_1 = ext.getRoot();
+          } else {
+            UnitName _xblockexpression_2 = null;
+            {
+              String _name = o.getName();
+              String _plus = ("Unit name \"" + _name);
+              String _plus_1 = (_plus + "\" has neither root declaration, nor unit extension.");
+              BlessControl.println(_plus_1);
+              _xblockexpression_2 = o;
+            }
+            _xifexpression_1 = _xblockexpression_2;
+          }
+          _xblockexpression_1 = _xifexpression_1;
+        }
+        _xifexpression = _xblockexpression_1;
       } else {
         _xifexpression = root.getUnitName();
       }
