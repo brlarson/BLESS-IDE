@@ -100,6 +100,7 @@ import com.multitude.aadl.bless.bLESS.Variable;
 import com.multitude.aadl.bless.bLESS.VariableDeclaration;
 import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
+import com.multitude.aadl.bless.exception.ValidationException;
 import com.multitude.aadl.bless.maps.BlessMaps;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import com.multitude.aadl.bless.util.BlessUtil;
@@ -177,6 +178,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
   protected boolean isResponsible(final Map<Object, Object> context, final EObject eObject) {
     EPackage _ePackage = eObject.eClass().getEPackage();
     return Objects.equal(_ePackage, BLESSPackage.eINSTANCE);
+  }
+
+  @Override
+  protected void handleExceptionDuringValidation(final Throwable targetException) {
+    targetException.printStackTrace();
   }
 
   public void fError(final String message, final EObject source, final EStructuralFeature feature) {
@@ -3144,8 +3150,14 @@ public class BLESSValidator extends AbstractBLESSValidator {
             this.unitRecordMap.put(a, retval);
           }
         }
+        if ((retval == null)) {
+          throw new ValidationException("no unit record found for expression");
+        }
       } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
+        if (_t instanceof ValidationException) {
+          final ValidationException ve = (ValidationException)_t;
+          ve.handleException();
+        } else if (_t instanceof Exception) {
           final Exception ex = (Exception)_t;
           ex.printStackTrace();
         } else {

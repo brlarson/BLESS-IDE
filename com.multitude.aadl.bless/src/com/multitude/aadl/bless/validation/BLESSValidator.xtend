@@ -117,6 +117,7 @@ import com.multitude.aadl.bless.bLESS.CaseChoice
 import com.multitude.aadl.bless.bLESS.BehaviorActions
 import com.multitude.aadl.bless.bLESS.InvariantClause
 import com.multitude.aadl.bless.bLESS.PortOutput
+import com.multitude.aadl.bless.exception.ValidationException
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -142,6 +143,11 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 	override protected isResponsible(Map<Object, Object> context, EObject eObject) {
 		eObject.eClass().getEPackage() == BLESSPackage.eINSTANCE
 	}
+	
+	override protected handleExceptionDuringValidation(Throwable targetException)
+	  {
+	    targetException.printStackTrace
+	  }
 
 //check to see if this is the first error from this source
   def fError(String message, EObject source, EStructuralFeature feature)
@@ -2110,7 +2116,10 @@ def UnitRecord getUnitRecord(Expression a)
         retval = a.l.getUnitRecord
       if (retval !== null)
         if (cacheUnits) unitRecordMap.put(a, retval)
+    if (retval===null)
+      throw new ValidationException("no unit record found for expression")
     }
+    catch (ValidationException ve) {ve.handleException}
     catch (Exception ex)
     {
       ex.printStackTrace
