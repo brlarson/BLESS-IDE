@@ -1084,19 +1084,32 @@ private static int tab=0;  //tabbing for toStringTree
 
   public BAST replaceOccurrences(BAST ofThis, BAST withThis)
     { // replace all occurrences of ofThis, with a duplicate of withThat
-    // look through children for match
-    if (getChildCount() > 0)
+    //if both have no children, replace nodes instead
+    if (ofThis.getChildCount()==0 && withThis.getChildCount()==0)
+      try
+        {
+        replaceNodes(ofThis,withThis);
+        }
+      catch (YouIdiot yi)
+        {
+        yi.handleException();
+        }
+    else if (getChildCount() > 0)
       {
-    //don't replace formal labels formal:actual, start with second child to replace
-      for (int i = (hasType(BLESS3Lexer.PARAMETER)?1:0); i < getChildCount(); i++) {
-		// does child match?
-        if (((BAST) getChild(i)).equalsTree(ofThis)) {
-			setChild(i, withThis.dupTree());
-			// otherwise replaceOccurences on children
-		} else {
-			((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
-		}
-	}
+      //don't replace formal labels formal:actual, start with second child to replace
+      for (int i = (hasType(BLESS3Lexer.PARAMETER)?1:0); i < getChildCount(); i++) 
+        {
+        // does child match?
+        if (((BAST) getChild(i)).equalsTree(ofThis)) 
+          {
+          setChild(i, withThis.dupTree());
+          // otherwise replaceOccurences on children
+          } 
+        else 
+          {
+          ((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
+          }
+        }
       }
     return this;
     } // end of replaceOccurances

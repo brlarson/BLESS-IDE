@@ -1565,38 +1565,46 @@ def Type getType(CountingQuantification a)
 
 def Type getType(Expression e)
   {
-  if (e.sym !==null && e.sym.equals('iff'))
+  try
     {
-    if (!e.l?.getType.isBoolean)  
-    fError('Operands of if-and-only-in must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_L, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    if (!e.r?.getType.isBoolean)  
-    fError('Operands of if-and-only-in must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_R, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    return booleanType
+      if (e.sym !== null && e.sym.equals('iff'))
+      {
+        if (!e.l?.getType.isBoolean)
+          fError('Operands of if-and-only-in must be boolean.', e, BLESSPackage::eINSTANCE.expression_L,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        if (!e.r?.getType.isBoolean)
+          fError('Operands of if-and-only-in must be boolean.', e, BLESSPackage::eINSTANCE.expression_R,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        return booleanType
+      }
+      else if (e.sym !== null && e.sym.equals('implies'))
+      {
+        if (!e.l?.getType.isBoolean)
+          fError('Premise of implication must be boolean.', e, BLESSPackage::eINSTANCE.expression_L,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        if (!e.r?.getType.isBoolean)
+          fError('Consequent of implication must be boolean.', e, BLESSPackage::eINSTANCE.expression_R,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        return booleanType
+      }
+      if (e.all !== null)
+        return e.all.getType
+      if (e.exists !== null)
+        return e.exists.getType
+      if (e.sum !== null)
+        return e.sum.getType
+      if (e.product !== null)
+        return e.product.getType
+      if (e.numberof !== null)
+        return e.numberof.getType
+      if (e.l !== null)
+        return e.l.getType
     }
-  else if (e.sym !==null && e.sym.equals('implies'))
+    catch (Exception ex)
     {
-    if (!e.l?.getType.isBoolean)  
-    fError('Premise of implication must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_L, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    if (!e.r?.getType.isBoolean)  
-    fError('Consequent of implication must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_R, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    return booleanType
+      ex.printStackTrace
     }
-  if (e.all !== null)
-    return e.all.getType
-  if (e.exists !== null)
-    return e.exists.getType
-  if (e.sum !== null)
-    return e.sum.getType
-  if (e.product !== null)
-    return e.product.getType
-  if (e.numberof !== null)
-    return e.numberof.getType  
-  if (e.l !== null)
-    return e.l.getType
+    null
   }
 
 def Type getType(Conjunction e)
@@ -1631,31 +1639,33 @@ def Type getType(Disjunction e)
 
 def Type getType(Relation e)
   {
+  val ltype = e.l.getType  
   if (e.sym !== null) 
 //    return booleanType
     {
-    if (e.l.getType.isBoolean)
+    val rtype = e.r.getType
+    if (ltype.isBoolean)
       fError('Operands of '+e.sym+' must not be boolean.  Use \'iff\' instead of =',
         e, BLESSPackage::eINSTANCE.relation_L, IssueCodes.MUST_NOT_BE_BOOLEAN)  
-    if (e.r.getType.isBoolean)
+    if (rtype.isBoolean)
       fError('Operands of '+e.sym+' must not be boolean.  Use \'iff\' instead of =',
         e, BLESSPackage::eINSTANCE.relation_R, IssueCodes.MUST_NOT_BE_BOOLEAN)  
 //null matches all types
-    if (e.r.getType.isNull || e.l.getType.isNull)
+    if (rtype.isNull || ltype.isNull)
           return booleanType
-    if (e.l.getType.isQuantity && e.r.getType.isQuantity && !e.l.getUnitRecord.matchTopAndBottom(e.r.getUnitRecord))
+    if (ltype.isQuantity && rtype.isQuantity && !e.l.getUnitRecord.matchTopAndBottom(e.r.getUnitRecord))
       fError('Operands of '+e.sym+' must have root base units \''+e.l.getUnitRecord.toString+
            '\' is not \''+e.r.getUnitRecord.toString, 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.MISMATCHED_UNITS) 
-    else if (!e.l.getType.sameStructuralType(e.r.getType)) 
+    else if (!ltype.sameStructuralType(rtype)) 
       fError('Operands of '+e.sym+' must be have compatible types.'+
-            e.l.getType.typeString+" is not "+e.r.getType.typeString , 
+            ltype.typeString+" is not "+rtype.typeString , 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.INCOMPATIBLE_TYPES)            
     return booleanType
     } 
   if (e.in !== null)
     {
-    if (!e.l.getType.isQuantity)
+    if (!ltype.isQuantity)
       fError('lhs of \'in\' must be quantity type.',
           e, BLESSPackage::eINSTANCE.relation_L, IssueCodes.MUST_BE_QUANTITY)  
     //check range
@@ -1675,7 +1685,7 @@ def Type getType(Relation e)
            e, BLESSPackage::eINSTANCE.range_Upper_bound, IssueCodes.MISMATCHED_UNITS)     
     return booleanType
     }   
-  e.l.getType
+  ltype
   }
   
 def Type getType(Exp e)
@@ -1781,7 +1791,7 @@ def Type getType(ValueName a)
   if (a.id instanceof Feature)
     {
       val aid = a.id as Feature
-      val featureType = getType(a.id as Feature)
+      val featureType = getType(aid)
       if (featureType === null)
       {
         fError("BLESS::Typed properties of data components used as feature types must" +
@@ -2205,9 +2215,10 @@ def UnitRecord getUnitRecord(CountingQuantification a)
   
 def UnitRecord getUnitRecord(ValueName a) 
   {
+  var  UnitRecord retval = null
+    try {
   if (cacheUnits && unitRecordMap.containsKey(a))
     return unitRecordMap.get(a)
-  var  UnitRecord retval = null
   val itsType=a.getType
   if (itsType instanceof QuantityType)
     retval = (itsType as QuantityType).getUnitRecord
@@ -2251,6 +2262,8 @@ def UnitRecord getUnitRecord(ValueName a)
 //  else
   if (retval !== null)
     if (cacheUnits) unitRecordMap.put(a,retval)    
+  }
+  catch (Exception ex) {ex.printStackTrace}
   retval
   }
   

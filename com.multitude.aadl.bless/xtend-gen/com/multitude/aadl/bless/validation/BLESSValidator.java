@@ -118,6 +118,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.osate.aadl2.AadlInteger;
@@ -2155,84 +2156,101 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public Type getType(final Expression e) {
-    if (((e.getSym() != null) && e.getSym().equals("iff"))) {
-      Disjunction _l = e.getL();
-      Type _type = null;
-      if (_l!=null) {
-        _type=this.getType(_l);
-      }
-      boolean _isBoolean = this.isBoolean(_type);
-      boolean _not = (!_isBoolean);
-      if (_not) {
-        this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
-      }
-      Disjunction _r = e.getR();
-      Type _type_1 = null;
-      if (_r!=null) {
-        _type_1=this.getType(_r);
-      }
-      boolean _isBoolean_1 = this.isBoolean(_type_1);
-      boolean _not_1 = (!_isBoolean_1);
-      if (_not_1) {
-        this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
-      }
-      return this._typeUtil.booleanType();
-    } else {
-      if (((e.getSym() != null) && e.getSym().equals("implies"))) {
-        Disjunction _l_1 = e.getL();
-        Type _type_2 = null;
-        if (_l_1!=null) {
-          _type_2=this.getType(_l_1);
+    Object _xblockexpression = null;
+    {
+      try {
+        if (((e.getSym() != null) && e.getSym().equals("iff"))) {
+          Disjunction _l = e.getL();
+          Type _type = null;
+          if (_l!=null) {
+            _type=this.getType(_l);
+          }
+          boolean _isBoolean = this.isBoolean(_type);
+          boolean _not = (!_isBoolean);
+          if (_not) {
+            this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), 
+              IssueCodes.TYPE_MUST_BE_BOOLEAN);
+          }
+          Disjunction _r = e.getR();
+          Type _type_1 = null;
+          if (_r!=null) {
+            _type_1=this.getType(_r);
+          }
+          boolean _isBoolean_1 = this.isBoolean(_type_1);
+          boolean _not_1 = (!_isBoolean_1);
+          if (_not_1) {
+            this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), 
+              IssueCodes.TYPE_MUST_BE_BOOLEAN);
+          }
+          return this._typeUtil.booleanType();
+        } else {
+          if (((e.getSym() != null) && e.getSym().equals("implies"))) {
+            Disjunction _l_1 = e.getL();
+            Type _type_2 = null;
+            if (_l_1!=null) {
+              _type_2=this.getType(_l_1);
+            }
+            boolean _isBoolean_2 = this.isBoolean(_type_2);
+            boolean _not_2 = (!_isBoolean_2);
+            if (_not_2) {
+              this.fError("Premise of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), 
+                IssueCodes.TYPE_MUST_BE_BOOLEAN);
+            }
+            Disjunction _r_1 = e.getR();
+            Type _type_3 = null;
+            if (_r_1!=null) {
+              _type_3=this.getType(_r_1);
+            }
+            boolean _isBoolean_3 = this.isBoolean(_type_3);
+            boolean _not_3 = (!_isBoolean_3);
+            if (_not_3) {
+              this.fError("Consequent of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), 
+                IssueCodes.TYPE_MUST_BE_BOOLEAN);
+            }
+            return this._typeUtil.booleanType();
+          }
         }
-        boolean _isBoolean_2 = this.isBoolean(_type_2);
-        boolean _not_2 = (!_isBoolean_2);
-        if (_not_2) {
-          this.fError("Premise of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
+        UniversalQuantification _all = e.getAll();
+        boolean _tripleNotEquals = (_all != null);
+        if (_tripleNotEquals) {
+          return this.getType(e.getAll());
         }
-        Disjunction _r_1 = e.getR();
-        Type _type_3 = null;
-        if (_r_1!=null) {
-          _type_3=this.getType(_r_1);
+        ExistentialQuantification _exists = e.getExists();
+        boolean _tripleNotEquals_1 = (_exists != null);
+        if (_tripleNotEquals_1) {
+          return this.getType(e.getExists());
         }
-        boolean _isBoolean_3 = this.isBoolean(_type_3);
-        boolean _not_3 = (!_isBoolean_3);
-        if (_not_3) {
-          this.fError("Consequent of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
+        SumQuantification _sum = e.getSum();
+        boolean _tripleNotEquals_2 = (_sum != null);
+        if (_tripleNotEquals_2) {
+          return this.getType(e.getSum());
         }
-        return this._typeUtil.booleanType();
+        ProductQuantification _product = e.getProduct();
+        boolean _tripleNotEquals_3 = (_product != null);
+        if (_tripleNotEquals_3) {
+          return this.getType(e.getProduct());
+        }
+        CountingQuantification _numberof = e.getNumberof();
+        boolean _tripleNotEquals_4 = (_numberof != null);
+        if (_tripleNotEquals_4) {
+          return this.getType(e.getNumberof());
+        }
+        Disjunction _l_2 = e.getL();
+        boolean _tripleNotEquals_5 = (_l_2 != null);
+        if (_tripleNotEquals_5) {
+          return this.getType(e.getL());
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
       }
+      _xblockexpression = null;
     }
-    UniversalQuantification _all = e.getAll();
-    boolean _tripleNotEquals = (_all != null);
-    if (_tripleNotEquals) {
-      return this.getType(e.getAll());
-    }
-    ExistentialQuantification _exists = e.getExists();
-    boolean _tripleNotEquals_1 = (_exists != null);
-    if (_tripleNotEquals_1) {
-      return this.getType(e.getExists());
-    }
-    SumQuantification _sum = e.getSum();
-    boolean _tripleNotEquals_2 = (_sum != null);
-    if (_tripleNotEquals_2) {
-      return this.getType(e.getSum());
-    }
-    ProductQuantification _product = e.getProduct();
-    boolean _tripleNotEquals_3 = (_product != null);
-    if (_tripleNotEquals_3) {
-      return this.getType(e.getProduct());
-    }
-    CountingQuantification _numberof = e.getNumberof();
-    boolean _tripleNotEquals_4 = (_numberof != null);
-    if (_tripleNotEquals_4) {
-      return this.getType(e.getNumberof());
-    }
-    Disjunction _l_2 = e.getL();
-    boolean _tripleNotEquals_5 = (_l_2 != null);
-    if (_tripleNotEquals_5) {
-      return this.getType(e.getL());
-    }
-    return null;
+    return ((Type)_xblockexpression);
   }
 
   public Type getType(final Conjunction e) {
@@ -2288,27 +2306,29 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public Type getType(final Relation e) {
     Type _xblockexpression = null;
     {
+      final Type ltype = this.getType(e.getL());
       String _sym = e.getSym();
       boolean _tripleNotEquals = (_sym != null);
       if (_tripleNotEquals) {
-        boolean _isBoolean = this.isBoolean(this.getType(e.getL()));
+        final Type rtype = this.getType(e.getR());
+        boolean _isBoolean = this.isBoolean(ltype);
         if (_isBoolean) {
           String _sym_1 = e.getSym();
           String _plus = ("Operands of " + _sym_1);
           String _plus_1 = (_plus + " must not be boolean.  Use \'iff\' instead of =");
           this.fError(_plus_1, e, BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.MUST_NOT_BE_BOOLEAN);
         }
-        boolean _isBoolean_1 = this.isBoolean(this.getType(e.getR()));
+        boolean _isBoolean_1 = this.isBoolean(rtype);
         if (_isBoolean_1) {
           String _sym_2 = e.getSym();
           String _plus_2 = ("Operands of " + _sym_2);
           String _plus_3 = (_plus_2 + " must not be boolean.  Use \'iff\' instead of =");
           this.fError(_plus_3, e, BLESSPackage.eINSTANCE.getRelation_R(), IssueCodes.MUST_NOT_BE_BOOLEAN);
         }
-        if ((this.isNull(this.getType(e.getR())) || this.isNull(this.getType(e.getL())))) {
+        if ((this.isNull(rtype) || this.isNull(ltype))) {
           return this._typeUtil.booleanType();
         }
-        if (((this.isQuantity(this.getType(e.getL())) && this.isQuantity(this.getType(e.getR()))) && (!this.getUnitRecord(e.getL()).matchTopAndBottom(this.getUnitRecord(e.getR()))))) {
+        if (((this.isQuantity(ltype) && this.isQuantity(rtype)) && (!this.getUnitRecord(e.getL()).matchTopAndBottom(this.getUnitRecord(e.getR()))))) {
           String _sym_3 = e.getSym();
           String _plus_4 = ("Operands of " + _sym_3);
           String _plus_5 = (_plus_4 + " must have root base units \'");
@@ -2320,16 +2340,16 @@ public class BLESSValidator extends AbstractBLESSValidator {
           String _plus_8 = (_plus_7 + _string_1);
           this.fError(_plus_8, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.MISMATCHED_UNITS);
         } else {
-          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(e.getL()), this.getType(e.getR()));
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(ltype, rtype);
           boolean _not = (!_sameStructuralType);
           if (_not) {
             String _sym_4 = e.getSym();
             String _plus_9 = ("Operands of " + _sym_4);
             String _plus_10 = (_plus_9 + " must be have compatible types.");
-            String _typeString = this._typeUtil.typeString(this.getType(e.getL()));
+            String _typeString = this._typeUtil.typeString(ltype);
             String _plus_11 = (_plus_10 + _typeString);
             String _plus_12 = (_plus_11 + " is not ");
-            String _typeString_1 = this._typeUtil.typeString(this.getType(e.getR()));
+            String _typeString_1 = this._typeUtil.typeString(rtype);
             String _plus_13 = (_plus_12 + _typeString_1);
             this.fError(_plus_13, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_TYPES);
           }
@@ -2339,7 +2359,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       String _in = e.getIn();
       boolean _tripleNotEquals_1 = (_in != null);
       if (_tripleNotEquals_1) {
-        boolean _isQuantity = this.isQuantity(this.getType(e.getL()));
+        boolean _isQuantity = this.isQuantity(ltype);
         boolean _not_1 = (!_isQuantity);
         if (_not_1) {
           this.fError("lhs of \'in\' must be quantity type.", e, BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.MUST_BE_QUANTITY);
@@ -2382,7 +2402,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         }
         return this._typeUtil.booleanType();
       }
-      _xblockexpression = this.getType(e.getL());
+      _xblockexpression = ltype;
     }
     return _xblockexpression;
   }
@@ -2572,8 +2592,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id_5 instanceof Feature)) {
         NamedElement _id_6 = a.getId();
         final Feature aid_2 = ((Feature) _id_6);
-        NamedElement _id_7 = a.getId();
-        final Type featureType = this.getType(((Feature) _id_7));
+        final Type featureType = this.getType(aid_2);
         if ((featureType == null)) {
           this.fError(("BLESS::Typed properties of data components used as feature types must" + 
             " be a quantity, or the identifier of a type declared in a typedef annex library.  \""), a, 
@@ -2618,12 +2637,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
         }
       }
       Type _xifexpression = null;
-      NamedElement _id_8 = a.getId();
-      if ((_id_8 instanceof SubprogramSubcomponent)) {
+      NamedElement _id_7 = a.getId();
+      if ((_id_7 instanceof SubprogramSubcomponent)) {
         Type _xblockexpression_1 = null;
         {
-          NamedElement _id_9 = a.getId();
-          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_9);
+          NamedElement _id_8 = a.getId();
+          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_8);
           SubprogramSubcomponentType _subprogramSubcomponentType = sub.getSubprogramSubcomponentType();
           final SubprogramTypeImpl st = ((SubprogramTypeImpl) _subprogramSubcomponentType);
           EList<Parameter> _ownedParameters = st.getOwnedParameters();
@@ -3307,19 +3326,28 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public UnitRecord getUnitRecord(final ValueName a) {
     UnitRecord _xblockexpression = null;
     {
-      if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
-        return this.unitRecordMap.get(a);
-      }
       UnitRecord retval = null;
-      final Type itsType = this.getType(a);
-      if ((itsType instanceof QuantityType)) {
-        retval = this.getUnitRecord(((QuantityType) itsType));
-      } else {
-        retval = this._unitUtil.nan();
-      }
-      if ((retval != null)) {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+      try {
+        if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
+          return this.unitRecordMap.get(a);
+        }
+        final Type itsType = this.getType(a);
+        if ((itsType instanceof QuantityType)) {
+          retval = this.getUnitRecord(((QuantityType) itsType));
+        } else {
+          retval = this._unitUtil.nan();
+        }
+        if ((retval != null)) {
+          if (this.cacheUnits) {
+            this.unitRecordMap.put(a, retval);
+          }
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
