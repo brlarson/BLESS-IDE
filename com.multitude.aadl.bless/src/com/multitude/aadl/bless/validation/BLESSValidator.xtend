@@ -794,7 +794,7 @@ def void checkThatVariableDelcarationAssignmentHasCompatibleUnits(VariableDeclar
   {
   if (vd.assign) 
     {
-    if (vd.expression.getType.isNull)
+    if (vd.expression===null || vd.expression.getType.isNull)
       {}  //null matches all types
     else if (vd.variable.tod.getType instanceof ArrayType)
       {
@@ -812,7 +812,7 @@ def void checkThatVariableDelcarationAssignmentHasCompatibleUnits(VariableDeclar
       fError('Variable declaration initialization expression must match its type.', vd,
             BLESSPackage.eINSTANCE.variableDeclaration_Expression, IssueCodes.INCOMPATIBLE_TYPES)            
     else if ( vd.variable.tod.getType instanceof QuantityType && vd.expression.getType instanceof QuantityType &&
-               !vd.variable.tod.getUnitRecord.matchTopAndBottom(vd.expression?.getUnitRecord)) 
+               !vd.variable.tod.getUnitRecord.matchTopAndBottom(vd.expression.getUnitRecord)) 
         fError('Variable declaration initialization expression must have the same base units; '+
             vd.variable.tod.getUnitRecord.toString+' is not '+vd.expression.getUnitRecord.toString, vd,
             BLESSPackage.eINSTANCE.variableDeclaration_Expression, IssueCodes.INCOMPATIBLE_UNITS)              
@@ -1962,81 +1962,100 @@ def Type getType(Variable v)
 
 def UnitRecord getUnitRecord(AddSub a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  val retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.addSub_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  for (r : a.r)
-    if (!retval.matchTopAndBottom(r.getUnitRecord))
-        fError( 'Unit mismatch for '+ a.sym + ' :  ' + r.getUnitRecord.toString +
-          ' is not ' + a.l.getUnitRecord.toString, a, BLESSPackage.eINSTANCE.addSub_Sym,
-          IssueCodes.MISMATCHED_UNITS)
-  if (cacheUnits) unitRecordMap.put(a, retval)
-  retval
+    val retval = a.l.getUnitRecord
+    try
+    {
+      if (cacheUnits && unitRecordMap.containsKey(a))
+        return unitRecordMap.get(a)
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.addSub_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      for (r : a.r)
+        if (!retval.matchTopAndBottom(r.getUnitRecord))
+          fError(
+            'Unit mismatch for ' + a.sym + ' :  ' + r.getUnitRecord.toString + ' is not ' + a.l.getUnitRecord.toString,
+            a, BLESSPackage.eINSTANCE.addSub_Sym, IssueCodes.MISMATCHED_UNITS)
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
 
 def UnitRecord getUnitRecord(MultDiv a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  var retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.multDiv_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)      
-  if (a.sym !== null)
-    if (a.sym.equals('*'))
-      for (rval : a.r)
-        retval.multiply(rval.getUnitRecord)
-    else if (a.sym.equals('/'))
-        retval.divide(a.r.head.getUnitRecord)
-    else if (a.sym.equals('div') || a.sym.equals('mod'))
-        {  //check that each is a whole number
-        if (!a.l.getUnitRecord.isWhole)
-          fError('Operands of \''+a.sym+'\' must be whole numbers.',
-            a, BLESSPackage::eINSTANCE.multDiv_L, IssueCodes.MUST_BE_WHOLE_NUMBER)  
-        if (!a.r.head.getUnitRecord.isWhole)
-          fError('Operands of \''+a.sym+'\' must be whole numbers.',
-            a, BLESSPackage::eINSTANCE.multDiv_R, IssueCodes.MUST_BE_WHOLE_NUMBER)        
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = a.l.getUnitRecord
+    try
+    {
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.multDiv_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      if (a.sym !== null)
+        if (a.sym.equals('*'))
+          for (rval : a.r)
+            retval.multiply(rval.getUnitRecord)
+        else if (a.sym.equals('/'))
+          retval.divide(a.r.head.getUnitRecord)
+        else if (a.sym.equals('div') || a.sym.equals('mod'))
+        { // check that each is a whole number
+          if (!a.l.getUnitRecord.isWhole)
+            fError('Operands of \'' + a.sym + '\' must be whole numbers.', a, BLESSPackage::eINSTANCE.multDiv_L,
+              IssueCodes.MUST_BE_WHOLE_NUMBER)
+          if (!a.r.head.getUnitRecord.isWhole)
+            fError('Operands of \'' + a.sym + '\' must be whole numbers.', a, BLESSPackage::eINSTANCE.multDiv_R,
+              IssueCodes.MUST_BE_WHOLE_NUMBER)
         }
-  retval
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
 
-def UnitRecord getUnitRecord(Exp a) 
+def UnitRecord getUnitRecord(Exp a)
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  var retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.exp_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  if (a.r !== null && !a.r.getType.isScalar)
-    fError('Exponents must be scalar.',
-       a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)  
-  if (a.r !== null && a.r instanceof Quantity)
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = a.l.getUnitRecord
+    try
     {
-    val exponent = (a.r as Quantity).number.lit
-    if (exponent.contains('.') || exponent.contains('-'))
-      fWarning('Exponents must be positive whole numbers for unit determination',
-       a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)  
-    val exponent_as_int = Integer.parseInt(exponent) 
-    var newRetVal = retval
-    for (var i=1; i<exponent_as_int; i++) 
-      newRetVal.multiply(retval)
-    retval = newRetVal  
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.exp_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      if (a.r !== null && !a.r.getType.isScalar)
+        fError('Exponents must be scalar.', a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)
+      if (a.r !== null && a.r instanceof Quantity)
+      {
+        val exponent = (a.r as Quantity).number.lit
+        if (exponent.contains('.') || exponent.contains('-'))
+          fWarning('Exponents must be positive whole numbers for unit determination', a, BLESSPackage::eINSTANCE.exp_L,
+            IssueCodes.MUST_BE_SCALAR)
+        val exponent_as_int = Integer.parseInt(exponent)
+        var newRetVal = retval
+        for (var i = 1; i < exponent_as_int; i++)
+          newRetVal.multiply(retval)
+        retval = newRetVal
+      }
+      else
+        fError('Operands of ** must be whole scalar.', a, BLESSPackage::eINSTANCE.exp_R, IssueCodes.MUST_BE_SCALAR)
     }
-  else
-    fError('Operands of ** must be whole scalar.',
-       a, BLESSPackage::eINSTANCE.exp_R, IssueCodes.MUST_BE_SCALAR)  
-  retval
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(Subexpression a) 
@@ -2055,11 +2074,13 @@ def UnitRecord getUnitRecord(TimedExpression a)
  
 def UnitRecord getUnitRecord(TimedSubject a)  
   {
+  try {
   a.ps?.getUnitRecord ?:  
   a.value?.getUnitRecord ?: 
   a.conditional?.getUnitRecord ?: 
   a.record?.getUnitRecord ?:  
   a.invocation?.getUnitRecord   
+  } catch (Exception ex) {ex.printStackTrace} null
   }
  
 def UnitRecord getUnitRecord(ParenthesizedSubexpression a)  
@@ -2072,22 +2093,29 @@ def UnitRecord getUnitRecord(ParenthesizedSubexpression a)
   
 def UnitRecord getUnitRecord(Expression a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval = nan
-  if (a.sum !== null)   
-    retval = a.sum.getUnitRecord
-  else if (a.product !== null)   
-    retval = a.product.getUnitRecord
-  else if (a.numberof !== null)   
-    retval = a.numberof.getUnitRecord
-  else if (a.sym !== null)
-    retval = nan
-  else if (a.l !== null)   
-    retval = a.l.getUnitRecord
-  if (retval !== null)
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = nan
+    try
+    {
+      if (a.sum !== null)
+        retval = a.sum.getUnitRecord
+      else if (a.product !== null)
+        retval = a.product.getUnitRecord
+      else if (a.numberof !== null)
+        retval = a.numberof.getUnitRecord
+      else if (a.sym !== null)
+        retval = nan
+      else if (a.l !== null)
+        retval = a.l.getUnitRecord
+      if (retval !== null)
+        if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(Disjunction a) 
@@ -2113,27 +2141,34 @@ def UnitRecord getUnitRecord(Relation a)
   
 def UnitRecord getUnitRecord(Value a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval = scalar
-  if ( a.value_name !== null)
-    retval = a.value_name.getUnitRecord
-  if ( a.constant !== null)
-    retval = a.constant.getUnitRecord 
-  if ( a.enum_val !== null)   
-    retval = nan 
-  if (a.now !== null || a.tops !== null)
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = scalar
+    try
     {
-    val qt=BLESSFactory.eINSTANCE.createQuantityType
-    qt.unit = a.getTimeUnit
-    retval = qt.getUnitRecord
-    }   
+      if (a.value_name !== null)
+        retval = a.value_name.getUnitRecord
+      if (a.constant !== null)
+        retval = a.constant.getUnitRecord
+      if (a.enum_val !== null)
+        retval = nan
+      if (a.now !== null || a.tops !== null)
+      {
+        val qt = BLESSFactory.eINSTANCE.createQuantityType
+        qt.unit = a.getTimeUnit
+        retval = qt.getUnitRecord
+      }
 //  if (retval === null)
 //    error('unit not found for Value',a.eContainingFeature)
 //  else 
-  if (retval !==null)
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+      if (retval !== null)
+        if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(ConditionalExpression a) 
@@ -2159,26 +2194,31 @@ def UnitRecord getUnitRecord(RecordTerm a)
   
 def UnitRecord getUnitRecord(Invocation a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval =  scalar  
-  if (a.label.tod !== null) 
-    if (a.label.tod.getType instanceof QuantityType)
-      {
-      val t = a.label.tod.getType as QuantityType
-      if (t.unit !== null)
-        retval = toUnitRecord(t.unit) 
-        //o.w. leave as scalar
-      }
-    else
-      fError('Return type of assertion invocation must be quantity type.',
-            a, BLESSPackage::eINSTANCE.invocation_Label, 
-            IssueCodes.MUST_BE_QUANTITY)           
-  if (retval === null)
-    fError('unit not found for Invocation:  '+a.label.name,a,BLESSPackage::eINSTANCE.invocation_Label)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = scalar
+    try
+    {
+      if (a.label.tod !== null)
+        if (a.label.tod.getType instanceof QuantityType)
+        {
+          val t = a.label.tod.getType as QuantityType
+          if (t.unit !== null)
+            retval = toUnitRecord(t.unit)
+        // o.w. leave as scalar
+        }
+        else
+          fError('Return type of assertion invocation must be quantity type.', a,
+            BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.MUST_BE_QUANTITY)
+      if (retval === null)
+        fError('unit not found for Invocation:  ' + a.label.name, a, BLESSPackage::eINSTANCE.invocation_Label)
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(SumQuantification a) 
@@ -2186,7 +2226,7 @@ def UnitRecord getUnitRecord(SumQuantification a)
   if (cacheUnits && unitRecordMap.containsKey(a))
     return unitRecordMap.get(a)
   val retval =  a.numeric_expression.getUnitRecord
-  if (cacheUnits) unitRecordMap.put(a,retval)    
+//  if (cacheUnits) unitRecordMap.put(a,retval)    
   retval
   }
   
@@ -2199,8 +2239,7 @@ def UnitRecord getUnitRecord(ProductQuantification a)
     fError('Subject of product must be scalar.',
         a, BLESSPackage::eINSTANCE.productQuantification_Numeric_expression, 
         IssueCodes.MUST_BE_SCALAR)        
-  else 
-    if (cacheUnits) unitRecordMap.put(a,retval)    
+  if (cacheUnits) unitRecordMap.put(a,retval)    
   retval
   }
   

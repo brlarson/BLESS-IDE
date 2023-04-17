@@ -5,6 +5,7 @@ import java.util.ArrayList
 import java.util.Iterator
 import java.util.List
 import org.eclipse.emf.common.util.EList
+import com.multitude.aadl.bless.exception.ValidationException
 
 class UnitRecord
 {
@@ -138,6 +139,9 @@ class UnitRecord
 
 	def boolean matchTopAndBottom(UnitRecord ur)
 	{
+	  try {
+	  if (ur===null)
+	    throw new ValidationException("null unit record passed to UnitRecord.matchTopAndBottom")
     if(notANumber && ur.notANumber)
       return true
     if(notANumber && !ur.notANumber)
@@ -172,6 +176,9 @@ class UnitRecord
 		for (var int b = 0; b < bottom.size(); b++)
 			if(!bottom.get(b).contentEquals(ur.bottom.get(b)))
 				return false
+		}
+		catch (ValidationException yi) {yi.handleException}
+		catch (Exception ex) {ex.printStackTrace}
 		return true
 	}
 
