@@ -100,18 +100,22 @@ public class TypeUtil {
   }
 
   public Type getType(final TypeOrReference tod) {
-    Type _xblockexpression = null;
-    {
-      if (tod!=null) {
-        tod.getTy();
-      }
+    Type _elvis = null;
+    Type _ty = null;
+    if (tod!=null) {
+      _ty=tod.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
       TypeDeclaration _ref = null;
       if (tod!=null) {
         _ref=tod.getRef();
       }
-      _xblockexpression = _ref.getType();
+      Type _type = _ref.getType();
+      _elvis = _type;
     }
-    return _xblockexpression;
+    return _elvis;
   }
 
   public boolean sameArrayRangeLists(final ArrayRangeList c, final ArrayRangeList d) {
@@ -140,23 +144,33 @@ public class TypeUtil {
   }
 
   public String getStringValue(final ANumber n) {
-    String _xblockexpression = null;
-    {
-      if (n!=null) {
-        n.getLit();
-      }
+    String _elvis = null;
+    String _elvis_1 = null;
+    String _lit = null;
+    if (n!=null) {
+      _lit=n.getLit();
+    }
+    if (_lit != null) {
+      _elvis_1 = _lit;
+    } else {
       PropertyReference _property = null;
       if (n!=null) {
         _property=n.getProperty();
       }
-      _property.getPname().getName();
+      String _name = _property.getPname().getName();
+      _elvis_1 = _name;
+    }
+    if (_elvis_1 != null) {
+      _elvis = _elvis_1;
+    } else {
       PropertyConstant _propertyConstant = null;
       if (n!=null) {
         _propertyConstant=n.getPropertyConstant();
       }
-      _xblockexpression = _propertyConstant.getName();
+      String _name_1 = _propertyConstant.getName();
+      _elvis = _name_1;
     }
-    return _xblockexpression;
+    return _elvis;
   }
 
   public boolean recordHasFieldWith(final RecordType r, final String label, final Type typ) {

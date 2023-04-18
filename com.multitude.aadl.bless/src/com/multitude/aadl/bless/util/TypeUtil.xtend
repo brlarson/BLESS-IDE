@@ -80,7 +80,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 	
 	 def Type getType(TypeOrReference tod)
 	   {
-	   	tod?.ty
+	   	tod?.ty ?:
 	   	tod?.ref.type
 	   }
 	
@@ -104,8 +104,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
    
    def String getStringValue(ANumber n)
      {
-     n?.lit 
-     n?.property.pname.name 
+     n?.lit  ?:
+     n?.property.pname.name ?:
      n?.propertyConstant.name
      }
      
@@ -137,7 +137,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 
   def UnitName getUnitName(Quantity q)
 	{
-		q.unit ?: nullUnitName
+		q.unit ?: 
+		nullUnitName
 	}
 	
 //identifier regular expression
