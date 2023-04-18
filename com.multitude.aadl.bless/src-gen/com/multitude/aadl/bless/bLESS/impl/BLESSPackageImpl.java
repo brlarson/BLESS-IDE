@@ -1233,6 +1233,17 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
+  public EReference getBLESSGrammarRoots_Ty()
+  {
+        return (EReference)getBLESSGrammarRoots().getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getBLESSSubclause()
   {
     if (blessSubclauseEClass == null)

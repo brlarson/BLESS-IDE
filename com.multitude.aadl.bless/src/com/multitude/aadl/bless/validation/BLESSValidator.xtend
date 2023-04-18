@@ -229,16 +229,17 @@ def checkIfPositiveUnitFactor(UnitFactor uf)
       BLESSPackage.eINSTANCE.unitFactor_Factor) 
   }
 
-@Check(CheckType.NORMAL)
-def checkQuantityLiteralLackingUnitIsWhole(Constant c)
-  {
-  if (c.numeric_constant !== null)
-  if (!c.numeric_constant.isScalar && !c.numeric_constant.isWhole 
-      && c.numeric_constant.unit === null && c.numeric_constant.number !== null)
-  if (c.numeric_constant.number?.lit.contains('.'))
-    warning('quantity literal lacking unit must be integer', c,
-      BLESSPackage.eINSTANCE.constant_Numeric_constant) 
-  }
+//@Check(CheckType.NORMAL)
+//def checkQuantityLiteralLackingUnitIsWhole(Constant c)
+//  {
+//  if (c.numeric_constant !== null
+//    && c.numeric_constant.isWhole 
+//    && c.numeric_constant.number !== null
+//    && c.numeric_constant.number.lit !== null
+//    && c.numeric_constant.number.lit.contains('.'))
+//  warning('quantity literal lacking unit must be integer', c,
+//      BLESSPackage.eINSTANCE.constant_Numeric_constant) 
+//  }
 
 
 @Check(CheckType.NORMAL)
@@ -1984,10 +1985,13 @@ def UnitRecord getUnitRecord(AddSub a)
       if (a.sym === null)
         return retval
       for (r : a.r)
-        if (!retval.matchTopAndBottom(r.getUnitRecord))
+        {
+        val runit = r.getUnitRecord  
+        if (!retval.matchTopAndBottom(runit))
           fError(
-            'Unit mismatch for ' + a.sym + ' :  ' + r.getUnitRecord.toString + ' is not ' + a.l.getUnitRecord.toString,
+            'Unit mismatch for ' + a.sym + ' :  ' + retval.toString + ' is not ' + runit.toString,
             a, BLESSPackage.eINSTANCE.addSub_Sym, IssueCodes.MISMATCHED_UNITS)
+        }
       if (cacheUnits) unitRecordMap.put(a, retval)
     }
     catch (Exception ex)
@@ -2308,10 +2312,10 @@ def UnitRecord getUnitRecord(ValueName a)
       val t = (a.id as Variable).tod.getType as QuantityType
       retval = t.getUnitRecord
       }
-    else
-      fError('Variables in numeric expressions must be quantity type.',
-            a, BLESSPackage::eINSTANCE.valueName_Id, 
-            IssueCodes.MUST_BE_QUANTITY)           
+//    else
+//      fError('Variables in numeric expressions must be quantity type.',
+//            a, BLESSPackage::eINSTANCE.valueName_Id, 
+//            IssueCodes.MUST_BE_QUANTITY)           
   if (retval === null)
     fError('unit not found for ValueName',a,BLESSPackage::eINSTANCE.valueName_Id)
   else

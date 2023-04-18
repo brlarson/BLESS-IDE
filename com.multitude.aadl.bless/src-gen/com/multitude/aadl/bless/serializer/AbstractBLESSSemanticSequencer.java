@@ -958,7 +958,8 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *         assertion_library=AssertionLibrary | 
 	 *         action_subclause=ActionSubclause | 
 	 *         exception_library=ExceptionLibrary | 
-	 *         bless_subclause=BLESSSubclause
+	 *         bless_subclause=BLESSSubclause | 
+	 *         ty=TypeOrReference
 	 *     )
 	 * </pre>
 	 */

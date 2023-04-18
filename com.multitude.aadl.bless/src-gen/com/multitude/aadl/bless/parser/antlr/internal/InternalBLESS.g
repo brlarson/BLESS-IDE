@@ -233,6 +233,32 @@ ruleBLESSGrammarRoots returns [EObject current=null]
 				)
 			)
 		)
+		    |
+		(
+			otherlv_12='blesstyped'
+			{
+				newLeafNode(otherlv_12, grammarAccess.getBLESSGrammarRootsAccess().getBlesstypedKeyword_6_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getBLESSGrammarRootsAccess().getTyTypeOrReferenceParserRuleCall_6_1_0());
+					}
+					lv_ty_13_0=ruleTypeOrReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBLESSGrammarRootsRule());
+						}
+						set(
+							$current,
+							"ty",
+							lv_ty_13_0,
+							"com.multitude.aadl.bless.BLESS.TypeOrReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
 	)
 ;
 

@@ -24,17 +24,12 @@ import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.Value;
-import com.multitude.aadl.bless.exception.ParseException;
 import com.multitude.aadl.bless.maps.BlessMaps;
 import com.multitude.aadl.bless.parser.antlr.BLESSParser;
 import com.multitude.aadl.bless.scoping.BlessIndex;
-import java.io.StringReader;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -79,34 +74,6 @@ public class TypeUtil {
 
   public Type nullType() {
     return BLESSFactory.eINSTANCE.createNullType();
-  }
-
-  public Type parseBlessType(final String propertyText, final Resource r) {
-    Type _xblockexpression = null;
-    {
-      ParserRule _typeOrReferenceRule = this.blessParser.getGrammarAccess().getTypeOrReferenceRule();
-      StringReader _stringReader = new StringReader(propertyText);
-      final IParseResult parseResult = this.blessParser.parse(_typeOrReferenceRule, _stringReader);
-      EObject _rootASTElement = parseResult.getRootASTElement();
-      final TypeOrReference tor = ((TypeOrReference) _rootASTElement);
-      Type _elvis = null;
-      Type _ty = null;
-      if (tor!=null) {
-        _ty=tor.getTy();
-      }
-      if (_ty != null) {
-        _elvis = _ty;
-      } else {
-        TypeDeclaration _ref = null;
-        if (tor!=null) {
-          _ref=tor.getRef();
-        }
-        Type _typeFromID = this._blessIndex.getTypeFromID(_ref.getName(), r);
-        _elvis = _typeFromID;
-      }
-      _xblockexpression = _elvis;
-    }
-    return _xblockexpression;
   }
 
   public boolean sameStructuralType(final Type a, final Type b) {
@@ -309,37 +276,65 @@ public class TypeUtil {
   private final String idregex = "[a-zA-Z][[_]?[a-zA-Z0-9]]*";
 
   public Type getFeatureType(final Feature f) {
-    try {
-      boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
-      if (_typeMapIsNull) {
-        BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
-      }
-      if ((f instanceof EventPort)) {
-        return this.booleanType();
-      }
-      final Classifier c = f.getClassifier();
-      EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
-      for (final PropertyAssociation pa : _ownedPropertyAssociations) {
-        boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
-        if (_equalsIgnoreCase) {
-          PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
-          final String str = ((StringLiteral) _ownedValue).getValue();
-          Resource _eResource = f.eResource();
-          boolean _tripleNotEquals = (_eResource != null);
-          if (_tripleNotEquals) {
-            return this.parseBlessType(str, f.eResource());
-          } else {
-            String _name = f.getName();
-            String _plus = ("Feature " + _name);
-            String _plus_1 = (_plus + " did had null Resource");
-            throw new ParseException(_plus_1);
-          }
+    boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
+    if (_typeMapIsNull) {
+      BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
+    }
+    if ((f instanceof EventPort)) {
+      return this.booleanType();
+    }
+    final Classifier c = f.getClassifier();
+    EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
+    for (final PropertyAssociation pa : _ownedPropertyAssociations) {
+      boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
+      if (_equalsIgnoreCase) {
+        PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
+        final String str = ((StringLiteral) _ownedValue).getValue();
+        Resource _eResource = f.eResource();
+        boolean _tripleNotEquals = (_eResource != null);
+        if (_tripleNotEquals) {
+          return this.getTypeOfString(str, f.eResource());
         }
       }
-      return null;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
     }
+    return null;
+  }
+
+  public Type getTypeOfString(final String str, final Resource r) {
+    Type _xblockexpression = null;
+    {
+      boolean _startsWith = str.startsWith("boolean");
+      if (_startsWith) {
+        return this.booleanType();
+      }
+      boolean _startsWith_1 = str.startsWith("quantity");
+      if (_startsWith_1) {
+        final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
+        boolean _endsWith = str.endsWith("scalar");
+        if (_endsWith) {
+          qt.setScalar("scalar");
+          return qt;
+        }
+        boolean _endsWith_1 = str.endsWith("whole");
+        if (_endsWith_1) {
+          qt.setWhole("whole");
+          return qt;
+        }
+        final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
+        int _lastIndexOf = str.lastIndexOf(" ");
+        int _plus = (_lastIndexOf + 1);
+        un.setName(str.substring(_plus));
+        qt.setUnit(un);
+        return qt;
+      }
+      Type _xifexpression = null;
+      boolean _matches = str.matches(this.idregex);
+      if (_matches) {
+        _xifexpression = this._blessIndex.getTypeFromID(str, r);
+      }
+      _xblockexpression = _xifexpression;
+    }
+    return _xblockexpression;
   }
 
   public QuantityType toQuantityType(final UnitRecord ur) {

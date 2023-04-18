@@ -107,6 +107,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getGroup_3(), "rule__BLESSGrammarRoots__Group_3__0");
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getGroup_4(), "rule__BLESSGrammarRoots__Group_4__0");
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getGroup_5(), "rule__BLESSGrammarRoots__Group_5__0");
+			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getGroup_6(), "rule__BLESSGrammarRoots__Group_6__0");
 			builder.put(grammarAccess.getBLESSSubclauseAccess().getGroup(), "rule__BLESSSubclause__Group__0");
 			builder.put(grammarAccess.getAssertionLibraryAccess().getGroup(), "rule__AssertionLibrary__Group__0");
 			builder.put(grammarAccess.getExceptionLibraryAccess().getGroup(), "rule__ExceptionLibrary__Group__0");
@@ -357,6 +358,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getAction_subclauseAssignment_3_1(), "rule__BLESSGrammarRoots__Action_subclauseAssignment_3_1");
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getException_libraryAssignment_4_1(), "rule__BLESSGrammarRoots__Exception_libraryAssignment_4_1");
 			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getBless_subclauseAssignment_5_1(), "rule__BLESSGrammarRoots__Bless_subclauseAssignment_5_1");
+			builder.put(grammarAccess.getBLESSGrammarRootsAccess().getTyAssignment_6_1(), "rule__BLESSGrammarRoots__TyAssignment_6_1");
 			builder.put(grammarAccess.getBLESSSubclauseAccess().getNo_proofAssignment_1(), "rule__BLESSSubclause__No_proofAssignment_1");
 			builder.put(grammarAccess.getBLESSSubclauseAccess().getAssert_clauseAssignment_2(), "rule__BLESSSubclause__Assert_clauseAssignment_2");
 			builder.put(grammarAccess.getBLESSSubclauseAccess().getInvariantAssignment_3(), "rule__BLESSSubclause__InvariantAssignment_3");

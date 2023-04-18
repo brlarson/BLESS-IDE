@@ -12,6 +12,7 @@ import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.BLESSSubclause;
 import com.multitude.aadl.bless.bLESS.ExceptionLibrary;
 import com.multitude.aadl.bless.bLESS.TypeLibrary;
+import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnitLibrary;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BLESSGrammarRootsImpl#getAction_subclause <em>Action subclause</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BLESSGrammarRootsImpl#getException_library <em>Exception library</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BLESSGrammarRootsImpl#getBless_subclause <em>Bless subclause</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BLESSGrammarRootsImpl#getTy <em>Ty</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +104,16 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
    * @ordered
    */
   protected BLESSSubclause bless_subclause;
+
+  /**
+   * The cached value of the '{@link #getTy() <em>Ty</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTy()
+   * @generated
+   * @ordered
+   */
+  protected TypeOrReference ty;
 
   /**
    * <!-- begin-user-doc -->
@@ -430,6 +442,56 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    */
   @Override
+  public TypeOrReference getTy()
+  {
+    return ty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetTy(TypeOrReference newTy, NotificationChain msgs)
+  {
+    TypeOrReference oldTy = ty;
+    ty = newTy;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.BLESS_GRAMMAR_ROOTS__TY, oldTy, newTy);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTy(TypeOrReference newTy)
+  {
+    if (newTy != ty)
+    {
+      NotificationChain msgs = null;
+      if (ty != null)
+        msgs = ((InternalEObject)ty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.BLESS_GRAMMAR_ROOTS__TY, null, msgs);
+      if (newTy != null)
+        msgs = ((InternalEObject)newTy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.BLESS_GRAMMAR_ROOTS__TY, null, msgs);
+      msgs = basicSetTy(newTy, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.BLESS_GRAMMAR_ROOTS__TY, newTy, newTy));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -446,6 +508,8 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
         return basicSetException_library(null, msgs);
       case BLESSPackage.BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE:
         return basicSetBless_subclause(null, msgs);
+      case BLESSPackage.BLESS_GRAMMAR_ROOTS__TY:
+        return basicSetTy(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -472,6 +536,8 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
         return getException_library();
       case BLESSPackage.BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE:
         return getBless_subclause();
+      case BLESSPackage.BLESS_GRAMMAR_ROOTS__TY:
+        return getTy();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -503,6 +569,9 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
         return;
       case BLESSPackage.BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE:
         setBless_subclause((BLESSSubclause)newValue);
+        return;
+      case BLESSPackage.BLESS_GRAMMAR_ROOTS__TY:
+        setTy((TypeOrReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -536,6 +605,9 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
       case BLESSPackage.BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE:
         setBless_subclause((BLESSSubclause)null);
         return;
+      case BLESSPackage.BLESS_GRAMMAR_ROOTS__TY:
+        setTy((TypeOrReference)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -562,6 +634,8 @@ public class BLESSGrammarRootsImpl extends MinimalEObjectImpl.Container implemen
         return exception_library != null;
       case BLESSPackage.BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE:
         return bless_subclause != null;
+      case BLESSPackage.BLESS_GRAMMAR_ROOTS__TY:
+        return ty != null;
     }
     return super.eIsSet(featureID);
   }

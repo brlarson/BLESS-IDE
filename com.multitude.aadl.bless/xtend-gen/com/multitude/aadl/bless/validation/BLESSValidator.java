@@ -256,26 +256,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkQuantityLiteralLackingUnitIsWhole(final Constant c) {
-    Quantity _numeric_constant = c.getNumeric_constant();
-    boolean _tripleNotEquals = (_numeric_constant != null);
-    if (_tripleNotEquals) {
-      if (((((!c.getNumeric_constant().isScalar()) && (!c.getNumeric_constant().isWhole())) && (c.getNumeric_constant().getUnit() == null)) && (c.getNumeric_constant().getNumber() != null))) {
-        ANumber _number = c.getNumeric_constant().getNumber();
-        String _lit = null;
-        if (_number!=null) {
-          _lit=_number.getLit();
-        }
-        boolean _contains = _lit.contains(".");
-        if (_contains) {
-          this.warning("quantity literal lacking unit must be integer", c, 
-            BLESSPackage.eINSTANCE.getConstant_Numeric_constant());
-        }
-      }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
   public void checkThatUnitFormulaIsAllBaseUnit(final UnitFormula form) {
     final Consumer<UnitName> _function = (UnitName ul) -> {
       boolean _isBaseType = this._unitUtil.isBaseType(ul);
@@ -2843,18 +2823,21 @@ public class BLESSValidator extends AbstractBLESSValidator {
         }
         EList<MultDiv> _r = a.getR();
         for (final MultDiv r : _r) {
-          boolean _matchTopAndBottom = retval.matchTopAndBottom(this.getUnitRecord(r));
-          boolean _not = (!_matchTopAndBottom);
-          if (_not) {
-            String _sym_1 = a.getSym();
-            String _plus_1 = ("Unit mismatch for " + _sym_1);
-            String _plus_2 = (_plus_1 + " :  ");
-            String _string = this.getUnitRecord(r).toString();
-            String _plus_3 = (_plus_2 + _string);
-            String _plus_4 = (_plus_3 + " is not ");
-            String _string_1 = this.getUnitRecord(a.getL()).toString();
-            String _plus_5 = (_plus_4 + _string_1);
-            this.fError(_plus_5, a, BLESSPackage.eINSTANCE.getAddSub_Sym(), IssueCodes.MISMATCHED_UNITS);
+          {
+            final UnitRecord runit = this.getUnitRecord(r);
+            boolean _matchTopAndBottom = retval.matchTopAndBottom(runit);
+            boolean _not = (!_matchTopAndBottom);
+            if (_not) {
+              String _sym_1 = a.getSym();
+              String _plus_1 = ("Unit mismatch for " + _sym_1);
+              String _plus_2 = (_plus_1 + " :  ");
+              String _string = retval.toString();
+              String _plus_3 = (_plus_2 + _string);
+              String _plus_4 = (_plus_3 + " is not ");
+              String _string_1 = runit.toString();
+              String _plus_5 = (_plus_4 + _string_1);
+              this.fError(_plus_5, a, BLESSPackage.eINSTANCE.getAddSub_Sym(), IssueCodes.MISMATCHED_UNITS);
+            }
           }
         }
         if (this.cacheUnits) {
@@ -3422,9 +3405,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
             Type _type_1 = this.getType(((Variable) _id_4).getTod());
             final QuantityType t = ((QuantityType) _type_1);
             retval = this.getUnitRecord(t);
-          } else {
-            this.fError("Variables in numeric expressions must be quantity type.", a, BLESSPackage.eINSTANCE.getValueName_Id(), 
-              IssueCodes.MUST_BE_QUANTITY);
           }
         }
         if ((retval == null)) {
