@@ -128,8 +128,11 @@ getVisibleRootDeclarations(EObject o)
 	{
 	if (rdp === null) 
 		rdp = Guice.createInjector(new BLESSRuntimeModule()).getInstance(ResourceDescriptionsProvider)
+	if (o.eResource!==null)
+	  {
   val rd = rdp.getResourceDescriptions(o.eResource)
   rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.rootDeclaration).map[EObjectOrProxy].map[EcoreUtil.resolve(it,o)].filter(RootDeclaration)
+	  }	
 	}
 
 	def Iterable<RootDeclaration> 
@@ -149,7 +152,8 @@ getRootUnit(UnitName o)
         ext.root
       else
       {
-        BlessControl.println("Unit name \"" + o.name + "\" has neither root declaration, nor unit extension.")
+        //BlessControl. 
+        System.out.println("Unit name \"" + o.name + "\" has neither root declaration, nor unit extension.")
         o
       }
     }

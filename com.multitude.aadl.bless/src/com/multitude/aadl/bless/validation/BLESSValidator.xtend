@@ -1974,7 +1974,8 @@ def UnitRecord getUnitRecord(AddSub a)
       if (cacheUnits && unitRecordMap.containsKey(a))
         return unitRecordMap.get(a)
       if (retval === null)
-        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.addSub_L,
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.addSub_L,
           IssueCodes.UNIT_DEFINITION_NOT_FOUND)
       if (a.sym === null)
         return retval
@@ -2000,7 +2001,8 @@ def UnitRecord getUnitRecord(MultDiv a)
     try
     {
       if (retval === null)
-        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.multDiv_L,
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.multDiv_L,
           IssueCodes.UNIT_DEFINITION_NOT_FOUND)
       if (a.sym === null)
         return retval
@@ -2036,7 +2038,8 @@ def UnitRecord getUnitRecord(Exp a)
     try
     {
       if (retval === null)
-        fError('unit not found:  ' + a.l.toString, a, BLESSPackage.eINSTANCE.exp_L,
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.exp_L,
           IssueCodes.UNIT_DEFINITION_NOT_FOUND)
       if (a.sym === null)
         return retval

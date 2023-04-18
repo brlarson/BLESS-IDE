@@ -63,7 +63,14 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
      	  return (a as ArrayType).array_ranges.sameArrayRangeLists((b as ArrayType).array_ranges)
      	    && (a as ArrayType).typ.getType.sameStructuralType((b as ArrayType).typ.getType)
      	if (a instanceof RecordType && b instanceof RecordType )
-     	  return (a as RecordType).fields.forall[ f | (b as RecordType).recordHasFieldWith(f.label,f.typ.getType)]
+     	  {
+     	  val bRecord = (b as RecordType)
+     	  for (aField : (a as RecordType).fields)
+     	     if (!bRecord.recordHasFieldWith(aField.label,aField.typ.getType))
+     	       return false; 
+     	  return true;
+     	  }
+//     	  return (a as RecordType).fields.forall[ f | (b as RecordType).recordHasFieldWith(f.label,f.typ.getType)]
       if (a instanceof BooleanType && b instanceof BooleanType )
      	  return true
       if (a instanceof StringType && b instanceof StringType )
@@ -104,7 +111,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
      
    def boolean recordHasFieldWith(RecordType r, String label, Type typ) 
      {
-     r.fields.exists[ u | u.label.equalsIgnoreCase(label) && u.typ.getType.sameStructuralType(typ)]	
+     r.fields.exists[ u | u.label.compareTo(label)==0 && u.typ.getType.sameStructuralType(typ)]	
      } 
      
 //   def boolean variantHasFieldWith(VariantType r, String label, Type typ) 

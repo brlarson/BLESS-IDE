@@ -4,7 +4,6 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.BLESSRuntimeModule;
-import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
@@ -198,14 +197,24 @@ public class BlessIndex {
         BLESSRuntimeModule _bLESSRuntimeModule = new BLESSRuntimeModule();
         this.rdp = Guice.createInjector(_bLESSRuntimeModule).<ResourceDescriptionsProvider>getInstance(ResourceDescriptionsProvider.class);
       }
-      final IResourceDescriptions rd = this.rdp.getResourceDescriptions(o.eResource());
-      final Function1<IEObjectDescription, EObject> _function = (IEObjectDescription it) -> {
-        return it.getEObjectOrProxy();
-      };
-      final Function1<EObject, EObject> _function_1 = (EObject it) -> {
-        return EcoreUtil.resolve(it, o);
-      };
-      _xblockexpression = Iterables.<RootDeclaration>filter(IterableExtensions.<EObject, EObject>map(IterableExtensions.<IEObjectDescription, EObject>map(rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.getRootDeclaration()), _function), _function_1), RootDeclaration.class);
+      Iterable<RootDeclaration> _xifexpression = null;
+      Resource _eResource = o.eResource();
+      boolean _tripleNotEquals = (_eResource != null);
+      if (_tripleNotEquals) {
+        Iterable<RootDeclaration> _xblockexpression_1 = null;
+        {
+          final IResourceDescriptions rd = this.rdp.getResourceDescriptions(o.eResource());
+          final Function1<IEObjectDescription, EObject> _function = (IEObjectDescription it) -> {
+            return it.getEObjectOrProxy();
+          };
+          final Function1<EObject, EObject> _function_1 = (EObject it) -> {
+            return EcoreUtil.resolve(it, o);
+          };
+          _xblockexpression_1 = Iterables.<RootDeclaration>filter(IterableExtensions.<EObject, EObject>map(IterableExtensions.<IEObjectDescription, EObject>map(rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.getRootDeclaration()), _function), _function_1), RootDeclaration.class);
+        }
+        _xifexpression = _xblockexpression_1;
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -235,7 +244,7 @@ public class BlessIndex {
               String _name = o.getName();
               String _plus = ("Unit name \"" + _name);
               String _plus_1 = (_plus + "\" has neither root declaration, nor unit extension.");
-              BlessControl.println(_plus_1);
+              System.out.println(_plus_1);
               _xblockexpression_2 = o;
             }
             _xifexpression_1 = _xblockexpression_2;

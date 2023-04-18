@@ -79,10 +79,16 @@ public class TypeUtil {
       return (this.sameArrayRangeLists(((ArrayType) a).getArray_ranges(), ((ArrayType) b).getArray_ranges()) && this.sameStructuralType(this.getType(((ArrayType) a).getTyp()), this.getType(((ArrayType) b).getTyp())));
     }
     if (((a instanceof RecordType) && (b instanceof RecordType))) {
-      final Function1<RecordField, Boolean> _function = (RecordField f) -> {
-        return Boolean.valueOf(this.recordHasFieldWith(((RecordType) b), f.getLabel(), this.getType(f.getTyp())));
-      };
-      return IterableExtensions.<RecordField>forall(((RecordType) a).getFields(), _function);
+      final RecordType bRecord = ((RecordType) b);
+      EList<RecordField> _fields = ((RecordType) a).getFields();
+      for (final RecordField aField : _fields) {
+        boolean _recordHasFieldWith = this.recordHasFieldWith(bRecord, aField.getLabel(), this.getType(aField.getTyp()));
+        boolean _not = (!_recordHasFieldWith);
+        if (_not) {
+          return false;
+        }
+      }
+      return true;
     }
     if (((a instanceof BooleanType) && (b instanceof BooleanType))) {
       return true;
@@ -155,7 +161,7 @@ public class TypeUtil {
 
   public boolean recordHasFieldWith(final RecordType r, final String label, final Type typ) {
     final Function1<RecordField, Boolean> _function = (RecordField u) -> {
-      return Boolean.valueOf((u.getLabel().equalsIgnoreCase(label) && this.sameStructuralType(this.getType(u.getTyp()), typ)));
+      return Boolean.valueOf(((u.getLabel().compareTo(label) == 0) && this.sameStructuralType(this.getType(u.getTyp()), typ)));
     };
     return IterableExtensions.<RecordField>exists(r.getFields(), _function);
   }

@@ -2826,8 +2826,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
           return this.unitRecordMap.get(a);
         }
         if ((retval == null)) {
-          String _string = a.getL().toString();
-          String _plus = ("unit not found:  " + _string);
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
           this.fError(_plus, a, BLESSPackage.eINSTANCE.getAddSub_L(), 
             IssueCodes.UNIT_DEFINITION_NOT_FOUND);
         }
@@ -2844,11 +2844,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
             String _sym_1 = a.getSym();
             String _plus_1 = ("Unit mismatch for " + _sym_1);
             String _plus_2 = (_plus_1 + " :  ");
-            String _string_1 = this.getUnitRecord(r).toString();
-            String _plus_3 = (_plus_2 + _string_1);
+            String _string = this.getUnitRecord(r).toString();
+            String _plus_3 = (_plus_2 + _string);
             String _plus_4 = (_plus_3 + " is not ");
-            String _string_2 = this.getUnitRecord(a.getL()).toString();
-            String _plus_5 = (_plus_4 + _string_2);
+            String _string_1 = this.getUnitRecord(a.getL()).toString();
+            String _plus_5 = (_plus_4 + _string_1);
             this.fError(_plus_5, a, BLESSPackage.eINSTANCE.getAddSub_Sym(), IssueCodes.MISMATCHED_UNITS);
           }
         }
@@ -2877,8 +2877,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
       UnitRecord retval = this.getUnitRecord(a.getL());
       try {
         if ((retval == null)) {
-          String _string = a.getL().toString();
-          String _plus = ("unit not found:  " + _string);
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
           this.fError(_plus, a, BLESSPackage.eINSTANCE.getMultDiv_L(), 
             IssueCodes.UNIT_DEFINITION_NOT_FOUND);
         }
@@ -2945,8 +2945,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
       UnitRecord retval = this.getUnitRecord(a.getL());
       try {
         if ((retval == null)) {
-          String _string = a.getL().toString();
-          String _plus = ("unit not found:  " + _string);
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
           this.fError(_plus, a, BLESSPackage.eINSTANCE.getExp_L(), 
             IssueCodes.UNIT_DEFINITION_NOT_FOUND);
         }
