@@ -32,10 +32,12 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.osate.aadl2.Classifier;
+import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.EventPort;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.ModalPropertyValue;
 import org.osate.aadl2.NamedElement;
+import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyAssociation;
 import org.osate.aadl2.PropertyConstant;
 import org.osate.aadl2.PropertyExpression;
@@ -146,19 +148,53 @@ public class TypeUtil {
   public String getStringValue(final ANumber n) {
     String _elvis = null;
     String _elvis_1 = null;
+    String _elvis_2 = null;
+    String _elvis_3 = null;
     String _lit = null;
     if (n!=null) {
       _lit=n.getLit();
     }
     if (_lit != null) {
-      _elvis_1 = _lit;
+      _elvis_3 = _lit;
     } else {
       PropertyReference _property = null;
       if (n!=null) {
         _property=n.getProperty();
       }
-      String _name = _property.getPname().getName();
-      _elvis_1 = _name;
+      Property _pname = null;
+      if (_property!=null) {
+        _pname=_property.getPname();
+      }
+      String _name = _pname.getName();
+      _elvis_3 = _name;
+    }
+    if (_elvis_3 != null) {
+      _elvis_2 = _elvis_3;
+    } else {
+      PropertyReference _property_1 = null;
+      if (n!=null) {
+        _property_1=n.getProperty();
+      }
+      Property _spname = null;
+      if (_property_1!=null) {
+        _spname=_property_1.getSpname();
+      }
+      String _name_1 = _spname.getName();
+      _elvis_2 = _name_1;
+    }
+    if (_elvis_2 != null) {
+      _elvis_1 = _elvis_2;
+    } else {
+      PropertyReference _property_2 = null;
+      if (n!=null) {
+        _property_2=n.getProperty();
+      }
+      ComponentClassifier _component = null;
+      if (_property_2!=null) {
+        _component=_property_2.getComponent();
+      }
+      String _string = _component.getPropertyValue(n.getProperty().getCpname()).toString();
+      _elvis_1 = _string;
     }
     if (_elvis_1 != null) {
       _elvis = _elvis_1;
@@ -167,8 +203,8 @@ public class TypeUtil {
       if (n!=null) {
         _propertyConstant=n.getPropertyConstant();
       }
-      String _name_1 = _propertyConstant.getName();
-      _elvis = _name_1;
+      String _string_1 = _propertyConstant.getConstantValue().toString();
+      _elvis = _string_1;
     }
     return _elvis;
   }

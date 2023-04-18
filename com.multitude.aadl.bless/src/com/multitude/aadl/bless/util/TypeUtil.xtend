@@ -1,7 +1,7 @@
 package com.multitude.aadl.bless.util
 
 import com.google.inject.Inject
-import com.multitude.aadl.bless.BlessControl
+import com.multitude.aadl.bless.bLESS.ANumber
 import com.multitude.aadl.bless.bLESS.AddSub
 import com.multitude.aadl.bless.bLESS.ArrayRange
 import com.multitude.aadl.bless.bLESS.ArrayRangeList
@@ -11,6 +11,7 @@ import com.multitude.aadl.bless.bLESS.BooleanType
 import com.multitude.aadl.bless.bLESS.EnumerationType
 import com.multitude.aadl.bless.bLESS.Exp
 import com.multitude.aadl.bless.bLESS.MultDiv
+import com.multitude.aadl.bless.bLESS.PropertyReference
 import com.multitude.aadl.bless.bLESS.Quantity
 import com.multitude.aadl.bless.bLESS.QuantityType
 import com.multitude.aadl.bless.bLESS.RecordField
@@ -22,17 +23,15 @@ import com.multitude.aadl.bless.bLESS.Type
 import com.multitude.aadl.bless.bLESS.TypeOrReference
 import com.multitude.aadl.bless.bLESS.UnitName
 import com.multitude.aadl.bless.bLESS.Value
-import com.multitude.aadl.bless.exception.ParseException
 import com.multitude.aadl.bless.maps.BlessMaps
-import com.multitude.aadl.bless.parsing.TypeAnnexParser
+import com.multitude.aadl.bless.scoping.BlessIndex
 import org.eclipse.emf.ecore.EObject
 import org.osate.aadl2.EventPort
 import org.osate.aadl2.Feature
 import org.osate.aadl2.StringLiteral
 import org.osate.aadl2.modelsupport.util.AadlUtil
-import org.osate.aadl2.Aadl2Package
-import com.multitude.aadl.bless.scoping.BlessIndex
-import com.multitude.aadl.bless.bLESS.ANumber
+import org.osate.aadl2.PropertyExpression
+import org.osate.aadl2.properties.EvaluationContext
 
 class TypeUtil {
 
@@ -105,8 +104,10 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
    def String getStringValue(ANumber n)
      {
      n?.lit  ?:
-     n?.property.pname.name ?:
-     n?.propertyConstant.name
+     n?.property?.pname.name ?:
+     n?.property?.spname.name ?:
+     n?.property?.component.getPropertyValue(n.property.cpname).toString ?:
+     n?.propertyConstant.constantValue.toString
      }
      
    def boolean recordHasFieldWith(RecordType r, String label, Type typ) 
