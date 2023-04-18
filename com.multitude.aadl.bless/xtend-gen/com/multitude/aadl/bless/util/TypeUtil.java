@@ -142,7 +142,19 @@ public class TypeUtil {
   }
 
   public boolean sameArrayRange(final ArrayRange e, final ArrayRange f) {
-    return (this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb())) && this.getStringValue(e.getUb()).equals(this.getStringValue(f.getUb())));
+    boolean _xifexpression = false;
+    if (((e.getUb() != null) && (f.getUb() != null))) {
+      _xifexpression = (this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb())) && this.getStringValue(e.getUb()).equals(this.getStringValue(f.getUb())));
+    } else {
+      boolean _xifexpression_1 = false;
+      if (((e.getUb() == null) && (f.getUb() == null))) {
+        _xifexpression_1 = this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb()));
+      } else {
+        _xifexpression_1 = false;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
   }
 
   public String getStringValue(final ANumber n) {
@@ -165,7 +177,10 @@ public class TypeUtil {
       if (_property!=null) {
         _pname=_property.getPname();
       }
-      String _name = _pname.getName();
+      String _name = null;
+      if (_pname!=null) {
+        _name=_pname.getName();
+      }
       _elvis_3 = _name;
     }
     if (_elvis_3 != null) {
@@ -179,7 +194,10 @@ public class TypeUtil {
       if (_property_1!=null) {
         _spname=_property_1.getSpname();
       }
-      String _name_1 = _spname.getName();
+      String _name_1 = null;
+      if (_spname!=null) {
+        _name_1=_spname.getName();
+      }
       _elvis_2 = _name_1;
     }
     if (_elvis_2 != null) {

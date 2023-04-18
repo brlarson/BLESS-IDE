@@ -61,8 +61,20 @@ class UnitRecord
 		isBase = isbase
     myUnit = myunit
 		rootUnit = rootunit
-		top = t
-		bottom = b
+    if(t !== null)
+    {
+      for (un : t)
+      {
+        top.add(un)
+      }
+    }
+    if(b !== null)
+    {
+      for (un : b)
+      {
+        bottom.add(un)
+      }
+    }
 		isScalar = isscalar
 		multiplyFactor = mult
 		divideFactor = div
@@ -106,10 +118,10 @@ class UnitRecord
 
 	def void multiply(UnitRecord ur)
 	{
-		if(ur.isScalar)
-		{
-			return;
-		}
+//		if(ur.isScalar)
+//		{
+//			return;
+//		}
 		top.addAll(ur.top)
 		bottom.addAll(ur.bottom)
 		removeCommonUnits()

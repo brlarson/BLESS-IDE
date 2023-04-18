@@ -3677,7 +3677,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (q!=null) {
       _unit=q.getUnit();
     }
-    UnitRecord _unitRecord = this._unitUtil.toUnitRecord(_unit);
+    UnitRecord _unitRecord = null;
+    if (_unit!=null) {
+      _unitRecord=this._unitUtil.toUnitRecord(_unit);
+    }
     if (_unitRecord != null) {
       _elvis = _unitRecord;
     } else {

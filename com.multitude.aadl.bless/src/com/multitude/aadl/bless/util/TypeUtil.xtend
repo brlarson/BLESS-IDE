@@ -97,15 +97,18 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
  
    def boolean sameArrayRange(ArrayRange e, ArrayRange f) 
      {
-     return e.lb.getStringValue.equals(f.lb.getStringValue) 
-       && e.ub.getStringValue.equals(f.ub.getStringValue)  
+     if (e.ub!==null && f.ub!==null)  
+       e.lb.getStringValue.equals(f.lb.getStringValue) && e.ub.getStringValue.equals(f.ub.getStringValue)  
+     else if (e.ub===null && f.ub===null)
+       e.lb.getStringValue.equals(f.lb.getStringValue) 
+     else false
      } 
    
    def String getStringValue(ANumber n)
      {
      n?.lit  ?:
-     n?.property?.pname.name ?:
-     n?.property?.spname.name ?:
+     n?.property?.pname?.name ?:
+     n?.property?.spname?.name ?:
      n?.property?.component.getPropertyValue(n.property.cpname).toString ?:
      n?.propertyConstant.constantValue.toString
      }

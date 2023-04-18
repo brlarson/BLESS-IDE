@@ -61,8 +61,16 @@ public class UnitRecord {
     this.isBase = isbase;
     this.myUnit = myunit;
     this.rootUnit = rootunit;
-    this.top = t;
-    this.bottom = b;
+    if ((t != null)) {
+      for (final String un : t) {
+        this.top.add(un);
+      }
+    }
+    if ((b != null)) {
+      for (final String un_1 : b) {
+        this.bottom.add(un_1);
+      }
+    }
     this.isScalar = isscalar;
     this.multiplyFactor = mult;
     this.divideFactor = div;
@@ -104,9 +112,6 @@ public class UnitRecord {
   }
 
   public void multiply(final UnitRecord ur) {
-    if (ur.isScalar) {
-      return;
-    }
     this.top.addAll(ur.top);
     this.bottom.addAll(ur.bottom);
     this.removeCommonUnits();

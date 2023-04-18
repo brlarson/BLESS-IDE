@@ -2522,7 +2522,7 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   
  def UnitRecord getUnitRecord(Quantity q)
   {
-  q?.unit.toUnitRecord ?:
+  q?.unit?.toUnitRecord ?:
   scalar
   }  
   

@@ -7,6 +7,7 @@ import com.multitude.aadl.bless.bLESS.QuantityType;
 import com.multitude.aadl.bless.bLESS.RootDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitFactor;
 import com.multitude.aadl.bless.bLESS.UnitName;
+import com.multitude.aadl.bless.exception.ValidationException;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
@@ -106,27 +108,43 @@ public class UnitUtil {
       String _scalar = t.getScalar();
       boolean _tripleNotEquals = (_scalar != null);
       ur.isScalar = _tripleNotEquals;
-      if ((un != null)) {
-        ur.rootUnit = this._blessIndex.getRootUnit(un);
-        RootDeclaration rd = this._blessIndex.getRootDeclaration(ur.rootUnit);
-        ur.isBase = rd.isBase();
-        if (ur.isBase) {
-          ur.top.add(ur.rootUnit.getName());
-        } else {
-          EList<UnitName> _top = rd.getFormula().getTop();
-          for (final UnitName unt : _top) {
-            ur.top.add(unt.getName());
-          }
-          EList<UnitName> _bottom = rd.getFormula().getBottom();
-          for (final UnitName b : _bottom) {
-            ur.bottom.add(b.getName());
-          }
-        }
-        ur.isScalar = false;
-      }
       String _whole = t.getWhole();
       boolean _tripleNotEquals_1 = (_whole != null);
       ur.isWhole = _tripleNotEquals_1;
+      try {
+        if ((un != null)) {
+          ur.rootUnit = this._blessIndex.getRootUnit(un);
+          if ((ur.rootUnit == null)) {
+            String _name = un.getName();
+            String _plus = ("No root unit forund for unit \"" + _name);
+            String _plus_1 = (_plus + "\"");
+            throw new ValidationException(_plus_1);
+          }
+          RootDeclaration rd = this._blessIndex.getRootDeclaration(ur.rootUnit);
+          ur.isBase = rd.isBase();
+          if (ur.isBase) {
+            ur.top.add(ur.rootUnit.getName());
+          } else {
+            EList<UnitName> _top = rd.getFormula().getTop();
+            for (final UnitName unt : _top) {
+              ur.top.add(unt.getName());
+            }
+            EList<UnitName> _bottom = rd.getFormula().getBottom();
+            for (final UnitName b : _bottom) {
+              ur.bottom.add(b.getName());
+            }
+          }
+          ur.isScalar = false;
+          ur.isWhole = false;
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof ValidationException) {
+          final ValidationException ve = (ValidationException)_t;
+          ve.handleException();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
+      }
       _xblockexpression = ur;
     }
     return _xblockexpression;

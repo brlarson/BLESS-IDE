@@ -11,6 +11,7 @@ import java.util.Collections
 import java.util.Comparator
 import org.eclipse.emf.common.util.ECollections
 import org.eclipse.emf.common.util.EList
+import com.multitude.aadl.bless.exception.ValidationException
 
 class UnitUtil 
 {
@@ -74,9 +75,13 @@ def UnitRecord toUnitRecord(QuantityType t)
   val UnitRecord ur = new UnitRecord() 
   val UnitName un = t.unit
   ur.isScalar = t.scalar!==null
+  ur.isWhole = t.whole!==null
+  try {
   if (un !== null)
     {
     ur.rootUnit = getRootUnit(un)
+    if (ur.rootUnit===null)
+      throw new ValidationException("No root unit forund for unit \""+un.name+"\"")
     var RootDeclaration rd = getRootDeclaration(ur.rootUnit)
     ur.isBase = rd.isBase()
     if(ur.isBase)
@@ -96,8 +101,9 @@ def UnitRecord toUnitRecord(QuantityType t)
       }
     }
     ur.isScalar = false    
+    ur.isWhole = false    
     }
-  ur.isWhole = t.whole!==null
+  } catch (ValidationException ve) {ve.handleException}
   ur
   }
 
