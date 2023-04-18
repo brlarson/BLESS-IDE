@@ -233,8 +233,9 @@ def checkIfPositiveUnitFactor(UnitFactor uf)
 def checkQuantityLiteralLackingUnitIsWhole(Constant c)
   {
   if (c.numeric_constant !== null)
-  if (!c.numeric_constant.isScalar && !c.numeric_constant.isWhole && c.numeric_constant.unit === null)
-  if (c.numeric_constant.number.lit.contains('.'))
+  if (!c.numeric_constant.isScalar && !c.numeric_constant.isWhole 
+      && c.numeric_constant.unit === null && c.numeric_constant.number !== null)
+  if (c.numeric_constant.number?.lit.contains('.'))
     warning('quantity literal lacking unit must be integer', c,
       BLESSPackage.eINSTANCE.constant_Numeric_constant) 
   }

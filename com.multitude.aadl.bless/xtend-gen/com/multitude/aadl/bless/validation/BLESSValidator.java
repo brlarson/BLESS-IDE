@@ -260,8 +260,13 @@ public class BLESSValidator extends AbstractBLESSValidator {
     Quantity _numeric_constant = c.getNumeric_constant();
     boolean _tripleNotEquals = (_numeric_constant != null);
     if (_tripleNotEquals) {
-      if ((((!c.getNumeric_constant().isScalar()) && (!c.getNumeric_constant().isWhole())) && (c.getNumeric_constant().getUnit() == null))) {
-        boolean _contains = c.getNumeric_constant().getNumber().getLit().contains(".");
+      if (((((!c.getNumeric_constant().isScalar()) && (!c.getNumeric_constant().isWhole())) && (c.getNumeric_constant().getUnit() == null)) && (c.getNumeric_constant().getNumber() != null))) {
+        ANumber _number = c.getNumeric_constant().getNumber();
+        String _lit = null;
+        if (_number!=null) {
+          _lit=_number.getLit();
+        }
+        boolean _contains = _lit.contains(".");
         if (_contains) {
           this.warning("quantity literal lacking unit must be integer", c, 
             BLESSPackage.eINSTANCE.getConstant_Numeric_constant());
