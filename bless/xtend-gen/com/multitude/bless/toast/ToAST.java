@@ -4300,46 +4300,6 @@ public class ToAST {
             it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
           }
         }
-        ANumber _lb = e.getLb();
-        boolean _tripleNotEquals_2 = (_lb != null);
-        if (_tripleNotEquals_2) {
-          BAST _newBAST_3 = this.newBAST(e);
-          final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-            it_1.myText = "..";
-            CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.DOTDOT, "..");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.makeBASTforANumber(e.getLb(), e));
-            it_1.addChild(this.makeBASTforANumber(e.getUb(), e));
-          };
-          BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-          it.addChild(_doubleArrow_2);
-        }
-        ANumber _step = e.getStep();
-        boolean _tripleNotEquals_3 = (_step != null);
-        if (_tripleNotEquals_3) {
-          BAST _newBAST_4 = this.newBAST(e);
-          final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-            it_1.myText = "step";
-            CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_step, "step");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.makeBASTforANumber(e.getStep(), e));
-          };
-          BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-          it.addChild(_doubleArrow_3);
-        }
-        PropertyConstant _representation = e.getRepresentation();
-        boolean _tripleNotEquals_4 = (_representation != null);
-        if (_tripleNotEquals_4) {
-          BAST _newBAST_5 = this.newBAST(e);
-          final Procedure1<BAST> _function_5 = (BAST it_1) -> {
-            it_1.myText = "representation";
-            CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_representation, "representation");
-            it_1.token = _commonToken_1;
-            it_1.addChild(this.makeBASTforPropertyName(e.getRepresentation().getName(), e));
-          };
-          BAST _doubleArrow_4 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_5, _function_5);
-          it.addChild(_doubleArrow_4);
-        }
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {

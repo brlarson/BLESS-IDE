@@ -97,7 +97,11 @@ public class TypeUtil {
       if (_ty != null) {
         _elvis = _ty;
       } else {
-        Type _typeFromID = this._blessIndex.getTypeFromID(tor.getRef().getName(), r);
+        TypeDeclaration _ref = null;
+        if (tor!=null) {
+          _ref=tor.getRef();
+        }
+        Type _typeFromID = this._blessIndex.getTypeFromID(_ref.getName(), r);
         _elvis = _typeFromID;
       }
       _xblockexpression = _elvis;

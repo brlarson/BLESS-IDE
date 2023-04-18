@@ -8780,49 +8780,13 @@ public interface BLESSPackage extends EPackage
   int QUANTITY_TYPE__WHOLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Lb</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITY_TYPE__LB = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Ub</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITY_TYPE__UB = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
-
-  /**
-   * The feature id for the '<em><b>Step</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITY_TYPE__STEP = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
-
-  /**
-   * The feature id for the '<em><b>Representation</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int QUANTITY_TYPE__REPRESENTATION = Aadl2Package.ELEMENT_FEATURE_COUNT + 6;
-
-  /**
    * The number of structural features of the '<em>Quantity Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUANTITY_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 7;
+  int QUANTITY_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.ANumberImpl <em>ANumber</em>}' class.
@@ -15508,50 +15472,6 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EAttribute getQuantityType_Whole();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.QuantityType#getLb <em>Lb</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lb</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#getLb()
-   * @see #getQuantityType()
-   * @generated
-   */
-  EReference getQuantityType_Lb();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.QuantityType#getUb <em>Ub</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ub</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#getUb()
-   * @see #getQuantityType()
-   * @generated
-   */
-  EReference getQuantityType_Ub();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.QuantityType#getStep <em>Step</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Step</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#getStep()
-   * @see #getQuantityType()
-   * @generated
-   */
-  EReference getQuantityType_Step();
-
-  /**
-   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.QuantityType#getRepresentation <em>Representation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Representation</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#getRepresentation()
-   * @see #getQuantityType()
-   * @generated
-   */
-  EReference getQuantityType_Representation();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.ANumber <em>ANumber</em>}'.

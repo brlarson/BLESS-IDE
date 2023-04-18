@@ -2501,28 +2501,28 @@ toAST(QuantityType e)
         ] )
     else  //it has a unit
       addChild(e.unit.name.makeBASTforID(e))
-    if (e.lb !== null)  //have range?
-      addChild(newBAST(e) =>  
-        [  
-  	    myText = ".."  //add range
-        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
-        addChild(e.lb.makeBASTforANumber(e))
-        addChild(e.ub.makeBASTforANumber(e))
-        ]	)
-    if (e.step!==null)  //have step?
-      addChild(newBAST(e) =>  
-        [  
-        myText = "step"  //add step
-        token = new CommonToken(BLESS3Lexer.LITERAL_step, "step")
-        addChild(e.step.makeBASTforANumber(e))
-        ] )
-    if (e.representation!==null)  //have representation?
-      addChild(newBAST(e) =>  
-        [  
-        myText = "representation"  //add representation
-        token = new CommonToken(BLESS3Lexer.LITERAL_representation, "representation")
-        addChild(e.representation.name.makeBASTforPropertyName(e))
-        ] )
+//    if (e.lb !== null)  //have range?
+//      addChild(newBAST(e) =>  
+//        [  
+//  	    myText = ".."  //add range
+//        token = new CommonToken(BLESS3Lexer.DOTDOT, "..")
+//        addChild(e.lb.makeBASTforANumber(e))
+//        addChild(e.ub.makeBASTforANumber(e))
+//        ]	)
+//    if (e.step!==null)  //have step?
+//      addChild(newBAST(e) =>  
+//        [  
+//        myText = "step"  //add step
+//        token = new CommonToken(BLESS3Lexer.LITERAL_step, "step")
+//        addChild(e.step.makeBASTforANumber(e))
+//        ] )
+//    if (e.representation!==null)  //have representation?
+//      addChild(newBAST(e) =>  
+//        [  
+//        myText = "representation"  //add representation
+//        token = new CommonToken(BLESS3Lexer.LITERAL_representation, "representation")
+//        addChild(e.representation.name.makeBASTforPropertyName(e))
+//        ] )
     ]  //end of quantity
     } 
   catch (Exception ex) {ex.printStackTrace x}       

@@ -661,10 +661,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//QuantityType/unit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//QuantityType/scalar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//QuantityType/whole"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//QuantityType/lb"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//QuantityType/ub"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//QuantityType/step"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//QuantityType/representation"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//ANumber">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ANumber/lit"/>

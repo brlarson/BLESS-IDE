@@ -6,7 +6,6 @@
 package com.multitude.aadl.bless.bLESS;
 
 import org.osate.aadl2.Element;
-import org.osate.aadl2.PropertyConstant;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,10 +19,6 @@ import org.osate.aadl2.PropertyConstant;
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getUnit <em>Unit</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getScalar <em>Scalar</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getWhole <em>Whole</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getLb <em>Lb</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getUb <em>Ub</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getStep <em>Step</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getRepresentation <em>Representation</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType()
@@ -97,93 +92,5 @@ public interface QuantityType extends Element, Type
    * @generated
    */
   void setWhole(String value);
-
-  /**
-   * Returns the value of the '<em><b>Lb</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lb</em>' containment reference.
-   * @see #setLb(ANumber)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Lb()
-   * @model containment="true"
-   * @generated
-   */
-  ANumber getLb();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getLb <em>Lb</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lb</em>' containment reference.
-   * @see #getLb()
-   * @generated
-   */
-  void setLb(ANumber value);
-
-  /**
-   * Returns the value of the '<em><b>Ub</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ub</em>' containment reference.
-   * @see #setUb(ANumber)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Ub()
-   * @model containment="true"
-   * @generated
-   */
-  ANumber getUb();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getUb <em>Ub</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ub</em>' containment reference.
-   * @see #getUb()
-   * @generated
-   */
-  void setUb(ANumber value);
-
-  /**
-   * Returns the value of the '<em><b>Step</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Step</em>' containment reference.
-   * @see #setStep(ANumber)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Step()
-   * @model containment="true"
-   * @generated
-   */
-  ANumber getStep();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getStep <em>Step</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Step</em>' containment reference.
-   * @see #getStep()
-   * @generated
-   */
-  void setStep(ANumber value);
-
-  /**
-   * Returns the value of the '<em><b>Representation</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Representation</em>' reference.
-   * @see #setRepresentation(PropertyConstant)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Representation()
-   * @model
-   * @generated
-   */
-  PropertyConstant getRepresentation();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getRepresentation <em>Representation</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Representation</em>' reference.
-   * @see #getRepresentation()
-   * @generated
-   */
-  void setRepresentation(PropertyConstant value);
 
 } // QuantityType

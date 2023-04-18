@@ -960,9 +960,9 @@ EnumerationType:
 QuantityType: 
   'quantity' 
   ( unit=[UnitName] | scalar='scalar' | whole='whole' )
-  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )? 
-  ( 'step' step=ANumber )?  //check if positive
-  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
+//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )? 
+//  ( 'step' step=ANumber )?  //check if positive
+//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
 ;
 
 ANumber:

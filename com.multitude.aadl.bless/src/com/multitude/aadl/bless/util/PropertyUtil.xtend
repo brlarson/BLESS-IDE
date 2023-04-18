@@ -146,11 +146,11 @@ def Type getType(AadlReal e)
     ar.unit = getUnitName(e,e.referencedUnitsType)
   else
     ar.scalar = 'scalar'
-  if (e.range !== null)
-    {
-    ar.lb.lit = e.range.lowerBound.toRealLiteral
-    ar.ub.lit = e.range.upperBound.toRealLiteral
-    }
+//  if (e.range !== null)
+//    {
+//    ar.lb.lit = e.range.lowerBound.toRealLiteral
+//    ar.ub.lit = e.range.upperBound.toRealLiteral
+//    }
   ar	
   }
 
@@ -166,11 +166,11 @@ def Type getType(AadlInteger e)
 //    ar.unit = getUnitName(e,e.referencedUnitsType)
 //  else
 //    ar.scalar = true
-  if (e.range !== null)
-    {
-    ar.lb.lit = e.range.lowerBound.toWholeLiteral
-    ar.ub.lit = e.range.upperBound.toWholeLiteral
-    }
+//  if (e.range !== null)
+//    {
+//    ar.lb.lit = e.range.lowerBound.toWholeLiteral
+//    ar.ub.lit = e.range.upperBound.toWholeLiteral
+//    }
   ar	
   }
 

@@ -1,7 +1,6 @@
 package com.multitude.aadl.bless.util;
 
 import com.google.inject.Inject;
-import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.BLESSFactory;
 import com.multitude.aadl.bless.bLESS.QuantityType;
 import com.multitude.aadl.bless.bLESS.RecordField;
@@ -22,7 +21,6 @@ import org.osate.aadl2.ClassifierType;
 import org.osate.aadl2.EnumerationLiteral;
 import org.osate.aadl2.EnumerationType;
 import org.osate.aadl2.NumberType;
-import org.osate.aadl2.NumericRange;
 import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.PropertyType;
@@ -239,14 +237,6 @@ public class PropertyUtil {
       } else {
         ar.setScalar("scalar");
       }
-      NumericRange _range = e.getRange();
-      boolean _tripleNotEquals_1 = (_range != null);
-      if (_tripleNotEquals_1) {
-        ANumber _lb = ar.getLb();
-        _lb.setLit(this.toRealLiteral(e.getRange().getLowerBound()));
-        ANumber _ub = ar.getUb();
-        _ub.setLit(this.toRealLiteral(e.getRange().getUpperBound()));
-      }
       _xblockexpression = ar;
     }
     return _xblockexpression;
@@ -262,14 +252,6 @@ public class PropertyUtil {
         ar.setUnit(this.getUnitName(e, e.getReferencedUnitsType()));
       } else {
         ar.setWhole("whole");
-      }
-      NumericRange _range = e.getRange();
-      boolean _tripleNotEquals_1 = (_range != null);
-      if (_tripleNotEquals_1) {
-        ANumber _lb = ar.getLb();
-        _lb.setLit(this.toWholeLiteral(e.getRange().getLowerBound()));
-        ANumber _ub = ar.getUb();
-        _ub.setLit(this.toWholeLiteral(e.getRange().getUpperBound()));
       }
       _xblockexpression = ar;
     }

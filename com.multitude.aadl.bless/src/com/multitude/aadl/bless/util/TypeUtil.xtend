@@ -57,7 +57,7 @@ def Type parseBlessType(String propertyText, Resource r)
     blessParser.getGrammarAccess().getTypeOrReferenceRule(), new StringReader(propertyText));
   val TypeOrReference tor = parseResult.rootASTElement as TypeOrReference
   tor?.ty ?:
-  tor.ref.name.getTypeFromID(r) 
+  tor?.ref.name.getTypeFromID(r) 
   }
 
 

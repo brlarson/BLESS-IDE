@@ -323,9 +323,6 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTypeDeclarationAccess().getGroup(), "rule__TypeDeclaration__Group__0");
 			builder.put(grammarAccess.getEnumerationTypeAccess().getGroup(), "rule__EnumerationType__Group__0");
 			builder.put(grammarAccess.getQuantityTypeAccess().getGroup(), "rule__QuantityType__Group__0");
-			builder.put(grammarAccess.getQuantityTypeAccess().getGroup_2(), "rule__QuantityType__Group_2__0");
-			builder.put(grammarAccess.getQuantityTypeAccess().getGroup_3(), "rule__QuantityType__Group_3__0");
-			builder.put(grammarAccess.getQuantityTypeAccess().getGroup_4(), "rule__QuantityType__Group_4__0");
 			builder.put(grammarAccess.getArrayTypeAccess().getGroup(), "rule__ArrayType__Group__0");
 			builder.put(grammarAccess.getArrayRangeListAccess().getGroup(), "rule__ArrayRangeList__Group__0");
 			builder.put(grammarAccess.getArrayRangeListAccess().getGroup_1(), "rule__ArrayRangeList__Group_1__0");
@@ -824,10 +821,6 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQuantityTypeAccess().getUnitAssignment_1_0(), "rule__QuantityType__UnitAssignment_1_0");
 			builder.put(grammarAccess.getQuantityTypeAccess().getScalarAssignment_1_1(), "rule__QuantityType__ScalarAssignment_1_1");
 			builder.put(grammarAccess.getQuantityTypeAccess().getWholeAssignment_1_2(), "rule__QuantityType__WholeAssignment_1_2");
-			builder.put(grammarAccess.getQuantityTypeAccess().getLbAssignment_2_1(), "rule__QuantityType__LbAssignment_2_1");
-			builder.put(grammarAccess.getQuantityTypeAccess().getUbAssignment_2_3(), "rule__QuantityType__UbAssignment_2_3");
-			builder.put(grammarAccess.getQuantityTypeAccess().getStepAssignment_3_1(), "rule__QuantityType__StepAssignment_3_1");
-			builder.put(grammarAccess.getQuantityTypeAccess().getRepresentationAssignment_4_1(), "rule__QuantityType__RepresentationAssignment_4_1");
 			builder.put(grammarAccess.getANumberAccess().getLitAssignment_0(), "rule__ANumber__LitAssignment_0");
 			builder.put(grammarAccess.getANumberAccess().getPropertyAssignment_1(), "rule__ANumber__PropertyAssignment_1");
 			builder.put(grammarAccess.getANumberAccess().getPropertyConstantAssignment_2(), "rule__ANumber__PropertyConstantAssignment_2");
