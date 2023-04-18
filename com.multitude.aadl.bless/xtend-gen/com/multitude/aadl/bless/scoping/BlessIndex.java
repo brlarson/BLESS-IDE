@@ -1,5 +1,6 @@
 package com.multitude.aadl.bless.scoping;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -8,6 +9,7 @@ import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.RootDeclaration;
+import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitExtension;
@@ -328,5 +330,13 @@ public class BlessIndex {
       return Boolean.valueOf(it.getUnitName().getName().equals("s"));
     };
     return IterableExtensions.<RootDeclaration>head(IterableExtensions.<RootDeclaration>filter(this.getBaseUnitDeclarations(o), _function)).getUnitName();
+  }
+
+  public Type getTypeFromID(final String id, final Resource r) {
+    final Function1<TypeDeclaration, Boolean> _function = (TypeDeclaration it) -> {
+      String _name = it.getName();
+      return Boolean.valueOf(Objects.equal(_name, id));
+    };
+    return IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function)).getType();
   }
 }

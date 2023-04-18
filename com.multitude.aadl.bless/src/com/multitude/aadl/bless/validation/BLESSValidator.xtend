@@ -118,6 +118,9 @@ import com.multitude.aadl.bless.bLESS.BehaviorActions
 import com.multitude.aadl.bless.bLESS.InvariantClause
 import com.multitude.aadl.bless.bLESS.PortOutput
 import com.multitude.aadl.bless.exception.ValidationException
+import org.osate.xtext.aadl2.properties.util.GetProperties
+import org.osate.xtext.aadl2.properties.util.PropertyUtils
+import com.multitude.aadl.bless.bLESS.UnitName
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -2273,42 +2276,44 @@ def UnitRecord getUnitRecord(ValueName a)
     retval = (itsType as QuantityType).getUnitRecord
   else
     retval = nan
-//  if (a.id instanceof Feature)
-//    {
-//    val f = a.id as Feature
+  if (a.id instanceof Feature)
+    {
+    val f = a.id as Feature
+    val ty = f.getFeatureType
+    if (ty===null)
+      fError('No BLESS::Typed property found for feature '+f.name,
+            a, BLESSPackage::eINSTANCE.valueName_Id, 
+            IssueCodes.MISSING_BLESS_TYPED_PROPERTY) 
+    else if (ty instanceof QuantityType) 
+      retval = (ty as QuantityType).getUnitRecord
+    else  
+      fError('No BLESS::Typed property for feature '+f.name+' must be quantity.',
+            a, BLESSPackage::eINSTANCE.valueName_Id, 
+            IssueCodes.MUST_BE_QUANTITY)           
 //    val Property blessTyped = GetProperties.lookupPropertyDefinition(f, 'BLESS', 'Typed');
 //    val String blesstypestring = (blessTyped !== null ? PropertyUtils.getStringValue(f,blessTyped) : '')
 //    if (blesstypestring === null || blesstypestring.length === 0 )
 //      fError('No BLESS::Typed property found for feature '+f.name,
 //            a, BLESSPackage::eINSTANCE.valueName_Id, 
 //            IssueCodes.MISSING_BLESS_TYPED_PROPERTY)           
-//    else if (blesstypestring.startsWith('quantity')) 
-//      {  //cheat with parsing
-////TODO parse type string      
-//      val String suffix = blesstypestring.substring(9)
-//      val UnitName un = a.findUnitNameFromString(suffix)
-//      if (un === null && !suffix.equalsIgnoreCase('scalar'))
-//        fError('No unit name matching \''+suffix+'\' found for feature '+f.name,
-//            a, BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.UNIT_DEFINITION_NOT_FOUND)           
-//      retval = new UnitRecord(un)
-//      } 
-//    }
-//  if (a.id instanceof Variable) 
-//    if ((a.id as Variable).tod.getType instanceof QuantityType)
+//    else 
 //      {
-//      val t = (a.id as Variable).tod.getType as QuantityType
-//      if (t.unit !== null)
-//        retval = new UnitRecord(t.unit) 
-//      else 
-//        retval = new UnitRecord(false,null,null,null,t.scalar,t.whole) //
+//      val Type ty = blesstypestring.parseBlessType(f.eResource) 
 //      }
-//    else
-//      fError('Variables in numeric expressions must be quantity type.',
-//            a, BLESSPackage::eINSTANCE.valueName_Id, 
-//            IssueCodes.MUST_BE_QUANTITY)           
-//  if (retval === null)
-//    fError('unit not found for ValueName',a,BLESSPackage::eINSTANCE.valueName_Id)
-//  else
+    }
+  if (a.id instanceof Variable) 
+    if ((a.id as Variable).tod.getType instanceof QuantityType)
+      {
+      val t = (a.id as Variable).tod.getType as QuantityType
+      retval = t.getUnitRecord
+      }
+    else
+      fError('Variables in numeric expressions must be quantity type.',
+            a, BLESSPackage::eINSTANCE.valueName_Id, 
+            IssueCodes.MUST_BE_QUANTITY)           
+  if (retval === null)
+    fError('unit not found for ValueName',a,BLESSPackage::eINSTANCE.valueName_Id)
+  else
   if (retval !== null)
     if (cacheUnits) unitRecordMap.put(a,retval)    
   }

@@ -3386,9 +3386,49 @@ public class BLESSValidator extends AbstractBLESSValidator {
         } else {
           retval = this._unitUtil.nan();
         }
-        if ((retval != null)) {
-          if (this.cacheUnits) {
-            this.unitRecordMap.put(a, retval);
+        NamedElement _id = a.getId();
+        if ((_id instanceof Feature)) {
+          NamedElement _id_1 = a.getId();
+          final Feature f = ((Feature) _id_1);
+          final Type ty = this._typeUtil.getFeatureType(f);
+          if ((ty == null)) {
+            String _name = f.getName();
+            String _plus = ("No BLESS::Typed property found for feature " + _name);
+            this.fError(_plus, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+              IssueCodes.MISSING_BLESS_TYPED_PROPERTY);
+          } else {
+            if ((ty instanceof QuantityType)) {
+              retval = this.getUnitRecord(((QuantityType) ty));
+            } else {
+              String _name_1 = f.getName();
+              String _plus_1 = ("No BLESS::Typed property for feature " + _name_1);
+              String _plus_2 = (_plus_1 + " must be quantity.");
+              this.fError(_plus_2, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+                IssueCodes.MUST_BE_QUANTITY);
+            }
+          }
+        }
+        NamedElement _id_2 = a.getId();
+        if ((_id_2 instanceof Variable)) {
+          NamedElement _id_3 = a.getId();
+          Type _type = this.getType(((Variable) _id_3).getTod());
+          if ((_type instanceof QuantityType)) {
+            NamedElement _id_4 = a.getId();
+            Type _type_1 = this.getType(((Variable) _id_4).getTod());
+            final QuantityType t = ((QuantityType) _type_1);
+            retval = this.getUnitRecord(t);
+          } else {
+            this.fError("Variables in numeric expressions must be quantity type.", a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+              IssueCodes.MUST_BE_QUANTITY);
+          }
+        }
+        if ((retval == null)) {
+          this.fError("unit not found for ValueName", a, BLESSPackage.eINSTANCE.getValueName_Id());
+        } else {
+          if ((retval != null)) {
+            if (this.cacheUnits) {
+              this.unitRecordMap.put(a, retval);
+            }
           }
         }
       } catch (final Throwable _t) {

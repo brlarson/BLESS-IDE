@@ -20,6 +20,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
 import com.multitude.aadl.bless.BlessControl
+import com.multitude.aadl.bless.bLESS.Type
 
 //import org.example.smalljava.smallJava.SmallJavaPackage
 class BlessIndex
@@ -130,8 +131,8 @@ getVisibleRootDeclarations(EObject o)
 		rdp = Guice.createInjector(new BLESSRuntimeModule()).getInstance(ResourceDescriptionsProvider)
 	if (o.eResource!==null)
 	  {
-  val rd = rdp.getResourceDescriptions(o.eResource)
-  rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.rootDeclaration).map[EObjectOrProxy].map[EcoreUtil.resolve(it,o)].filter(RootDeclaration)
+    val rd = rdp.getResourceDescriptions(o.eResource)
+    rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.rootDeclaration).map[EObjectOrProxy].map[EcoreUtil.resolve(it,o)].filter(RootDeclaration)
 	  }	
 	}
 
@@ -213,6 +214,11 @@ def	UnitName getTimeUnit(EObject o)
   	o.getBaseUnitDeclarations.filter[it.unitName.name.equals('s')].head.unitName
   }
 
+def Type getTypeFromID(String id, Resource r)
+  {
+  r.getVisibleTypeDeclarations.filter[it.name==id].head.type 
+  }
+  
 //def UnitName findRootUnitWithTopAndBottom(EObject o, EList<UnitName> t, EList<UnitName> b)
 //  {
 //  var UnitName un = null

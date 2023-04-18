@@ -32,6 +32,11 @@ import org.osate.aadl2.StringLiteral
 import org.osate.aadl2.modelsupport.util.AadlUtil
 import org.osate.aadl2.PropertyExpression
 import org.osate.aadl2.properties.EvaluationContext
+import org.eclipse.xtext.parser.IParseResult
+import java.io.StringReader
+import com.multitude.aadl.bless.parser.antlr.BLESSParser
+import org.eclipse.emf.ecore.resource.Resource
+import com.multitude.aadl.bless.exception.ParseException
 
 class TypeUtil {
 
@@ -39,10 +44,21 @@ class TypeUtil {
 @Inject extension BlessUtil
 @Inject extension BlessIndex
 //@Inject extension PropertyUtil
+@Inject extension BLESSParser blessParser;
 
 def Type booleanType() { BLESSFactory.eINSTANCE.createBooleanType }
 def Type stringType() {BLESSFactory.eINSTANCE.createStringType}
 def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
+
+def Type parseBlessType(String propertyText, Resource r)
+  {
+
+  val IParseResult parseResult = blessParser.parse(
+    blessParser.getGrammarAccess().getTypeOrReferenceRule(), new StringReader(propertyText));
+  val TypeOrReference tor = parseResult.rootASTElement as TypeOrReference
+  tor?.ty ?:
+  tor.ref.name.getTypeFromID(r) 
+  }
 
 
    def boolean sameStructuralType(Type a, Type b)
@@ -159,37 +175,39 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       if (pa.property.getQualifiedName.equalsIgnoreCase('BLESS::Typed'))
         {
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
-        return getTypeOfString(str)
+        if (f.eResource!==null)
+          return parseBlessType(str, f.eResource)
+        else throw new ParseException("Feature "+f.name+" did had null Resource")
         }    
     //otherwise error  
     return null
     }  //end of getFeatureType
     
-  def Type getTypeOfString(String str)
-  {
-    if (str.startsWith("boolean"))
-      return booleanType
-    if (str.startsWith('quantity'))
-    { // kludge quantity type because parsing doesn't fill in unit
-      val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
-      if (str.endsWith('scalar'))
-      {
-        qt.scalar = 'scalar' // true
-        return qt
-      }
-      if (str.endsWith('whole'))
-      {
-        qt.whole = 'whole' // true
-        return qt
-      }
-      val UnitName un = BLESSFactory.eINSTANCE.createUnitName
-      un.name = str.substring(str.lastIndexOf(' ') + 1)
-      qt.unit = un
-      return qt
-    }
-    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
-      return BlessMaps.typeMapGet(str).type
-  } // end of getTypeOfString
+//  def Type getTypeOfString(String str)
+//  {
+//    if (str.startsWith("boolean"))
+//      return booleanType
+//    if (str.startsWith('quantity'))
+//    { // kludge quantity type because parsing doesn't fill in unit
+//      val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
+//      if (str.endsWith('scalar'))
+//      {
+//        qt.scalar = 'scalar' // true
+//        return qt
+//      }
+//      if (str.endsWith('whole'))
+//      {
+//        qt.whole = 'whole' // true
+//        return qt
+//      }
+//      val UnitName un = BLESSFactory.eINSTANCE.createUnitName
+//      un.name = str.substring(str.lastIndexOf(' ') + 1)
+//      qt.unit = un
+//      return qt
+//    }
+//    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
+//      return BlessMaps.typeMapGet(str).type
+//  } // end of getTypeOfString
   
   
 //  def boolean hasIndexType(Type t)
