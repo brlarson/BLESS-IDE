@@ -3,7 +3,7 @@ Automatic-Module-Name: com.multitude.aadl.bless
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS metamodel and Xtext editor
 Bundle-Vendor: Multitude Corporation
-Bundle-Version: 3.1.5.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,

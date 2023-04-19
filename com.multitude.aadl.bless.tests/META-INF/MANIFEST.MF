@@ -3,7 +3,7 @@ Automatic-Module-Name: com.multitude.aadl.bless.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS editor tests
 Bundle-Vendor: Multitude Corporation
-Bundle-Version: 3.1.5.qualifier
+Bundle-Version: 3.2.0.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.multitude.aadl.bless,
