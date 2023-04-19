@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.adventium.design.exploration.feature_1.0.1.202210121255.jar" id="com.adventium.design.exploration.feature" version="1.0.1.202210121255">
+   <feature url="features/com.adventium.design.exploration.feature_1.0.1.202304190453.jar" id="com.adventium.design.exploration.feature" version="1.0.1.202304190453">
       <category name="com.adventium.category"/>
    </feature>
    <feature url="features/com.multitude.aadl.bless.feature_3.1.5.202210121255.jar" id="com.multitude.aadl.bless.feature" version="3.1.5.202210121255">
