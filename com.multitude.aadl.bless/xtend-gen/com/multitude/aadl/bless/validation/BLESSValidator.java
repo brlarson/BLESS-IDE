@@ -5,7 +5,6 @@ package com.multitude.aadl.bless.validation;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.AddSub;
@@ -101,7 +100,6 @@ import com.multitude.aadl.bless.bLESS.VariableDeclaration;
 import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
 import com.multitude.aadl.bless.exception.ValidationException;
-import com.multitude.aadl.bless.maps.BlessMaps;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import com.multitude.aadl.bless.util.BlessUtil;
 import com.multitude.aadl.bless.util.TypeUtil;
@@ -116,35 +114,23 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.osate.aadl2.AadlInteger;
-import org.osate.aadl2.AadlReal;
-import org.osate.aadl2.AbstractNamedValue;
 import org.osate.aadl2.CalledSubprogram;
 import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.DataPort;
 import org.osate.aadl2.EventDataPort;
 import org.osate.aadl2.EventPort;
 import org.osate.aadl2.Feature;
-import org.osate.aadl2.IntegerLiteral;
 import org.osate.aadl2.Mode;
 import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.NamedValue;
 import org.osate.aadl2.Parameter;
-import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyConstant;
-import org.osate.aadl2.PropertyExpression;
-import org.osate.aadl2.PropertyType;
-import org.osate.aadl2.RangeValue;
-import org.osate.aadl2.RealLiteral;
 import org.osate.aadl2.SubprogramSubcomponent;
 import org.osate.aadl2.SubprogramSubcomponentType;
-import org.osate.aadl2.UnitLiteral;
 import org.osate.aadl2.impl.SubprogramTypeImpl;
 
 /**
@@ -1038,18 +1024,18 @@ public class BLESSValidator extends AbstractBLESSValidator {
       final Type rlqt = this.getType(r.getL());
       final Type rrqt = this.getType(r.getR());
       if (((rlqt instanceof QuantityType) && (rrqt instanceof QuantityType))) {
-        final UnitRecord rlur_1 = this.getUnitRecord(((QuantityType) rlqt));
-        final UnitRecord rrur_1 = this.getUnitRecord(((QuantityType) rrqt));
+        final UnitRecord rlur_1 = this.getUnitRecord(r.getL());
+        final UnitRecord rrur_1 = this.getUnitRecord(r.getR());
         boolean _matchTopAndBottom_2 = rlur_1.matchTopAndBottom(rrur_1);
         boolean _not_2 = (!_matchTopAndBottom_2);
         if (_not_2) {
           String _sym = r.getSym();
           String _plus_6 = ("Operands of \'" + _sym);
           String _plus_7 = (_plus_6 + "\' must have the same base units; ");
-          String _string_4 = this.getUnitRecord(r.getL()).toString();
+          String _string_4 = rlur_1.toString();
           String _plus_8 = (_plus_7 + _string_4);
           String _plus_9 = (_plus_8 + " is not ");
-          String _string_5 = this.getUnitRecord(r.getR()).toString();
+          String _string_5 = rrur_1.toString();
           String _plus_10 = (_plus_9 + _string_5);
           this.fError(_plus_10, r, 
             BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_UNITS);
@@ -3447,175 +3433,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public UnitRecord getUnitRecord(final NumericExpression a) {
     return this.getUnitRecord(((Expression) a));
-  }
-
-  public UnitRecord getUnitRecord(final PropertyConstant a) {
-    PropertyExpression _constantValue = a.getConstantValue();
-    if ((_constantValue instanceof RealLiteral)) {
-      PropertyExpression _constantValue_1 = a.getConstantValue();
-      final RealLiteral rl = ((RealLiteral) _constantValue_1);
-      UnitLiteral _unit = rl.getUnit();
-      boolean _tripleEquals = (_unit == null);
-      if (_tripleEquals) {
-        return this._unitUtil.scalar();
-      } else {
-        boolean _unitMapContainsKey = BlessMaps.unitMapContainsKey(rl.getUnit().getName());
-        if (_unitMapContainsKey) {
-          return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(rl.getUnit().getName()));
-        } else {
-          String _name = rl.getUnit().getName();
-          String _plus = ("No Unit annex definition for \"" + _name);
-          String _plus_1 = (_plus + "\" was found; treated as scalar.");
-          BlessControl.println(_plus_1);
-          return this._unitUtil.scalar();
-        }
-      }
-    } else {
-      PropertyExpression _constantValue_2 = a.getConstantValue();
-      if ((_constantValue_2 instanceof IntegerLiteral)) {
-        PropertyExpression _constantValue_3 = a.getConstantValue();
-        final IntegerLiteral rl_1 = ((IntegerLiteral) _constantValue_3);
-        UnitLiteral _unit_1 = rl_1.getUnit();
-        boolean _tripleEquals_1 = (_unit_1 == null);
-        if (_tripleEquals_1) {
-          return this._unitUtil.whole();
-        } else {
-          boolean _unitMapContainsKey_1 = BlessMaps.unitMapContainsKey(rl_1.getUnit().getName());
-          if (_unitMapContainsKey_1) {
-            return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(rl_1.getUnit().getName()));
-          } else {
-            String _name_1 = rl_1.getUnit().getName();
-            String _plus_2 = ("No Unit annex definition for \"" + _name_1);
-            String _plus_3 = (_plus_2 + "\" was found; treated as scalar.");
-            BlessControl.println(_plus_3);
-            return this._unitUtil.scalar();
-          }
-        }
-      } else {
-        PropertyExpression _constantValue_4 = a.getConstantValue();
-        if ((_constantValue_4 instanceof RangeValue)) {
-          PropertyExpression _constantValue_5 = a.getConstantValue();
-          final RangeValue rl_2 = ((RangeValue) _constantValue_5);
-          PropertyExpression _delta = rl_2.getDelta();
-          boolean _tripleEquals_2 = (_delta == null);
-          if (_tripleEquals_2) {
-            return this._unitUtil.whole();
-          } else {
-            PropertyExpression _delta_1 = rl_2.getDelta();
-            if ((_delta_1 instanceof RealLiteral)) {
-              PropertyExpression _delta_2 = rl_2.getDelta();
-              UnitLiteral _unit_2 = ((RealLiteral) _delta_2).getUnit();
-              boolean _tripleNotEquals = (_unit_2 != null);
-              if (_tripleNotEquals) {
-                PropertyExpression _delta_3 = rl_2.getDelta();
-                return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(((RealLiteral) _delta_3).getUnit().getName()));
-              } else {
-                return this._unitUtil.scalar();
-              }
-            } else {
-              return this._unitUtil.whole();
-            }
-          }
-        }
-      }
-    }
-    return null;
-  }
-
-  public UnitLiteral getUnitLiteral(final Property p) {
-    EList<EObject> _eContents = p.eContents();
-    for (final EObject o : _eContents) {
-      if (((o instanceof NamedValue) && (((NamedValue) o).getNamedValue() instanceof PropertyConstant))) {
-        AbstractNamedValue _namedValue = ((NamedValue) o).getNamedValue();
-        final PropertyConstant pc = ((PropertyConstant) _namedValue);
-        PropertyExpression _constantValue = pc.getConstantValue();
-        if ((_constantValue instanceof IntegerLiteral)) {
-          PropertyExpression _constantValue_1 = pc.getConstantValue();
-          return ((IntegerLiteral) _constantValue_1).getUnit();
-        } else {
-          PropertyExpression _constantValue_2 = pc.getConstantValue();
-          if ((_constantValue_2 instanceof RealLiteral)) {
-            PropertyExpression _constantValue_3 = pc.getConstantValue();
-            return ((RealLiteral) _constantValue_3).getUnit();
-          }
-        }
-      } else {
-        if ((o instanceof IntegerLiteral)) {
-          return ((IntegerLiteral) o).getUnit();
-        } else {
-          if ((o instanceof RealLiteral)) {
-            return ((RealLiteral) o).getUnit();
-          }
-        }
-      }
-    }
-    return null;
-  }
-
-  public UnitRecord getUnitRecord(final Property p) {
-    final UnitLiteral ul = this.getUnitLiteral(p);
-    boolean _unitMapContainsKey = BlessMaps.unitMapContainsKey(ul.getName());
-    if (_unitMapContainsKey) {
-      return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(ul.getName()));
-    } else {
-      return this._unitUtil.whole();
-    }
-  }
-
-  public UnitRecord getUnitRecord(final PropertyReference a) {
-    Property _pname = a.getPname();
-    boolean _tripleNotEquals = (_pname != null);
-    if (_tripleNotEquals) {
-      final NamedElement ne = a.getPname();
-      if ((ne instanceof PropertyConstant)) {
-        final PropertyConstant pc = ((PropertyConstant) ne);
-        boolean _eIsProxy = pc.eIsProxy();
-        if (_eIsProxy) {
-          EcoreUtil.resolve(pc, this._blessIndex.getResourceSet(a));
-        }
-        PropertyType _referencedPropertyType = pc.getReferencedPropertyType();
-        boolean _tripleNotEquals_1 = (_referencedPropertyType != null);
-        if (_tripleNotEquals_1) {
-          return this.getUnitRecord(pc);
-        }
-      }
-      if ((ne instanceof Property)) {
-        final Property prop = ((Property) ne);
-        boolean _eIsProxy_1 = prop.eIsProxy();
-        if (_eIsProxy_1) {
-          EcoreUtil.resolve(prop, this._blessIndex.getResourceSet(a));
-        }
-        PropertyType _referencedPropertyType_1 = prop.getReferencedPropertyType();
-        boolean _tripleNotEquals_2 = (_referencedPropertyType_1 != null);
-        if (_tripleNotEquals_2) {
-          return this.getUnitRecord(prop);
-        }
-        PropertyType _ownedPropertyType = prop.getOwnedPropertyType();
-        boolean _tripleNotEquals_3 = (_ownedPropertyType != null);
-        if (_tripleNotEquals_3) {
-          PropertyType _ownedPropertyType_1 = prop.getOwnedPropertyType();
-          if ((_ownedPropertyType_1 instanceof AadlInteger)) {
-            return this._unitUtil.whole();
-          } else {
-            PropertyType _ownedPropertyType_2 = prop.getOwnedPropertyType();
-            if ((_ownedPropertyType_2 instanceof AadlReal)) {
-              return this._unitUtil.scalar();
-            }
-          }
-        }
-      }
-    }
-    Property _spname = a.getSpname();
-    boolean _tripleNotEquals_4 = (_spname != null);
-    if (_tripleNotEquals_4) {
-      return this.getUnitRecord(a.getSpname());
-    }
-    Property _cpname = a.getCpname();
-    boolean _tripleNotEquals_5 = (_cpname != null);
-    if (_tripleNotEquals_5) {
-      return this.getUnitRecord(a.getCpname());
-    }
-    return null;
   }
 
   public UnitRecord getUnitRecord(final QuantityType a) {

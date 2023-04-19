@@ -756,11 +756,11 @@ def void checkThatRelationsHaveCompatibleUnits(Relation r)
     val rrqt = r.r.getType
     if (rlqt instanceof QuantityType && rrqt instanceof QuantityType)
 	   {
-	   val rlur = (rlqt as QuantityType).getUnitRecord  	
-	   val rrur = (rrqt as QuantityType).getUnitRecord  	
+	   val rlur = r.l.getUnitRecord  	
+	   val rrur = r.r.getUnitRecord 	
 	   if (!rlur.matchTopAndBottom(rrur))	
        fError('Operands of \''+r.sym+'\' must have the same base units; '+
-      	 r.l.getUnitRecord.toString+' is not '+r.r.getUnitRecord.toString,r,
+      	 rlur.toString+' is not '+rrur.toString,r,
 						BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.INCOMPATIBLE_UNITS) 		
 	   }	
     else if (!r.l.getType.sameStructuralType(r.r.getType))
@@ -2371,112 +2371,112 @@ def UnitRecord getUnitRecord(NumericExpression a)
 //  retval
 //  }
 
-def UnitRecord getUnitRecord(PropertyConstant a)
-  {
-  if (a.constantValue instanceof RealLiteral)
-    {
-    val rl = a.constantValue as RealLiteral
-    if (rl.unit === null)
-      return scalar  //scalar real
-    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
-      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
-    else
-      {
-      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
-//      fError("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.",a.constantValue,
-//        BLESSPackage::eINSTANCE. )    
-      return scalar  //scalar real
-      }
-    }
-  else if (a.constantValue instanceof IntegerLiteral)
-    {
-    val rl = a.constantValue as IntegerLiteral
-    if (rl.unit === null)
-      return whole  //scalar integer isWhole
-    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
-      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
-    else
-      {
-      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
-      return scalar  //scalar 
-      }
-    }
-  else if (a.constantValue instanceof RangeValue)
-    {
-    val rl = a.constantValue as RangeValue
-    if (rl.delta === null)
-      return whole  //scalar integer isWhole
-    else if (rl.delta instanceof RealLiteral)
-      {
-      if ((rl.delta as RealLiteral).unit !== null) 
-        return toUnitRecord(BlessMaps.unitMapGet((rl.delta as RealLiteral).unit.name))
-      else
-        return scalar  //scalar real
-      }
-    else
-       return whole  //scalar integer isWhole
-    }
-  }  //end of getUnitRecord(PropertyConstant
-
-def UnitLiteral getUnitLiteral(Property p)
-  {
-  for (o : p.eContents)
-    if (o instanceof NamedValue && (o as NamedValue).namedValue instanceof PropertyConstant)
-        {
-        val pc = (o as NamedValue).namedValue as PropertyConstant
-        if (pc.constantValue instanceof IntegerLiteral)
-          return (pc.constantValue as IntegerLiteral).unit  
-        else if (pc.constantValue instanceof RealLiteral)
-          return (pc.constantValue as RealLiteral).unit
-        }
-    else if (o instanceof IntegerLiteral)
-      return (o as IntegerLiteral).unit 
-    else if (o instanceof RealLiteral)
-      return (o as RealLiteral).unit  
-  }
-
-def UnitRecord getUnitRecord(Property p)
-  {
-  val UnitLiteral ul = getUnitLiteral(p)  
-  if (BlessMaps.unitMapContainsKey(ul.name))
-      return toUnitRecord(BlessMaps.unitMapGet(ul.name))
-  else
-    return whole  //scalar integer isWhole
-  }
-
-
-def UnitRecord getUnitRecord(PropertyReference a)
-  {
-  if (a.pname !== null)  
-    {
-    val NamedElement ne = a.pname 
-    if (ne instanceof PropertyConstant) 
-      {
-      val PropertyConstant pc = ne as PropertyConstant
-      if (pc.eIsProxy)
-        EcoreUtil.resolve(pc,a.resourceSet)
-      if (pc.referencedPropertyType !== null)
-        return getUnitRecord(pc)
-      }
-    if (ne instanceof Property) 
-      {
-      val Property prop = ne as Property
-      if (prop.eIsProxy)
-        EcoreUtil.resolve(prop,a.resourceSet)
-      if (prop.referencedPropertyType !== null)
-        return getUnitRecord(prop)
-      if (prop.ownedPropertyType !== null) 
-        if (prop.ownedPropertyType instanceof AadlInteger)
-          return whole  //scalar isWhole
-        else if (prop.ownedPropertyType instanceof AadlReal)
-          return scalar  //scalar not isWhole
-      }
-    }
-  if (a.spname !== null)
-    return getUnitRecord(a.spname)
-  if (a.cpname !== null)
-    return getUnitRecord(a.cpname)
-  }
+//def UnitRecord getUnitRecord(PropertyConstant a)
+//  {
+//  if (a.constantValue instanceof RealLiteral)
+//    {
+//    val rl = a.constantValue as RealLiteral
+//    if (rl.unit === null)
+//      return scalar  //scalar real
+//    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
+//    else
+//      {
+//      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
+////      fError("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.",a.constantValue,
+////        BLESSPackage::eINSTANCE. )    
+//      return scalar  //scalar real
+//      }
+//    }
+//  else if (a.constantValue instanceof IntegerLiteral)
+//    {
+//    val rl = a.constantValue as IntegerLiteral
+//    if (rl.unit === null)
+//      return whole  //scalar integer isWhole
+//    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
+//    else
+//      {
+//      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
+//      return scalar  //scalar 
+//      }
+//    }
+//  else if (a.constantValue instanceof RangeValue)
+//    {
+//    val rl = a.constantValue as RangeValue
+//    if (rl.delta === null)
+//      return whole  //scalar integer isWhole
+//    else if (rl.delta instanceof RealLiteral)
+//      {
+//      if ((rl.delta as RealLiteral).unit !== null) 
+//        return toUnitRecord(BlessMaps.unitMapGet((rl.delta as RealLiteral).unit.name))
+//      else
+//        return scalar  //scalar real
+//      }
+//    else
+//       return whole  //scalar integer isWhole
+//    }
+//  }  //end of getUnitRecord(PropertyConstant
+//
+//def UnitLiteral getUnitLiteral(Property p)
+//  {
+//  for (o : p.eContents)
+//    if (o instanceof NamedValue && (o as NamedValue).namedValue instanceof PropertyConstant)
+//        {
+//        val pc = (o as NamedValue).namedValue as PropertyConstant
+//        if (pc.constantValue instanceof IntegerLiteral)
+//          return (pc.constantValue as IntegerLiteral).unit  
+//        else if (pc.constantValue instanceof RealLiteral)
+//          return (pc.constantValue as RealLiteral).unit
+//        }
+//    else if (o instanceof IntegerLiteral)
+//      return (o as IntegerLiteral).unit 
+//    else if (o instanceof RealLiteral)
+//      return (o as RealLiteral).unit  
+//  }
+//
+//def UnitRecord getUnitRecord(Property p)
+//  {
+//  val UnitLiteral ul = getUnitLiteral(p)  
+//  if (BlessMaps.unitMapContainsKey(ul.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(ul.name))
+//  else
+//    return whole  //scalar integer isWhole
+//  }
+//
+//
+//def UnitRecord getUnitRecord(PropertyReference a)
+//  {
+//  if (a.pname !== null)  
+//    {
+//    val NamedElement ne = a.pname 
+//    if (ne instanceof PropertyConstant) 
+//      {
+//      val PropertyConstant pc = ne as PropertyConstant
+//      if (pc.eIsProxy)
+//        EcoreUtil.resolve(pc,a.resourceSet)
+//      if (pc.referencedPropertyType !== null)
+//        return getUnitRecord(pc)
+//      }
+//    if (ne instanceof Property) 
+//      {
+//      val Property prop = ne as Property
+//      if (prop.eIsProxy)
+//        EcoreUtil.resolve(prop,a.resourceSet)
+//      if (prop.referencedPropertyType !== null)
+//        return getUnitRecord(prop)
+//      if (prop.ownedPropertyType !== null) 
+//        if (prop.ownedPropertyType instanceof AadlInteger)
+//          return whole  //scalar isWhole
+//        else if (prop.ownedPropertyType instanceof AadlReal)
+//          return scalar  //scalar not isWhole
+//      }
+//    }
+//  if (a.spname !== null)
+//    return getUnitRecord(a.spname)
+//  if (a.cpname !== null)
+//    return getUnitRecord(a.cpname)
+//  }
 
 
 def UnitRecord getUnitRecord(QuantityType a) 

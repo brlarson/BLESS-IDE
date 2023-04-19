@@ -178,7 +178,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
         {
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
         if (f.eResource!==null)
-        return getTypeOfString(str, f.eResource)
+        return getTypeOfString(str, f)
 //        if (f.eResource!==null)
 //          return parseBlessType(str, f.eResource)
 //        else throw new ParseException("Feature "+f.name+" did had null Resource")
@@ -187,7 +187,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
     return null
     }  //end of getFeatureType
     
-  def Type getTypeOfString(String str, Resource r)
+  def Type getTypeOfString(String str, EObject context)
   {
     if (str.startsWith("boolean"))
       return booleanType
@@ -204,13 +204,13 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
         qt.whole = 'whole' // true
         return qt
       }
-      val UnitName un = BLESSFactory.eINSTANCE.createUnitName
-      un.name = str.substring(str.lastIndexOf(' ') + 1)
+      val unitstring = str.substring(9)
+      val UnitName un = findUnitNameFromString(context, unitstring)
       qt.unit = un
       return qt
     }
     if (str.matches(idregex))
-      getTypeFromID(str, r)
+      getTypeFromID(str, context.eResource)
   } // end of getTypeOfString
   
   

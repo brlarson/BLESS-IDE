@@ -293,14 +293,14 @@ public class TypeUtil {
         Resource _eResource = f.eResource();
         boolean _tripleNotEquals = (_eResource != null);
         if (_tripleNotEquals) {
-          return this.getTypeOfString(str, f.eResource());
+          return this.getTypeOfString(str, f);
         }
       }
     }
     return null;
   }
 
-  public Type getTypeOfString(final String str, final Resource r) {
+  public Type getTypeOfString(final String str, final EObject context) {
     Type _xblockexpression = null;
     {
       boolean _startsWith = str.startsWith("boolean");
@@ -320,17 +320,15 @@ public class TypeUtil {
           qt.setWhole("whole");
           return qt;
         }
-        final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
-        int _lastIndexOf = str.lastIndexOf(" ");
-        int _plus = (_lastIndexOf + 1);
-        un.setName(str.substring(_plus));
+        final String unitstring = str.substring(9);
+        final UnitName un = this._blessIndex.findUnitNameFromString(context, unitstring);
         qt.setUnit(un);
         return qt;
       }
       Type _xifexpression = null;
       boolean _matches = str.matches(this.idregex);
       if (_matches) {
-        _xifexpression = this._blessIndex.getTypeFromID(str, r);
+        _xifexpression = this._blessIndex.getTypeFromID(str, context.eResource());
       }
       _xblockexpression = _xifexpression;
     }
