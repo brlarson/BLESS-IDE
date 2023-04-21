@@ -1451,18 +1451,18 @@ private static int tab=0;  //tabbing for toStringTree
 //            result = this.toStringTree();
 //            }
 //          break;
-//        case BLESS3Lexer.CONDITIONAL_FUNCTION:
-//          try
-//            {
-//            UnparseBLESS3.conditional_assertion_function_return caf = null;
-//            caf = unparser.conditional_assertion_function();
-//            StringTemplate caeOutput = (StringTemplate) caf.getTemplate();
-//            result = caeOutput.toString(Global.wrapLength); // wrap at 72
-//            } catch (Exception e)
-//            {
-//            result = this.toStringTree();
-//            }
-//          break;
+        case BLESS3Lexer.CONDITIONAL_ASSERTION_FUNCTION:
+          try
+            {
+            UnparseBLESS3.conditionalAssertionFunction_return caf = null;
+            caf = unparser.conditionalAssertionFunction();
+            StringTemplate caeOutput = (StringTemplate) caf.getTemplate();
+            result = caeOutput.toString(Global.wrapLength); // wrap at 72
+            } catch (Exception e)
+            {
+            result = this.toStringTree();
+            }
+          break;
         case BLESS3Lexer.QUESTION:
         case BLESS3Lexer.INMODE:
           try
