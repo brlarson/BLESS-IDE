@@ -748,8 +748,8 @@ toAST(ConditionValuePair e)
   {
   try {  
     newBAST(e) =>  [
-  	   myText = '->'
-       token = new CommonToken(BLESS3Lexer.IMP, '->')
+  	   myText = 'CVP'
+       token = new CommonToken(BLESS3Lexer.CVP, 'CVP')
 //must add parentheses around predicate       
        addChild(parenthesize((e.condition as Expression).toAST,e))  //condition = parenthesized_predicate
        addChild((e.expression as Expression).toAST)  //expression = assertion_expression

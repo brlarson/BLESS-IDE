@@ -1160,8 +1160,8 @@ public class ToAST {
     try {
       BAST _newBAST = this.newBAST(e);
       final Procedure1<BAST> _function = (BAST it) -> {
-        it.myText = "->";
-        CommonToken _commonToken = new CommonToken(BLESS3Lexer.IMP, "->");
+        it.myText = "CVP";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.CVP, "CVP");
         it.token = _commonToken;
         Predicate _condition = e.getCondition();
         it.addChild(this.parenthesize(this.toAST(((Expression) _condition)), e));
