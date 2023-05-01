@@ -151,7 +151,7 @@ conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
 condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
 
 conjunction(bopt) ::=
-  "<bopt; wrap, anchor, separator=\" and \">"
+  "<bopt; separator=\"\n  and \">"
 
 cor(t) ::= "<t; wrap, separator=\" or else \">" 
 
@@ -162,7 +162,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; separator=\"  or \">"
+  "<bopt; separator=\"\n   or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
