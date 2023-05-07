@@ -14,8 +14,6 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="bless_subclause" eType="#//BLESSSubclause"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ty" eType="#//TypeOrReference"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BLESSSubclause" eSuperTypes="http://aadl.info/AADL/2.0#//AnnexSubclause">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="no_proof" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

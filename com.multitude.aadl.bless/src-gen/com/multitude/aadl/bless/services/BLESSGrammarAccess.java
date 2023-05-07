@@ -52,10 +52,6 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cBlesssubclauseKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cBless_subclauseAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cBless_subclauseBLESSSubclauseParserRuleCall_5_1_0 = (RuleCall)cBless_subclauseAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
-		private final Keyword cBlesstypedKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cTyAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cTyTypeOrReferenceParserRuleCall_6_1_0 = (RuleCall)cTyAssignment_6_1.eContents().get(0);
 		
 		//BLESSGrammarRoots :
 		//  'unitlibrary' unit_library=UnitLibrary
@@ -64,7 +60,6 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  | 'actionsubclause'     action_subclause=ActionSubclause
 		//    | 'exceptions' exception_library=ExceptionLibrary
 		//    | 'blesssubclause' bless_subclause=BLESSSubclause
-		//    | 'blesstyped' ty=TypeOrReference
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -74,7 +69,6 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//| 'actionsubclause'     action_subclause=ActionSubclause
 		//  | 'exceptions' exception_library=ExceptionLibrary
 		//  | 'blesssubclause' bless_subclause=BLESSSubclause
-		//  | 'blesstyped' ty=TypeOrReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'unitlibrary' unit_library=UnitLibrary
@@ -148,18 +142,6 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//BLESSSubclause
 		public RuleCall getBless_subclauseBLESSSubclauseParserRuleCall_5_1_0() { return cBless_subclauseBLESSSubclauseParserRuleCall_5_1_0; }
-		
-		//'blesstyped' ty=TypeOrReference
-		public Group getGroup_6() { return cGroup_6; }
-		
-		//'blesstyped'
-		public Keyword getBlesstypedKeyword_6_0() { return cBlesstypedKeyword_6_0; }
-		
-		//ty=TypeOrReference
-		public Assignment getTyAssignment_6_1() { return cTyAssignment_6_1; }
-		
-		//TypeOrReference
-		public RuleCall getTyTypeOrReferenceParserRuleCall_6_1_0() { return cTyTypeOrReferenceParserRuleCall_6_1_0; }
 	}
 	public class AnnexLibraryElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.AnnexLibrary");
@@ -10249,7 +10231,6 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//  | 'actionsubclause'     action_subclause=ActionSubclause
 	//    | 'exceptions' exception_library=ExceptionLibrary
 	//    | 'blesssubclause' bless_subclause=BLESSSubclause
-	//    | 'blesstyped' ty=TypeOrReference
 	//;
 	public BLESSGrammarRootsElements getBLESSGrammarRootsAccess() {
 		return pBLESSGrammarRoots;

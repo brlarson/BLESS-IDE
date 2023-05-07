@@ -13,7 +13,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BLESSGrammarRoots/action_subclause"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BLESSGrammarRoots/exception_library"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BLESSGrammarRoots/bless_subclause"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BLESSGrammarRoots/ty"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//BLESSSubclause">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//BLESSSubclause/no_proof"/>

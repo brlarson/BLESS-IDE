@@ -3955,12 +3955,6 @@ rule__BLESSGrammarRoots__Alternatives
 		(rule__BLESSGrammarRoots__Group_5__0)
 		{ after(grammarAccess.getBLESSGrammarRootsAccess().getGroup_5()); }
 	)
-	|
-	(
-		{ before(grammarAccess.getBLESSGrammarRootsAccess().getGroup_6()); }
-		(rule__BLESSGrammarRoots__Group_6__0)
-		{ after(grammarAccess.getBLESSGrammarRootsAccess().getGroup_6()); }
-	)
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -6075,60 +6069,6 @@ rule__BLESSGrammarRoots__Group_5__1__Impl
 	{ before(grammarAccess.getBLESSGrammarRootsAccess().getBless_subclauseAssignment_5_1()); }
 	(rule__BLESSGrammarRoots__Bless_subclauseAssignment_5_1)
 	{ after(grammarAccess.getBLESSGrammarRootsAccess().getBless_subclauseAssignment_5_1()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__BLESSGrammarRoots__Group_6__0
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__BLESSGrammarRoots__Group_6__0__Impl
-	rule__BLESSGrammarRoots__Group_6__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BLESSGrammarRoots__Group_6__0__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getBLESSGrammarRootsAccess().getBlesstypedKeyword_6_0()); }
-	'blesstyped'
-	{ after(grammarAccess.getBLESSGrammarRootsAccess().getBlesstypedKeyword_6_0()); }
-)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BLESSGrammarRoots__Group_6__1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	rule__BLESSGrammarRoots__Group_6__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BLESSGrammarRoots__Group_6__1__Impl
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-(
-	{ before(grammarAccess.getBLESSGrammarRootsAccess().getTyAssignment_6_1()); }
-	(rule__BLESSGrammarRoots__TyAssignment_6_1)
-	{ after(grammarAccess.getBLESSGrammarRootsAccess().getTyAssignment_6_1()); }
 )
 ;
 finally {
@@ -26557,21 +26497,6 @@ rule__BLESSGrammarRoots__Bless_subclauseAssignment_5_1
 		{ before(grammarAccess.getBLESSGrammarRootsAccess().getBless_subclauseBLESSSubclauseParserRuleCall_5_1_0()); }
 		ruleBLESSSubclause
 		{ after(grammarAccess.getBLESSGrammarRootsAccess().getBless_subclauseBLESSSubclauseParserRuleCall_5_1_0()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__BLESSGrammarRoots__TyAssignment_6_1
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getBLESSGrammarRootsAccess().getTyTypeOrReferenceParserRuleCall_6_1_0()); }
-		ruleTypeOrReference
-		{ after(grammarAccess.getBLESSGrammarRootsAccess().getTyTypeOrReferenceParserRuleCall_6_1_0()); }
 	)
 ;
 finally {

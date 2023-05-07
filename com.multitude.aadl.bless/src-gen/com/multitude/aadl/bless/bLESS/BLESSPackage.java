@@ -126,22 +126,13 @@ public interface BLESSPackage extends EPackage
   int BLESS_GRAMMAR_ROOTS__BLESS_SUBCLAUSE = 5;
 
   /**
-   * The feature id for the '<em><b>Ty</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLESS_GRAMMAR_ROOTS__TY = 6;
-
-  /**
    * The number of structural features of the '<em>Grammar Roots</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BLESS_GRAMMAR_ROOTS_FEATURE_COUNT = 7;
+  int BLESS_GRAMMAR_ROOTS_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.BLESSSubclauseImpl <em>Subclause</em>}' class.
@@ -9870,17 +9861,6 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EReference getBLESSGrammarRoots_Bless_subclause();
-
-  /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getTy <em>Ty</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ty</em>'.
-   * @see com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getTy()
-   * @see #getBLESSGrammarRoots()
-   * @generated
-   */
-  EReference getBLESSGrammarRoots_Ty();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.BLESSSubclause <em>Subclause</em>}'.

@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getAction_subclause <em>Action subclause</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getException_library <em>Exception library</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getBless_subclause <em>Bless subclause</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getTy <em>Ty</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBLESSGrammarRoots()
@@ -162,27 +161,5 @@ public interface BLESSGrammarRoots extends EObject
    * @generated
    */
   void setBless_subclause(BLESSSubclause value);
-
-  /**
-   * Returns the value of the '<em><b>Ty</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Ty</em>' containment reference.
-   * @see #setTy(TypeOrReference)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBLESSGrammarRoots_Ty()
-   * @model containment="true"
-   * @generated
-   */
-  TypeOrReference getTy();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots#getTy <em>Ty</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ty</em>' containment reference.
-   * @see #getTy()
-   * @generated
-   */
-  void setTy(TypeOrReference value);
 
 } // BLESSGrammarRoots
