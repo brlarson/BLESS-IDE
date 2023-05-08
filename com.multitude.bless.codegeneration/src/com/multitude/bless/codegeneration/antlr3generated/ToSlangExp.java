@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g 2022-11-28 11:35:16
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/com.multitude.bless.codegeneration/Grammars/ToSlangExp.g 2023-05-08 05:04:04
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.codegeneration.antlr3generated;
@@ -708,7 +708,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 			// AST REWRITE
-			// elements: x, rp, lp
+			// elements: lp, x, rp
 			// token labels: lp, rp
 			// rule labels: retval
 			// token list labels: 
@@ -1038,7 +1038,7 @@ public class ToSlangExp extends TreeRewriter {
 
 
 					// AST REWRITE
-					// elements: ID, p, ID, ID, rest
+					// elements: ID, ID, ID, p, rest
 					// token labels: p
 					// rule labels: retval
 					// token list labels: rest
