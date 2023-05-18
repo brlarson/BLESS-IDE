@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.multitude.bless.antlr3generated.BLESStoASTLexer;
 import com.multitude.bless.exceptions.Dump;
+import com.multitude.bless.exceptions.YouIdiot;
 import com.multitude.bless.tree.BAST;
 
 public class TimeoutRecord
@@ -24,15 +25,22 @@ public TimeoutRecord(){};
       }
     BAST behavior_time = (BAST) t.getChild(t.getChildCount() - 1);
     BAST e = (BAST) behavior_time.getChild(0);
-    if (e.getChildCount() > 0)
-      {
-      Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
-      }
-    else
-      {
-      duration = e.getText();
+//    if (e.getChildCount() > 0)
+//      {
+//      Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
+//      }
+//    else
+//      {
+      try
+        {
+        duration = e.unparse();
+        }
+      catch (YouIdiot yi)
+        {
+        yi.handleException();
+        }
       sb.append(duration);
-      }
+//      }
     timeUnit = ((BAST) behavior_time.getChild(0)).getText();
     timeoutPortId = sb.toString();
     }
