@@ -208,11 +208,16 @@ getVisibleContainers(EObject o)
 //	{
 //		o.getResourceDescription.getExportedObjects
 //	}
+
+var UnitName s = null;  //cached unit name for seconds
 	
 def	UnitName getTimeUnit(EObject o)
   {
-  	o.getBaseUnitDeclarations.filter[it.unitName.name.equals('s')].head.unitName
+  if (s===null) 
+    s = o.findUnitNameFromString("s")   
+  s	
   }
+  
 
 def Type getTypeFromID(String id, Resource r)
   {

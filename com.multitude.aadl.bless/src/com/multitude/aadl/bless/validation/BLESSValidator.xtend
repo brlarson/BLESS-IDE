@@ -521,13 +521,14 @@ def void checkSubProgramParameterValue(SubProgramParameter n)
       BLESSPackage::eINSTANCE.subProgramParameter_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
-@Check(CheckType.NORMAL)
-def void checkBehaviorTimeValue(BehaviorTime n)
-  {
-  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
-    fError('Behavior time may not be port input.',n,
-      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
+//WHAT'S THIS SUPPOSED TO CHECK?  removed May 22, 2023
+//@Check(CheckType.NORMAL)
+//def void checkBehaviorTimeValue(BehaviorTime n)
+//  {
+//  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
+//    fError('Behavior time may not be port input.',n,
+//      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+//  }
 
 //@Check(CheckType.NORMAL)
 //def void checkValueNameInAssertion(Value n)

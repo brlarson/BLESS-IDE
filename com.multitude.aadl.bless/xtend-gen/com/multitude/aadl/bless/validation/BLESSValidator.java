@@ -624,14 +624,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkBehaviorTimeValue(final BehaviorTime n) {
-    if ((((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated())) {
-      this.fError("Behavior time may not be port input.", n, 
-        BLESSPackage.eINSTANCE.getBehaviorTime_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
   public void checkInvocationNumericExpression(final Invocation i) {
     if (((i.getActual_parameter() != null) && (!(this.getType(i.getActual_parameter()) instanceof QuantityType)))) {
       NamedAssertion _label = i.getLabel();

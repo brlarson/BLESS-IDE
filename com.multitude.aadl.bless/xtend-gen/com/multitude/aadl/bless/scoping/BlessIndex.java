@@ -325,11 +325,17 @@ public class BlessIndex {
     return _xblockexpression;
   }
 
+  private UnitName s = null;
+
   public UnitName getTimeUnit(final EObject o) {
-    final Function1<RootDeclaration, Boolean> _function = (RootDeclaration it) -> {
-      return Boolean.valueOf(it.getUnitName().getName().equals("s"));
-    };
-    return IterableExtensions.<RootDeclaration>head(IterableExtensions.<RootDeclaration>filter(this.getBaseUnitDeclarations(o), _function)).getUnitName();
+    UnitName _xblockexpression = null;
+    {
+      if ((this.s == null)) {
+        this.s = this.findUnitNameFromString(o, "s");
+      }
+      _xblockexpression = this.s;
+    }
+    return _xblockexpression;
   }
 
   public Type getTypeFromID(final String id, final Resource r) {
