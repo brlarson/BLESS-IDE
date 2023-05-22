@@ -17,7 +17,7 @@ public TimeoutRecord(){};
     StringBuffer sb = new StringBuffer("timeout_");
 //load reset ports
     resetPorts = new ArrayList<BAST>();
-    for (int ch = 1; ((BAST) t.getChild(ch)).hasType(BLESS3Lexer.ID); ch++)
+    for (int ch = 1; (ch<t.getChildCount()) && ((BAST) t.getChild(ch)).hasType(BLESS3Lexer.ID); ch++)
       {
       resetPorts.add((BAST) t.getChild(ch));
       sb.append(t.getChild(ch).getText() + "_");

@@ -18,7 +18,6 @@ Export-Package:
    org.osate.ui.actions",
  com.multitude.bless.antlr3generated,
  com.multitude.bless.app,
- com.multitude.bless.codegeneration,
  com.multitude.bless.exceptions;
   uses:="org.eclipse.core.runtime,
    com.multitude.bless.proof,
