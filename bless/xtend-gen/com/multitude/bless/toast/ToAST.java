@@ -116,6 +116,7 @@ import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnaryOperator;
+import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.UniversalLatticeQuantification;
 import com.multitude.aadl.bless.bLESS.UniversalQuantification;
 import com.multitude.aadl.bless.bLESS.Value;
@@ -2993,9 +2994,71 @@ public class ToAST {
   }
 
   protected BAST _toAST(final BehaviorTime e) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field duration is undefined for the type BehaviorTime"
-      + "\ntoAST cannot be resolved");
+    BAST _xtrycatchfinallyexpression = null;
+    try {
+      BAST _newBAST = this.newBAST(e);
+      final Procedure1<BAST> _function = (BAST it) -> {
+        it.myText = "BEHAVIOR_TIME";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.BEHAVIOR_TIME, "BEHAVIOR_TIME");
+        it.token = _commonToken;
+        Quantity _quantity = e.getQuantity();
+        boolean _tripleNotEquals = (_quantity != null);
+        if (_tripleNotEquals) {
+          it.addChild(this.toAST(e.getQuantity()));
+        } else {
+          ValueName _value = e.getValue();
+          boolean _tripleNotEquals_1 = (_value != null);
+          if (_tripleNotEquals_1) {
+            it.addChild(this.toAST(e.getValue()));
+            UnitName _unit = e.getUnit();
+            boolean _tripleNotEquals_2 = (_unit != null);
+            if (_tripleNotEquals_2) {
+              it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
+            } else {
+              String _scalar = e.getScalar();
+              boolean _tripleNotEquals_3 = (_scalar != null);
+              if (_tripleNotEquals_3) {
+                BAST _newBAST_1 = this.newBAST(e);
+                final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+                  it_1.myText = "scalar";
+                  CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar");
+                  it_1.token = _commonToken_1;
+                };
+                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+                it.addChild(_doubleArrow);
+              } else {
+                String _whole = e.getWhole();
+                boolean _tripleNotEquals_4 = (_whole != null);
+                if (_tripleNotEquals_4) {
+                  BAST _newBAST_2 = this.newBAST(e);
+                  final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+                    it_1.myText = "whole";
+                    CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole");
+                    it_1.token = _commonToken_1;
+                  };
+                  BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+                  it.addChild(_doubleArrow_1);
+                }
+              }
+            }
+          }
+        }
+      };
+      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception ex = (Exception)_t;
+        BAST _xblockexpression = null;
+        {
+          ex.printStackTrace();
+          _xblockexpression = ToAST.x;
+        }
+        _xtrycatchfinallyexpression = _xblockexpression;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    return _xtrycatchfinallyexpression;
   }
 
   protected BAST _toAST(final CaseChoice e) {
@@ -4184,9 +4247,45 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Quantity e) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from String to boolean"
-      + "\nType mismatch: cannot convert from String to boolean");
+    BAST _newBAST = this.newBAST(e);
+    final Procedure1<BAST> _function = (BAST it) -> {
+      it.myText = "QUANTITY";
+      CommonToken _commonToken = new CommonToken(BLESS3Lexer.QUANTITY, "QUANTITY");
+      it.token = _commonToken;
+      it.addChild(this.makeBASTforANumber(e.getNumber(), e));
+      UnitName _unit = e.getUnit();
+      boolean _tripleNotEquals = (_unit != null);
+      if (_tripleNotEquals) {
+        it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
+      } else {
+        String _scalar = e.getScalar();
+        boolean _tripleNotEquals_1 = (_scalar != null);
+        if (_tripleNotEquals_1) {
+          BAST _newBAST_1 = this.newBAST(e);
+          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+            it_1.myText = "scalar";
+            CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar");
+            it_1.token = _commonToken_1;
+          };
+          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+          it.addChild(_doubleArrow);
+        } else {
+          String _whole = e.getWhole();
+          boolean _tripleNotEquals_2 = (_whole != null);
+          if (_tripleNotEquals_2) {
+            BAST _newBAST_2 = this.newBAST(e);
+            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+              it_1.myText = "whole";
+              CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole");
+              it_1.token = _commonToken_1;
+            };
+            BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+            it.addChild(_doubleArrow_1);
+          }
+        }
+      }
+    };
+    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
   }
 
   protected BAST _toAST(final QuantityType e) {

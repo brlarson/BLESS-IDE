@@ -1780,9 +1780,34 @@ toAST(BehaviorTime e)
   {
   try 
     {  
-	  e.quantity?.toAST  ?:
-    e.value?.toAST  ?:
-    e.duration?.toAST        
+    newBAST(e) =>
+      [
+      myText = "BEHAVIOR_TIME"  
+      token =  new CommonToken(BLESS3Lexer.BEHAVIOR_TIME, "BEHAVIOR_TIME")
+      if (e.quantity !== null)
+        addChild(e.quantity.toAST)
+      else if (e.value !== null)
+        {
+        addChild(e.value.toAST)  
+        if (e.unit!==null)
+          addChild(e.unit.name.makeBASTforID(e))
+        else if (e.scalar !== null)
+          addChild(newBAST(e) =>  
+           [  
+           myText = "scalar"
+           token = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar")
+           ] )  
+        else if (e.whole !== null)
+          addChild(newBAST(e) =>  
+           [  
+           myText = "whole"
+           token = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole")
+           ] )  
+        }
+      ]
+//	  e.quantity?.toAST  ?:
+//    e.value?.toAST  ?:
+//    e.duration?.toAST        
     } 
   catch (Exception ex) {ex.printStackTrace x}
   }  //end of BehaviorTime
@@ -2444,13 +2469,13 @@ toAST(Quantity e)
        addChild(e.number.makeBASTforANumber(e))
        if (e.unit!==null)
          addChild(e.unit.name.makeBASTforID(e))
-       else if (e.scalar)
+       else if (e.scalar !== null)
          addChild(newBAST(e) =>  
            [  
            myText = "scalar"
            token = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar")
            ] )  
-       else if (e.whole)
+       else if (e.whole !== null)
          addChild(newBAST(e) =>  
            [  
            myText = "whole"

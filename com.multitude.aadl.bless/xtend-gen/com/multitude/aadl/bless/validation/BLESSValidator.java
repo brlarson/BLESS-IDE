@@ -2724,9 +2724,38 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public Type getType(final Quantity q) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from String to boolean"
-      + "\nType mismatch: cannot convert from String to boolean");
+    final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
+    UnitName _unit = q.getUnit();
+    boolean _tripleNotEquals = (_unit != null);
+    if (_tripleNotEquals) {
+      qt.setUnit(q.getUnit());
+    } else {
+      String _scalar = q.getScalar();
+      boolean _tripleNotEquals_1 = (_scalar != null);
+      if (_tripleNotEquals_1) {
+        qt.setScalar("scalar");
+      } else {
+        String _whole = q.getWhole();
+        boolean _tripleNotEquals_2 = (_whole != null);
+        if (_tripleNotEquals_2) {
+          qt.setWhole("whole");
+        } else {
+          String _lit = q.getNumber().getLit();
+          boolean _tripleNotEquals_3 = (_lit != null);
+          if (_tripleNotEquals_3) {
+            boolean _contains = q.getNumber().getLit().contains(".");
+            if (_contains) {
+              qt.setScalar("scalar");
+            } else {
+              qt.setWhole("whole");
+            }
+          } else {
+            qt.setScalar("scalar");
+          }
+        }
+      }
+    }
+    return qt;
   }
 
   public Type getType(final Feature f) {
@@ -3444,9 +3473,23 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public UnitRecord getUnitRecord(final BehaviorTime a) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field duration is undefined for the type BehaviorTime"
-      + "\ngetUnitRecord cannot be resolved");
+    UnitRecord _elvis = null;
+    Quantity _quantity = a.getQuantity();
+    UnitRecord _unitRecord = null;
+    if (_quantity!=null) {
+      _unitRecord=this.getUnitRecord(_quantity);
+    }
+    if (_unitRecord != null) {
+      _elvis = _unitRecord;
+    } else {
+      ValueName _value = a.getValue();
+      UnitRecord _unitRecord_1 = null;
+      if (_value!=null) {
+        _unitRecord_1=this.getUnitRecord(_value);
+      }
+      _elvis = _unitRecord_1;
+    }
+    return _elvis;
   }
 
   public UnitRecord getUnitRecord(final ForallVariable p) {

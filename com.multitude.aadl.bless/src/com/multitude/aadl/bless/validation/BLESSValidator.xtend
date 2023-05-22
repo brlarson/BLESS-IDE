@@ -1901,9 +1901,9 @@ def Type getType(Quantity q)
     val qt = BLESSFactory.eINSTANCE.createQuantityType
     if (q.unit !== null)
       qt.unit = q.unit 
-    else if (q.scalar)
+    else if (q.scalar !== null)
       qt.scalar = 'scalar'
-    else if (q.whole)
+    else if (q.whole !== null)
       qt.whole = 'whole'
     else //look for . in number
       if (q.number.lit !== null)
@@ -2516,8 +2516,9 @@ def UnitRecord getUnitRecord(ConditionalAssertionFunction a)
 def UnitRecord getUnitRecord(BehaviorTime a)
   {
   a.quantity?.getUnitRecord ?:
-  a.value?.getUnitRecord ?:
-  a.duration.getUnitRecord
+  a.value?.getUnitRecord 
+//  ?:
+//  a.duration.getUnitRecord
   }
 
 
