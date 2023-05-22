@@ -4,52 +4,83 @@ group Java;
 
 
 //added for Slang
+
+port_name(port,index) ::=
+  "<port><if(index)>(<index>)<endif>"
+
+
 integer_literal(i) ::= "z\"<i>\""
+
 real_literal(r) ::=  "f32\"<r>\""
+
 now() ::= "Art.time()"
+
 time()::= "S64"
 
 //added for JSON
+
 true() ::= "true"
+
 false() ::= "false"
+
 stop() ::= "stop"
+
 relation(r,lhs,rhs) ::= "<lhs> <r> <rhs>"
+
 in_range(p,ra) ::= "<p> in <ra>"
+
 range(rs,lb,ub)::=  "<lb><rs><ub>"  
+
 predicate_invocation(p,ip,a) ::= "<p>(<if(ip)><ip; wrap, separator=\",\"><endif><if(a)><a><endif>)"
+
 tick(tp) ::= "\'<tp>"
+
 at(p,t) ::= "<p>@<t>"
+
 caret(p,cv) ::= "<p>^<cv>"
+
 parenthesized_predicate(p) ::= "(<p>)"
+
 name(p,pp) ::= "<p; separator=\".\"><pp>"
 
 //make into equivalent port
+
 timeout(bt,p) ::= "timeout_<p; separator=\"_\">_<bt>"
 
 //for timeout port name
+
 behavior_time(e,u) ::= "<e><if(u)>_<u><endif>"
 
 //change = to == and <> to != for slang relations
 
 equal_relation(lhs,rhs) ::= "<lhs> == <rhs>"
+
 not_equal_relation(lhs,rhs) ::= "<lhs> != <rhs>"
 
 port_fresh(i) ::= "api.<i>.Fresh()"
+
 port_count(i) ::= "api.<i>.Count()"
+
 port_updated(i) ::= "api.<i>.Updated()"
 
 l_and(bs) ::= "<bs; wrap, separator=\" & \">"
+
 l_or(bs) ::= "<bs; wrap, separator=\" | \">"
+
 l_xor(bs) ::= "<bs; wrap, separator=\" |^ \">"
+
 l_cand(bs) ::= "<bs; wrap, separator=\" && \">"
+
 l_cor(bs) ::= "<bs; wrap, separator=\" || \">"
 
 formal_assertion_parameter(p,t) ::= "<p>:<t>"
+
 formal_assertion_parameter_list(faps) ::= "<faps; separator=\", \">"
 
 formal_expression_pair(f,a) ::= "<a>"
 
 //added for SCADE translation
+
 property_name(ps,p) ::= "<ps>.<p>"
 
 property_reference(component,pname,f) ::= "<if(component)><component>.<endif><pname><f>"
@@ -189,8 +220,8 @@ elq(v,ba,cc) ::=
 <v>
 <ba; anchor> >>
 
-//commented-out 4/23/2013
-catch_clause(cct) ::= "" //"catch <cct; separator= >"
+
+catch_clause(cct) ::= "" //"catch <cct; separator= >" //commented-out 4/23/2013
 
 catch_clause_term(ei,ba) ::= "" // "(<ei; separator= >:<ba>)" 
 
@@ -201,15 +232,15 @@ quantified_variables(bv) ::=
   <bv; anchor, separator="\n">
 >>
 
-//changed for Slang <while-stmt> no bound function
-do_until(be,ba,bd,inv) ::=
+
+do_until(be,ba,bd,inv) ::=  //changed for Slang <while-stmt> no bound function
 <<do { 
   <ba; anchor><if(inv)><\n>  <inv><endif>
 while (!(<be>))>>  
   
   
-//changed for Slang <for-stmt>
-for_loop(a,lb,ub,ba,inv) ::=
+
+for_loop(a,lb,ub,ba,inv) ::=  //changed for Slang <for-stmt>
 <<for (<a> \<- <lb> to <ub>)
   {
   <ba> 
@@ -221,8 +252,8 @@ ulq(lv,ir,elq) ::=
 forall <lv> in <ir>
   <elq> >>
 
-//changed for Slang <while-stmt> no bound function
-while_loop(be,elq,bd,inv) ::= 
+
+while_loop(be,elq,bd,inv) ::=  //changed for Slang <while-stmt> no bound function
 <<while (<be>) 
   {<if(inv)> 
   <inv> <endif>
@@ -230,6 +261,7 @@ while_loop(be,elq,bd,inv) ::=
   } >>
 
 //changed for Slang 
+
 behavior_variable_type(d,t,p,s,con,sp,e,finl,ass) ::=
 <<
 var <d> : <t> <if(e)>= <e><endif>
@@ -294,11 +326,11 @@ units_declaration(i,ul)::=
 <<<i> : units <ul>;
 >>
 
-//changed name 5/29/2010
 local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
  
-//for slang, no ; or & 
-concurrent_composition(g) ::=  // "    <g; separator=\"\n    \">" 
+
+concurrent_composition(g) ::=  //for slang, no ; or &  
+// "    <g; separator=\"\n    \">" 
 <<<g; anchor, separator="\n">
 >>
  
@@ -306,8 +338,9 @@ sequential_composition(f) ::=  // "    <f; separator=\"\n    \">"
 <<<f; anchor, separator="\n">
 >>
 
-//for Slang, just =
-assignment(nt,eort)::=  //"    <nt>=<eort>"
+
+assignment(nt,eort)::=  //for Slang, just =
+//"    <nt>=<eort>"
 <<<nt> = <eort>
 >>
 
@@ -318,8 +351,8 @@ declarator(i,lit) ::=
 declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
-//changed to generate local variables for threads in Slang
-variables(bv) ::=
+
+variables(bv) ::=  //changed to generate local variables for threads in Slang
 <<
   <bv; separator="\n"> >>
 
@@ -332,8 +365,8 @@ universal_quantification(a,lv,d,p)::=
 logic_variables(t,i) ::= "<i; separator=\",\">:<t>" 
 
 
-//make l..h into [l,h], l,,h into (l,h) etc.
-logic_variable_domain(i,l,h,rs) ::=
+
+logic_variable_domain(i,l,h,rs) ::=  //make l..h into [l,h], l,,h into (l,h) etc.
 "<if({rs.toString().charAt(0)=='.'})>[<else>(<endif><l>,<h>if(rs.toString().charAt(1)=='.')>]<else>)<endif>  "
 //"<i> <l><rs><h>"
 
@@ -363,8 +396,9 @@ unique_component_classifier_reference(p,ii) ::=
 
  
  
-//at parameter not used in BLESS.stg
-array_type(arl,t,at)::=	"array[<arl>] of <t>"
+
+array_type(arl,t,at)::=  //at parameter not used in BLESS.stg
+	"array[<arl>] of <t>"
 
 array_range_list(r) ::=
 	 "<r; separator=\", \">"
@@ -648,11 +682,13 @@ case_expression(cc) ::= "(<cc; wrap, separator=\",\">)"
 
 case_choice(be,exp) ::= "(<be>) -\> <exp>"
 
-//dispatch condition for slang
-dispatch_condition(dle) ::= "<if(dle)><dle><else>true<endif>"
 
-//added for Slang translation
-dispatch_trigger(i) ::= "api.get_<i>().nonEmpty"
+dispatch_condition(dle) ::=  //dispatch condition for slang
+  "<if(dle)><dle><else>true<endif>"
+
+
+dispatch_trigger(i) ::=  //added for Slang translation
+  "api.get_<i>().nonEmpty"
 
 simultaneous_assignment(l,r) ::=
 <<
