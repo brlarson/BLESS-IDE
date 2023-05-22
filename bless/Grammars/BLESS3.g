@@ -20,7 +20,7 @@ ASSERTION_ANNEX;  //root of trees for AADL annex sublanguages
 ASSERTION_ENUMERATION; 
 ASSERTION_FUNCTION; 
 BEHAVIOR_GUARD;
-//BEHAVIOR_TIME; 
+BEHAVIOR_TIME; 
 BLESS_SUBCLAUSE;
 BOUND;  //for loops
 //CASE_EXPRESSION;  //case expression
@@ -1214,9 +1214,17 @@ assertClause:
 	
 
 behaviorTime:
-  quantity
-  | valueName
-  | parenthesizedSubexpression
+  q=quantity
+  -> ^( BEHAVIOR_TIME $q )
+  | v=valueName u=ID
+  -> ^( BEHAVIOR_TIME $v $u )
+  | v=valueName s=LITERAL_scalar 
+  -> ^( BEHAVIOR_TIME $v $s )
+  | v=valueName w=LITERAL_whole
+  -> ^( BEHAVIOR_TIME $v $w )
+  | v=valueName 
+  -> ^( BEHAVIOR_TIME $v )
+//  | parenthesizedSubexpression
   ;	
 
 
