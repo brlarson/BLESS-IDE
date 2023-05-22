@@ -4560,9 +4560,31 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EReference getBehaviorTime_Duration()
+  public EReference getBehaviorTime_Unit()
   {
         return (EReference)getBehaviorTime().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBehaviorTime_Scalar()
+  {
+        return (EAttribute)getBehaviorTime().getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBehaviorTime_Whole()
+  {
+        return (EAttribute)getBehaviorTime().getEStructuralFeatures().get(4);
   }
 
   /**

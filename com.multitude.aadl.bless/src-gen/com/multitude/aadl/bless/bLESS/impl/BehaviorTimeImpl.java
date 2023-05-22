@@ -7,8 +7,8 @@ package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.BehaviorTime;
-import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
 import com.multitude.aadl.bless.bLESS.Quantity;
+import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.ValueName;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -31,7 +31,9 @@ import org.osate.aadl2.impl.ElementImpl;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getValue <em>Value</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getDuration <em>Duration</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.BehaviorTimeImpl#getWhole <em>Whole</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,14 +61,54 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
   protected ValueName value;
 
   /**
-   * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
+   * The cached value of the '{@link #getUnit() <em>Unit</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDuration()
+   * @see #getUnit()
    * @generated
    * @ordered
    */
-  protected ParenthesizedSubexpression duration;
+  protected UnitName unit;
+
+  /**
+   * The default value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScalar()
+   * @generated
+   * @ordered
+   */
+  protected static final String SCALAR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScalar()
+   * @generated
+   * @ordered
+   */
+  protected String scalar = SCALAR_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getWhole() <em>Whole</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhole()
+   * @generated
+   * @ordered
+   */
+  protected static final String WHOLE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getWhole() <em>Whole</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhole()
+   * @generated
+   * @ordered
+   */
+  protected String whole = WHOLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -195,9 +237,19 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
    * @generated
    */
   @Override
-  public ParenthesizedSubexpression getDuration()
+  public UnitName getUnit()
   {
-    return duration;
+    if (unit != null && unit.eIsProxy())
+    {
+      InternalEObject oldUnit = (InternalEObject)unit;
+      unit = (UnitName)eResolveProxy(oldUnit);
+      if (unit != oldUnit)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BLESSPackage.BEHAVIOR_TIME__UNIT, oldUnit, unit));
+      }
+    }
+    return unit;
   }
 
   /**
@@ -205,16 +257,9 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDuration(ParenthesizedSubexpression newDuration, NotificationChain msgs)
+  public UnitName basicGetUnit()
   {
-    ParenthesizedSubexpression oldDuration = duration;
-    duration = newDuration;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.BEHAVIOR_TIME__DURATION, oldDuration, newDuration);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+    return unit;
   }
 
   /**
@@ -223,20 +268,62 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
    * @generated
    */
   @Override
-  public void setDuration(ParenthesizedSubexpression newDuration)
+  public void setUnit(UnitName newUnit)
   {
-    if (newDuration != duration)
-    {
-      NotificationChain msgs = null;
-      if (duration != null)
-        msgs = ((InternalEObject)duration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.BEHAVIOR_TIME__DURATION, null, msgs);
-      if (newDuration != null)
-        msgs = ((InternalEObject)newDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.BEHAVIOR_TIME__DURATION, null, msgs);
-      msgs = basicSetDuration(newDuration, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.BEHAVIOR_TIME__DURATION, newDuration, newDuration));
+    UnitName oldUnit = unit;
+    unit = newUnit;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.BEHAVIOR_TIME__UNIT, oldUnit, unit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getScalar()
+  {
+    return scalar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setScalar(String newScalar)
+  {
+    String oldScalar = scalar;
+    scalar = newScalar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.BEHAVIOR_TIME__SCALAR, oldScalar, scalar));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getWhole()
+  {
+    return whole;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setWhole(String newWhole)
+  {
+    String oldWhole = whole;
+    whole = newWhole;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.BEHAVIOR_TIME__WHOLE, oldWhole, whole));
   }
 
   /**
@@ -253,8 +340,6 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
         return basicSetQuantity(null, msgs);
       case BLESSPackage.BEHAVIOR_TIME__VALUE:
         return basicSetValue(null, msgs);
-      case BLESSPackage.BEHAVIOR_TIME__DURATION:
-        return basicSetDuration(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -273,8 +358,13 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
         return getQuantity();
       case BLESSPackage.BEHAVIOR_TIME__VALUE:
         return getValue();
-      case BLESSPackage.BEHAVIOR_TIME__DURATION:
-        return getDuration();
+      case BLESSPackage.BEHAVIOR_TIME__UNIT:
+        if (resolve) return getUnit();
+        return basicGetUnit();
+      case BLESSPackage.BEHAVIOR_TIME__SCALAR:
+        return getScalar();
+      case BLESSPackage.BEHAVIOR_TIME__WHOLE:
+        return getWhole();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -295,8 +385,14 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
       case BLESSPackage.BEHAVIOR_TIME__VALUE:
         setValue((ValueName)newValue);
         return;
-      case BLESSPackage.BEHAVIOR_TIME__DURATION:
-        setDuration((ParenthesizedSubexpression)newValue);
+      case BLESSPackage.BEHAVIOR_TIME__UNIT:
+        setUnit((UnitName)newValue);
+        return;
+      case BLESSPackage.BEHAVIOR_TIME__SCALAR:
+        setScalar((String)newValue);
+        return;
+      case BLESSPackage.BEHAVIOR_TIME__WHOLE:
+        setWhole((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -318,8 +414,14 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
       case BLESSPackage.BEHAVIOR_TIME__VALUE:
         setValue((ValueName)null);
         return;
-      case BLESSPackage.BEHAVIOR_TIME__DURATION:
-        setDuration((ParenthesizedSubexpression)null);
+      case BLESSPackage.BEHAVIOR_TIME__UNIT:
+        setUnit((UnitName)null);
+        return;
+      case BLESSPackage.BEHAVIOR_TIME__SCALAR:
+        setScalar(SCALAR_EDEFAULT);
+        return;
+      case BLESSPackage.BEHAVIOR_TIME__WHOLE:
+        setWhole(WHOLE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -339,10 +441,33 @@ public class BehaviorTimeImpl extends ElementImpl implements BehaviorTime
         return quantity != null;
       case BLESSPackage.BEHAVIOR_TIME__VALUE:
         return value != null;
-      case BLESSPackage.BEHAVIOR_TIME__DURATION:
-        return duration != null;
+      case BLESSPackage.BEHAVIOR_TIME__UNIT:
+        return unit != null;
+      case BLESSPackage.BEHAVIOR_TIME__SCALAR:
+        return SCALAR_EDEFAULT == null ? scalar != null : !SCALAR_EDEFAULT.equals(scalar);
+      case BLESSPackage.BEHAVIOR_TIME__WHOLE:
+        return WHOLE_EDEFAULT == null ? whole != null : !WHOLE_EDEFAULT.equals(whole);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (scalar: ");
+    result.append(scalar);
+    result.append(", whole: ");
+    result.append(whole);
+    result.append(')');
+    return result.toString();
   }
 
 } //BehaviorTimeImpl

@@ -553,9 +553,9 @@ ActionTimeout:
 BehaviorTime:
 	quantity=Quantity
 	|
-	value=ValueName
-  |
-  duration=ParenthesizedSubexpression
+	value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+//    |
+//    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 ;
 
 ///////////////////////////////////  EXCEPTION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -1054,7 +1054,7 @@ MulDiv: ( TIMES | '/' );
 UnitFactor: ',' unit=UnitName op=MulDiv factor=PositiveNumber;
 
 Quantity: number=ANumber 
-	(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+	(unit=[UnitName] | scalar='scalar' | whole='whole' )?
 ;  
 
 

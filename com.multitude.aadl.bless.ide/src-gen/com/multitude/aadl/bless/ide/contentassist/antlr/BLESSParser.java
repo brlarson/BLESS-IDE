@@ -55,6 +55,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCatchClauseTermAccess().getAlternatives_1(), "rule__CatchClauseTerm__Alternatives_1");
 			builder.put(grammarAccess.getLockingActionAccess().getAlternatives(), "rule__LockingAction__Alternatives");
 			builder.put(grammarAccess.getBehaviorTimeAccess().getAlternatives(), "rule__BehaviorTime__Alternatives");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getAlternatives_1_1(), "rule__BehaviorTime__Alternatives_1_1");
 			builder.put(grammarAccess.getAssertionAccess().getAlternatives(), "rule__Assertion__Alternatives");
 			builder.put(grammarAccess.getNamedAssertionAccess().getAlternatives_3(), "rule__NamedAssertion__Alternatives_3");
 			builder.put(grammarAccess.getNamedAssertionAccess().getAlternatives_3_0_1(), "rule__NamedAssertion__Alternatives_3_0_1");
@@ -213,6 +214,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFreezePortAccess().getGroup(), "rule__FreezePort__Group__0");
 			builder.put(grammarAccess.getFreezePortAccess().getGroup_3(), "rule__FreezePort__Group_3__0");
 			builder.put(grammarAccess.getActionTimeoutAccess().getGroup(), "rule__ActionTimeout__Group__0");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getGroup_1(), "rule__BehaviorTime__Group_1__0");
 			builder.put(grammarAccess.getExceptionAccess().getGroup(), "rule__Exception__Group__0");
 			builder.put(grammarAccess.getGhostVariablesAccess().getGroup(), "rule__GhostVariables__Group__0");
 			builder.put(grammarAccess.getGhostVariableAccess().getGroup(), "rule__GhostVariable__Group__0");
@@ -595,8 +597,10 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPauseAccess().getPauseAssignment(), "rule__Pause__PauseAssignment");
 			builder.put(grammarAccess.getActionTimeoutAccess().getDurationAssignment_1(), "rule__ActionTimeout__DurationAssignment_1");
 			builder.put(grammarAccess.getBehaviorTimeAccess().getQuantityAssignment_0(), "rule__BehaviorTime__QuantityAssignment_0");
-			builder.put(grammarAccess.getBehaviorTimeAccess().getValueAssignment_1(), "rule__BehaviorTime__ValueAssignment_1");
-			builder.put(grammarAccess.getBehaviorTimeAccess().getDurationAssignment_2(), "rule__BehaviorTime__DurationAssignment_2");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getValueAssignment_1_0(), "rule__BehaviorTime__ValueAssignment_1_0");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getUnitAssignment_1_1_0(), "rule__BehaviorTime__UnitAssignment_1_1_0");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getScalarAssignment_1_1_1(), "rule__BehaviorTime__ScalarAssignment_1_1_1");
+			builder.put(grammarAccess.getBehaviorTimeAccess().getWholeAssignment_1_1_2(), "rule__BehaviorTime__WholeAssignment_1_1_2");
 			builder.put(grammarAccess.getExceptionAccess().getNameAssignment_0(), "rule__Exception__NameAssignment_0");
 			builder.put(grammarAccess.getExceptionAccess().getDescriptionAssignment_1(), "rule__Exception__DescriptionAssignment_1");
 			builder.put(grammarAccess.getExceptionAccess().getCodeAssignment_2(), "rule__Exception__CodeAssignment_2");

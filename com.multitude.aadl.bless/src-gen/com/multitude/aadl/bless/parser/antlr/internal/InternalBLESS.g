@@ -6333,42 +6333,69 @@ ruleBehaviorTime returns [EObject current=null]
 		    |
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getBehaviorTimeAccess().getValueValueNameParserRuleCall_1_0());
-				}
-				lv_value_1_0=ruleValueName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getBehaviorTimeAccess().getValueValueNameParserRuleCall_1_0_0());
 					}
-					set(
-						$current,
-						"value",
-						lv_value_1_0,
-						"com.multitude.aadl.bless.BLESS.ValueName");
-					afterParserOrEnumRuleCall();
-				}
+					lv_value_1_0=ruleValueName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_1_0,
+							"com.multitude.aadl.bless.BLESS.ValueName");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		    |
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getBehaviorTimeAccess().getDurationParenthesizedSubexpressionParserRuleCall_2_0());
-				}
-				lv_duration_2_0=ruleParenthesizedSubexpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
-					}
-					set(
-						$current,
-						"duration",
-						lv_duration_2_0,
-						"com.multitude.aadl.bless.BLESS.ParenthesizedSubexpression");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+						}
+						otherlv_2=RULE_ID
+						{
+							newLeafNode(otherlv_2, grammarAccess.getBehaviorTimeAccess().getUnitUnitNameCrossReference_1_1_0_0());
+						}
+					)
+				)
+				    |
+				(
+					(
+						lv_scalar_3_0='scalar'
+						{
+							newLeafNode(lv_scalar_3_0, grammarAccess.getBehaviorTimeAccess().getScalarScalarKeyword_1_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+							setWithLastConsumed($current, "scalar", lv_scalar_3_0, "scalar");
+						}
+					)
+				)
+				    |
+				(
+					(
+						lv_whole_4_0='whole'
+						{
+							newLeafNode(lv_whole_4_0, grammarAccess.getBehaviorTimeAccess().getWholeWholeKeyword_1_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+							setWithLastConsumed($current, "whole", lv_whole_4_0, "whole");
+						}
+					)
+				)
+			)?
 		)
 	)
 ;
@@ -13506,7 +13533,7 @@ ruleQuantity returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityRule());
 						}
-						setWithLastConsumed($current, "scalar", lv_scalar_2_0 != null, "scalar");
+						setWithLastConsumed($current, "scalar", lv_scalar_2_0, "scalar");
 					}
 				)
 			)
@@ -13521,7 +13548,7 @@ ruleQuantity returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityRule());
 						}
-						setWithLastConsumed($current, "whole", lv_whole_3_0 != null, "whole");
+						setWithLastConsumed($current, "whole", lv_whole_3_0, "whole");
 					}
 				)
 			)

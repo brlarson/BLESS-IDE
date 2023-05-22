@@ -2724,36 +2724,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public Type getType(final Quantity q) {
-    final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-    UnitName _unit = q.getUnit();
-    boolean _tripleNotEquals = (_unit != null);
-    if (_tripleNotEquals) {
-      qt.setUnit(q.getUnit());
-    } else {
-      boolean _isScalar = q.isScalar();
-      if (_isScalar) {
-        qt.setScalar("scalar");
-      } else {
-        boolean _isWhole = q.isWhole();
-        if (_isWhole) {
-          qt.setWhole("whole");
-        } else {
-          String _lit = q.getNumber().getLit();
-          boolean _tripleNotEquals_1 = (_lit != null);
-          if (_tripleNotEquals_1) {
-            boolean _contains = q.getNumber().getLit().contains(".");
-            if (_contains) {
-              qt.setScalar("scalar");
-            } else {
-              qt.setWhole("whole");
-            }
-          } else {
-            qt.setScalar("scalar");
-          }
-        }
-      }
-    }
-    return qt;
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from String to boolean"
+      + "\nType mismatch: cannot convert from String to boolean");
   }
 
   public Type getType(final Feature f) {
@@ -3471,30 +3444,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public UnitRecord getUnitRecord(final BehaviorTime a) {
-    UnitRecord _elvis = null;
-    UnitRecord _elvis_1 = null;
-    Quantity _quantity = a.getQuantity();
-    UnitRecord _unitRecord = null;
-    if (_quantity!=null) {
-      _unitRecord=this.getUnitRecord(_quantity);
-    }
-    if (_unitRecord != null) {
-      _elvis_1 = _unitRecord;
-    } else {
-      ValueName _value = a.getValue();
-      UnitRecord _unitRecord_1 = null;
-      if (_value!=null) {
-        _unitRecord_1=this.getUnitRecord(_value);
-      }
-      _elvis_1 = _unitRecord_1;
-    }
-    if (_elvis_1 != null) {
-      _elvis = _elvis_1;
-    } else {
-      UnitRecord _unitRecord_2 = this.getUnitRecord(a.getDuration());
-      _elvis = _unitRecord_2;
-    }
-    return _elvis;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field duration is undefined for the type BehaviorTime"
+      + "\ngetUnitRecord cannot be resolved");
   }
 
   public UnitRecord getUnitRecord(final ForallVariable p) {

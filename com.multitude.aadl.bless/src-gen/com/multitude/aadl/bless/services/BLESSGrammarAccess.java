@@ -4231,26 +4231,31 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cQuantityAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cQuantityQuantityParserRuleCall_0_0 = (RuleCall)cQuantityAssignment_0.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cValueValueNameParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		private final Assignment cDurationAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cDurationParenthesizedSubexpressionParserRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cValueAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cValueValueNameParserRuleCall_1_0_0 = (RuleCall)cValueAssignment_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Assignment cUnitAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final CrossReference cUnitUnitNameCrossReference_1_1_0_0 = (CrossReference)cUnitAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cUnitUnitNameIDTerminalRuleCall_1_1_0_0_1 = (RuleCall)cUnitUnitNameCrossReference_1_1_0_0.eContents().get(1);
+		private final Assignment cScalarAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final Keyword cScalarScalarKeyword_1_1_1_0 = (Keyword)cScalarAssignment_1_1_1.eContents().get(0);
+		private final Assignment cWholeAssignment_1_1_2 = (Assignment)cAlternatives_1_1.eContents().get(2);
+		private final Keyword cWholeWholeKeyword_1_1_2_0 = (Keyword)cWholeAssignment_1_1_2.eContents().get(0);
 		
 		////behavior_time
 		//BehaviorTime:
 		//    quantity=Quantity
 		//    |
-		//    value=ValueName
-		//  |
-		//  duration=ParenthesizedSubexpression
+		//    value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		////    |
+		////    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//  quantity=Quantity
-		//  |
-		//  value=ValueName
+		//quantity=Quantity
 		//|
-		//duration=ParenthesizedSubexpression
+		//value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//quantity=Quantity
@@ -4259,17 +4264,38 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Quantity
 		public RuleCall getQuantityQuantityParserRuleCall_0_0() { return cQuantityQuantityParserRuleCall_0_0; }
 		
+		//value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//value=ValueName
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		public Assignment getValueAssignment_1_0() { return cValueAssignment_1_0; }
 		
 		//ValueName
-		public RuleCall getValueValueNameParserRuleCall_1_0() { return cValueValueNameParserRuleCall_1_0; }
+		public RuleCall getValueValueNameParserRuleCall_1_0_0() { return cValueValueNameParserRuleCall_1_0_0; }
 		
-		//duration=ParenthesizedSubexpression
-		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
+		//(unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
-		//ParenthesizedSubexpression
-		public RuleCall getDurationParenthesizedSubexpressionParserRuleCall_2_0() { return cDurationParenthesizedSubexpressionParserRuleCall_2_0; }
+		//unit=[UnitName]
+		public Assignment getUnitAssignment_1_1_0() { return cUnitAssignment_1_1_0; }
+		
+		//[UnitName]
+		public CrossReference getUnitUnitNameCrossReference_1_1_0_0() { return cUnitUnitNameCrossReference_1_1_0_0; }
+		
+		//ID
+		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_1_0_0_1; }
+		
+		//scalar='scalar'
+		public Assignment getScalarAssignment_1_1_1() { return cScalarAssignment_1_1_1; }
+		
+		//'scalar'
+		public Keyword getScalarScalarKeyword_1_1_1_0() { return cScalarScalarKeyword_1_1_1_0; }
+		
+		//whole='whole'
+		public Assignment getWholeAssignment_1_1_2() { return cWholeAssignment_1_1_2; }
+		
+		//'whole'
+		public Keyword getWholeWholeKeyword_1_1_2_0() { return cWholeWholeKeyword_1_1_2_0; }
 	}
 	public class ExceptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.Exception");
@@ -8754,12 +8780,12 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cWholeWholeKeyword_1_2_0 = (Keyword)cWholeAssignment_1_2.eContents().get(0);
 		
 		//Quantity: number=ANumber
-		//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//    (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//number=ANumber
-		//   (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//   (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Group getGroup() { return cGroup; }
 		
 		//number=ANumber
@@ -8768,7 +8794,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ANumber
 		public RuleCall getNumberANumberParserRuleCall_0_0() { return cNumberANumberParserRuleCall_0_0; }
 		
-		//(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//(unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//unit=[UnitName]
@@ -8780,13 +8806,13 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_0_0_1; }
 		
-		//scalar?='scalar'
+		//scalar='scalar'
 		public Assignment getScalarAssignment_1_1() { return cScalarAssignment_1_1; }
 		
 		//'scalar'
 		public Keyword getScalarScalarKeyword_1_1_0() { return cScalarScalarKeyword_1_1_0; }
 		
-		//whole?='whole'
+		//whole='whole'
 		public Assignment getWholeAssignment_1_2() { return cWholeAssignment_1_2; }
 		
 		//'whole'
@@ -11259,9 +11285,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//BehaviorTime:
 	//    quantity=Quantity
 	//    |
-	//    value=ValueName
-	//  |
-	//  duration=ParenthesizedSubexpression
+	//    value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+	////    |
+	////    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 	//;
 	public BehaviorTimeElements getBehaviorTimeAccess() {
 		return pBehaviorTime;
@@ -12280,7 +12306,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Quantity: number=ANumber
-	//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+	//    (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 	//;
 	public QuantityElements getQuantityAccess() {
 		return pQuantity;

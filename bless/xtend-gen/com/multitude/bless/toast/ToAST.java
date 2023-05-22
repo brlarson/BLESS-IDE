@@ -116,7 +116,6 @@ import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnaryOperator;
-import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.UniversalLatticeQuantification;
 import com.multitude.aadl.bless.bLESS.UniversalQuantification;
 import com.multitude.aadl.bless.bLESS.Value;
@@ -2994,50 +2993,9 @@ public class ToAST {
   }
 
   protected BAST _toAST(final BehaviorTime e) {
-    BAST _xtrycatchfinallyexpression = null;
-    try {
-      BAST _elvis = null;
-      BAST _elvis_1 = null;
-      Quantity _quantity = e.getQuantity();
-      BAST _aST = null;
-      if (_quantity!=null) {
-        _aST=this.toAST(_quantity);
-      }
-      if (_aST != null) {
-        _elvis_1 = _aST;
-      } else {
-        ValueName _value = e.getValue();
-        BAST _aST_1 = null;
-        if (_value!=null) {
-          _aST_1=this.toAST(_value);
-        }
-        _elvis_1 = _aST_1;
-      }
-      if (_elvis_1 != null) {
-        _elvis = _elvis_1;
-      } else {
-        ParenthesizedSubexpression _duration = e.getDuration();
-        BAST _aST_2 = null;
-        if (_duration!=null) {
-          _aST_2=this.toAST(_duration);
-        }
-        _elvis = _aST_2;
-      }
-      _xtrycatchfinallyexpression = _elvis;
-    } catch (final Throwable _t) {
-      if (_t instanceof Exception) {
-        final Exception ex = (Exception)_t;
-        BAST _xblockexpression = null;
-        {
-          ex.printStackTrace();
-          _xblockexpression = ToAST.x;
-        }
-        _xtrycatchfinallyexpression = _xblockexpression;
-      } else {
-        throw Exceptions.sneakyThrow(_t);
-      }
-    }
-    return _xtrycatchfinallyexpression;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field duration is undefined for the type BehaviorTime"
+      + "\ntoAST cannot be resolved");
   }
 
   protected BAST _toAST(final CaseChoice e) {
@@ -4226,43 +4184,9 @@ public class ToAST {
   }
 
   protected BAST _toAST(final Quantity e) {
-    BAST _newBAST = this.newBAST(e);
-    final Procedure1<BAST> _function = (BAST it) -> {
-      it.myText = "QUANTITY";
-      CommonToken _commonToken = new CommonToken(BLESS3Lexer.QUANTITY, "QUANTITY");
-      it.token = _commonToken;
-      it.addChild(this.makeBASTforANumber(e.getNumber(), e));
-      UnitName _unit = e.getUnit();
-      boolean _tripleNotEquals = (_unit != null);
-      if (_tripleNotEquals) {
-        it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
-      } else {
-        boolean _isScalar = e.isScalar();
-        if (_isScalar) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
-            it_1.myText = "scalar";
-            CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar");
-            it_1.token = _commonToken_1;
-          };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
-        } else {
-          boolean _isWhole = e.isWhole();
-          if (_isWhole) {
-            BAST _newBAST_2 = this.newBAST(e);
-            final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-              it_1.myText = "whole";
-              CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole");
-              it_1.token = _commonToken_1;
-            };
-            BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-            it.addChild(_doubleArrow_1);
-          }
-        }
-      }
-    };
-    return ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from String to boolean"
+      + "\nType mismatch: cannot convert from String to boolean");
   }
 
   protected BAST _toAST(final QuantityType e) {
