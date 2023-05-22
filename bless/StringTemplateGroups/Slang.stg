@@ -5,9 +5,19 @@ group Java;
 
 //added for Slang
 
+unary(sym,ex) ::=
+  "<sym> <ex>"
+
+variable(id,tod) ::=
+  " <id> : <tod>"
+
 port_name(port,index) ::=
   "<port><if(index)>(<index>)<endif>"
 
+invocation(i,p) ::=
+  "<i>(<p; separator=\", \">)"
+
+nameless_assertion(a) ::= ""
 
 integer_literal(i) ::= "z\"<i>\""
 
