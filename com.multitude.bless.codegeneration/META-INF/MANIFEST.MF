@@ -25,4 +25,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Import-Package: org.osate.xtext.aadl2.properties.util
 Automatic-Module-Name: com.multitude.bless.codegeneration
-Export-Package: com.multitude.bless.codegeneration.antlr3generated
+Export-Package: com.multitude.bless.codegeneration,
+ com.multitude.bless.codegeneration.antlr3generated
