@@ -652,7 +652,7 @@ def void checkNamedAssertionInvocation(Invocation i)
         fError('Invocation parameter type mismatch.',i,
             BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
     else if (i.actual_parameter.getType.isQuantity && i.label.formals.first.getType.isQuantity) 
-      if (!sameUnitRoot((i.actual_parameter.getType as QuantityType).unit, (i.label.formals.first.getType as QuantityType).unit)) 
+      if (!sameUnitRoot((i.actual_parameter.getType as QuantityType).unit, (i.label.formals.first.tod.getType as QuantityType).unit)) 
         fError('Invocation parameter unit mismatch.',i,
             BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
     }

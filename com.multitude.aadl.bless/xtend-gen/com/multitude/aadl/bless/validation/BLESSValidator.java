@@ -807,7 +807,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
             } else {
               if ((this.isQuantity(this.getType(i.getActual_parameter())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst())))) {
                 Type _type = this.getType(i.getActual_parameter());
-                Type _type_1 = this.getType(i.getLabel().getFormals().getFirst());
+                Type _type_1 = this.getType(i.getLabel().getFormals().getFirst().getTod());
                 boolean _sameUnitRoot = this._unitUtil.sameUnitRoot(((QuantityType) _type).getUnit(), ((QuantityType) _type_1).getUnit());
                 boolean _not_1 = (!_sameUnitRoot);
                 if (_not_1) {
