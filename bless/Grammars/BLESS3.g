@@ -1572,7 +1572,7 @@ dispatchTrigger:
   | LITERAL_timeout^ 
    ( ( LPAREN^ ports+=ID //[aadl2::NamedElement|ID] 
         (LITERAL_or! ports+=ID //[aadl2::NamedElement|ID] 
-        )* RPAREN
+        )* RPAREN!
       )?
    	 time=behaviorTime 
    )?

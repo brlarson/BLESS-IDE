@@ -3478,6 +3478,7 @@ toAST(DispatchTrigger e)
         //port list
           for (p : e.ports)
             addChild(p.name.makeBASTforPort(e))    
+        //no RPAREN
           ] )
         //behavior_time
         addChild(e.time.toAST)   
