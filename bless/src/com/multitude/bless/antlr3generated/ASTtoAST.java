@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-04-21 14:55:26
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-06-15 08:48:48
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -29,32 +29,32 @@ public class ASTtoAST extends TreeParser {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AADL_STRING_LITERAL", "AADL_STRING_PART", 
 		"ACTION", "ACTION_SUBCLAUSE", "AL", "AM", "AMPERSAND", "ANNEX_END", "ANNEX_START", 
 		"ARROW", "ASSERTION", "ASSERTION_ANNEX", "ASSERTION_ENUMERATION", "ASSERTION_FUNCTION", 
-		"ASSIGN", "AT_SIGN", "BEHAVIOR_GUARD", "BI", "BLESS_SUBCLAUSE", "BOUND", 
-		"BOX", "CARET", "COLON", "COLON_TILDE", "COMMA", "COMMACOMMA", "COMMADOT", 
-		"COMPONENT", "CONDITION", "CONDITIONAL_ASSERTION_FUNCTION", "COUNTING_TRIGGER", 
-		"CVP", "DESTINATION", "DIGIT", "DIVIDE", "DOLLAR", "DOT", "DOTCOMMA", 
-		"DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", "DO_NOT_PROVE", "DUMMY", "EMPTY_CURLY", 
-		"END_ASSERTION_PROPERTY", "EQ", "EXCLAMATION", "EXP", "EXPONENT", "FLOATING", 
-		"FUNCTION", "GT", "GUARD", "HEX_DIGIT", "ID", "IMP", "INMODE", "INOUT", 
-		"INVARIANT", "INVOKE", "IP_NAME", "IP_PE", "IP_PRED", "LABEL", "LASS", 
-		"LBRACKET", "LCON", "LCURLY", "LITERAL_Assertion", "LITERAL_Invariant", 
-		"LITERAL_Postcondition", "LITERAL_Precondition", "LITERAL_Typed", "LITERAL_aadlboolean", 
-		"LITERAL_aadlinteger", "LITERAL_aadlreal", "LITERAL_aadlstring", "LITERAL_abs", 
-		"LITERAL_access", "LITERAL_all", "LITERAL_and", "LITERAL_any", "LITERAL_applies", 
-		"LITERAL_are", "LITERAL_array", "LITERAL_assert", "LITERAL_availability", 
-		"LITERAL_base", "LITERAL_binding", "LITERAL_boolean", "LITERAL_bound", 
-		"LITERAL_call", "LITERAL_calls", "LITERAL_case", "LITERAL_catch", "LITERAL_classifier", 
-		"LITERAL_complete", "LITERAL_component", "LITERAL_computation", "LITERAL_connection", 
-		"LITERAL_connections", "LITERAL_constant", "LITERAL_count", "LITERAL_declare", 
-		"LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", "LITERAL_div", "LITERAL_do", 
-		"LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", "LITERAL_exists", 
-		"LITERAL_extends", "LITERAL_extension", "LITERAL_false", "LITERAL_feature", 
-		"LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", 
-		"LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", "LITERAL_forall", 
-		"LITERAL_fresh", "LITERAL_ghost", "LITERAL_if", "LITERAL_iff", "LITERAL_implementation", 
-		"LITERAL_implies", "LITERAL_in", "LITERAL_inherit", "LITERAL_initial", 
-		"LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", 
-		"LITERAL_list", "LITERAL_lower_bound", "LITERAL_mod", "LITERAL_mode", 
+		"ASSIGN", "AT_SIGN", "BEHAVIOR_GUARD", "BEHAVIOR_TIME", "BI", "BLESS_SUBCLAUSE", 
+		"BOUND", "BOX", "CARET", "COLON", "COLON_TILDE", "COMMA", "COMMACOMMA", 
+		"COMMADOT", "COMPONENT", "CONDITION", "CONDITIONAL_ASSERTION_FUNCTION", 
+		"COUNTING_TRIGGER", "CVP", "DESTINATION", "DIGIT", "DIVIDE", "DOLLAR", 
+		"DOT", "DOTCOMMA", "DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", "DO_NOT_PROVE", 
+		"DUMMY", "EMPTY_CURLY", "END_ASSERTION_PROPERTY", "EQ", "EXCLAMATION", 
+		"EXP", "EXPONENT", "FLOATING", "FUNCTION", "GT", "GUARD", "HEX_DIGIT", 
+		"ID", "IMP", "INMODE", "INOUT", "INVARIANT", "INVOKE", "IP_NAME", "IP_PE", 
+		"IP_PRED", "LABEL", "LASS", "LBRACKET", "LCON", "LCURLY", "LITERAL_Assertion", 
+		"LITERAL_Invariant", "LITERAL_Postcondition", "LITERAL_Precondition", 
+		"LITERAL_Typed", "LITERAL_aadlboolean", "LITERAL_aadlinteger", "LITERAL_aadlreal", 
+		"LITERAL_aadlstring", "LITERAL_abs", "LITERAL_access", "LITERAL_all", 
+		"LITERAL_and", "LITERAL_any", "LITERAL_applies", "LITERAL_are", "LITERAL_array", 
+		"LITERAL_assert", "LITERAL_availability", "LITERAL_base", "LITERAL_binding", 
+		"LITERAL_boolean", "LITERAL_bound", "LITERAL_call", "LITERAL_calls", "LITERAL_case", 
+		"LITERAL_catch", "LITERAL_classifier", "LITERAL_complete", "LITERAL_component", 
+		"LITERAL_computation", "LITERAL_connection", "LITERAL_connections", "LITERAL_constant", 
+		"LITERAL_count", "LITERAL_declare", "LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", 
+		"LITERAL_div", "LITERAL_do", "LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", 
+		"LITERAL_exists", "LITERAL_extends", "LITERAL_extension", "LITERAL_false", 
+		"LITERAL_feature", "LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", 
+		"LITERAL_fetchxor", "LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_for", 
+		"LITERAL_forall", "LITERAL_fresh", "LITERAL_ghost", "LITERAL_if", "LITERAL_iff", 
+		"LITERAL_implementation", "LITERAL_implies", "LITERAL_in", "LITERAL_inherit", 
+		"LITERAL_initial", "LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", 
+		"LITERAL_is", "LITERAL_list", "LITERAL_lower_bound", "LITERAL_mod", "LITERAL_mode", 
 		"LITERAL_modes", "LITERAL_nonvolatile", "LITERAL_not", "LITERAL_now", 
 		"LITERAL_null", "LITERAL_numberof", "LITERAL_of", "LITERAL_on", "LITERAL_or", 
 		"LITERAL_package", "LITERAL_parameter", "LITERAL_pause", "LITERAL_post", 
@@ -100,261 +100,262 @@ public class ASTtoAST extends TreeParser {
 	public static final int ASSIGN=18;
 	public static final int AT_SIGN=19;
 	public static final int BEHAVIOR_GUARD=20;
-	public static final int BI=21;
-	public static final int BLESS_SUBCLAUSE=22;
-	public static final int BOUND=23;
-	public static final int BOX=24;
-	public static final int CARET=25;
-	public static final int COLON=26;
-	public static final int COLON_TILDE=27;
-	public static final int COMMA=28;
-	public static final int COMMACOMMA=29;
-	public static final int COMMADOT=30;
-	public static final int COMPONENT=31;
-	public static final int CONDITION=32;
-	public static final int CONDITIONAL_ASSERTION_FUNCTION=33;
-	public static final int COUNTING_TRIGGER=34;
-	public static final int CVP=35;
-	public static final int DESTINATION=36;
-	public static final int DIGIT=37;
-	public static final int DIVIDE=38;
-	public static final int DOLLAR=39;
-	public static final int DOT=40;
-	public static final int DOTCOMMA=41;
-	public static final int DOTDOT=42;
-	public static final int DOUBLE_COLON=43;
-	public static final int DOUBLE_QUOTE=44;
-	public static final int DO_NOT_PROVE=45;
-	public static final int DUMMY=46;
-	public static final int EMPTY_CURLY=47;
-	public static final int END_ASSERTION_PROPERTY=48;
-	public static final int EQ=49;
-	public static final int EXCLAMATION=50;
-	public static final int EXP=51;
-	public static final int EXPONENT=52;
-	public static final int FLOATING=53;
-	public static final int FUNCTION=54;
-	public static final int GT=55;
-	public static final int GUARD=56;
-	public static final int HEX_DIGIT=57;
-	public static final int ID=58;
-	public static final int IMP=59;
-	public static final int INMODE=60;
-	public static final int INOUT=61;
-	public static final int INVARIANT=62;
-	public static final int INVOKE=63;
-	public static final int IP_NAME=64;
-	public static final int IP_PE=65;
-	public static final int IP_PRED=66;
-	public static final int LABEL=67;
-	public static final int LASS=68;
-	public static final int LBRACKET=69;
-	public static final int LCON=70;
-	public static final int LCURLY=71;
-	public static final int LITERAL_Assertion=72;
-	public static final int LITERAL_Invariant=73;
-	public static final int LITERAL_Postcondition=74;
-	public static final int LITERAL_Precondition=75;
-	public static final int LITERAL_Typed=76;
-	public static final int LITERAL_aadlboolean=77;
-	public static final int LITERAL_aadlinteger=78;
-	public static final int LITERAL_aadlreal=79;
-	public static final int LITERAL_aadlstring=80;
-	public static final int LITERAL_abs=81;
-	public static final int LITERAL_access=82;
-	public static final int LITERAL_all=83;
-	public static final int LITERAL_and=84;
-	public static final int LITERAL_any=85;
-	public static final int LITERAL_applies=86;
-	public static final int LITERAL_are=87;
-	public static final int LITERAL_array=88;
-	public static final int LITERAL_assert=89;
-	public static final int LITERAL_availability=90;
-	public static final int LITERAL_base=91;
-	public static final int LITERAL_binding=92;
-	public static final int LITERAL_boolean=93;
-	public static final int LITERAL_bound=94;
-	public static final int LITERAL_call=95;
-	public static final int LITERAL_calls=96;
-	public static final int LITERAL_case=97;
-	public static final int LITERAL_catch=98;
-	public static final int LITERAL_classifier=99;
-	public static final int LITERAL_complete=100;
-	public static final int LITERAL_component=101;
-	public static final int LITERAL_computation=102;
-	public static final int LITERAL_connection=103;
-	public static final int LITERAL_connections=104;
-	public static final int LITERAL_constant=105;
-	public static final int LITERAL_count=106;
-	public static final int LITERAL_declare=107;
-	public static final int LITERAL_def=108;
-	public static final int LITERAL_delay=109;
-	public static final int LITERAL_dispatch=110;
-	public static final int LITERAL_div=111;
-	public static final int LITERAL_do=112;
-	public static final int LITERAL_else=113;
-	public static final int LITERAL_enumeration=114;
-	public static final int LITERAL_exception=115;
-	public static final int LITERAL_exists=116;
-	public static final int LITERAL_extends=117;
-	public static final int LITERAL_extension=118;
-	public static final int LITERAL_false=119;
-	public static final int LITERAL_feature=120;
-	public static final int LITERAL_fetchadd=121;
-	public static final int LITERAL_fetchand=122;
-	public static final int LITERAL_fetchor=123;
-	public static final int LITERAL_fetchxor=124;
-	public static final int LITERAL_fi=125;
-	public static final int LITERAL_final=126;
-	public static final int LITERAL_flow=127;
-	public static final int LITERAL_for=128;
-	public static final int LITERAL_forall=129;
-	public static final int LITERAL_fresh=130;
-	public static final int LITERAL_ghost=131;
-	public static final int LITERAL_if=132;
-	public static final int LITERAL_iff=133;
-	public static final int LITERAL_implementation=134;
-	public static final int LITERAL_implies=135;
-	public static final int LITERAL_in=136;
-	public static final int LITERAL_inherit=137;
-	public static final int LITERAL_initial=138;
-	public static final int LITERAL_internal=139;
-	public static final int LITERAL_invariant=140;
-	public static final int LITERAL_inverse=141;
-	public static final int LITERAL_is=142;
-	public static final int LITERAL_list=143;
-	public static final int LITERAL_lower_bound=144;
-	public static final int LITERAL_mod=145;
-	public static final int LITERAL_mode=146;
-	public static final int LITERAL_modes=147;
-	public static final int LITERAL_nonvolatile=148;
-	public static final int LITERAL_not=149;
-	public static final int LITERAL_now=150;
-	public static final int LITERAL_null=151;
-	public static final int LITERAL_numberof=152;
-	public static final int LITERAL_of=153;
-	public static final int LITERAL_on=154;
-	public static final int LITERAL_or=155;
-	public static final int LITERAL_package=156;
-	public static final int LITERAL_parameter=157;
-	public static final int LITERAL_pause=158;
-	public static final int LITERAL_post=159;
-	public static final int LITERAL_pre=160;
-	public static final int LITERAL_private=161;
-	public static final int LITERAL_product=162;
-	public static final int LITERAL_property=163;
-	public static final int LITERAL_provides=164;
-	public static final int LITERAL_public=165;
-	public static final int LITERAL_quantity=166;
-	public static final int LITERAL_range=167;
-	public static final int LITERAL_record=168;
-	public static final int LITERAL_reference=169;
-	public static final int LITERAL_rem=170;
-	public static final int LITERAL_renames=171;
-	public static final int LITERAL_representation=172;
-	public static final int LITERAL_requires=173;
-	public static final int LITERAL_returns=174;
-	public static final int LITERAL_round=175;
-	public static final int LITERAL_scalar=176;
-	public static final int LITERAL_self=177;
-	public static final int LITERAL_sequence=178;
-	public static final int LITERAL_set=179;
-	public static final int LITERAL_setmode=180;
-	public static final int LITERAL_shared=181;
-	public static final int LITERAL_skip=182;
-	public static final int LITERAL_spread=183;
-	public static final int LITERAL_state=184;
-	public static final int LITERAL_states=185;
-	public static final int LITERAL_step=186;
-	public static final int LITERAL_stop=187;
-	public static final int LITERAL_string=188;
-	public static final int LITERAL_subcomponents=189;
-	public static final int LITERAL_sum=190;
-	public static final int LITERAL_swap=191;
-	public static final int LITERAL_that=192;
-	public static final int LITERAL_then=193;
-	public static final int LITERAL_throw=194;
-	public static final int LITERAL_throws=195;
-	public static final int LITERAL_timeout=196;
-	public static final int LITERAL_to=197;
-	public static final int LITERAL_tops=198;
-	public static final int LITERAL_transition=199;
-	public static final int LITERAL_transitions=200;
-	public static final int LITERAL_true=201;
-	public static final int LITERAL_truncate=202;
-	public static final int LITERAL_type=203;
-	public static final int LITERAL_union=204;
-	public static final int LITERAL_units=205;
-	public static final int LITERAL_until=206;
-	public static final int LITERAL_updated=207;
-	public static final int LITERAL_upper_bound=208;
-	public static final int LITERAL_variables=209;
-	public static final int LITERAL_variant=210;
-	public static final int LITERAL_when=211;
-	public static final int LITERAL_which=212;
-	public static final int LITERAL_while=213;
-	public static final int LITERAL_whole=214;
-	public static final int LITERAL_with=215;
-	public static final int LITERAL_xor=216;
-	public static final int LPAREN=217;
-	public static final int LT=218;
-	public static final int LTE_STRING=219;
-	public static final int LT_STRING=220;
-	public static final int MINUS=221;
-	public static final int MT_STRING=222;
-	public static final int NEQ=223;
-	public static final int NUMBER=224;
-	public static final int OBLIGATION=225;
-	public static final int OCTOTHORPE=226;
-	public static final int OLD_NEQ=227;
-	public static final int ON=228;
-	public static final int P=229;
-	public static final int PARAMETER=230;
-	public static final int PARAMETERS=231;
-	public static final int PLUS=232;
-	public static final int PLUS_ARROW=233;
-	public static final int PLUS_EQUALS=234;
-	public static final int PORT=235;
-	public static final int PORT_INPUT=236;
-	public static final int PORT_OUTPUT=237;
-	public static final int PREDICATE_RELATION=238;
-	public static final int PROCEDURE=239;
-	public static final int Q=240;
-	public static final int QQ=241;
-	public static final int QUANTITY=242;
-	public static final int QUESTION=243;
-	public static final int RASS=244;
-	public static final int RBRACKET=245;
-	public static final int RCON=246;
-	public static final int RCURLY=247;
-	public static final int RECORD_TERM=248;
-	public static final int ROOT_DECLARATION=249;
-	public static final int RPAREN=250;
-	public static final int S=251;
-	public static final int SEMICOLON=252;
-	public static final int SLCOMMENT=253;
-	public static final int SOURCE=254;
-	public static final int START=255;
-	public static final int START_ASSERTION_PROPERTY=256;
-	public static final int STOP=257;
-	public static final int SUBPROGRAM_INVOCATION=258;
-	public static final int TICK=259;
-	public static final int TILDE=260;
-	public static final int TIMES=261;
-	public static final int TOP=262;
-	public static final int TRANSITION=263;
-	public static final int TYPE=264;
-	public static final int TYPE_LIBRARY=265;
-	public static final int TYPE_OPERATOR=266;
-	public static final int TYPE_OPERATOR_INVOCATION=267;
-	public static final int UNARY_MINUS=268;
-	public static final int UNIT_FORMULA=269;
-	public static final int UNIT_LIBRARY=270;
-	public static final int UNIT_NAME=271;
-	public static final int VALUE=272;
-	public static final int VARIABLE_DECLARATION=273;
-	public static final int VERT=274;
-	public static final int WS=275;
+	public static final int BEHAVIOR_TIME=21;
+	public static final int BI=22;
+	public static final int BLESS_SUBCLAUSE=23;
+	public static final int BOUND=24;
+	public static final int BOX=25;
+	public static final int CARET=26;
+	public static final int COLON=27;
+	public static final int COLON_TILDE=28;
+	public static final int COMMA=29;
+	public static final int COMMACOMMA=30;
+	public static final int COMMADOT=31;
+	public static final int COMPONENT=32;
+	public static final int CONDITION=33;
+	public static final int CONDITIONAL_ASSERTION_FUNCTION=34;
+	public static final int COUNTING_TRIGGER=35;
+	public static final int CVP=36;
+	public static final int DESTINATION=37;
+	public static final int DIGIT=38;
+	public static final int DIVIDE=39;
+	public static final int DOLLAR=40;
+	public static final int DOT=41;
+	public static final int DOTCOMMA=42;
+	public static final int DOTDOT=43;
+	public static final int DOUBLE_COLON=44;
+	public static final int DOUBLE_QUOTE=45;
+	public static final int DO_NOT_PROVE=46;
+	public static final int DUMMY=47;
+	public static final int EMPTY_CURLY=48;
+	public static final int END_ASSERTION_PROPERTY=49;
+	public static final int EQ=50;
+	public static final int EXCLAMATION=51;
+	public static final int EXP=52;
+	public static final int EXPONENT=53;
+	public static final int FLOATING=54;
+	public static final int FUNCTION=55;
+	public static final int GT=56;
+	public static final int GUARD=57;
+	public static final int HEX_DIGIT=58;
+	public static final int ID=59;
+	public static final int IMP=60;
+	public static final int INMODE=61;
+	public static final int INOUT=62;
+	public static final int INVARIANT=63;
+	public static final int INVOKE=64;
+	public static final int IP_NAME=65;
+	public static final int IP_PE=66;
+	public static final int IP_PRED=67;
+	public static final int LABEL=68;
+	public static final int LASS=69;
+	public static final int LBRACKET=70;
+	public static final int LCON=71;
+	public static final int LCURLY=72;
+	public static final int LITERAL_Assertion=73;
+	public static final int LITERAL_Invariant=74;
+	public static final int LITERAL_Postcondition=75;
+	public static final int LITERAL_Precondition=76;
+	public static final int LITERAL_Typed=77;
+	public static final int LITERAL_aadlboolean=78;
+	public static final int LITERAL_aadlinteger=79;
+	public static final int LITERAL_aadlreal=80;
+	public static final int LITERAL_aadlstring=81;
+	public static final int LITERAL_abs=82;
+	public static final int LITERAL_access=83;
+	public static final int LITERAL_all=84;
+	public static final int LITERAL_and=85;
+	public static final int LITERAL_any=86;
+	public static final int LITERAL_applies=87;
+	public static final int LITERAL_are=88;
+	public static final int LITERAL_array=89;
+	public static final int LITERAL_assert=90;
+	public static final int LITERAL_availability=91;
+	public static final int LITERAL_base=92;
+	public static final int LITERAL_binding=93;
+	public static final int LITERAL_boolean=94;
+	public static final int LITERAL_bound=95;
+	public static final int LITERAL_call=96;
+	public static final int LITERAL_calls=97;
+	public static final int LITERAL_case=98;
+	public static final int LITERAL_catch=99;
+	public static final int LITERAL_classifier=100;
+	public static final int LITERAL_complete=101;
+	public static final int LITERAL_component=102;
+	public static final int LITERAL_computation=103;
+	public static final int LITERAL_connection=104;
+	public static final int LITERAL_connections=105;
+	public static final int LITERAL_constant=106;
+	public static final int LITERAL_count=107;
+	public static final int LITERAL_declare=108;
+	public static final int LITERAL_def=109;
+	public static final int LITERAL_delay=110;
+	public static final int LITERAL_dispatch=111;
+	public static final int LITERAL_div=112;
+	public static final int LITERAL_do=113;
+	public static final int LITERAL_else=114;
+	public static final int LITERAL_enumeration=115;
+	public static final int LITERAL_exception=116;
+	public static final int LITERAL_exists=117;
+	public static final int LITERAL_extends=118;
+	public static final int LITERAL_extension=119;
+	public static final int LITERAL_false=120;
+	public static final int LITERAL_feature=121;
+	public static final int LITERAL_fetchadd=122;
+	public static final int LITERAL_fetchand=123;
+	public static final int LITERAL_fetchor=124;
+	public static final int LITERAL_fetchxor=125;
+	public static final int LITERAL_fi=126;
+	public static final int LITERAL_final=127;
+	public static final int LITERAL_flow=128;
+	public static final int LITERAL_for=129;
+	public static final int LITERAL_forall=130;
+	public static final int LITERAL_fresh=131;
+	public static final int LITERAL_ghost=132;
+	public static final int LITERAL_if=133;
+	public static final int LITERAL_iff=134;
+	public static final int LITERAL_implementation=135;
+	public static final int LITERAL_implies=136;
+	public static final int LITERAL_in=137;
+	public static final int LITERAL_inherit=138;
+	public static final int LITERAL_initial=139;
+	public static final int LITERAL_internal=140;
+	public static final int LITERAL_invariant=141;
+	public static final int LITERAL_inverse=142;
+	public static final int LITERAL_is=143;
+	public static final int LITERAL_list=144;
+	public static final int LITERAL_lower_bound=145;
+	public static final int LITERAL_mod=146;
+	public static final int LITERAL_mode=147;
+	public static final int LITERAL_modes=148;
+	public static final int LITERAL_nonvolatile=149;
+	public static final int LITERAL_not=150;
+	public static final int LITERAL_now=151;
+	public static final int LITERAL_null=152;
+	public static final int LITERAL_numberof=153;
+	public static final int LITERAL_of=154;
+	public static final int LITERAL_on=155;
+	public static final int LITERAL_or=156;
+	public static final int LITERAL_package=157;
+	public static final int LITERAL_parameter=158;
+	public static final int LITERAL_pause=159;
+	public static final int LITERAL_post=160;
+	public static final int LITERAL_pre=161;
+	public static final int LITERAL_private=162;
+	public static final int LITERAL_product=163;
+	public static final int LITERAL_property=164;
+	public static final int LITERAL_provides=165;
+	public static final int LITERAL_public=166;
+	public static final int LITERAL_quantity=167;
+	public static final int LITERAL_range=168;
+	public static final int LITERAL_record=169;
+	public static final int LITERAL_reference=170;
+	public static final int LITERAL_rem=171;
+	public static final int LITERAL_renames=172;
+	public static final int LITERAL_representation=173;
+	public static final int LITERAL_requires=174;
+	public static final int LITERAL_returns=175;
+	public static final int LITERAL_round=176;
+	public static final int LITERAL_scalar=177;
+	public static final int LITERAL_self=178;
+	public static final int LITERAL_sequence=179;
+	public static final int LITERAL_set=180;
+	public static final int LITERAL_setmode=181;
+	public static final int LITERAL_shared=182;
+	public static final int LITERAL_skip=183;
+	public static final int LITERAL_spread=184;
+	public static final int LITERAL_state=185;
+	public static final int LITERAL_states=186;
+	public static final int LITERAL_step=187;
+	public static final int LITERAL_stop=188;
+	public static final int LITERAL_string=189;
+	public static final int LITERAL_subcomponents=190;
+	public static final int LITERAL_sum=191;
+	public static final int LITERAL_swap=192;
+	public static final int LITERAL_that=193;
+	public static final int LITERAL_then=194;
+	public static final int LITERAL_throw=195;
+	public static final int LITERAL_throws=196;
+	public static final int LITERAL_timeout=197;
+	public static final int LITERAL_to=198;
+	public static final int LITERAL_tops=199;
+	public static final int LITERAL_transition=200;
+	public static final int LITERAL_transitions=201;
+	public static final int LITERAL_true=202;
+	public static final int LITERAL_truncate=203;
+	public static final int LITERAL_type=204;
+	public static final int LITERAL_union=205;
+	public static final int LITERAL_units=206;
+	public static final int LITERAL_until=207;
+	public static final int LITERAL_updated=208;
+	public static final int LITERAL_upper_bound=209;
+	public static final int LITERAL_variables=210;
+	public static final int LITERAL_variant=211;
+	public static final int LITERAL_when=212;
+	public static final int LITERAL_which=213;
+	public static final int LITERAL_while=214;
+	public static final int LITERAL_whole=215;
+	public static final int LITERAL_with=216;
+	public static final int LITERAL_xor=217;
+	public static final int LPAREN=218;
+	public static final int LT=219;
+	public static final int LTE_STRING=220;
+	public static final int LT_STRING=221;
+	public static final int MINUS=222;
+	public static final int MT_STRING=223;
+	public static final int NEQ=224;
+	public static final int NUMBER=225;
+	public static final int OBLIGATION=226;
+	public static final int OCTOTHORPE=227;
+	public static final int OLD_NEQ=228;
+	public static final int ON=229;
+	public static final int P=230;
+	public static final int PARAMETER=231;
+	public static final int PARAMETERS=232;
+	public static final int PLUS=233;
+	public static final int PLUS_ARROW=234;
+	public static final int PLUS_EQUALS=235;
+	public static final int PORT=236;
+	public static final int PORT_INPUT=237;
+	public static final int PORT_OUTPUT=238;
+	public static final int PREDICATE_RELATION=239;
+	public static final int PROCEDURE=240;
+	public static final int Q=241;
+	public static final int QQ=242;
+	public static final int QUANTITY=243;
+	public static final int QUESTION=244;
+	public static final int RASS=245;
+	public static final int RBRACKET=246;
+	public static final int RCON=247;
+	public static final int RCURLY=248;
+	public static final int RECORD_TERM=249;
+	public static final int ROOT_DECLARATION=250;
+	public static final int RPAREN=251;
+	public static final int S=252;
+	public static final int SEMICOLON=253;
+	public static final int SLCOMMENT=254;
+	public static final int SOURCE=255;
+	public static final int START=256;
+	public static final int START_ASSERTION_PROPERTY=257;
+	public static final int STOP=258;
+	public static final int SUBPROGRAM_INVOCATION=259;
+	public static final int TICK=260;
+	public static final int TILDE=261;
+	public static final int TIMES=262;
+	public static final int TOP=263;
+	public static final int TRANSITION=264;
+	public static final int TYPE=265;
+	public static final int TYPE_LIBRARY=266;
+	public static final int TYPE_OPERATOR=267;
+	public static final int TYPE_OPERATOR_INVOCATION=268;
+	public static final int UNARY_MINUS=269;
+	public static final int UNIT_FORMULA=270;
+	public static final int UNIT_LIBRARY=271;
+	public static final int UNIT_NAME=272;
+	public static final int VALUE=273;
+	public static final int VARIABLE_DECLARATION=274;
+	public static final int VERT=275;
+	public static final int WS=276;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -1147,6 +1148,7 @@ public class ASTtoAST extends TreeParser {
 							case ASSIGN:
 							case AT_SIGN:
 							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
 							case BI:
 							case BLESS_SUBCLAUSE:
 							case BOUND:
@@ -1467,6 +1469,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -1778,6 +1781,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -2089,6 +2093,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -2400,6 +2405,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -2675,6 +2681,7 @@ public class ASTtoAST extends TreeParser {
 							case ASSIGN:
 							case AT_SIGN:
 							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
 							case BI:
 							case BLESS_SUBCLAUSE:
 							case BOUND:
@@ -2978,6 +2985,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -3260,6 +3268,7 @@ public class ASTtoAST extends TreeParser {
 				case ASSIGN:
 				case AT_SIGN:
 				case BEHAVIOR_GUARD:
+				case BEHAVIOR_TIME:
 				case BI:
 				case BLESS_SUBCLAUSE:
 				case BOUND:
@@ -4336,6 +4345,7 @@ public class ASTtoAST extends TreeParser {
 							case ASSIGN:
 							case AT_SIGN:
 							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
 							case BI:
 							case BLESS_SUBCLAUSE:
 							case BOUND:
@@ -4656,6 +4666,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -4967,6 +4978,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -5278,6 +5290,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -5589,6 +5602,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -5864,6 +5878,7 @@ public class ASTtoAST extends TreeParser {
 							case ASSIGN:
 							case AT_SIGN:
 							case BEHAVIOR_GUARD:
+							case BEHAVIOR_TIME:
 							case BI:
 							case BLESS_SUBCLAUSE:
 							case BOUND:
@@ -6167,6 +6182,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -6449,6 +6465,7 @@ public class ASTtoAST extends TreeParser {
 				case ASSIGN:
 				case AT_SIGN:
 				case BEHAVIOR_GUARD:
+				case BEHAVIOR_TIME:
 				case BI:
 				case BLESS_SUBCLAUSE:
 				case BOUND:
@@ -6916,6 +6933,7 @@ public class ASTtoAST extends TreeParser {
 											case ASSIGN:
 											case AT_SIGN:
 											case BEHAVIOR_GUARD:
+											case BEHAVIOR_TIME:
 											case BI:
 											case BLESS_SUBCLAUSE:
 											case BOUND:
@@ -7226,6 +7244,7 @@ public class ASTtoAST extends TreeParser {
 									case ASSIGN:
 									case AT_SIGN:
 									case BEHAVIOR_GUARD:
+									case BEHAVIOR_TIME:
 									case BI:
 									case BLESS_SUBCLAUSE:
 									case BOUND:
@@ -7682,16 +7701,16 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, par, l, formals, p, a
-					// token labels: ass, par, a, l
+					// elements: l, par, a, formals, p, ass
+					// token labels: par, ass, a, l
 					// rule labels: formals, retval
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
-					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
+					RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"wildcard p",p);
@@ -7784,7 +7803,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: l, p, a, ass
+					// elements: ass, p, l, a
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -7854,7 +7873,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: ass, p
+					// elements: p, ass
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -9042,7 +9061,7 @@ public class ASTtoAST extends TreeParser {
 
 
 			// AST REWRITE
-			// elements: ass, pred
+			// elements: pred, ass
 			// token labels: ass
 			// rule labels: retval
 			// token list labels: 
@@ -9104,20 +9123,20 @@ public class ASTtoAST extends TreeParser {
 	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
 	static final String DFA4_maxS =
-		"\1\u0113\1\u00f7\1\uffff\2\u0113\1\uffff\1\u0113\1\u00f7";
+		"\1\u0114\1\u00f8\1\uffff\2\u0114\1\uffff\1\u0114\1\u00f8";
 	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
 	static final String DFA4_specialS =
 		"\10\uffff}>";
 	static final String[] DFA4_transitionS = {
-			"\147\2\1\1\u00a8\2",
-			"\1\3\u00f4\uffff\1\2",
+			"\150\2\1\1\u00a8\2",
+			"\1\3\u00f5\uffff\1\2",
 			"",
-			"\1\5\u0110\4",
-			"\1\5\1\6\u0110\4",
+			"\1\5\u0111\4",
+			"\1\5\1\6\u0111\4",
 			"",
-			"\u00f3\5\1\7\34\5",
-			"\1\5\1\2\136\uffff\1\2\u0094\uffff\1\5"
+			"\u00f4\5\1\7\34\5",
+			"\1\5\1\2\137\uffff\1\2\u0094\uffff\1\5"
 	};
 
 	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
@@ -9161,10 +9180,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_PARAMETERS_in_getPredicateFromAssertion112 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getBehaviorActionsFromELQ150 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ154 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L});
+	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000000800000000L});
 	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
@@ -9176,10 +9195,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000080L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000100L,0x0000000000000000L,0x2000000000000000L});
 	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0080000000000000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0100000000000000L});
 	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
@@ -9192,9 +9211,9 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_ASSERTION_in_anAssertion626 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_variable_in_variableList667 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
 	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000000FFFFFL});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x00000000001FFFFFL});
 	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
@@ -9205,10 +9224,10 @@ public class ASTtoAST extends TreeParser {
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000080L,0x0000000000000000L,0x1000000000000000L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0000000000000448L,0x0000000000000100L,0x0000000000000000L,0x2000000000000000L});
 	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause984 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause984 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L,0x0000000000002000L});
 	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause996 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1014 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1027 = new BitSet(new long[]{0x0000000000000004L});

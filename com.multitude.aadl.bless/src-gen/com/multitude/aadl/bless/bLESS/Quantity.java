@@ -20,8 +20,8 @@ import org.osate.aadl2.Element;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#getNumber <em>Number</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#isScalar <em>Scalar</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#isWhole <em>Whole</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.Quantity#getWhole <em>Whole</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantity()
@@ -79,43 +79,43 @@ public interface Quantity extends EObject, Element
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Scalar</em>' attribute.
-   * @see #setScalar(boolean)
+   * @see #setScalar(String)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantity_Scalar()
    * @model
    * @generated
    */
-  boolean isScalar();
+  String getScalar();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Quantity#isScalar <em>Scalar</em>}' attribute.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Quantity#getScalar <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Scalar</em>' attribute.
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    */
-  void setScalar(boolean value);
+  void setScalar(String value);
 
   /**
    * Returns the value of the '<em><b>Whole</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Whole</em>' attribute.
-   * @see #setWhole(boolean)
+   * @see #setWhole(String)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantity_Whole()
    * @model
    * @generated
    */
-  boolean isWhole();
+  String getWhole();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Quantity#isWhole <em>Whole</em>}' attribute.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Quantity#getWhole <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Whole</em>' attribute.
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    */
-  void setWhole(boolean value);
+  void setWhole(String value);
 
 } // Quantity

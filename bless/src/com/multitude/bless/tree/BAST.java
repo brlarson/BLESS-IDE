@@ -1088,7 +1088,7 @@ private static int tab=0;  //tabbing for toStringTree
     if (ofThis.getChildCount()==0 && withThis.getChildCount()==0)
       try
         {
-        replaceNodes(ofThis,withThis);
+        replaceNodes(ofThis.dupNode(),withThis.dupNode());
         }
       catch (YouIdiot yi)
         {

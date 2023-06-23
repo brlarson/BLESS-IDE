@@ -359,7 +359,9 @@
     <genClasses ecoreClass="BLESS.ecore#//BehaviorTime">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BehaviorTime/quantity"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BehaviorTime/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//BehaviorTime/duration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//BehaviorTime/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//BehaviorTime/scalar"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//BehaviorTime/whole"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//Exception">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Exception/description"/>

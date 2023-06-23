@@ -20,7 +20,9 @@ import org.osate.aadl2.Element;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getQuantity <em>Quantity</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getValue <em>Value</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getDuration <em>Duration</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getUnit <em>Unit</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getWhole <em>Whole</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBehaviorTime()
@@ -74,25 +76,69 @@ public interface BehaviorTime extends EObject, Element
   void setValue(ValueName value);
 
   /**
-   * Returns the value of the '<em><b>Duration</b></em>' containment reference.
+   * Returns the value of the '<em><b>Unit</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Duration</em>' containment reference.
-   * @see #setDuration(ParenthesizedSubexpression)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBehaviorTime_Duration()
-   * @model containment="true"
+   * @return the value of the '<em>Unit</em>' reference.
+   * @see #setUnit(UnitName)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBehaviorTime_Unit()
+   * @model
    * @generated
    */
-  ParenthesizedSubexpression getDuration();
+  UnitName getUnit();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getDuration <em>Duration</em>}' containment reference.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getUnit <em>Unit</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Duration</em>' containment reference.
-   * @see #getDuration()
+   * @param value the new value of the '<em>Unit</em>' reference.
+   * @see #getUnit()
    * @generated
    */
-  void setDuration(ParenthesizedSubexpression value);
+  void setUnit(UnitName value);
+
+  /**
+   * Returns the value of the '<em><b>Scalar</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Scalar</em>' attribute.
+   * @see #setScalar(String)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBehaviorTime_Scalar()
+   * @model
+   * @generated
+   */
+  String getScalar();
+
+  /**
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getScalar <em>Scalar</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Scalar</em>' attribute.
+   * @see #getScalar()
+   * @generated
+   */
+  void setScalar(String value);
+
+  /**
+   * Returns the value of the '<em><b>Whole</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Whole</em>' attribute.
+   * @see #setWhole(String)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getBehaviorTime_Whole()
+   * @model
+   * @generated
+   */
+  String getWhole();
+
+  /**
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getWhole <em>Whole</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Whole</em>' attribute.
+   * @see #getWhole()
+   * @generated
+   */
+  void setWhole(String value);
 
 } // BehaviorTime

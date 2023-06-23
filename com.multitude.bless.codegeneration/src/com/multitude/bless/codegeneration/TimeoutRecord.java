@@ -24,15 +24,16 @@ public TimeoutRecord(){};
       }
     BAST behavior_time = (BAST) t.getChild(t.getChildCount() - 1);
     BAST e = (BAST) behavior_time.getChild(0);
-    if (e.getChildCount() > 0)
-      {
-      Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
-      }
-    else
-      {
-      duration = e.getText();
-      sb.append(duration);
-      }
+    if (e != null)
+//      if (e.getChildCount() > 0)
+//        {
+//        Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
+//        }
+//      else
+        {
+        duration = e.getText();
+        sb.append(duration);
+        }
     timeUnit = ((BAST) behavior_time.getChild(0)).getText();
     timeoutPortId = sb.toString();
     }

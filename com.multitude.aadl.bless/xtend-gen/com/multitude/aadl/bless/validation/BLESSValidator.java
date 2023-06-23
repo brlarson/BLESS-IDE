@@ -807,7 +807,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
             } else {
               if ((this.isQuantity(this.getType(i.getActual_parameter())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst())))) {
                 Type _type = this.getType(i.getActual_parameter());
-                Type _type_1 = this.getType(i.getLabel().getFormals().getFirst());
+                Type _type_1 = this.getType(i.getLabel().getFormals().getFirst().getTod());
                 boolean _sameUnitRoot = this._unitUtil.sameUnitRoot(((QuantityType) _type).getUnit(), ((QuantityType) _type_1).getUnit());
                 boolean _not_1 = (!_sameUnitRoot);
                 if (_not_1) {
@@ -2730,17 +2730,19 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_tripleNotEquals) {
       qt.setUnit(q.getUnit());
     } else {
-      boolean _isScalar = q.isScalar();
-      if (_isScalar) {
+      String _scalar = q.getScalar();
+      boolean _tripleNotEquals_1 = (_scalar != null);
+      if (_tripleNotEquals_1) {
         qt.setScalar("scalar");
       } else {
-        boolean _isWhole = q.isWhole();
-        if (_isWhole) {
+        String _whole = q.getWhole();
+        boolean _tripleNotEquals_2 = (_whole != null);
+        if (_tripleNotEquals_2) {
           qt.setWhole("whole");
         } else {
           String _lit = q.getNumber().getLit();
-          boolean _tripleNotEquals_1 = (_lit != null);
-          if (_tripleNotEquals_1) {
+          boolean _tripleNotEquals_3 = (_lit != null);
+          if (_tripleNotEquals_3) {
             boolean _contains = q.getNumber().getLit().contains(".");
             if (_contains) {
               qt.setScalar("scalar");
@@ -3472,27 +3474,20 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public UnitRecord getUnitRecord(final BehaviorTime a) {
     UnitRecord _elvis = null;
-    UnitRecord _elvis_1 = null;
     Quantity _quantity = a.getQuantity();
     UnitRecord _unitRecord = null;
     if (_quantity!=null) {
       _unitRecord=this.getUnitRecord(_quantity);
     }
     if (_unitRecord != null) {
-      _elvis_1 = _unitRecord;
+      _elvis = _unitRecord;
     } else {
       ValueName _value = a.getValue();
       UnitRecord _unitRecord_1 = null;
       if (_value!=null) {
         _unitRecord_1=this.getUnitRecord(_value);
       }
-      _elvis_1 = _unitRecord_1;
-    }
-    if (_elvis_1 != null) {
-      _elvis = _elvis_1;
-    } else {
-      UnitRecord _unitRecord_2 = this.getUnitRecord(a.getDuration());
-      _elvis = _unitRecord_2;
+      _elvis = _unitRecord_1;
     }
     return _elvis;
   }

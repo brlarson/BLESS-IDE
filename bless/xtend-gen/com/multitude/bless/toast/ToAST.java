@@ -2996,34 +2996,55 @@ public class ToAST {
   protected BAST _toAST(final BehaviorTime e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
-      BAST _elvis = null;
-      BAST _elvis_1 = null;
-      Quantity _quantity = e.getQuantity();
-      BAST _aST = null;
-      if (_quantity!=null) {
-        _aST=this.toAST(_quantity);
-      }
-      if (_aST != null) {
-        _elvis_1 = _aST;
-      } else {
-        ValueName _value = e.getValue();
-        BAST _aST_1 = null;
-        if (_value!=null) {
-          _aST_1=this.toAST(_value);
+      BAST _newBAST = this.newBAST(e);
+      final Procedure1<BAST> _function = (BAST it) -> {
+        it.myText = "BEHAVIOR_TIME";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.BEHAVIOR_TIME, "BEHAVIOR_TIME");
+        it.token = _commonToken;
+        Quantity _quantity = e.getQuantity();
+        boolean _tripleNotEquals = (_quantity != null);
+        if (_tripleNotEquals) {
+          it.addChild(this.toAST(e.getQuantity()));
+        } else {
+          ValueName _value = e.getValue();
+          boolean _tripleNotEquals_1 = (_value != null);
+          if (_tripleNotEquals_1) {
+            it.addChild(this.toAST(e.getValue()));
+            UnitName _unit = e.getUnit();
+            boolean _tripleNotEquals_2 = (_unit != null);
+            if (_tripleNotEquals_2) {
+              it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
+            } else {
+              String _scalar = e.getScalar();
+              boolean _tripleNotEquals_3 = (_scalar != null);
+              if (_tripleNotEquals_3) {
+                BAST _newBAST_1 = this.newBAST(e);
+                final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+                  it_1.myText = "scalar";
+                  CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_scalar, "scalar");
+                  it_1.token = _commonToken_1;
+                };
+                BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+                it.addChild(_doubleArrow);
+              } else {
+                String _whole = e.getWhole();
+                boolean _tripleNotEquals_4 = (_whole != null);
+                if (_tripleNotEquals_4) {
+                  BAST _newBAST_2 = this.newBAST(e);
+                  final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+                    it_1.myText = "whole";
+                    CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_whole, "whole");
+                    it_1.token = _commonToken_1;
+                  };
+                  BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+                  it.addChild(_doubleArrow_1);
+                }
+              }
+            }
+          }
         }
-        _elvis_1 = _aST_1;
-      }
-      if (_elvis_1 != null) {
-        _elvis = _elvis_1;
-      } else {
-        ParenthesizedSubexpression _duration = e.getDuration();
-        BAST _aST_2 = null;
-        if (_duration!=null) {
-          _aST_2=this.toAST(_duration);
-        }
-        _elvis = _aST_2;
-      }
-      _xtrycatchfinallyexpression = _elvis;
+      };
+      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception ex = (Exception)_t;
@@ -4237,8 +4258,9 @@ public class ToAST {
       if (_tripleNotEquals) {
         it.addChild(this.makeBASTforID(e.getUnit().getName(), e));
       } else {
-        boolean _isScalar = e.isScalar();
-        if (_isScalar) {
+        String _scalar = e.getScalar();
+        boolean _tripleNotEquals_1 = (_scalar != null);
+        if (_tripleNotEquals_1) {
           BAST _newBAST_1 = this.newBAST(e);
           final Procedure1<BAST> _function_1 = (BAST it_1) -> {
             it_1.myText = "scalar";
@@ -4248,8 +4270,9 @@ public class ToAST {
           BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           it.addChild(_doubleArrow);
         } else {
-          boolean _isWhole = e.isWhole();
-          if (_isWhole) {
+          String _whole = e.getWhole();
+          boolean _tripleNotEquals_2 = (_whole != null);
+          if (_tripleNotEquals_2) {
             BAST _newBAST_2 = this.newBAST(e);
             final Procedure1<BAST> _function_2 = (BAST it_1) -> {
               it_1.myText = "whole";

@@ -1062,7 +1062,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns BehaviorTime
 	 *
 	 * Constraint:
-	 *     (quantity=Quantity | value=ValueName | duration=ParenthesizedSubexpression)
+	 *     (quantity=Quantity | (value=ValueName (unit=[UnitName|ID] | scalar='scalar' | whole='whole')?))
 	 * </pre>
 	 */
 	protected void sequence_BehaviorTime(ISerializationContext context, BehaviorTime semanticObject) {
@@ -2458,7 +2458,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns Quantity
 	 *
 	 * Constraint:
-	 *     (number=ANumber (unit=[UnitName|ID] | scalar?='scalar' | whole?='whole')?)
+	 *     (number=ANumber (unit=[UnitName|ID] | scalar='scalar' | whole='whole')?)
 	 * </pre>
 	 */
 	protected void sequence_Quantity(ISerializationContext context, Quantity semanticObject) {

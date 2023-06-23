@@ -1501,12 +1501,10 @@ dispatchTrigger
   ;
 
 behaviorTime:
-  q=quantity
+  ^( BEHAVIOR_TIME q=quantity )
     -> {$q.st}
-  | vn=valueName
-    -> {$vn.st}
-  | ps=parenthesizedSubexpression
-    -> {$ps.st}
+  |  ^( BEHAVIOR_TIME  vn=valueName ( u=ID | s=LITERAL_scalar | w=LITERAL_whole )? )
+    -> template(vn={$vn.st}, u={$u.text},  s={$s.text},  w={$w.text}) "<vn> <u><s><w>"
   ;	
 
 portName
