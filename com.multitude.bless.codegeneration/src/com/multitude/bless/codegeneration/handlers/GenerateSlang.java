@@ -275,8 +275,8 @@ generateSlangForComponentInstance(List<String> path, ComponentInstance ci)
 generateSlangForAction(List<String> path, BAST ast)
   throws YouIdiot
   {
-
-  }  //end of generateSlangForBLESS
+  throw new YouIdiot("No Slang generation for Action annex subclauses, yet.", ast);
+  }  //end of generateSlangForAction
 	
   private String 
 makeSlangFileName(List<String> path, ComponentInstance ci)
