@@ -1778,21 +1778,18 @@ public class ToAST {
             };
             BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
             it.addChild(_doubleArrow);
-            boolean _isDot = e.isDot();
-            if (_isDot) {
-              BAST _newBAST_3 = this.newBAST(e);
-              final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-                it_1.myText = ".";
-                CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.DOT, ".");
-                it_1.token = _commonToken_1;
-                EList<PartialName> _pn = e.getPn();
-                for (final PartialName partial_name : _pn) {
-                  it_1.addChild(this.toAST(partial_name));
-                }
-              };
-              BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-              it.addChild(_doubleArrow_1);
-            }
+            BAST _newBAST_3 = this.newBAST(e);
+            final Procedure1<BAST> _function_3 = (BAST it_1) -> {
+              it_1.myText = ".";
+              CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.DOT, ".");
+              it_1.token = _commonToken_1;
+              EList<PartialName> _pn = e.getPn();
+              for (final PartialName partial_name : _pn) {
+                it_1.addChild(this.toAST(partial_name));
+              }
+            };
+            BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
+            it.addChild(_doubleArrow_1);
           };
           _xifexpression_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
         } else {

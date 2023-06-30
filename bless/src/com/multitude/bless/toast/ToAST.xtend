@@ -1120,7 +1120,8 @@ toAST(ValueName e)
           for (index : e.array_index)
             addChild(index.toAST)
           ])
-        if (e.dot) //partial names in addition to array index?
+//        if (e.dot) //partial names in addition to array index?
+//    always include a dot, even when here are no partial names for UnparseBLESS3.g
           addChild(newBAST(e) =>  [
             myText = '.'
             token = new CommonToken(BLESS3Lexer.DOT, '.')
