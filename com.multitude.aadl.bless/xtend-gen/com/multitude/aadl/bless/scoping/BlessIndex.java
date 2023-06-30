@@ -14,6 +14,7 @@ import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitExtension;
 import com.multitude.aadl.bless.bLESS.UnitName;
+import com.multitude.aadl.bless.exception.ValidationException;
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -265,6 +266,13 @@ public class BlessIndex {
   public RootDeclaration getRootDeclaration(final UnitName o) {
     RootDeclaration _xblockexpression = null;
     {
+      final UnitExtension ue = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class);
+      if ((ue != null)) {
+        EObject _resolve = EcoreUtil.resolve(ue.getRoot(), o);
+        final UnitName extensionRoot = ((UnitName) _resolve);
+        EObject _eContainer = extensionRoot.eContainer();
+        return ((RootDeclaration) _eContainer);
+      }
       RootDeclaration rd = EcoreUtil2.<RootDeclaration>getContainerOfType(o, RootDeclaration.class);
       if ((rd == null)) {
         final Function1<RootDeclaration, Boolean> _function = (RootDeclaration it) -> {
@@ -338,11 +346,19 @@ public class BlessIndex {
     return _xblockexpression;
   }
 
-  public Type getTypeFromID(final String id, final Resource r) {
-    final Function1<TypeDeclaration, Boolean> _function = (TypeDeclaration it) -> {
-      String _name = it.getName();
-      return Boolean.valueOf(Objects.equal(_name, id));
-    };
-    return IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function)).getType();
+  public Type getTypeFromID(final String id, final Resource r) throws ValidationException {
+    Type _xblockexpression = null;
+    {
+      final Function1<TypeDeclaration, Boolean> _function = (TypeDeclaration it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equal(_name, id));
+      };
+      final TypeDeclaration td = IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function));
+      if ((td == null)) {
+        throw new ValidationException((("No type declaration found for \"" + id) + "\""));
+      }
+      _xblockexpression = td.getType();
+    }
+    return _xblockexpression;
   }
 }

@@ -79,9 +79,7 @@ public class UnitUtil {
   }
 
   public boolean sameUnitRoot(final UnitName u1, final UnitName u2) {
-    UnitName _rootUnit = this._blessIndex.getRootUnit(u1);
-    UnitName _rootUnit_1 = this._blessIndex.getRootUnit(u2);
-    return Objects.equal(_rootUnit, _rootUnit_1);
+    return ((u1.getName().compareTo(u2.getName()) == 0) || Objects.equal(this._blessIndex.getRootUnit(u1), this._blessIndex.getRootUnit(u2)));
   }
 
   public boolean sameUnitRoot(final Iterable<UnitName> unitSet) {

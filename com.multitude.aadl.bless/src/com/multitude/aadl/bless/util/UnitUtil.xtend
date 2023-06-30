@@ -61,7 +61,7 @@ def boolean allLetters(String s)
 
 def boolean sameUnitRoot(UnitName u1, UnitName u2)
   {
-  	u1.getRootUnit == u2.getRootUnit
+  	u1.name.compareTo(u2.name)==0 || u1.getRootUnit == u2.getRootUnit
   }
 
 def boolean sameUnitRoot(Iterable<UnitName> unitSet)

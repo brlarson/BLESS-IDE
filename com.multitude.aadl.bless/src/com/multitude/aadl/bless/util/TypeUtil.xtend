@@ -38,6 +38,7 @@ import com.multitude.aadl.bless.parser.antlr.BLESSParser
 import org.eclipse.emf.ecore.resource.Resource
 import com.multitude.aadl.bless.exception.ParseException
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
+import com.multitude.aadl.bless.exception.ValidationException
 
 class TypeUtil {
 
@@ -127,8 +128,9 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
      n?.lit  ?:
      n?.property?.pname?.name ?:
      n?.property?.spname?.name ?:
-     n?.property?.component.getPropertyValue(n.property.cpname).toString ?:
-     n?.propertyConstant.constantValue.toString
+//     n?.property?.component?.getPropertyValue(n.property?.cpname).toString ?:
+     n?.propertyConstant.constantValue.toString ?:
+     n.toString
      }
      
    def boolean recordHasFieldWith(RecordType r, String label, Type typ) 
@@ -187,7 +189,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
     return null
     }  //end of getFeatureType
     
-  def Type getTypeOfString(String str, EObject context)
+  def Type getTypeOfString(String str, EObject context) throws ValidationException
   {
     if (str.startsWith("boolean"))
       return booleanType

@@ -21,6 +21,7 @@ import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
 import com.multitude.aadl.bless.BlessControl
 import com.multitude.aadl.bless.bLESS.Type
+import com.multitude.aadl.bless.exception.ValidationException
 
 //import org.example.smalljava.smallJava.SmallJavaPackage
 class BlessIndex
@@ -167,6 +168,12 @@ getRootUnit(UnitName o)
 	def RootDeclaration 
 getRootDeclaration(UnitName o)
 	{
+	val ue = EcoreUtil2.getContainerOfType(o, UnitExtension)
+	if (ue !== null)
+	  {
+	  val UnitName extensionRoot = EcoreUtil.resolve(ue.root,o) as UnitName
+	  return extensionRoot.eContainer as RootDeclaration
+	  }
 	var rd = EcoreUtil2.getContainerOfType(o, RootDeclaration)
 	if (rd === null)
 		rd = o.getVisibleRootDeclarations.filter[it.unitName.name.equals(o.name)].head
@@ -219,9 +226,12 @@ def	UnitName getTimeUnit(EObject o)
   }
   
 
-def Type getTypeFromID(String id, Resource r)
+def Type getTypeFromID(String id, Resource r) throws ValidationException
   {
-  r.getVisibleTypeDeclarations.filter[it.name==id].head.type 
+  val td = r.getVisibleTypeDeclarations.filter[it.name==id].head
+  if (td ===null)
+    throw new ValidationException("No type declaration found for \""+id+"\"")
+  td.type 
   }
   
 //def UnitName findRootUnitWithTopAndBottom(EObject o, EList<UnitName> t, EList<UnitName> b)

@@ -401,7 +401,7 @@ def void checkThatNamelessFunctionHaveQuantity(NamelessFunction n)
 @Check(CheckType.NORMAL)
 def void checkThatNamedAssertionType(NamedAssertion n)
   {
-  if (n.pred && !n.predicate.getType.boolean)	
+  if (n.pred && !n.predicate.getType.isBoolean)	
     fError('Assertions must have boolean predicates.',n,
 			BLESSPackage::eINSTANCE.namedAssertion_Predicate, IssueCodes.TYPE_MUST_BE_BOOLEAN)   
   if (n.func && !(n.functionvalue.getType.sameStructuralType(n.tod.getType)))
@@ -647,14 +647,29 @@ def void checkNamedAssertionInvocation(Invocation i)
     {  //one parameter
     if (i.label.formals.parameter !== null && i.label.formals.parameter.size > 0) 
         fError('Invoked assertion has more than one parameter.',i,
-            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
-    else if (!sameStructuralType(i.actual_parameter.getType, i.label.formals.first.getType))  
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)  
+    val Type actualType = (i.actual_parameter as Expression).getType      
+    val formalType = i.label.formals.first.getType 
+    if (!sameStructuralType(actualType, formalType))  
         fError('Invocation parameter type mismatch.',i,
             BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
-    else if (i.actual_parameter.getType.isQuantity && i.label.formals.first.getType.isQuantity) 
-      if (!sameUnitRoot((i.actual_parameter.getType as QuantityType).unit, (i.label.formals.first.tod.getType as QuantityType).unit)) 
-        fError('Invocation parameter unit mismatch.',i,
-            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    if (actualType.isQuantity && formalType.isQuantity) 
+      {
+      val actualQuantity = actualType as QuantityType
+      val formalQuantity = formalType as QuantityType
+      if (actualQuantity.whole !== null && formalQuantity.whole === null)
+        fError('Invocation actual parameter is whole, but it\'s formal parameter is not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.scalar !== null && formalQuantity.scalar === null)
+        fError('Invocation actual parameter is scalar, but it\'s formal parameter is not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.unit !== null && formalQuantity.unit === null)
+        fError('Invocation actual parameter has a unit, but it\'s formal parameter does not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.unit !== null && formalQuantity.unit !== null && !sameUnitRoot(actualQuantity.unit, formalQuantity.unit)) 
+        fError('Invocation parameter unit mismatch; '+actualQuantity.unit.name+" is not "+formalQuantity.unit.name,i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      }    
     }
   else  //multiple parameters
     {  //check number
@@ -1001,11 +1016,17 @@ def void checkPortInput(PortInput n)
       BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
   if (!n.port.direction.incoming)
     fError('Port input of port that is not \'in\'.',n,
-      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED) 
+  try {  
   if (n.target.id!==null && n.target.id instanceof Variable && 
         !n.port.featureType.sameStructuralType((n.target.id as Variable).tod.getType))
     fError('Target of port input must have same type as its port.',n,
-      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_WRONG_TYPE)   
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_WRONG_TYPE) 
+      } 
+  catch (ValidationException ve)
+    fError(ve.getMessage(),n,
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_WRONG_TYPE) 
+    
   }
 
 //@Check(CheckType.NORMAL)
@@ -1092,7 +1113,10 @@ def void checkTimeoutBehaviorTimeHasTimeUnits(DispatchTrigger dt)
     if (ur === null)
     	fError('No unit definition found for timeout duration.',dt,
 						BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.UNIT_DEFINITION_NOT_FOUND) 
-    if (!ur.rootUnit.name.equals('s'))
+    else if (ur.rootUnit === null || ur.rootUnit.name === null)
+      fError('Timeout dispatch trigger has no root unit.',dt,
+            BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.MUST_HAVE_TIME_UNITS)             
+    else if (!ur.rootUnit.name.equals('s'))
     	fError('Timeout dispatch trigger must have time units, but has unit \''+ur.rootUnit.name+'\'.',dt,
 						BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.MUST_HAVE_TIME_UNITS) 						
 		}
@@ -1246,7 +1270,7 @@ checkPortNamesForCodegen(DispatchTrigger dt)
   {
   if (dt.port !== null)
     {
-    if (dt.port.port.name.equalsIgnoreCase("halt"))
+    if (dt.port.port.name !==null && dt.port.port.name.equalsIgnoreCase("halt"))
       fWarning('"halt" should not be used as a port name due to code generation name conflict.',
         dt, BLESSPackage.eINSTANCE.dispatchTrigger_Port )
     }
@@ -1793,10 +1817,9 @@ def Type getType(ValueName a)
         else
           return getType(a.pn, (nameRootType as ArrayType).typ.getType) // get partial name type
       }
-      if (!a.dot) // no index, no record field reference
-        return nameRootType
-      else
+      if (a.dot) // no index, no record field reference
         return getType(a.pn, nameRootType) // get partial name type
+     return nameRootType   
     }
 //  if (a.id instanceof Property)
 //    return getType(a.id as Property)
@@ -2515,10 +2538,16 @@ def UnitRecord getUnitRecord(ConditionalAssertionFunction a)
   
 def UnitRecord getUnitRecord(BehaviorTime a)
   {
-  a.quantity?.getUnitRecord ?:
-  a.value?.getUnitRecord 
-//  ?:
-//  a.duration.getUnitRecord
+  if (a.quantity !== null)  
+    a.quantity.getUnitRecord 
+  else if (a.whole !== null)
+    whole
+  else if (a.scalar !== null)
+    scalar
+  else if (a.unit !== null)
+    a.unit.toUnitRecord
+  else
+    a.value.getUnitRecord
   }
 
 
@@ -2736,11 +2765,9 @@ def boolean isWhole(MultDiv e)
 
 def boolean isWhole(Exp e)
   {
-  if (!e.l.isWhole)
-    return false
-  if (!e.r.isWhole)
-      return false
-  true      
+  if (e.r === null)
+    e.l.isWhole
+  else e.l.isWhole && e.r.whole
   }
   
 def boolean isWhole(NumericExpression e) 

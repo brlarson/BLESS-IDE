@@ -305,8 +305,8 @@ LPAREN : '(';
 RPAREN : ')';
 LBRACKET : '[';
 RBRACKET : ']';
-COLON : ':';
 DOUBLE_COLON : '::';
+COLON : ':';
 COMMA : ',';
 AT_SIGN : '@';
 CARET : '^';
@@ -1040,7 +1040,7 @@ recordTerm
   
 recordValue
   :
-  /*record_field_*/identifier ARROW^ value SEMICOLON!
+  /*record_field_*/identifier ARROW^ value ( SEMICOLON! )?
   ;  
   
 periodShift:

@@ -24,17 +24,18 @@ import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.Value;
+import com.multitude.aadl.bless.exception.ValidationException;
 import com.multitude.aadl.bless.maps.BlessMaps;
 import com.multitude.aadl.bless.parser.antlr.BLESSParser;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.osate.aadl2.Classifier;
-import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.EventPort;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.ModalPropertyValue;
@@ -209,25 +210,17 @@ public class TypeUtil {
     if (_elvis_2 != null) {
       _elvis_1 = _elvis_2;
     } else {
-      PropertyReference _property_2 = null;
+      PropertyConstant _propertyConstant = null;
       if (n!=null) {
-        _property_2=n.getProperty();
+        _propertyConstant=n.getPropertyConstant();
       }
-      ComponentClassifier _component = null;
-      if (_property_2!=null) {
-        _component=_property_2.getComponent();
-      }
-      String _string = _component.getPropertyValue(n.getProperty().getCpname()).toString();
+      String _string = _propertyConstant.getConstantValue().toString();
       _elvis_1 = _string;
     }
     if (_elvis_1 != null) {
       _elvis = _elvis_1;
     } else {
-      PropertyConstant _propertyConstant = null;
-      if (n!=null) {
-        _propertyConstant=n.getPropertyConstant();
-      }
-      String _string_1 = _propertyConstant.getConstantValue().toString();
+      String _string_1 = n.toString();
       _elvis = _string_1;
     }
     return _elvis;
@@ -276,31 +269,35 @@ public class TypeUtil {
   private final String idregex = "[a-zA-Z][[_]?[a-zA-Z0-9]]*";
 
   public Type getFeatureType(final Feature f) {
-    boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
-    if (_typeMapIsNull) {
-      BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
-    }
-    if ((f instanceof EventPort)) {
-      return this.booleanType();
-    }
-    final Classifier c = f.getClassifier();
-    EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
-    for (final PropertyAssociation pa : _ownedPropertyAssociations) {
-      boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
-      if (_equalsIgnoreCase) {
-        PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
-        final String str = ((StringLiteral) _ownedValue).getValue();
-        Resource _eResource = f.eResource();
-        boolean _tripleNotEquals = (_eResource != null);
-        if (_tripleNotEquals) {
-          return this.getTypeOfString(str, f);
+    try {
+      boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
+      if (_typeMapIsNull) {
+        BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
+      }
+      if ((f instanceof EventPort)) {
+        return this.booleanType();
+      }
+      final Classifier c = f.getClassifier();
+      EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
+      for (final PropertyAssociation pa : _ownedPropertyAssociations) {
+        boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
+        if (_equalsIgnoreCase) {
+          PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
+          final String str = ((StringLiteral) _ownedValue).getValue();
+          Resource _eResource = f.eResource();
+          boolean _tripleNotEquals = (_eResource != null);
+          if (_tripleNotEquals) {
+            return this.getTypeOfString(str, f);
+          }
         }
       }
+      return null;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return null;
   }
 
-  public Type getTypeOfString(final String str, final EObject context) {
+  public Type getTypeOfString(final String str, final EObject context) throws ValidationException {
     Type _xblockexpression = null;
     {
       boolean _startsWith = str.startsWith("boolean");
