@@ -1348,7 +1348,7 @@ guardedAction
 
 whileLoop
   :
-  ^( LITERAL_while be=expression ^( INVARIANT inv=assertion? ) ^( BOUND bd=assertion? ) 
+  ^( LITERAL_while be=expression ^( INVARIANT inv=assertion? ) ^( BOUND bd=expression? ) 
       elq=existentialLatticeQuantification )
     -> while_loop(be={$be.st}, elq={$elq.st}, bd={$bd.st}, inv={$inv.st})
   ;
@@ -1362,7 +1362,7 @@ forLoop
   
 doUntilLoop
   :
-  ^( LITERAL_do ^( LITERAL_until be=expression ) ^( INVARIANT inv=assertion? ) ^( BOUND bd=assertion? ) 
+  ^( LITERAL_do ^( LITERAL_until be=expression ) ^( INVARIANT inv=assertion? ) ^( BOUND bd=expression? ) 
      act=behaviorActions )
     -> do_until(be={$be.st}, ba={$act.st}, bd={$bd.st}, inv={$inv.st})
   ;  

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-06-30 08:08:01
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-06-30 09:47:16
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -16326,7 +16326,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 
 	// $ANTLR start "whileLoop"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1349:1: whileLoop : ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1349:1: whileLoop : ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st);
 	public final UnparseBLESS3.whileLoop_return whileLoop() throws RecognitionException {
 		UnparseBLESS3.whileLoop_return retval = new UnparseBLESS3.whileLoop_return();
 		retval.start = input.LT(1);
@@ -16337,8 +16337,8 @@ public class UnparseBLESS3 extends TreeParser {
 		TreeRuleReturnScope elq =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1350:3: ( ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st))
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:3: ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) elq= existentialLatticeQuantification )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1350:3: ( ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st))
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:3: ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) elq= existentialLatticeQuantification )
 			{
 			match(input,LITERAL_while,FOLLOW_LITERAL_while_in_whileLoop10174); 
 			match(input, Token.DOWN, null); 
@@ -16374,18 +16374,18 @@ public class UnparseBLESS3 extends TreeParser {
 			match(input,BOUND,FOLLOW_BOUND_in_whileLoop10193); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: (bd= assertion )?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: (bd= expression )?
 				int alt136=2;
 				int LA136_0 = input.LA(1);
-				if ( (LA136_0==ASSERTION||(LA136_0 >= ASSERTION_ENUMERATION && LA136_0 <= ASSERTION_FUNCTION)) ) {
+				if ( (LA136_0==AADL_STRING_LITERAL||(LA136_0 >= AL && LA136_0 <= AM)||LA136_0==AT_SIGN||LA136_0==CARET||LA136_0==DIVIDE||LA136_0==EQ||LA136_0==EXP||LA136_0==GT||LA136_0==ID||LA136_0==INVOKE||LA136_0==LITERAL_abs||(LA136_0 >= LITERAL_all && LA136_0 <= LITERAL_and)||LA136_0==LITERAL_div||LA136_0==LITERAL_else||LA136_0==LITERAL_exists||LA136_0==LITERAL_false||LA136_0==LITERAL_iff||(LA136_0 >= LITERAL_implies && LA136_0 <= LITERAL_in)||LA136_0==LITERAL_mod||(LA136_0 >= LITERAL_not && LA136_0 <= LITERAL_numberof)||LA136_0==LITERAL_or||LA136_0==LITERAL_product||LA136_0==LITERAL_rem||LA136_0==LITERAL_round||LA136_0==LITERAL_sum||LA136_0==LITERAL_then||LA136_0==LITERAL_timeout||LA136_0==LITERAL_tops||(LA136_0 >= LITERAL_true && LA136_0 <= LITERAL_truncate)||(LA136_0 >= LITERAL_xor && LA136_0 <= LT)||LA136_0==MINUS||LA136_0==NEQ||LA136_0==OLD_NEQ||LA136_0==PLUS||LA136_0==PLUS_EQUALS||(LA136_0 >= QUANTITY && LA136_0 <= QUESTION)||LA136_0==RECORD_TERM||LA136_0==TICK||LA136_0==TIMES||LA136_0==UNARY_MINUS) ) {
 					alt136=1;
 				}
 				switch (alt136) {
 					case 1 :
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: bd= assertion
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: bd= expression
 						{
-						pushFollow(FOLLOW_assertion_in_whileLoop10197);
-						bd=assertion();
+						pushFollow(FOLLOW_expression_in_whileLoop10197);
+						bd=expression();
 						state._fsp--;
 
 						}
@@ -16561,7 +16561,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 
 	// $ANTLR start "doUntilLoop"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1363:1: doUntilLoop : ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1363:1: doUntilLoop : ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st);
 	public final UnparseBLESS3.doUntilLoop_return doUntilLoop() throws RecognitionException {
 		UnparseBLESS3.doUntilLoop_return retval = new UnparseBLESS3.doUntilLoop_return();
 		retval.start = input.LT(1);
@@ -16572,8 +16572,8 @@ public class UnparseBLESS3 extends TreeParser {
 		TreeRuleReturnScope act =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1364:3: ( ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st))
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:3: ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= assertion )? ) act= behaviorActions )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1364:3: ( ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st))
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:3: ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) act= behaviorActions )
 			{
 			match(input,LITERAL_do,FOLLOW_LITERAL_do_in_doUntilLoop10355); 
 			match(input, Token.DOWN, null); 
@@ -16613,18 +16613,18 @@ public class UnparseBLESS3 extends TreeParser {
 			match(input,BOUND,FOLLOW_BOUND_in_doUntilLoop10380); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: (bd= assertion )?
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: (bd= expression )?
 				int alt139=2;
 				int LA139_0 = input.LA(1);
-				if ( (LA139_0==ASSERTION||(LA139_0 >= ASSERTION_ENUMERATION && LA139_0 <= ASSERTION_FUNCTION)) ) {
+				if ( (LA139_0==AADL_STRING_LITERAL||(LA139_0 >= AL && LA139_0 <= AM)||LA139_0==AT_SIGN||LA139_0==CARET||LA139_0==DIVIDE||LA139_0==EQ||LA139_0==EXP||LA139_0==GT||LA139_0==ID||LA139_0==INVOKE||LA139_0==LITERAL_abs||(LA139_0 >= LITERAL_all && LA139_0 <= LITERAL_and)||LA139_0==LITERAL_div||LA139_0==LITERAL_else||LA139_0==LITERAL_exists||LA139_0==LITERAL_false||LA139_0==LITERAL_iff||(LA139_0 >= LITERAL_implies && LA139_0 <= LITERAL_in)||LA139_0==LITERAL_mod||(LA139_0 >= LITERAL_not && LA139_0 <= LITERAL_numberof)||LA139_0==LITERAL_or||LA139_0==LITERAL_product||LA139_0==LITERAL_rem||LA139_0==LITERAL_round||LA139_0==LITERAL_sum||LA139_0==LITERAL_then||LA139_0==LITERAL_timeout||LA139_0==LITERAL_tops||(LA139_0 >= LITERAL_true && LA139_0 <= LITERAL_truncate)||(LA139_0 >= LITERAL_xor && LA139_0 <= LT)||LA139_0==MINUS||LA139_0==NEQ||LA139_0==OLD_NEQ||LA139_0==PLUS||LA139_0==PLUS_EQUALS||(LA139_0 >= QUANTITY && LA139_0 <= QUESTION)||LA139_0==RECORD_TERM||LA139_0==TICK||LA139_0==TIMES||LA139_0==UNARY_MINUS) ) {
 					alt139=1;
 				}
 				switch (alt139) {
 					case 1 :
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: bd= assertion
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: bd= expression
 						{
-						pushFollow(FOLLOW_assertion_in_doUntilLoop10384);
-						bd=assertion();
+						pushFollow(FOLLOW_expression_in_doUntilLoop10384);
+						bd=expression();
 						state._fsp--;
 
 						}
@@ -21471,7 +21471,7 @@ public class UnparseBLESS3 extends TreeParser {
 	public static final BitSet FOLLOW_INVARIANT_in_whileLoop10182 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_in_whileLoop10186 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_BOUND_in_whileLoop10193 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_whileLoop10197 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_expression_in_whileLoop10197 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_existentialLatticeQuantification_in_whileLoop10211 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_for_in_forLoop10260 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_forLoop10264 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000200L});
@@ -21487,7 +21487,7 @@ public class UnparseBLESS3 extends TreeParser {
 	public static final BitSet FOLLOW_INVARIANT_in_doUntilLoop10369 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_assertion_in_doUntilLoop10373 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_BOUND_in_doUntilLoop10380 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_doUntilLoop10384 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_expression_in_doUntilLoop10384 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_behaviorActions_in_doUntilLoop10397 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_LITERAL_forall_in_universalLatticeQuantification10450 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_ID_in_universalLatticeQuantification10454 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000000L,0x0000000000000200L});
