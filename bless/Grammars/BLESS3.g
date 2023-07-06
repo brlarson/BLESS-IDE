@@ -45,7 +45,7 @@ LABEL;
 OBLIGATION;  //proof obligation 
 ON;   //for behavior_guard
 P; 
-PARAMETER;  // formal:actual in predicate_invocation b:c => ^(PARAMETER b c)
+//PARAMETER;  // replaced with COLON
 PARAMETERS; 
 PORT; //AADL port feature root
 PORT_INPUT; 
