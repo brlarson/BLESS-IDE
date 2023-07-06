@@ -1097,7 +1097,7 @@ private static int tab=0;  //tabbing for toStringTree
     else if (getChildCount() > 0)
       {
       //don't replace formal labels formal:actual, start with second child to replace
-      for (int i = (hasType(BLESS3Lexer.PARAMETER)?1:0); i < getChildCount(); i++) 
+      for (int i = (hasType(BLESS3Lexer.COLON)?1:0); i < getChildCount(); i++) 
         {
         // does child match?
         if (((BAST) getChild(i)).equalsTree(ofThis)) 
