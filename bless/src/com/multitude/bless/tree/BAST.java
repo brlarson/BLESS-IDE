@@ -1082,6 +1082,23 @@ private static int tab=0;  //tabbing for toStringTree
     return equalsTree(theOtherTree) || lessThanTree(theOtherTree);
     } // end of atMostTree
 
+  //replace partial name, target and ofThis are both the same ID
+  public void replaceName(BAST withThis)
+    {
+    BAST result = withThis;
+    //four cases, neither has LBRACKET, both have LBRACKET, only target has LBRACKET, only withThis has LBRACKET
+    //case 1 withThis has LBRACKET target doesn't, both have DOT
+    if (((BAST)withThis.getChild(0)).hasType(BLESS3Lexer.LBRACKET) && ((BAST)getChild(0)).hasType(BLESS3Lexer.DOT))
+      {
+      BAST dot = ((BAST)getChild(0)).dupTree();
+      deleteChild(0);
+      addChild((BAST)withThis.getChild(0));
+      addChild(dot);
+      myText = withThis.getText();
+      token  = withThis.token;
+      }
+    }
+
   public BAST replaceOccurrences(BAST ofThis, BAST withThis)
     { // replace all occurrences of ofThis, with a duplicate of withThat
     //if both have no children, replace nodes instead
@@ -1094,6 +1111,10 @@ private static int tab=0;  //tabbing for toStringTree
         {
         yi.handleException();
         }
+    else if (hasType(BLESS3Lexer.ID) && equalsNode(ofThis) && (ofThis.getChildCount()==0) && withThis.hasType(BLESS3Lexer.ID) )
+      {
+      replaceName(withThis.dupTree());
+      }
     else if (getChildCount() > 0)
       {
       //don't replace formal labels formal:actual, start with second child to replace
@@ -1376,28 +1397,22 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.UNARY_MINUS:
           result = "- " + ((BAST) this.getChild(0)).unparse();
           break;
-        // name
-        case BLESS3Lexer.DOT:
-          // case BLESS3Lexer.ID:
-          UnparseBLESS3.valueName_return nam = null;
-          nam = unparser.valueName();
-          StringTemplate nameOutput = (StringTemplate) nam.getTemplate();
-          result = nameOutput.toString(Global.wrapLength); // wrap at 72
+        // valueName w.o.TICK
+        case BLESS3Lexer.ID:
+          if (getChildCount()==0)
+            result=getText();
+          else
+            {
+            UnparseBLESS3.valueName_return nam = null;
+            nam = unparser.valueName();
+            StringTemplate nameOutput = (StringTemplate) nam.getTemplate();
+            result = nameOutput.toString(Global.wrapLength); // wrap at 72
+            }
           break;
         // literals
         case BLESS3Lexer.LITERAL_boolean:
-//        case BLESS3Lexer.LITERAL_time:
-//          if (getChildCount() == 0)
-//            {
-//            result = UnparseBLESS3.template(getText()).toString();
-//            } else
-//            {
-//            UnparseBLESS3.number_type_return nt = null;
-//            nt = unparser.number_type();
-//            StringTemplate number_typeOutput = (StringTemplate) nt.getTemplate();
-//            result = number_typeOutput.toString(Global.wrapLength); // wrap at 72
-//            }
-//          break;
+          result="boolean";
+          break;
         // string
         case BLESS3Lexer.LITERAL_string:
           result = getText();
@@ -2120,18 +2135,20 @@ private static int tab=0;  //tabbing for toStringTree
     // look through children for match
     if (getChildCount() > 0)
       {
-      for (int i = 0; i < getChildCount(); i++) {
-		// does child match?
+      for (int i = 0; i < getChildCount(); i++)
+        {
+        // does child match?
         if (((BAST) getChild(i)).equalsNode(ofThis))
           {
           ((BAST) getChild(i)).myText = withThis.getText();
-          ((BAST) getChild(i)).token = withThis.token;
+          ((BAST) getChild(i)).token  = withThis.token;
           }
         // otherwise replaceOccurences on children
- else {
-			((BAST) getChild(i)).replaceNodes(ofThis, withThis);
-		}
-	}
+        else
+          {
+          ((BAST) getChild(i)).replaceNodes(ofThis, withThis);
+          }
+        }
       }
     return this;
     } // end of replaceNodes
