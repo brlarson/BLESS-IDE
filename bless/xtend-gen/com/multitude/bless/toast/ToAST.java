@@ -2503,7 +2503,7 @@ public class ToAST {
         CommonToken _commonToken = new CommonToken(BLESS3Lexer.COLON, ":");
         it.token = _commonToken;
         it.addChild(this.makeBASTforID(e.getFormal(), e));
-        it.addChild(this.toAST(e.getActual()));
+        it.addChild(this.makeBASTforID(e.getActual(), e));
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {

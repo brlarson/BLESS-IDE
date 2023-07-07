@@ -611,7 +611,7 @@
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//ActualParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ActualParameter/formal"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//ActualParameter/actual"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ActualParameter/actual"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//VariableList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//VariableList/first"/>

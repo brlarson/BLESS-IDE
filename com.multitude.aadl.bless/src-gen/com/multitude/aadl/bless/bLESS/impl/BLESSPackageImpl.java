@@ -7047,9 +7047,9 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EReference getActualParameter_Actual()
+  public EAttribute getActualParameter_Actual()
   {
-        return (EReference)getActualParameter().getEStructuralFeatures().get(1);
+        return (EAttribute)getActualParameter().getEStructuralFeatures().get(1);
   }
 
   /**

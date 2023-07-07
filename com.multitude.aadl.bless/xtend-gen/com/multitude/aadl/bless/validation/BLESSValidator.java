@@ -6,7 +6,6 @@ package com.multitude.aadl.bless.validation;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.ANumber;
-import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.AddSub;
 import com.multitude.aadl.bless.bLESS.ArrayRange;
 import com.multitude.aadl.bless.bLESS.ArrayType;
@@ -702,278 +701,28 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkNamedAssertionInvocation(final Invocation i) {
-    String _assertionvariable = i.getLabel().getAssertionvariable();
-    boolean _tripleNotEquals = (_assertionvariable != null);
-    if (_tripleNotEquals) {
-      int _size = i.getParams().size();
-      boolean _notEquals = (_size != 1);
-      if (_notEquals) {
-        this.fError("Assertion enumeration invocation must have a single value.", i, 
-          BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-      } else {
-        Expression _actual = IterableExtensions.<ActualParameter>head(i.getParams()).getActual();
-        Disjunction _l = null;
-        if (_actual!=null) {
-          _l=_actual.getL();
-        }
-        Conjunction _l_1 = null;
-        if (_l!=null) {
-          _l_1=_l.getL();
-        }
-        Relation _l_2 = null;
-        if (_l_1!=null) {
-          _l_2=_l_1.getL();
-        }
-        AddSub _l_3 = null;
-        if (_l_2!=null) {
-          _l_3=_l_2.getL();
-        }
-        MultDiv _l_4 = null;
-        if (_l_3!=null) {
-          _l_4=_l_3.getL();
-        }
-        Exp _l_5 = null;
-        if (_l_4!=null) {
-          _l_5=_l_4.getL();
-        }
-        Subexpression _l_6 = null;
-        if (_l_5!=null) {
-          _l_6=_l_5.getL();
-        }
-        TimedExpression _timed_expression = null;
-        if (_l_6!=null) {
-          _timed_expression=_l_6.getTimed_expression();
-        }
-        TimedSubject _subject = null;
-        if (_timed_expression!=null) {
-          _subject=_timed_expression.getSubject();
-        }
-        Value _value = null;
-        if (_subject!=null) {
-          _value=_subject.getValue();
-        }
-        EnumerationValue _enum_val = null;
-        if (_value!=null) {
-          _enum_val=_value.getEnum_val();
-        }
-        final EnumerationValue vd = _enum_val;
-        if ((!(vd instanceof EnumerationValue))) {
-          this.fError("Parameter for assertion enumeration invocation must be enumeration value.", i, 
-            BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-        } else {
-          String _name = ((EnumerationValue) vd).getEnumeration_type().getName();
-          String _name_1 = i.getLabel().getEnumerationType().getName();
-          boolean _notEquals_1 = (!Objects.equal(_name, _name_1));
-          if (_notEquals_1) {
-            String _name_2 = ((EnumerationValue) vd).getEnumeration_type().getName();
-            String _plus = ("Parameter for assertion enumeration invocation must have the same enumeration type: " + _name_2);
-            String _plus_1 = (_plus + " is not ");
-            String _name_3 = i.getLabel().getEnumerationType().getName();
-            String _plus_2 = (_plus_1 + _name_3);
-            String _plus_3 = (_plus_2 + ".");
-            this.fError(_plus_3, i, 
-              BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-          }
-        }
-      }
-    } else {
-      VariableList _formals = i.getLabel().getFormals();
-      boolean _tripleEquals = (_formals == null);
-      if (_tripleEquals) {
-        if (((i.getParams() != null) && (i.getParams().size() > 0))) {
-          this.fError("Invoked assertion has no parameters.", i, 
-            BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-        } else {
-          NumericExpression _actual_parameter = i.getActual_parameter();
-          boolean _tripleNotEquals_1 = (_actual_parameter != null);
-          if (_tripleNotEquals_1) {
-            this.fError("Invoked assertion has no parameters.", i, 
-              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-          }
-        }
-      } else {
-        NumericExpression _actual_parameter_1 = i.getActual_parameter();
-        boolean _tripleNotEquals_2 = (_actual_parameter_1 != null);
-        if (_tripleNotEquals_2) {
-          if (((i.getLabel().getFormals().getParameter() != null) && (i.getLabel().getFormals().getParameter().size() > 0))) {
-            this.fError("Invoked assertion has more than one parameter.", i, 
-              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-          }
-          NumericExpression _actual_parameter_2 = i.getActual_parameter();
-          final Type actualType = this.getType(((Expression) _actual_parameter_2));
-          final Type formalType = this.getType(i.getLabel().getFormals().getFirst());
-          boolean _sameStructuralType = this._typeUtil.sameStructuralType(actualType, formalType);
-          boolean _not = (!_sameStructuralType);
-          if (_not) {
-            this.fError("Invocation parameter type mismatch.", i, 
-              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-          }
-          if ((this.isQuantity(actualType) && this.isQuantity(formalType))) {
-            final QuantityType actualQuantity = ((QuantityType) actualType);
-            final QuantityType formalQuantity = ((QuantityType) formalType);
-            if (((actualQuantity.getWhole() != null) && (formalQuantity.getWhole() == null))) {
-              this.fError("Invocation actual parameter is whole, but it\'s formal parameter is not.", i, 
-                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-            }
-            if (((actualQuantity.getScalar() != null) && (formalQuantity.getScalar() == null))) {
-              this.fError("Invocation actual parameter is scalar, but it\'s formal parameter is not.", i, 
-                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-            }
-            if (((actualQuantity.getUnit() != null) && (formalQuantity.getUnit() == null))) {
-              this.fError("Invocation actual parameter has a unit, but it\'s formal parameter does not.", i, 
-                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-            }
-            if ((((actualQuantity.getUnit() != null) && (formalQuantity.getUnit() != null)) && (!this._unitUtil.sameUnitRoot(actualQuantity.getUnit(), formalQuantity.getUnit())))) {
-              String _name_4 = actualQuantity.getUnit().getName();
-              String _plus_4 = ("Invocation parameter unit mismatch; " + _name_4);
-              String _plus_5 = (_plus_4 + " is not ");
-              String _name_5 = formalQuantity.getUnit().getName();
-              String _plus_6 = (_plus_5 + _name_5);
-              this.fError(_plus_6, i, 
-                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
-            }
-          }
-        } else {
-          EList<Variable> _parameter = i.getLabel().getFormals().getParameter();
-          boolean _tripleEquals_1 = (_parameter == null);
-          if (_tripleEquals_1) {
-            this.fError("Invocation has more parameters than assertion.", i, 
-              BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-          } else {
-            int _size_1 = i.getLabel().getFormals().getParameter().size();
-            int _plus_7 = (_size_1 + 1);
-            int _size_2 = i.getParams().size();
-            boolean _greaterThan = (_plus_7 > _size_2);
-            if (_greaterThan) {
-              this.fError("Invocation has fewer parameters than assertion.", i, 
-                BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-            } else {
-              int _size_3 = i.getLabel().getFormals().getParameter().size();
-              int _plus_8 = (_size_3 + 1);
-              int _size_4 = i.getParams().size();
-              boolean _lessThan = (_plus_8 < _size_4);
-              if (_lessThan) {
-                this.fError("Invocation has more parameters than assertion.", i, 
-                  BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
-              } else {
-                EList<ActualParameter> _params = i.getParams();
-                for (final ActualParameter param : _params) {
-                  {
-                    boolean found = false;
-                    String _name_6 = i.getLabel().getFormals().getFirst().getName();
-                    String _formal = param.getFormal();
-                    boolean _equals = Objects.equal(_name_6, _formal);
-                    if (_equals) {
-                      found = true;
-                      boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(i.getLabel().getFormals().getFirst()), this.getType(param.getActual()));
-                      boolean _not_1 = (!_sameStructuralType_1);
-                      if (_not_1) {
-                        String _formal_1 = param.getFormal();
-                        String _plus_9 = ("Invocation parameter \"" + _formal_1);
-                        String _plus_10 = (_plus_9 + "\" type mismatch: ");
-                        String _name_7 = i.getLabel().getFormals().getFirst().getName();
-                        String _plus_11 = (_plus_10 + _name_7);
-                        String _plus_12 = (_plus_11 + "~");
-                        String _typeString = this._typeUtil.typeString(this.getType(i.getLabel().getFormals().getFirst()));
-                        String _plus_13 = (_plus_12 + _typeString);
-                        String _plus_14 = (_plus_13 + 
-                          " is not ");
-                        String _formal_2 = param.getFormal();
-                        String _plus_15 = (_plus_14 + _formal_2);
-                        String _plus_16 = (_plus_15 + "~");
-                        String _typeString_1 = this._typeUtil.typeString(this.getType(param.getActual()));
-                        String _plus_17 = (_plus_16 + _typeString_1);
-                        this.fError(_plus_17, param, 
-                          BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
-                      } else {
-                        if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod()))))) {
-                          String _formal_3 = param.getFormal();
-                          String _plus_18 = ("Invocation parameter \"" + _formal_3);
-                          String _plus_19 = (_plus_18 + "\" unit mismatch: ");
-                          String _name_8 = i.getLabel().getFormals().getFirst().getName();
-                          String _plus_20 = (_plus_19 + _name_8);
-                          String _plus_21 = (_plus_20 + "~");
-                          UnitRecord _unitRecord = this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod());
-                          String _plus_22 = (_plus_21 + _unitRecord);
-                          String _plus_23 = (_plus_22 + 
-                            " is not ");
-                          String _formal_4 = param.getFormal();
-                          String _plus_24 = (_plus_23 + _formal_4);
-                          String _plus_25 = (_plus_24 + "~");
-                          UnitRecord _unitRecord_1 = this.getUnitRecord(param.getActual());
-                          String _plus_26 = (_plus_25 + _unitRecord_1);
-                          this.fError(_plus_26, param, 
-                            BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
-                        }
-                      }
-                    }
-                    EList<Variable> _parameter_1 = i.getLabel().getFormals().getParameter();
-                    for (final Variable formal : _parameter_1) {
-                      String _name_9 = formal.getName();
-                      String _formal_5 = param.getFormal();
-                      boolean _equals_1 = Objects.equal(_name_9, _formal_5);
-                      if (_equals_1) {
-                        found = true;
-                        boolean _sameStructuralType_2 = this._typeUtil.sameStructuralType(this.getType(formal.getTod()), this.getType(param.getActual()));
-                        boolean _not_2 = (!_sameStructuralType_2);
-                        if (_not_2) {
-                          String _formal_6 = param.getFormal();
-                          String _plus_27 = ("Invocation parameter \"" + _formal_6);
-                          String _plus_28 = (_plus_27 + "\" type mismatch: ");
-                          String _name_10 = formal.getName();
-                          String _plus_29 = (_plus_28 + _name_10);
-                          String _plus_30 = (_plus_29 + "~");
-                          String _typeString_2 = this._typeUtil.typeString(this.getType(formal));
-                          String _plus_31 = (_plus_30 + _typeString_2);
-                          String _plus_32 = (_plus_31 + 
-                            " is not ");
-                          String _formal_7 = param.getFormal();
-                          String _plus_33 = (_plus_32 + _formal_7);
-                          String _plus_34 = (_plus_33 + "~");
-                          String _typeString_3 = this._typeUtil.typeString(this.getType(param.getActual()));
-                          String _plus_35 = (_plus_34 + _typeString_3);
-                          this.fError(_plus_35, param, 
-                            BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
-                        } else {
-                          if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(formal.getTod()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(formal.getTod()))))) {
-                            String _formal_8 = param.getFormal();
-                            String _plus_36 = ("Invocation parameter \"" + _formal_8);
-                            String _plus_37 = (_plus_36 + "\" unit mismatch: ");
-                            String _name_11 = formal.getName();
-                            String _plus_38 = (_plus_37 + _name_11);
-                            String _plus_39 = (_plus_38 + "~");
-                            Type _type = this.getType(formal);
-                            UnitName _unit = ((QuantityType) _type).getUnit();
-                            String _plus_40 = (_plus_39 + _unit);
-                            String _plus_41 = (_plus_40 + 
-                              " is not ");
-                            String _formal_9 = param.getFormal();
-                            String _plus_42 = (_plus_41 + _formal_9);
-                            String _plus_43 = (_plus_42 + "~");
-                            Type _type_1 = this.getType(param.getActual());
-                            UnitName _unit_1 = ((QuantityType) _type_1).getUnit();
-                            String _plus_44 = (_plus_43 + _unit_1);
-                            this.fError(_plus_44, param, 
-                              BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
-                          }
-                        }
-                      }
-                    }
-                    if ((!found)) {
-                      String _formal_10 = param.getFormal();
-                      String _plus_45 = ("Invocation parameter \"" + _formal_10);
-                      String _plus_46 = (_plus_45 + "\" not found.");
-                      this.fError(_plus_46, param, 
-                        BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field l is undefined for the type String"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AddSub"
+      + "\nType mismatch: cannot convert from String to AddSub"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nType mismatch: cannot convert from String to AddSub"
+      + "\nType mismatch: cannot convert from String to AssertionFunctionValue"
+      + "\nl cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\nl cannot be resolved"
+      + "\ntimed_expression cannot be resolved"
+      + "\nsubject cannot be resolved"
+      + "\nvalue cannot be resolved"
+      + "\nenum_val cannot be resolved");
   }
 
   @Check(CheckType.NORMAL)

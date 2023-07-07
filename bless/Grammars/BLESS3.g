@@ -602,6 +602,7 @@ rangeSymbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA;
 
 propertyName
   :
+  (  ID COLON )=> 
   propertyset=ID dc=DOUBLE_COLON propertyid=ID
     -> ^($dc $propertyset $propertyid)
   ;

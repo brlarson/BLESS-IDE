@@ -8010,7 +8010,7 @@ public interface BLESSPackage extends EPackage
   int ACTUAL_PARAMETER__FORMAL = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Actual</b></em>' containment reference.
+   * The feature id for the '<em><b>Actual</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -15110,15 +15110,15 @@ public interface BLESSPackage extends EPackage
   EAttribute getActualParameter_Formal();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.ActualParameter#getActual <em>Actual</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.ActualParameter#getActual <em>Actual</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Actual</em>'.
+   * @return the meta object for the attribute '<em>Actual</em>'.
    * @see com.multitude.aadl.bless.bLESS.ActualParameter#getActual()
    * @see #getActualParameter()
    * @generated
    */
-  EReference getActualParameter_Actual();
+  EAttribute getActualParameter_Actual();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.VariableList <em>Variable List</em>}'.

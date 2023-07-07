@@ -895,7 +895,7 @@ Invocation:
 
 //actual_assertion_parameter  
 ActualParameter:
-	formal=ID ':' actual=Expression
+	formal=ID ':' actual=ID
 ;
  
 
