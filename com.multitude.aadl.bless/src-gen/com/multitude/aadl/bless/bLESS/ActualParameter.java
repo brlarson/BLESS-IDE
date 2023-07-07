@@ -51,25 +51,25 @@ public interface ActualParameter extends EObject, Element
   void setFormal(String value);
 
   /**
-   * Returns the value of the '<em><b>Actual</b></em>' attribute.
+   * Returns the value of the '<em><b>Actual</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Actual</em>' attribute.
-   * @see #setActual(String)
+   * @return the value of the '<em>Actual</em>' containment reference.
+   * @see #setActual(Expression)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getActualParameter_Actual()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getActual();
+  Expression getActual();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.ActualParameter#getActual <em>Actual</em>}' attribute.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.ActualParameter#getActual <em>Actual</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Actual</em>' attribute.
+   * @param value the new value of the '<em>Actual</em>' containment reference.
    * @see #getActual()
    * @generated
    */
-  void setActual(String value);
+  void setActual(Expression value);
 
 } // ActualParameter

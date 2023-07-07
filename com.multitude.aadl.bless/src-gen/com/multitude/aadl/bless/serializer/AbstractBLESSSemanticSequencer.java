@@ -696,7 +696,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns ActualParameter
 	 *
 	 * Constraint:
-	 *     (formal=ID actual=ID)
+	 *     (formal=ID actual=Expression)
 	 * </pre>
 	 */
 	protected void sequence_ActualParameter(ISerializationContext context, ActualParameter semanticObject) {
@@ -708,7 +708,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getActualParameterAccess().getFormalIDTerminalRuleCall_0_0(), semanticObject.getFormal());
-		feeder.accept(grammarAccess.getActualParameterAccess().getActualIDTerminalRuleCall_2_0(), semanticObject.getActual());
+		feeder.accept(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0(), semanticObject.getActual());
 		feeder.finish();
 	}
 	

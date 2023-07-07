@@ -7,10 +7,13 @@ package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
+import com.multitude.aadl.bless.bLESS.Expression;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -53,24 +56,14 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
   protected String formal = FORMAL_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getActual() <em>Actual</em>}' attribute.
+   * The cached value of the '{@link #getActual() <em>Actual</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getActual()
    * @generated
    * @ordered
    */
-  protected static final String ACTUAL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getActual() <em>Actual</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActual()
-   * @generated
-   * @ordered
-   */
-  protected String actual = ACTUAL_EDEFAULT;
+  protected Expression actual;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,7 +117,7 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
    * @generated
    */
   @Override
-  public String getActual()
+  public Expression getActual()
   {
     return actual;
   }
@@ -134,13 +127,54 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setActual(String newActual)
+  public NotificationChain basicSetActual(Expression newActual, NotificationChain msgs)
   {
-    String oldActual = actual;
+    Expression oldActual = actual;
     actual = newActual;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.ACTUAL_PARAMETER__ACTUAL, oldActual, actual));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.ACTUAL_PARAMETER__ACTUAL, oldActual, newActual);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setActual(Expression newActual)
+  {
+    if (newActual != actual)
+    {
+      NotificationChain msgs = null;
+      if (actual != null)
+        msgs = ((InternalEObject)actual).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.ACTUAL_PARAMETER__ACTUAL, null, msgs);
+      if (newActual != null)
+        msgs = ((InternalEObject)newActual).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.ACTUAL_PARAMETER__ACTUAL, null, msgs);
+      msgs = basicSetActual(newActual, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.ACTUAL_PARAMETER__ACTUAL, newActual, newActual));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BLESSPackage.ACTUAL_PARAMETER__ACTUAL:
+        return basicSetActual(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -175,7 +209,7 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
         setFormal((String)newValue);
         return;
       case BLESSPackage.ACTUAL_PARAMETER__ACTUAL:
-        setActual((String)newValue);
+        setActual((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -195,7 +229,7 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
         setFormal(FORMAL_EDEFAULT);
         return;
       case BLESSPackage.ACTUAL_PARAMETER__ACTUAL:
-        setActual(ACTUAL_EDEFAULT);
+        setActual((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -214,7 +248,7 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
       case BLESSPackage.ACTUAL_PARAMETER__FORMAL:
         return FORMAL_EDEFAULT == null ? formal != null : !FORMAL_EDEFAULT.equals(formal);
       case BLESSPackage.ACTUAL_PARAMETER__ACTUAL:
-        return ACTUAL_EDEFAULT == null ? actual != null : !ACTUAL_EDEFAULT.equals(actual);
+        return actual != null;
     }
     return super.eIsSet(featureID);
   }
@@ -232,8 +266,6 @@ public class ActualParameterImpl extends ElementImpl implements ActualParameter
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (formal: ");
     result.append(formal);
-    result.append(", actual: ");
-    result.append(actual);
     result.append(')');
     return result.toString();
   }

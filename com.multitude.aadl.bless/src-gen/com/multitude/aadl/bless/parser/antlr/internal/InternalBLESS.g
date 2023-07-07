@@ -11409,19 +11409,20 @@ ruleActualParameter returns [EObject current=null]
 		}
 		(
 			(
-				lv_actual_2_0=RULE_ID
 				{
-					newLeafNode(lv_actual_2_0, grammarAccess.getActualParameterAccess().getActualIDTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0());
 				}
+				lv_actual_2_0=ruleExpression
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getActualParameterRule());
+						$current = createModelElementForParent(grammarAccess.getActualParameterRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"actual",
 						lv_actual_2_0,
-						"com.multitude.aadl.bless.BLESS.ID");
+						"com.multitude.aadl.bless.BLESS.Expression");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)

@@ -1528,7 +1528,7 @@ toAST(ActualParameter e)
   	  myText = ":"
       token = new CommonToken(BLESS3Lexer.COLON, ":")
       addChild(e.formal.makeBASTforID(e)) 
-      addChild(e.actual.makeBASTforID(e))	
+      addChild(e.actual.toAST)	
       ]
     } 
   catch (Exception ex) {ex.printStackTrace x}

@@ -7464,15 +7464,15 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cFormalIDTerminalRuleCall_0_0 = (RuleCall)cFormalAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cActualAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActualIDTerminalRuleCall_2_0 = (RuleCall)cActualAssignment_2.eContents().get(0);
+		private final RuleCall cActualExpressionParserRuleCall_2_0 = (RuleCall)cActualAssignment_2.eContents().get(0);
 		
 		////actual_assertion_parameter
 		//ActualParameter:
-		//    formal=ID ':' actual=ID
+		//    formal=ID ':' actual=Expression
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//formal=ID ':' actual=ID
+		//formal=ID ':' actual=Expression
 		public Group getGroup() { return cGroup; }
 		
 		//formal=ID
@@ -7484,11 +7484,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//actual=ID
+		//actual=Expression
 		public Assignment getActualAssignment_2() { return cActualAssignment_2; }
 		
-		//ID
-		public RuleCall getActualIDTerminalRuleCall_2_0() { return cActualIDTerminalRuleCall_2_0; }
+		//Expression
+		public RuleCall getActualExpressionParserRuleCall_2_0() { return cActualExpressionParserRuleCall_2_0; }
 	}
 	public class VariableListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.VariableList");
@@ -11946,7 +11946,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	////actual_assertion_parameter
 	//ActualParameter:
-	//    formal=ID ':' actual=ID
+	//    formal=ID ':' actual=Expression
 	//;
 	public ActualParameterElements getActualParameterAccess() {
 		return pActualParameter;

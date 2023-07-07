@@ -10727,11 +10727,28 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             case RULE_ID:
                 {
                 switch ( input.LA(2) ) {
+                case 168:
+                case 174:
+                    {
+                    alt82=2;
+                    }
+                    break;
+                case EOF:
+                case 35:
+                case 40:
+                case 49:
+                case 74:
+                case 75:
+                case 142:
+                    {
+                    alt82=1;
+                    }
+                    break;
                 case 51:
                     {
-                    int LA82_4 = input.LA(3);
+                    int LA82_5 = input.LA(3);
 
-                    if ( (LA82_4==RULE_ID) ) {
+                    if ( (LA82_5==RULE_ID) ) {
                         int LA82_6 = input.LA(4);
 
                         if ( (LA82_6==168) ) {
@@ -10749,27 +10766,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 82, 4, input);
+                            new NoViableAltException("", 82, 5, input);
 
                         throw nvae;
                     }
-                    }
-                    break;
-                case 168:
-                case 174:
-                    {
-                    alt82=2;
-                    }
-                    break;
-                case EOF:
-                case 35:
-                case 40:
-                case 49:
-                case 74:
-                case 75:
-                case 142:
-                    {
-                    alt82=1;
                     }
                     break;
                 default:
@@ -28116,23 +28116,24 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleActualParameter"
-    // InternalBLESS.g:11380:1: ruleActualParameter returns [EObject current=null] : ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= RULE_ID ) ) ) ;
+    // InternalBLESS.g:11380:1: ruleActualParameter returns [EObject current=null] : ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= ruleExpression ) ) ) ;
     public final EObject ruleActualParameter() throws RecognitionException {
         EObject current = null;
 
         Token lv_formal_0_0=null;
         Token otherlv_1=null;
-        Token lv_actual_2_0=null;
+        EObject lv_actual_2_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalBLESS.g:11386:2: ( ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= RULE_ID ) ) ) )
-            // InternalBLESS.g:11387:2: ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= RULE_ID ) ) )
+            // InternalBLESS.g:11386:2: ( ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= ruleExpression ) ) ) )
+            // InternalBLESS.g:11387:2: ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= ruleExpression ) ) )
             {
-            // InternalBLESS.g:11387:2: ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= RULE_ID ) ) )
-            // InternalBLESS.g:11388:3: ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= RULE_ID ) )
+            // InternalBLESS.g:11387:2: ( ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= ruleExpression ) ) )
+            // InternalBLESS.g:11388:3: ( (lv_formal_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_actual_2_0= ruleExpression ) )
             {
             // InternalBLESS.g:11388:3: ( (lv_formal_0_0= RULE_ID ) )
             // InternalBLESS.g:11389:4: (lv_formal_0_0= RULE_ID )
@@ -28160,29 +28161,34 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,27,FOLLOW_7); 
+            otherlv_1=(Token)match(input,27,FOLLOW_57); 
 
             			newLeafNode(otherlv_1, grammarAccess.getActualParameterAccess().getColonKeyword_1());
             		
-            // InternalBLESS.g:11410:3: ( (lv_actual_2_0= RULE_ID ) )
-            // InternalBLESS.g:11411:4: (lv_actual_2_0= RULE_ID )
+            // InternalBLESS.g:11410:3: ( (lv_actual_2_0= ruleExpression ) )
+            // InternalBLESS.g:11411:4: (lv_actual_2_0= ruleExpression )
             {
-            // InternalBLESS.g:11411:4: (lv_actual_2_0= RULE_ID )
-            // InternalBLESS.g:11412:5: lv_actual_2_0= RULE_ID
+            // InternalBLESS.g:11411:4: (lv_actual_2_0= ruleExpression )
+            // InternalBLESS.g:11412:5: lv_actual_2_0= ruleExpression
             {
-            lv_actual_2_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(lv_actual_2_0, grammarAccess.getActualParameterAccess().getActualIDTerminalRuleCall_2_0());
+            					newCompositeNode(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0());
             				
+            pushFollow(FOLLOW_2);
+            lv_actual_2_0=ruleExpression();
+
+            state._fsp--;
+
 
             					if (current==null) {
-            						current = createModelElement(grammarAccess.getActualParameterRule());
+            						current = createModelElementForParent(grammarAccess.getActualParameterRule());
             					}
-            					setWithLastConsumed(
+            					set(
             						current,
             						"actual",
             						lv_actual_2_0,
-            						"com.multitude.aadl.bless.BLESS.ID");
+            						"com.multitude.aadl.bless.BLESS.Expression");
+            					afterParserOrEnumRuleCall();
             				
 
             }
@@ -28213,7 +28219,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVariableList"
-    // InternalBLESS.g:11432:1: entryRuleVariableList returns [EObject current=null] : iv_ruleVariableList= ruleVariableList EOF ;
+    // InternalBLESS.g:11433:1: entryRuleVariableList returns [EObject current=null] : iv_ruleVariableList= ruleVariableList EOF ;
     public final EObject entryRuleVariableList() throws RecognitionException {
         EObject current = null;
 
@@ -28221,8 +28227,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11432:53: (iv_ruleVariableList= ruleVariableList EOF )
-            // InternalBLESS.g:11433:2: iv_ruleVariableList= ruleVariableList EOF
+            // InternalBLESS.g:11433:53: (iv_ruleVariableList= ruleVariableList EOF )
+            // InternalBLESS.g:11434:2: iv_ruleVariableList= ruleVariableList EOF
             {
              newCompositeNode(grammarAccess.getVariableListRule()); 
             pushFollow(FOLLOW_1);
@@ -28249,7 +28255,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVariableList"
-    // InternalBLESS.g:11439:1: ruleVariableList returns [EObject current=null] : ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? ) ;
+    // InternalBLESS.g:11440:1: ruleVariableList returns [EObject current=null] : ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? ) ;
     public final EObject ruleVariableList() throws RecognitionException {
         EObject current = null;
 
@@ -28266,17 +28272,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11445:2: ( ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? ) )
-            // InternalBLESS.g:11446:2: ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? )
+            // InternalBLESS.g:11446:2: ( ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? ) )
+            // InternalBLESS.g:11447:2: ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? )
             {
-            // InternalBLESS.g:11446:2: ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? )
-            // InternalBLESS.g:11447:3: ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )?
+            // InternalBLESS.g:11447:2: ( ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )? )
+            // InternalBLESS.g:11448:3: ( (lv_first_0_0= ruleVariable ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )?
             {
-            // InternalBLESS.g:11447:3: ( (lv_first_0_0= ruleVariable ) )
-            // InternalBLESS.g:11448:4: (lv_first_0_0= ruleVariable )
+            // InternalBLESS.g:11448:3: ( (lv_first_0_0= ruleVariable ) )
+            // InternalBLESS.g:11449:4: (lv_first_0_0= ruleVariable )
             {
-            // InternalBLESS.g:11448:4: (lv_first_0_0= ruleVariable )
-            // InternalBLESS.g:11449:5: lv_first_0_0= ruleVariable
+            // InternalBLESS.g:11449:4: (lv_first_0_0= ruleVariable )
+            // InternalBLESS.g:11450:5: lv_first_0_0= ruleVariable
             {
 
             					newCompositeNode(grammarAccess.getVariableListAccess().getFirstVariableParserRuleCall_0_0());
@@ -28303,7 +28309,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:11466:3: ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )?
+            // InternalBLESS.g:11467:3: ( ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )* )?
             int alt169=2;
             int LA169_0 = input.LA(1);
 
@@ -28312,13 +28318,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt169) {
                 case 1 :
-                    // InternalBLESS.g:11467:4: ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )*
+                    // InternalBLESS.g:11468:4: ( (lv_comma_1_0= ',' ) ) ( (lv_parameter_2_0= ruleVariable ) ) (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )*
                     {
-                    // InternalBLESS.g:11467:4: ( (lv_comma_1_0= ',' ) )
-                    // InternalBLESS.g:11468:5: (lv_comma_1_0= ',' )
+                    // InternalBLESS.g:11468:4: ( (lv_comma_1_0= ',' ) )
+                    // InternalBLESS.g:11469:5: (lv_comma_1_0= ',' )
                     {
-                    // InternalBLESS.g:11468:5: (lv_comma_1_0= ',' )
-                    // InternalBLESS.g:11469:6: lv_comma_1_0= ','
+                    // InternalBLESS.g:11469:5: (lv_comma_1_0= ',' )
+                    // InternalBLESS.g:11470:6: lv_comma_1_0= ','
                     {
                     lv_comma_1_0=(Token)match(input,35,FOLLOW_7); 
 
@@ -28336,11 +28342,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:11481:4: ( (lv_parameter_2_0= ruleVariable ) )
-                    // InternalBLESS.g:11482:5: (lv_parameter_2_0= ruleVariable )
+                    // InternalBLESS.g:11482:4: ( (lv_parameter_2_0= ruleVariable ) )
+                    // InternalBLESS.g:11483:5: (lv_parameter_2_0= ruleVariable )
                     {
-                    // InternalBLESS.g:11482:5: (lv_parameter_2_0= ruleVariable )
-                    // InternalBLESS.g:11483:6: lv_parameter_2_0= ruleVariable
+                    // InternalBLESS.g:11483:5: (lv_parameter_2_0= ruleVariable )
+                    // InternalBLESS.g:11484:6: lv_parameter_2_0= ruleVariable
                     {
 
                     						newCompositeNode(grammarAccess.getVariableListAccess().getParameterVariableParserRuleCall_1_1_0());
@@ -28367,7 +28373,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:11500:4: (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )*
+                    // InternalBLESS.g:11501:4: (otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) ) )*
                     loop168:
                     do {
                         int alt168=2;
@@ -28380,17 +28386,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt168) {
                     	case 1 :
-                    	    // InternalBLESS.g:11501:5: otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) )
+                    	    // InternalBLESS.g:11502:5: otherlv_3= ',' ( (lv_parameter_4_0= ruleVariable ) )
                     	    {
                     	    otherlv_3=(Token)match(input,35,FOLLOW_7); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getVariableListAccess().getCommaKeyword_1_2_0());
                     	    				
-                    	    // InternalBLESS.g:11505:5: ( (lv_parameter_4_0= ruleVariable ) )
-                    	    // InternalBLESS.g:11506:6: (lv_parameter_4_0= ruleVariable )
+                    	    // InternalBLESS.g:11506:5: ( (lv_parameter_4_0= ruleVariable ) )
+                    	    // InternalBLESS.g:11507:6: (lv_parameter_4_0= ruleVariable )
                     	    {
-                    	    // InternalBLESS.g:11506:6: (lv_parameter_4_0= ruleVariable )
-                    	    // InternalBLESS.g:11507:7: lv_parameter_4_0= ruleVariable
+                    	    // InternalBLESS.g:11507:6: (lv_parameter_4_0= ruleVariable )
+                    	    // InternalBLESS.g:11508:7: lv_parameter_4_0= ruleVariable
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getVariableListAccess().getParameterVariableParserRuleCall_1_2_1_0());
@@ -28455,7 +28461,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssertionFunctionValue"
-    // InternalBLESS.g:11530:1: entryRuleAssertionFunctionValue returns [EObject current=null] : iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF ;
+    // InternalBLESS.g:11531:1: entryRuleAssertionFunctionValue returns [EObject current=null] : iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF ;
     public final EObject entryRuleAssertionFunctionValue() throws RecognitionException {
         EObject current = null;
 
@@ -28463,8 +28469,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11530:63: (iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF )
-            // InternalBLESS.g:11531:2: iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF
+            // InternalBLESS.g:11531:63: (iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF )
+            // InternalBLESS.g:11532:2: iv_ruleAssertionFunctionValue= ruleAssertionFunctionValue EOF
             {
              newCompositeNode(grammarAccess.getAssertionFunctionValueRule()); 
             pushFollow(FOLLOW_1);
@@ -28491,7 +28497,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssertionFunctionValue"
-    // InternalBLESS.g:11537:1: ruleAssertionFunctionValue returns [EObject current=null] : ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) ) ;
+    // InternalBLESS.g:11538:1: ruleAssertionFunctionValue returns [EObject current=null] : ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) ) ;
     public final EObject ruleAssertionFunctionValue() throws RecognitionException {
         EObject current = null;
 
@@ -28504,10 +28510,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11543:2: ( ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) ) )
-            // InternalBLESS.g:11544:2: ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) )
+            // InternalBLESS.g:11544:2: ( ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) ) )
+            // InternalBLESS.g:11545:2: ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) )
             {
-            // InternalBLESS.g:11544:2: ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) )
+            // InternalBLESS.g:11545:2: ( ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) ) | ( (lv_pexp_1_0= ruleAssertionNumericExpression ) ) )
             int alt170=2;
             int LA170_0 = input.LA(1);
 
@@ -28538,13 +28544,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt170) {
                 case 1 :
-                    // InternalBLESS.g:11545:3: ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) )
+                    // InternalBLESS.g:11546:3: ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) )
                     {
-                    // InternalBLESS.g:11545:3: ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) )
-                    // InternalBLESS.g:11546:4: (lv_cexp_0_0= ruleConditionalAssertionFunction )
+                    // InternalBLESS.g:11546:3: ( (lv_cexp_0_0= ruleConditionalAssertionFunction ) )
+                    // InternalBLESS.g:11547:4: (lv_cexp_0_0= ruleConditionalAssertionFunction )
                     {
-                    // InternalBLESS.g:11546:4: (lv_cexp_0_0= ruleConditionalAssertionFunction )
-                    // InternalBLESS.g:11547:5: lv_cexp_0_0= ruleConditionalAssertionFunction
+                    // InternalBLESS.g:11547:4: (lv_cexp_0_0= ruleConditionalAssertionFunction )
+                    // InternalBLESS.g:11548:5: lv_cexp_0_0= ruleConditionalAssertionFunction
                     {
 
                     					newCompositeNode(grammarAccess.getAssertionFunctionValueAccess().getCexpConditionalAssertionFunctionParserRuleCall_0_0());
@@ -28575,13 +28581,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:11565:3: ( (lv_pexp_1_0= ruleAssertionNumericExpression ) )
+                    // InternalBLESS.g:11566:3: ( (lv_pexp_1_0= ruleAssertionNumericExpression ) )
                     {
-                    // InternalBLESS.g:11565:3: ( (lv_pexp_1_0= ruleAssertionNumericExpression ) )
-                    // InternalBLESS.g:11566:4: (lv_pexp_1_0= ruleAssertionNumericExpression )
+                    // InternalBLESS.g:11566:3: ( (lv_pexp_1_0= ruleAssertionNumericExpression ) )
+                    // InternalBLESS.g:11567:4: (lv_pexp_1_0= ruleAssertionNumericExpression )
                     {
-                    // InternalBLESS.g:11566:4: (lv_pexp_1_0= ruleAssertionNumericExpression )
-                    // InternalBLESS.g:11567:5: lv_pexp_1_0= ruleAssertionNumericExpression
+                    // InternalBLESS.g:11567:4: (lv_pexp_1_0= ruleAssertionNumericExpression )
+                    // InternalBLESS.g:11568:5: lv_pexp_1_0= ruleAssertionNumericExpression
                     {
 
                     					newCompositeNode(grammarAccess.getAssertionFunctionValueAccess().getPexpAssertionNumericExpressionParserRuleCall_1_0());
@@ -28634,7 +28640,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConditionalAssertionFunction"
-    // InternalBLESS.g:11588:1: entryRuleConditionalAssertionFunction returns [EObject current=null] : iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF ;
+    // InternalBLESS.g:11589:1: entryRuleConditionalAssertionFunction returns [EObject current=null] : iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF ;
     public final EObject entryRuleConditionalAssertionFunction() throws RecognitionException {
         EObject current = null;
 
@@ -28642,8 +28648,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11588:69: (iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF )
-            // InternalBLESS.g:11589:2: iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF
+            // InternalBLESS.g:11589:69: (iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF )
+            // InternalBLESS.g:11590:2: iv_ruleConditionalAssertionFunction= ruleConditionalAssertionFunction EOF
             {
              newCompositeNode(grammarAccess.getConditionalAssertionFunctionRule()); 
             pushFollow(FOLLOW_1);
@@ -28670,7 +28676,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionalAssertionFunction"
-    // InternalBLESS.g:11595:1: ruleConditionalAssertionFunction returns [EObject current=null] : (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' ) ;
+    // InternalBLESS.g:11596:1: ruleConditionalAssertionFunction returns [EObject current=null] : (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' ) ;
     public final EObject ruleConditionalAssertionFunction() throws RecognitionException {
         EObject current = null;
 
@@ -28686,21 +28692,21 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11601:2: ( (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' ) )
-            // InternalBLESS.g:11602:2: (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' )
+            // InternalBLESS.g:11602:2: ( (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' ) )
+            // InternalBLESS.g:11603:2: (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' )
             {
-            // InternalBLESS.g:11602:2: (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' )
-            // InternalBLESS.g:11603:3: otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']'
+            // InternalBLESS.g:11603:2: (otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']' )
+            // InternalBLESS.g:11604:3: otherlv_0= '[' ( (lv_cvp_1_0= ruleConditionValuePair ) ) (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+ otherlv_4= ']'
             {
             otherlv_0=(Token)match(input,40,FOLLOW_64); 
 
             			newLeafNode(otherlv_0, grammarAccess.getConditionalAssertionFunctionAccess().getLeftSquareBracketKeyword_0());
             		
-            // InternalBLESS.g:11607:3: ( (lv_cvp_1_0= ruleConditionValuePair ) )
-            // InternalBLESS.g:11608:4: (lv_cvp_1_0= ruleConditionValuePair )
+            // InternalBLESS.g:11608:3: ( (lv_cvp_1_0= ruleConditionValuePair ) )
+            // InternalBLESS.g:11609:4: (lv_cvp_1_0= ruleConditionValuePair )
             {
-            // InternalBLESS.g:11608:4: (lv_cvp_1_0= ruleConditionValuePair )
-            // InternalBLESS.g:11609:5: lv_cvp_1_0= ruleConditionValuePair
+            // InternalBLESS.g:11609:4: (lv_cvp_1_0= ruleConditionValuePair )
+            // InternalBLESS.g:11610:5: lv_cvp_1_0= ruleConditionValuePair
             {
 
             					newCompositeNode(grammarAccess.getConditionalAssertionFunctionAccess().getCvpConditionValuePairParserRuleCall_1_0());
@@ -28727,7 +28733,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:11626:3: (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+
+            // InternalBLESS.g:11627:3: (otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) ) )+
             int cnt171=0;
             loop171:
             do {
@@ -28741,17 +28747,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt171) {
             	case 1 :
-            	    // InternalBLESS.g:11627:4: otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) )
+            	    // InternalBLESS.g:11628:4: otherlv_2= ',' ( (lv_cvp_3_0= ruleConditionValuePair ) )
             	    {
             	    otherlv_2=(Token)match(input,35,FOLLOW_64); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getConditionalAssertionFunctionAccess().getCommaKeyword_2_0());
             	    			
-            	    // InternalBLESS.g:11631:4: ( (lv_cvp_3_0= ruleConditionValuePair ) )
-            	    // InternalBLESS.g:11632:5: (lv_cvp_3_0= ruleConditionValuePair )
+            	    // InternalBLESS.g:11632:4: ( (lv_cvp_3_0= ruleConditionValuePair ) )
+            	    // InternalBLESS.g:11633:5: (lv_cvp_3_0= ruleConditionValuePair )
             	    {
-            	    // InternalBLESS.g:11632:5: (lv_cvp_3_0= ruleConditionValuePair )
-            	    // InternalBLESS.g:11633:6: lv_cvp_3_0= ruleConditionValuePair
+            	    // InternalBLESS.g:11633:5: (lv_cvp_3_0= ruleConditionValuePair )
+            	    // InternalBLESS.g:11634:6: lv_cvp_3_0= ruleConditionValuePair
             	    {
 
             	    						newCompositeNode(grammarAccess.getConditionalAssertionFunctionAccess().getCvpConditionValuePairParserRuleCall_2_1_0());
@@ -28818,7 +28824,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConditionValuePair"
-    // InternalBLESS.g:11659:1: entryRuleConditionValuePair returns [EObject current=null] : iv_ruleConditionValuePair= ruleConditionValuePair EOF ;
+    // InternalBLESS.g:11660:1: entryRuleConditionValuePair returns [EObject current=null] : iv_ruleConditionValuePair= ruleConditionValuePair EOF ;
     public final EObject entryRuleConditionValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -28826,8 +28832,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11659:59: (iv_ruleConditionValuePair= ruleConditionValuePair EOF )
-            // InternalBLESS.g:11660:2: iv_ruleConditionValuePair= ruleConditionValuePair EOF
+            // InternalBLESS.g:11660:59: (iv_ruleConditionValuePair= ruleConditionValuePair EOF )
+            // InternalBLESS.g:11661:2: iv_ruleConditionValuePair= ruleConditionValuePair EOF
             {
              newCompositeNode(grammarAccess.getConditionValuePairRule()); 
             pushFollow(FOLLOW_1);
@@ -28854,7 +28860,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConditionValuePair"
-    // InternalBLESS.g:11666:1: ruleConditionValuePair returns [EObject current=null] : (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) ) ;
+    // InternalBLESS.g:11667:1: ruleConditionValuePair returns [EObject current=null] : (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) ) ;
     public final EObject ruleConditionValuePair() throws RecognitionException {
         EObject current = null;
 
@@ -28869,21 +28875,21 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11672:2: ( (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) ) )
-            // InternalBLESS.g:11673:2: (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) )
+            // InternalBLESS.g:11673:2: ( (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) ) )
+            // InternalBLESS.g:11674:2: (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) )
             {
-            // InternalBLESS.g:11673:2: (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) )
-            // InternalBLESS.g:11674:3: otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) )
+            // InternalBLESS.g:11674:2: (otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) ) )
+            // InternalBLESS.g:11675:3: otherlv_0= '(' ( (lv_condition_1_0= rulePredicate ) ) otherlv_2= ')->' ( (lv_expression_3_0= ruleAssertionNumericExpression ) )
             {
             otherlv_0=(Token)match(input,48,FOLLOW_57); 
 
             			newLeafNode(otherlv_0, grammarAccess.getConditionValuePairAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalBLESS.g:11678:3: ( (lv_condition_1_0= rulePredicate ) )
-            // InternalBLESS.g:11679:4: (lv_condition_1_0= rulePredicate )
+            // InternalBLESS.g:11679:3: ( (lv_condition_1_0= rulePredicate ) )
+            // InternalBLESS.g:11680:4: (lv_condition_1_0= rulePredicate )
             {
-            // InternalBLESS.g:11679:4: (lv_condition_1_0= rulePredicate )
-            // InternalBLESS.g:11680:5: lv_condition_1_0= rulePredicate
+            // InternalBLESS.g:11680:4: (lv_condition_1_0= rulePredicate )
+            // InternalBLESS.g:11681:5: lv_condition_1_0= rulePredicate
             {
 
             					newCompositeNode(grammarAccess.getConditionValuePairAccess().getConditionPredicateParserRuleCall_1_0());
@@ -28914,11 +28920,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getConditionValuePairAccess().getRightParenthesisHyphenMinusGreaterThanSignKeyword_2());
             		
-            // InternalBLESS.g:11701:3: ( (lv_expression_3_0= ruleAssertionNumericExpression ) )
-            // InternalBLESS.g:11702:4: (lv_expression_3_0= ruleAssertionNumericExpression )
+            // InternalBLESS.g:11702:3: ( (lv_expression_3_0= ruleAssertionNumericExpression ) )
+            // InternalBLESS.g:11703:4: (lv_expression_3_0= ruleAssertionNumericExpression )
             {
-            // InternalBLESS.g:11702:4: (lv_expression_3_0= ruleAssertionNumericExpression )
-            // InternalBLESS.g:11703:5: lv_expression_3_0= ruleAssertionNumericExpression
+            // InternalBLESS.g:11703:4: (lv_expression_3_0= ruleAssertionNumericExpression )
+            // InternalBLESS.g:11704:5: lv_expression_3_0= ruleAssertionNumericExpression
             {
 
             					newCompositeNode(grammarAccess.getConditionValuePairAccess().getExpressionAssertionNumericExpressionParserRuleCall_3_0());
@@ -28968,7 +28974,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssertionEnumeration"
-    // InternalBLESS.g:11724:1: entryRuleAssertionEnumeration returns [EObject current=null] : iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF ;
+    // InternalBLESS.g:11725:1: entryRuleAssertionEnumeration returns [EObject current=null] : iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF ;
     public final EObject entryRuleAssertionEnumeration() throws RecognitionException {
         EObject current = null;
 
@@ -28976,8 +28982,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11724:61: (iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF )
-            // InternalBLESS.g:11725:2: iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF
+            // InternalBLESS.g:11725:61: (iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF )
+            // InternalBLESS.g:11726:2: iv_ruleAssertionEnumeration= ruleAssertionEnumeration EOF
             {
              newCompositeNode(grammarAccess.getAssertionEnumerationRule()); 
             pushFollow(FOLLOW_1);
@@ -29004,7 +29010,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssertionEnumeration"
-    // InternalBLESS.g:11731:1: ruleAssertionEnumeration returns [EObject current=null] : ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) ) ;
+    // InternalBLESS.g:11732:1: ruleAssertionEnumeration returns [EObject current=null] : ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) ) ;
     public final EObject ruleAssertionEnumeration() throws RecognitionException {
         EObject current = null;
 
@@ -29020,10 +29026,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11737:2: ( ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) ) )
-            // InternalBLESS.g:11738:2: ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) )
+            // InternalBLESS.g:11738:2: ( ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) ) )
+            // InternalBLESS.g:11739:2: ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) )
             {
-            // InternalBLESS.g:11738:2: ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) )
+            // InternalBLESS.g:11739:2: ( ( (lv_pred_0_0= ruleInvocation ) ) | ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* ) )
             int alt173=2;
             int LA173_0 = input.LA(1);
 
@@ -29051,13 +29057,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt173) {
                 case 1 :
-                    // InternalBLESS.g:11739:3: ( (lv_pred_0_0= ruleInvocation ) )
+                    // InternalBLESS.g:11740:3: ( (lv_pred_0_0= ruleInvocation ) )
                     {
-                    // InternalBLESS.g:11739:3: ( (lv_pred_0_0= ruleInvocation ) )
-                    // InternalBLESS.g:11740:4: (lv_pred_0_0= ruleInvocation )
+                    // InternalBLESS.g:11740:3: ( (lv_pred_0_0= ruleInvocation ) )
+                    // InternalBLESS.g:11741:4: (lv_pred_0_0= ruleInvocation )
                     {
-                    // InternalBLESS.g:11740:4: (lv_pred_0_0= ruleInvocation )
-                    // InternalBLESS.g:11741:5: lv_pred_0_0= ruleInvocation
+                    // InternalBLESS.g:11741:4: (lv_pred_0_0= ruleInvocation )
+                    // InternalBLESS.g:11742:5: lv_pred_0_0= ruleInvocation
                     {
 
                     					newCompositeNode(grammarAccess.getAssertionEnumerationAccess().getPredInvocationParserRuleCall_0_0());
@@ -29088,16 +29094,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:11759:3: ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* )
+                    // InternalBLESS.g:11760:3: ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* )
                     {
-                    // InternalBLESS.g:11759:3: ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* )
-                    // InternalBLESS.g:11760:4: ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )*
+                    // InternalBLESS.g:11760:3: ( ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )* )
+                    // InternalBLESS.g:11761:4: ( (lv_pair_1_0= ruleEnumerationPair ) ) (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )*
                     {
-                    // InternalBLESS.g:11760:4: ( (lv_pair_1_0= ruleEnumerationPair ) )
-                    // InternalBLESS.g:11761:5: (lv_pair_1_0= ruleEnumerationPair )
+                    // InternalBLESS.g:11761:4: ( (lv_pair_1_0= ruleEnumerationPair ) )
+                    // InternalBLESS.g:11762:5: (lv_pair_1_0= ruleEnumerationPair )
                     {
-                    // InternalBLESS.g:11761:5: (lv_pair_1_0= ruleEnumerationPair )
-                    // InternalBLESS.g:11762:6: lv_pair_1_0= ruleEnumerationPair
+                    // InternalBLESS.g:11762:5: (lv_pair_1_0= ruleEnumerationPair )
+                    // InternalBLESS.g:11763:6: lv_pair_1_0= ruleEnumerationPair
                     {
 
                     						newCompositeNode(grammarAccess.getAssertionEnumerationAccess().getPairEnumerationPairParserRuleCall_1_0_0());
@@ -29124,7 +29130,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:11779:4: (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )*
+                    // InternalBLESS.g:11780:4: (otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) ) )*
                     loop172:
                     do {
                         int alt172=2;
@@ -29137,17 +29143,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt172) {
                     	case 1 :
-                    	    // InternalBLESS.g:11780:5: otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) )
+                    	    // InternalBLESS.g:11781:5: otherlv_2= ',' ( (lv_pair_3_0= ruleEnumerationPair ) )
                     	    {
                     	    otherlv_2=(Token)match(input,35,FOLLOW_57); 
 
                     	    					newLeafNode(otherlv_2, grammarAccess.getAssertionEnumerationAccess().getCommaKeyword_1_1_0());
                     	    				
-                    	    // InternalBLESS.g:11784:5: ( (lv_pair_3_0= ruleEnumerationPair ) )
-                    	    // InternalBLESS.g:11785:6: (lv_pair_3_0= ruleEnumerationPair )
+                    	    // InternalBLESS.g:11785:5: ( (lv_pair_3_0= ruleEnumerationPair ) )
+                    	    // InternalBLESS.g:11786:6: (lv_pair_3_0= ruleEnumerationPair )
                     	    {
-                    	    // InternalBLESS.g:11785:6: (lv_pair_3_0= ruleEnumerationPair )
-                    	    // InternalBLESS.g:11786:7: lv_pair_3_0= ruleEnumerationPair
+                    	    // InternalBLESS.g:11786:6: (lv_pair_3_0= ruleEnumerationPair )
+                    	    // InternalBLESS.g:11787:7: lv_pair_3_0= ruleEnumerationPair
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getAssertionEnumerationAccess().getPairEnumerationPairParserRuleCall_1_1_1_0());
@@ -29212,7 +29218,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumerationPair"
-    // InternalBLESS.g:11809:1: entryRuleEnumerationPair returns [EObject current=null] : iv_ruleEnumerationPair= ruleEnumerationPair EOF ;
+    // InternalBLESS.g:11810:1: entryRuleEnumerationPair returns [EObject current=null] : iv_ruleEnumerationPair= ruleEnumerationPair EOF ;
     public final EObject entryRuleEnumerationPair() throws RecognitionException {
         EObject current = null;
 
@@ -29220,8 +29226,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11809:56: (iv_ruleEnumerationPair= ruleEnumerationPair EOF )
-            // InternalBLESS.g:11810:2: iv_ruleEnumerationPair= ruleEnumerationPair EOF
+            // InternalBLESS.g:11810:56: (iv_ruleEnumerationPair= ruleEnumerationPair EOF )
+            // InternalBLESS.g:11811:2: iv_ruleEnumerationPair= ruleEnumerationPair EOF
             {
              newCompositeNode(grammarAccess.getEnumerationPairRule()); 
             pushFollow(FOLLOW_1);
@@ -29248,7 +29254,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumerationPair"
-    // InternalBLESS.g:11816:1: ruleEnumerationPair returns [EObject current=null] : ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) ) ;
+    // InternalBLESS.g:11817:1: ruleEnumerationPair returns [EObject current=null] : ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) ) ;
     public final EObject ruleEnumerationPair() throws RecognitionException {
         EObject current = null;
 
@@ -29261,17 +29267,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11822:2: ( ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) ) )
-            // InternalBLESS.g:11823:2: ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) )
+            // InternalBLESS.g:11823:2: ( ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) ) )
+            // InternalBLESS.g:11824:2: ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) )
             {
-            // InternalBLESS.g:11823:2: ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) )
-            // InternalBLESS.g:11824:3: ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) )
+            // InternalBLESS.g:11824:2: ( ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) ) )
+            // InternalBLESS.g:11825:3: ( (lv_enumeration_literal_0_0= RULE_ID ) ) otherlv_1= '->' ( (lv_predicate_2_0= rulePredicate ) )
             {
-            // InternalBLESS.g:11824:3: ( (lv_enumeration_literal_0_0= RULE_ID ) )
-            // InternalBLESS.g:11825:4: (lv_enumeration_literal_0_0= RULE_ID )
+            // InternalBLESS.g:11825:3: ( (lv_enumeration_literal_0_0= RULE_ID ) )
+            // InternalBLESS.g:11826:4: (lv_enumeration_literal_0_0= RULE_ID )
             {
-            // InternalBLESS.g:11825:4: (lv_enumeration_literal_0_0= RULE_ID )
-            // InternalBLESS.g:11826:5: lv_enumeration_literal_0_0= RULE_ID
+            // InternalBLESS.g:11826:4: (lv_enumeration_literal_0_0= RULE_ID )
+            // InternalBLESS.g:11827:5: lv_enumeration_literal_0_0= RULE_ID
             {
             lv_enumeration_literal_0_0=(Token)match(input,RULE_ID,FOLLOW_139); 
 
@@ -29297,11 +29303,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getEnumerationPairAccess().getHyphenMinusGreaterThanSignKeyword_1());
             		
-            // InternalBLESS.g:11846:3: ( (lv_predicate_2_0= rulePredicate ) )
-            // InternalBLESS.g:11847:4: (lv_predicate_2_0= rulePredicate )
+            // InternalBLESS.g:11847:3: ( (lv_predicate_2_0= rulePredicate ) )
+            // InternalBLESS.g:11848:4: (lv_predicate_2_0= rulePredicate )
             {
-            // InternalBLESS.g:11847:4: (lv_predicate_2_0= rulePredicate )
-            // InternalBLESS.g:11848:5: lv_predicate_2_0= rulePredicate
+            // InternalBLESS.g:11848:4: (lv_predicate_2_0= rulePredicate )
+            // InternalBLESS.g:11849:5: lv_predicate_2_0= rulePredicate
             {
 
             					newCompositeNode(grammarAccess.getEnumerationPairAccess().getPredicatePredicateParserRuleCall_2_0());
@@ -29351,7 +29357,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeLibrary"
-    // InternalBLESS.g:11869:1: entryRuleTypeLibrary returns [EObject current=null] : iv_ruleTypeLibrary= ruleTypeLibrary EOF ;
+    // InternalBLESS.g:11870:1: entryRuleTypeLibrary returns [EObject current=null] : iv_ruleTypeLibrary= ruleTypeLibrary EOF ;
     public final EObject entryRuleTypeLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -29359,8 +29365,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11869:52: (iv_ruleTypeLibrary= ruleTypeLibrary EOF )
-            // InternalBLESS.g:11870:2: iv_ruleTypeLibrary= ruleTypeLibrary EOF
+            // InternalBLESS.g:11870:52: (iv_ruleTypeLibrary= ruleTypeLibrary EOF )
+            // InternalBLESS.g:11871:2: iv_ruleTypeLibrary= ruleTypeLibrary EOF
             {
              newCompositeNode(grammarAccess.getTypeLibraryRule()); 
             pushFollow(FOLLOW_1);
@@ -29387,7 +29393,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeLibrary"
-    // InternalBLESS.g:11876:1: ruleTypeLibrary returns [EObject current=null] : ( (lv_decs_0_0= ruleTypeDeclaration ) )+ ;
+    // InternalBLESS.g:11877:1: ruleTypeLibrary returns [EObject current=null] : ( (lv_decs_0_0= ruleTypeDeclaration ) )+ ;
     public final EObject ruleTypeLibrary() throws RecognitionException {
         EObject current = null;
 
@@ -29398,10 +29404,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11882:2: ( ( (lv_decs_0_0= ruleTypeDeclaration ) )+ )
-            // InternalBLESS.g:11883:2: ( (lv_decs_0_0= ruleTypeDeclaration ) )+
+            // InternalBLESS.g:11883:2: ( ( (lv_decs_0_0= ruleTypeDeclaration ) )+ )
+            // InternalBLESS.g:11884:2: ( (lv_decs_0_0= ruleTypeDeclaration ) )+
             {
-            // InternalBLESS.g:11883:2: ( (lv_decs_0_0= ruleTypeDeclaration ) )+
+            // InternalBLESS.g:11884:2: ( (lv_decs_0_0= ruleTypeDeclaration ) )+
             int cnt174=0;
             loop174:
             do {
@@ -29415,10 +29421,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt174) {
             	case 1 :
-            	    // InternalBLESS.g:11884:3: (lv_decs_0_0= ruleTypeDeclaration )
+            	    // InternalBLESS.g:11885:3: (lv_decs_0_0= ruleTypeDeclaration )
             	    {
-            	    // InternalBLESS.g:11884:3: (lv_decs_0_0= ruleTypeDeclaration )
-            	    // InternalBLESS.g:11885:4: lv_decs_0_0= ruleTypeDeclaration
+            	    // InternalBLESS.g:11885:3: (lv_decs_0_0= ruleTypeDeclaration )
+            	    // InternalBLESS.g:11886:4: lv_decs_0_0= ruleTypeDeclaration
             	    {
 
             	    				newCompositeNode(grammarAccess.getTypeLibraryAccess().getDecsTypeDeclarationParserRuleCall_0());
@@ -29475,7 +29481,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeDeclaration"
-    // InternalBLESS.g:11905:1: entryRuleTypeDeclaration returns [EObject current=null] : iv_ruleTypeDeclaration= ruleTypeDeclaration EOF ;
+    // InternalBLESS.g:11906:1: entryRuleTypeDeclaration returns [EObject current=null] : iv_ruleTypeDeclaration= ruleTypeDeclaration EOF ;
     public final EObject entryRuleTypeDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -29483,8 +29489,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11905:56: (iv_ruleTypeDeclaration= ruleTypeDeclaration EOF )
-            // InternalBLESS.g:11906:2: iv_ruleTypeDeclaration= ruleTypeDeclaration EOF
+            // InternalBLESS.g:11906:56: (iv_ruleTypeDeclaration= ruleTypeDeclaration EOF )
+            // InternalBLESS.g:11907:2: iv_ruleTypeDeclaration= ruleTypeDeclaration EOF
             {
              newCompositeNode(grammarAccess.getTypeDeclarationRule()); 
             pushFollow(FOLLOW_1);
@@ -29511,7 +29517,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeDeclaration"
-    // InternalBLESS.g:11912:1: ruleTypeDeclaration returns [EObject current=null] : (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) ) ;
+    // InternalBLESS.g:11913:1: ruleTypeDeclaration returns [EObject current=null] : (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) ) ;
     public final EObject ruleTypeDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -29525,21 +29531,21 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11918:2: ( (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) ) )
-            // InternalBLESS.g:11919:2: (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) )
+            // InternalBLESS.g:11919:2: ( (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) ) )
+            // InternalBLESS.g:11920:2: (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) )
             {
-            // InternalBLESS.g:11919:2: (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) )
-            // InternalBLESS.g:11920:3: otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) )
+            // InternalBLESS.g:11920:2: (otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) ) )
+            // InternalBLESS.g:11921:3: otherlv_0= 'type' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'is' ( (lv_type_3_0= ruleType ) )
             {
             otherlv_0=(Token)match(input,158,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTypeDeclarationAccess().getTypeKeyword_0());
             		
-            // InternalBLESS.g:11924:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBLESS.g:11925:4: (lv_name_1_0= RULE_ID )
+            // InternalBLESS.g:11925:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBLESS.g:11926:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBLESS.g:11925:4: (lv_name_1_0= RULE_ID )
-            // InternalBLESS.g:11926:5: lv_name_1_0= RULE_ID
+            // InternalBLESS.g:11926:4: (lv_name_1_0= RULE_ID )
+            // InternalBLESS.g:11927:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_151); 
 
@@ -29565,11 +29571,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getTypeDeclarationAccess().getIsKeyword_2());
             		
-            // InternalBLESS.g:11946:3: ( (lv_type_3_0= ruleType ) )
-            // InternalBLESS.g:11947:4: (lv_type_3_0= ruleType )
+            // InternalBLESS.g:11947:3: ( (lv_type_3_0= ruleType ) )
+            // InternalBLESS.g:11948:4: (lv_type_3_0= ruleType )
             {
-            // InternalBLESS.g:11947:4: (lv_type_3_0= ruleType )
-            // InternalBLESS.g:11948:5: lv_type_3_0= ruleType
+            // InternalBLESS.g:11948:4: (lv_type_3_0= ruleType )
+            // InternalBLESS.g:11949:5: lv_type_3_0= ruleType
             {
 
             					newCompositeNode(grammarAccess.getTypeDeclarationAccess().getTypeTypeParserRuleCall_3_0());
@@ -29619,7 +29625,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeOrReference"
-    // InternalBLESS.g:11969:1: entryRuleTypeOrReference returns [EObject current=null] : iv_ruleTypeOrReference= ruleTypeOrReference EOF ;
+    // InternalBLESS.g:11970:1: entryRuleTypeOrReference returns [EObject current=null] : iv_ruleTypeOrReference= ruleTypeOrReference EOF ;
     public final EObject entryRuleTypeOrReference() throws RecognitionException {
         EObject current = null;
 
@@ -29627,8 +29633,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:11969:56: (iv_ruleTypeOrReference= ruleTypeOrReference EOF )
-            // InternalBLESS.g:11970:2: iv_ruleTypeOrReference= ruleTypeOrReference EOF
+            // InternalBLESS.g:11970:56: (iv_ruleTypeOrReference= ruleTypeOrReference EOF )
+            // InternalBLESS.g:11971:2: iv_ruleTypeOrReference= ruleTypeOrReference EOF
             {
              newCompositeNode(grammarAccess.getTypeOrReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -29655,7 +29661,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeOrReference"
-    // InternalBLESS.g:11976:1: ruleTypeOrReference returns [EObject current=null] : ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) ) ;
+    // InternalBLESS.g:11977:1: ruleTypeOrReference returns [EObject current=null] : ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) ) ;
     public final EObject ruleTypeOrReference() throws RecognitionException {
         EObject current = null;
 
@@ -29667,10 +29673,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:11982:2: ( ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) ) )
-            // InternalBLESS.g:11983:2: ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) )
+            // InternalBLESS.g:11983:2: ( ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) ) )
+            // InternalBLESS.g:11984:2: ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) )
             {
-            // InternalBLESS.g:11983:2: ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) )
+            // InternalBLESS.g:11984:2: ( ( (lv_ty_0_0= ruleType ) ) | ( (otherlv_1= RULE_ID ) ) )
             int alt175=2;
             int LA175_0 = input.LA(1);
 
@@ -29688,13 +29694,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt175) {
                 case 1 :
-                    // InternalBLESS.g:11984:3: ( (lv_ty_0_0= ruleType ) )
+                    // InternalBLESS.g:11985:3: ( (lv_ty_0_0= ruleType ) )
                     {
-                    // InternalBLESS.g:11984:3: ( (lv_ty_0_0= ruleType ) )
-                    // InternalBLESS.g:11985:4: (lv_ty_0_0= ruleType )
+                    // InternalBLESS.g:11985:3: ( (lv_ty_0_0= ruleType ) )
+                    // InternalBLESS.g:11986:4: (lv_ty_0_0= ruleType )
                     {
-                    // InternalBLESS.g:11985:4: (lv_ty_0_0= ruleType )
-                    // InternalBLESS.g:11986:5: lv_ty_0_0= ruleType
+                    // InternalBLESS.g:11986:4: (lv_ty_0_0= ruleType )
+                    // InternalBLESS.g:11987:5: lv_ty_0_0= ruleType
                     {
 
                     					newCompositeNode(grammarAccess.getTypeOrReferenceAccess().getTyTypeParserRuleCall_0_0());
@@ -29725,13 +29731,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12004:3: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:12005:3: ( (otherlv_1= RULE_ID ) )
                     {
-                    // InternalBLESS.g:12004:3: ( (otherlv_1= RULE_ID ) )
-                    // InternalBLESS.g:12005:4: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:12005:3: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:12006:4: (otherlv_1= RULE_ID )
                     {
-                    // InternalBLESS.g:12005:4: (otherlv_1= RULE_ID )
-                    // InternalBLESS.g:12006:5: otherlv_1= RULE_ID
+                    // InternalBLESS.g:12006:4: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:12007:5: otherlv_1= RULE_ID
                     {
 
                     					if (current==null) {
@@ -29774,7 +29780,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanType"
-    // InternalBLESS.g:12021:1: entryRuleBooleanType returns [EObject current=null] : iv_ruleBooleanType= ruleBooleanType EOF ;
+    // InternalBLESS.g:12022:1: entryRuleBooleanType returns [EObject current=null] : iv_ruleBooleanType= ruleBooleanType EOF ;
     public final EObject entryRuleBooleanType() throws RecognitionException {
         EObject current = null;
 
@@ -29782,8 +29788,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12021:52: (iv_ruleBooleanType= ruleBooleanType EOF )
-            // InternalBLESS.g:12022:2: iv_ruleBooleanType= ruleBooleanType EOF
+            // InternalBLESS.g:12022:52: (iv_ruleBooleanType= ruleBooleanType EOF )
+            // InternalBLESS.g:12023:2: iv_ruleBooleanType= ruleBooleanType EOF
             {
              newCompositeNode(grammarAccess.getBooleanTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -29810,7 +29816,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanType"
-    // InternalBLESS.g:12028:1: ruleBooleanType returns [EObject current=null] : ( (lv_b_0_0= 'boolean' ) ) ;
+    // InternalBLESS.g:12029:1: ruleBooleanType returns [EObject current=null] : ( (lv_b_0_0= 'boolean' ) ) ;
     public final EObject ruleBooleanType() throws RecognitionException {
         EObject current = null;
 
@@ -29820,14 +29826,14 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12034:2: ( ( (lv_b_0_0= 'boolean' ) ) )
-            // InternalBLESS.g:12035:2: ( (lv_b_0_0= 'boolean' ) )
+            // InternalBLESS.g:12035:2: ( ( (lv_b_0_0= 'boolean' ) ) )
+            // InternalBLESS.g:12036:2: ( (lv_b_0_0= 'boolean' ) )
             {
-            // InternalBLESS.g:12035:2: ( (lv_b_0_0= 'boolean' ) )
-            // InternalBLESS.g:12036:3: (lv_b_0_0= 'boolean' )
+            // InternalBLESS.g:12036:2: ( (lv_b_0_0= 'boolean' ) )
+            // InternalBLESS.g:12037:3: (lv_b_0_0= 'boolean' )
             {
-            // InternalBLESS.g:12036:3: (lv_b_0_0= 'boolean' )
-            // InternalBLESS.g:12037:4: lv_b_0_0= 'boolean'
+            // InternalBLESS.g:12037:3: (lv_b_0_0= 'boolean' )
+            // InternalBLESS.g:12038:4: lv_b_0_0= 'boolean'
             {
             lv_b_0_0=(Token)match(input,160,FOLLOW_2); 
 
@@ -29865,7 +29871,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringType"
-    // InternalBLESS.g:12052:1: entryRuleStringType returns [EObject current=null] : iv_ruleStringType= ruleStringType EOF ;
+    // InternalBLESS.g:12053:1: entryRuleStringType returns [EObject current=null] : iv_ruleStringType= ruleStringType EOF ;
     public final EObject entryRuleStringType() throws RecognitionException {
         EObject current = null;
 
@@ -29873,8 +29879,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12052:51: (iv_ruleStringType= ruleStringType EOF )
-            // InternalBLESS.g:12053:2: iv_ruleStringType= ruleStringType EOF
+            // InternalBLESS.g:12053:51: (iv_ruleStringType= ruleStringType EOF )
+            // InternalBLESS.g:12054:2: iv_ruleStringType= ruleStringType EOF
             {
              newCompositeNode(grammarAccess.getStringTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -29901,7 +29907,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringType"
-    // InternalBLESS.g:12059:1: ruleStringType returns [EObject current=null] : ( (lv_s_0_0= 'string' ) ) ;
+    // InternalBLESS.g:12060:1: ruleStringType returns [EObject current=null] : ( (lv_s_0_0= 'string' ) ) ;
     public final EObject ruleStringType() throws RecognitionException {
         EObject current = null;
 
@@ -29911,14 +29917,14 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12065:2: ( ( (lv_s_0_0= 'string' ) ) )
-            // InternalBLESS.g:12066:2: ( (lv_s_0_0= 'string' ) )
+            // InternalBLESS.g:12066:2: ( ( (lv_s_0_0= 'string' ) ) )
+            // InternalBLESS.g:12067:2: ( (lv_s_0_0= 'string' ) )
             {
-            // InternalBLESS.g:12066:2: ( (lv_s_0_0= 'string' ) )
-            // InternalBLESS.g:12067:3: (lv_s_0_0= 'string' )
+            // InternalBLESS.g:12067:2: ( (lv_s_0_0= 'string' ) )
+            // InternalBLESS.g:12068:3: (lv_s_0_0= 'string' )
             {
-            // InternalBLESS.g:12067:3: (lv_s_0_0= 'string' )
-            // InternalBLESS.g:12068:4: lv_s_0_0= 'string'
+            // InternalBLESS.g:12068:3: (lv_s_0_0= 'string' )
+            // InternalBLESS.g:12069:4: lv_s_0_0= 'string'
             {
             lv_s_0_0=(Token)match(input,161,FOLLOW_2); 
 
@@ -29956,7 +29962,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNullType"
-    // InternalBLESS.g:12083:1: entryRuleNullType returns [EObject current=null] : iv_ruleNullType= ruleNullType EOF ;
+    // InternalBLESS.g:12084:1: entryRuleNullType returns [EObject current=null] : iv_ruleNullType= ruleNullType EOF ;
     public final EObject entryRuleNullType() throws RecognitionException {
         EObject current = null;
 
@@ -29964,8 +29970,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12083:49: (iv_ruleNullType= ruleNullType EOF )
-            // InternalBLESS.g:12084:2: iv_ruleNullType= ruleNullType EOF
+            // InternalBLESS.g:12084:49: (iv_ruleNullType= ruleNullType EOF )
+            // InternalBLESS.g:12085:2: iv_ruleNullType= ruleNullType EOF
             {
              newCompositeNode(grammarAccess.getNullTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -29992,7 +29998,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNullType"
-    // InternalBLESS.g:12090:1: ruleNullType returns [EObject current=null] : ( (lv_n_0_0= 'null' ) ) ;
+    // InternalBLESS.g:12091:1: ruleNullType returns [EObject current=null] : ( (lv_n_0_0= 'null' ) ) ;
     public final EObject ruleNullType() throws RecognitionException {
         EObject current = null;
 
@@ -30002,14 +30008,14 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12096:2: ( ( (lv_n_0_0= 'null' ) ) )
-            // InternalBLESS.g:12097:2: ( (lv_n_0_0= 'null' ) )
+            // InternalBLESS.g:12097:2: ( ( (lv_n_0_0= 'null' ) ) )
+            // InternalBLESS.g:12098:2: ( (lv_n_0_0= 'null' ) )
             {
-            // InternalBLESS.g:12097:2: ( (lv_n_0_0= 'null' ) )
-            // InternalBLESS.g:12098:3: (lv_n_0_0= 'null' )
+            // InternalBLESS.g:12098:2: ( (lv_n_0_0= 'null' ) )
+            // InternalBLESS.g:12099:3: (lv_n_0_0= 'null' )
             {
-            // InternalBLESS.g:12098:3: (lv_n_0_0= 'null' )
-            // InternalBLESS.g:12099:4: lv_n_0_0= 'null'
+            // InternalBLESS.g:12099:3: (lv_n_0_0= 'null' )
+            // InternalBLESS.g:12100:4: lv_n_0_0= 'null'
             {
             lv_n_0_0=(Token)match(input,141,FOLLOW_2); 
 
@@ -30047,7 +30053,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumerationType"
-    // InternalBLESS.g:12114:1: entryRuleEnumerationType returns [EObject current=null] : iv_ruleEnumerationType= ruleEnumerationType EOF ;
+    // InternalBLESS.g:12115:1: entryRuleEnumerationType returns [EObject current=null] : iv_ruleEnumerationType= ruleEnumerationType EOF ;
     public final EObject entryRuleEnumerationType() throws RecognitionException {
         EObject current = null;
 
@@ -30055,8 +30061,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12114:56: (iv_ruleEnumerationType= ruleEnumerationType EOF )
-            // InternalBLESS.g:12115:2: iv_ruleEnumerationType= ruleEnumerationType EOF
+            // InternalBLESS.g:12115:56: (iv_ruleEnumerationType= ruleEnumerationType EOF )
+            // InternalBLESS.g:12116:2: iv_ruleEnumerationType= ruleEnumerationType EOF
             {
              newCompositeNode(grammarAccess.getEnumerationTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -30083,7 +30089,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumerationType"
-    // InternalBLESS.g:12121:1: ruleEnumerationType returns [EObject current=null] : (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' ) ;
+    // InternalBLESS.g:12122:1: ruleEnumerationType returns [EObject current=null] : (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' ) ;
     public final EObject ruleEnumerationType() throws RecognitionException {
         EObject current = null;
 
@@ -30096,11 +30102,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12127:2: ( (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' ) )
-            // InternalBLESS.g:12128:2: (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' )
+            // InternalBLESS.g:12128:2: ( (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' ) )
+            // InternalBLESS.g:12129:2: (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' )
             {
-            // InternalBLESS.g:12128:2: (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' )
-            // InternalBLESS.g:12129:3: otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')'
+            // InternalBLESS.g:12129:2: (otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')' )
+            // InternalBLESS.g:12130:3: otherlv_0= 'enumeration' otherlv_1= '(' ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+ otherlv_3= ')'
             {
             otherlv_0=(Token)match(input,162,FOLLOW_64); 
 
@@ -30110,7 +30116,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getEnumerationTypeAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalBLESS.g:12137:3: ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+
+            // InternalBLESS.g:12138:3: ( (lv_defining_enumeration_literal_2_0= RULE_ID ) )+
             int cnt176=0;
             loop176:
             do {
@@ -30124,10 +30130,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt176) {
             	case 1 :
-            	    // InternalBLESS.g:12138:4: (lv_defining_enumeration_literal_2_0= RULE_ID )
+            	    // InternalBLESS.g:12139:4: (lv_defining_enumeration_literal_2_0= RULE_ID )
             	    {
-            	    // InternalBLESS.g:12138:4: (lv_defining_enumeration_literal_2_0= RULE_ID )
-            	    // InternalBLESS.g:12139:5: lv_defining_enumeration_literal_2_0= RULE_ID
+            	    // InternalBLESS.g:12139:4: (lv_defining_enumeration_literal_2_0= RULE_ID )
+            	    // InternalBLESS.g:12140:5: lv_defining_enumeration_literal_2_0= RULE_ID
             	    {
             	    lv_defining_enumeration_literal_2_0=(Token)match(input,RULE_ID,FOLLOW_130); 
 
@@ -30186,7 +30192,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQuantityType"
-    // InternalBLESS.g:12163:1: entryRuleQuantityType returns [EObject current=null] : iv_ruleQuantityType= ruleQuantityType EOF ;
+    // InternalBLESS.g:12164:1: entryRuleQuantityType returns [EObject current=null] : iv_ruleQuantityType= ruleQuantityType EOF ;
     public final EObject entryRuleQuantityType() throws RecognitionException {
         EObject current = null;
 
@@ -30194,8 +30200,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12163:53: (iv_ruleQuantityType= ruleQuantityType EOF )
-            // InternalBLESS.g:12164:2: iv_ruleQuantityType= ruleQuantityType EOF
+            // InternalBLESS.g:12164:53: (iv_ruleQuantityType= ruleQuantityType EOF )
+            // InternalBLESS.g:12165:2: iv_ruleQuantityType= ruleQuantityType EOF
             {
              newCompositeNode(grammarAccess.getQuantityTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -30222,7 +30228,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantityType"
-    // InternalBLESS.g:12170:1: ruleQuantityType returns [EObject current=null] : (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) ;
+    // InternalBLESS.g:12171:1: ruleQuantityType returns [EObject current=null] : (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) ;
     public final EObject ruleQuantityType() throws RecognitionException {
         EObject current = null;
 
@@ -30235,17 +30241,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12176:2: ( (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) )
-            // InternalBLESS.g:12177:2: (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
+            // InternalBLESS.g:12177:2: ( (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) ) )
+            // InternalBLESS.g:12178:2: (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
             {
-            // InternalBLESS.g:12177:2: (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
-            // InternalBLESS.g:12178:3: otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
+            // InternalBLESS.g:12178:2: (otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) ) )
+            // InternalBLESS.g:12179:3: otherlv_0= 'quantity' ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
             {
             otherlv_0=(Token)match(input,163,FOLLOW_153); 
 
             			newLeafNode(otherlv_0, grammarAccess.getQuantityTypeAccess().getQuantityKeyword_0());
             		
-            // InternalBLESS.g:12182:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
+            // InternalBLESS.g:12183:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )
             int alt177=3;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -30272,13 +30278,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt177) {
                 case 1 :
-                    // InternalBLESS.g:12183:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:12184:4: ( (otherlv_1= RULE_ID ) )
                     {
-                    // InternalBLESS.g:12183:4: ( (otherlv_1= RULE_ID ) )
-                    // InternalBLESS.g:12184:5: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:12184:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:12185:5: (otherlv_1= RULE_ID )
                     {
-                    // InternalBLESS.g:12184:5: (otherlv_1= RULE_ID )
-                    // InternalBLESS.g:12185:6: otherlv_1= RULE_ID
+                    // InternalBLESS.g:12185:5: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:12186:6: otherlv_1= RULE_ID
                     {
 
                     						if (current==null) {
@@ -30299,13 +30305,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12197:4: ( (lv_scalar_2_0= 'scalar' ) )
+                    // InternalBLESS.g:12198:4: ( (lv_scalar_2_0= 'scalar' ) )
                     {
-                    // InternalBLESS.g:12197:4: ( (lv_scalar_2_0= 'scalar' ) )
-                    // InternalBLESS.g:12198:5: (lv_scalar_2_0= 'scalar' )
+                    // InternalBLESS.g:12198:4: ( (lv_scalar_2_0= 'scalar' ) )
+                    // InternalBLESS.g:12199:5: (lv_scalar_2_0= 'scalar' )
                     {
-                    // InternalBLESS.g:12198:5: (lv_scalar_2_0= 'scalar' )
-                    // InternalBLESS.g:12199:6: lv_scalar_2_0= 'scalar'
+                    // InternalBLESS.g:12199:5: (lv_scalar_2_0= 'scalar' )
+                    // InternalBLESS.g:12200:6: lv_scalar_2_0= 'scalar'
                     {
                     lv_scalar_2_0=(Token)match(input,103,FOLLOW_2); 
 
@@ -30327,13 +30333,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:12212:4: ( (lv_whole_3_0= 'whole' ) )
+                    // InternalBLESS.g:12213:4: ( (lv_whole_3_0= 'whole' ) )
                     {
-                    // InternalBLESS.g:12212:4: ( (lv_whole_3_0= 'whole' ) )
-                    // InternalBLESS.g:12213:5: (lv_whole_3_0= 'whole' )
+                    // InternalBLESS.g:12213:4: ( (lv_whole_3_0= 'whole' ) )
+                    // InternalBLESS.g:12214:5: (lv_whole_3_0= 'whole' )
                     {
-                    // InternalBLESS.g:12213:5: (lv_whole_3_0= 'whole' )
-                    // InternalBLESS.g:12214:6: lv_whole_3_0= 'whole'
+                    // InternalBLESS.g:12214:5: (lv_whole_3_0= 'whole' )
+                    // InternalBLESS.g:12215:6: lv_whole_3_0= 'whole'
                     {
                     lv_whole_3_0=(Token)match(input,104,FOLLOW_2); 
 
@@ -30380,7 +30386,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleANumber"
-    // InternalBLESS.g:12231:1: entryRuleANumber returns [EObject current=null] : iv_ruleANumber= ruleANumber EOF ;
+    // InternalBLESS.g:12232:1: entryRuleANumber returns [EObject current=null] : iv_ruleANumber= ruleANumber EOF ;
     public final EObject entryRuleANumber() throws RecognitionException {
         EObject current = null;
 
@@ -30388,8 +30394,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12231:48: (iv_ruleANumber= ruleANumber EOF )
-            // InternalBLESS.g:12232:2: iv_ruleANumber= ruleANumber EOF
+            // InternalBLESS.g:12232:48: (iv_ruleANumber= ruleANumber EOF )
+            // InternalBLESS.g:12233:2: iv_ruleANumber= ruleANumber EOF
             {
              newCompositeNode(grammarAccess.getANumberRule()); 
             pushFollow(FOLLOW_1);
@@ -30416,7 +30422,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleANumber"
-    // InternalBLESS.g:12238:1: ruleANumber returns [EObject current=null] : ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) ) ;
+    // InternalBLESS.g:12239:1: ruleANumber returns [EObject current=null] : ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) ) ;
     public final EObject ruleANumber() throws RecognitionException {
         EObject current = null;
 
@@ -30428,10 +30434,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12244:2: ( ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) ) )
-            // InternalBLESS.g:12245:2: ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:12245:2: ( ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) ) )
+            // InternalBLESS.g:12246:2: ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) )
             {
-            // InternalBLESS.g:12245:2: ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:12246:2: ( ( (lv_lit_0_0= RULE_NUMBER ) ) | ( (lv_property_1_0= rulePropertyReference ) ) | ( ( ruleQCLREF ) ) )
             int alt178=3;
             switch ( input.LA(1) ) {
             case RULE_NUMBER:
@@ -30495,13 +30501,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt178) {
                 case 1 :
-                    // InternalBLESS.g:12246:3: ( (lv_lit_0_0= RULE_NUMBER ) )
+                    // InternalBLESS.g:12247:3: ( (lv_lit_0_0= RULE_NUMBER ) )
                     {
-                    // InternalBLESS.g:12246:3: ( (lv_lit_0_0= RULE_NUMBER ) )
-                    // InternalBLESS.g:12247:4: (lv_lit_0_0= RULE_NUMBER )
+                    // InternalBLESS.g:12247:3: ( (lv_lit_0_0= RULE_NUMBER ) )
+                    // InternalBLESS.g:12248:4: (lv_lit_0_0= RULE_NUMBER )
                     {
-                    // InternalBLESS.g:12247:4: (lv_lit_0_0= RULE_NUMBER )
-                    // InternalBLESS.g:12248:5: lv_lit_0_0= RULE_NUMBER
+                    // InternalBLESS.g:12248:4: (lv_lit_0_0= RULE_NUMBER )
+                    // InternalBLESS.g:12249:5: lv_lit_0_0= RULE_NUMBER
                     {
                     lv_lit_0_0=(Token)match(input,RULE_NUMBER,FOLLOW_2); 
 
@@ -30527,13 +30533,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12265:3: ( (lv_property_1_0= rulePropertyReference ) )
+                    // InternalBLESS.g:12266:3: ( (lv_property_1_0= rulePropertyReference ) )
                     {
-                    // InternalBLESS.g:12265:3: ( (lv_property_1_0= rulePropertyReference ) )
-                    // InternalBLESS.g:12266:4: (lv_property_1_0= rulePropertyReference )
+                    // InternalBLESS.g:12266:3: ( (lv_property_1_0= rulePropertyReference ) )
+                    // InternalBLESS.g:12267:4: (lv_property_1_0= rulePropertyReference )
                     {
-                    // InternalBLESS.g:12266:4: (lv_property_1_0= rulePropertyReference )
-                    // InternalBLESS.g:12267:5: lv_property_1_0= rulePropertyReference
+                    // InternalBLESS.g:12267:4: (lv_property_1_0= rulePropertyReference )
+                    // InternalBLESS.g:12268:5: lv_property_1_0= rulePropertyReference
                     {
 
                     					newCompositeNode(grammarAccess.getANumberAccess().getPropertyPropertyReferenceParserRuleCall_1_0());
@@ -30564,13 +30570,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:12285:3: ( ( ruleQCLREF ) )
+                    // InternalBLESS.g:12286:3: ( ( ruleQCLREF ) )
                     {
-                    // InternalBLESS.g:12285:3: ( ( ruleQCLREF ) )
-                    // InternalBLESS.g:12286:4: ( ruleQCLREF )
+                    // InternalBLESS.g:12286:3: ( ( ruleQCLREF ) )
+                    // InternalBLESS.g:12287:4: ( ruleQCLREF )
                     {
-                    // InternalBLESS.g:12286:4: ( ruleQCLREF )
-                    // InternalBLESS.g:12287:5: ruleQCLREF
+                    // InternalBLESS.g:12287:4: ( ruleQCLREF )
+                    // InternalBLESS.g:12288:5: ruleQCLREF
                     {
 
                     					if (current==null) {
@@ -30620,7 +30626,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayType"
-    // InternalBLESS.g:12305:1: entryRuleArrayType returns [EObject current=null] : iv_ruleArrayType= ruleArrayType EOF ;
+    // InternalBLESS.g:12306:1: entryRuleArrayType returns [EObject current=null] : iv_ruleArrayType= ruleArrayType EOF ;
     public final EObject entryRuleArrayType() throws RecognitionException {
         EObject current = null;
 
@@ -30628,8 +30634,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12305:50: (iv_ruleArrayType= ruleArrayType EOF )
-            // InternalBLESS.g:12306:2: iv_ruleArrayType= ruleArrayType EOF
+            // InternalBLESS.g:12306:50: (iv_ruleArrayType= ruleArrayType EOF )
+            // InternalBLESS.g:12307:2: iv_ruleArrayType= ruleArrayType EOF
             {
              newCompositeNode(grammarAccess.getArrayTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -30656,7 +30662,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayType"
-    // InternalBLESS.g:12312:1: ruleArrayType returns [EObject current=null] : (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) ) ;
+    // InternalBLESS.g:12313:1: ruleArrayType returns [EObject current=null] : (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) ) ;
     public final EObject ruleArrayType() throws RecognitionException {
         EObject current = null;
 
@@ -30673,11 +30679,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12318:2: ( (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) ) )
-            // InternalBLESS.g:12319:2: (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) )
+            // InternalBLESS.g:12319:2: ( (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) ) )
+            // InternalBLESS.g:12320:2: (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) )
             {
-            // InternalBLESS.g:12319:2: (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) )
-            // InternalBLESS.g:12320:3: otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) )
+            // InternalBLESS.g:12320:2: (otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) ) )
+            // InternalBLESS.g:12321:3: otherlv_0= 'array' otherlv_1= '[' ( (lv_array_ranges_2_0= ruleArrayRangeList ) ) otherlv_3= ']' otherlv_4= 'of' ( (lv_typ_5_0= ruleTypeOrReference ) )
             {
             otherlv_0=(Token)match(input,164,FOLLOW_154); 
 
@@ -30687,11 +30693,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getArrayTypeAccess().getLeftSquareBracketKeyword_1());
             		
-            // InternalBLESS.g:12328:3: ( (lv_array_ranges_2_0= ruleArrayRangeList ) )
-            // InternalBLESS.g:12329:4: (lv_array_ranges_2_0= ruleArrayRangeList )
+            // InternalBLESS.g:12329:3: ( (lv_array_ranges_2_0= ruleArrayRangeList ) )
+            // InternalBLESS.g:12330:4: (lv_array_ranges_2_0= ruleArrayRangeList )
             {
-            // InternalBLESS.g:12329:4: (lv_array_ranges_2_0= ruleArrayRangeList )
-            // InternalBLESS.g:12330:5: lv_array_ranges_2_0= ruleArrayRangeList
+            // InternalBLESS.g:12330:4: (lv_array_ranges_2_0= ruleArrayRangeList )
+            // InternalBLESS.g:12331:5: lv_array_ranges_2_0= ruleArrayRangeList
             {
 
             					newCompositeNode(grammarAccess.getArrayTypeAccess().getArray_rangesArrayRangeListParserRuleCall_2_0());
@@ -30726,11 +30732,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getArrayTypeAccess().getOfKeyword_4());
             		
-            // InternalBLESS.g:12355:3: ( (lv_typ_5_0= ruleTypeOrReference ) )
-            // InternalBLESS.g:12356:4: (lv_typ_5_0= ruleTypeOrReference )
+            // InternalBLESS.g:12356:3: ( (lv_typ_5_0= ruleTypeOrReference ) )
+            // InternalBLESS.g:12357:4: (lv_typ_5_0= ruleTypeOrReference )
             {
-            // InternalBLESS.g:12356:4: (lv_typ_5_0= ruleTypeOrReference )
-            // InternalBLESS.g:12357:5: lv_typ_5_0= ruleTypeOrReference
+            // InternalBLESS.g:12357:4: (lv_typ_5_0= ruleTypeOrReference )
+            // InternalBLESS.g:12358:5: lv_typ_5_0= ruleTypeOrReference
             {
 
             					newCompositeNode(grammarAccess.getArrayTypeAccess().getTypTypeOrReferenceParserRuleCall_5_0());
@@ -30780,7 +30786,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayRangeList"
-    // InternalBLESS.g:12378:1: entryRuleArrayRangeList returns [EObject current=null] : iv_ruleArrayRangeList= ruleArrayRangeList EOF ;
+    // InternalBLESS.g:12379:1: entryRuleArrayRangeList returns [EObject current=null] : iv_ruleArrayRangeList= ruleArrayRangeList EOF ;
     public final EObject entryRuleArrayRangeList() throws RecognitionException {
         EObject current = null;
 
@@ -30788,8 +30794,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12378:55: (iv_ruleArrayRangeList= ruleArrayRangeList EOF )
-            // InternalBLESS.g:12379:2: iv_ruleArrayRangeList= ruleArrayRangeList EOF
+            // InternalBLESS.g:12379:55: (iv_ruleArrayRangeList= ruleArrayRangeList EOF )
+            // InternalBLESS.g:12380:2: iv_ruleArrayRangeList= ruleArrayRangeList EOF
             {
              newCompositeNode(grammarAccess.getArrayRangeListRule()); 
             pushFollow(FOLLOW_1);
@@ -30816,7 +30822,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayRangeList"
-    // InternalBLESS.g:12385:1: ruleArrayRangeList returns [EObject current=null] : ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? ) ;
+    // InternalBLESS.g:12386:1: ruleArrayRangeList returns [EObject current=null] : ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? ) ;
     public final EObject ruleArrayRangeList() throws RecognitionException {
         EObject current = null;
 
@@ -30833,17 +30839,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12391:2: ( ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? ) )
-            // InternalBLESS.g:12392:2: ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? )
+            // InternalBLESS.g:12392:2: ( ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? ) )
+            // InternalBLESS.g:12393:2: ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? )
             {
-            // InternalBLESS.g:12392:2: ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? )
-            // InternalBLESS.g:12393:3: ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )?
+            // InternalBLESS.g:12393:2: ( ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )? )
+            // InternalBLESS.g:12394:3: ( (lv_range_0_0= ruleArrayRange ) ) ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )?
             {
-            // InternalBLESS.g:12393:3: ( (lv_range_0_0= ruleArrayRange ) )
-            // InternalBLESS.g:12394:4: (lv_range_0_0= ruleArrayRange )
+            // InternalBLESS.g:12394:3: ( (lv_range_0_0= ruleArrayRange ) )
+            // InternalBLESS.g:12395:4: (lv_range_0_0= ruleArrayRange )
             {
-            // InternalBLESS.g:12394:4: (lv_range_0_0= ruleArrayRange )
-            // InternalBLESS.g:12395:5: lv_range_0_0= ruleArrayRange
+            // InternalBLESS.g:12395:4: (lv_range_0_0= ruleArrayRange )
+            // InternalBLESS.g:12396:5: lv_range_0_0= ruleArrayRange
             {
 
             					newCompositeNode(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_0_0());
@@ -30870,7 +30876,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:12412:3: ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )?
+            // InternalBLESS.g:12413:3: ( ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )* )?
             int alt180=2;
             int LA180_0 = input.LA(1);
 
@@ -30879,13 +30885,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt180) {
                 case 1 :
-                    // InternalBLESS.g:12413:4: ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )*
+                    // InternalBLESS.g:12414:4: ( (lv_comma_1_0= ',' ) ) ( (lv_range_2_0= ruleArrayRange ) ) (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )*
                     {
-                    // InternalBLESS.g:12413:4: ( (lv_comma_1_0= ',' ) )
-                    // InternalBLESS.g:12414:5: (lv_comma_1_0= ',' )
+                    // InternalBLESS.g:12414:4: ( (lv_comma_1_0= ',' ) )
+                    // InternalBLESS.g:12415:5: (lv_comma_1_0= ',' )
                     {
-                    // InternalBLESS.g:12414:5: (lv_comma_1_0= ',' )
-                    // InternalBLESS.g:12415:6: lv_comma_1_0= ','
+                    // InternalBLESS.g:12415:5: (lv_comma_1_0= ',' )
+                    // InternalBLESS.g:12416:6: lv_comma_1_0= ','
                     {
                     lv_comma_1_0=(Token)match(input,35,FOLLOW_155); 
 
@@ -30903,11 +30909,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:12427:4: ( (lv_range_2_0= ruleArrayRange ) )
-                    // InternalBLESS.g:12428:5: (lv_range_2_0= ruleArrayRange )
+                    // InternalBLESS.g:12428:4: ( (lv_range_2_0= ruleArrayRange ) )
+                    // InternalBLESS.g:12429:5: (lv_range_2_0= ruleArrayRange )
                     {
-                    // InternalBLESS.g:12428:5: (lv_range_2_0= ruleArrayRange )
-                    // InternalBLESS.g:12429:6: lv_range_2_0= ruleArrayRange
+                    // InternalBLESS.g:12429:5: (lv_range_2_0= ruleArrayRange )
+                    // InternalBLESS.g:12430:6: lv_range_2_0= ruleArrayRange
                     {
 
                     						newCompositeNode(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_1_1_0());
@@ -30934,7 +30940,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:12446:4: (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )*
+                    // InternalBLESS.g:12447:4: (otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) ) )*
                     loop179:
                     do {
                         int alt179=2;
@@ -30947,17 +30953,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt179) {
                     	case 1 :
-                    	    // InternalBLESS.g:12447:5: otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) )
+                    	    // InternalBLESS.g:12448:5: otherlv_3= ',' ( (lv_range_4_0= ruleArrayRange ) )
                     	    {
                     	    otherlv_3=(Token)match(input,35,FOLLOW_155); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getArrayRangeListAccess().getCommaKeyword_1_2_0());
                     	    				
-                    	    // InternalBLESS.g:12451:5: ( (lv_range_4_0= ruleArrayRange ) )
-                    	    // InternalBLESS.g:12452:6: (lv_range_4_0= ruleArrayRange )
+                    	    // InternalBLESS.g:12452:5: ( (lv_range_4_0= ruleArrayRange ) )
+                    	    // InternalBLESS.g:12453:6: (lv_range_4_0= ruleArrayRange )
                     	    {
-                    	    // InternalBLESS.g:12452:6: (lv_range_4_0= ruleArrayRange )
-                    	    // InternalBLESS.g:12453:7: lv_range_4_0= ruleArrayRange
+                    	    // InternalBLESS.g:12453:6: (lv_range_4_0= ruleArrayRange )
+                    	    // InternalBLESS.g:12454:7: lv_range_4_0= ruleArrayRange
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_1_2_1_0());
@@ -31022,7 +31028,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayRange"
-    // InternalBLESS.g:12476:1: entryRuleArrayRange returns [EObject current=null] : iv_ruleArrayRange= ruleArrayRange EOF ;
+    // InternalBLESS.g:12477:1: entryRuleArrayRange returns [EObject current=null] : iv_ruleArrayRange= ruleArrayRange EOF ;
     public final EObject entryRuleArrayRange() throws RecognitionException {
         EObject current = null;
 
@@ -31030,8 +31036,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12476:51: (iv_ruleArrayRange= ruleArrayRange EOF )
-            // InternalBLESS.g:12477:2: iv_ruleArrayRange= ruleArrayRange EOF
+            // InternalBLESS.g:12477:51: (iv_ruleArrayRange= ruleArrayRange EOF )
+            // InternalBLESS.g:12478:2: iv_ruleArrayRange= ruleArrayRange EOF
             {
              newCompositeNode(grammarAccess.getArrayRangeRule()); 
             pushFollow(FOLLOW_1);
@@ -31058,7 +31064,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayRange"
-    // InternalBLESS.g:12483:1: ruleArrayRange returns [EObject current=null] : ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? ) ;
+    // InternalBLESS.g:12484:1: ruleArrayRange returns [EObject current=null] : ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? ) ;
     public final EObject ruleArrayRange() throws RecognitionException {
         EObject current = null;
 
@@ -31072,17 +31078,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12489:2: ( ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? ) )
-            // InternalBLESS.g:12490:2: ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? )
+            // InternalBLESS.g:12490:2: ( ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? ) )
+            // InternalBLESS.g:12491:2: ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? )
             {
-            // InternalBLESS.g:12490:2: ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? )
-            // InternalBLESS.g:12491:3: ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )?
+            // InternalBLESS.g:12491:2: ( ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )? )
+            // InternalBLESS.g:12492:3: ( (lv_lb_0_0= ruleANumber ) ) (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )?
             {
-            // InternalBLESS.g:12491:3: ( (lv_lb_0_0= ruleANumber ) )
-            // InternalBLESS.g:12492:4: (lv_lb_0_0= ruleANumber )
+            // InternalBLESS.g:12492:3: ( (lv_lb_0_0= ruleANumber ) )
+            // InternalBLESS.g:12493:4: (lv_lb_0_0= ruleANumber )
             {
-            // InternalBLESS.g:12492:4: (lv_lb_0_0= ruleANumber )
-            // InternalBLESS.g:12493:5: lv_lb_0_0= ruleANumber
+            // InternalBLESS.g:12493:4: (lv_lb_0_0= ruleANumber )
+            // InternalBLESS.g:12494:5: lv_lb_0_0= ruleANumber
             {
 
             					newCompositeNode(grammarAccess.getArrayRangeAccess().getLbANumberParserRuleCall_0_0());
@@ -31109,7 +31115,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:12510:3: (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )?
+            // InternalBLESS.g:12511:3: (this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) ) )?
             int alt181=2;
             int LA181_0 = input.LA(1);
 
@@ -31118,17 +31124,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt181) {
                 case 1 :
-                    // InternalBLESS.g:12511:4: this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) )
+                    // InternalBLESS.g:12512:4: this_DOTDOT_1= RULE_DOTDOT ( (lv_ub_2_0= ruleANumber ) )
                     {
                     this_DOTDOT_1=(Token)match(input,RULE_DOTDOT,FOLLOW_155); 
 
                     				newLeafNode(this_DOTDOT_1, grammarAccess.getArrayRangeAccess().getDOTDOTTerminalRuleCall_1_0());
                     			
-                    // InternalBLESS.g:12515:4: ( (lv_ub_2_0= ruleANumber ) )
-                    // InternalBLESS.g:12516:5: (lv_ub_2_0= ruleANumber )
+                    // InternalBLESS.g:12516:4: ( (lv_ub_2_0= ruleANumber ) )
+                    // InternalBLESS.g:12517:5: (lv_ub_2_0= ruleANumber )
                     {
-                    // InternalBLESS.g:12516:5: (lv_ub_2_0= ruleANumber )
-                    // InternalBLESS.g:12517:6: lv_ub_2_0= ruleANumber
+                    // InternalBLESS.g:12517:5: (lv_ub_2_0= ruleANumber )
+                    // InternalBLESS.g:12518:6: lv_ub_2_0= ruleANumber
                     {
 
                     						newCompositeNode(grammarAccess.getArrayRangeAccess().getUbANumberParserRuleCall_1_1_0());
@@ -31184,7 +31190,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRecordType"
-    // InternalBLESS.g:12539:1: entryRuleRecordType returns [EObject current=null] : iv_ruleRecordType= ruleRecordType EOF ;
+    // InternalBLESS.g:12540:1: entryRuleRecordType returns [EObject current=null] : iv_ruleRecordType= ruleRecordType EOF ;
     public final EObject entryRuleRecordType() throws RecognitionException {
         EObject current = null;
 
@@ -31192,8 +31198,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12539:51: (iv_ruleRecordType= ruleRecordType EOF )
-            // InternalBLESS.g:12540:2: iv_ruleRecordType= ruleRecordType EOF
+            // InternalBLESS.g:12540:51: (iv_ruleRecordType= ruleRecordType EOF )
+            // InternalBLESS.g:12541:2: iv_ruleRecordType= ruleRecordType EOF
             {
              newCompositeNode(grammarAccess.getRecordTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -31220,7 +31226,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRecordType"
-    // InternalBLESS.g:12546:1: ruleRecordType returns [EObject current=null] : ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' ) ;
+    // InternalBLESS.g:12547:1: ruleRecordType returns [EObject current=null] : ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' ) ;
     public final EObject ruleRecordType() throws RecognitionException {
         EObject current = null;
 
@@ -31236,13 +31242,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12552:2: ( ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' ) )
-            // InternalBLESS.g:12553:2: ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' )
+            // InternalBLESS.g:12553:2: ( ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' ) )
+            // InternalBLESS.g:12554:2: ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' )
             {
-            // InternalBLESS.g:12553:2: ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' )
-            // InternalBLESS.g:12554:3: ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')'
+            // InternalBLESS.g:12554:2: ( ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')' )
+            // InternalBLESS.g:12555:3: ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) ) otherlv_3= '(' ( (lv_fields_4_0= ruleRecordField ) )+ otherlv_5= ')'
             {
-            // InternalBLESS.g:12554:3: ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) )
+            // InternalBLESS.g:12555:3: ( ( (lv_record_0_0= 'record' ) ) | ( (lv_variant_1_0= 'variant' ) ) | ( (lv_variant_2_0= 'union' ) ) )
             int alt182=3;
             switch ( input.LA(1) ) {
             case 165:
@@ -31269,13 +31275,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt182) {
                 case 1 :
-                    // InternalBLESS.g:12555:4: ( (lv_record_0_0= 'record' ) )
+                    // InternalBLESS.g:12556:4: ( (lv_record_0_0= 'record' ) )
                     {
-                    // InternalBLESS.g:12555:4: ( (lv_record_0_0= 'record' ) )
-                    // InternalBLESS.g:12556:5: (lv_record_0_0= 'record' )
+                    // InternalBLESS.g:12556:4: ( (lv_record_0_0= 'record' ) )
+                    // InternalBLESS.g:12557:5: (lv_record_0_0= 'record' )
                     {
-                    // InternalBLESS.g:12556:5: (lv_record_0_0= 'record' )
-                    // InternalBLESS.g:12557:6: lv_record_0_0= 'record'
+                    // InternalBLESS.g:12557:5: (lv_record_0_0= 'record' )
+                    // InternalBLESS.g:12558:6: lv_record_0_0= 'record'
                     {
                     lv_record_0_0=(Token)match(input,165,FOLLOW_64); 
 
@@ -31297,13 +31303,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12570:4: ( (lv_variant_1_0= 'variant' ) )
+                    // InternalBLESS.g:12571:4: ( (lv_variant_1_0= 'variant' ) )
                     {
-                    // InternalBLESS.g:12570:4: ( (lv_variant_1_0= 'variant' ) )
-                    // InternalBLESS.g:12571:5: (lv_variant_1_0= 'variant' )
+                    // InternalBLESS.g:12571:4: ( (lv_variant_1_0= 'variant' ) )
+                    // InternalBLESS.g:12572:5: (lv_variant_1_0= 'variant' )
                     {
-                    // InternalBLESS.g:12571:5: (lv_variant_1_0= 'variant' )
-                    // InternalBLESS.g:12572:6: lv_variant_1_0= 'variant'
+                    // InternalBLESS.g:12572:5: (lv_variant_1_0= 'variant' )
+                    // InternalBLESS.g:12573:6: lv_variant_1_0= 'variant'
                     {
                     lv_variant_1_0=(Token)match(input,166,FOLLOW_64); 
 
@@ -31325,13 +31331,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:12585:4: ( (lv_variant_2_0= 'union' ) )
+                    // InternalBLESS.g:12586:4: ( (lv_variant_2_0= 'union' ) )
                     {
-                    // InternalBLESS.g:12585:4: ( (lv_variant_2_0= 'union' ) )
-                    // InternalBLESS.g:12586:5: (lv_variant_2_0= 'union' )
+                    // InternalBLESS.g:12586:4: ( (lv_variant_2_0= 'union' ) )
+                    // InternalBLESS.g:12587:5: (lv_variant_2_0= 'union' )
                     {
-                    // InternalBLESS.g:12586:5: (lv_variant_2_0= 'union' )
-                    // InternalBLESS.g:12587:6: lv_variant_2_0= 'union'
+                    // InternalBLESS.g:12587:5: (lv_variant_2_0= 'union' )
+                    // InternalBLESS.g:12588:6: lv_variant_2_0= 'union'
                     {
                     lv_variant_2_0=(Token)match(input,167,FOLLOW_64); 
 
@@ -31359,7 +31365,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getRecordTypeAccess().getLeftParenthesisKeyword_1());
             		
-            // InternalBLESS.g:12604:3: ( (lv_fields_4_0= ruleRecordField ) )+
+            // InternalBLESS.g:12605:3: ( (lv_fields_4_0= ruleRecordField ) )+
             int cnt183=0;
             loop183:
             do {
@@ -31373,10 +31379,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt183) {
             	case 1 :
-            	    // InternalBLESS.g:12605:4: (lv_fields_4_0= ruleRecordField )
+            	    // InternalBLESS.g:12606:4: (lv_fields_4_0= ruleRecordField )
             	    {
-            	    // InternalBLESS.g:12605:4: (lv_fields_4_0= ruleRecordField )
-            	    // InternalBLESS.g:12606:5: lv_fields_4_0= ruleRecordField
+            	    // InternalBLESS.g:12606:4: (lv_fields_4_0= ruleRecordField )
+            	    // InternalBLESS.g:12607:5: lv_fields_4_0= ruleRecordField
             	    {
 
             	    					newCompositeNode(grammarAccess.getRecordTypeAccess().getFieldsRecordFieldParserRuleCall_2_0());
@@ -31440,7 +31446,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRecordField"
-    // InternalBLESS.g:12631:1: entryRuleRecordField returns [EObject current=null] : iv_ruleRecordField= ruleRecordField EOF ;
+    // InternalBLESS.g:12632:1: entryRuleRecordField returns [EObject current=null] : iv_ruleRecordField= ruleRecordField EOF ;
     public final EObject entryRuleRecordField() throws RecognitionException {
         EObject current = null;
 
@@ -31448,8 +31454,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12631:52: (iv_ruleRecordField= ruleRecordField EOF )
-            // InternalBLESS.g:12632:2: iv_ruleRecordField= ruleRecordField EOF
+            // InternalBLESS.g:12632:52: (iv_ruleRecordField= ruleRecordField EOF )
+            // InternalBLESS.g:12633:2: iv_ruleRecordField= ruleRecordField EOF
             {
              newCompositeNode(grammarAccess.getRecordFieldRule()); 
             pushFollow(FOLLOW_1);
@@ -31476,7 +31482,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRecordField"
-    // InternalBLESS.g:12638:1: ruleRecordField returns [EObject current=null] : ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) ) ;
+    // InternalBLESS.g:12639:1: ruleRecordField returns [EObject current=null] : ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) ) ;
     public final EObject ruleRecordField() throws RecognitionException {
         EObject current = null;
 
@@ -31489,17 +31495,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12644:2: ( ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) ) )
-            // InternalBLESS.g:12645:2: ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) )
+            // InternalBLESS.g:12645:2: ( ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) ) )
+            // InternalBLESS.g:12646:2: ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) )
             {
-            // InternalBLESS.g:12645:2: ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) )
-            // InternalBLESS.g:12646:3: ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) )
+            // InternalBLESS.g:12646:2: ( ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) ) )
+            // InternalBLESS.g:12647:3: ( (lv_label_0_0= RULE_ID ) ) otherlv_1= ':' ( (lv_typ_2_0= ruleTypeOrReference ) )
             {
-            // InternalBLESS.g:12646:3: ( (lv_label_0_0= RULE_ID ) )
-            // InternalBLESS.g:12647:4: (lv_label_0_0= RULE_ID )
+            // InternalBLESS.g:12647:3: ( (lv_label_0_0= RULE_ID ) )
+            // InternalBLESS.g:12648:4: (lv_label_0_0= RULE_ID )
             {
-            // InternalBLESS.g:12647:4: (lv_label_0_0= RULE_ID )
-            // InternalBLESS.g:12648:5: lv_label_0_0= RULE_ID
+            // InternalBLESS.g:12648:4: (lv_label_0_0= RULE_ID )
+            // InternalBLESS.g:12649:5: lv_label_0_0= RULE_ID
             {
             lv_label_0_0=(Token)match(input,RULE_ID,FOLLOW_18); 
 
@@ -31525,11 +31531,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getRecordFieldAccess().getColonKeyword_1());
             		
-            // InternalBLESS.g:12668:3: ( (lv_typ_2_0= ruleTypeOrReference ) )
-            // InternalBLESS.g:12669:4: (lv_typ_2_0= ruleTypeOrReference )
+            // InternalBLESS.g:12669:3: ( (lv_typ_2_0= ruleTypeOrReference ) )
+            // InternalBLESS.g:12670:4: (lv_typ_2_0= ruleTypeOrReference )
             {
-            // InternalBLESS.g:12669:4: (lv_typ_2_0= ruleTypeOrReference )
-            // InternalBLESS.g:12670:5: lv_typ_2_0= ruleTypeOrReference
+            // InternalBLESS.g:12670:4: (lv_typ_2_0= ruleTypeOrReference )
+            // InternalBLESS.g:12671:5: lv_typ_2_0= ruleTypeOrReference
             {
 
             					newCompositeNode(grammarAccess.getRecordFieldAccess().getTypTypeOrReferenceParserRuleCall_2_0());
@@ -31579,7 +31585,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePropertyReference"
-    // InternalBLESS.g:12691:1: entryRulePropertyReference returns [EObject current=null] : iv_rulePropertyReference= rulePropertyReference EOF ;
+    // InternalBLESS.g:12692:1: entryRulePropertyReference returns [EObject current=null] : iv_rulePropertyReference= rulePropertyReference EOF ;
     public final EObject entryRulePropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -31587,8 +31593,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12691:58: (iv_rulePropertyReference= rulePropertyReference EOF )
-            // InternalBLESS.g:12692:2: iv_rulePropertyReference= rulePropertyReference EOF
+            // InternalBLESS.g:12692:58: (iv_rulePropertyReference= rulePropertyReference EOF )
+            // InternalBLESS.g:12693:2: iv_rulePropertyReference= rulePropertyReference EOF
             {
              newCompositeNode(grammarAccess.getPropertyReferenceRule()); 
             pushFollow(FOLLOW_1);
@@ -31615,7 +31621,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyReference"
-    // InternalBLESS.g:12698:1: rulePropertyReference returns [EObject current=null] : ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) ) ;
+    // InternalBLESS.g:12699:1: rulePropertyReference returns [EObject current=null] : ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) ) ;
     public final EObject rulePropertyReference() throws RecognitionException {
         EObject current = null;
 
@@ -31634,10 +31640,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12704:2: ( ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) ) )
-            // InternalBLESS.g:12705:2: ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) )
+            // InternalBLESS.g:12705:2: ( ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) ) )
+            // InternalBLESS.g:12706:2: ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) )
             {
-            // InternalBLESS.g:12705:2: ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) )
+            // InternalBLESS.g:12706:2: ( (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* ) | ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* ) | ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* ) )
             int alt187=3;
             switch ( input.LA(1) ) {
             case 168:
@@ -31664,20 +31670,20 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt187) {
                 case 1 :
-                    // InternalBLESS.g:12706:3: (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12707:3: (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* )
                     {
-                    // InternalBLESS.g:12706:3: (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* )
-                    // InternalBLESS.g:12707:4: otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12707:3: (otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12708:4: otherlv_0= '#' ( ( ruleQCLREF ) ) ( (lv_field_2_0= rulePropertyField ) )*
                     {
                     otherlv_0=(Token)match(input,168,FOLLOW_155); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getPropertyReferenceAccess().getNumberSignKeyword_0_0());
                     			
-                    // InternalBLESS.g:12711:4: ( ( ruleQCLREF ) )
-                    // InternalBLESS.g:12712:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12712:4: ( ( ruleQCLREF ) )
+                    // InternalBLESS.g:12713:5: ( ruleQCLREF )
                     {
-                    // InternalBLESS.g:12712:5: ( ruleQCLREF )
-                    // InternalBLESS.g:12713:6: ruleQCLREF
+                    // InternalBLESS.g:12713:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12714:6: ruleQCLREF
                     {
 
                     						if (current==null) {
@@ -31701,7 +31707,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:12727:4: ( (lv_field_2_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12728:4: ( (lv_field_2_0= rulePropertyField ) )*
                     loop184:
                     do {
                         int alt184=2;
@@ -31714,10 +31720,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt184) {
                     	case 1 :
-                    	    // InternalBLESS.g:12728:5: (lv_field_2_0= rulePropertyField )
+                    	    // InternalBLESS.g:12729:5: (lv_field_2_0= rulePropertyField )
                     	    {
-                    	    // InternalBLESS.g:12728:5: (lv_field_2_0= rulePropertyField )
-                    	    // InternalBLESS.g:12729:6: lv_field_2_0= rulePropertyField
+                    	    // InternalBLESS.g:12729:5: (lv_field_2_0= rulePropertyField )
+                    	    // InternalBLESS.g:12730:6: lv_field_2_0= rulePropertyField
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_0_2_0());
@@ -31757,16 +31763,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12748:3: ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12749:3: ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* )
                     {
-                    // InternalBLESS.g:12748:3: ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* )
-                    // InternalBLESS.g:12749:4: ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12749:3: ( ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12750:4: ( (lv_self_3_0= 'self' ) ) otherlv_4= '#' ( ( ruleQCLREF ) ) ( (lv_field_6_0= rulePropertyField ) )*
                     {
-                    // InternalBLESS.g:12749:4: ( (lv_self_3_0= 'self' ) )
-                    // InternalBLESS.g:12750:5: (lv_self_3_0= 'self' )
+                    // InternalBLESS.g:12750:4: ( (lv_self_3_0= 'self' ) )
+                    // InternalBLESS.g:12751:5: (lv_self_3_0= 'self' )
                     {
-                    // InternalBLESS.g:12750:5: (lv_self_3_0= 'self' )
-                    // InternalBLESS.g:12751:6: lv_self_3_0= 'self'
+                    // InternalBLESS.g:12751:5: (lv_self_3_0= 'self' )
+                    // InternalBLESS.g:12752:6: lv_self_3_0= 'self'
                     {
                     lv_self_3_0=(Token)match(input,169,FOLLOW_157); 
 
@@ -31788,11 +31794,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_4, grammarAccess.getPropertyReferenceAccess().getNumberSignKeyword_1_1());
                     			
-                    // InternalBLESS.g:12767:4: ( ( ruleQCLREF ) )
-                    // InternalBLESS.g:12768:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12768:4: ( ( ruleQCLREF ) )
+                    // InternalBLESS.g:12769:5: ( ruleQCLREF )
                     {
-                    // InternalBLESS.g:12768:5: ( ruleQCLREF )
-                    // InternalBLESS.g:12769:6: ruleQCLREF
+                    // InternalBLESS.g:12769:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12770:6: ruleQCLREF
                     {
 
                     						if (current==null) {
@@ -31816,7 +31822,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:12783:4: ( (lv_field_6_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12784:4: ( (lv_field_6_0= rulePropertyField ) )*
                     loop185:
                     do {
                         int alt185=2;
@@ -31829,10 +31835,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt185) {
                     	case 1 :
-                    	    // InternalBLESS.g:12784:5: (lv_field_6_0= rulePropertyField )
+                    	    // InternalBLESS.g:12785:5: (lv_field_6_0= rulePropertyField )
                     	    {
-                    	    // InternalBLESS.g:12784:5: (lv_field_6_0= rulePropertyField )
-                    	    // InternalBLESS.g:12785:6: lv_field_6_0= rulePropertyField
+                    	    // InternalBLESS.g:12785:5: (lv_field_6_0= rulePropertyField )
+                    	    // InternalBLESS.g:12786:6: lv_field_6_0= rulePropertyField
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_1_3_0());
@@ -31872,16 +31878,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:12804:3: ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12805:3: ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* )
                     {
-                    // InternalBLESS.g:12804:3: ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* )
-                    // InternalBLESS.g:12805:4: ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12805:3: ( ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )* )
+                    // InternalBLESS.g:12806:4: ( ( ruleQCREF ) ) otherlv_8= '#' ( ( ruleQCLREF ) ) ( (lv_field_10_0= rulePropertyField ) )*
                     {
-                    // InternalBLESS.g:12805:4: ( ( ruleQCREF ) )
-                    // InternalBLESS.g:12806:5: ( ruleQCREF )
+                    // InternalBLESS.g:12806:4: ( ( ruleQCREF ) )
+                    // InternalBLESS.g:12807:5: ( ruleQCREF )
                     {
-                    // InternalBLESS.g:12806:5: ( ruleQCREF )
-                    // InternalBLESS.g:12807:6: ruleQCREF
+                    // InternalBLESS.g:12807:5: ( ruleQCREF )
+                    // InternalBLESS.g:12808:6: ruleQCREF
                     {
 
                     						if (current==null) {
@@ -31909,11 +31915,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_8, grammarAccess.getPropertyReferenceAccess().getNumberSignKeyword_2_1());
                     			
-                    // InternalBLESS.g:12825:4: ( ( ruleQCLREF ) )
-                    // InternalBLESS.g:12826:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12826:4: ( ( ruleQCLREF ) )
+                    // InternalBLESS.g:12827:5: ( ruleQCLREF )
                     {
-                    // InternalBLESS.g:12826:5: ( ruleQCLREF )
-                    // InternalBLESS.g:12827:6: ruleQCLREF
+                    // InternalBLESS.g:12827:5: ( ruleQCLREF )
+                    // InternalBLESS.g:12828:6: ruleQCLREF
                     {
 
                     						if (current==null) {
@@ -31937,7 +31943,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:12841:4: ( (lv_field_10_0= rulePropertyField ) )*
+                    // InternalBLESS.g:12842:4: ( (lv_field_10_0= rulePropertyField ) )*
                     loop186:
                     do {
                         int alt186=2;
@@ -31950,10 +31956,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt186) {
                     	case 1 :
-                    	    // InternalBLESS.g:12842:5: (lv_field_10_0= rulePropertyField )
+                    	    // InternalBLESS.g:12843:5: (lv_field_10_0= rulePropertyField )
                     	    {
-                    	    // InternalBLESS.g:12842:5: (lv_field_10_0= rulePropertyField )
-                    	    // InternalBLESS.g:12843:6: lv_field_10_0= rulePropertyField
+                    	    // InternalBLESS.g:12843:5: (lv_field_10_0= rulePropertyField )
+                    	    // InternalBLESS.g:12844:6: lv_field_10_0= rulePropertyField
                     	    {
 
                     	    						newCompositeNode(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_2_3_0());
@@ -32015,7 +32021,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePropertyField"
-    // InternalBLESS.g:12865:1: entryRulePropertyField returns [EObject current=null] : iv_rulePropertyField= rulePropertyField EOF ;
+    // InternalBLESS.g:12866:1: entryRulePropertyField returns [EObject current=null] : iv_rulePropertyField= rulePropertyField EOF ;
     public final EObject entryRulePropertyField() throws RecognitionException {
         EObject current = null;
 
@@ -32023,8 +32029,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12865:54: (iv_rulePropertyField= rulePropertyField EOF )
-            // InternalBLESS.g:12866:2: iv_rulePropertyField= rulePropertyField EOF
+            // InternalBLESS.g:12866:54: (iv_rulePropertyField= rulePropertyField EOF )
+            // InternalBLESS.g:12867:2: iv_rulePropertyField= rulePropertyField EOF
             {
              newCompositeNode(grammarAccess.getPropertyFieldRule()); 
             pushFollow(FOLLOW_1);
@@ -32051,7 +32057,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyField"
-    // InternalBLESS.g:12872:1: rulePropertyField returns [EObject current=null] : ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) ) ;
+    // InternalBLESS.g:12873:1: rulePropertyField returns [EObject current=null] : ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) ) ;
     public final EObject rulePropertyField() throws RecognitionException {
         EObject current = null;
 
@@ -32068,10 +32074,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12878:2: ( ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) ) )
-            // InternalBLESS.g:12879:2: ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) )
+            // InternalBLESS.g:12879:2: ( ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) ) )
+            // InternalBLESS.g:12880:2: ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) )
             {
-            // InternalBLESS.g:12879:2: ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) )
+            // InternalBLESS.g:12880:2: ( (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' ) | (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) ) )
             int alt190=2;
             int LA190_0 = input.LA(1);
 
@@ -32089,16 +32095,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt190) {
                 case 1 :
-                    // InternalBLESS.g:12880:3: (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' )
+                    // InternalBLESS.g:12881:3: (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' )
                     {
-                    // InternalBLESS.g:12880:3: (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' )
-                    // InternalBLESS.g:12881:4: otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']'
+                    // InternalBLESS.g:12881:3: (otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']' )
+                    // InternalBLESS.g:12882:4: otherlv_0= '[' ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) ) otherlv_3= ']'
                     {
                     otherlv_0=(Token)match(input,40,FOLLOW_158); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getPropertyFieldAccess().getLeftSquareBracketKeyword_0_0());
                     			
-                    // InternalBLESS.g:12885:4: ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) )
+                    // InternalBLESS.g:12886:4: ( ( (lv_index_1_0= RULE_NUMBER ) ) | ( (otherlv_2= RULE_ID ) ) )
                     int alt188=2;
                     int LA188_0 = input.LA(1);
 
@@ -32116,13 +32122,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt188) {
                         case 1 :
-                            // InternalBLESS.g:12886:5: ( (lv_index_1_0= RULE_NUMBER ) )
+                            // InternalBLESS.g:12887:5: ( (lv_index_1_0= RULE_NUMBER ) )
                             {
-                            // InternalBLESS.g:12886:5: ( (lv_index_1_0= RULE_NUMBER ) )
-                            // InternalBLESS.g:12887:6: (lv_index_1_0= RULE_NUMBER )
+                            // InternalBLESS.g:12887:5: ( (lv_index_1_0= RULE_NUMBER ) )
+                            // InternalBLESS.g:12888:6: (lv_index_1_0= RULE_NUMBER )
                             {
-                            // InternalBLESS.g:12887:6: (lv_index_1_0= RULE_NUMBER )
-                            // InternalBLESS.g:12888:7: lv_index_1_0= RULE_NUMBER
+                            // InternalBLESS.g:12888:6: (lv_index_1_0= RULE_NUMBER )
+                            // InternalBLESS.g:12889:7: lv_index_1_0= RULE_NUMBER
                             {
                             lv_index_1_0=(Token)match(input,RULE_NUMBER,FOLLOW_34); 
 
@@ -32148,13 +32154,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalBLESS.g:12905:5: ( (otherlv_2= RULE_ID ) )
+                            // InternalBLESS.g:12906:5: ( (otherlv_2= RULE_ID ) )
                             {
-                            // InternalBLESS.g:12905:5: ( (otherlv_2= RULE_ID ) )
-                            // InternalBLESS.g:12906:6: (otherlv_2= RULE_ID )
+                            // InternalBLESS.g:12906:5: ( (otherlv_2= RULE_ID ) )
+                            // InternalBLESS.g:12907:6: (otherlv_2= RULE_ID )
                             {
-                            // InternalBLESS.g:12906:6: (otherlv_2= RULE_ID )
-                            // InternalBLESS.g:12907:7: otherlv_2= RULE_ID
+                            // InternalBLESS.g:12907:6: (otherlv_2= RULE_ID )
+                            // InternalBLESS.g:12908:7: otherlv_2= RULE_ID
                             {
 
                             							if (current==null) {
@@ -32188,16 +32194,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:12925:3: (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) )
+                    // InternalBLESS.g:12926:3: (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) )
                     {
-                    // InternalBLESS.g:12925:3: (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) )
-                    // InternalBLESS.g:12926:4: otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) )
+                    // InternalBLESS.g:12926:3: (otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) ) )
+                    // InternalBLESS.g:12927:4: otherlv_4= '.' ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) )
                     {
                     otherlv_4=(Token)match(input,51,FOLLOW_159); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getPropertyFieldAccess().getFullStopKeyword_1_0());
                     			
-                    // InternalBLESS.g:12930:4: ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) )
+                    // InternalBLESS.g:12931:4: ( ( (lv_pf_5_0= RULE_ID ) ) | ( (lv_upper_6_0= 'upper_bound' ) ) | ( (lv_lower_7_0= 'lower_bound' ) ) )
                     int alt189=3;
                     switch ( input.LA(1) ) {
                     case RULE_ID:
@@ -32224,13 +32230,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     switch (alt189) {
                         case 1 :
-                            // InternalBLESS.g:12931:5: ( (lv_pf_5_0= RULE_ID ) )
+                            // InternalBLESS.g:12932:5: ( (lv_pf_5_0= RULE_ID ) )
                             {
-                            // InternalBLESS.g:12931:5: ( (lv_pf_5_0= RULE_ID ) )
-                            // InternalBLESS.g:12932:6: (lv_pf_5_0= RULE_ID )
+                            // InternalBLESS.g:12932:5: ( (lv_pf_5_0= RULE_ID ) )
+                            // InternalBLESS.g:12933:6: (lv_pf_5_0= RULE_ID )
                             {
-                            // InternalBLESS.g:12932:6: (lv_pf_5_0= RULE_ID )
-                            // InternalBLESS.g:12933:7: lv_pf_5_0= RULE_ID
+                            // InternalBLESS.g:12933:6: (lv_pf_5_0= RULE_ID )
+                            // InternalBLESS.g:12934:7: lv_pf_5_0= RULE_ID
                             {
                             lv_pf_5_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -32256,13 +32262,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalBLESS.g:12950:5: ( (lv_upper_6_0= 'upper_bound' ) )
+                            // InternalBLESS.g:12951:5: ( (lv_upper_6_0= 'upper_bound' ) )
                             {
-                            // InternalBLESS.g:12950:5: ( (lv_upper_6_0= 'upper_bound' ) )
-                            // InternalBLESS.g:12951:6: (lv_upper_6_0= 'upper_bound' )
+                            // InternalBLESS.g:12951:5: ( (lv_upper_6_0= 'upper_bound' ) )
+                            // InternalBLESS.g:12952:6: (lv_upper_6_0= 'upper_bound' )
                             {
-                            // InternalBLESS.g:12951:6: (lv_upper_6_0= 'upper_bound' )
-                            // InternalBLESS.g:12952:7: lv_upper_6_0= 'upper_bound'
+                            // InternalBLESS.g:12952:6: (lv_upper_6_0= 'upper_bound' )
+                            // InternalBLESS.g:12953:7: lv_upper_6_0= 'upper_bound'
                             {
                             lv_upper_6_0=(Token)match(input,170,FOLLOW_2); 
 
@@ -32284,13 +32290,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 3 :
-                            // InternalBLESS.g:12965:5: ( (lv_lower_7_0= 'lower_bound' ) )
+                            // InternalBLESS.g:12966:5: ( (lv_lower_7_0= 'lower_bound' ) )
                             {
-                            // InternalBLESS.g:12965:5: ( (lv_lower_7_0= 'lower_bound' ) )
-                            // InternalBLESS.g:12966:6: (lv_lower_7_0= 'lower_bound' )
+                            // InternalBLESS.g:12966:5: ( (lv_lower_7_0= 'lower_bound' ) )
+                            // InternalBLESS.g:12967:6: (lv_lower_7_0= 'lower_bound' )
                             {
-                            // InternalBLESS.g:12966:6: (lv_lower_7_0= 'lower_bound' )
-                            // InternalBLESS.g:12967:7: lv_lower_7_0= 'lower_bound'
+                            // InternalBLESS.g:12967:6: (lv_lower_7_0= 'lower_bound' )
+                            // InternalBLESS.g:12968:7: lv_lower_7_0= 'lower_bound'
                             {
                             lv_lower_7_0=(Token)match(input,171,FOLLOW_2); 
 
@@ -32343,7 +32349,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnitName"
-    // InternalBLESS.g:12985:1: entryRuleUnitName returns [EObject current=null] : iv_ruleUnitName= ruleUnitName EOF ;
+    // InternalBLESS.g:12986:1: entryRuleUnitName returns [EObject current=null] : iv_ruleUnitName= ruleUnitName EOF ;
     public final EObject entryRuleUnitName() throws RecognitionException {
         EObject current = null;
 
@@ -32351,8 +32357,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:12985:49: (iv_ruleUnitName= ruleUnitName EOF )
-            // InternalBLESS.g:12986:2: iv_ruleUnitName= ruleUnitName EOF
+            // InternalBLESS.g:12986:49: (iv_ruleUnitName= ruleUnitName EOF )
+            // InternalBLESS.g:12987:2: iv_ruleUnitName= ruleUnitName EOF
             {
              newCompositeNode(grammarAccess.getUnitNameRule()); 
             pushFollow(FOLLOW_1);
@@ -32379,7 +32385,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitName"
-    // InternalBLESS.g:12992:1: ruleUnitName returns [EObject current=null] : ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) ) ;
+    // InternalBLESS.g:12993:1: ruleUnitName returns [EObject current=null] : ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) ) ;
     public final EObject ruleUnitName() throws RecognitionException {
         EObject current = null;
 
@@ -32392,13 +32398,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:12998:2: ( ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) ) )
-            // InternalBLESS.g:12999:2: ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) )
+            // InternalBLESS.g:12999:2: ( ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) ) )
+            // InternalBLESS.g:13000:2: ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) )
             {
-            // InternalBLESS.g:12999:2: ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) )
-            // InternalBLESS.g:13000:3: (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) )
+            // InternalBLESS.g:13000:2: ( (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) ) )
+            // InternalBLESS.g:13001:3: (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )? ( (lv_name_3_0= RULE_ID ) )
             {
-            // InternalBLESS.g:13000:3: (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )?
+            // InternalBLESS.g:13001:3: (otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>' )?
             int alt192=2;
             int LA192_0 = input.LA(1);
 
@@ -32407,13 +32413,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt192) {
                 case 1 :
-                    // InternalBLESS.g:13001:4: otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>'
+                    // InternalBLESS.g:13002:4: otherlv_0= '<' ( (lv_longname_1_0= RULE_ID ) )+ otherlv_2= '>'
                     {
                     otherlv_0=(Token)match(input,116,FOLLOW_7); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getUnitNameAccess().getLessThanSignKeyword_0_0());
                     			
-                    // InternalBLESS.g:13005:4: ( (lv_longname_1_0= RULE_ID ) )+
+                    // InternalBLESS.g:13006:4: ( (lv_longname_1_0= RULE_ID ) )+
                     int cnt191=0;
                     loop191:
                     do {
@@ -32427,10 +32433,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt191) {
                     	case 1 :
-                    	    // InternalBLESS.g:13006:5: (lv_longname_1_0= RULE_ID )
+                    	    // InternalBLESS.g:13007:5: (lv_longname_1_0= RULE_ID )
                     	    {
-                    	    // InternalBLESS.g:13006:5: (lv_longname_1_0= RULE_ID )
-                    	    // InternalBLESS.g:13007:6: lv_longname_1_0= RULE_ID
+                    	    // InternalBLESS.g:13007:5: (lv_longname_1_0= RULE_ID )
+                    	    // InternalBLESS.g:13008:6: lv_longname_1_0= RULE_ID
                     	    {
                     	    lv_longname_1_0=(Token)match(input,RULE_ID,FOLLOW_160); 
 
@@ -32472,11 +32478,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13028:3: ( (lv_name_3_0= RULE_ID ) )
-            // InternalBLESS.g:13029:4: (lv_name_3_0= RULE_ID )
+            // InternalBLESS.g:13029:3: ( (lv_name_3_0= RULE_ID ) )
+            // InternalBLESS.g:13030:4: (lv_name_3_0= RULE_ID )
             {
-            // InternalBLESS.g:13029:4: (lv_name_3_0= RULE_ID )
-            // InternalBLESS.g:13030:5: lv_name_3_0= RULE_ID
+            // InternalBLESS.g:13030:4: (lv_name_3_0= RULE_ID )
+            // InternalBLESS.g:13031:5: lv_name_3_0= RULE_ID
             {
             lv_name_3_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -32521,7 +32527,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnitFormula"
-    // InternalBLESS.g:13050:1: entryRuleUnitFormula returns [EObject current=null] : iv_ruleUnitFormula= ruleUnitFormula EOF ;
+    // InternalBLESS.g:13051:1: entryRuleUnitFormula returns [EObject current=null] : iv_ruleUnitFormula= ruleUnitFormula EOF ;
     public final EObject entryRuleUnitFormula() throws RecognitionException {
         EObject current = null;
 
@@ -32529,8 +32535,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13050:52: (iv_ruleUnitFormula= ruleUnitFormula EOF )
-            // InternalBLESS.g:13051:2: iv_ruleUnitFormula= ruleUnitFormula EOF
+            // InternalBLESS.g:13051:52: (iv_ruleUnitFormula= ruleUnitFormula EOF )
+            // InternalBLESS.g:13052:2: iv_ruleUnitFormula= ruleUnitFormula EOF
             {
              newCompositeNode(grammarAccess.getUnitFormulaRule()); 
             pushFollow(FOLLOW_1);
@@ -32557,7 +32563,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitFormula"
-    // InternalBLESS.g:13057:1: ruleUnitFormula returns [EObject current=null] : ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) ) ;
+    // InternalBLESS.g:13058:1: ruleUnitFormula returns [EObject current=null] : ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) ) ;
     public final EObject ruleUnitFormula() throws RecognitionException {
         EObject current = null;
 
@@ -32571,10 +32577,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13063:2: ( ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) ) )
-            // InternalBLESS.g:13064:2: ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) )
+            // InternalBLESS.g:13064:2: ( ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) ) )
+            // InternalBLESS.g:13065:2: ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) )
             {
-            // InternalBLESS.g:13064:2: ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) )
+            // InternalBLESS.g:13065:2: ( ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? ) | ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ ) )
             int alt197=2;
             int LA197_0 = input.LA(1);
 
@@ -32592,12 +32598,12 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt197) {
                 case 1 :
-                    // InternalBLESS.g:13065:3: ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? )
+                    // InternalBLESS.g:13066:3: ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? )
                     {
-                    // InternalBLESS.g:13065:3: ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? )
-                    // InternalBLESS.g:13066:4: ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )?
+                    // InternalBLESS.g:13066:3: ( ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )? )
+                    // InternalBLESS.g:13067:4: ( (otherlv_0= RULE_ID ) )+ ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )?
                     {
-                    // InternalBLESS.g:13066:4: ( (otherlv_0= RULE_ID ) )+
+                    // InternalBLESS.g:13067:4: ( (otherlv_0= RULE_ID ) )+
                     int cnt193=0;
                     loop193:
                     do {
@@ -32611,10 +32617,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt193) {
                     	case 1 :
-                    	    // InternalBLESS.g:13067:5: (otherlv_0= RULE_ID )
+                    	    // InternalBLESS.g:13068:5: (otherlv_0= RULE_ID )
                     	    {
-                    	    // InternalBLESS.g:13067:5: (otherlv_0= RULE_ID )
-                    	    // InternalBLESS.g:13068:6: otherlv_0= RULE_ID
+                    	    // InternalBLESS.g:13068:5: (otherlv_0= RULE_ID )
+                    	    // InternalBLESS.g:13069:6: otherlv_0= RULE_ID
                     	    {
 
                     	    						if (current==null) {
@@ -32641,7 +32647,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                         cnt193++;
                     } while (true);
 
-                    // InternalBLESS.g:13079:4: ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )?
+                    // InternalBLESS.g:13080:4: ( ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+ )?
                     int alt195=2;
                     int LA195_0 = input.LA(1);
 
@@ -32650,13 +32656,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt195) {
                         case 1 :
-                            // InternalBLESS.g:13080:5: ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+
+                            // InternalBLESS.g:13081:5: ( (lv_slash_1_0= '/' ) ) ( (otherlv_2= RULE_ID ) )+
                             {
-                            // InternalBLESS.g:13080:5: ( (lv_slash_1_0= '/' ) )
-                            // InternalBLESS.g:13081:6: (lv_slash_1_0= '/' )
+                            // InternalBLESS.g:13081:5: ( (lv_slash_1_0= '/' ) )
+                            // InternalBLESS.g:13082:6: (lv_slash_1_0= '/' )
                             {
-                            // InternalBLESS.g:13081:6: (lv_slash_1_0= '/' )
-                            // InternalBLESS.g:13082:7: lv_slash_1_0= '/'
+                            // InternalBLESS.g:13082:6: (lv_slash_1_0= '/' )
+                            // InternalBLESS.g:13083:7: lv_slash_1_0= '/'
                             {
                             lv_slash_1_0=(Token)match(input,124,FOLLOW_7); 
 
@@ -32674,7 +32680,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            // InternalBLESS.g:13094:5: ( (otherlv_2= RULE_ID ) )+
+                            // InternalBLESS.g:13095:5: ( (otherlv_2= RULE_ID ) )+
                             int cnt194=0;
                             loop194:
                             do {
@@ -32688,10 +32694,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                                 switch (alt194) {
                             	case 1 :
-                            	    // InternalBLESS.g:13095:6: (otherlv_2= RULE_ID )
+                            	    // InternalBLESS.g:13096:6: (otherlv_2= RULE_ID )
                             	    {
-                            	    // InternalBLESS.g:13095:6: (otherlv_2= RULE_ID )
-                            	    // InternalBLESS.g:13096:7: otherlv_2= RULE_ID
+                            	    // InternalBLESS.g:13096:6: (otherlv_2= RULE_ID )
+                            	    // InternalBLESS.g:13097:7: otherlv_2= RULE_ID
                             	    {
 
                             	    							if (current==null) {
@@ -32731,16 +32737,16 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13110:3: ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ )
+                    // InternalBLESS.g:13111:3: ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ )
                     {
-                    // InternalBLESS.g:13110:3: ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ )
-                    // InternalBLESS.g:13111:4: ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+
+                    // InternalBLESS.g:13111:3: ( ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+ )
+                    // InternalBLESS.g:13112:4: ( (lv_slash_3_0= '/' ) ) ( (otherlv_4= RULE_ID ) )+
                     {
-                    // InternalBLESS.g:13111:4: ( (lv_slash_3_0= '/' ) )
-                    // InternalBLESS.g:13112:5: (lv_slash_3_0= '/' )
+                    // InternalBLESS.g:13112:4: ( (lv_slash_3_0= '/' ) )
+                    // InternalBLESS.g:13113:5: (lv_slash_3_0= '/' )
                     {
-                    // InternalBLESS.g:13112:5: (lv_slash_3_0= '/' )
-                    // InternalBLESS.g:13113:6: lv_slash_3_0= '/'
+                    // InternalBLESS.g:13113:5: (lv_slash_3_0= '/' )
+                    // InternalBLESS.g:13114:6: lv_slash_3_0= '/'
                     {
                     lv_slash_3_0=(Token)match(input,124,FOLLOW_7); 
 
@@ -32758,7 +32764,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalBLESS.g:13125:4: ( (otherlv_4= RULE_ID ) )+
+                    // InternalBLESS.g:13126:4: ( (otherlv_4= RULE_ID ) )+
                     int cnt196=0;
                     loop196:
                     do {
@@ -32772,10 +32778,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                         switch (alt196) {
                     	case 1 :
-                    	    // InternalBLESS.g:13126:5: (otherlv_4= RULE_ID )
+                    	    // InternalBLESS.g:13127:5: (otherlv_4= RULE_ID )
                     	    {
-                    	    // InternalBLESS.g:13126:5: (otherlv_4= RULE_ID )
-                    	    // InternalBLESS.g:13127:6: otherlv_4= RULE_ID
+                    	    // InternalBLESS.g:13127:5: (otherlv_4= RULE_ID )
+                    	    // InternalBLESS.g:13128:6: otherlv_4= RULE_ID
                     	    {
 
                     	    						if (current==null) {
@@ -32831,7 +32837,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnitDeclaration"
-    // InternalBLESS.g:13143:1: entryRuleUnitDeclaration returns [EObject current=null] : iv_ruleUnitDeclaration= ruleUnitDeclaration EOF ;
+    // InternalBLESS.g:13144:1: entryRuleUnitDeclaration returns [EObject current=null] : iv_ruleUnitDeclaration= ruleUnitDeclaration EOF ;
     public final EObject entryRuleUnitDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -32839,8 +32845,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13143:56: (iv_ruleUnitDeclaration= ruleUnitDeclaration EOF )
-            // InternalBLESS.g:13144:2: iv_ruleUnitDeclaration= ruleUnitDeclaration EOF
+            // InternalBLESS.g:13144:56: (iv_ruleUnitDeclaration= ruleUnitDeclaration EOF )
+            // InternalBLESS.g:13145:2: iv_ruleUnitDeclaration= ruleUnitDeclaration EOF
             {
              newCompositeNode(grammarAccess.getUnitDeclarationRule()); 
             pushFollow(FOLLOW_1);
@@ -32867,7 +32873,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitDeclaration"
-    // InternalBLESS.g:13150:1: ruleUnitDeclaration returns [EObject current=null] : (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension ) ;
+    // InternalBLESS.g:13151:1: ruleUnitDeclaration returns [EObject current=null] : (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension ) ;
     public final EObject ruleUnitDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -32880,10 +32886,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13156:2: ( (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension ) )
-            // InternalBLESS.g:13157:2: (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension )
+            // InternalBLESS.g:13157:2: ( (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension ) )
+            // InternalBLESS.g:13158:2: (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension )
             {
-            // InternalBLESS.g:13157:2: (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension )
+            // InternalBLESS.g:13158:2: (this_RootDeclaration_0= ruleRootDeclaration | this_UnitExtension_1= ruleUnitExtension )
             int alt198=2;
             int LA198_0 = input.LA(1);
 
@@ -32901,7 +32907,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt198) {
                 case 1 :
-                    // InternalBLESS.g:13158:3: this_RootDeclaration_0= ruleRootDeclaration
+                    // InternalBLESS.g:13159:3: this_RootDeclaration_0= ruleRootDeclaration
                     {
 
                     			newCompositeNode(grammarAccess.getUnitDeclarationAccess().getRootDeclarationParserRuleCall_0());
@@ -32919,7 +32925,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13167:3: this_UnitExtension_1= ruleUnitExtension
+                    // InternalBLESS.g:13168:3: this_UnitExtension_1= ruleUnitExtension
                     {
 
                     			newCompositeNode(grammarAccess.getUnitDeclarationAccess().getUnitExtensionParserRuleCall_1());
@@ -32959,7 +32965,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRootDeclaration"
-    // InternalBLESS.g:13179:1: entryRuleRootDeclaration returns [EObject current=null] : iv_ruleRootDeclaration= ruleRootDeclaration EOF ;
+    // InternalBLESS.g:13180:1: entryRuleRootDeclaration returns [EObject current=null] : iv_ruleRootDeclaration= ruleRootDeclaration EOF ;
     public final EObject entryRuleRootDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -32967,8 +32973,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13179:56: (iv_ruleRootDeclaration= ruleRootDeclaration EOF )
-            // InternalBLESS.g:13180:2: iv_ruleRootDeclaration= ruleRootDeclaration EOF
+            // InternalBLESS.g:13180:56: (iv_ruleRootDeclaration= ruleRootDeclaration EOF )
+            // InternalBLESS.g:13181:2: iv_ruleRootDeclaration= ruleRootDeclaration EOF
             {
              newCompositeNode(grammarAccess.getRootDeclarationRule()); 
             pushFollow(FOLLOW_1);
@@ -32995,7 +33001,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRootDeclaration"
-    // InternalBLESS.g:13186:1: ruleRootDeclaration returns [EObject current=null] : ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' ) ;
+    // InternalBLESS.g:13187:1: ruleRootDeclaration returns [EObject current=null] : ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' ) ;
     public final EObject ruleRootDeclaration() throws RecognitionException {
         EObject current = null;
 
@@ -33015,13 +33021,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13192:2: ( ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' ) )
-            // InternalBLESS.g:13193:2: ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' )
+            // InternalBLESS.g:13193:2: ( ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' ) )
+            // InternalBLESS.g:13194:2: ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' )
             {
-            // InternalBLESS.g:13193:2: ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' )
-            // InternalBLESS.g:13194:3: ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';'
+            // InternalBLESS.g:13194:2: ( ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';' )
+            // InternalBLESS.g:13195:3: ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) ) otherlv_2= '[' ( (lv_kindWords_3_0= RULE_ID ) )+ otherlv_4= ']' ( (lv_unitName_5_0= ruleUnitName ) ) ( (lv_factors_6_0= ruleUnitFactor ) )* otherlv_7= ';'
             {
-            // InternalBLESS.g:13194:3: ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) )
+            // InternalBLESS.g:13195:3: ( ( (lv_base_0_0= 'base' ) ) | ( (lv_formula_1_0= ruleUnitFormula ) ) )
             int alt199=2;
             int LA199_0 = input.LA(1);
 
@@ -33039,13 +33045,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt199) {
                 case 1 :
-                    // InternalBLESS.g:13195:4: ( (lv_base_0_0= 'base' ) )
+                    // InternalBLESS.g:13196:4: ( (lv_base_0_0= 'base' ) )
                     {
-                    // InternalBLESS.g:13195:4: ( (lv_base_0_0= 'base' ) )
-                    // InternalBLESS.g:13196:5: (lv_base_0_0= 'base' )
+                    // InternalBLESS.g:13196:4: ( (lv_base_0_0= 'base' ) )
+                    // InternalBLESS.g:13197:5: (lv_base_0_0= 'base' )
                     {
-                    // InternalBLESS.g:13196:5: (lv_base_0_0= 'base' )
-                    // InternalBLESS.g:13197:6: lv_base_0_0= 'base'
+                    // InternalBLESS.g:13197:5: (lv_base_0_0= 'base' )
+                    // InternalBLESS.g:13198:6: lv_base_0_0= 'base'
                     {
                     lv_base_0_0=(Token)match(input,172,FOLLOW_154); 
 
@@ -33067,13 +33073,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13210:4: ( (lv_formula_1_0= ruleUnitFormula ) )
+                    // InternalBLESS.g:13211:4: ( (lv_formula_1_0= ruleUnitFormula ) )
                     {
-                    // InternalBLESS.g:13210:4: ( (lv_formula_1_0= ruleUnitFormula ) )
-                    // InternalBLESS.g:13211:5: (lv_formula_1_0= ruleUnitFormula )
+                    // InternalBLESS.g:13211:4: ( (lv_formula_1_0= ruleUnitFormula ) )
+                    // InternalBLESS.g:13212:5: (lv_formula_1_0= ruleUnitFormula )
                     {
-                    // InternalBLESS.g:13211:5: (lv_formula_1_0= ruleUnitFormula )
-                    // InternalBLESS.g:13212:6: lv_formula_1_0= ruleUnitFormula
+                    // InternalBLESS.g:13212:5: (lv_formula_1_0= ruleUnitFormula )
+                    // InternalBLESS.g:13213:6: lv_formula_1_0= ruleUnitFormula
                     {
 
                     						newCompositeNode(grammarAccess.getRootDeclarationAccess().getFormulaUnitFormulaParserRuleCall_0_1_0());
@@ -33110,7 +33116,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getRootDeclarationAccess().getLeftSquareBracketKeyword_1());
             		
-            // InternalBLESS.g:13234:3: ( (lv_kindWords_3_0= RULE_ID ) )+
+            // InternalBLESS.g:13235:3: ( (lv_kindWords_3_0= RULE_ID ) )+
             int cnt200=0;
             loop200:
             do {
@@ -33124,10 +33130,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt200) {
             	case 1 :
-            	    // InternalBLESS.g:13235:4: (lv_kindWords_3_0= RULE_ID )
+            	    // InternalBLESS.g:13236:4: (lv_kindWords_3_0= RULE_ID )
             	    {
-            	    // InternalBLESS.g:13235:4: (lv_kindWords_3_0= RULE_ID )
-            	    // InternalBLESS.g:13236:5: lv_kindWords_3_0= RULE_ID
+            	    // InternalBLESS.g:13236:4: (lv_kindWords_3_0= RULE_ID )
+            	    // InternalBLESS.g:13237:5: lv_kindWords_3_0= RULE_ID
             	    {
             	    lv_kindWords_3_0=(Token)match(input,RULE_ID,FOLLOW_144); 
 
@@ -33163,11 +33169,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getRootDeclarationAccess().getRightSquareBracketKeyword_3());
             		
-            // InternalBLESS.g:13256:3: ( (lv_unitName_5_0= ruleUnitName ) )
-            // InternalBLESS.g:13257:4: (lv_unitName_5_0= ruleUnitName )
+            // InternalBLESS.g:13257:3: ( (lv_unitName_5_0= ruleUnitName ) )
+            // InternalBLESS.g:13258:4: (lv_unitName_5_0= ruleUnitName )
             {
-            // InternalBLESS.g:13257:4: (lv_unitName_5_0= ruleUnitName )
-            // InternalBLESS.g:13258:5: lv_unitName_5_0= ruleUnitName
+            // InternalBLESS.g:13258:4: (lv_unitName_5_0= ruleUnitName )
+            // InternalBLESS.g:13259:5: lv_unitName_5_0= ruleUnitName
             {
 
             					newCompositeNode(grammarAccess.getRootDeclarationAccess().getUnitNameUnitNameParserRuleCall_4_0());
@@ -33194,7 +33200,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13275:3: ( (lv_factors_6_0= ruleUnitFactor ) )*
+            // InternalBLESS.g:13276:3: ( (lv_factors_6_0= ruleUnitFactor ) )*
             loop201:
             do {
                 int alt201=2;
@@ -33207,10 +33213,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt201) {
             	case 1 :
-            	    // InternalBLESS.g:13276:4: (lv_factors_6_0= ruleUnitFactor )
+            	    // InternalBLESS.g:13277:4: (lv_factors_6_0= ruleUnitFactor )
             	    {
-            	    // InternalBLESS.g:13276:4: (lv_factors_6_0= ruleUnitFactor )
-            	    // InternalBLESS.g:13277:5: lv_factors_6_0= ruleUnitFactor
+            	    // InternalBLESS.g:13277:4: (lv_factors_6_0= ruleUnitFactor )
+            	    // InternalBLESS.g:13278:5: lv_factors_6_0= ruleUnitFactor
             	    {
 
             	    					newCompositeNode(grammarAccess.getRootDeclarationAccess().getFactorsUnitFactorParserRuleCall_5_0());
@@ -33270,7 +33276,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnitExtension"
-    // InternalBLESS.g:13302:1: entryRuleUnitExtension returns [EObject current=null] : iv_ruleUnitExtension= ruleUnitExtension EOF ;
+    // InternalBLESS.g:13303:1: entryRuleUnitExtension returns [EObject current=null] : iv_ruleUnitExtension= ruleUnitExtension EOF ;
     public final EObject entryRuleUnitExtension() throws RecognitionException {
         EObject current = null;
 
@@ -33278,8 +33284,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13302:54: (iv_ruleUnitExtension= ruleUnitExtension EOF )
-            // InternalBLESS.g:13303:2: iv_ruleUnitExtension= ruleUnitExtension EOF
+            // InternalBLESS.g:13303:54: (iv_ruleUnitExtension= ruleUnitExtension EOF )
+            // InternalBLESS.g:13304:2: iv_ruleUnitExtension= ruleUnitExtension EOF
             {
              newCompositeNode(grammarAccess.getUnitExtensionRule()); 
             pushFollow(FOLLOW_1);
@@ -33306,7 +33312,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitExtension"
-    // InternalBLESS.g:13309:1: ruleUnitExtension returns [EObject current=null] : (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' ) ;
+    // InternalBLESS.g:13310:1: ruleUnitExtension returns [EObject current=null] : (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' ) ;
     public final EObject ruleUnitExtension() throws RecognitionException {
         EObject current = null;
 
@@ -33320,21 +33326,21 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13315:2: ( (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' ) )
-            // InternalBLESS.g:13316:2: (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' )
+            // InternalBLESS.g:13316:2: ( (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' ) )
+            // InternalBLESS.g:13317:2: (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' )
             {
-            // InternalBLESS.g:13316:2: (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' )
-            // InternalBLESS.g:13317:3: otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';'
+            // InternalBLESS.g:13317:2: (otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';' )
+            // InternalBLESS.g:13318:3: otherlv_0= 'extension' ( (otherlv_1= RULE_ID ) ) ( (lv_factors_2_0= ruleUnitFactor ) )+ otherlv_3= ';'
             {
             otherlv_0=(Token)match(input,173,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getUnitExtensionAccess().getExtensionKeyword_0());
             		
-            // InternalBLESS.g:13321:3: ( (otherlv_1= RULE_ID ) )
-            // InternalBLESS.g:13322:4: (otherlv_1= RULE_ID )
+            // InternalBLESS.g:13322:3: ( (otherlv_1= RULE_ID ) )
+            // InternalBLESS.g:13323:4: (otherlv_1= RULE_ID )
             {
-            // InternalBLESS.g:13322:4: (otherlv_1= RULE_ID )
-            // InternalBLESS.g:13323:5: otherlv_1= RULE_ID
+            // InternalBLESS.g:13323:4: (otherlv_1= RULE_ID )
+            // InternalBLESS.g:13324:5: otherlv_1= RULE_ID
             {
 
             					if (current==null) {
@@ -33351,7 +33357,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13334:3: ( (lv_factors_2_0= ruleUnitFactor ) )+
+            // InternalBLESS.g:13335:3: ( (lv_factors_2_0= ruleUnitFactor ) )+
             int cnt202=0;
             loop202:
             do {
@@ -33365,10 +33371,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt202) {
             	case 1 :
-            	    // InternalBLESS.g:13335:4: (lv_factors_2_0= ruleUnitFactor )
+            	    // InternalBLESS.g:13336:4: (lv_factors_2_0= ruleUnitFactor )
             	    {
-            	    // InternalBLESS.g:13335:4: (lv_factors_2_0= ruleUnitFactor )
-            	    // InternalBLESS.g:13336:5: lv_factors_2_0= ruleUnitFactor
+            	    // InternalBLESS.g:13336:4: (lv_factors_2_0= ruleUnitFactor )
+            	    // InternalBLESS.g:13337:5: lv_factors_2_0= ruleUnitFactor
             	    {
 
             	    					newCompositeNode(grammarAccess.getUnitExtensionAccess().getFactorsUnitFactorParserRuleCall_2_0());
@@ -33432,7 +33438,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMulDiv"
-    // InternalBLESS.g:13361:1: entryRuleMulDiv returns [String current=null] : iv_ruleMulDiv= ruleMulDiv EOF ;
+    // InternalBLESS.g:13362:1: entryRuleMulDiv returns [String current=null] : iv_ruleMulDiv= ruleMulDiv EOF ;
     public final String entryRuleMulDiv() throws RecognitionException {
         String current = null;
 
@@ -33440,8 +33446,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13361:46: (iv_ruleMulDiv= ruleMulDiv EOF )
-            // InternalBLESS.g:13362:2: iv_ruleMulDiv= ruleMulDiv EOF
+            // InternalBLESS.g:13362:46: (iv_ruleMulDiv= ruleMulDiv EOF )
+            // InternalBLESS.g:13363:2: iv_ruleMulDiv= ruleMulDiv EOF
             {
              newCompositeNode(grammarAccess.getMulDivRule()); 
             pushFollow(FOLLOW_1);
@@ -33468,7 +33474,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMulDiv"
-    // InternalBLESS.g:13368:1: ruleMulDiv returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_TIMES_0= ruleTIMES | kw= '/' ) ;
+    // InternalBLESS.g:13369:1: ruleMulDiv returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_TIMES_0= ruleTIMES | kw= '/' ) ;
     public final AntlrDatatypeRuleToken ruleMulDiv() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -33480,10 +33486,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13374:2: ( (this_TIMES_0= ruleTIMES | kw= '/' ) )
-            // InternalBLESS.g:13375:2: (this_TIMES_0= ruleTIMES | kw= '/' )
+            // InternalBLESS.g:13375:2: ( (this_TIMES_0= ruleTIMES | kw= '/' ) )
+            // InternalBLESS.g:13376:2: (this_TIMES_0= ruleTIMES | kw= '/' )
             {
-            // InternalBLESS.g:13375:2: (this_TIMES_0= ruleTIMES | kw= '/' )
+            // InternalBLESS.g:13376:2: (this_TIMES_0= ruleTIMES | kw= '/' )
             int alt203=2;
             int LA203_0 = input.LA(1);
 
@@ -33501,7 +33507,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt203) {
                 case 1 :
-                    // InternalBLESS.g:13376:3: this_TIMES_0= ruleTIMES
+                    // InternalBLESS.g:13377:3: this_TIMES_0= ruleTIMES
                     {
 
                     			newCompositeNode(grammarAccess.getMulDivAccess().getTIMESParserRuleCall_0());
@@ -33521,7 +33527,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13387:3: kw= '/'
+                    // InternalBLESS.g:13388:3: kw= '/'
                     {
                     kw=(Token)match(input,124,FOLLOW_2); 
 
@@ -33554,7 +33560,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleUnitFactor"
-    // InternalBLESS.g:13396:1: entryRuleUnitFactor returns [EObject current=null] : iv_ruleUnitFactor= ruleUnitFactor EOF ;
+    // InternalBLESS.g:13397:1: entryRuleUnitFactor returns [EObject current=null] : iv_ruleUnitFactor= ruleUnitFactor EOF ;
     public final EObject entryRuleUnitFactor() throws RecognitionException {
         EObject current = null;
 
@@ -33562,8 +33568,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13396:51: (iv_ruleUnitFactor= ruleUnitFactor EOF )
-            // InternalBLESS.g:13397:2: iv_ruleUnitFactor= ruleUnitFactor EOF
+            // InternalBLESS.g:13397:51: (iv_ruleUnitFactor= ruleUnitFactor EOF )
+            // InternalBLESS.g:13398:2: iv_ruleUnitFactor= ruleUnitFactor EOF
             {
              newCompositeNode(grammarAccess.getUnitFactorRule()); 
             pushFollow(FOLLOW_1);
@@ -33590,7 +33596,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleUnitFactor"
-    // InternalBLESS.g:13403:1: ruleUnitFactor returns [EObject current=null] : (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) ) ;
+    // InternalBLESS.g:13404:1: ruleUnitFactor returns [EObject current=null] : (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) ) ;
     public final EObject ruleUnitFactor() throws RecognitionException {
         EObject current = null;
 
@@ -33606,21 +33612,21 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13409:2: ( (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) ) )
-            // InternalBLESS.g:13410:2: (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) )
+            // InternalBLESS.g:13410:2: ( (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) ) )
+            // InternalBLESS.g:13411:2: (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) )
             {
-            // InternalBLESS.g:13410:2: (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) )
-            // InternalBLESS.g:13411:3: otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) )
+            // InternalBLESS.g:13411:2: (otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) ) )
+            // InternalBLESS.g:13412:3: otherlv_0= ',' ( (lv_unit_1_0= ruleUnitName ) ) ( (lv_op_2_0= ruleMulDiv ) ) ( (lv_factor_3_0= rulePositiveNumber ) )
             {
             otherlv_0=(Token)match(input,35,FOLLOW_162); 
 
             			newLeafNode(otherlv_0, grammarAccess.getUnitFactorAccess().getCommaKeyword_0());
             		
-            // InternalBLESS.g:13415:3: ( (lv_unit_1_0= ruleUnitName ) )
-            // InternalBLESS.g:13416:4: (lv_unit_1_0= ruleUnitName )
+            // InternalBLESS.g:13416:3: ( (lv_unit_1_0= ruleUnitName ) )
+            // InternalBLESS.g:13417:4: (lv_unit_1_0= ruleUnitName )
             {
-            // InternalBLESS.g:13416:4: (lv_unit_1_0= ruleUnitName )
-            // InternalBLESS.g:13417:5: lv_unit_1_0= ruleUnitName
+            // InternalBLESS.g:13417:4: (lv_unit_1_0= ruleUnitName )
+            // InternalBLESS.g:13418:5: lv_unit_1_0= ruleUnitName
             {
 
             					newCompositeNode(grammarAccess.getUnitFactorAccess().getUnitUnitNameParserRuleCall_1_0());
@@ -33647,11 +33653,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13434:3: ( (lv_op_2_0= ruleMulDiv ) )
-            // InternalBLESS.g:13435:4: (lv_op_2_0= ruleMulDiv )
+            // InternalBLESS.g:13435:3: ( (lv_op_2_0= ruleMulDiv ) )
+            // InternalBLESS.g:13436:4: (lv_op_2_0= ruleMulDiv )
             {
-            // InternalBLESS.g:13435:4: (lv_op_2_0= ruleMulDiv )
-            // InternalBLESS.g:13436:5: lv_op_2_0= ruleMulDiv
+            // InternalBLESS.g:13436:4: (lv_op_2_0= ruleMulDiv )
+            // InternalBLESS.g:13437:5: lv_op_2_0= ruleMulDiv
             {
 
             					newCompositeNode(grammarAccess.getUnitFactorAccess().getOpMulDivParserRuleCall_2_0());
@@ -33678,11 +33684,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13453:3: ( (lv_factor_3_0= rulePositiveNumber ) )
-            // InternalBLESS.g:13454:4: (lv_factor_3_0= rulePositiveNumber )
+            // InternalBLESS.g:13454:3: ( (lv_factor_3_0= rulePositiveNumber ) )
+            // InternalBLESS.g:13455:4: (lv_factor_3_0= rulePositiveNumber )
             {
-            // InternalBLESS.g:13454:4: (lv_factor_3_0= rulePositiveNumber )
-            // InternalBLESS.g:13455:5: lv_factor_3_0= rulePositiveNumber
+            // InternalBLESS.g:13455:4: (lv_factor_3_0= rulePositiveNumber )
+            // InternalBLESS.g:13456:5: lv_factor_3_0= rulePositiveNumber
             {
 
             					newCompositeNode(grammarAccess.getUnitFactorAccess().getFactorPositiveNumberParserRuleCall_3_0());
@@ -33732,7 +33738,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQuantity"
-    // InternalBLESS.g:13476:1: entryRuleQuantity returns [EObject current=null] : iv_ruleQuantity= ruleQuantity EOF ;
+    // InternalBLESS.g:13477:1: entryRuleQuantity returns [EObject current=null] : iv_ruleQuantity= ruleQuantity EOF ;
     public final EObject entryRuleQuantity() throws RecognitionException {
         EObject current = null;
 
@@ -33740,8 +33746,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13476:49: (iv_ruleQuantity= ruleQuantity EOF )
-            // InternalBLESS.g:13477:2: iv_ruleQuantity= ruleQuantity EOF
+            // InternalBLESS.g:13477:49: (iv_ruleQuantity= ruleQuantity EOF )
+            // InternalBLESS.g:13478:2: iv_ruleQuantity= ruleQuantity EOF
             {
              newCompositeNode(grammarAccess.getQuantityRule()); 
             pushFollow(FOLLOW_1);
@@ -33768,7 +33774,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantity"
-    // InternalBLESS.g:13483:1: ruleQuantity returns [EObject current=null] : ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) ;
+    // InternalBLESS.g:13484:1: ruleQuantity returns [EObject current=null] : ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) ;
     public final EObject ruleQuantity() throws RecognitionException {
         EObject current = null;
 
@@ -33782,17 +33788,17 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13489:2: ( ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) )
-            // InternalBLESS.g:13490:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
+            // InternalBLESS.g:13490:2: ( ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? ) )
+            // InternalBLESS.g:13491:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
             {
-            // InternalBLESS.g:13490:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
-            // InternalBLESS.g:13491:3: ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
+            // InternalBLESS.g:13491:2: ( ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )? )
+            // InternalBLESS.g:13492:3: ( (lv_number_0_0= ruleANumber ) ) ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
             {
-            // InternalBLESS.g:13491:3: ( (lv_number_0_0= ruleANumber ) )
-            // InternalBLESS.g:13492:4: (lv_number_0_0= ruleANumber )
+            // InternalBLESS.g:13492:3: ( (lv_number_0_0= ruleANumber ) )
+            // InternalBLESS.g:13493:4: (lv_number_0_0= ruleANumber )
             {
-            // InternalBLESS.g:13492:4: (lv_number_0_0= ruleANumber )
-            // InternalBLESS.g:13493:5: lv_number_0_0= ruleANumber
+            // InternalBLESS.g:13493:4: (lv_number_0_0= ruleANumber )
+            // InternalBLESS.g:13494:5: lv_number_0_0= ruleANumber
             {
 
             					newCompositeNode(grammarAccess.getQuantityAccess().getNumberANumberParserRuleCall_0_0());
@@ -33819,7 +33825,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:13510:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
+            // InternalBLESS.g:13511:3: ( ( (otherlv_1= RULE_ID ) ) | ( (lv_scalar_2_0= 'scalar' ) ) | ( (lv_whole_3_0= 'whole' ) ) )?
             int alt204=4;
             switch ( input.LA(1) ) {
                 case RULE_ID:
@@ -33852,13 +33858,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt204) {
                 case 1 :
-                    // InternalBLESS.g:13511:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:13512:4: ( (otherlv_1= RULE_ID ) )
                     {
-                    // InternalBLESS.g:13511:4: ( (otherlv_1= RULE_ID ) )
-                    // InternalBLESS.g:13512:5: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:13512:4: ( (otherlv_1= RULE_ID ) )
+                    // InternalBLESS.g:13513:5: (otherlv_1= RULE_ID )
                     {
-                    // InternalBLESS.g:13512:5: (otherlv_1= RULE_ID )
-                    // InternalBLESS.g:13513:6: otherlv_1= RULE_ID
+                    // InternalBLESS.g:13513:5: (otherlv_1= RULE_ID )
+                    // InternalBLESS.g:13514:6: otherlv_1= RULE_ID
                     {
 
                     						if (current==null) {
@@ -33879,13 +33885,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13525:4: ( (lv_scalar_2_0= 'scalar' ) )
+                    // InternalBLESS.g:13526:4: ( (lv_scalar_2_0= 'scalar' ) )
                     {
-                    // InternalBLESS.g:13525:4: ( (lv_scalar_2_0= 'scalar' ) )
-                    // InternalBLESS.g:13526:5: (lv_scalar_2_0= 'scalar' )
+                    // InternalBLESS.g:13526:4: ( (lv_scalar_2_0= 'scalar' ) )
+                    // InternalBLESS.g:13527:5: (lv_scalar_2_0= 'scalar' )
                     {
-                    // InternalBLESS.g:13526:5: (lv_scalar_2_0= 'scalar' )
-                    // InternalBLESS.g:13527:6: lv_scalar_2_0= 'scalar'
+                    // InternalBLESS.g:13527:5: (lv_scalar_2_0= 'scalar' )
+                    // InternalBLESS.g:13528:6: lv_scalar_2_0= 'scalar'
                     {
                     lv_scalar_2_0=(Token)match(input,103,FOLLOW_2); 
 
@@ -33907,13 +33913,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:13540:4: ( (lv_whole_3_0= 'whole' ) )
+                    // InternalBLESS.g:13541:4: ( (lv_whole_3_0= 'whole' ) )
                     {
-                    // InternalBLESS.g:13540:4: ( (lv_whole_3_0= 'whole' ) )
-                    // InternalBLESS.g:13541:5: (lv_whole_3_0= 'whole' )
+                    // InternalBLESS.g:13541:4: ( (lv_whole_3_0= 'whole' ) )
+                    // InternalBLESS.g:13542:5: (lv_whole_3_0= 'whole' )
                     {
-                    // InternalBLESS.g:13541:5: (lv_whole_3_0= 'whole' )
-                    // InternalBLESS.g:13542:6: lv_whole_3_0= 'whole'
+                    // InternalBLESS.g:13542:5: (lv_whole_3_0= 'whole' )
+                    // InternalBLESS.g:13543:6: lv_whole_3_0= 'whole'
                     {
                     lv_whole_3_0=(Token)match(input,104,FOLLOW_2); 
 
@@ -33960,7 +33966,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePositiveNumber"
-    // InternalBLESS.g:13559:1: entryRulePositiveNumber returns [String current=null] : iv_rulePositiveNumber= rulePositiveNumber EOF ;
+    // InternalBLESS.g:13560:1: entryRulePositiveNumber returns [String current=null] : iv_rulePositiveNumber= rulePositiveNumber EOF ;
     public final String entryRulePositiveNumber() throws RecognitionException {
         String current = null;
 
@@ -33968,8 +33974,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13559:54: (iv_rulePositiveNumber= rulePositiveNumber EOF )
-            // InternalBLESS.g:13560:2: iv_rulePositiveNumber= rulePositiveNumber EOF
+            // InternalBLESS.g:13560:54: (iv_rulePositiveNumber= rulePositiveNumber EOF )
+            // InternalBLESS.g:13561:2: iv_rulePositiveNumber= rulePositiveNumber EOF
             {
              newCompositeNode(grammarAccess.getPositiveNumberRule()); 
             pushFollow(FOLLOW_1);
@@ -33996,7 +34002,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePositiveNumber"
-    // InternalBLESS.g:13566:1: rulePositiveNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_NUMBER_0= RULE_NUMBER ;
+    // InternalBLESS.g:13567:1: rulePositiveNumber returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_NUMBER_0= RULE_NUMBER ;
     public final AntlrDatatypeRuleToken rulePositiveNumber() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34006,8 +34012,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13572:2: (this_NUMBER_0= RULE_NUMBER )
-            // InternalBLESS.g:13573:2: this_NUMBER_0= RULE_NUMBER
+            // InternalBLESS.g:13573:2: (this_NUMBER_0= RULE_NUMBER )
+            // InternalBLESS.g:13574:2: this_NUMBER_0= RULE_NUMBER
             {
             this_NUMBER_0=(Token)match(input,RULE_NUMBER,FOLLOW_2); 
 
@@ -34036,7 +34042,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleType"
-    // InternalBLESS.g:13583:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    // InternalBLESS.g:13584:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
     public final EObject entryRuleType() throws RecognitionException {
         EObject current = null;
 
@@ -34044,8 +34050,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13583:45: (iv_ruleType= ruleType EOF )
-            // InternalBLESS.g:13584:2: iv_ruleType= ruleType EOF
+            // InternalBLESS.g:13584:45: (iv_ruleType= ruleType EOF )
+            // InternalBLESS.g:13585:2: iv_ruleType= ruleType EOF
             {
              newCompositeNode(grammarAccess.getTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -34072,7 +34078,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleType"
-    // InternalBLESS.g:13590:1: ruleType returns [EObject current=null] : (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType ) ;
+    // InternalBLESS.g:13591:1: ruleType returns [EObject current=null] : (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType ) ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -34095,10 +34101,10 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13596:2: ( (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType ) )
-            // InternalBLESS.g:13597:2: (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType )
+            // InternalBLESS.g:13597:2: ( (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType ) )
+            // InternalBLESS.g:13598:2: (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType )
             {
-            // InternalBLESS.g:13597:2: (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType )
+            // InternalBLESS.g:13598:2: (this_EnumerationType_0= ruleEnumerationType | this_QuantityType_1= ruleQuantityType | this_ArrayType_2= ruleArrayType | this_RecordType_3= ruleRecordType | this_BooleanType_4= ruleBooleanType | this_StringType_5= ruleStringType | this_NullType_6= ruleNullType )
             int alt205=7;
             switch ( input.LA(1) ) {
             case 162:
@@ -34147,7 +34153,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             switch (alt205) {
                 case 1 :
-                    // InternalBLESS.g:13598:3: this_EnumerationType_0= ruleEnumerationType
+                    // InternalBLESS.g:13599:3: this_EnumerationType_0= ruleEnumerationType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getEnumerationTypeParserRuleCall_0());
@@ -34165,7 +34171,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBLESS.g:13607:3: this_QuantityType_1= ruleQuantityType
+                    // InternalBLESS.g:13608:3: this_QuantityType_1= ruleQuantityType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getQuantityTypeParserRuleCall_1());
@@ -34183,7 +34189,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBLESS.g:13616:3: this_ArrayType_2= ruleArrayType
+                    // InternalBLESS.g:13617:3: this_ArrayType_2= ruleArrayType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getArrayTypeParserRuleCall_2());
@@ -34201,7 +34207,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBLESS.g:13625:3: this_RecordType_3= ruleRecordType
+                    // InternalBLESS.g:13626:3: this_RecordType_3= ruleRecordType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getRecordTypeParserRuleCall_3());
@@ -34219,7 +34225,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalBLESS.g:13634:3: this_BooleanType_4= ruleBooleanType
+                    // InternalBLESS.g:13635:3: this_BooleanType_4= ruleBooleanType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getBooleanTypeParserRuleCall_4());
@@ -34237,7 +34243,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalBLESS.g:13643:3: this_StringType_5= ruleStringType
+                    // InternalBLESS.g:13644:3: this_StringType_5= ruleStringType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getStringTypeParserRuleCall_5());
@@ -34255,7 +34261,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalBLESS.g:13652:3: this_NullType_6= ruleNullType
+                    // InternalBLESS.g:13653:3: this_NullType_6= ruleNullType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getNullTypeParserRuleCall_6());
@@ -34295,7 +34301,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQCLREF"
-    // InternalBLESS.g:13664:1: entryRuleQCLREF returns [String current=null] : iv_ruleQCLREF= ruleQCLREF EOF ;
+    // InternalBLESS.g:13665:1: entryRuleQCLREF returns [String current=null] : iv_ruleQCLREF= ruleQCLREF EOF ;
     public final String entryRuleQCLREF() throws RecognitionException {
         String current = null;
 
@@ -34303,8 +34309,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13664:46: (iv_ruleQCLREF= ruleQCLREF EOF )
-            // InternalBLESS.g:13665:2: iv_ruleQCLREF= ruleQCLREF EOF
+            // InternalBLESS.g:13665:46: (iv_ruleQCLREF= ruleQCLREF EOF )
+            // InternalBLESS.g:13666:2: iv_ruleQCLREF= ruleQCLREF EOF
             {
              newCompositeNode(grammarAccess.getQCLREFRule()); 
             pushFollow(FOLLOW_1);
@@ -34331,7 +34337,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQCLREF"
-    // InternalBLESS.g:13671:1: ruleQCLREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID ) ;
+    // InternalBLESS.g:13672:1: ruleQCLREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleQCLREF() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34343,11 +34349,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13677:2: ( (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID ) )
-            // InternalBLESS.g:13678:2: (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID )
+            // InternalBLESS.g:13678:2: ( (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID ) )
+            // InternalBLESS.g:13679:2: (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID )
             {
-            // InternalBLESS.g:13678:2: (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID )
-            // InternalBLESS.g:13679:3: this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID
+            // InternalBLESS.g:13679:2: (this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID )
+            // InternalBLESS.g:13680:3: this_ID_0= RULE_ID kw= '::' this_ID_2= RULE_ID
             {
             this_ID_0=(Token)match(input,RULE_ID,FOLLOW_165); 
 
@@ -34391,7 +34397,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQCREF"
-    // InternalBLESS.g:13702:1: entryRuleQCREF returns [String current=null] : iv_ruleQCREF= ruleQCREF EOF ;
+    // InternalBLESS.g:13703:1: entryRuleQCREF returns [String current=null] : iv_ruleQCREF= ruleQCREF EOF ;
     public final String entryRuleQCREF() throws RecognitionException {
         String current = null;
 
@@ -34399,8 +34405,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13702:45: (iv_ruleQCREF= ruleQCREF EOF )
-            // InternalBLESS.g:13703:2: iv_ruleQCREF= ruleQCREF EOF
+            // InternalBLESS.g:13703:45: (iv_ruleQCREF= ruleQCREF EOF )
+            // InternalBLESS.g:13704:2: iv_ruleQCREF= ruleQCREF EOF
             {
              newCompositeNode(grammarAccess.getQCREFRule()); 
             pushFollow(FOLLOW_1);
@@ -34427,7 +34433,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQCREF"
-    // InternalBLESS.g:13709:1: ruleQCREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? ) ;
+    // InternalBLESS.g:13710:1: ruleQCREF returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? ) ;
     public final AntlrDatatypeRuleToken ruleQCREF() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34440,13 +34446,13 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13715:2: ( ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? ) )
-            // InternalBLESS.g:13716:2: ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? )
+            // InternalBLESS.g:13716:2: ( ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? ) )
+            // InternalBLESS.g:13717:2: ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? )
             {
-            // InternalBLESS.g:13716:2: ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? )
-            // InternalBLESS.g:13717:3: (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )?
+            // InternalBLESS.g:13717:2: ( (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )? )
+            // InternalBLESS.g:13718:3: (this_ID_0= RULE_ID kw= '::' )* this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )?
             {
-            // InternalBLESS.g:13717:3: (this_ID_0= RULE_ID kw= '::' )*
+            // InternalBLESS.g:13718:3: (this_ID_0= RULE_ID kw= '::' )*
             loop206:
             do {
                 int alt206=2;
@@ -34465,7 +34471,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
                 switch (alt206) {
             	case 1 :
-            	    // InternalBLESS.g:13718:4: this_ID_0= RULE_ID kw= '::'
+            	    // InternalBLESS.g:13719:4: this_ID_0= RULE_ID kw= '::'
             	    {
             	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_165); 
 
@@ -34495,7 +34501,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(this_ID_2, grammarAccess.getQCREFAccess().getIDTerminalRuleCall_1());
             		
-            // InternalBLESS.g:13738:3: (kw= '.' this_ID_4= RULE_ID )?
+            // InternalBLESS.g:13739:3: (kw= '.' this_ID_4= RULE_ID )?
             int alt207=2;
             int LA207_0 = input.LA(1);
 
@@ -34504,7 +34510,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt207) {
                 case 1 :
-                    // InternalBLESS.g:13739:4: kw= '.' this_ID_4= RULE_ID
+                    // InternalBLESS.g:13740:4: kw= '.' this_ID_4= RULE_ID
                     {
                     kw=(Token)match(input,51,FOLLOW_7); 
 
@@ -34547,7 +34553,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTIMES"
-    // InternalBLESS.g:13756:1: entryRuleTIMES returns [String current=null] : iv_ruleTIMES= ruleTIMES EOF ;
+    // InternalBLESS.g:13757:1: entryRuleTIMES returns [String current=null] : iv_ruleTIMES= ruleTIMES EOF ;
     public final String entryRuleTIMES() throws RecognitionException {
         String current = null;
 
@@ -34555,8 +34561,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBLESS.g:13756:45: (iv_ruleTIMES= ruleTIMES EOF )
-            // InternalBLESS.g:13757:2: iv_ruleTIMES= ruleTIMES EOF
+            // InternalBLESS.g:13757:45: (iv_ruleTIMES= ruleTIMES EOF )
+            // InternalBLESS.g:13758:2: iv_ruleTIMES= ruleTIMES EOF
             {
              newCompositeNode(grammarAccess.getTIMESRule()); 
             pushFollow(FOLLOW_1);
@@ -34583,7 +34589,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTIMES"
-    // InternalBLESS.g:13763:1: ruleTIMES returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '*' ;
+    // InternalBLESS.g:13764:1: ruleTIMES returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= '*' ;
     public final AntlrDatatypeRuleToken ruleTIMES() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -34593,8 +34599,8 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:13769:2: (kw= '*' )
-            // InternalBLESS.g:13770:2: kw= '*'
+            // InternalBLESS.g:13770:2: (kw= '*' )
+            // InternalBLESS.g:13771:2: kw= '*'
             {
             kw=(Token)match(input,128,FOLLOW_2); 
 

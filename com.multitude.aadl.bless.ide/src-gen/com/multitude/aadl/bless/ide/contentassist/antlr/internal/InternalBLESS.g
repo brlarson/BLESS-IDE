@@ -33703,9 +33703,9 @@ rule__ActualParameter__ActualAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getActualParameterAccess().getActualIDTerminalRuleCall_2_0()); }
-		RULE_ID
-		{ after(grammarAccess.getActualParameterAccess().getActualIDTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0()); }
+		ruleExpression
+		{ after(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0()); }
 	)
 ;
 finally {
