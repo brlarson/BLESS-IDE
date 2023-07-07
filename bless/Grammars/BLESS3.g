@@ -602,7 +602,6 @@ rangeSymbol : DOTDOT | COMMADOT | DOTCOMMA | COMMACOMMA;
 
 propertyName
   :
-  (  ID COLON )=> 
   propertyset=ID dc=DOUBLE_COLON propertyid=ID
     -> ^($dc $propertyset $propertyid)
   ;
@@ -630,21 +629,21 @@ identifier
 
 unitLibrary:
   unitDeclarations+=unitDeclaration+
-    -> ^( UNIT_LIBRARY $unitDeclarations+ )
+    -> ^( UNIT_LIBRARY["UNIT_LIBRARY"] $unitDeclarations+ )
   ;
 
 unitName
   :   
   ( lt=LT (longname+=ID)+ GT )? id=ID 
-    -> ^( UNIT_NAME $id $longname* )
+    -> ^( UNIT_NAME["UNIT_NAME"] $id $longname* )
 ;
 
 unitFormula:
   top+=ID+ ( slash=DIVIDE bottom+=ID+ )?
-    -> ^( UNIT_FORMULA $top+ $slash? $bottom* )
+    -> ^( UNIT_FORMULA["UNIT_FORMULA"] $top+ $slash? $bottom* )
   |
   slash=DIVIDE bottom+=ID+
-    -> ^( UNIT_FORMULA $slash $bottom+ )
+    -> ^( UNIT_FORMULA["UNIT_FORMULA"] $slash $bottom+ )
   ;
 
 unitDeclaration: 
@@ -654,7 +653,7 @@ unitDeclaration:
 rootDeclaration:   
   ( base=LITERAL_base | formula=unitFormula ) lb=LBRACKET kindWords+=ID+ RBRACKET 
   unit=unitName factors+=unitFactor* SEMICOLON
-    -> ^( ROOT_DECLARATION $base? $formula? ^( $lb $kindWords+ ) $unit $factors* )
+    -> ^( ROOT_DECLARATION["ROOT_DECLARATION"] $base? $formula? ^( $lb $kindWords+ ) $unit $factors* )
   ;
 
 unitExtension:
@@ -792,8 +791,8 @@ assertionFunctionValue:
 	;	
 
 conditionalAssertionFunction:
-	LBRACKET cvp+=conditionValuePair ( COMMA cvp+=conditionValuePair )* RBRACKET
-	  -> ^( CONDITIONAL_ASSERTION_FUNCTION $cvp* )
+	lb=LBRACKET cvp+=conditionValuePair ( COMMA cvp+=conditionValuePair )* RBRACKET
+	  -> ^( CONDITIONAL_ASSERTION_FUNCTION[$lb,"CONDITIONAL_ASSERTION_FUNCTION"] $cvp* )
 	;	
 	
 conditionValuePair:
@@ -1030,13 +1029,13 @@ caseChoice
  
 conditionalExpression:
   lp=LPAREN LITERAL_if pred=expression LITERAL_then t=expression LITERAL_else f=expression rp=RPAREN
-    -> ^( $lp ^( QQ $pred $t $f ) $rp )
+    -> ^( $lp ^( QQ[$lp,"??"] $pred $t $f ) $rp )
 	; 
 
 recordTerm
   :
   LBRACKET typeid=ID COLON prv+=recordValue+ RBRACKET 
-    -> ^(RECORD_TERM $typeid $prv+)
+    -> ^(RECORD_TERM[$typeid,"RECORD_TERM"] $typeid $prv+)
   ;
   
 recordValue
@@ -1051,8 +1050,8 @@ periodShift:
 	  | 
 	  (lp=LPAREN ie=indexExpression rp=RPAREN)
 	)
-	-> {m!=null&&v!=null}? ^( UNARY_MINUS $v )
-	-> {m!=null&&ie!=null}? ^( UNARY_MINUS ^( $lp $ie $rp ) )
+	-> {m!=null&&v!=null}? ^( UNARY_MINUS[$m,"-"] $v )
+	-> {m!=null&&ie!=null}? ^( UNARY_MINUS[$m,"-"] ^( $lp $ie $rp ) )
 	-> {m==null&&v!=null}? $v
 	-> ^( $lp $ie $rp ) 
 	;  	
@@ -1109,7 +1108,7 @@ valueName:
     )?
   -> {dol!=null}? ^( $id $dol $pr )
   -> {lb!=null&&dot!=null}? ^( $id ^( $lb $array_index+ ) ^( $dot $pn+ ) )
-  -> {lb!=null&&dot==null}? ^( $id ^( $lb $array_index+ ) DOT )  //to avoid unparse ambiguity
+  -> {lb!=null&&dot==null}? ^( $id ^( $lb $array_index+ ) DOT[$id,"."] )  //to avoid unparse ambiguity
   -> {lb==null&&dot!=null}? ^( $id ^( $dot $pn+ ) )
   -> {q!=null}? ^( $q $id )
   -> {fresh!=null}? ^( $t $id $fresh )
@@ -1151,16 +1150,16 @@ constant:
 
 quantity: 
   num=aNumber u=ID 
-   -> ^( QUANTITY $num $u )
+   -> ^( QUANTITY[$u,"QUANTITY"] $num $u )
   | 
   num=aNumber scalar=LITERAL_scalar 
-   -> ^( QUANTITY $num  $scalar )
+   -> ^( QUANTITY[$scalar,"QUANTITY"] $num  $scalar )
   | 
   num=aNumber whole=LITERAL_whole 
-   -> ^( QUANTITY $num $whole )
+   -> ^( QUANTITY[$whole,"QUANTITY"] $num $whole )
   |
   num=aNumber 
-   -> ^( QUANTITY $num )
+   -> ^( QUANTITY["QUANTITY"] $num )
   ;  
 
 aNumber:
@@ -1197,8 +1196,8 @@ actionSubclause:
   ( post=LITERAL_post postcondition=assertion )?	
   ( inv=LITERAL_invariant invariant=assertion )?	
   elq=existentialLatticeQuantification
-  -> ^( ACTION_SUBCLAUSE $no_proof? $throws_clause? $assert_clause? ^( LITERAL_pre $precondition? )
-     ^( LITERAL_post $postcondition? ) ^( LITERAL_invariant $invariant ) $elq )
+  -> ^( ACTION_SUBCLAUSE["ACTION_SUBCLAUSE"] $no_proof? $throws_clause? $assert_clause? ^( LITERAL_pre["pre"] $precondition? )
+     ^( LITERAL_post["post"] $postcondition? ) ^( LITERAL_invariant["invariant"] $invariant? ) $elq )
 ;
 
 throwsClause:
@@ -1216,15 +1215,15 @@ assertClause:
 
 behaviorTime:
   q=quantity
-  -> ^( BEHAVIOR_TIME $q )
+  -> ^( BEHAVIOR_TIME["BEHAVIOR_TIME"] $q )
   | v=valueName u=ID
-  -> ^( BEHAVIOR_TIME $v $u )
+  -> ^( BEHAVIOR_TIME[$u,"BEHAVIOR_TIME"] $v $u )
   | v=valueName s=LITERAL_scalar 
-  -> ^( BEHAVIOR_TIME $v $s )
+  -> ^( BEHAVIOR_TIME[$s,"BEHAVIOR_TIME"] $v $s )
   | v=valueName w=LITERAL_whole
-  -> ^( BEHAVIOR_TIME $v $w )
+  -> ^( BEHAVIOR_TIME[$w,"BEHAVIOR_TIME"] $v $w )
   | v=valueName 
-  -> ^( BEHAVIOR_TIME $v )
+  -> ^( BEHAVIOR_TIME["BEHAVIOR_TIME"] $v )
 //  | parenthesizedSubexpression
   ;	
 
@@ -1254,8 +1253,8 @@ variableDeclaration:
   ( assign=ASSIGN exp=expression )? 
   a=assertion?  
   semi=SEMICOLON?
-    -> {assign!=null}? ^( VARIABLE_DECLARATION $v ^( $assign $exp ) $a? $nv? $sh? $c? $sp? $f? )
-    -> ^( VARIABLE_DECLARATION $v $a? $nv? $sh? $c? $sp? $f? )
+    -> {assign!=null}? ^( VARIABLE_DECLARATION[$assign,"VARIABLE_DECLARATION"] $v ^( $assign $exp ) $a? $nv? $sh? $c? $sp? $f? )
+    -> ^( VARIABLE_DECLARATION["VARIABLE_DECLARATION"] $v $a? $nv? $sh? $c? $sp? $f? )
   ; 
 
 
@@ -1274,9 +1273,9 @@ assertedAction  :
   post=assertion? //postcondition
     -> 
     ^( ACTION[$s.tree.getToken(),"ACTION["+Integer.toString($s.tree.getLine()+startingLine)+"]"]       
-        ^( P["P"] $pre? ) 
+        ^( P[$s.tree.getToken(),"P"] $pre? ) 
         ^( S[$s.tree.getToken(),"S["+Integer.toString($s.tree.getLine()+startingLine)+"]"] $s ) 
-        ^( Q["Q"] $post? ) 
+        ^( Q[$s.tree.getToken(),"Q"] $post? ) 
          )
   ; 
   catch [RecognitionException re] {Dump.it("error token text=\""+retval.start.getText()+"\"");
@@ -1478,7 +1477,7 @@ blessSubclause:
   vs=variablesSection?
   ss=statesSection?
   t=transitions?
-    -> ^( BLESS_SUBCLAUSE $no_proof $ac $inv $vs $ss $t )
+    -> ^( BLESS_SUBCLAUSE["BLESS_SUBCLAUSE"] $no_proof $ac $inv $vs $ss $t )
 	;
 
 invariantClause:
@@ -1523,13 +1522,13 @@ behaviorTransition
   ( LCURLY s=behaviorActions RCURLY | EMPTY_CURLY )
   q=assertion? semi=SEMICOLON?
     -> 
-      ^( TRANSITION[$x,"TRANSITION["+Integer.toString($x.getLine()+startingLine)+"]"] 
+      ^( TRANSITION[$x,"TRANSITION["+$id.getText()+"]"] 
       ^( LABEL[$x,"LABEL["+Integer.toString($x.getLine()+startingLine)+"]"] $id $pr? ) 
       ^( SOURCE[$x,"SOURCE["+Integer.toString($x.getLine()+startingLine)+"]"] $ssi+ ) 
       ^( CONDITION[$x,"CONDITION["+Integer.toString($x.getLine()+startingLine)+"]"] $bc? ) 
       ^( DESTINATION[$x,"DESTINATION["+Integer.toString($x.getLine()+startingLine)+"]"] $dsi ) 
       ^( ACTION[$x,"ACTION["+Integer.toString($x.getLine()+startingLine)+"]"] $s? ) 
-      ^( Q[$semi,"Q["+Integer.toString($semi.getLine()+startingLine)+"]"] $q?) 
+      ^( Q[$x,"Q"] $q?) 
       )
   ; 
   catch [RecognitionException re] 
