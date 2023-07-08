@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-07-07 10:12:47
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/BLESS3.g 2023-07-08 16:29:50
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -659,7 +659,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_ID.add(propertyid);
 
 			// AST REWRITE
-			// elements: propertyid, propertyset, dc
+			// elements: dc, propertyid, propertyset
 			// token labels: propertyset, propertyid, dc
 			// rule labels: retval
 			// token list labels: 
@@ -810,7 +810,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: id, dot, id, dot, imp, dc, id, id2, imp, id2, dc, id
+			// elements: dot, dot, dc, dc, id2, imp, id, id2, id, imp, id, id
 			// token labels: dot, id, imp, dc
 			// rule labels: retval
 			// token list labels: id2
@@ -1484,7 +1484,7 @@ public class BLESS3Parser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: slash, top, bottom
+					// elements: top, slash, bottom
 					// token labels: slash
 					// rule labels: retval
 					// token list labels: top, bottom
@@ -1878,7 +1878,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_SEMICOLON.add(SEMICOLON14);
 
 			// AST REWRITE
-			// elements: lb, kindWords, unit, factors, base, formula
+			// elements: formula, factors, kindWords, unit, base, lb
 			// token labels: lb, base
 			// rule labels: unit, formula, retval
 			// token list labels: kindWords
@@ -2173,7 +2173,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_NUMBER.add(factor);
 
 			// AST REWRITE
-			// elements: op, factor, unit, c
+			// elements: c, unit, op, factor
 			// token labels: c, factor
 			// rule labels: op, unit, retval
 			// token list labels: 
@@ -3514,7 +3514,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: ghosts, assertion_list
+			// elements: assertion_list, ghosts
 			// token labels: 
 			// rule labels: ghosts, retval
 			// token list labels: 
@@ -3996,7 +3996,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RASS.add(RASS49);
 
 			// AST REWRITE
-			// elements: assertionvariable, formals, functionvalue, enumeration, id, pred, id, til, tod, id, ret, id, formals, functionvalue, lass, enumerationTy, tod, ret, id, pred
+			// elements: til, formals, enumerationTy, tod, tod, assertionvariable, id, functionvalue, id, pred, formals, id, pred, id, functionvalue, enumeration, lass, ret, ret, id
 			// token labels: assertionvariable, ret, til, lass, id, enumerationTy
 			// rule labels: pred, tod, functionvalue, formals, enumeration, retval
 			// token list labels: 
@@ -4965,7 +4965,7 @@ public class BLESS3Parser extends Parser {
 					}
 
 					// AST REWRITE
-					// elements: pair, pa
+					// elements: pa, pair
 					// token labels: pa
 					// rule labels: retval
 					// token list labels: 
@@ -5314,7 +5314,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RASS.add(RASS69);
 
 			// AST REWRITE
-			// elements: functionvalue, tod, ret
+			// elements: tod, functionvalue, ret
 			// token labels: ret
 			// rule labels: tod, functionvalue, retval
 			// token list labels: 
@@ -6250,7 +6250,7 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_predicate.add(pred.getTree());
 			// AST REWRITE
-			// elements: pred, lv, r, al, lv, ar, al, i, ar, pred, b, al, w
+			// elements: lv, pred, lv, w, al, ar, r, pred, ar, al, al, i, b
 			// token labels: ar, w, i, al
 			// rule labels: r, b, pred, lv, retval
 			// token list labels: 
@@ -6460,9 +6460,9 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_predicate.add(pred.getTree());
 			// AST REWRITE
-			// elements: pred, r, ex, ex, th, i, ex, th, pred, lv, lv, w, b
+			// elements: ex, w, ex, pred, th, th, pred, ex, lv, b, lv, i, r
 			// token labels: ex, th, w, i
-			// rule labels: r, b, pred, lv, retval
+			// rule labels: b, r, pred, lv, retval
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
@@ -6472,8 +6472,8 @@ public class BLESS3Parser extends Parser {
 			RewriteRuleTokenStream stream_th=new RewriteRuleTokenStream(adaptor,"token th",th);
 			RewriteRuleTokenStream stream_w=new RewriteRuleTokenStream(adaptor,"token w",w);
 			RewriteRuleTokenStream stream_i=new RewriteRuleTokenStream(adaptor,"token i",i);
-			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 			RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.getTree():null);
+			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
 			RewriteRuleSubtreeStream stream_pred=new RewriteRuleSubtreeStream(adaptor,"rule pred",pred!=null?pred.getTree():null);
 			RewriteRuleSubtreeStream stream_lv=new RewriteRuleSubtreeStream(adaptor,"rule lv",lv!=null?lv.getTree():null);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
@@ -6671,9 +6671,9 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_expression.add(ex.getTree());
 			// AST REWRITE
-			// elements: b, lv, lv, ar, i, ex, ex, sum, sum, ar, r, w, sum
+			// elements: r, ar, lv, ex, w, lv, b, sum, ex, sum, sum, ar, i
 			// token labels: ar, w, i, sum
-			// rule labels: b, r, ex, lv, retval
+			// rule labels: r, b, ex, lv, retval
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
@@ -6683,8 +6683,8 @@ public class BLESS3Parser extends Parser {
 			RewriteRuleTokenStream stream_w=new RewriteRuleTokenStream(adaptor,"token w",w);
 			RewriteRuleTokenStream stream_i=new RewriteRuleTokenStream(adaptor,"token i",i);
 			RewriteRuleTokenStream stream_sum=new RewriteRuleTokenStream(adaptor,"token sum",sum);
-			RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.getTree():null);
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
+			RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.getTree():null);
 			RewriteRuleSubtreeStream stream_ex=new RewriteRuleSubtreeStream(adaptor,"rule ex",ex!=null?ex.getTree():null);
 			RewriteRuleSubtreeStream stream_lv=new RewriteRuleSubtreeStream(adaptor,"rule lv",lv!=null?lv.getTree():null);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
@@ -6882,9 +6882,9 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_expression.add(ex.getTree());
 			// AST REWRITE
-			// elements: b, pr, r, ex, i, ex, ar, pr, lv, ar, w, lv, pr
+			// elements: ar, r, pr, ex, w, ar, b, pr, lv, lv, i, ex, pr
 			// token labels: ar, pr, w, i
-			// rule labels: b, r, ex, lv, retval
+			// rule labels: r, b, ex, lv, retval
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
@@ -6894,8 +6894,8 @@ public class BLESS3Parser extends Parser {
 			RewriteRuleTokenStream stream_pr=new RewriteRuleTokenStream(adaptor,"token pr",pr);
 			RewriteRuleTokenStream stream_w=new RewriteRuleTokenStream(adaptor,"token w",w);
 			RewriteRuleTokenStream stream_i=new RewriteRuleTokenStream(adaptor,"token i",i);
-			RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.getTree():null);
 			RewriteRuleSubtreeStream stream_r=new RewriteRuleSubtreeStream(adaptor,"rule r",r!=null?r.getTree():null);
+			RewriteRuleSubtreeStream stream_b=new RewriteRuleSubtreeStream(adaptor,"rule b",b!=null?b.getTree():null);
 			RewriteRuleSubtreeStream stream_ex=new RewriteRuleSubtreeStream(adaptor,"rule ex",ex!=null?ex.getTree():null);
 			RewriteRuleSubtreeStream stream_lv=new RewriteRuleSubtreeStream(adaptor,"rule lv",lv!=null?lv.getTree():null);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
@@ -7093,7 +7093,7 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_expression.add(ex.getTree());
 			// AST REWRITE
-			// elements: n, lv, i, w, ar, lv, n, ex, b, r, ex, n, ar
+			// elements: n, b, lv, i, ex, ar, lv, ex, r, n, ar, n, w
 			// token labels: ar, w, i, n
 			// rule labels: b, r, ex, lv, retval
 			// token list labels: 
@@ -8476,7 +8476,7 @@ public class BLESS3Parser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_timedExpression.add(te.getTree());
 					// AST REWRITE
-					// elements: te, n
+					// elements: n, te
 					// token labels: n
 					// rule labels: te, retval
 					// token list labels: 
@@ -8519,7 +8519,7 @@ public class BLESS3Parser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_timedExpression.add(te.getTree());
 					// AST REWRITE
-					// elements: abs, te
+					// elements: te, abs
 					// token labels: abs
 					// rule labels: te, retval
 					// token list labels: 
@@ -8605,7 +8605,7 @@ public class BLESS3Parser extends Parser {
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) stream_timedExpression.add(te.getTree());
 					// AST REWRITE
-					// elements: te, rnd
+					// elements: rnd, te
 					// token labels: rnd
 					// rule labels: te, retval
 					// token list labels: 
@@ -9484,7 +9484,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RPAREN.add(rp);
 
 			// AST REWRITE
-			// elements: lp, f, t, rp, pred
+			// elements: pred, f, t, rp, lp
 			// token labels: lp, rp
 			// rule labels: t, pred, f, retval
 			// token list labels: 
@@ -9878,7 +9878,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: lp, v, ie, rp, rp, v, lp, ie
+			// elements: v, lp, ie, v, ie, lp, rp, rp
 			// token labels: lp, rp
 			// rule labels: v, ie, retval
 			// token list labels: 
@@ -11106,8 +11106,8 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: id, id, id, pn, t, t, pn, fresh, id, id, array_index, t, lb, count, id, id, id, dol, pr, id, array_index, dot, lb, DOT, q, dot, updated
-			// token labels: dol, q, t, lb, count, dot, id, fresh, updated
+			// elements: t, id, id, pn, DOT, id, dol, dot, pr, id, lb, t, id, updated, array_index, id, count, q, dot, id, id, id, t, array_index, lb, pn, fresh
+			// token labels: dol, q, t, lb, dot, count, id, fresh, updated
 			// rule labels: pr, retval
 			// token list labels: 
 			// rule list labels: array_index, pn
@@ -11118,8 +11118,8 @@ public class BLESS3Parser extends Parser {
 			RewriteRuleTokenStream stream_q=new RewriteRuleTokenStream(adaptor,"token q",q);
 			RewriteRuleTokenStream stream_t=new RewriteRuleTokenStream(adaptor,"token t",t);
 			RewriteRuleTokenStream stream_lb=new RewriteRuleTokenStream(adaptor,"token lb",lb);
-			RewriteRuleTokenStream stream_count=new RewriteRuleTokenStream(adaptor,"token count",count);
 			RewriteRuleTokenStream stream_dot=new RewriteRuleTokenStream(adaptor,"token dot",dot);
+			RewriteRuleTokenStream stream_count=new RewriteRuleTokenStream(adaptor,"token count",count);
 			RewriteRuleTokenStream stream_id=new RewriteRuleTokenStream(adaptor,"token id",id);
 			RewriteRuleTokenStream stream_fresh=new RewriteRuleTokenStream(adaptor,"token fresh",fresh);
 			RewriteRuleTokenStream stream_updated=new RewriteRuleTokenStream(adaptor,"token updated",updated);
@@ -11606,7 +11606,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: record_id, lb, array_index, record_id
+			// elements: record_id, array_index, lb, record_id
 			// token labels: record_id, lb
 			// rule labels: retval
 			// token list labels: 
@@ -12852,19 +12852,19 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_existentialLatticeQuantification.add(elq.getTree());
 			// AST REWRITE
-			// elements: assert_clause, LITERAL_pre, LITERAL_invariant, invariant, throws_clause, precondition, LITERAL_post, postcondition, elq, no_proof
+			// elements: postcondition, LITERAL_invariant, elq, throws_clause, assert_clause, precondition, LITERAL_post, invariant, no_proof, LITERAL_pre
 			// token labels: no_proof
-			// rule labels: assert_clause, throws_clause, precondition, elq, postcondition, retval, invariant
+			// rule labels: throws_clause, assert_clause, elq, precondition, postcondition, retval, invariant
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleTokenStream stream_no_proof=new RewriteRuleTokenStream(adaptor,"token no_proof",no_proof);
-			RewriteRuleSubtreeStream stream_assert_clause=new RewriteRuleSubtreeStream(adaptor,"rule assert_clause",assert_clause!=null?assert_clause.getTree():null);
 			RewriteRuleSubtreeStream stream_throws_clause=new RewriteRuleSubtreeStream(adaptor,"rule throws_clause",throws_clause!=null?throws_clause.getTree():null);
-			RewriteRuleSubtreeStream stream_precondition=new RewriteRuleSubtreeStream(adaptor,"rule precondition",precondition!=null?precondition.getTree():null);
+			RewriteRuleSubtreeStream stream_assert_clause=new RewriteRuleSubtreeStream(adaptor,"rule assert_clause",assert_clause!=null?assert_clause.getTree():null);
 			RewriteRuleSubtreeStream stream_elq=new RewriteRuleSubtreeStream(adaptor,"rule elq",elq!=null?elq.getTree():null);
+			RewriteRuleSubtreeStream stream_precondition=new RewriteRuleSubtreeStream(adaptor,"rule precondition",precondition!=null?precondition.getTree():null);
 			RewriteRuleSubtreeStream stream_postcondition=new RewriteRuleSubtreeStream(adaptor,"rule postcondition",postcondition!=null?postcondition.getTree():null);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 			RewriteRuleSubtreeStream stream_invariant=new RewriteRuleSubtreeStream(adaptor,"rule invariant",invariant!=null?invariant.getTree():null);
@@ -13259,7 +13259,7 @@ public class BLESS3Parser extends Parser {
 					if ( state.backtracking==0 ) stream_ID.add(u);
 
 					// AST REWRITE
-					// elements: u, v
+					// elements: v, u
 					// token labels: u
 					// rule labels: v, retval
 					// token list labels: 
@@ -13303,7 +13303,7 @@ public class BLESS3Parser extends Parser {
 					if ( state.backtracking==0 ) stream_LITERAL_scalar.add(s);
 
 					// AST REWRITE
-					// elements: v, s
+					// elements: s, v
 					// token labels: s
 					// rule labels: v, retval
 					// token list labels: 
@@ -13347,7 +13347,7 @@ public class BLESS3Parser extends Parser {
 					if ( state.backtracking==0 ) stream_LITERAL_whole.add(w);
 
 					// AST REWRITE
-					// elements: v, w
+					// elements: w, v
 					// token labels: w
 					// rule labels: v, retval
 					// token list labels: 
@@ -13955,7 +13955,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: a, sh, sp, v, exp, sh, f, nv, v, c, f, nv, assign, c, sp, a
+			// elements: nv, assign, a, c, sh, exp, c, sp, v, f, sh, v, f, nv, a, sp
 			// token labels: c, sh, f, nv, sp, assign
 			// rule labels: a, v, exp, retval
 			// token list labels: 
@@ -14366,7 +14366,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: pre, post, s
+			// elements: s, pre, post
 			// token labels: 
 			// rule labels: pre, s, post, retval
 			// token list labels: 
@@ -15166,7 +15166,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_VERT.add(VERT238);
 
 			// AST REWRITE
-			// elements: a, rhs, lhs, left_comma, right_comma
+			// elements: lhs, a, rhs, left_comma, right_comma
 			// token labels: a, right_comma, left_comma
 			// rule labels: retval
 			// token list labels: 
@@ -16694,7 +16694,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: be, pn
+			// elements: pn, be
 			// token labels: pn
 			// rule labels: be, retval
 			// token list labels: 
@@ -16804,7 +16804,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN289);
 
 			// AST REWRITE
-			// elements: n, pn2
+			// elements: pn2, n
 			// token labels: pn2
 			// rule labels: n, retval
 			// token list labels: 
@@ -17175,7 +17175,7 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_existentialLatticeQuantification.add(elq.getTree());
 			// AST REWRITE
-			// elements: be, lw, inv, bd, elq
+			// elements: lw, inv, be, elq, bd
 			// token labels: lw
 			// rule labels: inv, bd, be, elq, retval
 			// token list labels: 
@@ -17363,7 +17363,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY303);
 
 			// AST REWRITE
-			// elements: a, inv, li, act, ub, lf, lb
+			// elements: act, li, ub, lf, inv, a, lb
 			// token labels: lf, li
 			// rule labels: inv, a, act, lb, ub, retval
 			// token list labels: 
@@ -17557,7 +17557,7 @@ public class BLESS3Parser extends Parser {
 			if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN307);
 
 			// AST REWRITE
-			// elements: bd, ld, inv, lu, be, ba
+			// elements: ld, bd, ba, lu, inv, be
 			// token labels: ld, lu
 			// rule labels: inv, bd, be, retval, ba
 			// token list labels: 
@@ -17854,7 +17854,7 @@ public class BLESS3Parser extends Parser {
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_existentialLatticeQuantification.add(elq.getTree());
 			// AST REWRITE
-			// elements: lf, elq, ub, li, lb, lv
+			// elements: lf, li, lb, lv, elq, ub
 			// token labels: lf, li
 			// rule labels: lb, elq, ub, retval
 			// token list labels: lv
@@ -18180,7 +18180,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: ss, t, ac, vs, no_proof, inv
+			// elements: ss, inv, no_proof, t, ac, vs
 			// token labels: no_proof
 			// rule labels: ss, inv, ac, t, vs, retval
 			// token list labels: 
@@ -18619,7 +18619,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: init, finl, LITERAL_state, i, com, a
+			// elements: com, LITERAL_state, i, a, init, finl
 			// token labels: com, init, finl
 			// rule labels: a, i, retval
 			// token list labels: 
@@ -19056,17 +19056,17 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: dsi, ssi, q, pr, s, id, bc
+			// elements: bc, pr, q, dsi, s, id, ssi
 			// token labels: id
-			// rule labels: q, bc, pr, s, dsi, retval
+			// rule labels: bc, q, pr, s, dsi, retval
 			// token list labels: 
 			// rule list labels: ssi
 			// wildcard labels: 
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleTokenStream stream_id=new RewriteRuleTokenStream(adaptor,"token id",id);
-			RewriteRuleSubtreeStream stream_q=new RewriteRuleSubtreeStream(adaptor,"rule q",q!=null?q.getTree():null);
 			RewriteRuleSubtreeStream stream_bc=new RewriteRuleSubtreeStream(adaptor,"rule bc",bc!=null?bc.getTree():null);
+			RewriteRuleSubtreeStream stream_q=new RewriteRuleSubtreeStream(adaptor,"rule q",q!=null?q.getTree():null);
 			RewriteRuleSubtreeStream stream_pr=new RewriteRuleSubtreeStream(adaptor,"rule pr",pr!=null?pr.getTree():null);
 			RewriteRuleSubtreeStream stream_s=new RewriteRuleSubtreeStream(adaptor,"rule s",s!=null?s.getTree():null);
 			RewriteRuleSubtreeStream stream_dsi=new RewriteRuleSubtreeStream(adaptor,"rule dsi",dsi!=null?dsi.getTree():null);
@@ -20205,7 +20205,7 @@ public class BLESS3Parser extends Parser {
 			}
 
 			// AST REWRITE
-			// elements: first, et, first, op1
+			// elements: op1, et, first, first
 			// token labels: 
 			// rule labels: op1, first, retval
 			// token list labels: 
