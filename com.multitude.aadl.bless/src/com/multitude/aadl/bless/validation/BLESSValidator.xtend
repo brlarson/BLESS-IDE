@@ -2316,7 +2316,7 @@ def UnitRecord getUnitRecord(ValueName a)
     else if (ty instanceof QuantityType) 
       retval = (ty as QuantityType).getUnitRecord
     else  
-      fError('No BLESS::Typed property for feature '+f.name+' must be quantity, not'+ty+'.',
+      fError('No BLESS::Typed property for feature '+f.name+' must be quantity, not '+ty.typeString+' .',
             a, BLESSPackage::eINSTANCE.valueName_Id, 
             IssueCodes.MUST_BE_QUANTITY)           
 //    val Property blessTyped = GetProperties.lookupPropertyDefinition(f, 'BLESS', 'Typed');

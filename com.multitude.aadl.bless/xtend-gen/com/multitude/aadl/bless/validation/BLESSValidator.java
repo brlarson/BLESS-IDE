@@ -3399,9 +3399,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
             } else {
               String _name_1 = f.getName();
               String _plus_1 = ("No BLESS::Typed property for feature " + _name_1);
-              String _plus_2 = (_plus_1 + " must be quantity, not");
-              String _plus_3 = (_plus_2 + ty);
-              String _plus_4 = (_plus_3 + ".");
+              String _plus_2 = (_plus_1 + " must be quantity, not ");
+              String _typeString = this._typeUtil.typeString(ty);
+              String _plus_3 = (_plus_2 + _typeString);
+              String _plus_4 = (_plus_3 + " .");
               this.fError(_plus_4, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
                 IssueCodes.MUST_BE_QUANTITY);
             }
