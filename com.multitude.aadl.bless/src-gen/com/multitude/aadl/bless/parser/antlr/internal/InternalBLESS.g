@@ -12225,6 +12225,105 @@ ruleQuantityType returns [EObject current=null]
 				)
 			)
 		)
+		(
+			otherlv_4='['
+			{
+				newLeafNode(otherlv_4, grammarAccess.getQuantityTypeAccess().getLeftSquareBracketKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQuantityTypeAccess().getLbANumberParserRuleCall_2_1_0());
+					}
+					lv_lb_5_0=ruleANumber
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQuantityTypeRule());
+						}
+						set(
+							$current,
+							"lb",
+							lv_lb_5_0,
+							"com.multitude.aadl.bless.BLESS.ANumber");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_DOTDOT_6=RULE_DOTDOT
+			{
+				newLeafNode(this_DOTDOT_6, grammarAccess.getQuantityTypeAccess().getDOTDOTTerminalRuleCall_2_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQuantityTypeAccess().getUbANumberParserRuleCall_2_3_0());
+					}
+					lv_ub_7_0=ruleANumber
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQuantityTypeRule());
+						}
+						set(
+							$current,
+							"ub",
+							lv_ub_7_0,
+							"com.multitude.aadl.bless.BLESS.ANumber");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_8=']'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getQuantityTypeAccess().getRightSquareBracketKeyword_2_4());
+			}
+		)?
+		(
+			otherlv_9='step'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getQuantityTypeAccess().getStepKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getQuantityTypeAccess().getStepANumberParserRuleCall_3_1_0());
+					}
+					lv_step_10_0=ruleANumber
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getQuantityTypeRule());
+						}
+						set(
+							$current,
+							"step",
+							lv_step_10_0,
+							"com.multitude.aadl.bless.BLESS.ANumber");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='representation'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getQuantityTypeAccess().getRepresentationKeyword_4_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getQuantityTypeRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getQuantityTypeAccess().getRepresentationPropertyConstantCrossReference_4_1_0());
+					}
+					ruleQCLREF
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

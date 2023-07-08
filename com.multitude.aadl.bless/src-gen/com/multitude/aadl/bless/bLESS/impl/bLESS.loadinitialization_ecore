@@ -908,6 +908,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="unit" eType="#//UnitName"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scalar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lb" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ub" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="step" eType="#//ANumber"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="representation" eType="ecore:EClass http://aadl.info/AADL/2.0#//PropertyConstant"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ANumber" eSuperTypes="http://aadl.info/AADL/2.0#//Element">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

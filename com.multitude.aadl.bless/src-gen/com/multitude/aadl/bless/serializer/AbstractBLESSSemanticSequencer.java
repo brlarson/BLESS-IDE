@@ -2443,7 +2443,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Type returns QuantityType
 	 *
 	 * Constraint:
-	 *     (unit=[UnitName|ID] | scalar='scalar' | whole='whole')
+	 *     ((unit=[UnitName|ID] | scalar='scalar' | whole='whole') (lb=ANumber ub=ANumber)? step=ANumber? representation=[PropertyConstant|QCLREF]?)
 	 * </pre>
 	 */
 	protected void sequence_QuantityType(ISerializationContext context, QuantityType semanticObject) {

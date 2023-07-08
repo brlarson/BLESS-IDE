@@ -7920,18 +7920,38 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cScalarScalarKeyword_1_1_0 = (Keyword)cScalarAssignment_1_1.eContents().get(0);
 		private final Assignment cWholeAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
 		private final Keyword cWholeWholeKeyword_1_2_0 = (Keyword)cWholeAssignment_1_2.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cLeftSquareBracketKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cLbAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cLbANumberParserRuleCall_2_1_0 = (RuleCall)cLbAssignment_2_1.eContents().get(0);
+		private final RuleCall cDOTDOTTerminalRuleCall_2_2 = (RuleCall)cGroup_2.eContents().get(2);
+		private final Assignment cUbAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cUbANumberParserRuleCall_2_3_0 = (RuleCall)cUbAssignment_2_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cStepKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cStepAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cStepANumberParserRuleCall_3_1_0 = (RuleCall)cStepAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cRepresentationKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cRepresentationAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cRepresentationPropertyConstantCrossReference_4_1_0 = (CrossReference)cRepresentationAssignment_4_1.eContents().get(0);
+		private final RuleCall cRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1 = (RuleCall)cRepresentationPropertyConstantCrossReference_4_1_0.eContents().get(1);
 		
 		//QuantityType:
 		//  'quantity'
 		//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
-		////  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
-		////  ( 'step' step=ANumber )?  //check if positive
-		////  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
+		//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
+		//  ( 'step' step=ANumber )?  //check if positive
+		//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'quantity'
 		//( unit=[UnitName] | scalar='scalar' | whole='whole' )
+		//( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
+		//( 'step' step=ANumber )?  //check if positive
+		//( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
 		public Group getGroup() { return cGroup; }
 		
 		//'quantity'
@@ -7960,6 +7980,58 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//'whole'
 		public Keyword getWholeWholeKeyword_1_2_0() { return cWholeWholeKeyword_1_2_0; }
+		
+		//( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2_0() { return cLeftSquareBracketKeyword_2_0; }
+		
+		//lb=ANumber
+		public Assignment getLbAssignment_2_1() { return cLbAssignment_2_1; }
+		
+		//ANumber
+		public RuleCall getLbANumberParserRuleCall_2_1_0() { return cLbANumberParserRuleCall_2_1_0; }
+		
+		//DOTDOT
+		public RuleCall getDOTDOTTerminalRuleCall_2_2() { return cDOTDOTTerminalRuleCall_2_2; }
+		
+		//ub=ANumber
+		public Assignment getUbAssignment_2_3() { return cUbAssignment_2_3; }
+		
+		//ANumber
+		public RuleCall getUbANumberParserRuleCall_2_3_0() { return cUbANumberParserRuleCall_2_3_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_2_4() { return cRightSquareBracketKeyword_2_4; }
+		
+		//( 'step' step=ANumber )?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'step'
+		public Keyword getStepKeyword_3_0() { return cStepKeyword_3_0; }
+		
+		//step=ANumber
+		public Assignment getStepAssignment_3_1() { return cStepAssignment_3_1; }
+		
+		//ANumber
+		public RuleCall getStepANumberParserRuleCall_3_1_0() { return cStepANumberParserRuleCall_3_1_0; }
+		
+		////check if positive
+		//( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'representation'
+		public Keyword getRepresentationKeyword_4_0() { return cRepresentationKeyword_4_0; }
+		
+		//representation=[aadl2::PropertyConstant|QCLREF]
+		public Assignment getRepresentationAssignment_4_1() { return cRepresentationAssignment_4_1; }
+		
+		//[aadl2::PropertyConstant|QCLREF]
+		public CrossReference getRepresentationPropertyConstantCrossReference_4_1_0() { return cRepresentationPropertyConstantCrossReference_4_1_0; }
+		
+		//QCLREF
+		public RuleCall getRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1() { return cRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1; }
 	}
 	public class ANumberElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.ANumber");
@@ -12107,9 +12179,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//QuantityType:
 	//  'quantity'
 	//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
-	////  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
-	////  ( 'step' step=ANumber )?  //check if positive
-	////  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
+	//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
+	//  ( 'step' step=ANumber )?  //check if positive
+	//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
 	//;
 	public QuantityTypeElements getQuantityTypeAccess() {
 		return pQuantityType;

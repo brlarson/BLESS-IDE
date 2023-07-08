@@ -2308,7 +2308,7 @@ def UnitRecord getUnitRecord(ValueName a)
   if (a.id instanceof Feature)
     {
     val f = a.id as Feature
-    val ty = f.getFeatureType
+    val ty = a.type
     if (ty===null)
       fError('No BLESS::Typed property found for feature '+f.name,
             a, BLESSPackage::eINSTANCE.valueName_Id, 
@@ -2316,7 +2316,7 @@ def UnitRecord getUnitRecord(ValueName a)
     else if (ty instanceof QuantityType) 
       retval = (ty as QuantityType).getUnitRecord
     else  
-      fError('No BLESS::Typed property for feature '+f.name+' must be quantity.',
+      fError('No BLESS::Typed property for feature '+f.name+' must be quantity, not'+ty+'.',
             a, BLESSPackage::eINSTANCE.valueName_Id, 
             IssueCodes.MUST_BE_QUANTITY)           
 //    val Property blessTyped = GetProperties.lookupPropertyDefinition(f, 'BLESS', 'Typed');

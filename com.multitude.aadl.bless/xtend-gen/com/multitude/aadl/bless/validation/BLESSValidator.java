@@ -3387,7 +3387,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         if ((_id instanceof Feature)) {
           NamedElement _id_1 = a.getId();
           final Feature f = ((Feature) _id_1);
-          final Type ty = this._typeUtil.getFeatureType(f);
+          final Type ty = this.getType(a);
           if ((ty == null)) {
             String _name = f.getName();
             String _plus = ("No BLESS::Typed property found for feature " + _name);
@@ -3399,8 +3399,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
             } else {
               String _name_1 = f.getName();
               String _plus_1 = ("No BLESS::Typed property for feature " + _name_1);
-              String _plus_2 = (_plus_1 + " must be quantity.");
-              this.fError(_plus_2, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+              String _plus_2 = (_plus_1 + " must be quantity, not");
+              String _plus_3 = (_plus_2 + ty);
+              String _plus_4 = (_plus_3 + ".");
+              this.fError(_plus_4, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
                 IssueCodes.MUST_BE_QUANTITY);
             }
           }

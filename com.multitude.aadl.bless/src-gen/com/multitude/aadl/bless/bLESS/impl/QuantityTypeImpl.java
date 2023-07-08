@@ -5,16 +5,21 @@
  */
 package com.multitude.aadl.bless.bLESS.impl;
 
+import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.QuantityType;
 import com.multitude.aadl.bless.bLESS.UnitName;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.osate.aadl2.PropertyConstant;
 
 import org.osate.aadl2.impl.ElementImpl;
 
@@ -29,6 +34,10 @@ import org.osate.aadl2.impl.ElementImpl;
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getScalar <em>Scalar</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getWhole <em>Whole</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getLb <em>Lb</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getUb <em>Ub</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getStep <em>Step</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getRepresentation <em>Representation</em>}</li>
  * </ul>
  *
  * @generated
@@ -84,6 +93,46 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @ordered
    */
   protected String whole = WHOLE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLb() <em>Lb</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLb()
+   * @generated
+   * @ordered
+   */
+  protected ANumber lb;
+
+  /**
+   * The cached value of the '{@link #getUb() <em>Ub</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getUb()
+   * @generated
+   * @ordered
+   */
+  protected ANumber ub;
+
+  /**
+   * The cached value of the '{@link #getStep() <em>Step</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStep()
+   * @generated
+   * @ordered
+   */
+  protected ANumber step;
+
+  /**
+   * The cached value of the '{@link #getRepresentation() <em>Representation</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRepresentation()
+   * @generated
+   * @ordered
+   */
+  protected PropertyConstant representation;
 
   /**
    * <!-- begin-user-doc -->
@@ -207,6 +256,221 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @generated
    */
   @Override
+  public ANumber getLb()
+  {
+    return lb;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLb(ANumber newLb, NotificationChain msgs)
+  {
+    ANumber oldLb = lb;
+    lb = newLb;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__LB, oldLb, newLb);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLb(ANumber newLb)
+  {
+    if (newLb != lb)
+    {
+      NotificationChain msgs = null;
+      if (lb != null)
+        msgs = ((InternalEObject)lb).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__LB, null, msgs);
+      if (newLb != null)
+        msgs = ((InternalEObject)newLb).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__LB, null, msgs);
+      msgs = basicSetLb(newLb, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__LB, newLb, newLb));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ANumber getUb()
+  {
+    return ub;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetUb(ANumber newUb, NotificationChain msgs)
+  {
+    ANumber oldUb = ub;
+    ub = newUb;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__UB, oldUb, newUb);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setUb(ANumber newUb)
+  {
+    if (newUb != ub)
+    {
+      NotificationChain msgs = null;
+      if (ub != null)
+        msgs = ((InternalEObject)ub).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__UB, null, msgs);
+      if (newUb != null)
+        msgs = ((InternalEObject)newUb).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__UB, null, msgs);
+      msgs = basicSetUb(newUb, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__UB, newUb, newUb));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ANumber getStep()
+  {
+    return step;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStep(ANumber newStep, NotificationChain msgs)
+  {
+    ANumber oldStep = step;
+    step = newStep;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__STEP, oldStep, newStep);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStep(ANumber newStep)
+  {
+    if (newStep != step)
+    {
+      NotificationChain msgs = null;
+      if (step != null)
+        msgs = ((InternalEObject)step).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__STEP, null, msgs);
+      if (newStep != null)
+        msgs = ((InternalEObject)newStep).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.QUANTITY_TYPE__STEP, null, msgs);
+      msgs = basicSetStep(newStep, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__STEP, newStep, newStep));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public PropertyConstant getRepresentation()
+  {
+    if (representation != null && ((EObject)representation).eIsProxy())
+    {
+      InternalEObject oldRepresentation = (InternalEObject)representation;
+      representation = (PropertyConstant)eResolveProxy(oldRepresentation);
+      if (representation != oldRepresentation)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BLESSPackage.QUANTITY_TYPE__REPRESENTATION, oldRepresentation, representation));
+      }
+    }
+    return representation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PropertyConstant basicGetRepresentation()
+  {
+    return representation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setRepresentation(PropertyConstant newRepresentation)
+  {
+    PropertyConstant oldRepresentation = representation;
+    representation = newRepresentation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__REPRESENTATION, oldRepresentation, representation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case BLESSPackage.QUANTITY_TYPE__LB:
+        return basicSetLb(null, msgs);
+      case BLESSPackage.QUANTITY_TYPE__UB:
+        return basicSetUb(null, msgs);
+      case BLESSPackage.QUANTITY_TYPE__STEP:
+        return basicSetStep(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -218,6 +482,15 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
         return getScalar();
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
         return getWhole();
+      case BLESSPackage.QUANTITY_TYPE__LB:
+        return getLb();
+      case BLESSPackage.QUANTITY_TYPE__UB:
+        return getUb();
+      case BLESSPackage.QUANTITY_TYPE__STEP:
+        return getStep();
+      case BLESSPackage.QUANTITY_TYPE__REPRESENTATION:
+        if (resolve) return getRepresentation();
+        return basicGetRepresentation();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -240,6 +513,18 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
         return;
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
         setWhole((String)newValue);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__LB:
+        setLb((ANumber)newValue);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__UB:
+        setUb((ANumber)newValue);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__STEP:
+        setStep((ANumber)newValue);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__REPRESENTATION:
+        setRepresentation((PropertyConstant)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -264,6 +549,18 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
         setWhole(WHOLE_EDEFAULT);
         return;
+      case BLESSPackage.QUANTITY_TYPE__LB:
+        setLb((ANumber)null);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__UB:
+        setUb((ANumber)null);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__STEP:
+        setStep((ANumber)null);
+        return;
+      case BLESSPackage.QUANTITY_TYPE__REPRESENTATION:
+        setRepresentation((PropertyConstant)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -284,6 +581,14 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
         return SCALAR_EDEFAULT == null ? scalar != null : !SCALAR_EDEFAULT.equals(scalar);
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
         return WHOLE_EDEFAULT == null ? whole != null : !WHOLE_EDEFAULT.equals(whole);
+      case BLESSPackage.QUANTITY_TYPE__LB:
+        return lb != null;
+      case BLESSPackage.QUANTITY_TYPE__UB:
+        return ub != null;
+      case BLESSPackage.QUANTITY_TYPE__STEP:
+        return step != null;
+      case BLESSPackage.QUANTITY_TYPE__REPRESENTATION:
+        return representation != null;
     }
     return super.eIsSet(featureID);
   }
