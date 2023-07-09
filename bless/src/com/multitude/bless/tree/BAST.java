@@ -1043,15 +1043,15 @@ private static int tab=0;  //tabbing for toStringTree
 
   public boolean lessThanNode(BAST theOtherNode)
     { // compare .getText
-    if (hasType(BLESS3Lexer.ID) && theOtherNode.hasType(BLESS3Lexer.ID)) 
+//    if (hasType(BLESS3Lexer.ID) && theOtherNode.hasType(BLESS3Lexer.ID)) 
 		// ID?
 		  return (getText().compareTo(theOtherNode.getText()) < 0); // conpare text
-    else if (isNumericLiteral() && !theOtherNode.isNumericLiteral())
-      return true;
-    else if (!isNumericLiteral() && theOtherNode.isNumericLiteral())
-      return false;
-	  else 
-		  return (getType() < theOtherNode.getType());
+//    else if (isNumericLiteral() && !theOtherNode.isNumericLiteral())
+//      return true;
+//    else if (!isNumericLiteral() && theOtherNode.isNumericLiteral())
+//      return false;
+//	  else 
+//		  return (getType() < theOtherNode.getType());
     } // end of lessThanNode
 
   public boolean lessThanTree(BAST theOtherTree)
