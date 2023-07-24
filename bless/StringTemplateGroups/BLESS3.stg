@@ -328,6 +328,8 @@ natural()::="quantity whole"
 
 not(bt) ::= "not <bt>"  
 
+not_equal_relation(lhs,rhs) ::= "<lhs> <> <rhs>"
+
 not_paren(bt) ::= "not (<bt>)"  
 
 now() ::= "now"
@@ -390,10 +392,10 @@ product(p,lv,d,pe) ::=
 
 property_name(ps,p) ::= "<ps>::<p>"
 
-property_reference(component,pname,f) ::= "<component>#<pname><f>"
-
 property_number_type(kind,range,units,designator) ::=
   "<kind> <range><if(units)> <units> <designator><endif>" 
+
+property_reference(component,pname,f) ::= "<component>#<pname><f>"
 
 quantified_variables(bv) ::=
 <<declare 
@@ -490,8 +492,7 @@ time()::= "time"
 timeout(bt,p) ::= "timeout <if(p)>(<p; separator=\" \">) <endif><bt>"
 
 transitions(bt) ::=
-<<
-
+<< \n
 transitions
   <bt; separator="\n\n">
 >>
@@ -578,6 +579,11 @@ universal_quantification(a,lv,d,p)::=
 variable(id,tod) ::=
   " <id> ~ <tod>"
 
+variables(bv) ::=
+<<
+variables
+  <bv; separator="\n"> >>
+
 variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
 <<
 <v> <nv><sh><c><sp><f><if(exp)>:= <exp><endif><if(a)>
@@ -585,11 +591,6 @@ variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
 
 variable_list(parameter) ::=
 <<<parameter; wrap, separator=", "> >>
-
-variables(bv) ::=
-<<
-variables
-  <bv; separator="\n"> >>
 
 variant_field(df,ptd,t) ::=
     "<df>:<if(t)>list of <endif><ptd>;"
