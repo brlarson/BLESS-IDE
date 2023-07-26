@@ -556,7 +556,9 @@ toAST(AssertionLibrary e)
        for (child : e.assertion_list)  //add  assertion_list+=NamedAssertion*
          addChild(child.toAST)      
       ]  	
-     } catch (Exception ex) {ex.printStackTrace x}
+     } 
+  catch (Exception ex) 
+     {ex.printStackTrace x}
   }  //end of toAST(AssertionLibrary
 
   def dispatch BAST

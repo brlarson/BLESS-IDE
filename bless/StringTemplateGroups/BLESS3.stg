@@ -162,7 +162,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; separator=\"\n   or \">"
+  "<bopt; wrap, separator=\" or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
@@ -193,9 +193,10 @@ event_port_output(o) ::= "<o>!"
 
 existential_quantification(e,lv2,d2,p2)::=
 <<
-<e> <lv2>
-  <d2> 
-  that <p2; anchor> >>
+<e> <lv2> 
+   <d2> 
+   that <p2> 
+>>
 
 exp(l,r) ::= "<l>**<r>"
 
@@ -328,7 +329,7 @@ natural()::="quantity whole"
 
 not(bt) ::= "not <bt>"  
 
-not_equal_relation(lhs,rhs) ::= "<lhs> <> <rhs>"
+not_equal_relation(lhs,rhs) ::= "<lhs> \<\> <rhs>"
 
 not_paren(bt) ::= "not (<bt>)"  
 

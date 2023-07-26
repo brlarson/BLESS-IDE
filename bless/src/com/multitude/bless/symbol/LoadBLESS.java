@@ -926,10 +926,10 @@ load() throws YouIdiot
               {
               Property blessPrecondition = GetProperties.lookupPropertyDefinition(sst, "BLESS", "Precondition");
               if (blessPrecondition == null)
-                throw new YouIdiot("BLESS::Precondition property is null. \nRefresh, clean, then try again.");
+                throw new YouIdiot("BLESS::Precondition property of \""+sst.getQualifiedName()+"\" is null. \nRefresh, clean, then try again.");
               Property blessPostcondition = GetProperties.lookupPropertyDefinition(sst, "BLESS", "Postcondition");
               if (blessPostcondition == null)
-                throw new YouIdiot("BLESS::Postcondition property is null. \nRefresh, clean, then try again.");
+                throw new YouIdiot("BLESS::Postcondition property \""+sst.getQualifiedName()+"\" is null. \nRefresh, clean, then try again.");
               // initialize subprogram_access_map?
               if (componentTypeParseRecord.subprogram_access_map == null)
                 { componentTypeParseRecord.subprogram_access_map = new HashMap<String, SubprogramAccessFeature>(); }
@@ -990,7 +990,7 @@ load() throws YouIdiot
                   {
                   // throw new ProofException(
                   Dump.it((f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                      + " subprogram access feature \"" + featureName + "\" has no precondition for subprogram type \""
+                      + " subprogram access feature \"" + featureName + "\" of component type \""+ct.getQualifiedName()+"\"has no precondition for subprogram type \""
                       + sst.getName() + "\".");
                   }
                 } // done with precondition
@@ -998,7 +998,7 @@ load() throws YouIdiot
                 {
                 throw new YouIdiot(
                     (f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                        + " subprogram access feature \"" + featureName + "\" does not accept BLESS preconditions.");
+                        + " subprogram access feature \"" + featureName + "\" of component type \""+ct.getQualifiedName() + "\" does not accept BLESS preconditions.");
                 }
               // do postcondition
               if (sst.acceptsProperty(blessPostcondition)
@@ -1011,7 +1011,7 @@ load() throws YouIdiot
                   {
                   if (verbose())
                     {
-                    Dump.it("  subprogram access \"" + featureName + "\" has Postcondition property \"" + assertionText
+                    Dump.it("  subprogram access \"" + featureName + "\" of component type \""+ct.getQualifiedName()+ "\" has Postcondition property \"" + assertionText
                         + "\".");
                     }
                   try
@@ -1059,7 +1059,7 @@ load() throws YouIdiot
                 {
                 throw new YouIdiot(
                     (f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                        + " subprogram access feature \"" + featureName + "\" does not accept BLESS postconditions.");
+                        + " subprogram access feature \"" + featureName  + "\" of component type \""+ct.getQualifiedName()+ "\" does not accept BLESS postconditions.");
                 }
               // load up map of formal parameters to their types
               if (verbose())              

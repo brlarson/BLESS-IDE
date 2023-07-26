@@ -2315,6 +2315,8 @@ def UnitRecord getUnitRecord(ValueName a)
             IssueCodes.MISSING_BLESS_TYPED_PROPERTY) 
     else if (ty instanceof QuantityType) 
       retval = (ty as QuantityType).getUnitRecord
+    else if (ty instanceof BooleanType) 
+      retval = nan
     else  
       fError('No BLESS::Typed property for feature '+f.name+' must be quantity, not '+ty.typeString+' .',
             a, BLESSPackage::eINSTANCE.valueName_Id, 
