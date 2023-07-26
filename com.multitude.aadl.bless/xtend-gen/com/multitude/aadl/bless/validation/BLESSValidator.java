@@ -617,7 +617,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkSubProgramParameterValue(final SubProgramParameter n) {
-    if ((((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated())) {
+    if (((n.getValue() != null) && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
       this.fError("Subprogram parameters may not be port input.", n, 
         BLESSPackage.eINSTANCE.getSubProgramParameter_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
@@ -2007,7 +2007,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
           "\' is not \'");
         String _string_1 = this.getUnitRecord(e.getF()).toString();
         String _plus_2 = (_plus_1 + _string_1);
-        this.fError(_plus_2, e, 
+        String _plus_3 = (_plus_2 + "\'");
+        this.fError(_plus_3, e, 
           BLESSPackage.eINSTANCE.getConditionalExpression_F(), IssueCodes.MISMATCHED_UNITS);
       }
       _xblockexpression = this.getType(e.getT());

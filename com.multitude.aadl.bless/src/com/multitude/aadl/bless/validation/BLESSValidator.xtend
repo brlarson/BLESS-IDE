@@ -516,7 +516,7 @@ def void checkNameTickValue(NameTick n)
 @Check(CheckType.NORMAL)
 def void checkSubProgramParameterValue(SubProgramParameter n)
   {
-  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
+  if ((n.value !== null ) && (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
     fError('Subprogram parameters may not be port input.',n,
       BLESSPackage::eINSTANCE.subProgramParameter_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
@@ -1489,7 +1489,7 @@ def Type getType(ConditionalExpression e)
         BLESSPackage::eINSTANCE.conditionalExpression_F, IssueCodes.INDETERMINATE_UNITS)     
     if (tUnitRecord !== null && fUnitRecord !== null && !tUnitRecord.matchTopAndBottom(fUnitRecord) )
       fError('Choices of conditional expression (then x else y) must have same root units \''+e.t.getUnitRecord.toString+
-         '\' is not \''+e.f.getUnitRecord.toString, e,
+         '\' is not \''+e.f.getUnitRecord.toString +"\'", e,
       BLESSPackage::eINSTANCE.conditionalExpression_F, IssueCodes.MISMATCHED_UNITS)     
   e.t.getType
   }
