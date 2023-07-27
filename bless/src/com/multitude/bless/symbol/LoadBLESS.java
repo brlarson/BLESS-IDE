@@ -835,12 +835,12 @@ load() throws YouIdiot
                   e.printStackTrace();
                   }
                 }
-              else
-                {
-//PUT DOWN ERROR MARKER?
-                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
-                componentTypeParseRecord.port_typed_map.put(featureName, er.type);
-                }
+//              else
+//                {
+////PUT DOWN ERROR MARKER?
+//                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
+//                componentTypeParseRecord.port_typed_map.put(featureName, er.type);
+//                }
               // add Assertion to map
               assertionText = LoadBLESS.getPropertyStringValue(p, blessAssertion, "");
               if (assertionText.length() > 0) // does it have an Assertion property?
@@ -874,12 +874,12 @@ load() throws YouIdiot
                 er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, pr.file );
                 componentTypeParseRecord.port_typed_map.put(featureName, er.type);
                 }
-              else
-                {
-//PUT DOWN ERROR MARKER?
-                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
-                componentTypeParseRecord.port_typed_map.put(featureName, null);
-                }
+//              else
+//                {
+////PUT DOWN ERROR MARKER?
+//                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
+//                componentTypeParseRecord.port_typed_map.put(featureName, null);
+//                }
               // add Assertion to map
               assertionText = LoadBLESS.getPropertyStringValue(p, blessAssertion, "");
               if (assertionText.length() > 0) // does it have an Assertion property?

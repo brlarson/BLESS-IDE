@@ -1423,7 +1423,7 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.LITERAL_array: // array_type
         case BLESS3Lexer.LITERAL_record: // record_type
         case BLESS3Lexer.LITERAL_variant: // variant_type
-        case BLESS3Lexer.TYPE_OPERATOR_INVOCATION: // variant_type
+//        case BLESS3Lexer.TYPE_OPERATOR_INVOCATION: // variant_type
           UnparseBLESS3.type_return typ = null;
           typ = unparser.type();
           StringTemplate typeOutput = (StringTemplate) typ.getTemplate();
@@ -1479,18 +1479,18 @@ private static int tab=0;  //tabbing for toStringTree
             }
           break;
         case BLESS3Lexer.QUESTION:
-        case BLESS3Lexer.INMODE:
-          try
-            {
-            UnparseBLESS3.value_return v = null;
-            v = unparser.value();
-            StringTemplate valueOutput = (StringTemplate) v.getTemplate();
-            result = valueOutput.toString(Global.wrapLength); // wrap at 72
-            } catch (Exception e)
-            {
-            result = this.toStringTree();
-            }
-          break;
+//        case BLESS3Lexer.INMODE:
+//          try
+//            {
+//            UnparseBLESS3.value_return v = null;
+//            v = unparser.value();
+//            StringTemplate valueOutput = (StringTemplate) v.getTemplate();
+//            result = valueOutput.toString(Global.wrapLength); // wrap at 72
+//            } catch (Exception e)
+//            {
+//            result = this.toStringTree();
+//            }
+//          break;
         case BLESS3Lexer.TICK:
           try
             {  //is it a port'fresh, etc. or a timed_predicate or a timedExpression

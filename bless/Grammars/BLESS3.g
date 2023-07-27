@@ -19,63 +19,263 @@ ASSERTION;
 ASSERTION_ANNEX;  //root of trees for AADL annex sublanguages
 ASSERTION_ENUMERATION; 
 ASSERTION_FUNCTION; 
-BEHAVIOR_GUARD;
 BEHAVIOR_TIME; 
 BLESS_SUBCLAUSE;
 BOUND;  //for loops
-//CASE_EXPRESSION;  //case expression
-COMPONENT;
 CONDITION;
-//QQ;  //conditional expression, replaces QQ='??'
 CONDITIONAL_ASSERTION_FUNCTION;
-COUNTING_TRIGGER;  //for counting dispatch triggers in a dispatch condition, ormore/orless
 DESTINATION; 
 DUMMY;  //used for dummy roots of trees
-FLOATING; 
-FUNCTION; 
-INMODE;  //for 'in mode' clause
-INOUT;  //both in and out direction for port
 INVARIANT; 
 INVOKE; 
-//INVOKE_FUNCTION; 
-IP_NAME; 
-IP_PE; 
-IP_PRED;  //invoctionParameter tags
 LABEL;
 OBLIGATION;  //proof obligation 
-ON;   //for behavior_guard
 P; 
-//PARAMETER;  // replaced with COLON
 PARAMETERS; 
-PORT; //AADL port feature root
 PORT_INPUT; 
 PORT_OUTPUT; 
 PREDICATE_RELATION; //assertion_subexpression;
-PROCEDURE; 
-//PROCEDURE_CALL; 
 Q; 
 QUANTITY;
 RECORD_TERM; 
 ROOT_DECLARATION;
 S; 
 SOURCE; 
-START; 
 STOP; //used to mark the end of some strings of children
-//SUBPROGRAM_ANNEX; 
 SUBPROGRAM_INVOCATION; 
-TOP;  //the set of all values; every values is in TOP
 TRANSITION; 
-TYPE; 
 TYPE_LIBRARY;
-TYPE_OPERATOR; 
-TYPE_OPERATOR_INVOCATION; //for types
 UNARY_MINUS; 
 UNIT_FORMULA;
 UNIT_LIBRARY;
 UNIT_NAME;
 VALUE;
 VARIABLE_DECLARATION; 
+//BEHAVIOR_GUARD;
+//CASE_EXPRESSION;  //case expression
+//COMPONENT;
+//COUNTING_TRIGGER;  //for counting dispatch triggers in a dispatch condition, ormore/orless
+//FLOATING; 
+//FUNCTION; 
+//INMODE;  //for 'in mode' clause
+//INOUT;  //both in and out direction for port
+//INVOKE_FUNCTION; 
+//IP_NAME; 
+//IP_PE; 
+//IP_PRED;  //invoctionParameter tags
+//ON;   //for behavior_guard
+//PARAMETER;  // replaced with COLON
+//PORT; //AADL port feature root
+//PROCEDURE; 
+//PROCEDURE_CALL; 
+//QQ;  //conditional expression, replaces QQ='??'
+//START; 
+//SUBPROGRAM_ANNEX; 
+//TOP;  //the set of all values; every values is in TOP
+//TYPE; 
+//TYPE_OPERATOR; 
+//TYPE_OPERATOR_INVOCATION; //for types
 //WP;  //weakest precondition
+
+// 3-character tokens
+CVP = ')->';
+PLUS_ARROW = '+=>';
+
+// 2-character tokens
+DOTDOT  = '..';
+COMMADOT = ',.';
+DOTCOMMA   = '.,';
+COMMACOMMA   = ',,';
+EXP = '**';
+ASSIGN = ':=';
+DOUBLE_COLON = '::';
+EMPTY_CURLY = '{}';
+COLON_TILDE = ':~';
+
+
+// single-character tokens
+AMPERSAND = '&';
+AT_SIGN = '@';
+CARET = '^';
+COLON = ':';
+COMMA = ',';
+DIVIDE = '/';
+DOLLAR = '$';
+DOT = '.';
+DOUBLE_QUOTE =	'"';
+LBRACKET = '[';
+LCURLY = '{';
+LPAREN = '(';
+MINUS = '-';
+OCTOTHORPE = '#';
+PLUS = '+';
+RBRACKET = ']';
+RCURLY = '}';
+RPAREN = ')';
+SEMICOLON = ';';
+TILDE = '~';
+TIMES = '*';
+VERT = '|';
+
+// tokens with letters
+DO_NOT_PROVE = 'DO_NOT_PROVE';
+LITERAL_abs =  'abs';
+LITERAL_all = 'all';
+LITERAL_and = 'and';
+LITERAL_any =  'any';
+LITERAL_are = 'are';
+LITERAL_array = 'array';
+LITERAL_assert = 'assert';
+LITERAL_availability = 'availability';
+LITERAL_base = 'base';
+LITERAL_binding = 'binding';
+LITERAL_boolean =  'boolean';
+LITERAL_bound = 'bound';
+LITERAL_call = 'call'; 
+LITERAL_calls = 'calls';
+LITERAL_case = 'case';
+LITERAL_catch ='catch'; 
+LITERAL_complete = 'complete';
+LITERAL_computation = 'computation';
+LITERAL_constant = 'constant';
+LITERAL_count = 'count';
+LITERAL_declare = 'declare';
+LITERAL_def = 'def';
+LITERAL_delay = 'delay';
+LITERAL_dispatch = 'dispatch';
+LITERAL_div = 'div';
+LITERAL_do = 'do';
+LITERAL_else = 'else';
+LITERAL_enumeration = 'enumeration';
+LITERAL_exception = 'exception';
+LITERAL_exists = 'exists';
+LITERAL_extends = 'extends';
+LITERAL_extension = 'extension';
+LITERAL_false = 'false';
+LITERAL_fetchadd = 'fetchadd';
+LITERAL_fetchand = 'fetchand';
+LITERAL_fetchor = 'fetchor';
+LITERAL_fetchxor = 'fetchxor';
+LITERAL_fi = 'fi';
+LITERAL_final = 'final';
+LITERAL_for = 'for';
+LITERAL_forall = 'forall';
+LITERAL_fresh = 'fresh';
+LITERAL_ghost = 'ghost';
+LITERAL_if = 'if';
+LITERAL_iff = 'iff';
+LITERAL_implies = 'implies';
+LITERAL_in = 'in';
+LITERAL_initial = 'initial';
+LITERAL_internal = 'internal';
+LITERAL_invariant = 'invariant';
+LITERAL_inverse = 'inverse';
+LITERAL_is = 'is';
+LITERAL_lower_bound = 'lower_bound';
+LITERAL_mod = 'mod';
+LITERAL_nonvolatile = 'nonvolatile';
+LITERAL_not = 'not';
+LITERAL_now = 'now';
+LITERAL_null = 'null';
+LITERAL_numberof = 'numberof';
+LITERAL_of = 'of';
+LITERAL_on =  'on';
+LITERAL_or = 'or';
+LITERAL_post = 'post';
+LITERAL_pre = 'pre';
+LITERAL_product = 'product';
+LITERAL_quantity = 'quantity';
+LITERAL_range = 'range';
+LITERAL_record = 'record';
+LITERAL_rem = 'rem';
+LITERAL_representation = 'representation';
+LITERAL_returns = 'returns' ;
+LITERAL_round= 'round';
+LITERAL_scalar = 'scalar';
+LITERAL_self = 'self';
+LITERAL_setmode = 'setmode';
+LITERAL_shared = 'shared';
+LITERAL_skip = 'skip';
+LITERAL_spread= 'spread';
+LITERAL_state = 'state';
+LITERAL_states = 'states';
+LITERAL_step = 'step';
+LITERAL_string =  'string';
+LITERAL_sum = 'sum';
+LITERAL_swap = 'swap';
+LITERAL_that = 'that';
+LITERAL_then = 'then';
+LITERAL_throw ='throw'; 
+LITERAL_throws = 'throws';
+LITERAL_timeout = 'timeout';
+LITERAL_to = 'to';
+LITERAL_tops = 'tops';
+LITERAL_transitions = 'transitions';
+LITERAL_true = 'true';
+LITERAL_truncate = 'truncate';
+LITERAL_type = 'type'; 
+LITERAL_union = 'union';
+LITERAL_units = 'units';
+LITERAL_until = 'until';
+LITERAL_updated = 'updated';
+LITERAL_upper_bound = 'upper_bound';
+LITERAL_variables = 'variables';
+LITERAL_variant = 'variant';
+LITERAL_when ='when'; 
+LITERAL_which = 'which';
+LITERAL_while = 'while';
+LITERAL_whole = 'whole';
+LITERAL_with = 'with';
+LITERAL_xor = 'xor';
+
+//LITERAL_aadlboolean= 'aadlboolean'; 
+//LITERAL_aadlinteger= 'aadlinteger'; 
+//LITERAL_aadlreal= 'aadlreal';
+//LITERAL_aadlstring= 'aadlstring';
+//LITERAL_access= 'access';
+//LITERAL_applies= 'applies'; 
+//LITERAL_Assertion= 'Assertion';
+//LITERAL_cand = 'cand';
+//LITERAL_classifier= 'classifier';
+//LITERAL_component= 'component';
+//LITERAL_connection= 'connection';
+//LITERAL_connections= 'connections';
+//LITERAL_cor = 'cor';
+//LITERAL_feature= 'feature';
+//LITERAL_flow= 'flow';
+//LITERAL_hr= 'hr';
+//LITERAL_implementation= 'implementation';
+//LITERAL_inherit= 'inherit';
+//LITERAL_Invariant= 'Invariant';
+//LITERAL_list= 'list';
+//LITERAL_min= 'min';
+//LITERAL_mode= 'mode';
+//LITERAL_modes=  'modes';
+//LITERAL_ms= 'ms';
+//LITERAL_ns= 'ns';
+//LITERAL_package= 'package';
+//LITERAL_parameter= 'parameter';
+//LITERAL_pause=  'pause';
+//LITERAL_Postcondition= 'Postcondition';
+//LITERAL_Precondition= 'Precondition';
+//LITERAL_private= 'private';
+//LITERAL_property= 'property'; 
+//LITERAL_provides= 'provides'; 
+//LITERAL_ps= 'ps';
+//LITERAL_public= 'public';
+//LITERAL_reference= 'reference';
+//LITERAL_renames= 'renames';
+//LITERAL_requires= 'requires';
+//LITERAL_sec= 'sec';
+//LITERAL_sequence= 'sequence';
+//LITERAL_set= 'set';
+//LITERAL_stop = 'stop';
+//LITERAL_subcomponents= 'subcomponents';
+//LITERAL_time= 'time';
+//LITERAL_transition= 'transition';
+//LITERAL_Typed= 'Typed';
+//LITERAL_us= 'us';
+
 } //end of tokens
 
 
@@ -263,228 +463,8 @@ SLCOMMENT
  
 NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ( 'i' '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? )?;
 
-/*
-NUMBER :  
-  (DIGIT)+ ( '.' (DIGIT)+ ( EXPONENT )?)
-//  (DIGIT)+('_' (DIGIT)+)* ( '.' (DIGIT)+('_' (DIGIT)+)* ( EXPONENT )?)
-  ;
-
-NUMBER : 
-    (DIGIT)+
-//    (DIGIT)+('_' (DIGIT)+)*
-//    (( '#' BASED_INTEGER  '#' ( INT_EXPONENT )? )
-//      | (INT_EXPONENT)?
-//    )
-  ;
-*/
-  
-DOT : '.';
-
-//range ends
-DOTDOT  : '..';
-COMMADOT : ',.';
-DOTCOMMA   : '.,';
-COMMACOMMA   : ',,';
-
-//need to declare '+=>' before '+' or '=>' to be recognized
-PLUS_ARROW : '+=>';
-
-//make symbols token types so new BAST(String,token type,line number) 
-//creates a Token with a named token type number
-PLUS : '+';
-TIMES : '*';
-MINUS : '-';
-DIVIDE : '/';
-EXP : '**';
-ASSIGN : ':=';
-SEMICOLON : ';';
-AMPERSAND : '&';
-LCURLY : '{';
-RCURLY : '}';
-LPAREN : '(';
-RPAREN : ')';
-LBRACKET : '[';
-RBRACKET : ']';
-DOUBLE_COLON : '::';
-COLON : ':';
-COMMA : ',';
-AT_SIGN : '@';
-CARET : '^';
-EMPTY_CURLY : '{}';
-DOLLAR : '$';
-TILDE : '~';
-OCTOTHORPE : '#';
-CVP : ')->';
-COLON_TILDE : ':~';
-VERT : '|';
-
-//used to make string literals in AADL -- not used in BLESS
-DOUBLE_QUOTE :	'"';
-//used to delineate annex subclauses and annex libraries in AADL
-ANNEX_START:	'{**';
-ANNEX_END:	'**}';
-
-DO_NOT_PROVE: 'DO_NOT_PROVE';
 
 
-//operators that are literals
-LITERAL_and : 'and';
-//LITERAL_cand : 'cand';
-//LITERAL_cor : 'cor';
-LITERAL_mod : 'mod';
-LITERAL_or : 'or';
-LITERAL_rem : 'rem';
-LITERAL_xor : 'xor';
-
-//BLESS literals
-LITERAL_aadlboolean: 'aadlboolean'; 
-LITERAL_aadlinteger: 'aadlinteger'; 
-LITERAL_aadlreal: 'aadlreal';
-LITERAL_aadlstring: 'aadlstring';
-LITERAL_abs:  'abs';
-LITERAL_access: 'access';
-LITERAL_all : 'all';
-LITERAL_any:  'any';
-LITERAL_applies: 'applies'; 
-LITERAL_are : 'are';
-LITERAL_array: 'array';
-LITERAL_assert : 'assert';
-LITERAL_Assertion: 'Assertion';
-LITERAL_availability : 'availability';
-LITERAL_base : 'base';
-LITERAL_binding : 'binding';
-LITERAL_boolean:  'boolean';
-LITERAL_bound : 'bound';
-LITERAL_call: 'call'; 
-LITERAL_calls: 'calls';
-LITERAL_case : 'case';
-LITERAL_catch :'catch'; 
-LITERAL_classifier: 'classifier';
-LITERAL_complete: 'complete';
-LITERAL_component: 'component';
-LITERAL_computation : 'computation';
-LITERAL_connection: 'connection';
-LITERAL_connections: 'connections';
-LITERAL_constant: 'constant';
-LITERAL_count: 'count';
-LITERAL_declare : 'declare';
-LITERAL_def: 'def';
-LITERAL_delay : 'delay';
-LITERAL_dispatch : 'dispatch';
-LITERAL_div : 'div';
-LITERAL_do : 'do';
-LITERAL_else: 'else';
-LITERAL_enumeration: 'enumeration';
-LITERAL_exception: 'exception';
-LITERAL_extension : 'extension';
-LITERAL_exists : 'exists';
-LITERAL_extends: 'extends';
-LITERAL_false : 'false';
-LITERAL_feature: 'feature';
-LITERAL_fetchadd: 'fetchadd';
-LITERAL_fetchand: 'fetchand';
-LITERAL_fetchor: 'fetchor';
-LITERAL_fetchxor: 'fetchxor';
-LITERAL_fi : 'fi';
-LITERAL_final: 'final';
-LITERAL_flow: 'flow';
-LITERAL_for : 'for';
-LITERAL_forall : 'forall';
-LITERAL_fresh: 'fresh';
-LITERAL_ghost : 'ghost';
-//LITERAL_hr: 'hr';
-LITERAL_if : 'if';
-LITERAL_iff: 'iff';
-LITERAL_implementation: 'implementation';
-LITERAL_implies: 'implies';
-LITERAL_in : 'in';
-LITERAL_inherit: 'inherit';
-LITERAL_initial: 'initial';
-LITERAL_internal: 'internal';
-LITERAL_invariant : 'invariant';
-LITERAL_Invariant: 'Invariant';
-LITERAL_inverse: 'inverse';
-LITERAL_is: 'is';
-LITERAL_list: 'list';
-LITERAL_lower_bound:  'lower_bound';
-//LITERAL_min: 'min';
-LITERAL_mode: 'mode';
-LITERAL_modes:  'modes';
-//LITERAL_ms: 'ms';
-LITERAL_nonvolatile : 'nonvolatile';
-LITERAL_not : 'not';
-LITERAL_now : 'now';
-//LITERAL_ns: 'ns';
-LITERAL_null :'null';
-LITERAL_numberof: 'numberof';
-LITERAL_of: 'of';
-LITERAL_on:  'on';
-LITERAL_package: 'package';
-LITERAL_parameter: 'parameter';
-LITERAL_pause:  'pause';
-LITERAL_post : 'post';
-LITERAL_Postcondition: 'Postcondition';
-LITERAL_pre : 'pre';
-LITERAL_Precondition: 'Precondition';
-LITERAL_private: 'private';
-LITERAL_product: 'product';
-LITERAL_property: 'property'; 
-LITERAL_provides: 'provides'; 
-//LITERAL_ps: 'ps';
-LITERAL_public: 'public';
-LITERAL_quantity : 'quantity';
-LITERAL_range: 'range';
-LITERAL_record : 'record';
-LITERAL_reference: 'reference';
-LITERAL_renames: 'renames';
-LITERAL_returns : 'returns' ;
-LITERAL_representation : 'representation';
-LITERAL_requires: 'requires';
-LITERAL_round: 'round';
-LITERAL_scalar : 'scalar';
-//LITERAL_sec: 'sec';
-LITERAL_self: 'self';
-LITERAL_sequence: 'sequence';
-LITERAL_set: 'set';
-LITERAL_setmode : 'setmode';
-LITERAL_shared : 'shared';
-LITERAL_skip : 'skip';
-LITERAL_spread: 'spread';
-LITERAL_state : 'state';
-LITERAL_states : 'states';
-LITERAL_step : 'step';
-LITERAL_stop : 'stop';
-LITERAL_string:  'string';
-LITERAL_subcomponents: 'subcomponents';
-LITERAL_sum: 'sum';
-LITERAL_swap: 'swap';
-LITERAL_that : 'that';
-LITERAL_then: 'then';
-LITERAL_throw :'throw'; 
-LITERAL_throws : 'throws';
-//LITERAL_time: 'time';
-LITERAL_timeout : 'timeout';
-LITERAL_to: 'to';
-LITERAL_tops: 'tops';
-LITERAL_transition: 'transition';
-LITERAL_transitions : 'transitions';
-LITERAL_true : 'true';
-LITERAL_truncate : 'truncate';
-LITERAL_type : 'type';  //this is not the same as TYPE the root of all type trees
-LITERAL_Typed: 'Typed';
-LITERAL_union : 'union';
-LITERAL_units : 'units';
-LITERAL_until : 'until';
-LITERAL_updated: 'updated';
-LITERAL_upper_bound:  'upper_bound';
-//LITERAL_us: 'us';
-LITERAL_variables : 'variables';
-LITERAL_variant: 'variant';
-LITERAL_when :'when'; 
-LITERAL_while : 'while';
-LITERAL_which : 'which';
-LITERAL_whole : 'whole';
-LITERAL_with: 'with';
 
 //multi-character tokens
 
@@ -516,9 +496,9 @@ BASE        : DIGIT ( DIGIT )?
 */
 //NUMBER: '-'? DIGIT+ ('.' DIGIT+ ('e' '-'? DIGIT+)? )? ;
 
-START_ASSERTION_PROPERTY : '"<<';
+//START_ASSERTION_PROPERTY : '"<<';
 
-END_ASSERTION_PROPERTY : '>>"';
+//END_ASSERTION_PROPERTY : '>>"';
 
 fragment
 LT_STRING : '"<"';
