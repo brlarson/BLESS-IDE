@@ -1163,32 +1163,48 @@ private static int tab=0;  //tabbing for toStringTree
       UnparseBLESS3 unparser = new UnparseBLESS3(nodes);
       unparser.setTemplateLib(Global.templates);
       unparser.setStartingLine(getLine());
-      StringTemplate template = null;
       switch (this.getType())
         {
         case BLESS3Lexer.DUMMY:
           result = " ";
           break;
         case BLESS3Lexer.DOUBLE_COLON:
-          UnparseBLESS3.componentName_return dc = unparser.componentName();
-          template = (StringTemplate) dc.getTemplate();
+          result = getChild(0).getText() + "::" + getChild(1).getText();
           break;
         case BLESS3Lexer.AT_SIGN:
+          result = ((BAST) this.getChild(0)).unparse() + "@" + ((BAST) this.getChild(1)).unparse();
+          break;
         case BLESS3Lexer.CARET:
-          UnparseBLESS3.timedExpression_return te = unparser.timedExpression();
-          template = (StringTemplate) te.getTemplate();
+          result = ((BAST) this.getChild(0)).unparse() + "^" + ((BAST) this.getChild(1)).unparse();
           break;
         case BLESS3Lexer.BLESS_SUBCLAUSE:
-          UnparseBLESS3.blessSubclause_return bsc = unparser.blessSubclause();
-          template = (StringTemplate) bsc.getTemplate();
+          UnparseBLESS3.blessSubclause_return tbu = null;
+          tbu = unparser.blessSubclause();
+          StringTemplate threadOutput = (StringTemplate) tbu.getTemplate();
+          if (threadOutput != null)
+            {
+            result = threadOutput.toString(Global.wrapLength); // wrap
+            }
           break;
         case BLESS3Lexer.ACTION_SUBCLAUSE:
-          UnparseBLESS3.actionSubclause_return asc = unparser.actionSubclause();
-          template = (StringTemplate) asc.getTemplate();
+          UnparseBLESS3.actionSubclause_return sbu = null;
+          sbu = unparser.actionSubclause();
+          StringTemplate subprogramOutput = (StringTemplate) sbu.getTemplate();
+          if (subprogramOutput != null)
+            {
+            result = subprogramOutput.toString(Global.wrapLength); // wrap
+            }
+          // at
+          // 72
           break;
         case BLESS3Lexer.ASSERTION_ANNEX: // library
-          UnparseBLESS3.assertionLibrary_return al = unparser.assertionLibrary();
-          template = (StringTemplate) al.getTemplate();
+          UnparseBLESS3.assertionLibrary_return al = null;
+          al = unparser.assertionLibrary();
+          StringTemplate annexLibraryeOutput = (StringTemplate) al.getTemplate();
+          if (annexLibraryeOutput != null)
+            {
+            result = annexLibraryeOutput.toString(Global.wrapLength); // wrap
+            }
           break;
         case BLESS3Lexer.ASSERTION:
         case BLESS3Lexer.ASSERTION_ENUMERATION:
@@ -1209,99 +1225,128 @@ private static int tab=0;  //tabbing for toStringTree
               {
               throw new YouIdiot("null return from UnparseBLESS3.assertion", this);
               }
-            template = (StringTemplate) a.getTemplate();
+            StringTemplate assertionOutput = (StringTemplate) a.getTemplate();
+            if (assertionOutput == null)
+              {
+              throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
+              }
+            result = assertionOutput.toString(Global.wrapLength); // wrap
             }
           break;
         case BLESS3Lexer.LPAREN:
-          if (((BAST)this.getChild(0)).hasType(BLESS3Lexer.QQ))
+          try
             {
-            UnparseBLESS3.conditionalExpression_return cex = unparser.conditionalExpression();
-            template = (StringTemplate) cex.getTemplate();
-            }
-          else
+            UnparseBLESS3.parenthesizedSubexpression_return pp = null;
+            pp = unparser.parenthesizedSubexpression();
+            if (pp == null)
+              {
+              throw new YouIdiot("null return from UnparseBLESS3.parenthesized_xxx", this);
+              }
+            StringTemplate lparenOutput = (StringTemplate) pp.getTemplate();
+            if (lparenOutput == null)
+              {
+              throw new RecognitionException(); // YI("null return from UnparseBLESS3.getTemplate",this);
+              }
+            result = lparenOutput.toString(Global.wrapLength); // wrap
+            } catch (RecognitionException re)
             {
-            UnparseBLESS3.parenthesizedSubexpression_return ps = unparser.parenthesizedSubexpression();
-            template = (StringTemplate) ps.getTemplate();
+            Dump.it("Tree rooted in LPAREN wouldn\'t unparse.  Using toStringTree instead.");
+            result = this.toStringTree();
             }
           break;
         case BLESS3Lexer.INVOKE:
-          UnparseBLESS3.invocation_return pi = unparser.invocation();
-          template = (StringTemplate) pi.getTemplate();
+//        case BLESS3Lexer.WP:
+          UnparseBLESS3.invocation_return pi = null;
+          pi = unparser.invocation();
+          if (pi == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.invocation", this);
+            }
+          StringTemplate piOutput = (StringTemplate) pi.getTemplate();
+          if (piOutput == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
+            }
+          result = piOutput.toString(Global.wrapLength); // wrap at 72
           break;
         case BLESS3Lexer.QUANTITY:
-          UnparseBLESS3.quantity_return quant = unparser.quantity();
-          template = (StringTemplate) quant.getTemplate();
+          UnparseBLESS3.quantity_return quant = null;
+          quant = unparser.quantity();
+          if (quant == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.quantity", this);
+            }
+          StringTemplate quantOutput = (StringTemplate) quant.getTemplate();
+          if (quantOutput == null)
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.getTemplate", this);
+            }
+          result = quantOutput.toString(Global.wrapLength); 
           break;
         case BLESS3Lexer.LITERAL_all:
-          UnparseBLESS3.universalQuantification_return uq = unparser.universalQuantification();
-          template = (StringTemplate) uq.getTemplate();
-          break;       
         case BLESS3Lexer.LITERAL_exists:
-          UnparseBLESS3.existentialQuantification_return eq = unparser.existentialQuantification();
-          template = (StringTemplate) eq.getTemplate();
-          break;       
         case BLESS3Lexer.LITERAL_and:
-        case BLESS3Lexer.LITERAL_then:
-          UnparseBLESS3.conjunction_return con = unparser.conjunction();
-          template = (StringTemplate) con.getTemplate();
-          break;       
         case BLESS3Lexer.LITERAL_or:
-        case BLESS3Lexer.LITERAL_else:
         case BLESS3Lexer.LITERAL_xor:
-          UnparseBLESS3.disjunction_return dis = unparser.disjunction();
-          template = (StringTemplate) dis.getTemplate();
-          break;       
         case BLESS3Lexer.LITERAL_implies:
         case BLESS3Lexer.LITERAL_iff:
-        case BLESS3Lexer.LITERAL_numberof:
-        case BLESS3Lexer.LITERAL_product:
-        case BLESS3Lexer.LITERAL_sum:
-          UnparseBLESS3.expression_return exp = unparser.expression();
-          template = (StringTemplate) exp.getTemplate();
-          break;       
+          // case BLESS3Lexer.IMP:
         case BLESS3Lexer.LITERAL_not:
-        case BLESS3Lexer.UNARY_MINUS:
-        case BLESS3Lexer.LITERAL_abs:
-        case BLESS3Lexer.LITERAL_truncate:
-        case BLESS3Lexer.LITERAL_round: 
-          UnparseBLESS3.subexpression_return sexp = unparser.subexpression();
-          template = (StringTemplate) sexp.getTemplate();
-          break; 
-        //just themselves        
         case BLESS3Lexer.LITERAL_true:
         case BLESS3Lexer.LITERAL_false:
-        case BLESS3Lexer.LITERAL_skip:
-        case BLESS3Lexer.LITERAL_now:
-        case BLESS3Lexer.LITERAL_boolean:
-        case BLESS3Lexer.LITERAL_string:
-          result = this.getText();
-          break;
-        //relations
         case BLESS3Lexer.EQ:
         case BLESS3Lexer.NEQ:
         case BLESS3Lexer.LT:
         case BLESS3Lexer.AM:
         case BLESS3Lexer.AL:
         case BLESS3Lexer.GT:
-        case BLESS3Lexer.PLUS_EQUALS:
-        case BLESS3Lexer.OLD_NEQ:
-        case BLESS3Lexer.LITERAL_in:
-          UnparseBLESS3.relation_return rel = unparser.relation();
-          template = (StringTemplate) rel.getTemplate();
+          UnparseBLESS3.predicate_return pred = null;
+//        UnparseBLESS3.expression_or_relation_return expr = null;
+//          try {expr = unparser.expression_or_relation();}
+//          catch (RecognitionException re)
+          {
+          pred = unparser.predicate();
+          }
+          if (pred != null)
+            { // it was a predicate
+            StringTemplate predOutput = (StringTemplate) pred.getTemplate();
+            if (predOutput == null)
+              {
+              throw new YouIdiot("null return from UnparseBLESS3.getTemplate for predicate", this);
+              }
+            result = predOutput.toString(Global.wrapLength); // wrap at 72
+            }
+//          else if (expr!=null)
+//          	{  //it was an expression or range
+//          	StringTemplate exprOutput = (StringTemplate) expr.getTemplate();
+//          	if (exprOutput == null)
+//          		throw new YouIdiot("null return from UnparseBLESS3.getTemplate for expressio_or_relation",
+//          				this);
+//          	result = exprOutput.toString(Global.wrapLength); // wrap at 72
+//          	}
+          else
+            {
+            throw new YouIdiot("null return from UnparseBLESS3.predicate", this);
+            }
           break;
         //assertedAction  
         case BLESS3Lexer.ACTION:
-          UnparseBLESS3.assertedAction_return aa = unparser.assertedAction();
-          template = (StringTemplate) aa.getTemplate();
+          UnparseBLESS3.assertedAction_return aa = null;
+          aa = unparser.assertedAction();
+          StringTemplate actionOutput = (StringTemplate) aa.getTemplate();
+          result = actionOutput.toString(Global.wrapLength); // wrap at 72
         break;
-        // behaviorActions
-        case BLESS3Lexer.AMPERSAND:
+        // constructs unparsed by behaviorActions
+       case BLESS3Lexer.AMPERSAND:
         case BLESS3Lexer.SEMICOLON:
-          UnparseBLESS3.behaviorActions_return bau = unparser.behaviorActions();
-          template = (StringTemplate) bau.getTemplate();
+          UnparseBLESS3.behaviorActions_return bau = null;
+          bau = unparser.behaviorActions();
+          StringTemplate behaviorActionsOutput = (StringTemplate) bau.getTemplate();
+          result = behaviorActionsOutput.toString(Global.wrapLength); // wrap at 72
           break;
         // constructs unparsed by action
         case BLESS3Lexer.ASSIGN:
+        case BLESS3Lexer.LITERAL_skip:
         case BLESS3Lexer.LITERAL_setmode:
    //     case BLESS3Lexer.SUBPROGRAM_INVOCATION:
         case BLESS3Lexer.PORT_OUTPUT:
@@ -1320,8 +1365,10 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.LITERAL_for: // for loop
         case BLESS3Lexer.LITERAL_do: // do until loop
         case BLESS3Lexer.LITERAL_if: // alternative
-          UnparseBLESS3.action_return act = unparser.action();
-          template = (StringTemplate) act.getTemplate();
+          UnparseBLESS3.action_return act = null;
+          act = unparser.action();
+          actionOutput = (StringTemplate) act.getTemplate();
+          result = actionOutput.toString(Global.wrapLength); // wrap at 72
           break;
         // case BLESS3Lexer.PORT_NAME: //alternative
         // UnparseBLESS3.port_name_return pnr=null;
@@ -1330,70 +1377,120 @@ private static int tab=0;  //tabbing for toStringTree
         // result = actionOutput.toString(Global.wrapLength); //wrap at 72
         // break;
         case BLESS3Lexer.ARROW:
-          UnparseBLESS3.recordValue_return rv = unparser.recordValue();
-          template = (StringTemplate) rv.getTemplate();
+          result = "=>";
           break;
         case BLESS3Lexer.IMP:
           if (getChildCount() == 2)
             {
             UnparseBLESS3.conditionValuePair_return cvp = null;
             cvp          = unparser.conditionValuePair();
-            template = (StringTemplate) cvp.getTemplate();
+            actionOutput = (StringTemplate) cvp.getTemplate();
+            result       = actionOutput.toString(Global.wrapLength); // wrap at 72
             } else
             {
             result = "->";
             }
           break;
+        case BLESS3Lexer.LITERAL_now:
+          result = "now";
+          break;
+        case BLESS3Lexer.UNARY_MINUS:
+          result = "- " + ((BAST) this.getChild(0)).unparse();
+          break;
         // valueName w.o.TICK
         case BLESS3Lexer.ID:
-        case BLESS3Lexer.QUESTION:
           if (getChildCount()==0)
             result=getText();
           else
             {
-            UnparseBLESS3.valueName_return nam = unparser.valueName();
-            template = (StringTemplate) nam.getTemplate();
+            UnparseBLESS3.valueName_return nam = null;
+            nam = unparser.valueName();
+            StringTemplate nameOutput = (StringTemplate) nam.getTemplate();
+            result = nameOutput.toString(Global.wrapLength); // wrap at 72
             }
           break;
+        // literals
+        case BLESS3Lexer.LITERAL_boolean:
+          result="boolean";
+          break;
+        // string
+        case BLESS3Lexer.LITERAL_string:
+          result = getText();
+          break;
+        // otherwise unparse it as a type
         // type
         case BLESS3Lexer.LITERAL_enumeration: // enumeration_type
         case BLESS3Lexer.LITERAL_array: // array_type
         case BLESS3Lexer.LITERAL_record: // record_type
         case BLESS3Lexer.LITERAL_variant: // variant_type
-          UnparseBLESS3.type_return typ = unparser.type();
-          template = (StringTemplate) typ.getTemplate();
+//        case BLESS3Lexer.TYPE_OPERATOR_INVOCATION: // variant_type
+          UnparseBLESS3.type_return typ = null;
+          typ = unparser.type();
+          StringTemplate typeOutput = (StringTemplate) typ.getTemplate();
+          result = typeOutput.toString(Global.wrapLength); // wrap at 72
           break;
         case BLESS3Lexer.SUBPROGRAM_INVOCATION: // subprogramCall
-          UnparseBLESS3.subprogramCall_return fc = unparser.subprogramCall();
-          template = (StringTemplate) fc.getTemplate();
+          UnparseBLESS3.subprogramCall_return fc = null;
+          fc = unparser.subprogramCall();
+          StringTemplate fcOutput = (StringTemplate) fc.getTemplate();
+          result = fcOutput.toString(Global.wrapLength); // wrap at 72
           break;
         case BLESS3Lexer.PLUS:
         case BLESS3Lexer.MINUS:
-          UnparseBLESS3.addSub_return adsu = unparser.addSub();
-          template = (StringTemplate) adsu.getTemplate();
-          break;
         case BLESS3Lexer.TIMES:
         case BLESS3Lexer.DIVIDE:
-        case BLESS3Lexer.LITERAL_div:
-        case BLESS3Lexer.LITERAL_mod:
-        case BLESS3Lexer.LITERAL_rem:
-          UnparseBLESS3.multDiv_return md = unparser.multDiv();
-          template = (StringTemplate) md.getTemplate();
-          break;
         case BLESS3Lexer.EXP:
-          UnparseBLESS3.exponentiation_return expo = unparser.exponentiation();
-          template = (StringTemplate) expo.getTemplate();
-          break;
-        case BLESS3Lexer.CONDITIONAL_ASSERTION_FUNCTION:
+        case BLESS3Lexer.LITERAL_numberof:
+        case BLESS3Lexer.LITERAL_product:
+        case BLESS3Lexer.LITERAL_sum:
           try
             {
-            UnparseBLESS3.conditionalAssertionFunction_return caf = unparser.conditionalAssertionFunction();
-            template = (StringTemplate) caf.getTemplate();
+            UnparseBLESS3.expression_return ae = null;
+            ae = unparser.expression();
+            StringTemplate aeOutput = (StringTemplate) ae.getTemplate();
+            result = aeOutput.toString(Global.wrapLength); // wrap at 72
             } catch (Exception e)
             {
             result = this.toStringTree();
             }
           break;
+//        case BLESS3Lexer.CONDITIONAL:
+//          try
+//            {
+//            UnparseBLESS3.conditional_assertion_expression_return cae = null;
+//            cae = unparser.conditional_assertion_expression();
+//            StringTemplate caeOutput = (StringTemplate) cae.getTemplate();
+//            result = caeOutput.toString(Global.wrapLength); // wrap at 72
+//            } catch (Exception e)
+//            {
+//            result = this.toStringTree();
+//            }
+//          break;
+        case BLESS3Lexer.CONDITIONAL_ASSERTION_FUNCTION:
+          try
+            {
+            UnparseBLESS3.conditionalAssertionFunction_return caf = null;
+            caf = unparser.conditionalAssertionFunction();
+            StringTemplate caeOutput = (StringTemplate) caf.getTemplate();
+            result = caeOutput.toString(Global.wrapLength); // wrap at 72
+            } catch (Exception e)
+            {
+            result = this.toStringTree();
+            }
+          break;
+        case BLESS3Lexer.QUESTION:
+//        case BLESS3Lexer.INMODE:
+//          try
+//            {
+//            UnparseBLESS3.value_return v = null;
+//            v = unparser.value();
+//            StringTemplate valueOutput = (StringTemplate) v.getTemplate();
+//            result = valueOutput.toString(Global.wrapLength); // wrap at 72
+//            } catch (Exception e)
+//            {
+//            result = this.toStringTree();
+//            }
+//          break;
         case BLESS3Lexer.TICK:
           try
             {  //is it a port'fresh, etc. or a timed_predicate or a timedExpression
@@ -1410,9 +1507,9 @@ private static int tab=0;  //tabbing for toStringTree
               }
             else //try  //timedExpression
               {
-              UnparseBLESS3.timedExpression_return tex = null;
-              tex = unparser.timedExpression();
-              StringTemplate valueOutput = (StringTemplate) tex.getTemplate();
+              UnparseBLESS3.timedExpression_return te = null;
+              te = unparser.timedExpression();
+              StringTemplate valueOutput = (StringTemplate) te.getTemplate();
               result = valueOutput.toString(Global.wrapLength); // wrap at 72              
               }
 //            catch (RecognitionException re)
@@ -1430,8 +1527,10 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.LITERAL_timeout:
           try
             {
-            UnparseBLESS3.dispatchTrigger_return dt = unparser.dispatchTrigger();
-            template = (StringTemplate) dt.getTemplate();
+            UnparseBLESS3.dispatchTrigger_return dt = null;
+            dt = unparser.dispatchTrigger();
+            StringTemplate caeOutput = (StringTemplate) dt.getTemplate();
+            result = caeOutput.toString(Global.wrapLength); // wrap at 72
             } catch (Exception e)
             {
             result = this.toStringTree();
@@ -1440,42 +1539,75 @@ private static int tab=0;  //tabbing for toStringTree
         case BLESS3Lexer.TRANSITION:
           try
             {
-            UnparseBLESS3.behaviorTransition_return bt = unparser.behaviorTransition();
-            template = (StringTemplate) bt.getTemplate();
+            UnparseBLESS3.behaviorTransition_return bt = null;
+            bt = unparser.behaviorTransition();
+            StringTemplate btOutput = (StringTemplate) bt.getTemplate();
+            result = btOutput.toString(Global.wrapLength); // wrap at 72
             } catch (Exception e)
             {
             result = this.toStringTree();
             }
           break;
         case BLESS3Lexer.LITERAL_dispatch:
-          try
-            {
-            UnparseBLESS3.dispatchCondition_return disp = null;
-            disp = unparser.dispatchCondition();
-            StringTemplate btOutput = (StringTemplate) disp.getTemplate();
-            result = btOutput.toString(Global.wrapLength); // wrap at 72
-            } 
-          catch (Exception e) {result = this.toStringTree();}
+        try
+          {
+          UnparseBLESS3.dispatchCondition_return dc = null;
+          dc = unparser.dispatchCondition();
+          StringTemplate btOutput = (StringTemplate) dc.getTemplate();
+          result = btOutput.toString(Global.wrapLength); // wrap at 72
+          } catch (Exception e)
+          {
+          result = this.toStringTree();
+          }
           break;
         case BLESS3Lexer.OCTOTHORPE:
-          try
-            {
-            UnparseBLESS3.propertyReference_return pr = unparser.propertyReference();
-            template = (StringTemplate) pr.getTemplate();
-            } 
-          catch (Exception e) {result = this.toStringTree();}
+        try
+          {
+          UnparseBLESS3.propertyReference_return pr = null;
+          pr = unparser.propertyReference();
+          StringTemplate btOutput = (StringTemplate) pr.getTemplate();
+          result = btOutput.toString(Global.wrapLength); // wrap at 72
+          } catch (Exception e)
+          {
+          result = this.toStringTree();
+          }
           break;
+        // case BLESS3Lexer.PORT_OUTPUT:
+        // if (this.getChildCount()==1) //any parameter?
+        // result=this.getChild(0).getText()+"!"; //no, just ID!
+        // else
+        // result=this.getChild(0).getText()+"!("+((BAST)this.getChild(1)).unparse()+")";
+        // break;
         default:
           result = this.toStringTree();
+          // throw new YI("This token type, "+
+          // (this.getType()<QuantificationLaw.tokenNames.length?
+          // QuantificationLaw.tokenNames[this.getType()]:
+          // Integer.toString(this.getType())
+          // )+
+          // " does not match its switch choices in BAST.unparse().",this);
         } // end of switch
-      if ((result==null) && (template != null))
-        result = template.toString(Global.wrapLength); // wrap
-      else 
-        throw new YouIdiot("Null unparse result for:  "+this.toStringTree());    
-      } 
-    catch (RecognitionException e)
+      } catch (RecognitionException e)
       {
       result = this.toStringTree();
+//      if (!Global.dumpFileClosed)
+//        {
+//        Global.dumpToSystemOutToo = true;
+//        if (!Global.stackTracePrinted)
+//          {
+//          Dump.it(e.getMessage());
+//          e.printStackTrace(System.out);
+//          e.printStackTrace(Global.pw);
+//          Global.stackTracePrinted = true;
+//          }
+//        Dump.it("RecognitionException during unparsing" + e.toString());
+//        }
+//      else
+//        {
+//        Dump.it("RecognitionException during unparsing"
+//            + e.toString());
+//        e.printStackTrace();
+//        }
       }
     return result;
     } // end of unparse
