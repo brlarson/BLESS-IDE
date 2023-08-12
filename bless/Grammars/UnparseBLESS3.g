@@ -855,7 +855,7 @@ periodShift
 indexExpression
   :
   ^( m=MINUS l=periodShift r=periodShift )
-    -> template(l={$l.st}, r={$r.st}) "<l> / <r>"
+    -> template(l={$l.st}, r={$r.st}) "<l> - <r>"
   |
   ^( m=LITERAL_div l=periodShift r=periodShift )
     -> template(l={$l.st}, r={$r.st}) "<l> div <r>"
