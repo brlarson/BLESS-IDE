@@ -843,7 +843,7 @@ periodShift
     -> unary(sym={$um.text}, ex={$v.st})
   |
   ^( um=UNARY_MINUS ^( LPAREN ie=indexExpression RPAREN ) )
-    -> unary_paren(sym={$um.text}, ex={$v.st})
+    -> unary_paren(sym={$um.text}, ex={$ie.st})
   |
   v=value
     -> {$v.st}
