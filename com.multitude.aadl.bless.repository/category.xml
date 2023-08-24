@@ -17,6 +17,6 @@
    <category-def name="com.adventium.category" label="Adventium Enterprises, LLC"/>
    <repository-reference location="http://multitude.net/p2/repository/" enabled="true" />
    <repository-reference location="http://download.eclipse.org/releases/latest" enabled="true" />
-   <repository-reference location="http://download.eclipse.org/releases/2021-03" enabled="true" />
    <repository-reference location="http://download.eclipse.org/mylyn/releases/latest" enabled="true" />
+   <repository-reference location="http://download.eclipse.org/releases/2023-03" enabled="true" />
 </site>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS EMF to ANTLR3 conversion
 Bundle-SymbolicName: com.multitude.bless;singleton:=true
-Bundle-Version: 3.2.0.qualifier
+Bundle-Version: 3.2.1.qualifier
 Bundle-Vendor: Multitude Corporation
 Bundle-Localization: plugin
 Export-Package: 
