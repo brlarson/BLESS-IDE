@@ -403,6 +403,8 @@ quantified_variables(bv) ::=
   <bv; anchor, separator="\n">
 >>
 
+quantity(num,unit) ::= "<num> <unit>"
+
 quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
 <<
 quantity <unit><scalar><whole><if(lb)> [<lb> .. <ub>]<endif><if(step)> 

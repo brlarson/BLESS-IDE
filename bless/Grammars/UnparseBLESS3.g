@@ -1029,16 +1029,16 @@ constant
 quantity
   :
   ^( QUANTITY num=aNumber )
-    -> {$num.st}
+    -> quantity(num={$num.st})
   |
   ^( QUANTITY num=aNumber unit=ID )
-    -> template(number={$num.st}, unit={$unit.text}) "<number> <unit>"
+    -> quantity(num={$num.st}, unit={$unit.text}) 
   |
-  ^( QUANTITY num=aNumber LITERAL_scalar )
-    -> template(number={$num.st}) "<number> scalar"
+  ^( QUANTITY num=aNumber sc=LITERAL_scalar )
+    -> quantity(num={$num.st}, unit={$sc.text}) 
   |
-  ^( QUANTITY num=aNumber LITERAL_whole )
-    -> template(number={$num.st}) "<number> whole"
+  ^( QUANTITY num=aNumber wh=LITERAL_whole )
+    -> quantity(num={$num.st}, unit={$wh.text}) 
 	;	
 	    
 aNumber:

@@ -375,6 +375,8 @@ quantified_variables(bv) ::=
   <bv; anchor, separator="\n">
 >>
 
+quantity(num,unit) ::= "<num> <unit>"
+
 quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
 <<<if(whole)>Z<else>F32<endif> >>
 

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-08-22 14:36:06
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-08-31 17:47:39
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -11672,16 +11672,18 @@ public class UnparseBLESS3 extends TreeParser {
 
 
 	// $ANTLR start "quantity"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1029:1: quantity : ( ^( QUANTITY num= aNumber ) -> {$num.st}| ^( QUANTITY num= aNumber unit= ID ) -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"| ^( QUANTITY num= aNumber LITERAL_scalar ) -> template(number=$num.st) \"<number> scalar\"| ^( QUANTITY num= aNumber LITERAL_whole ) -> template(number=$num.st) \"<number> whole\");
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1029:1: quantity : ( ^( QUANTITY num= aNumber ) -> quantity(num=$num.st)| ^( QUANTITY num= aNumber unit= ID ) -> quantity(num=$num.stunit=$unit.text)| ^( QUANTITY num= aNumber sc= LITERAL_scalar ) -> quantity(num=$num.stunit=$sc.text)| ^( QUANTITY num= aNumber wh= LITERAL_whole ) -> quantity(num=$num.stunit=$wh.text));
 	public final UnparseBLESS3.quantity_return quantity() throws RecognitionException {
 		UnparseBLESS3.quantity_return retval = new UnparseBLESS3.quantity_return();
 		retval.start = input.LT(1);
 
 		BAST unit=null;
+		BAST sc=null;
+		BAST wh=null;
 		TreeRuleReturnScope num =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1030:3: ( ^( QUANTITY num= aNumber ) -> {$num.st}| ^( QUANTITY num= aNumber unit= ID ) -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"| ^( QUANTITY num= aNumber LITERAL_scalar ) -> template(number=$num.st) \"<number> scalar\"| ^( QUANTITY num= aNumber LITERAL_whole ) -> template(number=$num.st) \"<number> whole\")
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1030:3: ( ^( QUANTITY num= aNumber ) -> quantity(num=$num.st)| ^( QUANTITY num= aNumber unit= ID ) -> quantity(num=$num.stunit=$unit.text)| ^( QUANTITY num= aNumber sc= LITERAL_scalar ) -> quantity(num=$num.stunit=$sc.text)| ^( QUANTITY num= aNumber wh= LITERAL_whole ) -> quantity(num=$num.stunit=$wh.text))
 			int alt82=4;
 			alt82 = dfa82.predict(input);
 			switch (alt82) {
@@ -11697,9 +11699,9 @@ public class UnparseBLESS3 extends TreeParser {
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
-					// 1032:5: -> {$num.st}
+					// 1032:5: -> quantity(num=$num.st)
 					{
-						retval.st = (num!=null?((StringTemplate)num.getTemplate()):null);
+						retval.st = templateLib.getInstanceOf("quantity",new STAttrMap().put("num", (num!=null?((StringTemplate)num.getTemplate()):null)));
 					}
 
 
@@ -11709,19 +11711,19 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1034:3: ^( QUANTITY num= aNumber unit= ID )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7392); 
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7397); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7396);
+					pushFollow(FOLLOW_aNumber_in_quantity7401);
 					num=aNumber();
 					state._fsp--;
 
-					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantity7400); 
+					unit=(BAST)match(input,ID,FOLLOW_ID_in_quantity7405); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
-					// 1035:5: -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"
+					// 1035:5: -> quantity(num=$num.stunit=$unit.text)
 					{
-						retval.st = new StringTemplate(templateLib, "<number> <unit>",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (unit!=null?unit.getText():null)));
+						retval.st = templateLib.getInstanceOf("quantity",new STAttrMap().put("num", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (unit!=null?unit.getText():null)));
 					}
 
 
@@ -11729,21 +11731,21 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1037:3: ^( QUANTITY num= aNumber LITERAL_scalar )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1037:3: ^( QUANTITY num= aNumber sc= LITERAL_scalar )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7432); 
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7436); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7436);
+					pushFollow(FOLLOW_aNumber_in_quantity7440);
 					num=aNumber();
 					state._fsp--;
 
-					match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantity7438); 
+					sc=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_quantity7444); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
-					// 1038:5: -> template(number=$num.st) \"<number> scalar\"
+					// 1038:5: -> quantity(num=$num.stunit=$sc.text)
 					{
-						retval.st = new StringTemplate(templateLib, "<number> scalar",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+						retval.st = templateLib.getInstanceOf("quantity",new STAttrMap().put("num", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (sc!=null?sc.getText():null)));
 					}
 
 
@@ -11751,21 +11753,21 @@ public class UnparseBLESS3 extends TreeParser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1040:3: ^( QUANTITY num= aNumber LITERAL_whole )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1040:3: ^( QUANTITY num= aNumber wh= LITERAL_whole )
 					{
-					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7465); 
+					match(input,QUANTITY,FOLLOW_QUANTITY_in_quantity7475); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_aNumber_in_quantity7469);
+					pushFollow(FOLLOW_aNumber_in_quantity7479);
 					num=aNumber();
 					state._fsp--;
 
-					match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantity7471); 
+					wh=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_quantity7483); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
-					// 1041:5: -> template(number=$num.st) \"<number> whole\"
+					// 1041:5: -> quantity(num=$num.stunit=$wh.text)
 					{
-						retval.st = new StringTemplate(templateLib, "<number> whole",new STAttrMap().put("number", (num!=null?((StringTemplate)num.getTemplate()):null)));
+						retval.st = templateLib.getInstanceOf("quantity",new STAttrMap().put("num", (num!=null?((StringTemplate)num.getTemplate()):null)).put("unit", (wh!=null?wh.getText():null)));
 					}
 
 
@@ -11850,7 +11852,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1045:2: lit= NUMBER
 					{
-					lit=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_aNumber7506); 
+					lit=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_aNumber7522); 
 					// TEMPLATE REWRITE
 					// 1046:4: -> {%{$lit.text}}
 					{
@@ -11864,7 +11866,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1047:4: property= propertyReference
 					{
-					pushFollow(FOLLOW_propertyReference_in_aNumber7520);
+					pushFollow(FOLLOW_propertyReference_in_aNumber7536);
 					property=propertyReference();
 					state._fsp--;
 
@@ -11881,7 +11883,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1049:4: propertyConstant= propertyName
 					{
-					pushFollow(FOLLOW_propertyName_in_aNumber7534);
+					pushFollow(FOLLOW_propertyName_in_aNumber7550);
 					propertyConstant=propertyName();
 					state._fsp--;
 
@@ -11955,9 +11957,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1056:3: ^(oct= OCTOTHORPE pname= propertyName )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7566); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7582); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7570);
+					pushFollow(FOLLOW_propertyName_in_propertyReference7586);
 					pname=propertyName();
 					state._fsp--;
 
@@ -11981,9 +11983,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1060:3: ^(oct= OCTOTHORPE pname= propertyName (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7607); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7623); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7611);
+					pushFollow(FOLLOW_propertyName_in_propertyReference7627);
 					pname=propertyName();
 					state._fsp--;
 
@@ -12001,7 +12003,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1060:44: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7615);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7631);
 							field=propertyField();
 							state._fsp--;
 
@@ -12038,10 +12040,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1064:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= propertyName )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7657); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7673); 
 					match(input, Token.DOWN, null); 
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7661); 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7665);
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7677); 
+					pushFollow(FOLLOW_propertyName_in_propertyReference7681);
 					pname=propertyName();
 					state._fsp--;
 
@@ -12065,10 +12067,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1068:3: ^(oct= OCTOTHORPE self= LITERAL_self pname= propertyName (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7707); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7723); 
 					match(input, Token.DOWN, null); 
-					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7711); 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7715);
+					self=(BAST)match(input,LITERAL_self,FOLLOW_LITERAL_self_in_propertyReference7727); 
+					pushFollow(FOLLOW_propertyName_in_propertyReference7731);
 					pname=propertyName();
 					state._fsp--;
 
@@ -12086,7 +12088,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1068:62: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7719);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7735);
 							field=propertyField();
 							state._fsp--;
 
@@ -12123,13 +12125,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1072:3: ^(oct= OCTOTHORPE component= componentName pname= propertyName )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7765); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7781); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_componentName_in_propertyReference7769);
+					pushFollow(FOLLOW_componentName_in_propertyReference7785);
 					component=componentName();
 					state._fsp--;
 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7773);
+					pushFollow(FOLLOW_propertyName_in_propertyReference7789);
 					pname=propertyName();
 					state._fsp--;
 
@@ -12148,13 +12150,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1075:3: ^(oct= OCTOTHORPE component= componentName pname= propertyName (field+= propertyField )+ )
 					{
-					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7808); 
+					oct=(BAST)match(input,OCTOTHORPE,FOLLOW_OCTOTHORPE_in_propertyReference7824); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_componentName_in_propertyReference7812);
+					pushFollow(FOLLOW_componentName_in_propertyReference7828);
 					component=componentName();
 					state._fsp--;
 
-					pushFollow(FOLLOW_propertyName_in_propertyReference7816);
+					pushFollow(FOLLOW_propertyName_in_propertyReference7832);
 					pname=propertyName();
 					state._fsp--;
 
@@ -12172,7 +12174,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1075:68: field+= propertyField
 							{
-							pushFollow(FOLLOW_propertyField_in_propertyReference7820);
+							pushFollow(FOLLOW_propertyField_in_propertyReference7836);
 							field=propertyField();
 							state._fsp--;
 
@@ -12353,9 +12355,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1081:3: ^( LBRACKET index= NUMBER )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7862); 
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7878); 
 					match(input, Token.DOWN, null); 
-					index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_propertyField7866); 
+					index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_propertyField7882); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -12371,9 +12373,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1084:3: ^( LBRACKET var= ID )
 					{
-					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7891); 
+					match(input,LBRACKET,FOLLOW_LBRACKET_in_propertyField7907); 
 					match(input, Token.DOWN, null); 
-					var=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7895); 
+					var=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7911); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -12389,9 +12391,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1087:3: ^( DOT pf= ID )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7920); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7936); 
 					match(input, Token.DOWN, null); 
-					pf=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7924); 
+					pf=(BAST)match(input,ID,FOLLOW_ID_in_propertyField7940); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -12407,9 +12409,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1090:3: ^( DOT LITERAL_upper_bound )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7951); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7967); 
 					match(input, Token.DOWN, null); 
-					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_propertyField7953); 
+					match(input,LITERAL_upper_bound,FOLLOW_LITERAL_upper_bound_in_propertyField7969); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -12425,9 +12427,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1093:3: ^( DOT LITERAL_lower_bound )
 					{
-					match(input,DOT,FOLLOW_DOT_in_propertyField7977); 
+					match(input,DOT,FOLLOW_DOT_in_propertyField7993); 
 					match(input, Token.DOWN, null); 
-					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_propertyField7979); 
+					match(input,LITERAL_lower_bound,FOLLOW_LITERAL_lower_bound_in_propertyField7995); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -12498,7 +12500,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1102:3: ( ^( ACTION_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (tc= throwsClause )? (ac= assertClause )? ^( LITERAL_pre (precondition= assertion )? ) ^( LITERAL_post (postcondition= assertion )? ) ^( LITERAL_invariant (invariant= assertion )? ) elq= existentialLatticeQuantification ) -> action_subclause(no_proof=$no_proof.texttc=$tc.stac=$ac.stpre=$precondition.stpost=$postcondition.stinv=$invariant.stelq=$elq.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1103:3: ^( ACTION_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (tc= throwsClause )? (ac= assertClause )? ^( LITERAL_pre (precondition= assertion )? ) ^( LITERAL_post (postcondition= assertion )? ) ^( LITERAL_invariant (invariant= assertion )? ) elq= existentialLatticeQuantification )
 			{
-			match(input,ACTION_SUBCLAUSE,FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause8014); 
+			match(input,ACTION_SUBCLAUSE,FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause8030); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1103:23: (no_proof= DO_NOT_PROVE )?
 			int alt89=2;
@@ -12510,7 +12512,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1103:24: no_proof= DO_NOT_PROVE
 					{
-					no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_actionSubclause8019); 
+					no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_actionSubclause8035); 
 					}
 					break;
 
@@ -12526,7 +12528,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1103:49: tc= throwsClause
 					{
-					pushFollow(FOLLOW_throwsClause_in_actionSubclause8026);
+					pushFollow(FOLLOW_throwsClause_in_actionSubclause8042);
 					tc=throwsClause();
 					state._fsp--;
 
@@ -12545,7 +12547,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1103:68: ac= assertClause
 					{
-					pushFollow(FOLLOW_assertClause_in_actionSubclause8033);
+					pushFollow(FOLLOW_assertClause_in_actionSubclause8049);
 					ac=assertClause();
 					state._fsp--;
 
@@ -12554,7 +12556,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 			}
 
-			match(input,LITERAL_pre,FOLLOW_LITERAL_pre_in_actionSubclause8044); 
+			match(input,LITERAL_pre,FOLLOW_LITERAL_pre_in_actionSubclause8060); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1104:20: (precondition= assertion )?
@@ -12567,7 +12569,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1104:21: precondition= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause8049);
+						pushFollow(FOLLOW_assertion_in_actionSubclause8065);
 						precondition=assertion();
 						state._fsp--;
 
@@ -12579,7 +12581,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,LITERAL_post,FOLLOW_LITERAL_post_in_actionSubclause8061); 
+			match(input,LITERAL_post,FOLLOW_LITERAL_post_in_actionSubclause8077); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1105:21: (postcondition= assertion )?
@@ -12592,7 +12594,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1105:22: postcondition= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause8066);
+						pushFollow(FOLLOW_assertion_in_actionSubclause8082);
 						postcondition=assertion();
 						state._fsp--;
 
@@ -12604,7 +12606,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_actionSubclause8079); 
+			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_actionSubclause8095); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:26: (invariant= assertion )?
@@ -12617,7 +12619,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1106:27: invariant= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_actionSubclause8084);
+						pushFollow(FOLLOW_assertion_in_actionSubclause8100);
 						invariant=assertion();
 						state._fsp--;
 
@@ -12629,7 +12631,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_actionSubclause8097);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_actionSubclause8113);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
 
@@ -12696,7 +12698,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1114:3: ( ^( LITERAL_throws (exceptions+= ID )+ ) -> throws_clause(ex=$exceptions))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1115:2: ^( LITERAL_throws (exceptions+= ID )+ )
 			{
-			match(input,LITERAL_throws,FOLLOW_LITERAL_throws_in_throwsClause8170); 
+			match(input,LITERAL_throws,FOLLOW_LITERAL_throws_in_throwsClause8186); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1115:30: (exceptions+= ID )+
 			int cnt95=0;
@@ -12712,7 +12714,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1115:30: exceptions+= ID
 					{
-					exceptions=(BAST)match(input,ID,FOLLOW_ID_in_throwsClause8174); 
+					exceptions=(BAST)match(input,ID,FOLLOW_ID_in_throwsClause8190); 
 					if (list_exceptions==null) list_exceptions=new ArrayList<Object>();
 					list_exceptions.add(exceptions);
 					}
@@ -12788,7 +12790,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1120:3: ( ^( LITERAL_assert (assertions+= namedAssertion )+ ) -> assert_clause(a=$assertions))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1121:3: ^( LITERAL_assert (assertions+= namedAssertion )+ )
 			{
-			match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_assertClause8207); 
+			match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_assertClause8223); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1121:31: (assertions+= namedAssertion )+
 			int cnt96=0;
@@ -12804,7 +12806,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1121:31: assertions+= namedAssertion
 					{
-					pushFollow(FOLLOW_namedAssertion_in_assertClause8211);
+					pushFollow(FOLLOW_namedAssertion_in_assertClause8227);
 					assertions=namedAssertion();
 					state._fsp--;
 
@@ -12885,7 +12887,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1126:3: ( ^( LCURLY (qv= quantifiedVariables )? actions= behaviorActions RCURLY (cc= catchClause )? ) -> elq(v=$qv.stba=$actions.stcc=$cc.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1127:3: ^( LCURLY (qv= quantifiedVariables )? actions= behaviorActions RCURLY (cc= catchClause )? )
 			{
-			match(input,LCURLY,FOLLOW_LCURLY_in_existentialLatticeQuantification8244); 
+			match(input,LCURLY,FOLLOW_LCURLY_in_existentialLatticeQuantification8260); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1127:13: (qv= quantifiedVariables )?
 			int alt97=2;
@@ -12897,7 +12899,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1127:15: qv= quantifiedVariables
 					{
-					pushFollow(FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8250);
+					pushFollow(FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8266);
 					qv=quantifiedVariables();
 					state._fsp--;
 
@@ -12906,11 +12908,11 @@ public class UnparseBLESS3 extends TreeParser {
 
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_existentialLatticeQuantification8257);
+			pushFollow(FOLLOW_behaviorActions_in_existentialLatticeQuantification8273);
 			actions=behaviorActions();
 			state._fsp--;
 
-			match(input,RCURLY,FOLLOW_RCURLY_in_existentialLatticeQuantification8259); 
+			match(input,RCURLY,FOLLOW_RCURLY_in_existentialLatticeQuantification8275); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1127:72: (cc= catchClause )?
 			int alt98=2;
 			int LA98_0 = input.LA(1);
@@ -12921,7 +12923,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1127:74: cc= catchClause
 					{
-					pushFollow(FOLLOW_catchClause_in_existentialLatticeQuantification8265);
+					pushFollow(FOLLOW_catchClause_in_existentialLatticeQuantification8281);
 					cc=catchClause();
 					state._fsp--;
 
@@ -12992,7 +12994,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1132:3: ( ^( LITERAL_declare (decs+= variableDeclaration )+ ) -> quantified_variables(bv=$decs))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1133:3: ^( LITERAL_declare (decs+= variableDeclaration )+ )
 			{
-			match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_quantifiedVariables8310); 
+			match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_quantifiedVariables8326); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1133:26: (decs+= variableDeclaration )+
 			int cnt99=0;
@@ -13008,7 +13010,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1133:26: decs+= variableDeclaration
 					{
-					pushFollow(FOLLOW_variableDeclaration_in_quantifiedVariables8314);
+					pushFollow(FOLLOW_variableDeclaration_in_quantifiedVariables8330);
 					decs=variableDeclaration();
 					state._fsp--;
 
@@ -13094,9 +13096,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1138:3: ( ^( VARIABLE_DECLARATION v= variable ( ^( ASSIGN exp= expression ) )? (a= assertion )? (nv= LITERAL_nonvolatile )? (sh= LITERAL_shared )? (c= LITERAL_constant )? (sp= LITERAL_spread )? (f= LITERAL_final )? ) -> variable_declaration(v=$v.stexp=$exp.sta=$a.stnv=$nv.textsh=$sh.textc=$c.textsp=$sp.textf=$f.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1139:3: ^( VARIABLE_DECLARATION v= variable ( ^( ASSIGN exp= expression ) )? (a= assertion )? (nv= LITERAL_nonvolatile )? (sh= LITERAL_shared )? (c= LITERAL_constant )? (sp= LITERAL_spread )? (f= LITERAL_final )? )
 			{
-			match(input,VARIABLE_DECLARATION,FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8346); 
+			match(input,VARIABLE_DECLARATION,FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8362); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_variable_in_variableDeclaration8350);
+			pushFollow(FOLLOW_variable_in_variableDeclaration8366);
 			v=variable();
 			state._fsp--;
 
@@ -13110,9 +13112,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1139:40: ^( ASSIGN exp= expression )
 					{
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration8356); 
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_variableDeclaration8372); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_expression_in_variableDeclaration8360);
+					pushFollow(FOLLOW_expression_in_variableDeclaration8376);
 					exp=expression();
 					state._fsp--;
 
@@ -13133,7 +13135,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1139:71: a= assertion
 					{
-					pushFollow(FOLLOW_assertion_in_variableDeclaration8369);
+					pushFollow(FOLLOW_assertion_in_variableDeclaration8385);
 					a=assertion();
 					state._fsp--;
 
@@ -13152,7 +13154,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:7: nv= LITERAL_nonvolatile
 					{
-					nv=(BAST)match(input,LITERAL_nonvolatile,FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8379); 
+					nv=(BAST)match(input,LITERAL_nonvolatile,FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8395); 
 					}
 					break;
 
@@ -13168,7 +13170,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:31: sh= LITERAL_shared
 					{
-					sh=(BAST)match(input,LITERAL_shared,FOLLOW_LITERAL_shared_in_variableDeclaration8384); 
+					sh=(BAST)match(input,LITERAL_shared,FOLLOW_LITERAL_shared_in_variableDeclaration8400); 
 					}
 					break;
 
@@ -13184,7 +13186,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:49: c= LITERAL_constant
 					{
-					c=(BAST)match(input,LITERAL_constant,FOLLOW_LITERAL_constant_in_variableDeclaration8389); 
+					c=(BAST)match(input,LITERAL_constant,FOLLOW_LITERAL_constant_in_variableDeclaration8405); 
 					}
 					break;
 
@@ -13200,7 +13202,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:70: sp= LITERAL_spread
 					{
-					sp=(BAST)match(input,LITERAL_spread,FOLLOW_LITERAL_spread_in_variableDeclaration8394); 
+					sp=(BAST)match(input,LITERAL_spread,FOLLOW_LITERAL_spread_in_variableDeclaration8410); 
 					}
 					break;
 
@@ -13216,7 +13218,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1140:88: f= LITERAL_final
 					{
-					f=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_variableDeclaration8399); 
+					f=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_variableDeclaration8415); 
 					}
 					break;
 
@@ -13284,7 +13286,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1145:3: ( ^( LITERAL_catch (cct+= catchClauseTerm )+ ) -> catch_clause(cct=$cct))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1146:2: ^( LITERAL_catch (cct+= catchClauseTerm )+ )
 			{
-			match(input,LITERAL_catch,FOLLOW_LITERAL_catch_in_catchClause8459); 
+			match(input,LITERAL_catch,FOLLOW_LITERAL_catch_in_catchClause8475); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1146:22: (cct+= catchClauseTerm )+
 			int cnt107=0;
@@ -13300,7 +13302,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1146:22: cct+= catchClauseTerm
 					{
-					pushFollow(FOLLOW_catchClauseTerm_in_catchClause8463);
+					pushFollow(FOLLOW_catchClauseTerm_in_catchClause8479);
 					cct=catchClauseTerm();
 					state._fsp--;
 
@@ -13433,7 +13435,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1152:3: ^( LPAREN (exceptions+= ID )+ colon= COLON act= basicAction RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8495); 
+					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8511); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1152:23: (exceptions+= ID )+
 					int cnt108=0;
@@ -13449,7 +13451,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1152:23: exceptions+= ID
 							{
-							exceptions=(BAST)match(input,ID,FOLLOW_ID_in_catchClauseTerm8499); 
+							exceptions=(BAST)match(input,ID,FOLLOW_ID_in_catchClauseTerm8515); 
 							if (list_exceptions==null) list_exceptions=new ArrayList<Object>();
 							list_exceptions.add(exceptions);
 							}
@@ -13463,12 +13465,12 @@ public class UnparseBLESS3 extends TreeParser {
 						cnt108++;
 					}
 
-					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8505); 
-					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8509);
+					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8521); 
+					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8525);
 					act=basicAction();
 					state._fsp--;
 
-					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8511); 
+					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8527); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -13484,15 +13486,15 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1155:3: ^( LPAREN LITERAL_all colon= COLON act= basicAction RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8541); 
+					match(input,LPAREN,FOLLOW_LPAREN_in_catchClauseTerm8557); 
 					match(input, Token.DOWN, null); 
-					match(input,LITERAL_all,FOLLOW_LITERAL_all_in_catchClauseTerm8543); 
-					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8547); 
-					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8551);
+					match(input,LITERAL_all,FOLLOW_LITERAL_all_in_catchClauseTerm8559); 
+					colon=(BAST)match(input,COLON,FOLLOW_COLON_in_catchClauseTerm8563); 
+					pushFollow(FOLLOW_basicAction_in_catchClauseTerm8567);
 					act=basicAction();
 					state._fsp--;
 
-					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8553); 
+					match(input,RPAREN,FOLLOW_RPAREN_in_catchClauseTerm8569); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -13582,7 +13584,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1161:3: ^( SEMICOLON (aa+= assertedAction )+ )
 					{
-					match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behaviorActions8585); 
+					match(input,SEMICOLON,FOLLOW_SEMICOLON_in_behaviorActions8601); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1161:18: (aa+= assertedAction )+
 					int cnt110=0;
@@ -13598,7 +13600,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1161:18: aa+= assertedAction
 							{
-							pushFollow(FOLLOW_assertedAction_in_behaviorActions8589);
+							pushFollow(FOLLOW_assertedAction_in_behaviorActions8605);
 							aa=assertedAction();
 							state._fsp--;
 
@@ -13630,7 +13632,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1164:3: ^( AMPERSAND (aa+= assertedAction )+ )
 					{
-					match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behaviorActions8615); 
+					match(input,AMPERSAND,FOLLOW_AMPERSAND_in_behaviorActions8631); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1164:18: (aa+= assertedAction )+
 					int cnt111=0;
@@ -13646,7 +13648,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1164:18: aa+= assertedAction
 							{
-							pushFollow(FOLLOW_assertedAction_in_behaviorActions8619);
+							pushFollow(FOLLOW_assertedAction_in_behaviorActions8635);
 							aa=assertedAction();
 							state._fsp--;
 
@@ -13678,7 +13680,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1167:3: a= assertedAction
 					{
-					pushFollow(FOLLOW_assertedAction_in_behaviorActions8645);
+					pushFollow(FOLLOW_assertedAction_in_behaviorActions8661);
 					a=assertedAction();
 					state._fsp--;
 
@@ -13746,9 +13748,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1172:3: ( ^( ACTION ^( P (pre= assertion )? ) ^( S s= action ) ^( Q (post= assertion )? ) ) -> asserted_action(p=$pre.sts=$s.stq=$post.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:3: ^( ACTION ^( P (pre= assertion )? ) ^( S s= action ) ^( Q (post= assertion )? ) )
 			{
-			match(input,ACTION,FOLLOW_ACTION_in_assertedAction8670); 
+			match(input,ACTION,FOLLOW_ACTION_in_assertedAction8686); 
 			match(input, Token.DOWN, null); 
-			match(input,P,FOLLOW_P_in_assertedAction8674); 
+			match(input,P,FOLLOW_P_in_assertedAction8690); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:21: (pre= assertion )?
@@ -13761,7 +13763,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:21: pre= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_assertedAction8678);
+						pushFollow(FOLLOW_assertion_in_assertedAction8694);
 						pre=assertion();
 						state._fsp--;
 
@@ -13773,15 +13775,15 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,S,FOLLOW_S_in_assertedAction8685); 
+			match(input,S,FOLLOW_S_in_assertedAction8701); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_action_in_assertedAction8689);
+			pushFollow(FOLLOW_action_in_assertedAction8705);
 			s=action();
 			state._fsp--;
 
 			match(input, Token.UP, null); 
 
-			match(input,Q,FOLLOW_Q_in_assertedAction8695); 
+			match(input,Q,FOLLOW_Q_in_assertedAction8711); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:60: (post= assertion )?
@@ -13794,7 +13796,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1173:60: post= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_assertedAction8699);
+						pushFollow(FOLLOW_assertion_in_assertedAction8715);
 						post=assertion();
 						state._fsp--;
 
@@ -13930,7 +13932,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1178:3: ba= basicAction
 					{
-					pushFollow(FOLLOW_basicAction_in_action8741);
+					pushFollow(FOLLOW_basicAction_in_action8757);
 					ba=basicAction();
 					state._fsp--;
 
@@ -13947,7 +13949,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1180:5: if_fi= alternative
 					{
-					pushFollow(FOLLOW_alternative_in_action8757);
+					pushFollow(FOLLOW_alternative_in_action8773);
 					if_fi=alternative();
 					state._fsp--;
 
@@ -13964,7 +13966,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1182:5: wl= whileLoop
 					{
-					pushFollow(FOLLOW_whileLoop_in_action8773);
+					pushFollow(FOLLOW_whileLoop_in_action8789);
 					wl=whileLoop();
 					state._fsp--;
 
@@ -13981,7 +13983,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1184:5: fl= forLoop
 					{
-					pushFollow(FOLLOW_forLoop_in_action8789);
+					pushFollow(FOLLOW_forLoop_in_action8805);
 					fl=forLoop();
 					state._fsp--;
 
@@ -13998,7 +14000,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1186:5: du= doUntilLoop
 					{
-					pushFollow(FOLLOW_doUntilLoop_in_action8805);
+					pushFollow(FOLLOW_doUntilLoop_in_action8821);
 					du=doUntilLoop();
 					state._fsp--;
 
@@ -14015,7 +14017,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1188:5: elq= existentialLatticeQuantification
 					{
-					pushFollow(FOLLOW_existentialLatticeQuantification_in_action8821);
+					pushFollow(FOLLOW_existentialLatticeQuantification_in_action8837);
 					elq=existentialLatticeQuantification();
 					state._fsp--;
 
@@ -14032,7 +14034,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1190:5: ulq= universalLatticeQuantification
 					{
-					pushFollow(FOLLOW_universalLatticeQuantification_in_action8838);
+					pushFollow(FOLLOW_universalLatticeQuantification_in_action8854);
 					ulq=universalLatticeQuantification();
 					state._fsp--;
 
@@ -14192,7 +14194,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1196:3: sk= LITERAL_skip
 					{
-					sk=(BAST)match(input,LITERAL_skip,FOLLOW_LITERAL_skip_in_basicAction8867); 
+					sk=(BAST)match(input,LITERAL_skip,FOLLOW_LITERAL_skip_in_basicAction8883); 
 					// TEMPLATE REWRITE
 					// 1197:4: -> {%{$sk.text}}
 					{
@@ -14206,7 +14208,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1198:5: ass= assignment
 					{
-					pushFollow(FOLLOW_assignment_in_basicAction8883);
+					pushFollow(FOLLOW_assignment_in_basicAction8899);
 					ass=assignment();
 					state._fsp--;
 
@@ -14223,9 +14225,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1200:5: ^( LITERAL_setmode mode= ID )
 					{
-					match(input,LITERAL_setmode,FOLLOW_LITERAL_setmode_in_basicAction8899); 
+					match(input,LITERAL_setmode,FOLLOW_LITERAL_setmode_in_basicAction8915); 
 					match(input, Token.DOWN, null); 
-					mode=(BAST)match(input,ID,FOLLOW_ID_in_basicAction8903); 
+					mode=(BAST)match(input,ID,FOLLOW_ID_in_basicAction8919); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -14241,7 +14243,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1202:5: wt= whenThrow
 					{
-					pushFollow(FOLLOW_whenThrow_in_basicAction8929);
+					pushFollow(FOLLOW_whenThrow_in_basicAction8945);
 					wt=whenThrow();
 					state._fsp--;
 
@@ -14258,7 +14260,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1204:5: co= combinableOperation
 					{
-					pushFollow(FOLLOW_combinableOperation_in_basicAction8945);
+					pushFollow(FOLLOW_combinableOperation_in_basicAction8961);
 					co=combinableOperation();
 					state._fsp--;
 
@@ -14275,7 +14277,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1206:5: ca= communicationAction
 					{
-					pushFollow(FOLLOW_communicationAction_in_basicAction8961);
+					pushFollow(FOLLOW_communicationAction_in_basicAction8977);
 					ca=communicationAction();
 					state._fsp--;
 
@@ -14292,7 +14294,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 7 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1208:5: sa= simultaneousAssignment
 					{
-					pushFollow(FOLLOW_simultaneousAssignment_in_basicAction8978);
+					pushFollow(FOLLOW_simultaneousAssignment_in_basicAction8994);
 					sa=simultaneousAssignment();
 					state._fsp--;
 
@@ -14309,7 +14311,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 8 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1210:5: ie= issueException
 					{
-					pushFollow(FOLLOW_issueException_in_basicAction8994);
+					pushFollow(FOLLOW_issueException_in_basicAction9010);
 					ie=issueException();
 					state._fsp--;
 
@@ -14376,9 +14378,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1215:3: ( ^( LITERAL_exception exception= ID (message= AADL_STRING_LITERAL )? ) -> issue_exception(ex=$exception.textm=$message.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1216:3: ^( LITERAL_exception exception= ID (message= AADL_STRING_LITERAL )? )
 			{
-			match(input,LITERAL_exception,FOLLOW_LITERAL_exception_in_issueException9020); 
+			match(input,LITERAL_exception,FOLLOW_LITERAL_exception_in_issueException9036); 
 			match(input, Token.DOWN, null); 
-			exception=(BAST)match(input,ID,FOLLOW_ID_in_issueException9024); 
+			exception=(BAST)match(input,ID,FOLLOW_ID_in_issueException9040); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1216:44: (message= AADL_STRING_LITERAL )?
 			int alt117=2;
 			int LA117_0 = input.LA(1);
@@ -14389,7 +14391,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1216:44: message= AADL_STRING_LITERAL
 					{
-					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_issueException9028); 
+					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_issueException9044); 
 					}
 					break;
 
@@ -14458,13 +14460,13 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1221:3: ( ^( ASSIGN n= nameTick e= expressionOrAny ) -> assignment(nt=$n.steort=$e.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1222:3: ^( ASSIGN n= nameTick e= expressionOrAny )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment9068); 
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_assignment9084); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_nameTick_in_assignment9072);
+			pushFollow(FOLLOW_nameTick_in_assignment9088);
 			n=nameTick();
 			state._fsp--;
 
-			pushFollow(FOLLOW_expressionOrAny_in_assignment9076);
+			pushFollow(FOLLOW_expressionOrAny_in_assignment9092);
 			e=expressionOrAny();
 			state._fsp--;
 
@@ -14605,9 +14607,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1228:3: ^( TICK vn= valueName )
 					{
-					match(input,TICK,FOLLOW_TICK_in_nameTick9115); 
+					match(input,TICK,FOLLOW_TICK_in_nameTick9131); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_valueName_in_nameTick9119);
+					pushFollow(FOLLOW_valueName_in_nameTick9135);
 					vn=valueName();
 					state._fsp--;
 
@@ -14626,7 +14628,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1231:3: vn= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_nameTick9144);
+					pushFollow(FOLLOW_valueName_in_nameTick9160);
 					vn=valueName();
 					state._fsp--;
 
@@ -14710,7 +14712,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1237:3: exp= expression
 					{
-					pushFollow(FOLLOW_expression_in_expressionOrAny9171);
+					pushFollow(FOLLOW_expression_in_expressionOrAny9187);
 					exp=expression();
 					state._fsp--;
 
@@ -14727,7 +14729,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1240:3: any= LITERAL_any
 					{
-					any=(BAST)match(input,LITERAL_any,FOLLOW_LITERAL_any_in_expressionOrAny9191); 
+					any=(BAST)match(input,LITERAL_any,FOLLOW_LITERAL_any_in_expressionOrAny9207); 
 					// TEMPLATE REWRITE
 					// 1241:4: -> {%{$any.text}}
 					{
@@ -14792,9 +14794,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1245:3: ( ^( ASSIGN ^( COMMA (lhs+= nameTick )+ ) ^( COMMA (rhs+= expressionOrAny )+ ) ) -> simultaneous_assignment(l=$lhsr=$rhs))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1246:3: ^( ASSIGN ^( COMMA (lhs+= nameTick )+ ) ^( COMMA (rhs+= expressionOrAny )+ ) )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_simultaneousAssignment9217); 
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_simultaneousAssignment9233); 
 			match(input, Token.DOWN, null); 
-			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9221); 
+			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9237); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1246:25: (lhs+= nameTick )+
 			int cnt120=0;
@@ -14810,7 +14812,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1246:25: lhs+= nameTick
 					{
-					pushFollow(FOLLOW_nameTick_in_simultaneousAssignment9225);
+					pushFollow(FOLLOW_nameTick_in_simultaneousAssignment9241);
 					lhs=nameTick();
 					state._fsp--;
 
@@ -14829,7 +14831,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 			match(input, Token.UP, null); 
 
-			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9232); 
+			match(input,COMMA,FOLLOW_COMMA_in_simultaneousAssignment9248); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1246:51: (rhs+= expressionOrAny )+
 			int cnt121=0;
@@ -14845,7 +14847,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1246:51: rhs+= expressionOrAny
 					{
-					pushFollow(FOLLOW_expressionOrAny_in_simultaneousAssignment9236);
+					pushFollow(FOLLOW_expressionOrAny_in_simultaneousAssignment9252);
 					rhs=expressionOrAny();
 					state._fsp--;
 
@@ -14928,16 +14930,16 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1250:10: ( ^( LITERAL_when LPAREN exp= expression RPAREN LITERAL_throw excep= ID (message= AADL_STRING_LITERAL )? ) -> when_throw(e=$exp.sti=$excep.textm=$message.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1251:3: ^( LITERAL_when LPAREN exp= expression RPAREN LITERAL_throw excep= ID (message= AADL_STRING_LITERAL )? )
 			{
-			match(input,LITERAL_when,FOLLOW_LITERAL_when_in_whenThrow9276); 
+			match(input,LITERAL_when,FOLLOW_LITERAL_when_in_whenThrow9292); 
 			match(input, Token.DOWN, null); 
-			match(input,LPAREN,FOLLOW_LPAREN_in_whenThrow9278); 
-			pushFollow(FOLLOW_expression_in_whenThrow9282);
+			match(input,LPAREN,FOLLOW_LPAREN_in_whenThrow9294); 
+			pushFollow(FOLLOW_expression_in_whenThrow9298);
 			exp=expression();
 			state._fsp--;
 
-			match(input,RPAREN,FOLLOW_RPAREN_in_whenThrow9284); 
-			match(input,LITERAL_throw,FOLLOW_LITERAL_throw_in_whenThrow9286); 
-			excep=(BAST)match(input,ID,FOLLOW_ID_in_whenThrow9290); 
+			match(input,RPAREN,FOLLOW_RPAREN_in_whenThrow9300); 
+			match(input,LITERAL_throw,FOLLOW_LITERAL_throw_in_whenThrow9302); 
+			excep=(BAST)match(input,ID,FOLLOW_ID_in_whenThrow9306); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1252:14: (message= AADL_STRING_LITERAL )?
 			int alt122=2;
 			int LA122_0 = input.LA(1);
@@ -14948,7 +14950,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1252:14: message= AADL_STRING_LITERAL
 					{
-					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_whenThrow9302); 
+					message=(BAST)match(input,AADL_STRING_LITERAL,FOLLOW_AADL_STRING_LITERAL_in_whenThrow9318); 
 					}
 					break;
 
@@ -15059,14 +15061,14 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1257:3: ^(fa= LITERAL_fetchadd target= ID arithmetic= expression result= ID )
 					{
-					fa=(BAST)match(input,LITERAL_fetchadd,FOLLOW_LITERAL_fetchadd_in_combinableOperation9348); 
+					fa=(BAST)match(input,LITERAL_fetchadd,FOLLOW_LITERAL_fetchadd_in_combinableOperation9364); 
 					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9352); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9356);
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9368); 
+					pushFollow(FOLLOW_expression_in_combinableOperation9372);
 					arithmetic=expression();
 					state._fsp--;
 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9360); 
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9376); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -15082,14 +15084,14 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1260:3: ^(fo= LITERAL_fetchor target= ID bool= expression result= ID )
 					{
-					fo=(BAST)match(input,LITERAL_fetchor,FOLLOW_LITERAL_fetchor_in_combinableOperation9402); 
+					fo=(BAST)match(input,LITERAL_fetchor,FOLLOW_LITERAL_fetchor_in_combinableOperation9418); 
 					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9406); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9410);
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9422); 
+					pushFollow(FOLLOW_expression_in_combinableOperation9426);
 					bool=expression();
 					state._fsp--;
 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9414); 
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9430); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -15105,14 +15107,14 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1263:3: ^(fan= LITERAL_fetchand target= ID bool= expression result= ID )
 					{
-					fan=(BAST)match(input,LITERAL_fetchand,FOLLOW_LITERAL_fetchand_in_combinableOperation9456); 
+					fan=(BAST)match(input,LITERAL_fetchand,FOLLOW_LITERAL_fetchand_in_combinableOperation9472); 
 					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9460); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9464);
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9476); 
+					pushFollow(FOLLOW_expression_in_combinableOperation9480);
 					bool=expression();
 					state._fsp--;
 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9468); 
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9484); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -15128,14 +15130,14 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1266:3: ^(fx= LITERAL_fetchxor target= ID bool= expression result= ID )
 					{
-					fx=(BAST)match(input,LITERAL_fetchxor,FOLLOW_LITERAL_fetchxor_in_combinableOperation9510); 
+					fx=(BAST)match(input,LITERAL_fetchxor,FOLLOW_LITERAL_fetchxor_in_combinableOperation9526); 
 					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9514); 
-					pushFollow(FOLLOW_expression_in_combinableOperation9518);
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9530); 
+					pushFollow(FOLLOW_expression_in_combinableOperation9534);
 					bool=expression();
 					state._fsp--;
 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9522); 
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9538); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -15151,11 +15153,11 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1269:3: ^(sw= LITERAL_swap target= ID reference= ID result= ID )
 					{
-					sw=(BAST)match(input,LITERAL_swap,FOLLOW_LITERAL_swap_in_combinableOperation9564); 
+					sw=(BAST)match(input,LITERAL_swap,FOLLOW_LITERAL_swap_in_combinableOperation9580); 
 					match(input, Token.DOWN, null); 
-					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9568); 
-					reference=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9572); 
-					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9576); 
+					target=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9584); 
+					reference=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9588); 
+					result=(BAST)match(input,ID,FOLLOW_ID_in_combinableOperation9592); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -15246,7 +15248,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1274:3: pc= subprogramCall
 					{
-					pushFollow(FOLLOW_subprogramCall_in_communicationAction9622);
+					pushFollow(FOLLOW_subprogramCall_in_communicationAction9638);
 					pc=subprogramCall();
 					state._fsp--;
 
@@ -15263,7 +15265,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1277:3: po= portOutput
 					{
-					pushFollow(FOLLOW_portOutput_in_communicationAction9640);
+					pushFollow(FOLLOW_portOutput_in_communicationAction9656);
 					po=portOutput();
 					state._fsp--;
 
@@ -15280,7 +15282,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1280:3: pi= portInput
 					{
-					pushFollow(FOLLOW_portInput_in_communicationAction9658);
+					pushFollow(FOLLOW_portInput_in_communicationAction9674);
 					pi=portInput();
 					state._fsp--;
 
@@ -15348,9 +15350,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1285:3: ( ^( LITERAL_computation lb= behaviorTime (ub= behaviorTime )? ( ^( LITERAL_binding (component+= componentName )+ ) )? ) -> computation(lb=$lb.stub=$ub.stc=$component))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1286:3: ^( LITERAL_computation lb= behaviorTime (ub= behaviorTime )? ( ^( LITERAL_binding (component+= componentName )+ ) )? )
 			{
-			match(input,LITERAL_computation,FOLLOW_LITERAL_computation_in_computation9684); 
+			match(input,LITERAL_computation,FOLLOW_LITERAL_computation_in_computation9700); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_behaviorTime_in_computation9688);
+			pushFollow(FOLLOW_behaviorTime_in_computation9704);
 			lb=behaviorTime();
 			state._fsp--;
 
@@ -15364,7 +15366,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1286:44: ub= behaviorTime
 					{
-					pushFollow(FOLLOW_behaviorTime_in_computation9692);
+					pushFollow(FOLLOW_behaviorTime_in_computation9708);
 					ub=behaviorTime();
 					state._fsp--;
 
@@ -15383,7 +15385,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1286:61: ^( LITERAL_binding (component+= componentName )+ )
 					{
-					match(input,LITERAL_binding,FOLLOW_LITERAL_binding_in_computation9699); 
+					match(input,LITERAL_binding,FOLLOW_LITERAL_binding_in_computation9715); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1286:89: (component+= componentName )+
 					int cnt126=0;
@@ -15399,7 +15401,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1286:89: component+= componentName
 							{
-							pushFollow(FOLLOW_componentName_in_computation9703);
+							pushFollow(FOLLOW_componentName_in_computation9719);
 							component=componentName();
 							state._fsp--;
 
@@ -15486,9 +15488,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1291:3: ( ^( PORT_OUTPUT pn= ID (be= expression )? ) -> port_output(o=$pn.textbe=$be.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1292:3: ^( PORT_OUTPUT pn= ID (be= expression )? )
 			{
-			match(input,PORT_OUTPUT,FOLLOW_PORT_OUTPUT_in_portOutput9754); 
+			match(input,PORT_OUTPUT,FOLLOW_PORT_OUTPUT_in_portOutput9770); 
 			match(input, Token.DOWN, null); 
-			pn=(BAST)match(input,ID,FOLLOW_ID_in_portOutput9758); 
+			pn=(BAST)match(input,ID,FOLLOW_ID_in_portOutput9774); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1292:26: (be= expression )?
 			int alt128=2;
 			int LA128_0 = input.LA(1);
@@ -15499,7 +15501,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1292:26: be= expression
 					{
-					pushFollow(FOLLOW_expression_in_portOutput9762);
+					pushFollow(FOLLOW_expression_in_portOutput9778);
 					be=expression();
 					state._fsp--;
 
@@ -15571,10 +15573,10 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1297:3: ( ^( PORT_INPUT pn= ID n= valueName ) -> port_input(i=$pn.textn=$n.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1298:3: ^( PORT_INPUT pn= ID n= valueName )
 			{
-			match(input,PORT_INPUT,FOLLOW_PORT_INPUT_in_portInput9804); 
+			match(input,PORT_INPUT,FOLLOW_PORT_INPUT_in_portInput9820); 
 			match(input, Token.DOWN, null); 
-			pn=(BAST)match(input,ID,FOLLOW_ID_in_portInput9808); 
-			pushFollow(FOLLOW_valueName_in_portInput9812);
+			pn=(BAST)match(input,ID,FOLLOW_ID_in_portInput9824); 
+			pushFollow(FOLLOW_valueName_in_portInput9828);
 			n=valueName();
 			state._fsp--;
 
@@ -15641,9 +15643,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1304:3: ( ^( SUBPROGRAM_INVOCATION id= ID (fal= formalActualList )? ) -> function_call(f=$id.textpl=$fal.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1305:3: ^( SUBPROGRAM_INVOCATION id= ID (fal= formalActualList )? )
 			{
-			match(input,SUBPROGRAM_INVOCATION,FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9856); 
+			match(input,SUBPROGRAM_INVOCATION,FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9872); 
 			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_subprogramCall9860); 
+			id=(BAST)match(input,ID,FOLLOW_ID_in_subprogramCall9876); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1305:37: (fal= formalActualList )?
 			int alt129=2;
 			int LA129_0 = input.LA(1);
@@ -15654,7 +15656,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1305:37: fal= formalActualList
 					{
-					pushFollow(FOLLOW_formalActualList_in_subprogramCall9864);
+					pushFollow(FOLLOW_formalActualList_in_subprogramCall9880);
 					fal=formalActualList();
 					state._fsp--;
 
@@ -15743,7 +15745,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1312:3: ^( COMMA (fa+= formalActual )+ )
 					{
-					match(input,COMMA,FOLLOW_COMMA_in_formalActualList9909); 
+					match(input,COMMA,FOLLOW_COMMA_in_formalActualList9925); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1312:14: (fa+= formalActual )+
 					int cnt130=0;
@@ -15759,7 +15761,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1312:14: fa+= formalActual
 							{
-							pushFollow(FOLLOW_formalActual_in_formalActualList9913);
+							pushFollow(FOLLOW_formalActual_in_formalActualList9929);
 							fa=formalActual();
 							state._fsp--;
 
@@ -15791,7 +15793,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1315:3: s= formalActual
 					{
-					pushFollow(FOLLOW_formalActual_in_formalActualList9939);
+					pushFollow(FOLLOW_formalActual_in_formalActualList9955);
 					s=formalActual();
 					state._fsp--;
 
@@ -15876,10 +15878,10 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1321:3: ^( COLON formal= ID actual= subProgramParameter )
 					{
-					match(input,COLON,FOLLOW_COLON_in_formalActual9968); 
+					match(input,COLON,FOLLOW_COLON_in_formalActual9984); 
 					match(input, Token.DOWN, null); 
-					formal=(BAST)match(input,ID,FOLLOW_ID_in_formalActual9972); 
-					pushFollow(FOLLOW_subProgramParameter_in_formalActual9976);
+					formal=(BAST)match(input,ID,FOLLOW_ID_in_formalActual9988); 
+					pushFollow(FOLLOW_subProgramParameter_in_formalActual9992);
 					actual=subProgramParameter();
 					state._fsp--;
 
@@ -15898,7 +15900,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1324:3: spp= subProgramParameter
 					{
-					pushFollow(FOLLOW_subProgramParameter_in_formalActual10006);
+					pushFollow(FOLLOW_subProgramParameter_in_formalActual10022);
 					spp=subProgramParameter();
 					state._fsp--;
 
@@ -15996,7 +15998,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1329:2: v= valueName
 					{
-					pushFollow(FOLLOW_valueName_in_subProgramParameter10028);
+					pushFollow(FOLLOW_valueName_in_subProgramParameter10044);
 					v=valueName();
 					state._fsp--;
 
@@ -16013,7 +16015,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1331:4: c= constant
 					{
-					pushFollow(FOLLOW_constant_in_subProgramParameter10043);
+					pushFollow(FOLLOW_constant_in_subProgramParameter10059);
 					c=constant();
 					state._fsp--;
 
@@ -16030,7 +16032,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1333:4: ps= parenthesizedSubexpression
 					{
-					pushFollow(FOLLOW_parenthesizedSubexpression_in_subProgramParameter10058);
+					pushFollow(FOLLOW_parenthesizedSubexpression_in_subProgramParameter10074);
 					ps=parenthesizedSubexpression();
 					state._fsp--;
 
@@ -16096,7 +16098,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1338:3: ( ^( LITERAL_if (alt+= guardedAction )+ ) -> alternative(gf=$alt))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:3: ^( LITERAL_if (alt+= guardedAction )+ )
 			{
-			match(input,LITERAL_if,FOLLOW_LITERAL_if_in_alternative10086); 
+			match(input,LITERAL_if,FOLLOW_LITERAL_if_in_alternative10102); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:20: (alt+= guardedAction )+
 			int cnt134=0;
@@ -16112,7 +16114,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1339:20: alt+= guardedAction
 					{
-					pushFollow(FOLLOW_guardedAction_in_alternative10090);
+					pushFollow(FOLLOW_guardedAction_in_alternative10106);
 					alt=guardedAction();
 					state._fsp--;
 
@@ -16192,13 +16194,13 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1344:3: ( ^( GUARD exp= expression aa= assertedAction ) -> guarded_action(be=$exp.stba=$aa.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1345:3: ^( GUARD exp= expression aa= assertedAction )
 			{
-			match(input,GUARD,FOLLOW_GUARD_in_guardedAction10127); 
+			match(input,GUARD,FOLLOW_GUARD_in_guardedAction10143); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_guardedAction10131);
+			pushFollow(FOLLOW_expression_in_guardedAction10147);
 			exp=expression();
 			state._fsp--;
 
-			pushFollow(FOLLOW_assertedAction_in_guardedAction10135);
+			pushFollow(FOLLOW_assertedAction_in_guardedAction10151);
 			aa=assertedAction();
 			state._fsp--;
 
@@ -16267,13 +16269,13 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1350:3: ( ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) elq= existentialLatticeQuantification ) -> while_loop(be=$be.stelq=$elq.stbd=$bd.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:3: ^( LITERAL_while be= expression ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) elq= existentialLatticeQuantification )
 			{
-			match(input,LITERAL_while,FOLLOW_LITERAL_while_in_whileLoop10174); 
+			match(input,LITERAL_while,FOLLOW_LITERAL_while_in_whileLoop10190); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_whileLoop10178);
+			pushFollow(FOLLOW_expression_in_whileLoop10194);
 			be=expression();
 			state._fsp--;
 
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_whileLoop10182); 
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_whileLoop10198); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:50: (inv= assertion )?
@@ -16286,7 +16288,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:50: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_whileLoop10186);
+						pushFollow(FOLLOW_assertion_in_whileLoop10202);
 						inv=assertion();
 						state._fsp--;
 
@@ -16298,7 +16300,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,BOUND,FOLLOW_BOUND_in_whileLoop10193); 
+			match(input,BOUND,FOLLOW_BOUND_in_whileLoop10209); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: (bd= expression )?
@@ -16311,7 +16313,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1351:75: bd= expression
 						{
-						pushFollow(FOLLOW_expression_in_whileLoop10197);
+						pushFollow(FOLLOW_expression_in_whileLoop10213);
 						bd=expression();
 						state._fsp--;
 
@@ -16323,7 +16325,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_whileLoop10211);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_whileLoop10227);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
 
@@ -16393,22 +16395,22 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1357:3: ( ^( LITERAL_for id= ID ^( LITERAL_in lb= expression ub= expression ) ^( INVARIANT (inv= assertion )? ) act= behaviorActions ) -> for_loop(a=$id.textlb=$lb.stub=$ub.stba=$act.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1358:3: ^( LITERAL_for id= ID ^( LITERAL_in lb= expression ub= expression ) ^( INVARIANT (inv= assertion )? ) act= behaviorActions )
 			{
-			match(input,LITERAL_for,FOLLOW_LITERAL_for_in_forLoop10260); 
+			match(input,LITERAL_for,FOLLOW_LITERAL_for_in_forLoop10276); 
 			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_forLoop10264); 
-			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_forLoop10268); 
+			id=(BAST)match(input,ID,FOLLOW_ID_in_forLoop10280); 
+			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_forLoop10284); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_forLoop10272);
+			pushFollow(FOLLOW_expression_in_forLoop10288);
 			lb=expression();
 			state._fsp--;
 
-			pushFollow(FOLLOW_expression_in_forLoop10276);
+			pushFollow(FOLLOW_expression_in_forLoop10292);
 			ub=expression();
 			state._fsp--;
 
 			match(input, Token.UP, null); 
 
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_forLoop10282); 
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_forLoop10298); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1358:84: (inv= assertion )?
@@ -16421,7 +16423,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1358:84: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_forLoop10286);
+						pushFollow(FOLLOW_assertion_in_forLoop10302);
 						inv=assertion();
 						state._fsp--;
 
@@ -16433,7 +16435,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_forLoop10300);
+			pushFollow(FOLLOW_behaviorActions_in_forLoop10316);
 			act=behaviorActions();
 			state._fsp--;
 
@@ -16502,17 +16504,17 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1364:3: ( ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) act= behaviorActions ) -> do_until(be=$be.stba=$act.stbd=$bd.stinv=$inv.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:3: ^( LITERAL_do ^( LITERAL_until be= expression ) ^( INVARIANT (inv= assertion )? ) ^( BOUND (bd= expression )? ) act= behaviorActions )
 			{
-			match(input,LITERAL_do,FOLLOW_LITERAL_do_in_doUntilLoop10355); 
+			match(input,LITERAL_do,FOLLOW_LITERAL_do_in_doUntilLoop10371); 
 			match(input, Token.DOWN, null); 
-			match(input,LITERAL_until,FOLLOW_LITERAL_until_in_doUntilLoop10359); 
+			match(input,LITERAL_until,FOLLOW_LITERAL_until_in_doUntilLoop10375); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_doUntilLoop10363);
+			pushFollow(FOLLOW_expression_in_doUntilLoop10379);
 			be=expression();
 			state._fsp--;
 
 			match(input, Token.UP, null); 
 
-			match(input,INVARIANT,FOLLOW_INVARIANT_in_doUntilLoop10369); 
+			match(input,INVARIANT,FOLLOW_INVARIANT_in_doUntilLoop10385); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:66: (inv= assertion )?
@@ -16525,7 +16527,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:66: inv= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_doUntilLoop10373);
+						pushFollow(FOLLOW_assertion_in_doUntilLoop10389);
 						inv=assertion();
 						state._fsp--;
 
@@ -16537,7 +16539,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,BOUND,FOLLOW_BOUND_in_doUntilLoop10380); 
+			match(input,BOUND,FOLLOW_BOUND_in_doUntilLoop10396); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: (bd= expression )?
@@ -16550,7 +16552,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1365:91: bd= expression
 						{
-						pushFollow(FOLLOW_expression_in_doUntilLoop10384);
+						pushFollow(FOLLOW_expression_in_doUntilLoop10400);
 						bd=expression();
 						state._fsp--;
 
@@ -16562,7 +16564,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			pushFollow(FOLLOW_behaviorActions_in_doUntilLoop10397);
+			pushFollow(FOLLOW_behaviorActions_in_doUntilLoop10413);
 			act=behaviorActions();
 			state._fsp--;
 
@@ -16632,7 +16634,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1371:3: ( ^( LITERAL_forall (lv+= ID )+ ^( LITERAL_in lb= expression ub= expression ) elq= existentialLatticeQuantification ) -> ulq(lv=$lvlb=$lb.stub=$ub.stelq=$elq.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:3: ^( LITERAL_forall (lv+= ID )+ ^( LITERAL_in lb= expression ub= expression ) elq= existentialLatticeQuantification )
 			{
-			match(input,LITERAL_forall,FOLLOW_LITERAL_forall_in_universalLatticeQuantification10450); 
+			match(input,LITERAL_forall,FOLLOW_LITERAL_forall_in_universalLatticeQuantification10466); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:23: (lv+= ID )+
 			int cnt140=0;
@@ -16648,7 +16650,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1372:23: lv+= ID
 					{
-					lv=(BAST)match(input,ID,FOLLOW_ID_in_universalLatticeQuantification10454); 
+					lv=(BAST)match(input,ID,FOLLOW_ID_in_universalLatticeQuantification10470); 
 					if (list_lv==null) list_lv=new ArrayList<Object>();
 					list_lv.add(lv);
 					}
@@ -16662,19 +16664,19 @@ public class UnparseBLESS3 extends TreeParser {
 				cnt140++;
 			}
 
-			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_universalLatticeQuantification10459); 
+			match(input,LITERAL_in,FOLLOW_LITERAL_in_in_universalLatticeQuantification10475); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10463);
+			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10479);
 			lb=expression();
 			state._fsp--;
 
-			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10467);
+			pushFollow(FOLLOW_expression_in_universalLatticeQuantification10483);
 			ub=expression();
 			state._fsp--;
 
 			match(input, Token.UP, null); 
 
-			pushFollow(FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10473);
+			pushFollow(FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10489);
 			elq=existentialLatticeQuantification();
 			state._fsp--;
 
@@ -16745,7 +16747,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1380:3: ( ^( BLESS_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (ac= assertClause )? (inv= invariantClause )? (vs= variablesSection )? (ss= statesSection )? (t= transitions )? ) -> bless_subclause(n=$no_proof.textac=$ac.stinv=$inv.stvs=$vs.stss=$ss.stt=$t.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1381:3: ^( BLESS_SUBCLAUSE (no_proof= DO_NOT_PROVE )? (ac= assertClause )? (inv= invariantClause )? (vs= variablesSection )? (ss= statesSection )? (t= transitions )? )
 			{
-			match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10523); 
+			match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10539); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1382:12: (no_proof= DO_NOT_PROVE )?
@@ -16758,7 +16760,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1382:12: no_proof= DO_NOT_PROVE
 						{
-						no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_blessSubclause10531); 
+						no_proof=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_blessSubclause10547); 
 						}
 						break;
 
@@ -16774,7 +16776,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1383:7: ac= assertClause
 						{
-						pushFollow(FOLLOW_assertClause_in_blessSubclause10540);
+						pushFollow(FOLLOW_assertClause_in_blessSubclause10556);
 						ac=assertClause();
 						state._fsp--;
 
@@ -16793,7 +16795,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1384:8: inv= invariantClause
 						{
-						pushFollow(FOLLOW_invariantClause_in_blessSubclause10551);
+						pushFollow(FOLLOW_invariantClause_in_blessSubclause10567);
 						inv=invariantClause();
 						state._fsp--;
 
@@ -16812,7 +16814,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1385:7: vs= variablesSection
 						{
-						pushFollow(FOLLOW_variablesSection_in_blessSubclause10560);
+						pushFollow(FOLLOW_variablesSection_in_blessSubclause10576);
 						vs=variablesSection();
 						state._fsp--;
 
@@ -16831,7 +16833,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1386:7: ss= statesSection
 						{
-						pushFollow(FOLLOW_statesSection_in_blessSubclause10569);
+						pushFollow(FOLLOW_statesSection_in_blessSubclause10585);
 						ss=statesSection();
 						state._fsp--;
 
@@ -16850,7 +16852,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1387:6: t= transitions
 						{
-						pushFollow(FOLLOW_transitions_in_blessSubclause10578);
+						pushFollow(FOLLOW_transitions_in_blessSubclause10594);
 						t=transitions();
 						state._fsp--;
 
@@ -16922,9 +16924,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1392:3: ( ^( LITERAL_invariant a= assertion ) -> invariant_clause(a=$a.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1393:3: ^( LITERAL_invariant a= assertion )
 			{
-			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_invariantClause10640); 
+			match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_invariantClause10656); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_assertion_in_invariantClause10644);
+			pushFollow(FOLLOW_assertion_in_invariantClause10660);
 			a=assertion();
 			state._fsp--;
 
@@ -16990,7 +16992,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1398:3: ( ^( LITERAL_variables (vd+= variableDeclaration )+ ) -> variables(bv=$vd))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1399:2: ^( LITERAL_variables (vd+= variableDeclaration )+ )
 			{
-			match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_variablesSection10676); 
+			match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_variablesSection10692); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1399:25: (vd+= variableDeclaration )+
 			int cnt147=0;
@@ -17006,7 +17008,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1399:25: vd+= variableDeclaration
 					{
-					pushFollow(FOLLOW_variableDeclaration_in_variablesSection10680);
+					pushFollow(FOLLOW_variableDeclaration_in_variablesSection10696);
 					vd=variableDeclaration();
 					state._fsp--;
 
@@ -17085,7 +17087,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1404:3: ( ^( LITERAL_states (states+= behaviorState )+ ) -> states_section(bs=$states))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1405:2: ^( LITERAL_states (states+= behaviorState )+ )
 			{
-			match(input,LITERAL_states,FOLLOW_LITERAL_states_in_statesSection10711); 
+			match(input,LITERAL_states,FOLLOW_LITERAL_states_in_statesSection10727); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1405:26: (states+= behaviorState )+
 			int cnt148=0;
@@ -17101,7 +17103,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1405:26: states+= behaviorState
 					{
-					pushFollow(FOLLOW_behaviorState_in_statesSection10715);
+					pushFollow(FOLLOW_behaviorState_in_statesSection10731);
 					states=behaviorState();
 					state._fsp--;
 
@@ -17184,7 +17186,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1410:3: ( ^( LITERAL_state (init= LITERAL_initial )? (com= LITERAL_complete )? (finl= LITERAL_final )? i= ID (a= assertion )? ) -> behavior_state(bsi=$i.texti=$init.textcom=$com.textfinl=$finl.texta=$a.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:3: ^( LITERAL_state (init= LITERAL_initial )? (com= LITERAL_complete )? (finl= LITERAL_final )? i= ID (a= assertion )? )
 			{
-			match(input,LITERAL_state,FOLLOW_LITERAL_state_in_behaviorState10747); 
+			match(input,LITERAL_state,FOLLOW_LITERAL_state_in_behaviorState10763); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:24: (init= LITERAL_initial )?
 			int alt149=2;
@@ -17196,7 +17198,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:24: init= LITERAL_initial
 					{
-					init=(BAST)match(input,LITERAL_initial,FOLLOW_LITERAL_initial_in_behaviorState10751); 
+					init=(BAST)match(input,LITERAL_initial,FOLLOW_LITERAL_initial_in_behaviorState10767); 
 					}
 					break;
 
@@ -17212,7 +17214,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:45: com= LITERAL_complete
 					{
-					com=(BAST)match(input,LITERAL_complete,FOLLOW_LITERAL_complete_in_behaviorState10756); 
+					com=(BAST)match(input,LITERAL_complete,FOLLOW_LITERAL_complete_in_behaviorState10772); 
 					}
 					break;
 
@@ -17228,13 +17230,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:68: finl= LITERAL_final
 					{
-					finl=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behaviorState10761); 
+					finl=(BAST)match(input,LITERAL_final,FOLLOW_LITERAL_final_in_behaviorState10777); 
 					}
 					break;
 
 			}
 
-			i=(BAST)match(input,ID,FOLLOW_ID_in_behaviorState10766); 
+			i=(BAST)match(input,ID,FOLLOW_ID_in_behaviorState10782); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:90: (a= assertion )?
 			int alt152=2;
 			int LA152_0 = input.LA(1);
@@ -17245,7 +17247,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1411:90: a= assertion
 					{
-					pushFollow(FOLLOW_assertion_in_behaviorState10770);
+					pushFollow(FOLLOW_assertion_in_behaviorState10786);
 					a=assertion();
 					state._fsp--;
 
@@ -17316,7 +17318,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1416:3: ( ^( LITERAL_transitions (bt+= behaviorTransition )+ ) -> transitions(bt=$bt))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1417:3: ^( LITERAL_transitions (bt+= behaviorTransition )+ )
 			{
-			match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_transitions10825); 
+			match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_transitions10841); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1417:28: (bt+= behaviorTransition )+
 			int cnt153=0;
@@ -17332,7 +17334,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1417:28: bt+= behaviorTransition
 					{
-					pushFollow(FOLLOW_behaviorTransition_in_transitions10829);
+					pushFollow(FOLLOW_behaviorTransition_in_transitions10845);
 					bt=behaviorTransition();
 					state._fsp--;
 
@@ -17418,11 +17420,11 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1422:3: ( ^( TRANSITION ^( LABEL id= ID (pr= priority )? ) ^( SOURCE (ssi+= ID )+ ) ^( CONDITION (bc= behaviorCondition )? ) ^( DESTINATION dsi= ID ) ^( ACTION (s= behaviorActions )? ) ^( Q (q= assertion )? ) ) -> behavior_transition(i=$id.textpr=$pr.stssi=$ssibc=$bc.stdsi=$dsi.textba=$s.stbtq=$q.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1423:3: ^( TRANSITION ^( LABEL id= ID (pr= priority )? ) ^( SOURCE (ssi+= ID )+ ) ^( CONDITION (bc= behaviorCondition )? ) ^( DESTINATION dsi= ID ) ^( ACTION (s= behaviorActions )? ) ^( Q (q= assertion )? ) )
 			{
-			match(input,TRANSITION,FOLLOW_TRANSITION_in_behaviorTransition10862); 
+			match(input,TRANSITION,FOLLOW_TRANSITION_in_behaviorTransition10878); 
 			match(input, Token.DOWN, null); 
-			match(input,LABEL,FOLLOW_LABEL_in_behaviorTransition10871); 
+			match(input,LABEL,FOLLOW_LABEL_in_behaviorTransition10887); 
 			match(input, Token.DOWN, null); 
-			id=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10875); 
+			id=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10891); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1424:22: (pr= priority )?
 			int alt154=2;
 			int LA154_0 = input.LA(1);
@@ -17433,7 +17435,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1424:22: pr= priority
 					{
-					pushFollow(FOLLOW_priority_in_behaviorTransition10879);
+					pushFollow(FOLLOW_priority_in_behaviorTransition10895);
 					pr=priority();
 					state._fsp--;
 
@@ -17444,7 +17446,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 			match(input, Token.UP, null); 
 
-			match(input,SOURCE,FOLLOW_SOURCE_in_behaviorTransition10891); 
+			match(input,SOURCE,FOLLOW_SOURCE_in_behaviorTransition10907); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1425:18: (ssi+= ID )+
 			int cnt155=0;
@@ -17460,7 +17462,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1425:18: ssi+= ID
 					{
-					ssi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10895); 
+					ssi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10911); 
 					if (list_ssi==null) list_ssi=new ArrayList<Object>();
 					list_ssi.add(ssi);
 					}
@@ -17476,7 +17478,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 			match(input, Token.UP, null); 
 
-			match(input,CONDITION,FOLLOW_CONDITION_in_behaviorTransition10907); 
+			match(input,CONDITION,FOLLOW_CONDITION_in_behaviorTransition10923); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1426:20: (bc= behaviorCondition )?
@@ -17489,7 +17491,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1426:20: bc= behaviorCondition
 						{
-						pushFollow(FOLLOW_behaviorCondition_in_behaviorTransition10911);
+						pushFollow(FOLLOW_behaviorCondition_in_behaviorTransition10927);
 						bc=behaviorCondition();
 						state._fsp--;
 
@@ -17501,12 +17503,12 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,DESTINATION,FOLLOW_DESTINATION_in_behaviorTransition10923); 
+			match(input,DESTINATION,FOLLOW_DESTINATION_in_behaviorTransition10939); 
 			match(input, Token.DOWN, null); 
-			dsi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10927); 
+			dsi=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTransition10943); 
 			match(input, Token.UP, null); 
 
-			match(input,ACTION,FOLLOW_ACTION_in_behaviorTransition10937); 
+			match(input,ACTION,FOLLOW_ACTION_in_behaviorTransition10953); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1428:16: (s= behaviorActions )?
@@ -17519,7 +17521,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1428:16: s= behaviorActions
 						{
-						pushFollow(FOLLOW_behaviorActions_in_behaviorTransition10941);
+						pushFollow(FOLLOW_behaviorActions_in_behaviorTransition10957);
 						s=behaviorActions();
 						state._fsp--;
 
@@ -17531,7 +17533,7 @@ public class UnparseBLESS3 extends TreeParser {
 				match(input, Token.UP, null); 
 			}
 
-			match(input,Q,FOLLOW_Q_in_behaviorTransition10953); 
+			match(input,Q,FOLLOW_Q_in_behaviorTransition10969); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1429:11: (q= assertion )?
@@ -17544,7 +17546,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1429:11: q= assertion
 						{
-						pushFollow(FOLLOW_assertion_in_behaviorTransition10957);
+						pushFollow(FOLLOW_assertion_in_behaviorTransition10973);
 						q=assertion();
 						state._fsp--;
 
@@ -17618,10 +17620,10 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1435:3: ( ^( LBRACKET num= NUMBER RBRACKET ) -> priority(num=$num.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1436:2: ^( LBRACKET num= NUMBER RBRACKET )
 			{
-			match(input,LBRACKET,FOLLOW_LBRACKET_in_priority11029); 
+			match(input,LBRACKET,FOLLOW_LBRACKET_in_priority11045); 
 			match(input, Token.DOWN, null); 
-			num=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_priority11033); 
-			match(input,RBRACKET,FOLLOW_RBRACKET_in_priority11035); 
+			num=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_priority11049); 
+			match(input,RBRACKET,FOLLOW_RBRACKET_in_priority11051); 
 			match(input, Token.UP, null); 
 
 			// TEMPLATE REWRITE
@@ -17765,7 +17767,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1442:3: dc= dispatchCondition
 					{
-					pushFollow(FOLLOW_dispatchCondition_in_behaviorCondition11066);
+					pushFollow(FOLLOW_dispatchCondition_in_behaviorCondition11082);
 					dc=dispatchCondition();
 					state._fsp--;
 
@@ -17782,7 +17784,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1444:5: ec= executeCondition
 					{
-					pushFollow(FOLLOW_executeCondition_in_behaviorCondition11083);
+					pushFollow(FOLLOW_executeCondition_in_behaviorCondition11099);
 					ec=executeCondition();
 					state._fsp--;
 
@@ -17799,7 +17801,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1446:5: mc= modeCondition
 					{
-					pushFollow(FOLLOW_modeCondition_in_behaviorCondition11101);
+					pushFollow(FOLLOW_modeCondition_in_behaviorCondition11117);
 					mc=modeCondition();
 					state._fsp--;
 
@@ -17816,7 +17818,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1448:5: ic= internalCondition
 					{
-					pushFollow(FOLLOW_internalCondition_in_behaviorCondition11119);
+					pushFollow(FOLLOW_internalCondition_in_behaviorCondition11135);
 					ic=internalCondition();
 					state._fsp--;
 
@@ -17882,7 +17884,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1453:3: ( ^( LITERAL_dispatch (de= dispatchExpression )? ) -> dispatch_condition(dle=$de.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:3: ^( LITERAL_dispatch (de= dispatchExpression )? )
 			{
-			match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatchCondition11147); 
+			match(input,LITERAL_dispatch,FOLLOW_LITERAL_dispatch_in_dispatchCondition11163); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:25: (de= dispatchExpression )?
@@ -17895,7 +17897,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1454:25: de= dispatchExpression
 						{
-						pushFollow(FOLLOW_dispatchExpression_in_dispatchCondition11151);
+						pushFollow(FOLLOW_dispatchExpression_in_dispatchCondition11167);
 						de=dispatchExpression();
 						state._fsp--;
 
@@ -17967,7 +17969,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1459:3: (exp= expression -> {$exp.st})
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1460:3: exp= expression
 			{
-			pushFollow(FOLLOW_expression_in_executeCondition11188);
+			pushFollow(FOLLOW_expression_in_executeCondition11204);
 			exp=expression();
 			state._fsp--;
 
@@ -18031,9 +18033,9 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1465:3: ( ^( LITERAL_on tle= triggerLogicalExpression ) -> mode_condition(tle=$tle.st))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1466:3: ^( LITERAL_on tle= triggerLogicalExpression )
 			{
-			match(input,LITERAL_on,FOLLOW_LITERAL_on_in_modeCondition11217); 
+			match(input,LITERAL_on,FOLLOW_LITERAL_on_in_modeCondition11233); 
 			match(input, Token.DOWN, null); 
-			pushFollow(FOLLOW_triggerLogicalExpression_in_modeCondition11221);
+			pushFollow(FOLLOW_triggerLogicalExpression_in_modeCondition11237);
 			tle=triggerLogicalExpression();
 			state._fsp--;
 
@@ -18100,7 +18102,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1471:3: ( ^( LITERAL_internal (ports+= ID )+ ) -> internal_condition(p=$ports))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1472:3: ^( LITERAL_internal (ports+= ID )+ )
 			{
-			match(input,LITERAL_internal,FOLLOW_LITERAL_internal_in_internalCondition11255); 
+			match(input,LITERAL_internal,FOLLOW_LITERAL_internal_in_internalCondition11271); 
 			match(input, Token.DOWN, null); 
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1472:28: (ports+= ID )+
 			int cnt161=0;
@@ -18116,7 +18118,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1472:28: ports+= ID
 					{
-					ports=(BAST)match(input,ID,FOLLOW_ID_in_internalCondition11259); 
+					ports=(BAST)match(input,ID,FOLLOW_ID_in_internalCondition11275); 
 					if (list_ports==null) list_ports=new ArrayList<Object>();
 					list_ports.add(ports);
 					}
@@ -18210,7 +18212,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1478:3: ^( LITERAL_or (dc+= dispatchConjunction )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatchExpression11295); 
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_dispatchExpression11311); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1478:19: (dc+= dispatchConjunction )+
 					int cnt162=0;
@@ -18226,7 +18228,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1478:19: dc+= dispatchConjunction
 							{
-							pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11299);
+							pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11315);
 							dc=dispatchConjunction();
 							state._fsp--;
 
@@ -18258,7 +18260,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1481:3: c= dispatchConjunction
 					{
-					pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11325);
+					pushFollow(FOLLOW_dispatchConjunction_in_dispatchExpression11341);
 					c=dispatchConjunction();
 					state._fsp--;
 
@@ -18342,7 +18344,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:3: ^( LITERAL_and (tr+= dispatchTrigger )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatchConjunction11356); 
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_dispatchConjunction11372); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:20: (tr+= dispatchTrigger )+
 					int cnt164=0;
@@ -18358,7 +18360,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1487:20: tr+= dispatchTrigger
 							{
-							pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11360);
+							pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11376);
 							tr=dispatchTrigger();
 							state._fsp--;
 
@@ -18390,7 +18392,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1490:3: t= dispatchTrigger
 					{
-					pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11386);
+					pushFollow(FOLLOW_dispatchTrigger_in_dispatchConjunction11402);
 					t=dispatchTrigger();
 					state._fsp--;
 
@@ -18476,7 +18478,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1496:3: port= portName
 					{
-					pushFollow(FOLLOW_portName_in_dispatchTrigger11412);
+					pushFollow(FOLLOW_portName_in_dispatchTrigger11428);
 					port=portName();
 					state._fsp--;
 
@@ -18493,7 +18495,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:3: ^( LITERAL_timeout ( ^( LPAREN (ports+= ID )* ) )? (time= behaviorTime )? )
 					{
-					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatchTrigger11430); 
+					match(input,LITERAL_timeout,FOLLOW_LITERAL_timeout_in_dispatchTrigger11446); 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); 
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:22: ( ^( LPAREN (ports+= ID )* ) )?
@@ -18506,7 +18508,7 @@ public class UnparseBLESS3 extends TreeParser {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:24: ^( LPAREN (ports+= ID )* )
 								{
-								match(input,LPAREN,FOLLOW_LPAREN_in_dispatchTrigger11436); 
+								match(input,LPAREN,FOLLOW_LPAREN_in_dispatchTrigger11452); 
 								if ( input.LA(1)==Token.DOWN ) {
 									match(input, Token.DOWN, null); 
 									// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:39: (ports+= ID )*
@@ -18522,7 +18524,7 @@ public class UnparseBLESS3 extends TreeParser {
 										case 1 :
 											// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:39: ports+= ID
 											{
-											ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatchTrigger11440); 
+											ports=(BAST)match(input,ID,FOLLOW_ID_in_dispatchTrigger11456); 
 											if (list_ports==null) list_ports=new ArrayList<Object>();
 											list_ports.add(ports);
 											}
@@ -18551,7 +18553,7 @@ public class UnparseBLESS3 extends TreeParser {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1499:54: time= behaviorTime
 								{
-								pushFollow(FOLLOW_behaviorTime_in_dispatchTrigger11450);
+								pushFollow(FOLLOW_behaviorTime_in_dispatchTrigger11466);
 								time=behaviorTime();
 								state._fsp--;
 
@@ -18680,9 +18682,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1504:3: ^( BEHAVIOR_TIME q= quantity )
 					{
-					match(input,BEHAVIOR_TIME,FOLLOW_BEHAVIOR_TIME_in_behaviorTime11484); 
+					match(input,BEHAVIOR_TIME,FOLLOW_BEHAVIOR_TIME_in_behaviorTime11500); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_quantity_in_behaviorTime11488);
+					pushFollow(FOLLOW_quantity_in_behaviorTime11504);
 					q=quantity();
 					state._fsp--;
 
@@ -18701,9 +18703,9 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1506:6: ^( BEHAVIOR_TIME vn= valueName (u= ID |s= LITERAL_scalar |w= LITERAL_whole )? )
 					{
-					match(input,BEHAVIOR_TIME,FOLLOW_BEHAVIOR_TIME_in_behaviorTime11507); 
+					match(input,BEHAVIOR_TIME,FOLLOW_BEHAVIOR_TIME_in_behaviorTime11523); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_valueName_in_behaviorTime11512);
+					pushFollow(FOLLOW_valueName_in_behaviorTime11528);
 					vn=valueName();
 					state._fsp--;
 
@@ -18730,19 +18732,19 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1506:39: u= ID
 							{
-							u=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTime11518); 
+							u=(BAST)match(input,ID,FOLLOW_ID_in_behaviorTime11534); 
 							}
 							break;
 						case 2 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1506:46: s= LITERAL_scalar
 							{
-							s=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_behaviorTime11524); 
+							s=(BAST)match(input,LITERAL_scalar,FOLLOW_LITERAL_scalar_in_behaviorTime11540); 
 							}
 							break;
 						case 3 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1506:65: w= LITERAL_whole
 							{
-							w=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_behaviorTime11530); 
+							w=(BAST)match(input,LITERAL_whole,FOLLOW_LITERAL_whole_in_behaviorTime11546); 
 							}
 							break;
 
@@ -18813,7 +18815,7 @@ public class UnparseBLESS3 extends TreeParser {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1511:3: ( ^(port= ID (index= NUMBER )? ) -> port_name(port=$port.textindex=$index.text))
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1512:3: ^(port= ID (index= NUMBER )? )
 			{
-			port=(BAST)match(input,ID,FOLLOW_ID_in_portName11587); 
+			port=(BAST)match(input,ID,FOLLOW_ID_in_portName11603); 
 			if ( input.LA(1)==Token.DOWN ) {
 				match(input, Token.DOWN, null); 
 				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1512:19: (index= NUMBER )?
@@ -18826,7 +18828,7 @@ public class UnparseBLESS3 extends TreeParser {
 					case 1 :
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1512:19: index= NUMBER
 						{
-						index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_portName11591); 
+						index=(BAST)match(input,NUMBER,FOLLOW_NUMBER_in_portName11607); 
 						}
 						break;
 
@@ -18936,7 +18938,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1518:3: ^( LITERAL_and (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_triggerLogicalExpression11628); 
+					match(input,LITERAL_and,FOLLOW_LITERAL_and_in_triggerLogicalExpression11644); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1518:20: (et+= eventTrigger )+
 					int cnt173=0;
@@ -18952,7 +18954,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1518:20: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11632);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11648);
 							et=eventTrigger();
 							state._fsp--;
 
@@ -18984,7 +18986,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1521:3: ^( LITERAL_or (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_triggerLogicalExpression11659); 
+					match(input,LITERAL_or,FOLLOW_LITERAL_or_in_triggerLogicalExpression11675); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1521:19: (et+= eventTrigger )+
 					int cnt174=0;
@@ -19000,7 +19002,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1521:19: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11663);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11679);
 							et=eventTrigger();
 							state._fsp--;
 
@@ -19032,7 +19034,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 3 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1524:3: ^( LITERAL_xor (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_triggerLogicalExpression11690); 
+					match(input,LITERAL_xor,FOLLOW_LITERAL_xor_in_triggerLogicalExpression11706); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1524:20: (et+= eventTrigger )+
 					int cnt175=0;
@@ -19048,7 +19050,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1524:20: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11694);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11710);
 							et=eventTrigger();
 							state._fsp--;
 
@@ -19080,7 +19082,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 4 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1527:3: ^( LITERAL_then (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_triggerLogicalExpression11721); 
+					match(input,LITERAL_then,FOLLOW_LITERAL_then_in_triggerLogicalExpression11737); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1527:21: (et+= eventTrigger )+
 					int cnt176=0;
@@ -19096,7 +19098,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1527:21: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11725);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11741);
 							et=eventTrigger();
 							state._fsp--;
 
@@ -19128,7 +19130,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 5 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1530:3: ^( LITERAL_else (et+= eventTrigger )+ )
 					{
-					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_triggerLogicalExpression11752); 
+					match(input,LITERAL_else,FOLLOW_LITERAL_else_in_triggerLogicalExpression11768); 
 					match(input, Token.DOWN, null); 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1530:21: (et+= eventTrigger )+
 					int cnt177=0;
@@ -19144,7 +19146,7 @@ public class UnparseBLESS3 extends TreeParser {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1530:21: et+= eventTrigger
 							{
-							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11756);
+							pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11772);
 							et=eventTrigger();
 							state._fsp--;
 
@@ -19176,7 +19178,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 6 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1533:3: first= eventTrigger
 					{
-					pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11782);
+					pushFollow(FOLLOW_eventTrigger_in_triggerLogicalExpression11798);
 					first=eventTrigger();
 					state._fsp--;
 
@@ -19260,7 +19262,7 @@ public class UnparseBLESS3 extends TreeParser {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1539:3: tr= modeTrigger
 					{
-					pushFollow(FOLLOW_modeTrigger_in_eventTrigger11807);
+					pushFollow(FOLLOW_modeTrigger_in_eventTrigger11823);
 					tr=modeTrigger();
 					state._fsp--;
 
@@ -19277,13 +19279,13 @@ public class UnparseBLESS3 extends TreeParser {
 				case 2 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:1542:3: ^( LPAREN tle= triggerLogicalExpression RPAREN )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_eventTrigger11826); 
+					match(input,LPAREN,FOLLOW_LPAREN_in_eventTrigger11842); 
 					match(input, Token.DOWN, null); 
-					pushFollow(FOLLOW_triggerLogicalExpression_in_eventTrigger11830);
+					pushFollow(FOLLOW_triggerLogicalExpression_in_eventTrigger11846);
 					tle=triggerLogicalExpression();
 					state._fsp--;
 
-					match(input,RPAREN,FOLLOW_RPAREN_in_eventTrigger11832); 
+					match(input,RPAREN,FOLLOW_RPAREN_in_eventTrigger11848); 
 					match(input, Token.UP, null); 
 
 					// TEMPLATE REWRITE
@@ -20585,7 +20587,7 @@ public class UnparseBLESS3 extends TreeParser {
 		}
 		@Override
 		public String getDescription() {
-			return "1029:1: quantity : ( ^( QUANTITY num= aNumber ) -> {$num.st}| ^( QUANTITY num= aNumber unit= ID ) -> template(number=$num.stunit=$unit.text) \"<number> <unit>\"| ^( QUANTITY num= aNumber LITERAL_scalar ) -> template(number=$num.st) \"<number> scalar\"| ^( QUANTITY num= aNumber LITERAL_whole ) -> template(number=$num.st) \"<number> whole\");";
+			return "1029:1: quantity : ( ^( QUANTITY num= aNumber ) -> quantity(num=$num.st)| ^( QUANTITY num= aNumber unit= ID ) -> quantity(num=$num.stunit=$unit.text)| ^( QUANTITY num= aNumber sc= LITERAL_scalar ) -> quantity(num=$num.stunit=$sc.text)| ^( QUANTITY num= aNumber wh= LITERAL_whole ) -> quantity(num=$num.stunit=$wh.text));";
 		}
 	}
 
@@ -21205,305 +21207,305 @@ public class UnparseBLESS3 extends TreeParser {
 	public static final BitSet FOLLOW_LITERAL_null_in_constant7343 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_QUANTITY_in_quantity7368 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_aNumber_in_quantity7372 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7392 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7396 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_quantity7400 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7432 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7436 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
-	public static final BitSet FOLLOW_LITERAL_scalar_in_quantity7438 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_QUANTITY_in_quantity7465 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_aNumber_in_quantity7469 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000002000000000L});
-	public static final BitSet FOLLOW_LITERAL_whole_in_quantity7471 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NUMBER_in_aNumber7506 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_propertyReference_in_aNumber7520 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_propertyName_in_aNumber7534 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7566 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7570 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7607 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7611 = new BitSet(new long[]{0x0200001000000000L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7615 = new BitSet(new long[]{0x0200001000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7657 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7661 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7665 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7707 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7711 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7715 = new BitSet(new long[]{0x0200001000000000L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7719 = new BitSet(new long[]{0x0200001000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7765 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_componentName_in_propertyReference7769 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7773 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7808 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_componentName_in_propertyReference7812 = new BitSet(new long[]{0x0000008000000000L});
-	public static final BitSet FOLLOW_propertyName_in_propertyReference7816 = new BitSet(new long[]{0x0200001000000000L});
-	public static final BitSet FOLLOW_propertyField_in_propertyReference7820 = new BitSet(new long[]{0x0200001000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_propertyField7862 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_propertyField7866 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_propertyField7891 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_propertyField7895 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7920 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_propertyField7924 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7951 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_upper_bound_in_propertyField7953 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DOT_in_propertyField7977 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_lower_bound_in_propertyField7979 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause8014 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_actionSubclause8019 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000004L,0x0000000000080000L});
-	public static final BitSet FOLLOW_throwsClause_in_actionSubclause8026 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000004L});
-	public static final BitSet FOLLOW_assertClause_in_actionSubclause8033 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
-	public static final BitSet FOLLOW_LITERAL_pre_in_actionSubclause8044 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause8049 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_post_in_actionSubclause8061 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause8066 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_actionSubclause8079 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_actionSubclause8084 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_actionSubclause8097 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_throws_in_throwsClause8170 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_throwsClause8174 = new BitSet(new long[]{0x0008000000000008L});
-	public static final BitSet FOLLOW_LITERAL_assert_in_assertClause8207 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_namedAssertion_in_assertClause8211 = new BitSet(new long[]{0x000000000000D008L});
-	public static final BitSet FOLLOW_LCURLY_in_existentialLatticeQuantification8244 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8250 = new BitSet(new long[]{0x0000000000000440L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
-	public static final BitSet FOLLOW_behaviorActions_in_existentialLatticeQuantification8257 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
-	public static final BitSet FOLLOW_RCURLY_in_existentialLatticeQuantification8259 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L});
-	public static final BitSet FOLLOW_catchClause_in_existentialLatticeQuantification8265 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_declare_in_quantifiedVariables8310 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variableDeclaration_in_quantifiedVariables8314 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8346 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variable_in_variableDeclaration8350 = new BitSet(new long[]{0x000000000001D008L,0x0004000400004000L,0x0000000000000280L});
-	public static final BitSet FOLLOW_ASSIGN_in_variableDeclaration8356 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_variableDeclaration8360 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_assertion_in_variableDeclaration8369 = new BitSet(new long[]{0x0000000000000008L,0x0004000400004000L,0x0000000000000280L});
-	public static final BitSet FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8379 = new BitSet(new long[]{0x0000000000000008L,0x0000000400004000L,0x0000000000000280L});
-	public static final BitSet FOLLOW_LITERAL_shared_in_variableDeclaration8384 = new BitSet(new long[]{0x0000000000000008L,0x0000000400004000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LITERAL_constant_in_variableDeclaration8389 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_LITERAL_spread_in_variableDeclaration8394 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L});
-	public static final BitSet FOLLOW_LITERAL_final_in_variableDeclaration8399 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_catch_in_catchClause8459 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_catchClauseTerm_in_catchClause8463 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8495 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_catchClauseTerm8499 = new BitSet(new long[]{0x0008000001000000L});
-	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8505 = new BitSet(new long[]{0x0000000000010000L,0x00000001E1000000L,0x0300000400008140L,0x0000000000000800L});
-	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8509 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8511 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8541 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_all_in_catchClauseTerm8543 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8547 = new BitSet(new long[]{0x0000000000010000L,0x00000001E1000000L,0x0300000400008140L,0x0000000000000800L});
-	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8551 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8553 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SEMICOLON_in_behaviorActions8585 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8589 = new BitSet(new long[]{0x0000000000000048L});
-	public static final BitSet FOLLOW_AMPERSAND_in_behaviorActions8615 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8619 = new BitSet(new long[]{0x0000000000000048L});
-	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8645 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ACTION_in_assertedAction8670 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_assertedAction8674 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_assertedAction8678 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_S_in_assertedAction8685 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_action_in_assertedAction8689 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Q_in_assertedAction8695 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_assertedAction8699 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_basicAction_in_action8741 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_alternative_in_action8757 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whileLoop_in_action8773 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_forLoop_in_action8789 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_doUntilLoop_in_action8805 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_action8821 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_universalLatticeQuantification_in_action8838 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_skip_in_basicAction8867 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assignment_in_basicAction8883 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_setmode_in_basicAction8899 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_basicAction8903 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_whenThrow_in_basicAction8929 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_combinableOperation_in_basicAction8945 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_communicationAction_in_basicAction8961 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_simultaneousAssignment_in_basicAction8978 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_issueException_in_basicAction8994 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_exception_in_issueException9020 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_issueException9024 = new BitSet(new long[]{0x0000000000000018L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_issueException9028 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignment9068 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_nameTick_in_assignment9072 = new BitSet(new long[]{0xF049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expressionOrAny_in_assignment9076 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_TICK_in_nameTick9115 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_valueName_in_nameTick9119 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_valueName_in_nameTick9144 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_expression_in_expressionOrAny9171 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_any_in_expressionOrAny9191 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASSIGN_in_simultaneousAssignment9217 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9221 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_nameTick_in_simultaneousAssignment9225 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x4000000000000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9232 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expressionOrAny_in_simultaneousAssignment9236 = new BitSet(new long[]{0xF049500400820318L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_LITERAL_when_in_whenThrow9276 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_whenThrow9278 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_whenThrow9282 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_RPAREN_in_whenThrow9284 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
-	public static final BitSet FOLLOW_LITERAL_throw_in_whenThrow9286 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_whenThrow9290 = new BitSet(new long[]{0x0000000000000018L});
-	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_whenThrow9302 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchadd_in_combinableOperation9348 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9352 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9356 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9360 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchor_in_combinableOperation9402 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9406 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9410 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9414 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchand_in_combinableOperation9456 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9460 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9464 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9468 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_fetchxor_in_combinableOperation9510 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9514 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_combinableOperation9518 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9522 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_swap_in_combinableOperation9564 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9568 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9572 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_combinableOperation9576 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_subprogramCall_in_communicationAction9622 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portOutput_in_communicationAction9640 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portInput_in_communicationAction9658 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_computation_in_computation9684 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorTime_in_computation9688 = new BitSet(new long[]{0x0000000000040008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_behaviorTime_in_computation9692 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000020L});
-	public static final BitSet FOLLOW_LITERAL_binding_in_computation9699 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_componentName_in_computation9703 = new BitSet(new long[]{0x0008008000000008L});
-	public static final BitSet FOLLOW_PORT_OUTPUT_in_portOutput9754 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_portOutput9758 = new BitSet(new long[]{0x7049500400820318L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_portOutput9762 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PORT_INPUT_in_portInput9804 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_portInput9808 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x4000000000000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_valueName_in_portInput9812 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9856 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_subprogramCall9860 = new BitSet(new long[]{0x0008000005000018L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_formalActualList_in_subprogramCall9864 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_COMMA_in_formalActualList9909 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_formalActual_in_formalActualList9913 = new BitSet(new long[]{0x0008000001000018L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_formalActual_in_formalActualList9939 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COLON_in_formalActual9968 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_formalActual9972 = new BitSet(new long[]{0x0008000000000010L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
-	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9976 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_subProgramParameter_in_formalActual10006 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_valueName_in_subProgramParameter10028 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_constant_in_subProgramParameter10043 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_parenthesizedSubexpression_in_subProgramParameter10058 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_if_in_alternative10086 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_guardedAction_in_alternative10090 = new BitSet(new long[]{0x0002000000000008L});
-	public static final BitSet FOLLOW_GUARD_in_guardedAction10127 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_guardedAction10131 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_assertedAction_in_guardedAction10135 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_while_in_whileLoop10174 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_whileLoop10178 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_INVARIANT_in_whileLoop10182 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_whileLoop10186 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOUND_in_whileLoop10193 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_whileLoop10197 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_whileLoop10211 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_for_in_forLoop10260 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_forLoop10264 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-	public static final BitSet FOLLOW_LITERAL_in_in_forLoop10268 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_forLoop10272 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_forLoop10276 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVARIANT_in_forLoop10282 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_forLoop10286 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_behaviorActions_in_forLoop10300 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_do_in_doUntilLoop10355 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_until_in_doUntilLoop10359 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_doUntilLoop10363 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INVARIANT_in_doUntilLoop10369 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_doUntilLoop10373 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOUND_in_doUntilLoop10380 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_doUntilLoop10384 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_behaviorActions_in_doUntilLoop10397 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_forall_in_universalLatticeQuantification10450 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_universalLatticeQuantification10454 = new BitSet(new long[]{0x0008000000000000L,0x0000040000000000L});
-	public static final BitSet FOLLOW_LITERAL_in_in_universalLatticeQuantification10459 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10463 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
-	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10467 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10473 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10523 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_blessSubclause10531 = new BitSet(new long[]{0x0000000000000008L,0x0000200000000004L,0x0000000100800800L});
-	public static final BitSet FOLLOW_assertClause_in_blessSubclause10540 = new BitSet(new long[]{0x0000000000000008L,0x0000200000000000L,0x0000000100800800L});
-	public static final BitSet FOLLOW_invariantClause_in_blessSubclause10551 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000100800800L});
-	public static final BitSet FOLLOW_variablesSection_in_blessSubclause10560 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000800800L});
-	public static final BitSet FOLLOW_statesSection_in_blessSubclause10569 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000800000L});
-	public static final BitSet FOLLOW_transitions_in_blessSubclause10578 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_invariantClause10640 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_invariantClause10644 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_variables_in_variablesSection10676 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_variableDeclaration_in_variablesSection10680 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
-	public static final BitSet FOLLOW_LITERAL_states_in_statesSection10711 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorState_in_statesSection10715 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000400L});
-	public static final BitSet FOLLOW_LITERAL_state_in_behaviorState10747 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_initial_in_behaviorState10751 = new BitSet(new long[]{0x0008000000000000L,0x0000000400001000L});
-	public static final BitSet FOLLOW_LITERAL_complete_in_behaviorState10756 = new BitSet(new long[]{0x0008000000000000L,0x0000000400000000L});
-	public static final BitSet FOLLOW_LITERAL_final_in_behaviorState10761 = new BitSet(new long[]{0x0008000000000000L});
-	public static final BitSet FOLLOW_ID_in_behaviorState10766 = new BitSet(new long[]{0x000000000000D008L});
-	public static final BitSet FOLLOW_assertion_in_behaviorState10770 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_transitions_in_transitions10825 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorTransition_in_transitions10829 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
-	public static final BitSet FOLLOW_TRANSITION_in_behaviorTransition10862 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_behaviorTransition10871 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10875 = new BitSet(new long[]{0x0200000000000008L});
-	public static final BitSet FOLLOW_priority_in_behaviorTransition10879 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_SOURCE_in_behaviorTransition10891 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10895 = new BitSet(new long[]{0x0008000000000008L});
-	public static final BitSet FOLLOW_CONDITION_in_behaviorTransition10907 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorCondition_in_behaviorTransition10911 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DESTINATION_in_behaviorTransition10923 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_behaviorTransition10927 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ACTION_in_behaviorTransition10937 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_behaviorActions_in_behaviorTransition10941 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_Q_in_behaviorTransition10953 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_assertion_in_behaviorTransition10957 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LBRACKET_in_priority11029 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_priority11033 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
-	public static final BitSet FOLLOW_RBRACKET_in_priority11035 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_dispatchCondition_in_behaviorCondition11066 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_executeCondition_in_behaviorCondition11083 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_modeCondition_in_behaviorCondition11101 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_internalCondition_in_behaviorCondition11119 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatchCondition11147 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchExpression_in_dispatchCondition11151 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_expression_in_executeCondition11188 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_on_in_modeCondition11217 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_triggerLogicalExpression_in_modeCondition11221 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_internal_in_internalCondition11255 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_internalCondition11259 = new BitSet(new long[]{0x0008000000000008L});
-	public static final BitSet FOLLOW_LITERAL_or_in_dispatchExpression11295 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11299 = new BitSet(new long[]{0x4008000000000008L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11325 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_and_in_dispatchConjunction11356 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11360 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x0000000000100000L});
-	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11386 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_portName_in_dispatchTrigger11412 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatchTrigger11430 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LPAREN_in_dispatchTrigger11436 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_dispatchTrigger11440 = new BitSet(new long[]{0x0008000000000008L});
-	public static final BitSet FOLLOW_behaviorTime_in_dispatchTrigger11450 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BEHAVIOR_TIME_in_behaviorTime11484 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_quantity_in_behaviorTime11488 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BEHAVIOR_TIME_in_behaviorTime11507 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_valueName_in_behaviorTime11512 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x0000002000000010L});
-	public static final BitSet FOLLOW_ID_in_behaviorTime11518 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_scalar_in_behaviorTime11524 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_whole_in_behaviorTime11530 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_portName11587 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_NUMBER_in_portName11591 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_and_in_triggerLogicalExpression11628 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11632 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_LITERAL_or_in_triggerLogicalExpression11659 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11663 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_LITERAL_xor_in_triggerLogicalExpression11690 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11694 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_LITERAL_then_in_triggerLogicalExpression11721 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11725 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_LITERAL_else_in_triggerLogicalExpression11752 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11756 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
-	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11782 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_modeTrigger_in_eventTrigger11807 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_eventTrigger11826 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_triggerLogicalExpression_in_eventTrigger11830 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-	public static final BitSet FOLLOW_RPAREN_in_eventTrigger11832 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7397 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7401 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_quantity7405 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7436 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7440 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000010L});
+	public static final BitSet FOLLOW_LITERAL_scalar_in_quantity7444 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_QUANTITY_in_quantity7475 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_aNumber_in_quantity7479 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000002000000000L});
+	public static final BitSet FOLLOW_LITERAL_whole_in_quantity7483 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NUMBER_in_aNumber7522 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_propertyReference_in_aNumber7536 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_propertyName_in_aNumber7550 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7582 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7586 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7623 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7627 = new BitSet(new long[]{0x0200001000000000L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7631 = new BitSet(new long[]{0x0200001000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7673 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7677 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7681 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7723 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_self_in_propertyReference7727 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7731 = new BitSet(new long[]{0x0200001000000000L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7735 = new BitSet(new long[]{0x0200001000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7781 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_componentName_in_propertyReference7785 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7789 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_OCTOTHORPE_in_propertyReference7824 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_componentName_in_propertyReference7828 = new BitSet(new long[]{0x0000008000000000L});
+	public static final BitSet FOLLOW_propertyName_in_propertyReference7832 = new BitSet(new long[]{0x0200001000000000L});
+	public static final BitSet FOLLOW_propertyField_in_propertyReference7836 = new BitSet(new long[]{0x0200001000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_propertyField7878 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_propertyField7882 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_propertyField7907 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_propertyField7911 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7936 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_propertyField7940 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7967 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_upper_bound_in_propertyField7969 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DOT_in_propertyField7993 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_lower_bound_in_propertyField7995 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ACTION_SUBCLAUSE_in_actionSubclause8030 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_actionSubclause8035 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000004L,0x0000000000080000L});
+	public static final BitSet FOLLOW_throwsClause_in_actionSubclause8042 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000004L});
+	public static final BitSet FOLLOW_assertClause_in_actionSubclause8049 = new BitSet(new long[]{0x0000000000000000L,0x0800000000000000L});
+	public static final BitSet FOLLOW_LITERAL_pre_in_actionSubclause8060 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause8065 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_post_in_actionSubclause8077 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause8082 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_actionSubclause8095 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_actionSubclause8100 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_actionSubclause8113 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_throws_in_throwsClause8186 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_throwsClause8190 = new BitSet(new long[]{0x0008000000000008L});
+	public static final BitSet FOLLOW_LITERAL_assert_in_assertClause8223 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_namedAssertion_in_assertClause8227 = new BitSet(new long[]{0x000000000000D008L});
+	public static final BitSet FOLLOW_LCURLY_in_existentialLatticeQuantification8260 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_quantifiedVariables_in_existentialLatticeQuantification8266 = new BitSet(new long[]{0x0000000000000440L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+	public static final BitSet FOLLOW_behaviorActions_in_existentialLatticeQuantification8273 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_RCURLY_in_existentialLatticeQuantification8275 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L});
+	public static final BitSet FOLLOW_catchClause_in_existentialLatticeQuantification8281 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_declare_in_quantifiedVariables8326 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variableDeclaration_in_quantifiedVariables8330 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_VARIABLE_DECLARATION_in_variableDeclaration8362 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variable_in_variableDeclaration8366 = new BitSet(new long[]{0x000000000001D008L,0x0004000400004000L,0x0000000000000280L});
+	public static final BitSet FOLLOW_ASSIGN_in_variableDeclaration8372 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_variableDeclaration8376 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_assertion_in_variableDeclaration8385 = new BitSet(new long[]{0x0000000000000008L,0x0004000400004000L,0x0000000000000280L});
+	public static final BitSet FOLLOW_LITERAL_nonvolatile_in_variableDeclaration8395 = new BitSet(new long[]{0x0000000000000008L,0x0000000400004000L,0x0000000000000280L});
+	public static final BitSet FOLLOW_LITERAL_shared_in_variableDeclaration8400 = new BitSet(new long[]{0x0000000000000008L,0x0000000400004000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_LITERAL_constant_in_variableDeclaration8405 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L,0x0000000000000200L});
+	public static final BitSet FOLLOW_LITERAL_spread_in_variableDeclaration8410 = new BitSet(new long[]{0x0000000000000008L,0x0000000400000000L});
+	public static final BitSet FOLLOW_LITERAL_final_in_variableDeclaration8415 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_catch_in_catchClause8475 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_catchClauseTerm_in_catchClause8479 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8511 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_catchClauseTerm8515 = new BitSet(new long[]{0x0008000001000000L});
+	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8521 = new BitSet(new long[]{0x0000000000010000L,0x00000001E1000000L,0x0300000400008140L,0x0000000000000800L});
+	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8525 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8527 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LPAREN_in_catchClauseTerm8557 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_all_in_catchClauseTerm8559 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_COLON_in_catchClauseTerm8563 = new BitSet(new long[]{0x0000000000010000L,0x00000001E1000000L,0x0300000400008140L,0x0000000000000800L});
+	public static final BitSet FOLLOW_basicAction_in_catchClauseTerm8567 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_RPAREN_in_catchClauseTerm8569 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SEMICOLON_in_behaviorActions8601 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8605 = new BitSet(new long[]{0x0000000000000048L});
+	public static final BitSet FOLLOW_AMPERSAND_in_behaviorActions8631 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8635 = new BitSet(new long[]{0x0000000000000048L});
+	public static final BitSet FOLLOW_assertedAction_in_behaviorActions8661 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ACTION_in_assertedAction8686 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_assertedAction8690 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_assertedAction8694 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_S_in_assertedAction8701 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_action_in_assertedAction8705 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Q_in_assertedAction8711 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_assertedAction8715 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_basicAction_in_action8757 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_alternative_in_action8773 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whileLoop_in_action8789 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_forLoop_in_action8805 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_doUntilLoop_in_action8821 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_action8837 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_universalLatticeQuantification_in_action8854 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_skip_in_basicAction8883 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assignment_in_basicAction8899 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_setmode_in_basicAction8915 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_basicAction8919 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_whenThrow_in_basicAction8945 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_combinableOperation_in_basicAction8961 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_communicationAction_in_basicAction8977 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_simultaneousAssignment_in_basicAction8994 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_issueException_in_basicAction9010 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_exception_in_issueException9036 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_issueException9040 = new BitSet(new long[]{0x0000000000000018L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_issueException9044 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignment9084 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_nameTick_in_assignment9088 = new BitSet(new long[]{0xF049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expressionOrAny_in_assignment9092 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_TICK_in_nameTick9131 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_valueName_in_nameTick9135 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_valueName_in_nameTick9160 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expression_in_expressionOrAny9187 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_any_in_expressionOrAny9207 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ASSIGN_in_simultaneousAssignment9233 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9237 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_nameTick_in_simultaneousAssignment9241 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x4000000000000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_COMMA_in_simultaneousAssignment9248 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expressionOrAny_in_simultaneousAssignment9252 = new BitSet(new long[]{0xF049500400820318L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_LITERAL_when_in_whenThrow9292 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_whenThrow9294 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_whenThrow9298 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_RPAREN_in_whenThrow9300 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000040000L});
+	public static final BitSet FOLLOW_LITERAL_throw_in_whenThrow9302 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_whenThrow9306 = new BitSet(new long[]{0x0000000000000018L});
+	public static final BitSet FOLLOW_AADL_STRING_LITERAL_in_whenThrow9318 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchadd_in_combinableOperation9364 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9368 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9372 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9376 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchor_in_combinableOperation9418 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9422 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9426 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9430 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchand_in_combinableOperation9472 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9476 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9480 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9484 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_fetchxor_in_combinableOperation9526 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9530 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_combinableOperation9534 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9538 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_swap_in_combinableOperation9580 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9584 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9588 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_combinableOperation9592 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_subprogramCall_in_communicationAction9638 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portOutput_in_communicationAction9656 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portInput_in_communicationAction9674 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_computation_in_computation9700 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorTime_in_computation9704 = new BitSet(new long[]{0x0000000000040008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_behaviorTime_in_computation9708 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000020L});
+	public static final BitSet FOLLOW_LITERAL_binding_in_computation9715 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_componentName_in_computation9719 = new BitSet(new long[]{0x0008008000000008L});
+	public static final BitSet FOLLOW_PORT_OUTPUT_in_portOutput9770 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_portOutput9774 = new BitSet(new long[]{0x7049500400820318L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_portOutput9778 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PORT_INPUT_in_portInput9820 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_portInput9824 = new BitSet(new long[]{0x0008000000000000L,0x0000000000000000L,0x4000000000000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_valueName_in_portInput9828 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SUBPROGRAM_INVOCATION_in_subprogramCall9872 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_subprogramCall9876 = new BitSet(new long[]{0x0008000005000018L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_formalActualList_in_subprogramCall9880 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_COMMA_in_formalActualList9925 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_formalActual_in_formalActualList9929 = new BitSet(new long[]{0x0008000001000018L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_formalActual_in_formalActualList9955 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COLON_in_formalActual9984 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_formalActual9988 = new BitSet(new long[]{0x0008000000000010L,0x0020000010000000L,0x6000010001000000L,0x0000000000001000L});
+	public static final BitSet FOLLOW_subProgramParameter_in_formalActual9992 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_subProgramParameter_in_formalActual10022 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_valueName_in_subProgramParameter10044 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_constant_in_subProgramParameter10059 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_parenthesizedSubexpression_in_subProgramParameter10074 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_if_in_alternative10102 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_guardedAction_in_alternative10106 = new BitSet(new long[]{0x0002000000000008L});
+	public static final BitSet FOLLOW_GUARD_in_guardedAction10143 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_guardedAction10147 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_assertedAction_in_guardedAction10151 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_while_in_whileLoop10190 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_whileLoop10194 = new BitSet(new long[]{0x0020000000000000L});
+	public static final BitSet FOLLOW_INVARIANT_in_whileLoop10198 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_whileLoop10202 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOUND_in_whileLoop10209 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_whileLoop10213 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_whileLoop10227 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_for_in_forLoop10276 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_forLoop10280 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_LITERAL_in_in_forLoop10284 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_forLoop10288 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_forLoop10292 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INVARIANT_in_forLoop10298 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_forLoop10302 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_behaviorActions_in_forLoop10316 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_do_in_doUntilLoop10371 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_until_in_doUntilLoop10375 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_doUntilLoop10379 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INVARIANT_in_doUntilLoop10385 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_doUntilLoop10389 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOUND_in_doUntilLoop10396 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_doUntilLoop10400 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_behaviorActions_in_doUntilLoop10413 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_forall_in_universalLatticeQuantification10466 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_universalLatticeQuantification10470 = new BitSet(new long[]{0x0008000000000000L,0x0000040000000000L});
+	public static final BitSet FOLLOW_LITERAL_in_in_universalLatticeQuantification10475 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10479 = new BitSet(new long[]{0x7049500400820310L,0x127A070012500000L,0x60A4538003524009L,0x0000000000025008L});
+	public static final BitSet FOLLOW_expression_in_universalLatticeQuantification10483 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_existentialLatticeQuantification_in_universalLatticeQuantification10489 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_blessSubclause10539 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_blessSubclause10547 = new BitSet(new long[]{0x0000000000000008L,0x0000200000000004L,0x0000000100800800L});
+	public static final BitSet FOLLOW_assertClause_in_blessSubclause10556 = new BitSet(new long[]{0x0000000000000008L,0x0000200000000000L,0x0000000100800800L});
+	public static final BitSet FOLLOW_invariantClause_in_blessSubclause10567 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000100800800L});
+	public static final BitSet FOLLOW_variablesSection_in_blessSubclause10576 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000800800L});
+	public static final BitSet FOLLOW_statesSection_in_blessSubclause10585 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000800000L});
+	public static final BitSet FOLLOW_transitions_in_blessSubclause10594 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_invariantClause10656 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_invariantClause10660 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_variables_in_variablesSection10692 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variableDeclaration_in_variablesSection10696 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000400000L});
+	public static final BitSet FOLLOW_LITERAL_states_in_statesSection10727 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorState_in_statesSection10731 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_LITERAL_state_in_behaviorState10763 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_initial_in_behaviorState10767 = new BitSet(new long[]{0x0008000000000000L,0x0000000400001000L});
+	public static final BitSet FOLLOW_LITERAL_complete_in_behaviorState10772 = new BitSet(new long[]{0x0008000000000000L,0x0000000400000000L});
+	public static final BitSet FOLLOW_LITERAL_final_in_behaviorState10777 = new BitSet(new long[]{0x0008000000000000L});
+	public static final BitSet FOLLOW_ID_in_behaviorState10782 = new BitSet(new long[]{0x000000000000D008L});
+	public static final BitSet FOLLOW_assertion_in_behaviorState10786 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_transitions_in_transitions10841 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorTransition_in_transitions10845 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000008000L});
+	public static final BitSet FOLLOW_TRANSITION_in_behaviorTransition10878 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_behaviorTransition10887 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10891 = new BitSet(new long[]{0x0200000000000008L});
+	public static final BitSet FOLLOW_priority_in_behaviorTransition10895 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_SOURCE_in_behaviorTransition10907 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10911 = new BitSet(new long[]{0x0008000000000008L});
+	public static final BitSet FOLLOW_CONDITION_in_behaviorTransition10923 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorCondition_in_behaviorTransition10927 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DESTINATION_in_behaviorTransition10939 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_behaviorTransition10943 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ACTION_in_behaviorTransition10953 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_behaviorActions_in_behaviorTransition10957 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Q_in_behaviorTransition10969 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_assertion_in_behaviorTransition10973 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LBRACKET_in_priority11045 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_priority11049 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000001L});
+	public static final BitSet FOLLOW_RBRACKET_in_priority11051 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_dispatchCondition_in_behaviorCondition11082 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_executeCondition_in_behaviorCondition11099 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_modeCondition_in_behaviorCondition11117 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_internalCondition_in_behaviorCondition11135 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_dispatch_in_dispatchCondition11163 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchExpression_in_dispatchCondition11167 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_expression_in_executeCondition11204 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_on_in_modeCondition11233 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_triggerLogicalExpression_in_modeCondition11237 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_internal_in_internalCondition11271 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_internalCondition11275 = new BitSet(new long[]{0x0008000000000008L});
+	public static final BitSet FOLLOW_LITERAL_or_in_dispatchExpression11311 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11315 = new BitSet(new long[]{0x4008000000000008L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_dispatchConjunction_in_dispatchExpression11341 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_and_in_dispatchConjunction11372 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11376 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x0000000000100000L});
+	public static final BitSet FOLLOW_dispatchTrigger_in_dispatchConjunction11402 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_portName_in_dispatchTrigger11428 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LITERAL_timeout_in_dispatchTrigger11446 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LPAREN_in_dispatchTrigger11452 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_dispatchTrigger11456 = new BitSet(new long[]{0x0008000000000008L});
+	public static final BitSet FOLLOW_behaviorTime_in_dispatchTrigger11466 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BEHAVIOR_TIME_in_behaviorTime11500 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_quantity_in_behaviorTime11504 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BEHAVIOR_TIME_in_behaviorTime11523 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_valueName_in_behaviorTime11528 = new BitSet(new long[]{0x0008000000000008L,0x0000000000000000L,0x0000002000000010L});
+	public static final BitSet FOLLOW_ID_in_behaviorTime11534 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_scalar_in_behaviorTime11540 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_whole_in_behaviorTime11546 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ID_in_portName11603 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_NUMBER_in_portName11607 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LITERAL_and_in_triggerLogicalExpression11644 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11648 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_LITERAL_or_in_triggerLogicalExpression11675 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11679 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_LITERAL_xor_in_triggerLogicalExpression11706 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11710 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_LITERAL_then_in_triggerLogicalExpression11737 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11741 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_LITERAL_else_in_triggerLogicalExpression11768 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11772 = new BitSet(new long[]{0x0000001000000008L,0x0000000000000000L,0x0000010000000000L});
+	public static final BitSet FOLLOW_eventTrigger_in_triggerLogicalExpression11798 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_modeTrigger_in_eventTrigger11823 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_eventTrigger11842 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_triggerLogicalExpression_in_eventTrigger11846 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
+	public static final BitSet FOLLOW_RPAREN_in_eventTrigger11848 = new BitSet(new long[]{0x0000000000000008L});
 }
