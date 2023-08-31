@@ -20,7 +20,7 @@ alternative(gf) ::=
 and(terms) ::=
   "<terms; wrap, separator=\" & \">" 
 
-annex_library_assertion(ass) ::=
+annex_library_assertion(ghosts,ass) ::=
 <<
 >>  
 
@@ -63,8 +63,8 @@ behavior_state(bsi,i,com,finl,a) ::=
 
 behavior_time(e,u) ::= "<e><if(u)>_<u><endif>"
 
-behavior_transition(btl,ssi,bc,dsi,ba,btq) ::=
-<<<if(btl)><btl>: <endif><ssi; separator=",">-[<bc>]-\><dsi>
+behavior_transition(i,pr,ssi,bc,dsi,ba,btq) ::=
+<<<if(i)><i><pr>: <endif><ssi; separator=",">-[<bc>]-\><dsi>
 <if(ba)>  { <ba; anchor> }<\n><else>  {}<endif> <if(btq)><btq><endif>;<if(btl)>  --end of <btl><endif>
 >>
 
@@ -99,6 +99,9 @@ catch_clause_term_all(ba) ::= "(all:<ba>)"
 
 classifier_type(i) ::=
   "classifier (<i; wrap, anchor, separator=\", \">)"   
+
+combinable(op,t,e,r) ::=
+  "<op>(<t>,<e>,<r>)"
 
 complex()::="complex"
 
@@ -157,7 +160,7 @@ elq(v,ba,cc) ::=
 enumeration_pair(i,pe) ::=
 "<i> -\> <pe>"
 
-enumeration_type(id,et)::=
+enumeration_type(id)::=
 <<@enum {
   '<id; separator="\n\'">
   }  
@@ -165,8 +168,6 @@ enumeration_type(id,et)::=
 
 enumeration_value(t,v) ::=
   "<t>.<v>"
-
-equal_relation(lhs,rhs) ::= "<lhs> == <rhs>"
 
 event_port_output(o) ::= 
 <<api.put_<o>() 
@@ -246,7 +247,7 @@ in_range(p,ra) ::= "<p> in <ra>"
 issue_exception(ex,m) ::=
   "exception <ex> <m>"
 
-local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
+local_name(n,imp,pn)::="<n><if(imp)>.<imp><endif>"
 
 logic_variables(t,i) ::= "<i; separator=\",\">:<t>" 
 
@@ -268,13 +269,17 @@ l_xor(bs) ::= "<bs; wrap, separator=\" |^ \">"
 
 mod(l,r) ::= "<l> mod <r>"
 
+mode_condition(tle) ::=
+  "on <tle>"
+
 mode_trigger(mt) ::=
   "<mt; separator=\".\">"
 
 multiply(terms) ::=
   "<terms; wrap, separator=\" * \">" 
 
-name(p,pp) ::= "<p; separator=\".\"><pp>"
+name(id,index,rec) ::= 
+  "<id><if(index)>[<index; separator=\"][\">]<endif><if(rec)>.<rec; separator=\".\"><endif>"
 
 named_assertion(id,pred,formals,tod,functionvalue) ::=
 << >>
@@ -321,6 +326,9 @@ parentheses(be) ::=
 
 parenthesized_predicate(p) ::= "(<p>)"
 
+partial_name(i,p) ::=
+  "<i><if(p)>[<p; separator=\"][\">]<endif>"
+
 port_count(i) ::= "api.<i>.Count()"
 
 port_fresh(i) ::= "api.<i>.Fresh()"
@@ -355,13 +363,10 @@ product(p,lv,d,pe) ::=
   <d> 
   of <pe; anchor> >>
 
-property_definition_declaration(dpni,prop,puccr,inh)::=
-<<
-  <dpni> : <prop> <inh>  
-    applies to (<puccr; wrap, anchor, separator=", ">);
->>  
-
 property_name(ps,p) ::= "<ps>.<p>"
+
+property_number_type(kind,range,units,designator) ::=
+  "<kind> <range><if(units)> <units> <designator><endif>" 
 
 property_reference(component,pname,f) ::= "<if(component)><component>.<endif><pname><f>"
 
@@ -386,6 +391,9 @@ real_literal(r) ::=  "f32\"<r>\""
 
 record_field(df,ptd,t) ::=
     "<df>:<if(t)>list of <endif><ptd>;"
+
+record_term(typeid,prv) ::=
+  "[<typeid>: <prv; wrap, separator=\" \">]"
 
 record_type(rf) ::= 
 <<record 
@@ -413,14 +421,16 @@ simultaneous_assignment(l,r) ::=
 <<
 (<l; separator=","> := <r; separator=",">)  >>
 
-single_valued_property(ptd,dpe) ::=
-  "<ptd> =\> <dpe>"
-
 skip() ::= "" 
+
+states_section(bs) ::=
+<<
+  <bs; separator="\n">
+>>
 
 stop() ::= "stop"
 
-string()::="string"
+string() ::= "string"
 
 subcomponent(i,cc,uccr,ad,aeil,sbpa,sbim)::=
   "<i>: <cc> <uccr><ad><aeil><if(sbpa)>(<sbpa; separator=\",\">)<endif><sbim>;"
@@ -461,22 +471,15 @@ two_element_expression(op,l,r) ::=
 two_element_expression_spaced(op,l,r) ::=
   "<l> <op> <r>"  
 
-type_declaration(i,t)::=
-<<<i>: type <t>;
+type_declaration(id,ty)::=
+<<<id>: type <ty>;
 >>
 
-type_operator(i,param,t)::=
-<<<i>[<param; separator=" ">] : type <t>;
->>
-
-type_operator_invocation(o,ty)::=
-<<<o>[<ty; separator=", ">]
->>
-
+type_library(decs) ::= ""
   
-ulq(lv,ir,elq) ::=
+ulq(lv,lb,ub,elq) ::=
 <<
-forall <lv> in <ir>
+forall <lv> in ,lb> .. <ub>
   <elq> >>
 
 unary(sym,ex) ::=
@@ -487,6 +490,22 @@ unary_paren(sym,ex) ::=
 
 unique_component_classifier_reference(p,ii) ::=
   "<p; separator=\".\"><if(ii)>.<ii><endif>"
+
+unit_formula(top,bottom) ::= ""
+
+unit_library(unitDeclarations) ::= ""
+
+unit_name(id,longname) ::= ""
+
+units_declaration(i,ul)::= ""
+
+unit_extension(root,factors) ::= ""
+
+unit_factor(unit,op,factor) ::= ""
+
+units_list(fu,au) ::= ""
+
+units_type(ul)::= ""
 
 universal_quantification(a,lv,d,p)::=
 <<

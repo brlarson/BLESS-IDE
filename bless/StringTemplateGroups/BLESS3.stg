@@ -271,7 +271,7 @@ in_range(p,ra) ::= "<p> in <ra>"
 issue_exception(ex,m) ::=
   "exception <ex> <m>"
 
-local_name( n,imp,pn)::="<n><if(imp)>.<imp><endif>"
+local_name(n,imp,pn)::="<n><if(imp)>.<imp><endif>"
 
 logic_variables(t,i) ::= "<i; separator=\",\">~<t>" 
 
@@ -463,7 +463,7 @@ states
 
 stop() ::= "stop"
 
-string()::="string"
+string() ::= "string"
 
 subcomponent(i,cc,uccr,ad,aeil,sbpa,sbim)::=
   "<i>: <cc> <uccr><ad><aeil><if(sbpa)>(<sbpa; separator=\",\">)<endif><sbim>;"
@@ -516,14 +516,6 @@ annex Typedef
   {**
   <decs; separator="\n">
   **};
->>
-
-type_operator(i,param,t)::=
-<<<i>[<param; separator=" ">] : type <t>;
->>
-
-type_operator_invocation(o,ty)::=
-<<<o>[<ty; separator=", ">]
 >>
 
 ulq(lv,lb,ub,elq) ::=
