@@ -39,7 +39,7 @@ getLinkedObjects(EObject context, EReference ref, INode node) throws IllegalNode
 	if (ref.eIsProxy)
 	  EcoreUtil.resolve(ref,context)
 	if ( //ref == BLESSPackage.eINSTANCE.numericConstant_PropertyConstant ||
-	  ref == BLESSPackage.eINSTANCE.quantityType_Representation ||
+//	  ref == BLESSPackage.eINSTANCE.quantityType_Representation ||
 	    ref == BLESSPackage.eINSTANCE.ANumber_PropertyConstant)
 	  {
 	  val propertyConstant = // findPropertyConstant(context,s)  
@@ -132,7 +132,8 @@ getLinkedObjects(EObject context, EReference ref, INode node) throws IllegalNode
         }
       }
     } //end of parameter
-  else if (ref == BLESSPackage.eINSTANCE.eventTrigger_Port)
+  //THIS IS UNLIKELY TO FIND THE MODE TRIGGER PORT  
+  else if (ref == BLESSPackage.eINSTANCE.eventTrigger_Sub)
     {  //walk the subcompont ID list to find intended subcomponent
     if (context instanceof EventTrigger)
       {

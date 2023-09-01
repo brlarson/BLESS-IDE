@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2022-12-06 09:13:24
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g 2023-08-10 10:33:00
 
 //copyright 2012 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -7,7 +7,7 @@ import org.antlr.runtime.tree.*;
 import org.antlr.stringtemplate.*;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.BLESS;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.*;
@@ -27,368 +27,262 @@ import java.util.HashMap;
 public class ASTtoAST extends TreeParser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AADL_STRING_LITERAL", "AADL_STRING_PART", 
-		"ACTION", "AL", "AM", "AMPERSAND", "ANNEX_END", "ANNEX_START", "ARROW", 
-		"ASSERTION", "ASSERTION_ANNEX", "ASSERTION_ENUMERATION", "ASSERTION_FUNCTION", 
-		"ASSIGN", "AT_SIGN", "BASE", "BASED_INTEGER", "BEHAVIOR_GUARD", "BEHAVIOR_TIME", 
-		"BI", "BOUND", "BOX", "CARET", "CASE_EXPRESSION", "COLON", "COMMA", "COMMACOMMA", 
-		"COMMADOT", "COMPLEX", "COMPONENT", "CONDITION", "CONDITIONAL", "CONDITIONAL_FUNCTION", 
-		"CONNECTION", "COUNTING_TRIGGER", "DESTINATION", "DIGIT", "DIVIDE", "DOLLAR", 
-		"DOTCOMMA", "DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", "DO_NOT_PROVE", 
-		"DUMMY", "EMPTY_CURLY", "END_ASSERTION_PROPERTY", "EQ", "EXCLAMATION", 
-		"EXP", "EXPONENT", "EXTENDED_DIGIT", "FLOATING", "FUNCTION", "FUNCTION_CALL", 
-		"GT", "GUARD", "HEX_DIGIT", "ID", "IMP", "INMODE", "INOUT", "INTEGER_LIT", 
-		"INT_EXPONENT", "INVARIANT", "INVOKE", "IP_NAME", "IP_PE", "IP_PRED", 
-		"LABEL", "LASS", "LBRACKET", "LCON", "LCURLY", "LITERAL_Assertion", "LITERAL_Invariant", 
-		"LITERAL_Postcondition", "LITERAL_Precondition", "LITERAL_Typed", "LITERAL_aadlboolean", 
-		"LITERAL_aadlinteger", "LITERAL_aadlreal", "LITERAL_aadlstring", "LITERAL_abs", 
-		"LITERAL_abstract", "LITERAL_access", "LITERAL_all", "LITERAL_and", "LITERAL_annex", 
-		"LITERAL_any", "LITERAL_applies", "LITERAL_are", "LITERAL_array", "LITERAL_assert", 
-		"LITERAL_availability", "LITERAL_boolean", "LITERAL_bound", "LITERAL_bus", 
-		"LITERAL_call", "LITERAL_calls", "LITERAL_cand", "LITERAL_catch", "LITERAL_classifier", 
-		"LITERAL_complete", "LITERAL_complex", "LITERAL_component", "LITERAL_computation", 
-		"LITERAL_connection", "LITERAL_connections", "LITERAL_constant", "LITERAL_cor", 
-		"LITERAL_count", "LITERAL_data", "LITERAL_declare", "LITERAL_def", "LITERAL_delay", 
-		"LITERAL_device", "LITERAL_dispatch", "LITERAL_do", "LITERAL_else", "LITERAL_end", 
-		"LITERAL_enumeration", "LITERAL_event", "LITERAL_exception", "LITERAL_exists", 
-		"LITERAL_extends", "LITERAL_false", "LITERAL_feature", "LITERAL_features", 
-		"LITERAL_fetchadd", "LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", 
-		"LITERAL_fi", "LITERAL_final", "LITERAL_flow", "LITERAL_flows", "LITERAL_for", 
-		"LITERAL_forall", "LITERAL_fresh", "LITERAL_function", "LITERAL_group", 
-		"LITERAL_hr", "LITERAL_if", "LITERAL_iff", "LITERAL_implementation", "LITERAL_implies", 
-		"LITERAL_in", "LITERAL_inherit", "LITERAL_initial", "LITERAL_integer", 
-		"LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", "LITERAL_list", 
-		"LITERAL_lower_bound", "LITERAL_memory", "LITERAL_min", "LITERAL_mod", 
-		"LITERAL_mode", "LITERAL_modes", "LITERAL_ms", "LITERAL_natural", "LITERAL_none", 
-		"LITERAL_nonvolatile", "LITERAL_not", "LITERAL_now", "LITERAL_ns", "LITERAL_null", 
-		"LITERAL_numberof", "LITERAL_of", "LITERAL_on", "LITERAL_or", "LITERAL_out", 
-		"LITERAL_package", "LITERAL_parameter", "LITERAL_pause", "LITERAL_port", 
-		"LITERAL_post", "LITERAL_pre", "LITERAL_private", "LITERAL_procedure", 
-		"LITERAL_process", "LITERAL_processor", "LITERAL_product", "LITERAL_properties", 
-		"LITERAL_property", "LITERAL_prototypes", "LITERAL_provides", "LITERAL_ps", 
-		"LITERAL_public", "LITERAL_range", "LITERAL_rational", "LITERAL_real", 
-		"LITERAL_record", "LITERAL_reference", "LITERAL_rem", "LITERAL_renames", 
-		"LITERAL_requires", "LITERAL_sec", "LITERAL_self", "LITERAL_sequence", 
-		"LITERAL_set", "LITERAL_setmode", "LITERAL_shared", "LITERAL_skip", "LITERAL_spread", 
-		"LITERAL_state", "LITERAL_states", "LITERAL_stop", "LITERAL_string", "LITERAL_subcomponents", 
-		"LITERAL_subprogram", "LITERAL_sum", "LITERAL_swap", "LITERAL_system", 
-		"LITERAL_that", "LITERAL_then", "LITERAL_thread", "LITERAL_throw", "LITERAL_time", 
-		"LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transition", 
-		"LITERAL_transitions", "LITERAL_true", "LITERAL_type", "LITERAL_units", 
-		"LITERAL_until", "LITERAL_updated", "LITERAL_upper_bound", "LITERAL_us", 
-		"LITERAL_variables", "LITERAL_variant", "LITERAL_virtual", "LITERAL_when", 
-		"LITERAL_while", "LITERAL_with", "LITERAL_xor", "LPAREN", "LT", "LTE_STRING", 
-		"LT_STRING", "MINUS", "MT_STRING", "NEQ", "OBLIGATION", "OCTOTHORPE", 
-		"ON", "P", "PARAMETER", "PARAMETERS", "PERIOD", "PLUS", "PLUS_ARROW", 
-		"PLUS_EQUALS", "PORT", "PORT_INPUT", "PORT_OUTPUT", "PREDICATE_RELATION", 
-		"PROCEDURE", "PROCEDURE_CALL", "PROPERTY_LIST", "Q", "QQ", "QUESTION", 
-		"RASS", "RATIONAL", "RBRACKET", "RCON", "RCURLY", "REAL_LIT", "RECORD_VALUE", 
-		"RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", "START", "START_ASSERTION_PROPERTY", 
-		"STOP", "SUBCOMPONENT", "SUBPROGRAM_ANNEX", "THREAD_ANNEX", "THREAD_GROUP", 
-		"TICK", "TILDE", "TIMES", "TOP", "TRANSITION", "TYPE", "TYPE_OPERATOR", 
-		"TYPE_OPERATOR_INVOCATION", "UNARY_MINUS", "VALUE", "WP", "WS", "'|'", 
-		"LITERAL_BLESS"
+		"ACTION", "ACTION_SUBCLAUSE", "AL", "AM", "AMPERSAND", "ARROW", "ASSERTION", 
+		"ASSERTION_ANNEX", "ASSERTION_ENUMERATION", "ASSERTION_FUNCTION", "ASSIGN", 
+		"AT_SIGN", "BEHAVIOR_TIME", "BI", "BLESS_SUBCLAUSE", "BOUND", "BOX", "CARET", 
+		"COLON", "COLON_TILDE", "COMMA", "COMMACOMMA", "COMMADOT", "CONDITION", 
+		"CONDITIONAL_ASSERTION_FUNCTION", "CVP", "DESTINATION", "DIGIT", "DIVIDE", 
+		"DOLLAR", "DOT", "DOTCOMMA", "DOTDOT", "DOUBLE_COLON", "DOUBLE_QUOTE", 
+		"DO_NOT_PROVE", "DUMMY", "EMPTY_CURLY", "EQ", "EXCLAMATION", "EXP", "EXPONENT", 
+		"GT", "GUARD", "HEX_DIGIT", "ID", "IMP", "INVARIANT", "INVOKE", "LABEL", 
+		"LASS", "LBRACKET", "LCON", "LCURLY", "LITERAL_abs", "LITERAL_all", "LITERAL_and", 
+		"LITERAL_any", "LITERAL_are", "LITERAL_array", "LITERAL_assert", "LITERAL_availability", 
+		"LITERAL_base", "LITERAL_binding", "LITERAL_boolean", "LITERAL_bound", 
+		"LITERAL_call", "LITERAL_calls", "LITERAL_case", "LITERAL_catch", "LITERAL_complete", 
+		"LITERAL_computation", "LITERAL_constant", "LITERAL_count", "LITERAL_declare", 
+		"LITERAL_def", "LITERAL_delay", "LITERAL_dispatch", "LITERAL_div", "LITERAL_do", 
+		"LITERAL_else", "LITERAL_enumeration", "LITERAL_exception", "LITERAL_exists", 
+		"LITERAL_extends", "LITERAL_extension", "LITERAL_false", "LITERAL_fetchadd", 
+		"LITERAL_fetchand", "LITERAL_fetchor", "LITERAL_fetchxor", "LITERAL_fi", 
+		"LITERAL_final", "LITERAL_for", "LITERAL_forall", "LITERAL_fresh", "LITERAL_ghost", 
+		"LITERAL_if", "LITERAL_iff", "LITERAL_implies", "LITERAL_in", "LITERAL_initial", 
+		"LITERAL_internal", "LITERAL_invariant", "LITERAL_inverse", "LITERAL_is", 
+		"LITERAL_lower_bound", "LITERAL_mod", "LITERAL_nonvolatile", "LITERAL_not", 
+		"LITERAL_now", "LITERAL_null", "LITERAL_numberof", "LITERAL_of", "LITERAL_on", 
+		"LITERAL_or", "LITERAL_post", "LITERAL_pre", "LITERAL_product", "LITERAL_quantity", 
+		"LITERAL_range", "LITERAL_record", "LITERAL_rem", "LITERAL_representation", 
+		"LITERAL_returns", "LITERAL_round", "LITERAL_scalar", "LITERAL_self", 
+		"LITERAL_setmode", "LITERAL_shared", "LITERAL_skip", "LITERAL_spread", 
+		"LITERAL_state", "LITERAL_states", "LITERAL_step", "LITERAL_string", "LITERAL_sum", 
+		"LITERAL_swap", "LITERAL_that", "LITERAL_then", "LITERAL_throw", "LITERAL_throws", 
+		"LITERAL_timeout", "LITERAL_to", "LITERAL_tops", "LITERAL_transitions", 
+		"LITERAL_true", "LITERAL_truncate", "LITERAL_type", "LITERAL_union", "LITERAL_units", 
+		"LITERAL_until", "LITERAL_updated", "LITERAL_upper_bound", "LITERAL_variables", 
+		"LITERAL_variant", "LITERAL_when", "LITERAL_which", "LITERAL_while", "LITERAL_whole", 
+		"LITERAL_with", "LITERAL_xor", "LPAREN", "LT", "LTE_STRING", "LT_STRING", 
+		"MINUS", "MT_STRING", "NEQ", "NUMBER", "OBLIGATION", "OCTOTHORPE", "OLD_NEQ", 
+		"P", "PARAMETERS", "PLUS", "PLUS_ARROW", "PLUS_EQUALS", "PORT_INPUT", 
+		"PORT_OUTPUT", "PREDICATE_RELATION", "Q", "QQ", "QUANTITY", "QUESTION", 
+		"RASS", "RBRACKET", "RCON", "RCURLY", "RECORD_TERM", "ROOT_DECLARATION", 
+		"RPAREN", "S", "SEMICOLON", "SLCOMMENT", "SOURCE", "STOP", "SUBPROGRAM_INVOCATION", 
+		"TICK", "TILDE", "TIMES", "TRANSITION", "TYPE_LIBRARY", "UNARY_MINUS", 
+		"UNIT_FORMULA", "UNIT_LIBRARY", "UNIT_NAME", "VALUE", "VARIABLE_DECLARATION", 
+		"VERT", "WS"
 	};
 	public static final int EOF=-1;
-	public static final int T__302=302;
 	public static final int AADL_STRING_LITERAL=4;
 	public static final int AADL_STRING_PART=5;
 	public static final int ACTION=6;
-	public static final int AL=7;
-	public static final int AM=8;
-	public static final int AMPERSAND=9;
-	public static final int ANNEX_END=10;
-	public static final int ANNEX_START=11;
-	public static final int ARROW=12;
-	public static final int ASSERTION=13;
-	public static final int ASSERTION_ANNEX=14;
-	public static final int ASSERTION_ENUMERATION=15;
-	public static final int ASSERTION_FUNCTION=16;
-	public static final int ASSIGN=17;
-	public static final int AT_SIGN=18;
-	public static final int BASE=19;
-	public static final int BASED_INTEGER=20;
-	public static final int BEHAVIOR_GUARD=21;
-	public static final int BEHAVIOR_TIME=22;
-	public static final int BI=23;
-	public static final int BOUND=24;
-	public static final int BOX=25;
-	public static final int CARET=26;
-	public static final int CASE_EXPRESSION=27;
-	public static final int COLON=28;
-	public static final int COMMA=29;
-	public static final int COMMACOMMA=30;
-	public static final int COMMADOT=31;
-	public static final int COMPLEX=32;
-	public static final int COMPONENT=33;
-	public static final int CONDITION=34;
-	public static final int CONDITIONAL=35;
-	public static final int CONDITIONAL_FUNCTION=36;
-	public static final int CONNECTION=37;
-	public static final int COUNTING_TRIGGER=38;
-	public static final int DESTINATION=39;
-	public static final int DIGIT=40;
-	public static final int DIVIDE=41;
-	public static final int DOLLAR=42;
-	public static final int DOTCOMMA=43;
-	public static final int DOTDOT=44;
-	public static final int DOUBLE_COLON=45;
-	public static final int DOUBLE_QUOTE=46;
-	public static final int DO_NOT_PROVE=47;
-	public static final int DUMMY=48;
-	public static final int EMPTY_CURLY=49;
-	public static final int END_ASSERTION_PROPERTY=50;
-	public static final int EQ=51;
-	public static final int EXCLAMATION=52;
-	public static final int EXP=53;
-	public static final int EXPONENT=54;
-	public static final int EXTENDED_DIGIT=55;
-	public static final int FLOATING=56;
-	public static final int FUNCTION=57;
-	public static final int FUNCTION_CALL=58;
-	public static final int GT=59;
-	public static final int GUARD=60;
-	public static final int HEX_DIGIT=61;
-	public static final int ID=62;
-	public static final int IMP=63;
-	public static final int INMODE=64;
-	public static final int INOUT=65;
-	public static final int INTEGER_LIT=66;
-	public static final int INT_EXPONENT=67;
-	public static final int INVARIANT=68;
-	public static final int INVOKE=69;
-	public static final int IP_NAME=70;
-	public static final int IP_PE=71;
-	public static final int IP_PRED=72;
-	public static final int LABEL=73;
-	public static final int LASS=74;
-	public static final int LBRACKET=75;
-	public static final int LCON=76;
-	public static final int LCURLY=77;
-	public static final int LITERAL_Assertion=78;
-	public static final int LITERAL_Invariant=79;
-	public static final int LITERAL_Postcondition=80;
-	public static final int LITERAL_Precondition=81;
-	public static final int LITERAL_Typed=82;
-	public static final int LITERAL_aadlboolean=83;
-	public static final int LITERAL_aadlinteger=84;
-	public static final int LITERAL_aadlreal=85;
-	public static final int LITERAL_aadlstring=86;
-	public static final int LITERAL_abs=87;
-	public static final int LITERAL_abstract=88;
-	public static final int LITERAL_access=89;
-	public static final int LITERAL_all=90;
-	public static final int LITERAL_and=91;
-	public static final int LITERAL_annex=92;
-	public static final int LITERAL_any=93;
-	public static final int LITERAL_applies=94;
-	public static final int LITERAL_are=95;
-	public static final int LITERAL_array=96;
-	public static final int LITERAL_assert=97;
-	public static final int LITERAL_availability=98;
-	public static final int LITERAL_boolean=99;
-	public static final int LITERAL_bound=100;
-	public static final int LITERAL_bus=101;
-	public static final int LITERAL_call=102;
-	public static final int LITERAL_calls=103;
-	public static final int LITERAL_cand=104;
-	public static final int LITERAL_catch=105;
-	public static final int LITERAL_classifier=106;
-	public static final int LITERAL_complete=107;
-	public static final int LITERAL_complex=108;
-	public static final int LITERAL_component=109;
-	public static final int LITERAL_computation=110;
-	public static final int LITERAL_connection=111;
-	public static final int LITERAL_connections=112;
-	public static final int LITERAL_constant=113;
-	public static final int LITERAL_cor=114;
-	public static final int LITERAL_count=115;
-	public static final int LITERAL_data=116;
-	public static final int LITERAL_declare=117;
-	public static final int LITERAL_def=118;
-	public static final int LITERAL_delay=119;
-	public static final int LITERAL_device=120;
-	public static final int LITERAL_dispatch=121;
-	public static final int LITERAL_do=122;
-	public static final int LITERAL_else=123;
-	public static final int LITERAL_end=124;
-	public static final int LITERAL_enumeration=125;
-	public static final int LITERAL_event=126;
-	public static final int LITERAL_exception=127;
-	public static final int LITERAL_exists=128;
-	public static final int LITERAL_extends=129;
-	public static final int LITERAL_false=130;
-	public static final int LITERAL_feature=131;
-	public static final int LITERAL_features=132;
-	public static final int LITERAL_fetchadd=133;
-	public static final int LITERAL_fetchand=134;
-	public static final int LITERAL_fetchor=135;
-	public static final int LITERAL_fetchxor=136;
-	public static final int LITERAL_fi=137;
-	public static final int LITERAL_final=138;
-	public static final int LITERAL_flow=139;
-	public static final int LITERAL_flows=140;
-	public static final int LITERAL_for=141;
-	public static final int LITERAL_forall=142;
-	public static final int LITERAL_fresh=143;
-	public static final int LITERAL_function=144;
-	public static final int LITERAL_group=145;
-	public static final int LITERAL_hr=146;
-	public static final int LITERAL_if=147;
-	public static final int LITERAL_iff=148;
-	public static final int LITERAL_implementation=149;
-	public static final int LITERAL_implies=150;
-	public static final int LITERAL_in=151;
-	public static final int LITERAL_inherit=152;
-	public static final int LITERAL_initial=153;
-	public static final int LITERAL_integer=154;
-	public static final int LITERAL_invariant=155;
-	public static final int LITERAL_inverse=156;
-	public static final int LITERAL_is=157;
-	public static final int LITERAL_list=158;
-	public static final int LITERAL_lower_bound=159;
-	public static final int LITERAL_memory=160;
-	public static final int LITERAL_min=161;
-	public static final int LITERAL_mod=162;
-	public static final int LITERAL_mode=163;
-	public static final int LITERAL_modes=164;
-	public static final int LITERAL_ms=165;
-	public static final int LITERAL_natural=166;
-	public static final int LITERAL_none=167;
-	public static final int LITERAL_nonvolatile=168;
-	public static final int LITERAL_not=169;
-	public static final int LITERAL_now=170;
-	public static final int LITERAL_ns=171;
-	public static final int LITERAL_null=172;
-	public static final int LITERAL_numberof=173;
-	public static final int LITERAL_of=174;
-	public static final int LITERAL_on=175;
-	public static final int LITERAL_or=176;
-	public static final int LITERAL_out=177;
-	public static final int LITERAL_package=178;
-	public static final int LITERAL_parameter=179;
-	public static final int LITERAL_pause=180;
-	public static final int LITERAL_port=181;
-	public static final int LITERAL_post=182;
-	public static final int LITERAL_pre=183;
-	public static final int LITERAL_private=184;
-	public static final int LITERAL_procedure=185;
-	public static final int LITERAL_process=186;
-	public static final int LITERAL_processor=187;
-	public static final int LITERAL_product=188;
-	public static final int LITERAL_properties=189;
-	public static final int LITERAL_property=190;
-	public static final int LITERAL_prototypes=191;
-	public static final int LITERAL_provides=192;
-	public static final int LITERAL_ps=193;
-	public static final int LITERAL_public=194;
-	public static final int LITERAL_range=195;
-	public static final int LITERAL_rational=196;
-	public static final int LITERAL_real=197;
-	public static final int LITERAL_record=198;
-	public static final int LITERAL_reference=199;
-	public static final int LITERAL_rem=200;
-	public static final int LITERAL_renames=201;
-	public static final int LITERAL_requires=202;
-	public static final int LITERAL_sec=203;
-	public static final int LITERAL_self=204;
-	public static final int LITERAL_sequence=205;
-	public static final int LITERAL_set=206;
-	public static final int LITERAL_setmode=207;
-	public static final int LITERAL_shared=208;
-	public static final int LITERAL_skip=209;
-	public static final int LITERAL_spread=210;
-	public static final int LITERAL_state=211;
-	public static final int LITERAL_states=212;
-	public static final int LITERAL_stop=213;
-	public static final int LITERAL_string=214;
-	public static final int LITERAL_subcomponents=215;
-	public static final int LITERAL_subprogram=216;
-	public static final int LITERAL_sum=217;
-	public static final int LITERAL_swap=218;
-	public static final int LITERAL_system=219;
-	public static final int LITERAL_that=220;
-	public static final int LITERAL_then=221;
-	public static final int LITERAL_thread=222;
-	public static final int LITERAL_throw=223;
-	public static final int LITERAL_time=224;
-	public static final int LITERAL_timeout=225;
-	public static final int LITERAL_to=226;
-	public static final int LITERAL_tops=227;
-	public static final int LITERAL_transition=228;
-	public static final int LITERAL_transitions=229;
-	public static final int LITERAL_true=230;
-	public static final int LITERAL_type=231;
-	public static final int LITERAL_units=232;
-	public static final int LITERAL_until=233;
-	public static final int LITERAL_updated=234;
-	public static final int LITERAL_upper_bound=235;
-	public static final int LITERAL_us=236;
-	public static final int LITERAL_variables=237;
-	public static final int LITERAL_variant=238;
-	public static final int LITERAL_virtual=239;
-	public static final int LITERAL_when=240;
-	public static final int LITERAL_while=241;
-	public static final int LITERAL_with=242;
-	public static final int LITERAL_xor=243;
-	public static final int LPAREN=244;
-	public static final int LT=245;
-	public static final int LTE_STRING=246;
-	public static final int LT_STRING=247;
-	public static final int MINUS=248;
-	public static final int MT_STRING=249;
-	public static final int NEQ=250;
-	public static final int OBLIGATION=251;
-	public static final int OCTOTHORPE=252;
-	public static final int ON=253;
-	public static final int P=254;
-	public static final int PARAMETER=255;
-	public static final int PARAMETERS=256;
-	public static final int PERIOD=257;
-	public static final int PLUS=258;
-	public static final int PLUS_ARROW=259;
-	public static final int PLUS_EQUALS=260;
-	public static final int PORT=261;
-	public static final int PORT_INPUT=262;
-	public static final int PORT_OUTPUT=263;
-	public static final int PREDICATE_RELATION=264;
-	public static final int PROCEDURE=265;
-	public static final int PROCEDURE_CALL=266;
-	public static final int PROPERTY_LIST=267;
-	public static final int Q=268;
-	public static final int QQ=269;
-	public static final int QUESTION=270;
-	public static final int RASS=271;
-	public static final int RATIONAL=272;
-	public static final int RBRACKET=273;
-	public static final int RCON=274;
-	public static final int RCURLY=275;
-	public static final int REAL_LIT=276;
-	public static final int RECORD_VALUE=277;
-	public static final int RPAREN=278;
-	public static final int S=279;
-	public static final int SEMICOLON=280;
-	public static final int SLCOMMENT=281;
-	public static final int SOURCE=282;
-	public static final int START=283;
-	public static final int START_ASSERTION_PROPERTY=284;
-	public static final int STOP=285;
-	public static final int SUBCOMPONENT=286;
-	public static final int SUBPROGRAM_ANNEX=287;
-	public static final int THREAD_ANNEX=288;
-	public static final int THREAD_GROUP=289;
-	public static final int TICK=290;
-	public static final int TILDE=291;
-	public static final int TIMES=292;
-	public static final int TOP=293;
-	public static final int TRANSITION=294;
-	public static final int TYPE=295;
-	public static final int TYPE_OPERATOR=296;
-	public static final int TYPE_OPERATOR_INVOCATION=297;
-	public static final int UNARY_MINUS=298;
-	public static final int VALUE=299;
-	public static final int WP=300;
-	public static final int WS=301;
-	public static final int LITERAL_BLESS=303;
+	public static final int ACTION_SUBCLAUSE=7;
+	public static final int AL=8;
+	public static final int AM=9;
+	public static final int AMPERSAND=10;
+	public static final int ARROW=11;
+	public static final int ASSERTION=12;
+	public static final int ASSERTION_ANNEX=13;
+	public static final int ASSERTION_ENUMERATION=14;
+	public static final int ASSERTION_FUNCTION=15;
+	public static final int ASSIGN=16;
+	public static final int AT_SIGN=17;
+	public static final int BEHAVIOR_TIME=18;
+	public static final int BI=19;
+	public static final int BLESS_SUBCLAUSE=20;
+	public static final int BOUND=21;
+	public static final int BOX=22;
+	public static final int CARET=23;
+	public static final int COLON=24;
+	public static final int COLON_TILDE=25;
+	public static final int COMMA=26;
+	public static final int COMMACOMMA=27;
+	public static final int COMMADOT=28;
+	public static final int CONDITION=29;
+	public static final int CONDITIONAL_ASSERTION_FUNCTION=30;
+	public static final int CVP=31;
+	public static final int DESTINATION=32;
+	public static final int DIGIT=33;
+	public static final int DIVIDE=34;
+	public static final int DOLLAR=35;
+	public static final int DOT=36;
+	public static final int DOTCOMMA=37;
+	public static final int DOTDOT=38;
+	public static final int DOUBLE_COLON=39;
+	public static final int DOUBLE_QUOTE=40;
+	public static final int DO_NOT_PROVE=41;
+	public static final int DUMMY=42;
+	public static final int EMPTY_CURLY=43;
+	public static final int EQ=44;
+	public static final int EXCLAMATION=45;
+	public static final int EXP=46;
+	public static final int EXPONENT=47;
+	public static final int GT=48;
+	public static final int GUARD=49;
+	public static final int HEX_DIGIT=50;
+	public static final int ID=51;
+	public static final int IMP=52;
+	public static final int INVARIANT=53;
+	public static final int INVOKE=54;
+	public static final int LABEL=55;
+	public static final int LASS=56;
+	public static final int LBRACKET=57;
+	public static final int LCON=58;
+	public static final int LCURLY=59;
+	public static final int LITERAL_abs=60;
+	public static final int LITERAL_all=61;
+	public static final int LITERAL_and=62;
+	public static final int LITERAL_any=63;
+	public static final int LITERAL_are=64;
+	public static final int LITERAL_array=65;
+	public static final int LITERAL_assert=66;
+	public static final int LITERAL_availability=67;
+	public static final int LITERAL_base=68;
+	public static final int LITERAL_binding=69;
+	public static final int LITERAL_boolean=70;
+	public static final int LITERAL_bound=71;
+	public static final int LITERAL_call=72;
+	public static final int LITERAL_calls=73;
+	public static final int LITERAL_case=74;
+	public static final int LITERAL_catch=75;
+	public static final int LITERAL_complete=76;
+	public static final int LITERAL_computation=77;
+	public static final int LITERAL_constant=78;
+	public static final int LITERAL_count=79;
+	public static final int LITERAL_declare=80;
+	public static final int LITERAL_def=81;
+	public static final int LITERAL_delay=82;
+	public static final int LITERAL_dispatch=83;
+	public static final int LITERAL_div=84;
+	public static final int LITERAL_do=85;
+	public static final int LITERAL_else=86;
+	public static final int LITERAL_enumeration=87;
+	public static final int LITERAL_exception=88;
+	public static final int LITERAL_exists=89;
+	public static final int LITERAL_extends=90;
+	public static final int LITERAL_extension=91;
+	public static final int LITERAL_false=92;
+	public static final int LITERAL_fetchadd=93;
+	public static final int LITERAL_fetchand=94;
+	public static final int LITERAL_fetchor=95;
+	public static final int LITERAL_fetchxor=96;
+	public static final int LITERAL_fi=97;
+	public static final int LITERAL_final=98;
+	public static final int LITERAL_for=99;
+	public static final int LITERAL_forall=100;
+	public static final int LITERAL_fresh=101;
+	public static final int LITERAL_ghost=102;
+	public static final int LITERAL_if=103;
+	public static final int LITERAL_iff=104;
+	public static final int LITERAL_implies=105;
+	public static final int LITERAL_in=106;
+	public static final int LITERAL_initial=107;
+	public static final int LITERAL_internal=108;
+	public static final int LITERAL_invariant=109;
+	public static final int LITERAL_inverse=110;
+	public static final int LITERAL_is=111;
+	public static final int LITERAL_lower_bound=112;
+	public static final int LITERAL_mod=113;
+	public static final int LITERAL_nonvolatile=114;
+	public static final int LITERAL_not=115;
+	public static final int LITERAL_now=116;
+	public static final int LITERAL_null=117;
+	public static final int LITERAL_numberof=118;
+	public static final int LITERAL_of=119;
+	public static final int LITERAL_on=120;
+	public static final int LITERAL_or=121;
+	public static final int LITERAL_post=122;
+	public static final int LITERAL_pre=123;
+	public static final int LITERAL_product=124;
+	public static final int LITERAL_quantity=125;
+	public static final int LITERAL_range=126;
+	public static final int LITERAL_record=127;
+	public static final int LITERAL_rem=128;
+	public static final int LITERAL_representation=129;
+	public static final int LITERAL_returns=130;
+	public static final int LITERAL_round=131;
+	public static final int LITERAL_scalar=132;
+	public static final int LITERAL_self=133;
+	public static final int LITERAL_setmode=134;
+	public static final int LITERAL_shared=135;
+	public static final int LITERAL_skip=136;
+	public static final int LITERAL_spread=137;
+	public static final int LITERAL_state=138;
+	public static final int LITERAL_states=139;
+	public static final int LITERAL_step=140;
+	public static final int LITERAL_string=141;
+	public static final int LITERAL_sum=142;
+	public static final int LITERAL_swap=143;
+	public static final int LITERAL_that=144;
+	public static final int LITERAL_then=145;
+	public static final int LITERAL_throw=146;
+	public static final int LITERAL_throws=147;
+	public static final int LITERAL_timeout=148;
+	public static final int LITERAL_to=149;
+	public static final int LITERAL_tops=150;
+	public static final int LITERAL_transitions=151;
+	public static final int LITERAL_true=152;
+	public static final int LITERAL_truncate=153;
+	public static final int LITERAL_type=154;
+	public static final int LITERAL_union=155;
+	public static final int LITERAL_units=156;
+	public static final int LITERAL_until=157;
+	public static final int LITERAL_updated=158;
+	public static final int LITERAL_upper_bound=159;
+	public static final int LITERAL_variables=160;
+	public static final int LITERAL_variant=161;
+	public static final int LITERAL_when=162;
+	public static final int LITERAL_which=163;
+	public static final int LITERAL_while=164;
+	public static final int LITERAL_whole=165;
+	public static final int LITERAL_with=166;
+	public static final int LITERAL_xor=167;
+	public static final int LPAREN=168;
+	public static final int LT=169;
+	public static final int LTE_STRING=170;
+	public static final int LT_STRING=171;
+	public static final int MINUS=172;
+	public static final int MT_STRING=173;
+	public static final int NEQ=174;
+	public static final int NUMBER=175;
+	public static final int OBLIGATION=176;
+	public static final int OCTOTHORPE=177;
+	public static final int OLD_NEQ=178;
+	public static final int P=179;
+	public static final int PARAMETERS=180;
+	public static final int PLUS=181;
+	public static final int PLUS_ARROW=182;
+	public static final int PLUS_EQUALS=183;
+	public static final int PORT_INPUT=184;
+	public static final int PORT_OUTPUT=185;
+	public static final int PREDICATE_RELATION=186;
+	public static final int Q=187;
+	public static final int QQ=188;
+	public static final int QUANTITY=189;
+	public static final int QUESTION=190;
+	public static final int RASS=191;
+	public static final int RBRACKET=192;
+	public static final int RCON=193;
+	public static final int RCURLY=194;
+	public static final int RECORD_TERM=195;
+	public static final int ROOT_DECLARATION=196;
+	public static final int RPAREN=197;
+	public static final int S=198;
+	public static final int SEMICOLON=199;
+	public static final int SLCOMMENT=200;
+	public static final int SOURCE=201;
+	public static final int STOP=202;
+	public static final int SUBPROGRAM_INVOCATION=203;
+	public static final int TICK=204;
+	public static final int TILDE=205;
+	public static final int TIMES=206;
+	public static final int TRANSITION=207;
+	public static final int TYPE_LIBRARY=208;
+	public static final int UNARY_MINUS=209;
+	public static final int UNIT_FORMULA=210;
+	public static final int UNIT_LIBRARY=211;
+	public static final int UNIT_NAME=212;
+	public static final int VALUE=213;
+	public static final int VARIABLE_DECLARATION=214;
+	public static final int VERT=215;
+	public static final int WS=216;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -464,7 +358,7 @@ public class ASTtoAST extends TreeParser {
 	  {
 	  if (amp==null)
 	    {Dump.it("null parameter to ASTtoAST.makeConjunctionOfAssertions"); return null;}
-	  if (!amp.hasType(BLESStoASTLexer.AMPERSAND))
+	  if (!amp.hasType(BLESS3Lexer.AMPERSAND))
 	    {Dump.it("parameter to ASTtoAST.makeConjunctionOfAssertions"+
 	      " must be AMPERSAND "+amp.getText()); return null;}
 	  if (amp.getChildCount()==0)
@@ -472,11 +366,11 @@ public class ASTtoAST extends TreeParser {
 	  if (amp.getChildCount()==1)
 	    {return (BAST)amp.getChild(0);}  //return only child of &
 	  //o.w. make conjunction
-	  BAST theAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,amp);
+	  BAST theAnd = new BAST("and",BLESS3Lexer.LITERAL_and,amp);
 	  for (int f=0; f<amp.getChildCount();f++)
 	    {
 	    BAST anAssertion = (BAST)amp.getChild(f);
-	    if (!amp.hasType(BLESStoASTLexer.ASSERTION))
+	    if (!amp.hasType(BLESS3Lexer.ASSERTION))
 	      {Dump.it("children of & of parameter to ASTtoAST.makeConjunctionOfAssertions"+
 	        " must be ASSERTION "+amp.getText()); return null;}
 	    if (anAssertion.getChildCount()==1) //just predicate as child
@@ -493,9 +387,9 @@ public class ASTtoAST extends TreeParser {
 	  public static BAST
 	  parenthesize(BAST t)
 	  { //put parentheses around t
-	    BAST lp = new BAST("(",BLESStoASTLexer.LPAREN,t);
+	    BAST lp = new BAST("(",BLESS3Lexer.LPAREN,t);
 	    lp.addChild(t);
-	    lp.addChild(new BAST(")",BLESStoASTLexer.RPAREN,t));
+	    lp.addChild(new BAST(")",BLESS3Lexer.RPAREN,t));
 	    return lp;
 	  }
 	  
@@ -509,8 +403,8 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "makeAnAllAreTree"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:123:1: makeAnAllAreTree[Tree a, Tree t, Tree r, Tree p1] : -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) ;
-	public final ASTtoAST.makeAnAllAreTree_return makeAnAllAreTree(Tree a, Tree t, Tree r, Tree p1) throws RecognitionException {
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:123:1: makeAnAllAreTree[Tree lv, Tree iw, Tree pred] : -> ^( LITERAL_all LITERAL_are ) ;
+	public final ASTtoAST.makeAnAllAreTree_return makeAnAllAreTree(Tree lv, Tree iw, Tree pred) throws RecognitionException {
 		ASTtoAST.makeAnAllAreTree_return retval = new ASTtoAST.makeAnAllAreTree_return();
 		retval.start = input.LT(1);
 
@@ -521,7 +415,7 @@ public class ASTtoAST extends TreeParser {
 
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:124:3: ( -> ^( LITERAL_all COLON LITERAL_in LITERAL_are ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:124:3: ( -> ^( LITERAL_all LITERAL_are ) )
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:125:3: 
 			{
 			// AST REWRITE
@@ -536,19 +430,16 @@ public class ASTtoAST extends TreeParser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (BAST)adaptor.nil();
-			// 125:3: -> ^( LITERAL_all COLON LITERAL_in LITERAL_are )
+			// 125:3: -> ^( LITERAL_all LITERAL_are )
 			{
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:125:6: ^( LITERAL_all COLON LITERAL_in LITERAL_are )
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:125:6: ^( LITERAL_all LITERAL_are )
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot((BAST)adaptor.create(LITERAL_all, "LITERAL_all"), root_1);
-				adaptor.addChild(root_1, a);
-				adaptor.addChild(root_1, (BAST)adaptor.create(COLON, "COLON"));
-				adaptor.addChild(root_1, t);
-				adaptor.addChild(root_1, (BAST)adaptor.create(LITERAL_in, "LITERAL_in"));
-				adaptor.addChild(root_1, r);
+				adaptor.addChild(root_1, lv);
+				adaptor.addChild(root_1, iw);
 				adaptor.addChild(root_1, (BAST)adaptor.create(LITERAL_are, "LITERAL_are"));
-				adaptor.addChild(root_1, p1);
+				adaptor.addChild(root_1, pred);
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -582,7 +473,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPredicateFromAssertion"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:128:1: getPredicateFromAssertion : ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:128:1: getPredicateFromAssertion : ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS . ) )? p= . ) ->;
 	public final ASTtoAST.getPredicateFromAssertion_return getPredicateFromAssertion() throws RecognitionException {
 		ASTtoAST.getPredicateFromAssertion_return retval = new ASTtoAST.getPredicateFromAssertion_return();
 		retval.start = input.LT(1);
@@ -597,14 +488,14 @@ public class ASTtoAST extends TreeParser {
 		BAST LABEL2=null;
 		BAST ID3=null;
 		BAST PARAMETERS4=null;
-		BAST ID5=null;
+		BAST wildcard5=null;
 		BAST p=null;
 
 		BAST ASSERTION1_tree=null;
 		BAST LABEL2_tree=null;
 		BAST ID3_tree=null;
 		BAST PARAMETERS4_tree=null;
-		BAST ID5_tree=null;
+		BAST wildcard5_tree=null;
 		BAST p_tree=null;
 		RewriteRuleNodeStream stream_ASSERTION=new RewriteRuleNodeStream(adaptor,"token ASSERTION");
 		RewriteRuleNodeStream stream_LABEL=new RewriteRuleNodeStream(adaptor,"token LABEL");
@@ -612,8 +503,8 @@ public class ASTtoAST extends TreeParser {
 		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:129:3: ( ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . ) ->)
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:3: ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS ( ID )+ ) )? p= . )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:129:3: ( ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS . ) )? p= . ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:3: ^( ASSERTION ( ^( LABEL ID ) )? ( ^( PARAMETERS . ) )? p= . )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -621,7 +512,7 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_1 = null;
 			BAST root_1 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			ASSERTION1=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_getPredicateFromAssertion102); if (state.failed) return retval;
+			ASSERTION1=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_getPredicateFromAssertion96); if (state.failed) return retval;
 			 
 			if ( state.backtracking==0 ) stream_ASSERTION.add(ASSERTION1);
 
@@ -637,7 +528,7 @@ public class ASTtoAST extends TreeParser {
 						int LA1_4 = input.LA(4);
 						if ( (LA1_4==UP) ) {
 							int LA1_5 = input.LA(5);
-							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= LITERAL_BLESS)) ) {
+							if ( ((LA1_5 >= AADL_STRING_LITERAL && LA1_5 <= WS)) ) {
 								alt1=1;
 							}
 						}
@@ -654,13 +545,13 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					LABEL2=(BAST)match(input,LABEL,FOLLOW_LABEL_in_getPredicateFromAssertion108); if (state.failed) return retval;
+					LABEL2=(BAST)match(input,LABEL,FOLLOW_LABEL_in_getPredicateFromAssertion102); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_LABEL.add(LABEL2);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					ID3=(BAST)match(input,ID,FOLLOW_ID_in_getPredicateFromAssertion110); if (state.failed) return retval;
+					ID3=(BAST)match(input,ID,FOLLOW_ID_in_getPredicateFromAssertion104); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ID.add(ID3);
 
@@ -678,12 +569,30 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:34: ( ^( PARAMETERS ( ID )+ ) )?
-			int alt3=2;
-			alt3 = dfa3.predict(input);
-			switch (alt3) {
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:34: ( ^( PARAMETERS . ) )?
+			int alt2=2;
+			int LA2_0 = input.LA(1);
+			if ( (LA2_0==PARAMETERS) ) {
+				int LA2_1 = input.LA(2);
+				if ( (LA2_1==DOWN) ) {
+					int LA2_3 = input.LA(3);
+					if ( ((LA2_3 >= AADL_STRING_LITERAL && LA2_3 <= WS)) ) {
+						int LA2_4 = input.LA(4);
+						if ( (LA2_4==DOWN) ) {
+							alt2=1;
+						}
+						else if ( (LA2_4==UP) ) {
+							int LA2_6 = input.LA(5);
+							if ( ((LA2_6 >= AADL_STRING_LITERAL && LA2_6 <= WS)) ) {
+								alt2=1;
+							}
+						}
+					}
+				}
+			}
+			switch (alt2) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:35: ^( PARAMETERS ( ID )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:35: ^( PARAMETERS . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -691,43 +600,17 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					PARAMETERS4=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_getPredicateFromAssertion118); if (state.failed) return retval;
+					PARAMETERS4=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_getPredicateFromAssertion112); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS4);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:48: ( ID )+
-					int cnt2=0;
-					loop2:
-					while (true) {
-						int alt2=2;
-						int LA2_0 = input.LA(1);
-						if ( (LA2_0==ID) ) {
-							alt2=1;
-						}
-
-						switch (alt2) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:130:48: ID
-							{
-							_last = (BAST)input.LT(1);
-							ID5=(BAST)match(input,ID,FOLLOW_ID_in_getPredicateFromAssertion120); if (state.failed) return retval;
-							 
-							if ( state.backtracking==0 ) stream_ID.add(ID5);
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt2 >= 1 ) break loop2;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(2, input);
-							throw eee;
-						}
-						cnt2++;
+					_last = (BAST)input.LT(1);
+					wildcard5=(BAST)input.LT(1);
+					matchAny(input); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					wildcard5_tree = (BAST)adaptor.dupTree(wildcard5);
+					adaptor.addChild(root_2, wildcard5_tree);
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -804,7 +687,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getBehaviorActionsFromELQ"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:135:1: getBehaviorActionsFromELQ : ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->;
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:135:1: getBehaviorActionsFromELQ : ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ( ^( LITERAL_catch ( . )+ ) )? ) ->;
 	public final ASTtoAST.getBehaviorActionsFromELQ_return getBehaviorActionsFromELQ() throws RecognitionException {
 		ASTtoAST.getBehaviorActionsFromELQ_return retval = new ASTtoAST.getBehaviorActionsFromELQ_return();
 		retval.start = input.LT(1);
@@ -819,20 +702,25 @@ public class ASTtoAST extends TreeParser {
 		BAST LITERAL_declare7=null;
 		BAST wildcard8=null;
 		BAST RCURLY9=null;
+		BAST LITERAL_catch10=null;
+		BAST wildcard11=null;
 		BAST ba=null;
 
 		BAST LCURLY6_tree=null;
 		BAST LITERAL_declare7_tree=null;
 		BAST wildcard8_tree=null;
 		BAST RCURLY9_tree=null;
+		BAST LITERAL_catch10_tree=null;
+		BAST wildcard11_tree=null;
 		BAST ba_tree=null;
+		RewriteRuleNodeStream stream_LITERAL_catch=new RewriteRuleNodeStream(adaptor,"token LITERAL_catch");
 		RewriteRuleNodeStream stream_LCURLY=new RewriteRuleNodeStream(adaptor,"token LCURLY");
 		RewriteRuleNodeStream stream_LITERAL_declare=new RewriteRuleNodeStream(adaptor,"token LITERAL_declare");
 		RewriteRuleNodeStream stream_RCURLY=new RewriteRuleNodeStream(adaptor,"token RCURLY");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:136:3: ( ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ) ->)
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:3: ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:136:3: ( ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ( ^( LITERAL_catch ( . )+ ) )? ) ->)
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:3: ^( LCURLY ( ^( LITERAL_declare ( . )* ) )? ba= . RCURLY ( ^( LITERAL_catch ( . )+ ) )? )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -840,15 +728,15 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_1 = null;
 			BAST root_1 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			LCURLY6=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getBehaviorActionsFromELQ157); if (state.failed) return retval;
+			LCURLY6=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getBehaviorActionsFromELQ150); if (state.failed) return retval;
 			 
 			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY6);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:12: ( ^( LITERAL_declare ( . )* ) )?
-			int alt5=2;
-			alt5 = dfa5.predict(input);
-			switch (alt5) {
+			int alt4=2;
+			alt4 = dfa4.predict(input);
+			switch (alt4) {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:13: ^( LITERAL_declare ( . )* )
 					{
@@ -858,25 +746,25 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					LITERAL_declare7=(BAST)match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ161); if (state.failed) return retval;
+					LITERAL_declare7=(BAST)match(input,LITERAL_declare,FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ154); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_LITERAL_declare.add(LITERAL_declare7);
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:31: ( . )*
-						loop4:
+						loop3:
 						while (true) {
-							int alt4=2;
-							int LA4_0 = input.LA(1);
-							if ( ((LA4_0 >= AADL_STRING_LITERAL && LA4_0 <= LITERAL_BLESS)) ) {
-								alt4=1;
+							int alt3=2;
+							int LA3_0 = input.LA(1);
+							if ( ((LA3_0 >= AADL_STRING_LITERAL && LA3_0 <= WS)) ) {
+								alt3=1;
 							}
-							else if ( (LA4_0==UP) ) {
-								alt4=2;
+							else if ( (LA3_0==UP) ) {
+								alt3=2;
 							}
 
-							switch (alt4) {
+							switch (alt3) {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:31: .
 								{
@@ -895,7 +783,7 @@ public class ASTtoAST extends TreeParser {
 								break;
 
 							default :
-								break loop4;
+								break loop3;
 							}
 						}
 
@@ -923,9 +811,84 @@ public class ASTtoAST extends TreeParser {
 			}
 
 			_last = (BAST)input.LT(1);
-			RCURLY9=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getBehaviorActionsFromELQ174); if (state.failed) return retval;
+			RCURLY9=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167); if (state.failed) return retval;
 			 
 			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY9);
+
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:50: ( ^( LITERAL_catch ( . )+ ) )?
+			int alt6=2;
+			int LA6_0 = input.LA(1);
+			if ( (LA6_0==LITERAL_catch) ) {
+				alt6=1;
+			}
+			switch (alt6) {
+				case 1 :
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:51: ^( LITERAL_catch ( . )+ )
+					{
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_2 = _last;
+					BAST _first_2 = null;
+					BAST root_2 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					LITERAL_catch10=(BAST)match(input,LITERAL_catch,FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172); if (state.failed) return retval;
+					 
+					if ( state.backtracking==0 ) stream_LITERAL_catch.add(LITERAL_catch10);
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:68: ( . )+
+					int cnt5=0;
+					loop5:
+					while (true) {
+						int alt5=2;
+						int LA5_0 = input.LA(1);
+						if ( ((LA5_0 >= AADL_STRING_LITERAL && LA5_0 <= WS)) ) {
+							alt5=1;
+						}
+						else if ( (LA5_0==UP) ) {
+							alt5=2;
+						}
+
+						switch (alt5) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:137:68: .
+							{
+							_last = (BAST)input.LT(1);
+							wildcard11=(BAST)input.LT(1);
+							matchAny(input); if (state.failed) return retval;
+							if ( state.backtracking==0 ) {
+							wildcard11_tree = (BAST)adaptor.dupTree(wildcard11);
+							adaptor.addChild(root_2, wildcard11_tree);
+							}
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							if ( cnt5 >= 1 ) break loop5;
+							if (state.backtracking>0) {state.failed=true; return retval;}
+							EarlyExitException eee = new EarlyExitException(5, input);
+							throw eee;
+						}
+						cnt5++;
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_1, root_2);
+					_last = _save_last_2;
+					}
+
+
+					if ( state.backtracking==0 ) {
+					}
+
+					}
+					break;
+
+			}
 
 			match(input, Token.UP, null); if (state.failed) return retval;
 			adaptor.addChild(root_0, root_1);
@@ -990,13 +953,13 @@ public class ASTtoAST extends TreeParser {
 		BAST _last = null;
 
 
-		BAST LCURLY10=null;
-		BAST RCURLY11=null;
+		BAST LCURLY12=null;
+		BAST RCURLY13=null;
 		BAST v=null;
 		TreeRuleReturnScope ba =null;
 
-		BAST LCURLY10_tree=null;
-		BAST RCURLY11_tree=null;
+		BAST LCURLY12_tree=null;
+		BAST RCURLY13_tree=null;
 		BAST v_tree=null;
 		RewriteRuleNodeStream stream_LCURLY=new RewriteRuleNodeStream(adaptor,"token LCURLY");
 		RewriteRuleNodeStream stream_RCURLY=new RewriteRuleNodeStream(adaptor,"token RCURLY");
@@ -1012,97 +975,96 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_1 = null;
 			BAST root_1 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			LCURLY10=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ203); if (state.failed) return retval;
+			LCURLY12=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY10);
+			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY12);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:13: (v= . )?
-			int alt6=2;
+			int alt7=2;
 			switch ( input.LA(1) ) {
 				case ACTION:
 					{
-					int LA6_1 = input.LA(2);
-					if ( (LA6_1==DOWN) ) {
-						int LA6_6 = input.LA(3);
-						if ( (LA6_6==P) ) {
-							int LA6_10 = input.LA(4);
-							if ( ((LA6_10 >= UP && LA6_10 <= LITERAL_BLESS)) ) {
-								alt6=1;
+					int LA7_1 = input.LA(2);
+					if ( (LA7_1==DOWN) ) {
+						int LA7_6 = input.LA(3);
+						if ( (LA7_6==P) ) {
+							int LA7_10 = input.LA(4);
+							if ( ((LA7_10 >= UP && LA7_10 <= WS)) ) {
+								alt7=1;
 							}
 						}
-						else if ( ((LA6_6 >= AADL_STRING_LITERAL && LA6_6 <= ON)||(LA6_6 >= PARAMETER && LA6_6 <= LITERAL_BLESS)) ) {
-							alt6=1;
+						else if ( ((LA7_6 >= AADL_STRING_LITERAL && LA7_6 <= OLD_NEQ)||(LA7_6 >= PARAMETERS && LA7_6 <= WS)) ) {
+							alt7=1;
 						}
 					}
-					else if ( (LA6_1==ACTION||LA6_1==AMPERSAND||LA6_1==LCURLY||LA6_1==SEMICOLON) ) {
-						alt6=1;
+					else if ( (LA7_1==ACTION||LA7_1==AMPERSAND||LA7_1==LCURLY||LA7_1==SEMICOLON) ) {
+						alt7=1;
 					}
 					}
 					break;
 				case SEMICOLON:
 					{
-					int LA6_2 = input.LA(2);
-					if ( (LA6_2==DOWN) ) {
-						int LA6_7 = input.LA(3);
-						if ( (LA6_7==ACTION) ) {
-							int LA6_11 = input.LA(4);
-							if ( ((LA6_11 >= UP && LA6_11 <= LITERAL_BLESS)) ) {
-								alt6=1;
+					int LA7_2 = input.LA(2);
+					if ( (LA7_2==DOWN) ) {
+						int LA7_7 = input.LA(3);
+						if ( (LA7_7==ACTION) ) {
+							int LA7_11 = input.LA(4);
+							if ( ((LA7_11 >= UP && LA7_11 <= WS)) ) {
+								alt7=1;
 							}
 						}
-						else if ( ((LA6_7 >= AADL_STRING_LITERAL && LA6_7 <= AADL_STRING_PART)||(LA6_7 >= AL && LA6_7 <= LITERAL_BLESS)) ) {
-							alt6=1;
+						else if ( ((LA7_7 >= AADL_STRING_LITERAL && LA7_7 <= AADL_STRING_PART)||(LA7_7 >= ACTION_SUBCLAUSE && LA7_7 <= WS)) ) {
+							alt7=1;
 						}
 					}
-					else if ( (LA6_2==ACTION||LA6_2==AMPERSAND||LA6_2==LCURLY||LA6_2==SEMICOLON) ) {
-						alt6=1;
+					else if ( (LA7_2==ACTION||LA7_2==AMPERSAND||LA7_2==LCURLY||LA7_2==SEMICOLON) ) {
+						alt7=1;
 					}
 					}
 					break;
 				case AMPERSAND:
 					{
-					int LA6_3 = input.LA(2);
-					if ( (LA6_3==DOWN) ) {
+					int LA7_3 = input.LA(2);
+					if ( (LA7_3==DOWN) ) {
 						switch ( input.LA(3) ) {
 							case ACTION:
 								{
-								int LA6_12 = input.LA(4);
-								if ( ((LA6_12 >= UP && LA6_12 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								int LA7_12 = input.LA(4);
+								if ( ((LA7_12 >= UP && LA7_12 <= WS)) ) {
+									alt7=1;
 								}
 								}
 								break;
 							case SEMICOLON:
 								{
-								int LA6_13 = input.LA(4);
-								if ( ((LA6_13 >= UP && LA6_13 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								int LA7_13 = input.LA(4);
+								if ( ((LA7_13 >= UP && LA7_13 <= WS)) ) {
+									alt7=1;
 								}
 								}
 								break;
 							case AMPERSAND:
 								{
-								int LA6_14 = input.LA(4);
-								if ( ((LA6_14 >= UP && LA6_14 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								int LA7_14 = input.LA(4);
+								if ( ((LA7_14 >= UP && LA7_14 <= WS)) ) {
+									alt7=1;
 								}
 								}
 								break;
 							case LCURLY:
 								{
-								int LA6_15 = input.LA(4);
-								if ( ((LA6_15 >= UP && LA6_15 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								int LA7_15 = input.LA(4);
+								if ( ((LA7_15 >= UP && LA7_15 <= WS)) ) {
+									alt7=1;
 								}
 								}
 								break;
 							case AADL_STRING_LITERAL:
 							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
 							case AL:
 							case AM:
-							case ANNEX_END:
-							case ANNEX_START:
 							case ARROW:
 							case ASSERTION:
 							case ASSERTION_ANNEX:
@@ -1110,30 +1072,25 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
-							case BEHAVIOR_GUARD:
 							case BEHAVIOR_TIME:
 							case BI:
+							case BLESS_SUBCLAUSE:
 							case BOUND:
 							case BOX:
 							case CARET:
-							case CASE_EXPRESSION:
 							case COLON:
+							case COLON_TILDE:
 							case COMMA:
 							case COMMACOMMA:
 							case COMMADOT:
-							case COMPLEX:
-							case COMPONENT:
 							case CONDITION:
-							case CONDITIONAL:
-							case CONDITIONAL_FUNCTION:
-							case CONNECTION:
-							case COUNTING_TRIGGER:
+							case CONDITIONAL_ASSERTION_FUNCTION:
+							case CVP:
 							case DESTINATION:
 							case DIGIT:
 							case DIVIDE:
 							case DOLLAR:
+							case DOT:
 							case DOTCOMMA:
 							case DOTDOT:
 							case DOUBLE_COLON:
@@ -1141,197 +1098,127 @@ public class ASTtoAST extends TreeParser {
 							case DO_NOT_PROVE:
 							case DUMMY:
 							case EMPTY_CURLY:
-							case END_ASSERTION_PROPERTY:
 							case EQ:
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
-							case FLOATING:
-							case FUNCTION:
-							case FUNCTION_CALL:
 							case GT:
 							case GUARD:
 							case HEX_DIGIT:
 							case ID:
 							case IMP:
-							case INMODE:
-							case INOUT:
-							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
-							case IP_NAME:
-							case IP_PE:
-							case IP_PRED:
 							case LABEL:
 							case LASS:
 							case LBRACKET:
 							case LCON:
-							case LITERAL_Assertion:
-							case LITERAL_Invariant:
-							case LITERAL_Postcondition:
-							case LITERAL_Precondition:
-							case LITERAL_Typed:
-							case LITERAL_aadlboolean:
-							case LITERAL_aadlinteger:
-							case LITERAL_aadlreal:
-							case LITERAL_aadlstring:
 							case LITERAL_abs:
-							case LITERAL_abstract:
-							case LITERAL_access:
 							case LITERAL_all:
 							case LITERAL_and:
-							case LITERAL_annex:
 							case LITERAL_any:
-							case LITERAL_applies:
 							case LITERAL_are:
 							case LITERAL_array:
 							case LITERAL_assert:
 							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_binding:
 							case LITERAL_boolean:
 							case LITERAL_bound:
-							case LITERAL_bus:
 							case LITERAL_call:
 							case LITERAL_calls:
-							case LITERAL_cand:
+							case LITERAL_case:
 							case LITERAL_catch:
-							case LITERAL_classifier:
 							case LITERAL_complete:
-							case LITERAL_complex:
-							case LITERAL_component:
 							case LITERAL_computation:
-							case LITERAL_connection:
-							case LITERAL_connections:
 							case LITERAL_constant:
-							case LITERAL_cor:
 							case LITERAL_count:
-							case LITERAL_data:
 							case LITERAL_declare:
 							case LITERAL_def:
 							case LITERAL_delay:
-							case LITERAL_device:
 							case LITERAL_dispatch:
+							case LITERAL_div:
 							case LITERAL_do:
 							case LITERAL_else:
-							case LITERAL_end:
 							case LITERAL_enumeration:
-							case LITERAL_event:
 							case LITERAL_exception:
 							case LITERAL_exists:
 							case LITERAL_extends:
+							case LITERAL_extension:
 							case LITERAL_false:
-							case LITERAL_feature:
-							case LITERAL_features:
 							case LITERAL_fetchadd:
 							case LITERAL_fetchand:
 							case LITERAL_fetchor:
 							case LITERAL_fetchxor:
 							case LITERAL_fi:
 							case LITERAL_final:
-							case LITERAL_flow:
-							case LITERAL_flows:
 							case LITERAL_for:
 							case LITERAL_forall:
 							case LITERAL_fresh:
-							case LITERAL_function:
-							case LITERAL_group:
-							case LITERAL_hr:
+							case LITERAL_ghost:
 							case LITERAL_if:
 							case LITERAL_iff:
-							case LITERAL_implementation:
 							case LITERAL_implies:
 							case LITERAL_in:
-							case LITERAL_inherit:
 							case LITERAL_initial:
-							case LITERAL_integer:
+							case LITERAL_internal:
 							case LITERAL_invariant:
 							case LITERAL_inverse:
 							case LITERAL_is:
-							case LITERAL_list:
 							case LITERAL_lower_bound:
-							case LITERAL_memory:
-							case LITERAL_min:
 							case LITERAL_mod:
-							case LITERAL_mode:
-							case LITERAL_modes:
-							case LITERAL_ms:
-							case LITERAL_natural:
-							case LITERAL_none:
 							case LITERAL_nonvolatile:
 							case LITERAL_not:
 							case LITERAL_now:
-							case LITERAL_ns:
 							case LITERAL_null:
 							case LITERAL_numberof:
 							case LITERAL_of:
 							case LITERAL_on:
 							case LITERAL_or:
-							case LITERAL_out:
-							case LITERAL_package:
-							case LITERAL_parameter:
-							case LITERAL_pause:
-							case LITERAL_port:
 							case LITERAL_post:
 							case LITERAL_pre:
-							case LITERAL_private:
-							case LITERAL_procedure:
-							case LITERAL_process:
-							case LITERAL_processor:
 							case LITERAL_product:
-							case LITERAL_properties:
-							case LITERAL_property:
-							case LITERAL_prototypes:
-							case LITERAL_provides:
-							case LITERAL_ps:
-							case LITERAL_public:
+							case LITERAL_quantity:
 							case LITERAL_range:
-							case LITERAL_rational:
-							case LITERAL_real:
 							case LITERAL_record:
-							case LITERAL_reference:
 							case LITERAL_rem:
-							case LITERAL_renames:
-							case LITERAL_requires:
-							case LITERAL_sec:
+							case LITERAL_representation:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
 							case LITERAL_self:
-							case LITERAL_sequence:
-							case LITERAL_set:
 							case LITERAL_setmode:
 							case LITERAL_shared:
 							case LITERAL_skip:
 							case LITERAL_spread:
 							case LITERAL_state:
 							case LITERAL_states:
-							case LITERAL_stop:
+							case LITERAL_step:
 							case LITERAL_string:
-							case LITERAL_subcomponents:
-							case LITERAL_subprogram:
 							case LITERAL_sum:
 							case LITERAL_swap:
-							case LITERAL_system:
 							case LITERAL_that:
 							case LITERAL_then:
-							case LITERAL_thread:
 							case LITERAL_throw:
-							case LITERAL_time:
+							case LITERAL_throws:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
-							case LITERAL_transition:
 							case LITERAL_transitions:
 							case LITERAL_true:
+							case LITERAL_truncate:
 							case LITERAL_type:
+							case LITERAL_union:
 							case LITERAL_units:
 							case LITERAL_until:
 							case LITERAL_updated:
 							case LITERAL_upper_bound:
-							case LITERAL_us:
 							case LITERAL_variables:
 							case LITERAL_variant:
-							case LITERAL_virtual:
 							case LITERAL_when:
+							case LITERAL_which:
 							case LITERAL_while:
+							case LITERAL_whole:
 							case LITERAL_with:
 							case LITERAL_xor:
 							case LPAREN:
@@ -1341,208 +1228,1076 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
+							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
-							case ON:
+							case OLD_NEQ:
 							case P:
-							case PARAMETER:
 							case PARAMETERS:
-							case PERIOD:
 							case PLUS:
 							case PLUS_ARROW:
 							case PLUS_EQUALS:
-							case PORT:
 							case PORT_INPUT:
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
-							case PROCEDURE:
-							case PROCEDURE_CALL:
-							case PROPERTY_LIST:
 							case Q:
 							case QQ:
+							case QUANTITY:
 							case QUESTION:
 							case RASS:
-							case RATIONAL:
 							case RBRACKET:
 							case RCON:
 							case RCURLY:
-							case REAL_LIT:
-							case RECORD_VALUE:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
 							case RPAREN:
 							case S:
 							case SLCOMMENT:
 							case SOURCE:
-							case START:
-							case START_ASSERTION_PROPERTY:
 							case STOP:
-							case SUBCOMPONENT:
-							case SUBPROGRAM_ANNEX:
-							case THREAD_ANNEX:
-							case THREAD_GROUP:
+							case SUBPROGRAM_INVOCATION:
 							case TICK:
 							case TILDE:
 							case TIMES:
-							case TOP:
 							case TRANSITION:
-							case TYPE:
-							case TYPE_OPERATOR:
-							case TYPE_OPERATOR_INVOCATION:
+							case TYPE_LIBRARY:
 							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
 							case VALUE:
-							case WP:
+							case VARIABLE_DECLARATION:
+							case VERT:
 							case WS:
-							case 302:
-							case LITERAL_BLESS:
 								{
-								alt6=1;
+								alt7=1;
 								}
 								break;
 						}
 					}
-					else if ( (LA6_3==ACTION||LA6_3==AMPERSAND||LA6_3==LCURLY||LA6_3==SEMICOLON) ) {
-						alt6=1;
+					else if ( (LA7_3==ACTION||LA7_3==AMPERSAND||LA7_3==LCURLY||LA7_3==SEMICOLON) ) {
+						alt7=1;
 					}
 					}
 					break;
 				case LCURLY:
 					{
-					int LA6_4 = input.LA(2);
-					if ( (LA6_4==DOWN) ) {
+					int LA7_4 = input.LA(2);
+					if ( (LA7_4==DOWN) ) {
 						switch ( input.LA(3) ) {
 							case ACTION:
 								{
-								int LA6_16 = input.LA(4);
-								if ( (LA6_16==ACTION) ) {
-									int LA6_22 = input.LA(5);
-									if ( ((LA6_22 >= UP && LA6_22 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_16==SEMICOLON) ) {
-									int LA6_23 = input.LA(5);
-									if ( ((LA6_23 >= UP && LA6_23 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_16==AMPERSAND) ) {
-									int LA6_24 = input.LA(5);
-									if ( ((LA6_24 >= UP && LA6_24 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_16==LCURLY) ) {
-									int LA6_25 = input.LA(5);
-									if ( ((LA6_25 >= UP && LA6_25 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( ((LA6_16 >= UP && LA6_16 <= AADL_STRING_PART)||(LA6_16 >= AL && LA6_16 <= AM)||(LA6_16 >= ANNEX_END && LA6_16 <= LCON)||(LA6_16 >= LITERAL_Assertion && LA6_16 <= S)||(LA6_16 >= SLCOMMENT && LA6_16 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt7=1;
+										}
+										break;
 								}
 								}
 								break;
 							case SEMICOLON:
 								{
-								int LA6_17 = input.LA(4);
-								if ( (LA6_17==ACTION) ) {
-									int LA6_22 = input.LA(5);
-									if ( ((LA6_22 >= UP && LA6_22 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_17==SEMICOLON) ) {
-									int LA6_23 = input.LA(5);
-									if ( ((LA6_23 >= UP && LA6_23 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_17==AMPERSAND) ) {
-									int LA6_24 = input.LA(5);
-									if ( ((LA6_24 >= UP && LA6_24 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_17==LCURLY) ) {
-									int LA6_25 = input.LA(5);
-									if ( ((LA6_25 >= UP && LA6_25 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( ((LA6_17 >= UP && LA6_17 <= AADL_STRING_PART)||(LA6_17 >= AL && LA6_17 <= AM)||(LA6_17 >= ANNEX_END && LA6_17 <= LCON)||(LA6_17 >= LITERAL_Assertion && LA6_17 <= S)||(LA6_17 >= SLCOMMENT && LA6_17 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt7=1;
+										}
+										break;
 								}
 								}
 								break;
 							case AMPERSAND:
 								{
-								int LA6_18 = input.LA(4);
-								if ( (LA6_18==ACTION) ) {
-									int LA6_22 = input.LA(5);
-									if ( ((LA6_22 >= UP && LA6_22 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_18==SEMICOLON) ) {
-									int LA6_23 = input.LA(5);
-									if ( ((LA6_23 >= UP && LA6_23 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_18==AMPERSAND) ) {
-									int LA6_24 = input.LA(5);
-									if ( ((LA6_24 >= UP && LA6_24 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_18==LCURLY) ) {
-									int LA6_25 = input.LA(5);
-									if ( ((LA6_25 >= UP && LA6_25 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( ((LA6_18 >= UP && LA6_18 <= AADL_STRING_PART)||(LA6_18 >= AL && LA6_18 <= AM)||(LA6_18 >= ANNEX_END && LA6_18 <= LCON)||(LA6_18 >= LITERAL_Assertion && LA6_18 <= S)||(LA6_18 >= SLCOMMENT && LA6_18 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt7=1;
+										}
+										break;
 								}
 								}
 								break;
 							case LCURLY:
 								{
-								int LA6_19 = input.LA(4);
-								if ( (LA6_19==ACTION) ) {
-									int LA6_22 = input.LA(5);
-									if ( ((LA6_22 >= UP && LA6_22 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_19==SEMICOLON) ) {
-									int LA6_23 = input.LA(5);
-									if ( ((LA6_23 >= UP && LA6_23 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_19==AMPERSAND) ) {
-									int LA6_24 = input.LA(5);
-									if ( ((LA6_24 >= UP && LA6_24 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_19==LCURLY) ) {
-									int LA6_25 = input.LA(5);
-									if ( ((LA6_25 >= UP && LA6_25 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( ((LA6_19 >= UP && LA6_19 <= AADL_STRING_PART)||(LA6_19 >= AL && LA6_19 <= AM)||(LA6_19 >= ANNEX_END && LA6_19 <= LCON)||(LA6_19 >= LITERAL_Assertion && LA6_19 <= S)||(LA6_19 >= SLCOMMENT && LA6_19 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt7=1;
+										}
+										break;
 								}
 								}
 								break;
 							case AADL_STRING_LITERAL:
 							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
 							case AL:
 							case AM:
-							case ANNEX_END:
-							case ANNEX_START:
 							case ARROW:
 							case ASSERTION:
 							case ASSERTION_ANNEX:
@@ -1550,30 +2305,25 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
-							case BEHAVIOR_GUARD:
 							case BEHAVIOR_TIME:
 							case BI:
+							case BLESS_SUBCLAUSE:
 							case BOUND:
 							case BOX:
 							case CARET:
-							case CASE_EXPRESSION:
 							case COLON:
+							case COLON_TILDE:
 							case COMMA:
 							case COMMACOMMA:
 							case COMMADOT:
-							case COMPLEX:
-							case COMPONENT:
 							case CONDITION:
-							case CONDITIONAL:
-							case CONDITIONAL_FUNCTION:
-							case CONNECTION:
-							case COUNTING_TRIGGER:
+							case CONDITIONAL_ASSERTION_FUNCTION:
+							case CVP:
 							case DESTINATION:
 							case DIGIT:
 							case DIVIDE:
 							case DOLLAR:
+							case DOT:
 							case DOTCOMMA:
 							case DOTDOT:
 							case DOUBLE_COLON:
@@ -1581,197 +2331,127 @@ public class ASTtoAST extends TreeParser {
 							case DO_NOT_PROVE:
 							case DUMMY:
 							case EMPTY_CURLY:
-							case END_ASSERTION_PROPERTY:
 							case EQ:
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
-							case FLOATING:
-							case FUNCTION:
-							case FUNCTION_CALL:
 							case GT:
 							case GUARD:
 							case HEX_DIGIT:
 							case ID:
 							case IMP:
-							case INMODE:
-							case INOUT:
-							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
-							case IP_NAME:
-							case IP_PE:
-							case IP_PRED:
 							case LABEL:
 							case LASS:
 							case LBRACKET:
 							case LCON:
-							case LITERAL_Assertion:
-							case LITERAL_Invariant:
-							case LITERAL_Postcondition:
-							case LITERAL_Precondition:
-							case LITERAL_Typed:
-							case LITERAL_aadlboolean:
-							case LITERAL_aadlinteger:
-							case LITERAL_aadlreal:
-							case LITERAL_aadlstring:
 							case LITERAL_abs:
-							case LITERAL_abstract:
-							case LITERAL_access:
 							case LITERAL_all:
 							case LITERAL_and:
-							case LITERAL_annex:
 							case LITERAL_any:
-							case LITERAL_applies:
 							case LITERAL_are:
 							case LITERAL_array:
 							case LITERAL_assert:
 							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_binding:
 							case LITERAL_boolean:
 							case LITERAL_bound:
-							case LITERAL_bus:
 							case LITERAL_call:
 							case LITERAL_calls:
-							case LITERAL_cand:
+							case LITERAL_case:
 							case LITERAL_catch:
-							case LITERAL_classifier:
 							case LITERAL_complete:
-							case LITERAL_complex:
-							case LITERAL_component:
 							case LITERAL_computation:
-							case LITERAL_connection:
-							case LITERAL_connections:
 							case LITERAL_constant:
-							case LITERAL_cor:
 							case LITERAL_count:
-							case LITERAL_data:
 							case LITERAL_declare:
 							case LITERAL_def:
 							case LITERAL_delay:
-							case LITERAL_device:
 							case LITERAL_dispatch:
+							case LITERAL_div:
 							case LITERAL_do:
 							case LITERAL_else:
-							case LITERAL_end:
 							case LITERAL_enumeration:
-							case LITERAL_event:
 							case LITERAL_exception:
 							case LITERAL_exists:
 							case LITERAL_extends:
+							case LITERAL_extension:
 							case LITERAL_false:
-							case LITERAL_feature:
-							case LITERAL_features:
 							case LITERAL_fetchadd:
 							case LITERAL_fetchand:
 							case LITERAL_fetchor:
 							case LITERAL_fetchxor:
 							case LITERAL_fi:
 							case LITERAL_final:
-							case LITERAL_flow:
-							case LITERAL_flows:
 							case LITERAL_for:
 							case LITERAL_forall:
 							case LITERAL_fresh:
-							case LITERAL_function:
-							case LITERAL_group:
-							case LITERAL_hr:
+							case LITERAL_ghost:
 							case LITERAL_if:
 							case LITERAL_iff:
-							case LITERAL_implementation:
 							case LITERAL_implies:
 							case LITERAL_in:
-							case LITERAL_inherit:
 							case LITERAL_initial:
-							case LITERAL_integer:
+							case LITERAL_internal:
 							case LITERAL_invariant:
 							case LITERAL_inverse:
 							case LITERAL_is:
-							case LITERAL_list:
 							case LITERAL_lower_bound:
-							case LITERAL_memory:
-							case LITERAL_min:
 							case LITERAL_mod:
-							case LITERAL_mode:
-							case LITERAL_modes:
-							case LITERAL_ms:
-							case LITERAL_natural:
-							case LITERAL_none:
 							case LITERAL_nonvolatile:
 							case LITERAL_not:
 							case LITERAL_now:
-							case LITERAL_ns:
 							case LITERAL_null:
 							case LITERAL_numberof:
 							case LITERAL_of:
 							case LITERAL_on:
 							case LITERAL_or:
-							case LITERAL_out:
-							case LITERAL_package:
-							case LITERAL_parameter:
-							case LITERAL_pause:
-							case LITERAL_port:
 							case LITERAL_post:
 							case LITERAL_pre:
-							case LITERAL_private:
-							case LITERAL_procedure:
-							case LITERAL_process:
-							case LITERAL_processor:
 							case LITERAL_product:
-							case LITERAL_properties:
-							case LITERAL_property:
-							case LITERAL_prototypes:
-							case LITERAL_provides:
-							case LITERAL_ps:
-							case LITERAL_public:
+							case LITERAL_quantity:
 							case LITERAL_range:
-							case LITERAL_rational:
-							case LITERAL_real:
 							case LITERAL_record:
-							case LITERAL_reference:
 							case LITERAL_rem:
-							case LITERAL_renames:
-							case LITERAL_requires:
-							case LITERAL_sec:
+							case LITERAL_representation:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
 							case LITERAL_self:
-							case LITERAL_sequence:
-							case LITERAL_set:
 							case LITERAL_setmode:
 							case LITERAL_shared:
 							case LITERAL_skip:
 							case LITERAL_spread:
 							case LITERAL_state:
 							case LITERAL_states:
-							case LITERAL_stop:
+							case LITERAL_step:
 							case LITERAL_string:
-							case LITERAL_subcomponents:
-							case LITERAL_subprogram:
 							case LITERAL_sum:
 							case LITERAL_swap:
-							case LITERAL_system:
 							case LITERAL_that:
 							case LITERAL_then:
-							case LITERAL_thread:
 							case LITERAL_throw:
-							case LITERAL_time:
+							case LITERAL_throws:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
-							case LITERAL_transition:
 							case LITERAL_transitions:
 							case LITERAL_true:
+							case LITERAL_truncate:
 							case LITERAL_type:
+							case LITERAL_union:
 							case LITERAL_units:
 							case LITERAL_until:
 							case LITERAL_updated:
 							case LITERAL_upper_bound:
-							case LITERAL_us:
 							case LITERAL_variables:
 							case LITERAL_variant:
-							case LITERAL_virtual:
 							case LITERAL_when:
+							case LITERAL_which:
 							case LITERAL_while:
+							case LITERAL_whole:
 							case LITERAL_with:
 							case LITERAL_xor:
 							case LPAREN:
@@ -1781,102 +2461,310 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
+							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
-							case ON:
+							case OLD_NEQ:
 							case P:
-							case PARAMETER:
 							case PARAMETERS:
-							case PERIOD:
 							case PLUS:
 							case PLUS_ARROW:
 							case PLUS_EQUALS:
-							case PORT:
 							case PORT_INPUT:
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
-							case PROCEDURE:
-							case PROCEDURE_CALL:
-							case PROPERTY_LIST:
 							case Q:
 							case QQ:
+							case QUANTITY:
 							case QUESTION:
 							case RASS:
-							case RATIONAL:
 							case RBRACKET:
 							case RCON:
 							case RCURLY:
-							case REAL_LIT:
-							case RECORD_VALUE:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
 							case RPAREN:
 							case S:
 							case SLCOMMENT:
 							case SOURCE:
-							case START:
-							case START_ASSERTION_PROPERTY:
 							case STOP:
-							case SUBCOMPONENT:
-							case SUBPROGRAM_ANNEX:
-							case THREAD_ANNEX:
-							case THREAD_GROUP:
+							case SUBPROGRAM_INVOCATION:
 							case TICK:
 							case TILDE:
 							case TIMES:
-							case TOP:
 							case TRANSITION:
-							case TYPE:
-							case TYPE_OPERATOR:
-							case TYPE_OPERATOR_INVOCATION:
+							case TYPE_LIBRARY:
 							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
 							case VALUE:
-							case WP:
+							case VARIABLE_DECLARATION:
+							case VERT:
 							case WS:
-							case 302:
-							case LITERAL_BLESS:
 								{
-								int LA6_20 = input.LA(4);
-								if ( (LA6_20==ACTION) ) {
-									int LA6_22 = input.LA(5);
-									if ( ((LA6_22 >= UP && LA6_22 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_20==SEMICOLON) ) {
-									int LA6_23 = input.LA(5);
-									if ( ((LA6_23 >= UP && LA6_23 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_20==AMPERSAND) ) {
-									int LA6_24 = input.LA(5);
-									if ( ((LA6_24 >= UP && LA6_24 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( (LA6_20==LCURLY) ) {
-									int LA6_25 = input.LA(5);
-									if ( ((LA6_25 >= UP && LA6_25 <= LITERAL_BLESS)) ) {
-										alt6=1;
-									}
-								}
-								else if ( ((LA6_20 >= UP && LA6_20 <= AADL_STRING_PART)||(LA6_20 >= AL && LA6_20 <= AM)||(LA6_20 >= ANNEX_END && LA6_20 <= LCON)||(LA6_20 >= LITERAL_Assertion && LA6_20 <= S)||(LA6_20 >= SLCOMMENT && LA6_20 <= LITERAL_BLESS)) ) {
-									alt6=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA7_22 = input.LA(5);
+										if ( ((LA7_22 >= UP && LA7_22 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA7_23 = input.LA(5);
+										if ( ((LA7_23 >= UP && LA7_23 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA7_24 = input.LA(5);
+										if ( ((LA7_24 >= UP && LA7_24 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA7_25 = input.LA(5);
+										if ( ((LA7_25 >= UP && LA7_25 <= WS)) ) {
+											alt7=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt7=1;
+										}
+										break;
 								}
 								}
 								break;
 						}
 					}
-					else if ( (LA6_4==ACTION||LA6_4==AMPERSAND||LA6_4==LCURLY||LA6_4==SEMICOLON) ) {
-						alt6=1;
+					else if ( (LA7_4==ACTION||LA7_4==AMPERSAND||LA7_4==LCURLY||LA7_4==SEMICOLON) ) {
+						alt7=1;
 					}
 					}
 					break;
 				case AADL_STRING_LITERAL:
 				case AADL_STRING_PART:
+				case ACTION_SUBCLAUSE:
 				case AL:
 				case AM:
-				case ANNEX_END:
-				case ANNEX_START:
 				case ARROW:
 				case ASSERTION:
 				case ASSERTION_ANNEX:
@@ -1884,30 +2772,25 @@ public class ASTtoAST extends TreeParser {
 				case ASSERTION_FUNCTION:
 				case ASSIGN:
 				case AT_SIGN:
-				case BASE:
-				case BASED_INTEGER:
-				case BEHAVIOR_GUARD:
 				case BEHAVIOR_TIME:
 				case BI:
+				case BLESS_SUBCLAUSE:
 				case BOUND:
 				case BOX:
 				case CARET:
-				case CASE_EXPRESSION:
 				case COLON:
+				case COLON_TILDE:
 				case COMMA:
 				case COMMACOMMA:
 				case COMMADOT:
-				case COMPLEX:
-				case COMPONENT:
 				case CONDITION:
-				case CONDITIONAL:
-				case CONDITIONAL_FUNCTION:
-				case CONNECTION:
-				case COUNTING_TRIGGER:
+				case CONDITIONAL_ASSERTION_FUNCTION:
+				case CVP:
 				case DESTINATION:
 				case DIGIT:
 				case DIVIDE:
 				case DOLLAR:
+				case DOT:
 				case DOTCOMMA:
 				case DOTDOT:
 				case DOUBLE_COLON:
@@ -1915,197 +2798,127 @@ public class ASTtoAST extends TreeParser {
 				case DO_NOT_PROVE:
 				case DUMMY:
 				case EMPTY_CURLY:
-				case END_ASSERTION_PROPERTY:
 				case EQ:
 				case EXCLAMATION:
 				case EXP:
 				case EXPONENT:
-				case EXTENDED_DIGIT:
-				case FLOATING:
-				case FUNCTION:
-				case FUNCTION_CALL:
 				case GT:
 				case GUARD:
 				case HEX_DIGIT:
 				case ID:
 				case IMP:
-				case INMODE:
-				case INOUT:
-				case INTEGER_LIT:
-				case INT_EXPONENT:
 				case INVARIANT:
 				case INVOKE:
-				case IP_NAME:
-				case IP_PE:
-				case IP_PRED:
 				case LABEL:
 				case LASS:
 				case LBRACKET:
 				case LCON:
-				case LITERAL_Assertion:
-				case LITERAL_Invariant:
-				case LITERAL_Postcondition:
-				case LITERAL_Precondition:
-				case LITERAL_Typed:
-				case LITERAL_aadlboolean:
-				case LITERAL_aadlinteger:
-				case LITERAL_aadlreal:
-				case LITERAL_aadlstring:
 				case LITERAL_abs:
-				case LITERAL_abstract:
-				case LITERAL_access:
 				case LITERAL_all:
 				case LITERAL_and:
-				case LITERAL_annex:
 				case LITERAL_any:
-				case LITERAL_applies:
 				case LITERAL_are:
 				case LITERAL_array:
 				case LITERAL_assert:
 				case LITERAL_availability:
+				case LITERAL_base:
+				case LITERAL_binding:
 				case LITERAL_boolean:
 				case LITERAL_bound:
-				case LITERAL_bus:
 				case LITERAL_call:
 				case LITERAL_calls:
-				case LITERAL_cand:
+				case LITERAL_case:
 				case LITERAL_catch:
-				case LITERAL_classifier:
 				case LITERAL_complete:
-				case LITERAL_complex:
-				case LITERAL_component:
 				case LITERAL_computation:
-				case LITERAL_connection:
-				case LITERAL_connections:
 				case LITERAL_constant:
-				case LITERAL_cor:
 				case LITERAL_count:
-				case LITERAL_data:
 				case LITERAL_declare:
 				case LITERAL_def:
 				case LITERAL_delay:
-				case LITERAL_device:
 				case LITERAL_dispatch:
+				case LITERAL_div:
 				case LITERAL_do:
 				case LITERAL_else:
-				case LITERAL_end:
 				case LITERAL_enumeration:
-				case LITERAL_event:
 				case LITERAL_exception:
 				case LITERAL_exists:
 				case LITERAL_extends:
+				case LITERAL_extension:
 				case LITERAL_false:
-				case LITERAL_feature:
-				case LITERAL_features:
 				case LITERAL_fetchadd:
 				case LITERAL_fetchand:
 				case LITERAL_fetchor:
 				case LITERAL_fetchxor:
 				case LITERAL_fi:
 				case LITERAL_final:
-				case LITERAL_flow:
-				case LITERAL_flows:
 				case LITERAL_for:
 				case LITERAL_forall:
 				case LITERAL_fresh:
-				case LITERAL_function:
-				case LITERAL_group:
-				case LITERAL_hr:
+				case LITERAL_ghost:
 				case LITERAL_if:
 				case LITERAL_iff:
-				case LITERAL_implementation:
 				case LITERAL_implies:
 				case LITERAL_in:
-				case LITERAL_inherit:
 				case LITERAL_initial:
-				case LITERAL_integer:
+				case LITERAL_internal:
 				case LITERAL_invariant:
 				case LITERAL_inverse:
 				case LITERAL_is:
-				case LITERAL_list:
 				case LITERAL_lower_bound:
-				case LITERAL_memory:
-				case LITERAL_min:
 				case LITERAL_mod:
-				case LITERAL_mode:
-				case LITERAL_modes:
-				case LITERAL_ms:
-				case LITERAL_natural:
-				case LITERAL_none:
 				case LITERAL_nonvolatile:
 				case LITERAL_not:
 				case LITERAL_now:
-				case LITERAL_ns:
 				case LITERAL_null:
 				case LITERAL_numberof:
 				case LITERAL_of:
 				case LITERAL_on:
 				case LITERAL_or:
-				case LITERAL_out:
-				case LITERAL_package:
-				case LITERAL_parameter:
-				case LITERAL_pause:
-				case LITERAL_port:
 				case LITERAL_post:
 				case LITERAL_pre:
-				case LITERAL_private:
-				case LITERAL_procedure:
-				case LITERAL_process:
-				case LITERAL_processor:
 				case LITERAL_product:
-				case LITERAL_properties:
-				case LITERAL_property:
-				case LITERAL_prototypes:
-				case LITERAL_provides:
-				case LITERAL_ps:
-				case LITERAL_public:
+				case LITERAL_quantity:
 				case LITERAL_range:
-				case LITERAL_rational:
-				case LITERAL_real:
 				case LITERAL_record:
-				case LITERAL_reference:
 				case LITERAL_rem:
-				case LITERAL_renames:
-				case LITERAL_requires:
-				case LITERAL_sec:
+				case LITERAL_representation:
+				case LITERAL_returns:
+				case LITERAL_round:
+				case LITERAL_scalar:
 				case LITERAL_self:
-				case LITERAL_sequence:
-				case LITERAL_set:
 				case LITERAL_setmode:
 				case LITERAL_shared:
 				case LITERAL_skip:
 				case LITERAL_spread:
 				case LITERAL_state:
 				case LITERAL_states:
-				case LITERAL_stop:
+				case LITERAL_step:
 				case LITERAL_string:
-				case LITERAL_subcomponents:
-				case LITERAL_subprogram:
 				case LITERAL_sum:
 				case LITERAL_swap:
-				case LITERAL_system:
 				case LITERAL_that:
 				case LITERAL_then:
-				case LITERAL_thread:
 				case LITERAL_throw:
-				case LITERAL_time:
+				case LITERAL_throws:
 				case LITERAL_timeout:
 				case LITERAL_to:
 				case LITERAL_tops:
-				case LITERAL_transition:
 				case LITERAL_transitions:
 				case LITERAL_true:
+				case LITERAL_truncate:
 				case LITERAL_type:
+				case LITERAL_union:
 				case LITERAL_units:
 				case LITERAL_until:
 				case LITERAL_updated:
 				case LITERAL_upper_bound:
-				case LITERAL_us:
 				case LITERAL_variables:
 				case LITERAL_variant:
-				case LITERAL_virtual:
 				case LITERAL_when:
+				case LITERAL_which:
 				case LITERAL_while:
+				case LITERAL_whole:
 				case LITERAL_with:
 				case LITERAL_xor:
 				case LPAREN:
@@ -2115,64 +2928,53 @@ public class ASTtoAST extends TreeParser {
 				case MINUS:
 				case MT_STRING:
 				case NEQ:
+				case NUMBER:
 				case OBLIGATION:
 				case OCTOTHORPE:
-				case ON:
+				case OLD_NEQ:
 				case P:
-				case PARAMETER:
 				case PARAMETERS:
-				case PERIOD:
 				case PLUS:
 				case PLUS_ARROW:
 				case PLUS_EQUALS:
-				case PORT:
 				case PORT_INPUT:
 				case PORT_OUTPUT:
 				case PREDICATE_RELATION:
-				case PROCEDURE:
-				case PROCEDURE_CALL:
-				case PROPERTY_LIST:
 				case Q:
 				case QQ:
+				case QUANTITY:
 				case QUESTION:
 				case RASS:
-				case RATIONAL:
 				case RBRACKET:
 				case RCON:
 				case RCURLY:
-				case REAL_LIT:
-				case RECORD_VALUE:
+				case RECORD_TERM:
+				case ROOT_DECLARATION:
 				case RPAREN:
 				case S:
 				case SLCOMMENT:
 				case SOURCE:
-				case START:
-				case START_ASSERTION_PROPERTY:
 				case STOP:
-				case SUBCOMPONENT:
-				case SUBPROGRAM_ANNEX:
-				case THREAD_ANNEX:
-				case THREAD_GROUP:
+				case SUBPROGRAM_INVOCATION:
 				case TICK:
 				case TILDE:
 				case TIMES:
-				case TOP:
 				case TRANSITION:
-				case TYPE:
-				case TYPE_OPERATOR:
-				case TYPE_OPERATOR_INVOCATION:
+				case TYPE_LIBRARY:
 				case UNARY_MINUS:
+				case UNIT_FORMULA:
+				case UNIT_LIBRARY:
+				case UNIT_NAME:
 				case VALUE:
-				case WP:
+				case VARIABLE_DECLARATION:
+				case VERT:
 				case WS:
-				case 302:
-				case LITERAL_BLESS:
 					{
-					alt6=1;
+					alt7=1;
 					}
 					break;
 			}
-			switch (alt6) {
+			switch (alt7) {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:144:13: v= .
 					{
@@ -2193,15 +2995,15 @@ public class ASTtoAST extends TreeParser {
 			}
 
 			_last = (BAST)input.LT(1);
-			pushFollow(FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ212);
+			pushFollow(FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218);
 			ba=getPreconditionFromBehaviorActions();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_getPreconditionFromBehaviorActions.add(ba.getTree());
 			_last = (BAST)input.LT(1);
-			RCURLY11=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ214); if (state.failed) return retval;
+			RCURLY13=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY11);
+			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY13);
 
 			match(input, Token.UP, null); if (state.failed) return retval;
 			adaptor.addChild(root_0, root_1);
@@ -2268,40 +3070,40 @@ public class ASTtoAST extends TreeParser {
 
 
 		BAST amp=null;
-		BAST ACTION12=null;
-		BAST P13=null;
-		BAST S14=null;
-		BAST wildcard15=null;
-		BAST Q16=null;
+		BAST ACTION14=null;
+		BAST P15=null;
+		BAST S16=null;
 		BAST wildcard17=null;
-		BAST SEMICOLON18=null;
-		BAST ACTION19=null;
-		BAST P20=null;
-		BAST S21=null;
-		BAST wildcard22=null;
-		BAST Q23=null;
+		BAST Q18=null;
+		BAST wildcard19=null;
+		BAST SEMICOLON20=null;
+		BAST ACTION21=null;
+		BAST P22=null;
+		BAST S23=null;
 		BAST wildcard24=null;
-		BAST wildcard25=null;
+		BAST Q25=null;
+		BAST wildcard26=null;
+		BAST wildcard27=null;
 		BAST p=null;
 		BAST p2=null;
 		TreeRuleReturnScope prc =null;
 		TreeRuleReturnScope elq =null;
 
 		BAST amp_tree=null;
-		BAST ACTION12_tree=null;
-		BAST P13_tree=null;
-		BAST S14_tree=null;
-		BAST wildcard15_tree=null;
-		BAST Q16_tree=null;
+		BAST ACTION14_tree=null;
+		BAST P15_tree=null;
+		BAST S16_tree=null;
 		BAST wildcard17_tree=null;
-		BAST SEMICOLON18_tree=null;
-		BAST ACTION19_tree=null;
-		BAST P20_tree=null;
-		BAST S21_tree=null;
-		BAST wildcard22_tree=null;
-		BAST Q23_tree=null;
+		BAST Q18_tree=null;
+		BAST wildcard19_tree=null;
+		BAST SEMICOLON20_tree=null;
+		BAST ACTION21_tree=null;
+		BAST P22_tree=null;
+		BAST S23_tree=null;
 		BAST wildcard24_tree=null;
-		BAST wildcard25_tree=null;
+		BAST Q25_tree=null;
+		BAST wildcard26_tree=null;
+		BAST wildcard27_tree=null;
 		BAST p_tree=null;
 		BAST p2_tree=null;
 		RewriteRuleSubtreeStream stream_getPreconditionFromBehaviorActionsInELQ=new RewriteRuleSubtreeStream(adaptor,"rule getPreconditionFromBehaviorActionsInELQ");
@@ -2309,35 +3111,35 @@ public class ASTtoAST extends TreeParser {
 		ArrayList<BAST> andTerms = new ArrayList<BAST>();
 		try {
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:152:3: ( ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) ) | ^( SEMICOLON ^( ACTION ^( P (p2= . )? ) ^( S . ) ^( Q ( . )? ) ) ( . )+ ) | ^(amp= AMPERSAND (prc= getPreconditionFromBehaviorActions )+ ) |elq= getPreconditionFromBehaviorActionsInELQ ->)
-			int alt13=4;
+			int alt14=4;
 			switch ( input.LA(1) ) {
 			case ACTION:
 				{
-				alt13=1;
+				alt14=1;
 				}
 				break;
 			case SEMICOLON:
 				{
-				alt13=2;
+				alt14=2;
 				}
 				break;
 			case AMPERSAND:
 				{
-				alt13=3;
+				alt14=3;
 				}
 				break;
 			case LCURLY:
 				{
-				alt13=4;
+				alt14=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 13, 0, input);
+					new NoViableAltException("", 14, 0, input);
 				throw nvae;
 			}
-			switch (alt13) {
+			switch (alt14) {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:3: ^( ACTION ^( P (p= . )? ) ^( S . ) ^( Q ( . )? ) )
 					{
@@ -2350,12 +3152,12 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ACTION12=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPreconditionFromBehaviorActions263); if (state.failed) return retval;
+					ACTION14=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					ACTION12_tree = (BAST)adaptor.dupNode(ACTION12);
+					ACTION14_tree = (BAST)adaptor.dupNode(ACTION14);
 
 
-					root_1 = (BAST)adaptor.becomeRoot(ACTION12_tree, root_1);
+					root_1 = (BAST)adaptor.becomeRoot(ACTION14_tree, root_1);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2365,23 +3167,23 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					P13=(BAST)match(input,P,FOLLOW_P_in_getPreconditionFromBehaviorActions266); if (state.failed) return retval;
+					P15=(BAST)match(input,P,FOLLOW_P_in_getPreconditionFromBehaviorActions272); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					P13_tree = (BAST)adaptor.dupNode(P13);
+					P15_tree = (BAST)adaptor.dupNode(P15);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(P13_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(P15_tree, root_2);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: (p= . )?
-						int alt7=2;
-						int LA7_0 = input.LA(1);
-						if ( ((LA7_0 >= AADL_STRING_LITERAL && LA7_0 <= LITERAL_BLESS)) ) {
-							alt7=1;
+						int alt8=2;
+						int LA8_0 = input.LA(1);
+						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= WS)) ) {
+							alt8=1;
 						}
-						switch (alt7) {
+						switch (alt8) {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:17: p= .
 								{
@@ -2414,21 +3216,21 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					S14=(BAST)match(input,S,FOLLOW_S_in_getPreconditionFromBehaviorActions275); if (state.failed) return retval;
+					S16=(BAST)match(input,S,FOLLOW_S_in_getPreconditionFromBehaviorActions281); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					S14_tree = (BAST)adaptor.dupNode(S14);
+					S16_tree = (BAST)adaptor.dupNode(S16);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(S14_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(S16_tree, root_2);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					wildcard15=(BAST)input.LT(1);
+					wildcard17=(BAST)input.LT(1);
 					matchAny(input); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					wildcard15_tree = (BAST)adaptor.dupTree(wildcard15);
-					adaptor.addChild(root_2, wildcard15_tree);
+					wildcard17_tree = (BAST)adaptor.dupTree(wildcard17);
+					adaptor.addChild(root_2, wildcard17_tree);
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -2443,32 +3245,32 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					Q16=(BAST)match(input,Q,FOLLOW_Q_in_getPreconditionFromBehaviorActions282); if (state.failed) return retval;
+					Q18=(BAST)match(input,Q,FOLLOW_Q_in_getPreconditionFromBehaviorActions288); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					Q16_tree = (BAST)adaptor.dupNode(Q16);
+					Q18_tree = (BAST)adaptor.dupNode(Q18);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(Q16_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(Q18_tree, root_2);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: ( . )?
-						int alt8=2;
-						int LA8_0 = input.LA(1);
-						if ( ((LA8_0 >= AADL_STRING_LITERAL && LA8_0 <= LITERAL_BLESS)) ) {
-							alt8=1;
+						int alt9=2;
+						int LA9_0 = input.LA(1);
+						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= WS)) ) {
+							alt9=1;
 						}
-						switch (alt8) {
+						switch (alt9) {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:153:34: .
 								{
 								_last = (BAST)input.LT(1);
-								wildcard17=(BAST)input.LT(1);
+								wildcard19=(BAST)input.LT(1);
 								matchAny(input); if (state.failed) return retval;
 								if ( state.backtracking==0 ) {
-								wildcard17_tree = (BAST)adaptor.dupTree(wildcard17);
-								adaptor.addChild(root_2, wildcard17_tree);
+								wildcard19_tree = (BAST)adaptor.dupTree(wildcard19);
+								adaptor.addChild(root_2, wildcard19_tree);
 								}
 
 								if ( state.backtracking==0 ) {
@@ -2510,12 +3312,12 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					SEMICOLON18=(BAST)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_getPreconditionFromBehaviorActions304); if (state.failed) return retval;
+					SEMICOLON20=(BAST)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_getPreconditionFromBehaviorActions310); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					SEMICOLON18_tree = (BAST)adaptor.dupNode(SEMICOLON18);
+					SEMICOLON20_tree = (BAST)adaptor.dupNode(SEMICOLON20);
 
 
-					root_1 = (BAST)adaptor.becomeRoot(SEMICOLON18_tree, root_1);
+					root_1 = (BAST)adaptor.becomeRoot(SEMICOLON20_tree, root_1);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2525,12 +3327,12 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ACTION19=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPreconditionFromBehaviorActions307); if (state.failed) return retval;
+					ACTION21=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPreconditionFromBehaviorActions313); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					ACTION19_tree = (BAST)adaptor.dupNode(ACTION19);
+					ACTION21_tree = (BAST)adaptor.dupNode(ACTION21);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(ACTION19_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(ACTION21_tree, root_2);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -2540,23 +3342,23 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_3 = null;
 					BAST root_3 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					P20=(BAST)match(input,P,FOLLOW_P_in_getPreconditionFromBehaviorActions310); if (state.failed) return retval;
+					P22=(BAST)match(input,P,FOLLOW_P_in_getPreconditionFromBehaviorActions316); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					P20_tree = (BAST)adaptor.dupNode(P20);
+					P22_tree = (BAST)adaptor.dupNode(P22);
 
 
-					root_3 = (BAST)adaptor.becomeRoot(P20_tree, root_3);
+					root_3 = (BAST)adaptor.becomeRoot(P22_tree, root_3);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: (p2= . )?
-						int alt9=2;
-						int LA9_0 = input.LA(1);
-						if ( ((LA9_0 >= AADL_STRING_LITERAL && LA9_0 <= LITERAL_BLESS)) ) {
-							alt9=1;
+						int alt10=2;
+						int LA10_0 = input.LA(1);
+						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= WS)) ) {
+							alt10=1;
 						}
-						switch (alt9) {
+						switch (alt10) {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:30: p2= .
 								{
@@ -2589,21 +3391,21 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_3 = null;
 					BAST root_3 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					S21=(BAST)match(input,S,FOLLOW_S_in_getPreconditionFromBehaviorActions319); if (state.failed) return retval;
+					S23=(BAST)match(input,S,FOLLOW_S_in_getPreconditionFromBehaviorActions325); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					S21_tree = (BAST)adaptor.dupNode(S21);
+					S23_tree = (BAST)adaptor.dupNode(S23);
 
 
-					root_3 = (BAST)adaptor.becomeRoot(S21_tree, root_3);
+					root_3 = (BAST)adaptor.becomeRoot(S23_tree, root_3);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					wildcard22=(BAST)input.LT(1);
+					wildcard24=(BAST)input.LT(1);
 					matchAny(input); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					wildcard22_tree = (BAST)adaptor.dupTree(wildcard22);
-					adaptor.addChild(root_3, wildcard22_tree);
+					wildcard24_tree = (BAST)adaptor.dupTree(wildcard24);
+					adaptor.addChild(root_3, wildcard24_tree);
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -2618,32 +3420,32 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_3 = null;
 					BAST root_3 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					Q23=(BAST)match(input,Q,FOLLOW_Q_in_getPreconditionFromBehaviorActions326); if (state.failed) return retval;
+					Q25=(BAST)match(input,Q,FOLLOW_Q_in_getPreconditionFromBehaviorActions332); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					Q23_tree = (BAST)adaptor.dupNode(Q23);
+					Q25_tree = (BAST)adaptor.dupNode(Q25);
 
 
-					root_3 = (BAST)adaptor.becomeRoot(Q23_tree, root_3);
+					root_3 = (BAST)adaptor.becomeRoot(Q25_tree, root_3);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
 						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: ( . )?
-						int alt10=2;
-						int LA10_0 = input.LA(1);
-						if ( ((LA10_0 >= AADL_STRING_LITERAL && LA10_0 <= LITERAL_BLESS)) ) {
-							alt10=1;
+						int alt11=2;
+						int LA11_0 = input.LA(1);
+						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= WS)) ) {
+							alt11=1;
 						}
-						switch (alt10) {
+						switch (alt11) {
 							case 1 :
 								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:47: .
 								{
 								_last = (BAST)input.LT(1);
-								wildcard24=(BAST)input.LT(1);
+								wildcard26=(BAST)input.LT(1);
 								matchAny(input); if (state.failed) return retval;
 								if ( state.backtracking==0 ) {
-								wildcard24_tree = (BAST)adaptor.dupTree(wildcard24);
-								adaptor.addChild(root_3, wildcard24_tree);
+								wildcard26_tree = (BAST)adaptor.dupTree(wildcard26);
+								adaptor.addChild(root_3, wildcard26_tree);
 								}
 
 								if ( state.backtracking==0 ) {
@@ -2668,28 +3470,28 @@ public class ASTtoAST extends TreeParser {
 
 
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:54: ( . )+
-					int cnt11=0;
-					loop11:
+					int cnt12=0;
+					loop12:
 					while (true) {
-						int alt11=2;
-						int LA11_0 = input.LA(1);
-						if ( ((LA11_0 >= AADL_STRING_LITERAL && LA11_0 <= LITERAL_BLESS)) ) {
-							alt11=1;
+						int alt12=2;
+						int LA12_0 = input.LA(1);
+						if ( ((LA12_0 >= AADL_STRING_LITERAL && LA12_0 <= WS)) ) {
+							alt12=1;
 						}
-						else if ( (LA11_0==UP) ) {
-							alt11=2;
+						else if ( (LA12_0==UP) ) {
+							alt12=2;
 						}
 
-						switch (alt11) {
+						switch (alt12) {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:156:54: .
 							{
 							_last = (BAST)input.LT(1);
-							wildcard25=(BAST)input.LT(1);
+							wildcard27=(BAST)input.LT(1);
 							matchAny(input); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							wildcard25_tree = (BAST)adaptor.dupTree(wildcard25);
-							adaptor.addChild(root_1, wildcard25_tree);
+							wildcard27_tree = (BAST)adaptor.dupTree(wildcard27);
+							adaptor.addChild(root_1, wildcard27_tree);
 							}
 
 							if ( state.backtracking==0 ) {
@@ -2699,12 +3501,12 @@ public class ASTtoAST extends TreeParser {
 							break;
 
 						default :
-							if ( cnt11 >= 1 ) break loop11;
+							if ( cnt12 >= 1 ) break loop12;
 							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(11, input);
+							EarlyExitException eee = new EarlyExitException(12, input);
 							throw eee;
 						}
-						cnt11++;
+						cnt12++;
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -2731,7 +3533,7 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					amp=(BAST)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions356); if (state.failed) return retval;
+					amp=(BAST)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					amp_tree = (BAST)adaptor.dupNode(amp);
 
@@ -2741,21 +3543,21 @@ public class ASTtoAST extends TreeParser {
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:161:6: (prc= getPreconditionFromBehaviorActions )+
-					int cnt12=0;
-					loop12:
+					int cnt13=0;
+					loop13:
 					while (true) {
-						int alt12=2;
-						int LA12_0 = input.LA(1);
-						if ( (LA12_0==ACTION||LA12_0==AMPERSAND||LA12_0==LCURLY||LA12_0==SEMICOLON) ) {
-							alt12=1;
+						int alt13=2;
+						int LA13_0 = input.LA(1);
+						if ( (LA13_0==ACTION||LA13_0==AMPERSAND||LA13_0==LCURLY||LA13_0==SEMICOLON) ) {
+							alt13=1;
 						}
 
-						switch (alt12) {
+						switch (alt13) {
 						case 1 :
 							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:161:8: prc= getPreconditionFromBehaviorActions
 							{
 							_last = (BAST)input.LT(1);
-							pushFollow(FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions368);
+							pushFollow(FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374);
 							prc=getPreconditionFromBehaviorActions();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -2770,12 +3572,12 @@ public class ASTtoAST extends TreeParser {
 							break;
 
 						default :
-							if ( cnt12 >= 1 ) break loop12;
+							if ( cnt13 >= 1 ) break loop13;
 							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(12, input);
+							EarlyExitException eee = new EarlyExitException(13, input);
 							throw eee;
 						}
-						cnt12++;
+						cnt13++;
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -2788,8 +3590,8 @@ public class ASTtoAST extends TreeParser {
 					    else if (andTerms.size()==1) retval.pre =andTerms.get(0);
 					    else
 					      {
-					      retval.pre = new BAST("ASSERTION",BLESStoASTLexer.ASSERTION,amp);
-					      BAST anAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,amp);
+					      retval.pre = new BAST("ASSERTION",BLESS3Lexer.ASSERTION,amp);
+					      BAST anAnd = new BAST("and",BLESS3Lexer.LITERAL_and,amp);
 					      for (int i=0;i<andTerms.size();i++)
 					        anAnd.addChild(parenthesize((BAST)andTerms.get(i).getChild(0)));
 					      retval.pre.addChild(parenthesize(anAnd));
@@ -2804,7 +3606,7 @@ public class ASTtoAST extends TreeParser {
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:179:3: elq= getPreconditionFromBehaviorActionsInELQ
 					{
 					_last = (BAST)input.LT(1);
-					pushFollow(FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions410);
+					pushFollow(FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416);
 					elq=getPreconditionFromBehaviorActionsInELQ();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2868,14 +3670,14 @@ public class ASTtoAST extends TreeParser {
 		BAST _last = null;
 
 
-		BAST LCURLY26=null;
-		BAST wildcard27=null;
-		BAST RCURLY28=null;
+		BAST LCURLY28=null;
+		BAST wildcard29=null;
+		BAST RCURLY30=null;
 		TreeRuleReturnScope b =null;
 
-		BAST LCURLY26_tree=null;
-		BAST wildcard27_tree=null;
-		BAST RCURLY28_tree=null;
+		BAST LCURLY28_tree=null;
+		BAST wildcard29_tree=null;
+		BAST RCURLY30_tree=null;
 		RewriteRuleNodeStream stream_LCURLY=new RewriteRuleNodeStream(adaptor,"token LCURLY");
 		RewriteRuleNodeStream stream_RCURLY=new RewriteRuleNodeStream(adaptor,"token RCURLY");
 		RewriteRuleSubtreeStream stream_getPostconditionFromBehaviorActions=new RewriteRuleSubtreeStream(adaptor,"rule getPostconditionFromBehaviorActions");
@@ -2890,97 +3692,96 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_1 = null;
 			BAST root_1 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			LCURLY26=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ434); if (state.failed) return retval;
+			LCURLY28=(BAST)match(input,LCURLY,FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY26);
+			if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY28);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
 			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:12: ( . )?
-			int alt14=2;
+			int alt15=2;
 			switch ( input.LA(1) ) {
 				case ACTION:
 					{
-					int LA14_1 = input.LA(2);
-					if ( (LA14_1==DOWN) ) {
-						int LA14_6 = input.LA(3);
-						if ( (LA14_6==P) ) {
-							int LA14_10 = input.LA(4);
-							if ( ((LA14_10 >= UP && LA14_10 <= LITERAL_BLESS)) ) {
-								alt14=1;
+					int LA15_1 = input.LA(2);
+					if ( (LA15_1==DOWN) ) {
+						int LA15_6 = input.LA(3);
+						if ( (LA15_6==P) ) {
+							int LA15_10 = input.LA(4);
+							if ( ((LA15_10 >= UP && LA15_10 <= WS)) ) {
+								alt15=1;
 							}
 						}
-						else if ( ((LA14_6 >= AADL_STRING_LITERAL && LA14_6 <= ON)||(LA14_6 >= PARAMETER && LA14_6 <= LITERAL_BLESS)) ) {
-							alt14=1;
+						else if ( ((LA15_6 >= AADL_STRING_LITERAL && LA15_6 <= OLD_NEQ)||(LA15_6 >= PARAMETERS && LA15_6 <= WS)) ) {
+							alt15=1;
 						}
 					}
-					else if ( (LA14_1==ACTION||LA14_1==AMPERSAND||LA14_1==LCURLY||LA14_1==SEMICOLON) ) {
-						alt14=1;
+					else if ( (LA15_1==ACTION||LA15_1==AMPERSAND||LA15_1==LCURLY||LA15_1==SEMICOLON) ) {
+						alt15=1;
 					}
 					}
 					break;
 				case SEMICOLON:
 					{
-					int LA14_2 = input.LA(2);
-					if ( (LA14_2==DOWN) ) {
-						int LA14_7 = input.LA(3);
-						if ( (LA14_7==ACTION) ) {
-							int LA14_11 = input.LA(4);
-							if ( ((LA14_11 >= UP && LA14_11 <= LITERAL_BLESS)) ) {
-								alt14=1;
+					int LA15_2 = input.LA(2);
+					if ( (LA15_2==DOWN) ) {
+						int LA15_7 = input.LA(3);
+						if ( (LA15_7==ACTION) ) {
+							int LA15_11 = input.LA(4);
+							if ( ((LA15_11 >= UP && LA15_11 <= WS)) ) {
+								alt15=1;
 							}
 						}
-						else if ( ((LA14_7 >= AADL_STRING_LITERAL && LA14_7 <= AADL_STRING_PART)||(LA14_7 >= AL && LA14_7 <= LITERAL_BLESS)) ) {
-							alt14=1;
+						else if ( ((LA15_7 >= AADL_STRING_LITERAL && LA15_7 <= AADL_STRING_PART)||(LA15_7 >= ACTION_SUBCLAUSE && LA15_7 <= WS)) ) {
+							alt15=1;
 						}
 					}
-					else if ( (LA14_2==ACTION||LA14_2==AMPERSAND||LA14_2==LCURLY||LA14_2==SEMICOLON) ) {
-						alt14=1;
+					else if ( (LA15_2==ACTION||LA15_2==AMPERSAND||LA15_2==LCURLY||LA15_2==SEMICOLON) ) {
+						alt15=1;
 					}
 					}
 					break;
 				case AMPERSAND:
 					{
-					int LA14_3 = input.LA(2);
-					if ( (LA14_3==DOWN) ) {
+					int LA15_3 = input.LA(2);
+					if ( (LA15_3==DOWN) ) {
 						switch ( input.LA(3) ) {
 							case ACTION:
 								{
-								int LA14_12 = input.LA(4);
-								if ( ((LA14_12 >= UP && LA14_12 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								int LA15_12 = input.LA(4);
+								if ( ((LA15_12 >= UP && LA15_12 <= WS)) ) {
+									alt15=1;
 								}
 								}
 								break;
 							case SEMICOLON:
 								{
-								int LA14_13 = input.LA(4);
-								if ( ((LA14_13 >= UP && LA14_13 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								int LA15_13 = input.LA(4);
+								if ( ((LA15_13 >= UP && LA15_13 <= WS)) ) {
+									alt15=1;
 								}
 								}
 								break;
 							case AMPERSAND:
 								{
-								int LA14_14 = input.LA(4);
-								if ( ((LA14_14 >= UP && LA14_14 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								int LA15_14 = input.LA(4);
+								if ( ((LA15_14 >= UP && LA15_14 <= WS)) ) {
+									alt15=1;
 								}
 								}
 								break;
 							case LCURLY:
 								{
-								int LA14_15 = input.LA(4);
-								if ( ((LA14_15 >= UP && LA14_15 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								int LA15_15 = input.LA(4);
+								if ( ((LA15_15 >= UP && LA15_15 <= WS)) ) {
+									alt15=1;
 								}
 								}
 								break;
 							case AADL_STRING_LITERAL:
 							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
 							case AL:
 							case AM:
-							case ANNEX_END:
-							case ANNEX_START:
 							case ARROW:
 							case ASSERTION:
 							case ASSERTION_ANNEX:
@@ -2988,30 +3789,25 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
-							case BEHAVIOR_GUARD:
 							case BEHAVIOR_TIME:
 							case BI:
+							case BLESS_SUBCLAUSE:
 							case BOUND:
 							case BOX:
 							case CARET:
-							case CASE_EXPRESSION:
 							case COLON:
+							case COLON_TILDE:
 							case COMMA:
 							case COMMACOMMA:
 							case COMMADOT:
-							case COMPLEX:
-							case COMPONENT:
 							case CONDITION:
-							case CONDITIONAL:
-							case CONDITIONAL_FUNCTION:
-							case CONNECTION:
-							case COUNTING_TRIGGER:
+							case CONDITIONAL_ASSERTION_FUNCTION:
+							case CVP:
 							case DESTINATION:
 							case DIGIT:
 							case DIVIDE:
 							case DOLLAR:
+							case DOT:
 							case DOTCOMMA:
 							case DOTDOT:
 							case DOUBLE_COLON:
@@ -3019,197 +3815,127 @@ public class ASTtoAST extends TreeParser {
 							case DO_NOT_PROVE:
 							case DUMMY:
 							case EMPTY_CURLY:
-							case END_ASSERTION_PROPERTY:
 							case EQ:
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
-							case FLOATING:
-							case FUNCTION:
-							case FUNCTION_CALL:
 							case GT:
 							case GUARD:
 							case HEX_DIGIT:
 							case ID:
 							case IMP:
-							case INMODE:
-							case INOUT:
-							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
-							case IP_NAME:
-							case IP_PE:
-							case IP_PRED:
 							case LABEL:
 							case LASS:
 							case LBRACKET:
 							case LCON:
-							case LITERAL_Assertion:
-							case LITERAL_Invariant:
-							case LITERAL_Postcondition:
-							case LITERAL_Precondition:
-							case LITERAL_Typed:
-							case LITERAL_aadlboolean:
-							case LITERAL_aadlinteger:
-							case LITERAL_aadlreal:
-							case LITERAL_aadlstring:
 							case LITERAL_abs:
-							case LITERAL_abstract:
-							case LITERAL_access:
 							case LITERAL_all:
 							case LITERAL_and:
-							case LITERAL_annex:
 							case LITERAL_any:
-							case LITERAL_applies:
 							case LITERAL_are:
 							case LITERAL_array:
 							case LITERAL_assert:
 							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_binding:
 							case LITERAL_boolean:
 							case LITERAL_bound:
-							case LITERAL_bus:
 							case LITERAL_call:
 							case LITERAL_calls:
-							case LITERAL_cand:
+							case LITERAL_case:
 							case LITERAL_catch:
-							case LITERAL_classifier:
 							case LITERAL_complete:
-							case LITERAL_complex:
-							case LITERAL_component:
 							case LITERAL_computation:
-							case LITERAL_connection:
-							case LITERAL_connections:
 							case LITERAL_constant:
-							case LITERAL_cor:
 							case LITERAL_count:
-							case LITERAL_data:
 							case LITERAL_declare:
 							case LITERAL_def:
 							case LITERAL_delay:
-							case LITERAL_device:
 							case LITERAL_dispatch:
+							case LITERAL_div:
 							case LITERAL_do:
 							case LITERAL_else:
-							case LITERAL_end:
 							case LITERAL_enumeration:
-							case LITERAL_event:
 							case LITERAL_exception:
 							case LITERAL_exists:
 							case LITERAL_extends:
+							case LITERAL_extension:
 							case LITERAL_false:
-							case LITERAL_feature:
-							case LITERAL_features:
 							case LITERAL_fetchadd:
 							case LITERAL_fetchand:
 							case LITERAL_fetchor:
 							case LITERAL_fetchxor:
 							case LITERAL_fi:
 							case LITERAL_final:
-							case LITERAL_flow:
-							case LITERAL_flows:
 							case LITERAL_for:
 							case LITERAL_forall:
 							case LITERAL_fresh:
-							case LITERAL_function:
-							case LITERAL_group:
-							case LITERAL_hr:
+							case LITERAL_ghost:
 							case LITERAL_if:
 							case LITERAL_iff:
-							case LITERAL_implementation:
 							case LITERAL_implies:
 							case LITERAL_in:
-							case LITERAL_inherit:
 							case LITERAL_initial:
-							case LITERAL_integer:
+							case LITERAL_internal:
 							case LITERAL_invariant:
 							case LITERAL_inverse:
 							case LITERAL_is:
-							case LITERAL_list:
 							case LITERAL_lower_bound:
-							case LITERAL_memory:
-							case LITERAL_min:
 							case LITERAL_mod:
-							case LITERAL_mode:
-							case LITERAL_modes:
-							case LITERAL_ms:
-							case LITERAL_natural:
-							case LITERAL_none:
 							case LITERAL_nonvolatile:
 							case LITERAL_not:
 							case LITERAL_now:
-							case LITERAL_ns:
 							case LITERAL_null:
 							case LITERAL_numberof:
 							case LITERAL_of:
 							case LITERAL_on:
 							case LITERAL_or:
-							case LITERAL_out:
-							case LITERAL_package:
-							case LITERAL_parameter:
-							case LITERAL_pause:
-							case LITERAL_port:
 							case LITERAL_post:
 							case LITERAL_pre:
-							case LITERAL_private:
-							case LITERAL_procedure:
-							case LITERAL_process:
-							case LITERAL_processor:
 							case LITERAL_product:
-							case LITERAL_properties:
-							case LITERAL_property:
-							case LITERAL_prototypes:
-							case LITERAL_provides:
-							case LITERAL_ps:
-							case LITERAL_public:
+							case LITERAL_quantity:
 							case LITERAL_range:
-							case LITERAL_rational:
-							case LITERAL_real:
 							case LITERAL_record:
-							case LITERAL_reference:
 							case LITERAL_rem:
-							case LITERAL_renames:
-							case LITERAL_requires:
-							case LITERAL_sec:
+							case LITERAL_representation:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
 							case LITERAL_self:
-							case LITERAL_sequence:
-							case LITERAL_set:
 							case LITERAL_setmode:
 							case LITERAL_shared:
 							case LITERAL_skip:
 							case LITERAL_spread:
 							case LITERAL_state:
 							case LITERAL_states:
-							case LITERAL_stop:
+							case LITERAL_step:
 							case LITERAL_string:
-							case LITERAL_subcomponents:
-							case LITERAL_subprogram:
 							case LITERAL_sum:
 							case LITERAL_swap:
-							case LITERAL_system:
 							case LITERAL_that:
 							case LITERAL_then:
-							case LITERAL_thread:
 							case LITERAL_throw:
-							case LITERAL_time:
+							case LITERAL_throws:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
-							case LITERAL_transition:
 							case LITERAL_transitions:
 							case LITERAL_true:
+							case LITERAL_truncate:
 							case LITERAL_type:
+							case LITERAL_union:
 							case LITERAL_units:
 							case LITERAL_until:
 							case LITERAL_updated:
 							case LITERAL_upper_bound:
-							case LITERAL_us:
 							case LITERAL_variables:
 							case LITERAL_variant:
-							case LITERAL_virtual:
 							case LITERAL_when:
+							case LITERAL_which:
 							case LITERAL_while:
+							case LITERAL_whole:
 							case LITERAL_with:
 							case LITERAL_xor:
 							case LPAREN:
@@ -3219,208 +3945,1076 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
+							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
-							case ON:
+							case OLD_NEQ:
 							case P:
-							case PARAMETER:
 							case PARAMETERS:
-							case PERIOD:
 							case PLUS:
 							case PLUS_ARROW:
 							case PLUS_EQUALS:
-							case PORT:
 							case PORT_INPUT:
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
-							case PROCEDURE:
-							case PROCEDURE_CALL:
-							case PROPERTY_LIST:
 							case Q:
 							case QQ:
+							case QUANTITY:
 							case QUESTION:
 							case RASS:
-							case RATIONAL:
 							case RBRACKET:
 							case RCON:
 							case RCURLY:
-							case REAL_LIT:
-							case RECORD_VALUE:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
 							case RPAREN:
 							case S:
 							case SLCOMMENT:
 							case SOURCE:
-							case START:
-							case START_ASSERTION_PROPERTY:
 							case STOP:
-							case SUBCOMPONENT:
-							case SUBPROGRAM_ANNEX:
-							case THREAD_ANNEX:
-							case THREAD_GROUP:
+							case SUBPROGRAM_INVOCATION:
 							case TICK:
 							case TILDE:
 							case TIMES:
-							case TOP:
 							case TRANSITION:
-							case TYPE:
-							case TYPE_OPERATOR:
-							case TYPE_OPERATOR_INVOCATION:
+							case TYPE_LIBRARY:
 							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
 							case VALUE:
-							case WP:
+							case VARIABLE_DECLARATION:
+							case VERT:
 							case WS:
-							case 302:
-							case LITERAL_BLESS:
 								{
-								alt14=1;
+								alt15=1;
 								}
 								break;
 						}
 					}
-					else if ( (LA14_3==ACTION||LA14_3==AMPERSAND||LA14_3==LCURLY||LA14_3==SEMICOLON) ) {
-						alt14=1;
+					else if ( (LA15_3==ACTION||LA15_3==AMPERSAND||LA15_3==LCURLY||LA15_3==SEMICOLON) ) {
+						alt15=1;
 					}
 					}
 					break;
 				case LCURLY:
 					{
-					int LA14_4 = input.LA(2);
-					if ( (LA14_4==DOWN) ) {
+					int LA15_4 = input.LA(2);
+					if ( (LA15_4==DOWN) ) {
 						switch ( input.LA(3) ) {
 							case ACTION:
 								{
-								int LA14_16 = input.LA(4);
-								if ( (LA14_16==ACTION) ) {
-									int LA14_22 = input.LA(5);
-									if ( ((LA14_22 >= UP && LA14_22 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_16==SEMICOLON) ) {
-									int LA14_23 = input.LA(5);
-									if ( ((LA14_23 >= UP && LA14_23 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_16==AMPERSAND) ) {
-									int LA14_24 = input.LA(5);
-									if ( ((LA14_24 >= UP && LA14_24 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_16==LCURLY) ) {
-									int LA14_25 = input.LA(5);
-									if ( ((LA14_25 >= UP && LA14_25 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( ((LA14_16 >= UP && LA14_16 <= AADL_STRING_PART)||(LA14_16 >= AL && LA14_16 <= AM)||(LA14_16 >= ANNEX_END && LA14_16 <= LCON)||(LA14_16 >= LITERAL_Assertion && LA14_16 <= S)||(LA14_16 >= SLCOMMENT && LA14_16 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt15=1;
+										}
+										break;
 								}
 								}
 								break;
 							case SEMICOLON:
 								{
-								int LA14_17 = input.LA(4);
-								if ( (LA14_17==ACTION) ) {
-									int LA14_22 = input.LA(5);
-									if ( ((LA14_22 >= UP && LA14_22 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_17==SEMICOLON) ) {
-									int LA14_23 = input.LA(5);
-									if ( ((LA14_23 >= UP && LA14_23 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_17==AMPERSAND) ) {
-									int LA14_24 = input.LA(5);
-									if ( ((LA14_24 >= UP && LA14_24 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_17==LCURLY) ) {
-									int LA14_25 = input.LA(5);
-									if ( ((LA14_25 >= UP && LA14_25 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( ((LA14_17 >= UP && LA14_17 <= AADL_STRING_PART)||(LA14_17 >= AL && LA14_17 <= AM)||(LA14_17 >= ANNEX_END && LA14_17 <= LCON)||(LA14_17 >= LITERAL_Assertion && LA14_17 <= S)||(LA14_17 >= SLCOMMENT && LA14_17 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt15=1;
+										}
+										break;
 								}
 								}
 								break;
 							case AMPERSAND:
 								{
-								int LA14_18 = input.LA(4);
-								if ( (LA14_18==ACTION) ) {
-									int LA14_22 = input.LA(5);
-									if ( ((LA14_22 >= UP && LA14_22 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_18==SEMICOLON) ) {
-									int LA14_23 = input.LA(5);
-									if ( ((LA14_23 >= UP && LA14_23 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_18==AMPERSAND) ) {
-									int LA14_24 = input.LA(5);
-									if ( ((LA14_24 >= UP && LA14_24 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_18==LCURLY) ) {
-									int LA14_25 = input.LA(5);
-									if ( ((LA14_25 >= UP && LA14_25 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( ((LA14_18 >= UP && LA14_18 <= AADL_STRING_PART)||(LA14_18 >= AL && LA14_18 <= AM)||(LA14_18 >= ANNEX_END && LA14_18 <= LCON)||(LA14_18 >= LITERAL_Assertion && LA14_18 <= S)||(LA14_18 >= SLCOMMENT && LA14_18 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt15=1;
+										}
+										break;
 								}
 								}
 								break;
 							case LCURLY:
 								{
-								int LA14_19 = input.LA(4);
-								if ( (LA14_19==ACTION) ) {
-									int LA14_22 = input.LA(5);
-									if ( ((LA14_22 >= UP && LA14_22 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_19==SEMICOLON) ) {
-									int LA14_23 = input.LA(5);
-									if ( ((LA14_23 >= UP && LA14_23 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_19==AMPERSAND) ) {
-									int LA14_24 = input.LA(5);
-									if ( ((LA14_24 >= UP && LA14_24 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_19==LCURLY) ) {
-									int LA14_25 = input.LA(5);
-									if ( ((LA14_25 >= UP && LA14_25 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( ((LA14_19 >= UP && LA14_19 <= AADL_STRING_PART)||(LA14_19 >= AL && LA14_19 <= AM)||(LA14_19 >= ANNEX_END && LA14_19 <= LCON)||(LA14_19 >= LITERAL_Assertion && LA14_19 <= S)||(LA14_19 >= SLCOMMENT && LA14_19 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt15=1;
+										}
+										break;
 								}
 								}
 								break;
 							case AADL_STRING_LITERAL:
 							case AADL_STRING_PART:
+							case ACTION_SUBCLAUSE:
 							case AL:
 							case AM:
-							case ANNEX_END:
-							case ANNEX_START:
 							case ARROW:
 							case ASSERTION:
 							case ASSERTION_ANNEX:
@@ -3428,30 +5022,25 @@ public class ASTtoAST extends TreeParser {
 							case ASSERTION_FUNCTION:
 							case ASSIGN:
 							case AT_SIGN:
-							case BASE:
-							case BASED_INTEGER:
-							case BEHAVIOR_GUARD:
 							case BEHAVIOR_TIME:
 							case BI:
+							case BLESS_SUBCLAUSE:
 							case BOUND:
 							case BOX:
 							case CARET:
-							case CASE_EXPRESSION:
 							case COLON:
+							case COLON_TILDE:
 							case COMMA:
 							case COMMACOMMA:
 							case COMMADOT:
-							case COMPLEX:
-							case COMPONENT:
 							case CONDITION:
-							case CONDITIONAL:
-							case CONDITIONAL_FUNCTION:
-							case CONNECTION:
-							case COUNTING_TRIGGER:
+							case CONDITIONAL_ASSERTION_FUNCTION:
+							case CVP:
 							case DESTINATION:
 							case DIGIT:
 							case DIVIDE:
 							case DOLLAR:
+							case DOT:
 							case DOTCOMMA:
 							case DOTDOT:
 							case DOUBLE_COLON:
@@ -3459,197 +5048,127 @@ public class ASTtoAST extends TreeParser {
 							case DO_NOT_PROVE:
 							case DUMMY:
 							case EMPTY_CURLY:
-							case END_ASSERTION_PROPERTY:
 							case EQ:
 							case EXCLAMATION:
 							case EXP:
 							case EXPONENT:
-							case EXTENDED_DIGIT:
-							case FLOATING:
-							case FUNCTION:
-							case FUNCTION_CALL:
 							case GT:
 							case GUARD:
 							case HEX_DIGIT:
 							case ID:
 							case IMP:
-							case INMODE:
-							case INOUT:
-							case INTEGER_LIT:
-							case INT_EXPONENT:
 							case INVARIANT:
 							case INVOKE:
-							case IP_NAME:
-							case IP_PE:
-							case IP_PRED:
 							case LABEL:
 							case LASS:
 							case LBRACKET:
 							case LCON:
-							case LITERAL_Assertion:
-							case LITERAL_Invariant:
-							case LITERAL_Postcondition:
-							case LITERAL_Precondition:
-							case LITERAL_Typed:
-							case LITERAL_aadlboolean:
-							case LITERAL_aadlinteger:
-							case LITERAL_aadlreal:
-							case LITERAL_aadlstring:
 							case LITERAL_abs:
-							case LITERAL_abstract:
-							case LITERAL_access:
 							case LITERAL_all:
 							case LITERAL_and:
-							case LITERAL_annex:
 							case LITERAL_any:
-							case LITERAL_applies:
 							case LITERAL_are:
 							case LITERAL_array:
 							case LITERAL_assert:
 							case LITERAL_availability:
+							case LITERAL_base:
+							case LITERAL_binding:
 							case LITERAL_boolean:
 							case LITERAL_bound:
-							case LITERAL_bus:
 							case LITERAL_call:
 							case LITERAL_calls:
-							case LITERAL_cand:
+							case LITERAL_case:
 							case LITERAL_catch:
-							case LITERAL_classifier:
 							case LITERAL_complete:
-							case LITERAL_complex:
-							case LITERAL_component:
 							case LITERAL_computation:
-							case LITERAL_connection:
-							case LITERAL_connections:
 							case LITERAL_constant:
-							case LITERAL_cor:
 							case LITERAL_count:
-							case LITERAL_data:
 							case LITERAL_declare:
 							case LITERAL_def:
 							case LITERAL_delay:
-							case LITERAL_device:
 							case LITERAL_dispatch:
+							case LITERAL_div:
 							case LITERAL_do:
 							case LITERAL_else:
-							case LITERAL_end:
 							case LITERAL_enumeration:
-							case LITERAL_event:
 							case LITERAL_exception:
 							case LITERAL_exists:
 							case LITERAL_extends:
+							case LITERAL_extension:
 							case LITERAL_false:
-							case LITERAL_feature:
-							case LITERAL_features:
 							case LITERAL_fetchadd:
 							case LITERAL_fetchand:
 							case LITERAL_fetchor:
 							case LITERAL_fetchxor:
 							case LITERAL_fi:
 							case LITERAL_final:
-							case LITERAL_flow:
-							case LITERAL_flows:
 							case LITERAL_for:
 							case LITERAL_forall:
 							case LITERAL_fresh:
-							case LITERAL_function:
-							case LITERAL_group:
-							case LITERAL_hr:
+							case LITERAL_ghost:
 							case LITERAL_if:
 							case LITERAL_iff:
-							case LITERAL_implementation:
 							case LITERAL_implies:
 							case LITERAL_in:
-							case LITERAL_inherit:
 							case LITERAL_initial:
-							case LITERAL_integer:
+							case LITERAL_internal:
 							case LITERAL_invariant:
 							case LITERAL_inverse:
 							case LITERAL_is:
-							case LITERAL_list:
 							case LITERAL_lower_bound:
-							case LITERAL_memory:
-							case LITERAL_min:
 							case LITERAL_mod:
-							case LITERAL_mode:
-							case LITERAL_modes:
-							case LITERAL_ms:
-							case LITERAL_natural:
-							case LITERAL_none:
 							case LITERAL_nonvolatile:
 							case LITERAL_not:
 							case LITERAL_now:
-							case LITERAL_ns:
 							case LITERAL_null:
 							case LITERAL_numberof:
 							case LITERAL_of:
 							case LITERAL_on:
 							case LITERAL_or:
-							case LITERAL_out:
-							case LITERAL_package:
-							case LITERAL_parameter:
-							case LITERAL_pause:
-							case LITERAL_port:
 							case LITERAL_post:
 							case LITERAL_pre:
-							case LITERAL_private:
-							case LITERAL_procedure:
-							case LITERAL_process:
-							case LITERAL_processor:
 							case LITERAL_product:
-							case LITERAL_properties:
-							case LITERAL_property:
-							case LITERAL_prototypes:
-							case LITERAL_provides:
-							case LITERAL_ps:
-							case LITERAL_public:
+							case LITERAL_quantity:
 							case LITERAL_range:
-							case LITERAL_rational:
-							case LITERAL_real:
 							case LITERAL_record:
-							case LITERAL_reference:
 							case LITERAL_rem:
-							case LITERAL_renames:
-							case LITERAL_requires:
-							case LITERAL_sec:
+							case LITERAL_representation:
+							case LITERAL_returns:
+							case LITERAL_round:
+							case LITERAL_scalar:
 							case LITERAL_self:
-							case LITERAL_sequence:
-							case LITERAL_set:
 							case LITERAL_setmode:
 							case LITERAL_shared:
 							case LITERAL_skip:
 							case LITERAL_spread:
 							case LITERAL_state:
 							case LITERAL_states:
-							case LITERAL_stop:
+							case LITERAL_step:
 							case LITERAL_string:
-							case LITERAL_subcomponents:
-							case LITERAL_subprogram:
 							case LITERAL_sum:
 							case LITERAL_swap:
-							case LITERAL_system:
 							case LITERAL_that:
 							case LITERAL_then:
-							case LITERAL_thread:
 							case LITERAL_throw:
-							case LITERAL_time:
+							case LITERAL_throws:
 							case LITERAL_timeout:
 							case LITERAL_to:
 							case LITERAL_tops:
-							case LITERAL_transition:
 							case LITERAL_transitions:
 							case LITERAL_true:
+							case LITERAL_truncate:
 							case LITERAL_type:
+							case LITERAL_union:
 							case LITERAL_units:
 							case LITERAL_until:
 							case LITERAL_updated:
 							case LITERAL_upper_bound:
-							case LITERAL_us:
 							case LITERAL_variables:
 							case LITERAL_variant:
-							case LITERAL_virtual:
 							case LITERAL_when:
+							case LITERAL_which:
 							case LITERAL_while:
+							case LITERAL_whole:
 							case LITERAL_with:
 							case LITERAL_xor:
 							case LPAREN:
@@ -3659,102 +5178,310 @@ public class ASTtoAST extends TreeParser {
 							case MINUS:
 							case MT_STRING:
 							case NEQ:
+							case NUMBER:
 							case OBLIGATION:
 							case OCTOTHORPE:
-							case ON:
+							case OLD_NEQ:
 							case P:
-							case PARAMETER:
 							case PARAMETERS:
-							case PERIOD:
 							case PLUS:
 							case PLUS_ARROW:
 							case PLUS_EQUALS:
-							case PORT:
 							case PORT_INPUT:
 							case PORT_OUTPUT:
 							case PREDICATE_RELATION:
-							case PROCEDURE:
-							case PROCEDURE_CALL:
-							case PROPERTY_LIST:
 							case Q:
 							case QQ:
+							case QUANTITY:
 							case QUESTION:
 							case RASS:
-							case RATIONAL:
 							case RBRACKET:
 							case RCON:
 							case RCURLY:
-							case REAL_LIT:
-							case RECORD_VALUE:
+							case RECORD_TERM:
+							case ROOT_DECLARATION:
 							case RPAREN:
 							case S:
 							case SLCOMMENT:
 							case SOURCE:
-							case START:
-							case START_ASSERTION_PROPERTY:
 							case STOP:
-							case SUBCOMPONENT:
-							case SUBPROGRAM_ANNEX:
-							case THREAD_ANNEX:
-							case THREAD_GROUP:
+							case SUBPROGRAM_INVOCATION:
 							case TICK:
 							case TILDE:
 							case TIMES:
-							case TOP:
 							case TRANSITION:
-							case TYPE:
-							case TYPE_OPERATOR:
-							case TYPE_OPERATOR_INVOCATION:
+							case TYPE_LIBRARY:
 							case UNARY_MINUS:
+							case UNIT_FORMULA:
+							case UNIT_LIBRARY:
+							case UNIT_NAME:
 							case VALUE:
-							case WP:
+							case VARIABLE_DECLARATION:
+							case VERT:
 							case WS:
-							case 302:
-							case LITERAL_BLESS:
 								{
-								int LA14_20 = input.LA(4);
-								if ( (LA14_20==ACTION) ) {
-									int LA14_22 = input.LA(5);
-									if ( ((LA14_22 >= UP && LA14_22 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_20==SEMICOLON) ) {
-									int LA14_23 = input.LA(5);
-									if ( ((LA14_23 >= UP && LA14_23 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_20==AMPERSAND) ) {
-									int LA14_24 = input.LA(5);
-									if ( ((LA14_24 >= UP && LA14_24 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( (LA14_20==LCURLY) ) {
-									int LA14_25 = input.LA(5);
-									if ( ((LA14_25 >= UP && LA14_25 <= LITERAL_BLESS)) ) {
-										alt14=1;
-									}
-								}
-								else if ( ((LA14_20 >= UP && LA14_20 <= AADL_STRING_PART)||(LA14_20 >= AL && LA14_20 <= AM)||(LA14_20 >= ANNEX_END && LA14_20 <= LCON)||(LA14_20 >= LITERAL_Assertion && LA14_20 <= S)||(LA14_20 >= SLCOMMENT && LA14_20 <= LITERAL_BLESS)) ) {
-									alt14=1;
+								switch ( input.LA(4) ) {
+									case ACTION:
+										{
+										int LA15_22 = input.LA(5);
+										if ( ((LA15_22 >= UP && LA15_22 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case SEMICOLON:
+										{
+										int LA15_23 = input.LA(5);
+										if ( ((LA15_23 >= UP && LA15_23 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case AMPERSAND:
+										{
+										int LA15_24 = input.LA(5);
+										if ( ((LA15_24 >= UP && LA15_24 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case LCURLY:
+										{
+										int LA15_25 = input.LA(5);
+										if ( ((LA15_25 >= UP && LA15_25 <= WS)) ) {
+											alt15=1;
+										}
+										}
+										break;
+									case UP:
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PARAMETERS:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt15=1;
+										}
+										break;
 								}
 								}
 								break;
 						}
 					}
-					else if ( (LA14_4==ACTION||LA14_4==AMPERSAND||LA14_4==LCURLY||LA14_4==SEMICOLON) ) {
-						alt14=1;
+					else if ( (LA15_4==ACTION||LA15_4==AMPERSAND||LA15_4==LCURLY||LA15_4==SEMICOLON) ) {
+						alt15=1;
 					}
 					}
 					break;
 				case AADL_STRING_LITERAL:
 				case AADL_STRING_PART:
+				case ACTION_SUBCLAUSE:
 				case AL:
 				case AM:
-				case ANNEX_END:
-				case ANNEX_START:
 				case ARROW:
 				case ASSERTION:
 				case ASSERTION_ANNEX:
@@ -3762,30 +5489,25 @@ public class ASTtoAST extends TreeParser {
 				case ASSERTION_FUNCTION:
 				case ASSIGN:
 				case AT_SIGN:
-				case BASE:
-				case BASED_INTEGER:
-				case BEHAVIOR_GUARD:
 				case BEHAVIOR_TIME:
 				case BI:
+				case BLESS_SUBCLAUSE:
 				case BOUND:
 				case BOX:
 				case CARET:
-				case CASE_EXPRESSION:
 				case COLON:
+				case COLON_TILDE:
 				case COMMA:
 				case COMMACOMMA:
 				case COMMADOT:
-				case COMPLEX:
-				case COMPONENT:
 				case CONDITION:
-				case CONDITIONAL:
-				case CONDITIONAL_FUNCTION:
-				case CONNECTION:
-				case COUNTING_TRIGGER:
+				case CONDITIONAL_ASSERTION_FUNCTION:
+				case CVP:
 				case DESTINATION:
 				case DIGIT:
 				case DIVIDE:
 				case DOLLAR:
+				case DOT:
 				case DOTCOMMA:
 				case DOTDOT:
 				case DOUBLE_COLON:
@@ -3793,197 +5515,127 @@ public class ASTtoAST extends TreeParser {
 				case DO_NOT_PROVE:
 				case DUMMY:
 				case EMPTY_CURLY:
-				case END_ASSERTION_PROPERTY:
 				case EQ:
 				case EXCLAMATION:
 				case EXP:
 				case EXPONENT:
-				case EXTENDED_DIGIT:
-				case FLOATING:
-				case FUNCTION:
-				case FUNCTION_CALL:
 				case GT:
 				case GUARD:
 				case HEX_DIGIT:
 				case ID:
 				case IMP:
-				case INMODE:
-				case INOUT:
-				case INTEGER_LIT:
-				case INT_EXPONENT:
 				case INVARIANT:
 				case INVOKE:
-				case IP_NAME:
-				case IP_PE:
-				case IP_PRED:
 				case LABEL:
 				case LASS:
 				case LBRACKET:
 				case LCON:
-				case LITERAL_Assertion:
-				case LITERAL_Invariant:
-				case LITERAL_Postcondition:
-				case LITERAL_Precondition:
-				case LITERAL_Typed:
-				case LITERAL_aadlboolean:
-				case LITERAL_aadlinteger:
-				case LITERAL_aadlreal:
-				case LITERAL_aadlstring:
 				case LITERAL_abs:
-				case LITERAL_abstract:
-				case LITERAL_access:
 				case LITERAL_all:
 				case LITERAL_and:
-				case LITERAL_annex:
 				case LITERAL_any:
-				case LITERAL_applies:
 				case LITERAL_are:
 				case LITERAL_array:
 				case LITERAL_assert:
 				case LITERAL_availability:
+				case LITERAL_base:
+				case LITERAL_binding:
 				case LITERAL_boolean:
 				case LITERAL_bound:
-				case LITERAL_bus:
 				case LITERAL_call:
 				case LITERAL_calls:
-				case LITERAL_cand:
+				case LITERAL_case:
 				case LITERAL_catch:
-				case LITERAL_classifier:
 				case LITERAL_complete:
-				case LITERAL_complex:
-				case LITERAL_component:
 				case LITERAL_computation:
-				case LITERAL_connection:
-				case LITERAL_connections:
 				case LITERAL_constant:
-				case LITERAL_cor:
 				case LITERAL_count:
-				case LITERAL_data:
 				case LITERAL_declare:
 				case LITERAL_def:
 				case LITERAL_delay:
-				case LITERAL_device:
 				case LITERAL_dispatch:
+				case LITERAL_div:
 				case LITERAL_do:
 				case LITERAL_else:
-				case LITERAL_end:
 				case LITERAL_enumeration:
-				case LITERAL_event:
 				case LITERAL_exception:
 				case LITERAL_exists:
 				case LITERAL_extends:
+				case LITERAL_extension:
 				case LITERAL_false:
-				case LITERAL_feature:
-				case LITERAL_features:
 				case LITERAL_fetchadd:
 				case LITERAL_fetchand:
 				case LITERAL_fetchor:
 				case LITERAL_fetchxor:
 				case LITERAL_fi:
 				case LITERAL_final:
-				case LITERAL_flow:
-				case LITERAL_flows:
 				case LITERAL_for:
 				case LITERAL_forall:
 				case LITERAL_fresh:
-				case LITERAL_function:
-				case LITERAL_group:
-				case LITERAL_hr:
+				case LITERAL_ghost:
 				case LITERAL_if:
 				case LITERAL_iff:
-				case LITERAL_implementation:
 				case LITERAL_implies:
 				case LITERAL_in:
-				case LITERAL_inherit:
 				case LITERAL_initial:
-				case LITERAL_integer:
+				case LITERAL_internal:
 				case LITERAL_invariant:
 				case LITERAL_inverse:
 				case LITERAL_is:
-				case LITERAL_list:
 				case LITERAL_lower_bound:
-				case LITERAL_memory:
-				case LITERAL_min:
 				case LITERAL_mod:
-				case LITERAL_mode:
-				case LITERAL_modes:
-				case LITERAL_ms:
-				case LITERAL_natural:
-				case LITERAL_none:
 				case LITERAL_nonvolatile:
 				case LITERAL_not:
 				case LITERAL_now:
-				case LITERAL_ns:
 				case LITERAL_null:
 				case LITERAL_numberof:
 				case LITERAL_of:
 				case LITERAL_on:
 				case LITERAL_or:
-				case LITERAL_out:
-				case LITERAL_package:
-				case LITERAL_parameter:
-				case LITERAL_pause:
-				case LITERAL_port:
 				case LITERAL_post:
 				case LITERAL_pre:
-				case LITERAL_private:
-				case LITERAL_procedure:
-				case LITERAL_process:
-				case LITERAL_processor:
 				case LITERAL_product:
-				case LITERAL_properties:
-				case LITERAL_property:
-				case LITERAL_prototypes:
-				case LITERAL_provides:
-				case LITERAL_ps:
-				case LITERAL_public:
+				case LITERAL_quantity:
 				case LITERAL_range:
-				case LITERAL_rational:
-				case LITERAL_real:
 				case LITERAL_record:
-				case LITERAL_reference:
 				case LITERAL_rem:
-				case LITERAL_renames:
-				case LITERAL_requires:
-				case LITERAL_sec:
+				case LITERAL_representation:
+				case LITERAL_returns:
+				case LITERAL_round:
+				case LITERAL_scalar:
 				case LITERAL_self:
-				case LITERAL_sequence:
-				case LITERAL_set:
 				case LITERAL_setmode:
 				case LITERAL_shared:
 				case LITERAL_skip:
 				case LITERAL_spread:
 				case LITERAL_state:
 				case LITERAL_states:
-				case LITERAL_stop:
+				case LITERAL_step:
 				case LITERAL_string:
-				case LITERAL_subcomponents:
-				case LITERAL_subprogram:
 				case LITERAL_sum:
 				case LITERAL_swap:
-				case LITERAL_system:
 				case LITERAL_that:
 				case LITERAL_then:
-				case LITERAL_thread:
 				case LITERAL_throw:
-				case LITERAL_time:
+				case LITERAL_throws:
 				case LITERAL_timeout:
 				case LITERAL_to:
 				case LITERAL_tops:
-				case LITERAL_transition:
 				case LITERAL_transitions:
 				case LITERAL_true:
+				case LITERAL_truncate:
 				case LITERAL_type:
+				case LITERAL_union:
 				case LITERAL_units:
 				case LITERAL_until:
 				case LITERAL_updated:
 				case LITERAL_upper_bound:
-				case LITERAL_us:
 				case LITERAL_variables:
 				case LITERAL_variant:
-				case LITERAL_virtual:
 				case LITERAL_when:
+				case LITERAL_which:
 				case LITERAL_while:
+				case LITERAL_whole:
 				case LITERAL_with:
 				case LITERAL_xor:
 				case LPAREN:
@@ -3993,73 +5645,62 @@ public class ASTtoAST extends TreeParser {
 				case MINUS:
 				case MT_STRING:
 				case NEQ:
+				case NUMBER:
 				case OBLIGATION:
 				case OCTOTHORPE:
-				case ON:
+				case OLD_NEQ:
 				case P:
-				case PARAMETER:
 				case PARAMETERS:
-				case PERIOD:
 				case PLUS:
 				case PLUS_ARROW:
 				case PLUS_EQUALS:
-				case PORT:
 				case PORT_INPUT:
 				case PORT_OUTPUT:
 				case PREDICATE_RELATION:
-				case PROCEDURE:
-				case PROCEDURE_CALL:
-				case PROPERTY_LIST:
 				case Q:
 				case QQ:
+				case QUANTITY:
 				case QUESTION:
 				case RASS:
-				case RATIONAL:
 				case RBRACKET:
 				case RCON:
 				case RCURLY:
-				case REAL_LIT:
-				case RECORD_VALUE:
+				case RECORD_TERM:
+				case ROOT_DECLARATION:
 				case RPAREN:
 				case S:
 				case SLCOMMENT:
 				case SOURCE:
-				case START:
-				case START_ASSERTION_PROPERTY:
 				case STOP:
-				case SUBCOMPONENT:
-				case SUBPROGRAM_ANNEX:
-				case THREAD_ANNEX:
-				case THREAD_GROUP:
+				case SUBPROGRAM_INVOCATION:
 				case TICK:
 				case TILDE:
 				case TIMES:
-				case TOP:
 				case TRANSITION:
-				case TYPE:
-				case TYPE_OPERATOR:
-				case TYPE_OPERATOR_INVOCATION:
+				case TYPE_LIBRARY:
 				case UNARY_MINUS:
+				case UNIT_FORMULA:
+				case UNIT_LIBRARY:
+				case UNIT_NAME:
 				case VALUE:
-				case WP:
+				case VARIABLE_DECLARATION:
+				case VERT:
 				case WS:
-				case 302:
-				case LITERAL_BLESS:
 					{
-					alt14=1;
+					alt15=1;
 					}
 					break;
 			}
-			switch (alt14) {
+			switch (alt15) {
 				case 1 :
 					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:185:12: .
 					{
 					_last = (BAST)input.LT(1);
-					wildcard27=(BAST)input.LT(1);
+					wildcard29=(BAST)input.LT(1);
 					matchAny(input); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					wildcard27_tree = (BAST)adaptor.dupTree(wildcard27);
-					adaptor.addChild(root_1, wildcard27_tree);
+					wildcard29_tree = (BAST)adaptor.dupTree(wildcard29);
+					adaptor.addChild(root_1, wildcard29_tree);
 					}
 
 					if ( state.backtracking==0 ) {
@@ -4071,15 +5712,15 @@ public class ASTtoAST extends TreeParser {
 			}
 
 			_last = (BAST)input.LT(1);
-			pushFollow(FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ446);
+			pushFollow(FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452);
 			b=getPostconditionFromBehaviorActions();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) stream_getPostconditionFromBehaviorActions.add(b.getTree());
 			_last = (BAST)input.LT(1);
-			RCURLY28=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ448); if (state.failed) return retval;
+			RCURLY30=(BAST)match(input,RCURLY,FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY28);
+			if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY30);
 
 			match(input, Token.UP, null); if (state.failed) return retval;
 			adaptor.addChild(root_0, root_1);
@@ -4117,7 +5758,7 @@ public class ASTtoAST extends TreeParser {
 
 		}
 		catch (RecognitionException re) {
-			Dump.it("Aw elq.");
+			 //Dump.it("Aw elq.");
 			  tell("ASTtoAST.getPostconditionFromBehaviorActionsInELQ",re,(BAST)retval.getTree());
 			  throw re;
 		}
@@ -4138,7 +5779,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "anAssertion"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:195:1: anAssertion : ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) );
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:195:1: anAssertion : ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS formals= variableList ) p= . ) -> ^( $ass ^( $l $a) ^( $par $formals) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) );
 	public final ASTtoAST.anAssertion_return anAssertion() throws RecognitionException {
 		ASTtoAST.anAssertion_return retval = new ASTtoAST.anAssertion_return();
 		retval.start = input.LT(1);
@@ -4153,28 +5794,688 @@ public class ASTtoAST extends TreeParser {
 		BAST l=null;
 		BAST a=null;
 		BAST par=null;
-		BAST lv=null;
 		BAST p=null;
-		List<Object> list_lv=null;
+		TreeRuleReturnScope formals =null;
 
 		BAST ass_tree=null;
 		BAST l_tree=null;
 		BAST a_tree=null;
 		BAST par_tree=null;
 		BAST p_tree=null;
-		BAST lv_tree=null;
 		RewriteRuleNodeStream stream_ASSERTION=new RewriteRuleNodeStream(adaptor,"token ASSERTION");
 		RewriteRuleNodeStream stream_LABEL=new RewriteRuleNodeStream(adaptor,"token LABEL");
 		RewriteRuleNodeStream stream_ID=new RewriteRuleNodeStream(adaptor,"token ID");
 		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
+		RewriteRuleSubtreeStream stream_variableList=new RewriteRuleSubtreeStream(adaptor,"rule variableList");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:196:3: ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:196:3: ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS formals= variableList ) p= . ) -> ^( $ass ^( $l $a) ^( $par $formals) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) )
 			int alt16=3;
-			alt16 = dfa16.predict(input);
+			int LA16_0 = input.LA(1);
+			if ( (LA16_0==ASSERTION) ) {
+				int LA16_1 = input.LA(2);
+				if ( (LA16_1==DOWN) ) {
+					int LA16_2 = input.LA(3);
+					if ( (LA16_2==LABEL) ) {
+						int LA16_3 = input.LA(4);
+						if ( (LA16_3==DOWN) ) {
+							int LA16_5 = input.LA(5);
+							if ( (LA16_5==ID) ) {
+								int LA16_6 = input.LA(6);
+								if ( (LA16_6==UP) ) {
+									switch ( input.LA(7) ) {
+									case PARAMETERS:
+										{
+										int LA16_8 = input.LA(8);
+										if ( (LA16_8==DOWN) ) {
+											switch ( input.LA(9) ) {
+											case TILDE:
+												{
+												int LA16_11 = input.LA(10);
+												if ( (LA16_11==DOWN) ) {
+													alt16=1;
+												}
+												else if ( ((LA16_11 >= UP && LA16_11 <= WS)) ) {
+													alt16=2;
+												}
+
+												else {
+													if (state.backtracking>0) {state.failed=true; return retval;}
+													int nvaeMark = input.mark();
+													try {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
+															input.consume();
+														}
+														NoViableAltException nvae =
+															new NoViableAltException("", 16, 11, input);
+														throw nvae;
+													} finally {
+														input.rewind(nvaeMark);
+													}
+												}
+
+												}
+												break;
+											case COMMA:
+												{
+												int LA16_12 = input.LA(10);
+												if ( (LA16_12==DOWN) ) {
+													alt16=1;
+												}
+												else if ( ((LA16_12 >= UP && LA16_12 <= WS)) ) {
+													alt16=2;
+												}
+
+												else {
+													if (state.backtracking>0) {state.failed=true; return retval;}
+													int nvaeMark = input.mark();
+													try {
+														for (int nvaeConsume = 0; nvaeConsume < 10 - 1; nvaeConsume++) {
+															input.consume();
+														}
+														NoViableAltException nvae =
+															new NoViableAltException("", 16, 12, input);
+														throw nvae;
+													} finally {
+														input.rewind(nvaeMark);
+													}
+												}
+
+												}
+												break;
+											case AADL_STRING_LITERAL:
+											case AADL_STRING_PART:
+											case ACTION:
+											case ACTION_SUBCLAUSE:
+											case AL:
+											case AM:
+											case AMPERSAND:
+											case ARROW:
+											case ASSERTION:
+											case ASSERTION_ANNEX:
+											case ASSERTION_ENUMERATION:
+											case ASSERTION_FUNCTION:
+											case ASSIGN:
+											case AT_SIGN:
+											case BEHAVIOR_TIME:
+											case BI:
+											case BLESS_SUBCLAUSE:
+											case BOUND:
+											case BOX:
+											case CARET:
+											case COLON:
+											case COLON_TILDE:
+											case COMMACOMMA:
+											case COMMADOT:
+											case CONDITION:
+											case CONDITIONAL_ASSERTION_FUNCTION:
+											case CVP:
+											case DESTINATION:
+											case DIGIT:
+											case DIVIDE:
+											case DOLLAR:
+											case DOT:
+											case DOTCOMMA:
+											case DOTDOT:
+											case DOUBLE_COLON:
+											case DOUBLE_QUOTE:
+											case DO_NOT_PROVE:
+											case DUMMY:
+											case EMPTY_CURLY:
+											case EQ:
+											case EXCLAMATION:
+											case EXP:
+											case EXPONENT:
+											case GT:
+											case GUARD:
+											case HEX_DIGIT:
+											case ID:
+											case IMP:
+											case INVARIANT:
+											case INVOKE:
+											case LABEL:
+											case LASS:
+											case LBRACKET:
+											case LCON:
+											case LCURLY:
+											case LITERAL_abs:
+											case LITERAL_all:
+											case LITERAL_and:
+											case LITERAL_any:
+											case LITERAL_are:
+											case LITERAL_array:
+											case LITERAL_assert:
+											case LITERAL_availability:
+											case LITERAL_base:
+											case LITERAL_binding:
+											case LITERAL_boolean:
+											case LITERAL_bound:
+											case LITERAL_call:
+											case LITERAL_calls:
+											case LITERAL_case:
+											case LITERAL_catch:
+											case LITERAL_complete:
+											case LITERAL_computation:
+											case LITERAL_constant:
+											case LITERAL_count:
+											case LITERAL_declare:
+											case LITERAL_def:
+											case LITERAL_delay:
+											case LITERAL_dispatch:
+											case LITERAL_div:
+											case LITERAL_do:
+											case LITERAL_else:
+											case LITERAL_enumeration:
+											case LITERAL_exception:
+											case LITERAL_exists:
+											case LITERAL_extends:
+											case LITERAL_extension:
+											case LITERAL_false:
+											case LITERAL_fetchadd:
+											case LITERAL_fetchand:
+											case LITERAL_fetchor:
+											case LITERAL_fetchxor:
+											case LITERAL_fi:
+											case LITERAL_final:
+											case LITERAL_for:
+											case LITERAL_forall:
+											case LITERAL_fresh:
+											case LITERAL_ghost:
+											case LITERAL_if:
+											case LITERAL_iff:
+											case LITERAL_implies:
+											case LITERAL_in:
+											case LITERAL_initial:
+											case LITERAL_internal:
+											case LITERAL_invariant:
+											case LITERAL_inverse:
+											case LITERAL_is:
+											case LITERAL_lower_bound:
+											case LITERAL_mod:
+											case LITERAL_nonvolatile:
+											case LITERAL_not:
+											case LITERAL_now:
+											case LITERAL_null:
+											case LITERAL_numberof:
+											case LITERAL_of:
+											case LITERAL_on:
+											case LITERAL_or:
+											case LITERAL_post:
+											case LITERAL_pre:
+											case LITERAL_product:
+											case LITERAL_quantity:
+											case LITERAL_range:
+											case LITERAL_record:
+											case LITERAL_rem:
+											case LITERAL_representation:
+											case LITERAL_returns:
+											case LITERAL_round:
+											case LITERAL_scalar:
+											case LITERAL_self:
+											case LITERAL_setmode:
+											case LITERAL_shared:
+											case LITERAL_skip:
+											case LITERAL_spread:
+											case LITERAL_state:
+											case LITERAL_states:
+											case LITERAL_step:
+											case LITERAL_string:
+											case LITERAL_sum:
+											case LITERAL_swap:
+											case LITERAL_that:
+											case LITERAL_then:
+											case LITERAL_throw:
+											case LITERAL_throws:
+											case LITERAL_timeout:
+											case LITERAL_to:
+											case LITERAL_tops:
+											case LITERAL_transitions:
+											case LITERAL_true:
+											case LITERAL_truncate:
+											case LITERAL_type:
+											case LITERAL_union:
+											case LITERAL_units:
+											case LITERAL_until:
+											case LITERAL_updated:
+											case LITERAL_upper_bound:
+											case LITERAL_variables:
+											case LITERAL_variant:
+											case LITERAL_when:
+											case LITERAL_which:
+											case LITERAL_while:
+											case LITERAL_whole:
+											case LITERAL_with:
+											case LITERAL_xor:
+											case LPAREN:
+											case LT:
+											case LTE_STRING:
+											case LT_STRING:
+											case MINUS:
+											case MT_STRING:
+											case NEQ:
+											case NUMBER:
+											case OBLIGATION:
+											case OCTOTHORPE:
+											case OLD_NEQ:
+											case P:
+											case PARAMETERS:
+											case PLUS:
+											case PLUS_ARROW:
+											case PLUS_EQUALS:
+											case PORT_INPUT:
+											case PORT_OUTPUT:
+											case PREDICATE_RELATION:
+											case Q:
+											case QQ:
+											case QUANTITY:
+											case QUESTION:
+											case RASS:
+											case RBRACKET:
+											case RCON:
+											case RCURLY:
+											case RECORD_TERM:
+											case ROOT_DECLARATION:
+											case RPAREN:
+											case S:
+											case SEMICOLON:
+											case SLCOMMENT:
+											case SOURCE:
+											case STOP:
+											case SUBPROGRAM_INVOCATION:
+											case TICK:
+											case TIMES:
+											case TRANSITION:
+											case TYPE_LIBRARY:
+											case UNARY_MINUS:
+											case UNIT_FORMULA:
+											case UNIT_LIBRARY:
+											case UNIT_NAME:
+											case VALUE:
+											case VARIABLE_DECLARATION:
+											case VERT:
+											case WS:
+												{
+												alt16=2;
+												}
+												break;
+											default:
+												if (state.backtracking>0) {state.failed=true; return retval;}
+												int nvaeMark = input.mark();
+												try {
+													for (int nvaeConsume = 0; nvaeConsume < 9 - 1; nvaeConsume++) {
+														input.consume();
+													}
+													NoViableAltException nvae =
+														new NoViableAltException("", 16, 10, input);
+													throw nvae;
+												} finally {
+													input.rewind(nvaeMark);
+												}
+											}
+										}
+										else if ( (LA16_8==UP) ) {
+											alt16=2;
+										}
+
+										else {
+											if (state.backtracking>0) {state.failed=true; return retval;}
+											int nvaeMark = input.mark();
+											try {
+												for (int nvaeConsume = 0; nvaeConsume < 8 - 1; nvaeConsume++) {
+													input.consume();
+												}
+												NoViableAltException nvae =
+													new NoViableAltException("", 16, 8, input);
+												throw nvae;
+											} finally {
+												input.rewind(nvaeMark);
+											}
+										}
+
+										}
+										break;
+									case AADL_STRING_LITERAL:
+									case AADL_STRING_PART:
+									case ACTION:
+									case ACTION_SUBCLAUSE:
+									case AL:
+									case AM:
+									case AMPERSAND:
+									case ARROW:
+									case ASSERTION:
+									case ASSERTION_ANNEX:
+									case ASSERTION_ENUMERATION:
+									case ASSERTION_FUNCTION:
+									case ASSIGN:
+									case AT_SIGN:
+									case BEHAVIOR_TIME:
+									case BI:
+									case BLESS_SUBCLAUSE:
+									case BOUND:
+									case BOX:
+									case CARET:
+									case COLON:
+									case COLON_TILDE:
+									case COMMA:
+									case COMMACOMMA:
+									case COMMADOT:
+									case CONDITION:
+									case CONDITIONAL_ASSERTION_FUNCTION:
+									case CVP:
+									case DESTINATION:
+									case DIGIT:
+									case DIVIDE:
+									case DOLLAR:
+									case DOT:
+									case DOTCOMMA:
+									case DOTDOT:
+									case DOUBLE_COLON:
+									case DOUBLE_QUOTE:
+									case DO_NOT_PROVE:
+									case DUMMY:
+									case EMPTY_CURLY:
+									case EQ:
+									case EXCLAMATION:
+									case EXP:
+									case EXPONENT:
+									case GT:
+									case GUARD:
+									case HEX_DIGIT:
+									case ID:
+									case IMP:
+									case INVARIANT:
+									case INVOKE:
+									case LABEL:
+									case LASS:
+									case LBRACKET:
+									case LCON:
+									case LCURLY:
+									case LITERAL_abs:
+									case LITERAL_all:
+									case LITERAL_and:
+									case LITERAL_any:
+									case LITERAL_are:
+									case LITERAL_array:
+									case LITERAL_assert:
+									case LITERAL_availability:
+									case LITERAL_base:
+									case LITERAL_binding:
+									case LITERAL_boolean:
+									case LITERAL_bound:
+									case LITERAL_call:
+									case LITERAL_calls:
+									case LITERAL_case:
+									case LITERAL_catch:
+									case LITERAL_complete:
+									case LITERAL_computation:
+									case LITERAL_constant:
+									case LITERAL_count:
+									case LITERAL_declare:
+									case LITERAL_def:
+									case LITERAL_delay:
+									case LITERAL_dispatch:
+									case LITERAL_div:
+									case LITERAL_do:
+									case LITERAL_else:
+									case LITERAL_enumeration:
+									case LITERAL_exception:
+									case LITERAL_exists:
+									case LITERAL_extends:
+									case LITERAL_extension:
+									case LITERAL_false:
+									case LITERAL_fetchadd:
+									case LITERAL_fetchand:
+									case LITERAL_fetchor:
+									case LITERAL_fetchxor:
+									case LITERAL_fi:
+									case LITERAL_final:
+									case LITERAL_for:
+									case LITERAL_forall:
+									case LITERAL_fresh:
+									case LITERAL_ghost:
+									case LITERAL_if:
+									case LITERAL_iff:
+									case LITERAL_implies:
+									case LITERAL_in:
+									case LITERAL_initial:
+									case LITERAL_internal:
+									case LITERAL_invariant:
+									case LITERAL_inverse:
+									case LITERAL_is:
+									case LITERAL_lower_bound:
+									case LITERAL_mod:
+									case LITERAL_nonvolatile:
+									case LITERAL_not:
+									case LITERAL_now:
+									case LITERAL_null:
+									case LITERAL_numberof:
+									case LITERAL_of:
+									case LITERAL_on:
+									case LITERAL_or:
+									case LITERAL_post:
+									case LITERAL_pre:
+									case LITERAL_product:
+									case LITERAL_quantity:
+									case LITERAL_range:
+									case LITERAL_record:
+									case LITERAL_rem:
+									case LITERAL_representation:
+									case LITERAL_returns:
+									case LITERAL_round:
+									case LITERAL_scalar:
+									case LITERAL_self:
+									case LITERAL_setmode:
+									case LITERAL_shared:
+									case LITERAL_skip:
+									case LITERAL_spread:
+									case LITERAL_state:
+									case LITERAL_states:
+									case LITERAL_step:
+									case LITERAL_string:
+									case LITERAL_sum:
+									case LITERAL_swap:
+									case LITERAL_that:
+									case LITERAL_then:
+									case LITERAL_throw:
+									case LITERAL_throws:
+									case LITERAL_timeout:
+									case LITERAL_to:
+									case LITERAL_tops:
+									case LITERAL_transitions:
+									case LITERAL_true:
+									case LITERAL_truncate:
+									case LITERAL_type:
+									case LITERAL_union:
+									case LITERAL_units:
+									case LITERAL_until:
+									case LITERAL_updated:
+									case LITERAL_upper_bound:
+									case LITERAL_variables:
+									case LITERAL_variant:
+									case LITERAL_when:
+									case LITERAL_which:
+									case LITERAL_while:
+									case LITERAL_whole:
+									case LITERAL_with:
+									case LITERAL_xor:
+									case LPAREN:
+									case LT:
+									case LTE_STRING:
+									case LT_STRING:
+									case MINUS:
+									case MT_STRING:
+									case NEQ:
+									case NUMBER:
+									case OBLIGATION:
+									case OCTOTHORPE:
+									case OLD_NEQ:
+									case P:
+									case PLUS:
+									case PLUS_ARROW:
+									case PLUS_EQUALS:
+									case PORT_INPUT:
+									case PORT_OUTPUT:
+									case PREDICATE_RELATION:
+									case Q:
+									case QQ:
+									case QUANTITY:
+									case QUESTION:
+									case RASS:
+									case RBRACKET:
+									case RCON:
+									case RCURLY:
+									case RECORD_TERM:
+									case ROOT_DECLARATION:
+									case RPAREN:
+									case S:
+									case SEMICOLON:
+									case SLCOMMENT:
+									case SOURCE:
+									case STOP:
+									case SUBPROGRAM_INVOCATION:
+									case TICK:
+									case TILDE:
+									case TIMES:
+									case TRANSITION:
+									case TYPE_LIBRARY:
+									case UNARY_MINUS:
+									case UNIT_FORMULA:
+									case UNIT_LIBRARY:
+									case UNIT_NAME:
+									case VALUE:
+									case VARIABLE_DECLARATION:
+									case VERT:
+									case WS:
+										{
+										alt16=2;
+										}
+										break;
+									case UP:
+										{
+										alt16=3;
+										}
+										break;
+									default:
+										if (state.backtracking>0) {state.failed=true; return retval;}
+										int nvaeMark = input.mark();
+										try {
+											for (int nvaeConsume = 0; nvaeConsume < 7 - 1; nvaeConsume++) {
+												input.consume();
+											}
+											NoViableAltException nvae =
+												new NoViableAltException("", 16, 7, input);
+											throw nvae;
+										} finally {
+											input.rewind(nvaeMark);
+										}
+									}
+								}
+								else if ( ((LA16_6 >= AADL_STRING_LITERAL && LA16_6 <= WS)) ) {
+									alt16=3;
+								}
+
+								else {
+									if (state.backtracking>0) {state.failed=true; return retval;}
+									int nvaeMark = input.mark();
+									try {
+										for (int nvaeConsume = 0; nvaeConsume < 6 - 1; nvaeConsume++) {
+											input.consume();
+										}
+										NoViableAltException nvae =
+											new NoViableAltException("", 16, 6, input);
+										throw nvae;
+									} finally {
+										input.rewind(nvaeMark);
+									}
+								}
+
+							}
+							else if ( ((LA16_5 >= AADL_STRING_LITERAL && LA16_5 <= HEX_DIGIT)||(LA16_5 >= IMP && LA16_5 <= WS)) ) {
+								alt16=3;
+							}
+
+							else {
+								if (state.backtracking>0) {state.failed=true; return retval;}
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+										input.consume();
+									}
+									NoViableAltException nvae =
+										new NoViableAltException("", 16, 5, input);
+									throw nvae;
+								} finally {
+									input.rewind(nvaeMark);
+								}
+							}
+
+						}
+						else if ( (LA16_3==UP) ) {
+							alt16=3;
+						}
+
+						else {
+							if (state.backtracking>0) {state.failed=true; return retval;}
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+									input.consume();
+								}
+								NoViableAltException nvae =
+									new NoViableAltException("", 16, 3, input);
+								throw nvae;
+							} finally {
+								input.rewind(nvaeMark);
+							}
+						}
+
+					}
+					else if ( ((LA16_2 >= AADL_STRING_LITERAL && LA16_2 <= INVOKE)||(LA16_2 >= LASS && LA16_2 <= WS)) ) {
+						alt16=3;
+					}
+
+					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 16, 2, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
+				}
+
+				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 16, 1, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+			}
+
+			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
+				NoViableAltException nvae =
+					new NoViableAltException("", 16, 0, input);
+				throw nvae;
+			}
+
 			switch (alt16) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:3: ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS formals= variableList ) p= . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -4182,7 +6483,7 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion493); if (state.failed) return retval;
+					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion499); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
@@ -4193,13 +6494,13 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					l=(BAST)match(input,LABEL,FOLLOW_LABEL_in_anAssertion500); if (state.failed) return retval;
+					l=(BAST)match(input,LABEL,FOLLOW_LABEL_in_anAssertion506); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_LABEL.add(l);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					a=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion504); if (state.failed) return retval;
+					a=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion510); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ID.add(a);
 
@@ -4215,47 +6516,17 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					par=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_anAssertion511); if (state.failed) return retval;
+					par=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_anAssertion517); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_PARAMETERS.add(par);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:58: (lv+= ID )+
-					int cnt15=0;
-					loop15:
-					while (true) {
-						int alt15=2;
-						int LA15_0 = input.LA(1);
-						if ( (LA15_0==ID) ) {
-							alt15=1;
-						}
-
-						switch (alt15) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:197:58: lv+= ID
-							{
-							_last = (BAST)input.LT(1);
-							lv=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion515); if (state.failed) return retval;
-							 
-							if ( state.backtracking==0 ) stream_ID.add(lv);
-
-							if (list_lv==null) list_lv=new ArrayList<Object>();
-							list_lv.add(lv);
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt15 >= 1 ) break loop15;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(15, input);
-							throw eee;
-						}
-						cnt15++;
-					}
-
+					_last = (BAST)input.LT(1);
+					pushFollow(FOLLOW_variableList_in_anAssertion521);
+					formals=variableList();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_variableList.add(formals.getTree());
 					match(input, Token.UP, null); if (state.failed) return retval;
 					adaptor.addChild(root_1, root_2);
 					_last = _save_last_2;
@@ -4277,10 +6548,10 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, ass, par, lv, l, a
+					// elements: formals, ass, a, l, p, par
 					// token labels: ass, par, a, l
-					// rule labels: retval
-					// token list labels: lv
+					// rule labels: formals, retval
+					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: p
 					if ( state.backtracking==0 ) {
@@ -4289,14 +6560,14 @@ public class ASTtoAST extends TreeParser {
 					RewriteRuleNodeStream stream_par=new RewriteRuleNodeStream(adaptor,"token par",par);
 					RewriteRuleNodeStream stream_a=new RewriteRuleNodeStream(adaptor,"token a",a);
 					RewriteRuleNodeStream stream_l=new RewriteRuleNodeStream(adaptor,"token l",l);
-					RewriteRuleNodeStream stream_lv=new RewriteRuleNodeStream(adaptor,"token lv", list_lv);
 					RewriteRuleSubtreeStream stream_p=new RewriteRuleSubtreeStream(adaptor,"wildcard p",p);
+					RewriteRuleSubtreeStream stream_formals=new RewriteRuleSubtreeStream(adaptor,"rule formals",formals!=null?formals.getTree():null);
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (BAST)adaptor.nil();
-					// 198:5: -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p)
+					// 198:5: -> ^( $ass ^( $l $a) ^( $par $formals) $p)
 					{
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:8: ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p)
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:8: ^( $ass ^( $l $a) ^( $par $formals) $p)
 						{
 						BAST root_1 = (BAST)adaptor.nil();
 						root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
@@ -4308,18 +6579,11 @@ public class ASTtoAST extends TreeParser {
 						adaptor.addChild(root_1, root_2);
 						}
 
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:24: ^( $par ( $lv)+ )
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:198:24: ^( $par $formals)
 						{
 						BAST root_2 = (BAST)adaptor.nil();
 						root_2 = (BAST)adaptor.becomeRoot(stream_par.nextNode(), root_2);
-						if ( !(stream_lv.hasNext()) ) {
-							throw new RewriteEarlyExitException();
-						}
-						while ( stream_lv.hasNext() ) {
-							adaptor.addChild(root_2, stream_lv.nextNode());
-						}
-						stream_lv.reset();
-
+						adaptor.addChild(root_2, stream_formals.nextTree());
 						adaptor.addChild(root_1, root_2);
 						}
 
@@ -4344,7 +6608,7 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion568); if (state.failed) return retval;
+					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion572); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
@@ -4355,13 +6619,13 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					l=(BAST)match(input,LABEL,FOLLOW_LABEL_in_anAssertion575); if (state.failed) return retval;
+					l=(BAST)match(input,LABEL,FOLLOW_LABEL_in_anAssertion579); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_LABEL.add(l);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					a=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion579); if (state.failed) return retval;
+					a=(BAST)match(input,ID,FOLLOW_ID_in_anAssertion583); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ID.add(a);
 
@@ -4386,7 +6650,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: a, p, ass, l
+					// elements: ass, l, a, p
 					// token labels: ass, a, l
 					// rule labels: retval
 					// token list labels: 
@@ -4436,7 +6700,7 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion622); if (state.failed) return retval;
+					ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_anAssertion626); if (state.failed) return retval;
 					 
 					if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
@@ -4456,7 +6720,7 @@ public class ASTtoAST extends TreeParser {
 
 
 					// AST REWRITE
-					// elements: p, ass
+					// elements: ass, p
 					// token labels: ass
 					// rule labels: retval
 					// token list labels: 
@@ -4504,6 +6768,250 @@ public class ASTtoAST extends TreeParser {
 	// $ANTLR end "anAssertion"
 
 
+	public static class variableList_return extends TreeRuleReturnScope {
+		BAST tree;
+		@Override
+		public BAST getTree() { return tree; }
+	};
+
+
+	// $ANTLR start "variableList"
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:207:1: variableList : (v= variable | ^( COMMA (parameter+= variable )+ ) );
+	public final ASTtoAST.variableList_return variableList() throws RecognitionException {
+		ASTtoAST.variableList_return retval = new ASTtoAST.variableList_return();
+		retval.start = input.LT(1);
+
+		BAST root_0 = null;
+
+		BAST _first_0 = null;
+		BAST _last = null;
+
+
+		BAST COMMA31=null;
+		List<Object> list_parameter=null;
+		TreeRuleReturnScope v =null;
+		RuleReturnScope parameter = null;
+		BAST COMMA31_tree=null;
+
+		try {
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:208:3: (v= variable | ^( COMMA (parameter+= variable )+ ) )
+			int alt18=2;
+			int LA18_0 = input.LA(1);
+			if ( (LA18_0==TILDE) ) {
+				alt18=1;
+			}
+			else if ( (LA18_0==COMMA) ) {
+				alt18=2;
+			}
+
+			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
+				NoViableAltException nvae =
+					new NoViableAltException("", 18, 0, input);
+				throw nvae;
+			}
+
+			switch (alt18) {
+				case 1 :
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:209:3: v= variable
+					{
+					root_0 = (BAST)adaptor.nil();
+
+
+					_last = (BAST)input.LT(1);
+					pushFollow(FOLLOW_variable_in_variableList667);
+					v=variable();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) 
+					adaptor.addChild(root_0, v.getTree());
+
+					if ( state.backtracking==0 ) {
+					}
+
+					}
+					break;
+				case 2 :
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:3: ^( COMMA (parameter+= variable )+ )
+					{
+					root_0 = (BAST)adaptor.nil();
+
+
+					_last = (BAST)input.LT(1);
+					{
+					BAST _save_last_1 = _last;
+					BAST _first_1 = null;
+					BAST root_1 = (BAST)adaptor.nil();
+					_last = (BAST)input.LT(1);
+					COMMA31=(BAST)match(input,COMMA,FOLLOW_COMMA_in_variableList677); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					COMMA31_tree = (BAST)adaptor.dupNode(COMMA31);
+
+
+					root_1 = (BAST)adaptor.becomeRoot(COMMA31_tree, root_1);
+					}
+
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:21: (parameter+= variable )+
+					int cnt17=0;
+					loop17:
+					while (true) {
+						int alt17=2;
+						int LA17_0 = input.LA(1);
+						if ( (LA17_0==TILDE) ) {
+							alt17=1;
+						}
+
+						switch (alt17) {
+						case 1 :
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:21: parameter+= variable
+							{
+							_last = (BAST)input.LT(1);
+							pushFollow(FOLLOW_variable_in_variableList681);
+							parameter=variable();
+							state._fsp--;
+							if (state.failed) return retval;
+							if ( state.backtracking==0 ) 
+							adaptor.addChild(root_1, parameter.getTree());
+
+							if (list_parameter==null) list_parameter=new ArrayList<Object>();
+							list_parameter.add(parameter.getTree());
+
+							if ( state.backtracking==0 ) {
+							}
+
+							}
+							break;
+
+						default :
+							if ( cnt17 >= 1 ) break loop17;
+							if (state.backtracking>0) {state.failed=true; return retval;}
+							EarlyExitException eee = new EarlyExitException(17, input);
+							throw eee;
+						}
+						cnt17++;
+					}
+
+					match(input, Token.UP, null); if (state.failed) return retval;
+					adaptor.addChild(root_0, root_1);
+					_last = _save_last_1;
+					}
+
+
+					if ( state.backtracking==0 ) {
+					}
+
+					}
+					break;
+
+			}
+			if ( state.backtracking==0 ) {
+
+			retval.tree = (BAST)adaptor.rulePostProcessing(root_0);
+			}
+
+		}
+		 
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "variableList"
+
+
+	public static class variable_return extends TreeRuleReturnScope {
+		BAST tree;
+		@Override
+		public BAST getTree() { return tree; }
+	};
+
+
+	// $ANTLR start "variable"
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:214:1: variable : ^( TILDE id= ID tod= . ) ;
+	public final ASTtoAST.variable_return variable() throws RecognitionException {
+		ASTtoAST.variable_return retval = new ASTtoAST.variable_return();
+		retval.start = input.LT(1);
+
+		BAST root_0 = null;
+
+		BAST _first_0 = null;
+		BAST _last = null;
+
+
+		BAST id=null;
+		BAST TILDE32=null;
+		BAST tod=null;
+
+		BAST id_tree=null;
+		BAST TILDE32_tree=null;
+		BAST tod_tree=null;
+
+		try {
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:215:3: ( ^( TILDE id= ID tod= . ) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:216:3: ^( TILDE id= ID tod= . )
+			{
+			root_0 = (BAST)adaptor.nil();
+
+
+			_last = (BAST)input.LT(1);
+			{
+			BAST _save_last_1 = _last;
+			BAST _first_1 = null;
+			BAST root_1 = (BAST)adaptor.nil();
+			_last = (BAST)input.LT(1);
+			TILDE32=(BAST)match(input,TILDE,FOLLOW_TILDE_in_variable702); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			TILDE32_tree = (BAST)adaptor.dupNode(TILDE32);
+
+
+			root_1 = (BAST)adaptor.becomeRoot(TILDE32_tree, root_1);
+			}
+
+			match(input, Token.DOWN, null); if (state.failed) return retval;
+			_last = (BAST)input.LT(1);
+			id=(BAST)match(input,ID,FOLLOW_ID_in_variable706); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			id_tree = (BAST)adaptor.dupNode(id);
+
+
+			adaptor.addChild(root_1, id_tree);
+			}
+
+			_last = (BAST)input.LT(1);
+			tod=(BAST)input.LT(1);
+			matchAny(input); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			tod_tree = (BAST)adaptor.dupTree(tod);
+			adaptor.addChild(root_1, tod_tree);
+			}
+
+			match(input, Token.UP, null); if (state.failed) return retval;
+			adaptor.addChild(root_0, root_1);
+			_last = _save_last_1;
+			}
+
+
+			if ( state.backtracking==0 ) {
+			}
+
+			}
+
+			if ( state.backtracking==0 ) {
+
+			retval.tree = (BAST)adaptor.rulePostProcessing(root_0);
+			}
+
+		}
+		 
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "variable"
+
+
 	public static class getPostconditionFromBehaviorActions_return extends TreeRuleReturnScope {
 		public BAST post = null;
 		BAST tree;
@@ -4513,7 +7021,7 @@ public class ASTtoAST extends TreeParser {
 
 
 	// $ANTLR start "getPostconditionFromBehaviorActions"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:207:1: getPostconditionFromBehaviorActions returns [BAST post = null] options {backtrack=true; } : ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->);
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:219:1: getPostconditionFromBehaviorActions returns [BAST post = null] options {backtrack=true; } : ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->);
 	public final ASTtoAST.getPostconditionFromBehaviorActions_return getPostconditionFromBehaviorActions() throws RecognitionException {
 		ASTtoAST.getPostconditionFromBehaviorActions_return retval = new ASTtoAST.getPostconditionFromBehaviorActions_return();
 		retval.start = input.LT(1);
@@ -4525,76 +7033,76 @@ public class ASTtoAST extends TreeParser {
 
 
 		BAST amp=null;
-		BAST ACTION29=null;
-		BAST P30=null;
-		BAST wildcard31=null;
-		BAST S32=null;
-		BAST wildcard33=null;
-		BAST Q34=null;
-		BAST SEMICOLON35=null;
-		BAST ACTION36=null;
-		BAST P37=null;
-		BAST wildcard38=null;
-		BAST S39=null;
-		BAST wildcard40=null;
-		BAST Q41=null;
+		BAST ACTION33=null;
+		BAST P34=null;
+		BAST wildcard35=null;
+		BAST S36=null;
+		BAST wildcard37=null;
+		BAST Q38=null;
+		BAST SEMICOLON39=null;
+		BAST ACTION40=null;
+		BAST P41=null;
+		BAST wildcard42=null;
+		BAST S43=null;
+		BAST wildcard44=null;
+		BAST Q45=null;
 		BAST q=null;
 		BAST q2=null;
 		TreeRuleReturnScope prc =null;
 		TreeRuleReturnScope elq =null;
 
 		BAST amp_tree=null;
-		BAST ACTION29_tree=null;
-		BAST P30_tree=null;
-		BAST wildcard31_tree=null;
-		BAST S32_tree=null;
-		BAST wildcard33_tree=null;
-		BAST Q34_tree=null;
-		BAST SEMICOLON35_tree=null;
-		BAST ACTION36_tree=null;
-		BAST P37_tree=null;
-		BAST wildcard38_tree=null;
-		BAST S39_tree=null;
-		BAST wildcard40_tree=null;
-		BAST Q41_tree=null;
+		BAST ACTION33_tree=null;
+		BAST P34_tree=null;
+		BAST wildcard35_tree=null;
+		BAST S36_tree=null;
+		BAST wildcard37_tree=null;
+		BAST Q38_tree=null;
+		BAST SEMICOLON39_tree=null;
+		BAST ACTION40_tree=null;
+		BAST P41_tree=null;
+		BAST wildcard42_tree=null;
+		BAST S43_tree=null;
+		BAST wildcard44_tree=null;
+		BAST Q45_tree=null;
 		BAST q_tree=null;
 		BAST q2_tree=null;
 		RewriteRuleSubtreeStream stream_getPostconditionFromBehaviorActionsInELQ=new RewriteRuleSubtreeStream(adaptor,"rule getPostconditionFromBehaviorActionsInELQ");
 
 		ArrayList<BAST> ampersandPostconditions = new ArrayList<BAST>();
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:210:3: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->)
-			int alt23=4;
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:222:3: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) ) | ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ ) | ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ ) |elq= getPostconditionFromBehaviorActionsInELQ ->)
+			int alt25=4;
 			switch ( input.LA(1) ) {
 			case ACTION:
 				{
-				alt23=1;
+				alt25=1;
 				}
 				break;
 			case SEMICOLON:
 				{
-				alt23=2;
+				alt25=2;
 				}
 				break;
 			case AMPERSAND:
 				{
-				alt23=3;
+				alt25=3;
 				}
 				break;
 			case LCURLY:
 				{
-				alt23=4;
+				alt25=4;
 				}
 				break;
 			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 23, 0, input);
+					new NoViableAltException("", 25, 0, input);
 				throw nvae;
 			}
-			switch (alt23) {
+			switch (alt25) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:3: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:3: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q= . )? ) )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4605,12 +7113,12 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					ACTION29=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPostconditionFromBehaviorActions684); if (state.failed) return retval;
+					ACTION33=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					ACTION29_tree = (BAST)adaptor.dupNode(ACTION29);
+					ACTION33_tree = (BAST)adaptor.dupNode(ACTION33);
 
 
-					root_1 = (BAST)adaptor.becomeRoot(ACTION29_tree, root_1);
+					root_1 = (BAST)adaptor.becomeRoot(ACTION33_tree, root_1);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -4620,32 +7128,32 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					P30=(BAST)match(input,P,FOLLOW_P_in_getPostconditionFromBehaviorActions687); if (state.failed) return retval;
+					P34=(BAST)match(input,P,FOLLOW_P_in_getPostconditionFromBehaviorActions754); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					P30_tree = (BAST)adaptor.dupNode(P30);
+					P34_tree = (BAST)adaptor.dupNode(P34);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(P30_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(P34_tree, root_2);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:16: ( . )?
-						int alt17=2;
-						int LA17_0 = input.LA(1);
-						if ( ((LA17_0 >= AADL_STRING_LITERAL && LA17_0 <= LITERAL_BLESS)) ) {
-							alt17=1;
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:16: ( . )?
+						int alt19=2;
+						int LA19_0 = input.LA(1);
+						if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= WS)) ) {
+							alt19=1;
 						}
-						switch (alt17) {
+						switch (alt19) {
 							case 1 :
-								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:16: .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:16: .
 								{
 								_last = (BAST)input.LT(1);
-								wildcard31=(BAST)input.LT(1);
+								wildcard35=(BAST)input.LT(1);
 								matchAny(input); if (state.failed) return retval;
 								if ( state.backtracking==0 ) {
-								wildcard31_tree = (BAST)adaptor.dupTree(wildcard31);
-								adaptor.addChild(root_2, wildcard31_tree);
+								wildcard35_tree = (BAST)adaptor.dupTree(wildcard35);
+								adaptor.addChild(root_2, wildcard35_tree);
 								}
 
 								if ( state.backtracking==0 ) {
@@ -4669,21 +7177,21 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					S32=(BAST)match(input,S,FOLLOW_S_in_getPostconditionFromBehaviorActions694); if (state.failed) return retval;
+					S36=(BAST)match(input,S,FOLLOW_S_in_getPostconditionFromBehaviorActions761); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					S32_tree = (BAST)adaptor.dupNode(S32);
+					S36_tree = (BAST)adaptor.dupNode(S36);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(S32_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(S36_tree, root_2);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
 					_last = (BAST)input.LT(1);
-					wildcard33=(BAST)input.LT(1);
+					wildcard37=(BAST)input.LT(1);
 					matchAny(input); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					wildcard33_tree = (BAST)adaptor.dupTree(wildcard33);
-					adaptor.addChild(root_2, wildcard33_tree);
+					wildcard37_tree = (BAST)adaptor.dupTree(wildcard37);
+					adaptor.addChild(root_2, wildcard37_tree);
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -4698,25 +7206,25 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					Q34=(BAST)match(input,Q,FOLLOW_Q_in_getPostconditionFromBehaviorActions701); if (state.failed) return retval;
+					Q38=(BAST)match(input,Q,FOLLOW_Q_in_getPostconditionFromBehaviorActions768); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					Q34_tree = (BAST)adaptor.dupNode(Q34);
+					Q38_tree = (BAST)adaptor.dupNode(Q38);
 
 
-					root_2 = (BAST)adaptor.becomeRoot(Q34_tree, root_2);
+					root_2 = (BAST)adaptor.becomeRoot(Q38_tree, root_2);
 					}
 
 					if ( input.LA(1)==Token.DOWN ) {
 						match(input, Token.DOWN, null); if (state.failed) return retval;
-						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:33: (q= . )?
-						int alt18=2;
-						int LA18_0 = input.LA(1);
-						if ( ((LA18_0 >= AADL_STRING_LITERAL && LA18_0 <= LITERAL_BLESS)) ) {
-							alt18=1;
+						// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:33: (q= . )?
+						int alt20=2;
+						int LA20_0 = input.LA(1);
+						if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= WS)) ) {
+							alt20=1;
 						}
-						switch (alt18) {
+						switch (alt20) {
 							case 1 :
-								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:211:33: q= .
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:33: q= .
 								{
 								_last = (BAST)input.LT(1);
 								q=(BAST)input.LT(1);
@@ -4754,7 +7262,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:214:3: ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:226:3: ^( SEMICOLON ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4765,28 +7273,28 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					SEMICOLON35=(BAST)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_getPostconditionFromBehaviorActions727); if (state.failed) return retval;
+					SEMICOLON39=(BAST)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_getPostconditionFromBehaviorActions794); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
-					SEMICOLON35_tree = (BAST)adaptor.dupNode(SEMICOLON35);
+					SEMICOLON39_tree = (BAST)adaptor.dupNode(SEMICOLON39);
 
 
-					root_1 = (BAST)adaptor.becomeRoot(SEMICOLON35_tree, root_1);
+					root_1 = (BAST)adaptor.becomeRoot(SEMICOLON39_tree, root_1);
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:215:5: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+
-					int cnt21=0;
-					loop21:
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:227:5: ( ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) ) )+
+					int cnt23=0;
+					loop23:
 					while (true) {
-						int alt21=2;
-						int LA21_0 = input.LA(1);
-						if ( (LA21_0==ACTION) ) {
-							alt21=1;
+						int alt23=2;
+						int LA23_0 = input.LA(1);
+						if ( (LA23_0==ACTION) ) {
+							alt23=1;
 						}
 
-						switch (alt21) {
+						switch (alt23) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:215:7: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) )
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:227:7: ^( ACTION ^( P ( . )? ) ^( S . ) ^( Q (q2= . )? ) )
 							{
 							_last = (BAST)input.LT(1);
 							{
@@ -4794,12 +7302,12 @@ public class ASTtoAST extends TreeParser {
 							BAST _first_2 = null;
 							BAST root_2 = (BAST)adaptor.nil();
 							_last = (BAST)input.LT(1);
-							ACTION36=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPostconditionFromBehaviorActions737); if (state.failed) return retval;
+							ACTION40=(BAST)match(input,ACTION,FOLLOW_ACTION_in_getPostconditionFromBehaviorActions804); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							ACTION36_tree = (BAST)adaptor.dupNode(ACTION36);
+							ACTION40_tree = (BAST)adaptor.dupNode(ACTION40);
 
 
-							root_2 = (BAST)adaptor.becomeRoot(ACTION36_tree, root_2);
+							root_2 = (BAST)adaptor.becomeRoot(ACTION40_tree, root_2);
 							}
 
 							match(input, Token.DOWN, null); if (state.failed) return retval;
@@ -4809,32 +7317,32 @@ public class ASTtoAST extends TreeParser {
 							BAST _first_3 = null;
 							BAST root_3 = (BAST)adaptor.nil();
 							_last = (BAST)input.LT(1);
-							P37=(BAST)match(input,P,FOLLOW_P_in_getPostconditionFromBehaviorActions747); if (state.failed) return retval;
+							P41=(BAST)match(input,P,FOLLOW_P_in_getPostconditionFromBehaviorActions814); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							P37_tree = (BAST)adaptor.dupNode(P37);
+							P41_tree = (BAST)adaptor.dupNode(P41);
 
 
-							root_3 = (BAST)adaptor.becomeRoot(P37_tree, root_3);
+							root_3 = (BAST)adaptor.becomeRoot(P41_tree, root_3);
 							}
 
 							if ( input.LA(1)==Token.DOWN ) {
 								match(input, Token.DOWN, null); if (state.failed) return retval;
-								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:216:11: ( . )?
-								int alt19=2;
-								int LA19_0 = input.LA(1);
-								if ( ((LA19_0 >= AADL_STRING_LITERAL && LA19_0 <= LITERAL_BLESS)) ) {
-									alt19=1;
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:228:11: ( . )?
+								int alt21=2;
+								int LA21_0 = input.LA(1);
+								if ( ((LA21_0 >= AADL_STRING_LITERAL && LA21_0 <= WS)) ) {
+									alt21=1;
 								}
-								switch (alt19) {
+								switch (alt21) {
 									case 1 :
-										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:216:11: .
+										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:228:11: .
 										{
 										_last = (BAST)input.LT(1);
-										wildcard38=(BAST)input.LT(1);
+										wildcard42=(BAST)input.LT(1);
 										matchAny(input); if (state.failed) return retval;
 										if ( state.backtracking==0 ) {
-										wildcard38_tree = (BAST)adaptor.dupTree(wildcard38);
-										adaptor.addChild(root_3, wildcard38_tree);
+										wildcard42_tree = (BAST)adaptor.dupTree(wildcard42);
+										adaptor.addChild(root_3, wildcard42_tree);
 										}
 
 										if ( state.backtracking==0 ) {
@@ -4858,21 +7366,21 @@ public class ASTtoAST extends TreeParser {
 							BAST _first_3 = null;
 							BAST root_3 = (BAST)adaptor.nil();
 							_last = (BAST)input.LT(1);
-							S39=(BAST)match(input,S,FOLLOW_S_in_getPostconditionFromBehaviorActions761); if (state.failed) return retval;
+							S43=(BAST)match(input,S,FOLLOW_S_in_getPostconditionFromBehaviorActions828); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							S39_tree = (BAST)adaptor.dupNode(S39);
+							S43_tree = (BAST)adaptor.dupNode(S43);
 
 
-							root_3 = (BAST)adaptor.becomeRoot(S39_tree, root_3);
+							root_3 = (BAST)adaptor.becomeRoot(S43_tree, root_3);
 							}
 
 							match(input, Token.DOWN, null); if (state.failed) return retval;
 							_last = (BAST)input.LT(1);
-							wildcard40=(BAST)input.LT(1);
+							wildcard44=(BAST)input.LT(1);
 							matchAny(input); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							wildcard40_tree = (BAST)adaptor.dupTree(wildcard40);
-							adaptor.addChild(root_3, wildcard40_tree);
+							wildcard44_tree = (BAST)adaptor.dupTree(wildcard44);
+							adaptor.addChild(root_3, wildcard44_tree);
 							}
 
 							match(input, Token.UP, null); if (state.failed) return retval;
@@ -4887,25 +7395,25 @@ public class ASTtoAST extends TreeParser {
 							BAST _first_3 = null;
 							BAST root_3 = (BAST)adaptor.nil();
 							_last = (BAST)input.LT(1);
-							Q41=(BAST)match(input,Q,FOLLOW_Q_in_getPostconditionFromBehaviorActions775); if (state.failed) return retval;
+							Q45=(BAST)match(input,Q,FOLLOW_Q_in_getPostconditionFromBehaviorActions842); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							Q41_tree = (BAST)adaptor.dupNode(Q41);
+							Q45_tree = (BAST)adaptor.dupNode(Q45);
 
 
-							root_3 = (BAST)adaptor.becomeRoot(Q41_tree, root_3);
+							root_3 = (BAST)adaptor.becomeRoot(Q45_tree, root_3);
 							}
 
 							if ( input.LA(1)==Token.DOWN ) {
 								match(input, Token.DOWN, null); if (state.failed) return retval;
-								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:218:13: (q2= . )?
-								int alt20=2;
-								int LA20_0 = input.LA(1);
-								if ( ((LA20_0 >= AADL_STRING_LITERAL && LA20_0 <= LITERAL_BLESS)) ) {
-									alt20=1;
+								// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:230:13: (q2= . )?
+								int alt22=2;
+								int LA22_0 = input.LA(1);
+								if ( ((LA22_0 >= AADL_STRING_LITERAL && LA22_0 <= WS)) ) {
+									alt22=1;
 								}
-								switch (alt20) {
+								switch (alt22) {
 									case 1 :
-										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:218:13: q2= .
+										// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:230:13: q2= .
 										{
 										_last = (BAST)input.LT(1);
 										q2=(BAST)input.LT(1);
@@ -4943,12 +7451,12 @@ public class ASTtoAST extends TreeParser {
 							break;
 
 						default :
-							if ( cnt21 >= 1 ) break loop21;
+							if ( cnt23 >= 1 ) break loop23;
 							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(21, input);
+							EarlyExitException eee = new EarlyExitException(23, input);
 							throw eee;
 						}
-						cnt21++;
+						cnt23++;
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -4964,7 +7472,7 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 3 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:223:3: ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:235:3: ^(amp= AMPERSAND (prc= getPostconditionFromBehaviorActions )+ )
 					{
 					root_0 = (BAST)adaptor.nil();
 
@@ -4975,7 +7483,7 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_1 = null;
 					BAST root_1 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					amp=(BAST)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions816); if (state.failed) return retval;
+					amp=(BAST)match(input,AMPERSAND,FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					amp_tree = (BAST)adaptor.dupNode(amp);
 
@@ -4984,22 +7492,22 @@ public class ASTtoAST extends TreeParser {
 					}
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:224:6: (prc= getPostconditionFromBehaviorActions )+
-					int cnt22=0;
-					loop22:
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:236:6: (prc= getPostconditionFromBehaviorActions )+
+					int cnt24=0;
+					loop24:
 					while (true) {
-						int alt22=2;
-						int LA22_0 = input.LA(1);
-						if ( (LA22_0==ACTION||LA22_0==AMPERSAND||LA22_0==LCURLY||LA22_0==SEMICOLON) ) {
-							alt22=1;
+						int alt24=2;
+						int LA24_0 = input.LA(1);
+						if ( (LA24_0==ACTION||LA24_0==AMPERSAND||LA24_0==LCURLY||LA24_0==SEMICOLON) ) {
+							alt24=1;
 						}
 
-						switch (alt22) {
+						switch (alt24) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:224:8: prc= getPostconditionFromBehaviorActions
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:236:8: prc= getPostconditionFromBehaviorActions
 							{
 							_last = (BAST)input.LT(1);
-							pushFollow(FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions828);
+							pushFollow(FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895);
 							prc=getPostconditionFromBehaviorActions();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -5014,12 +7522,12 @@ public class ASTtoAST extends TreeParser {
 							break;
 
 						default :
-							if ( cnt22 >= 1 ) break loop22;
+							if ( cnt24 >= 1 ) break loop24;
 							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(22, input);
+							EarlyExitException eee = new EarlyExitException(24, input);
 							throw eee;
 						}
-						cnt22++;
+						cnt24++;
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -5032,8 +7540,8 @@ public class ASTtoAST extends TreeParser {
 					    else if (ampersandPostconditions.size()==1) retval.post =ampersandPostconditions.get(0);
 					    else
 					      {
-					      retval.post = new BAST("ASSERTION",BLESStoASTLexer.ASSERTION,amp);
-					      BAST anAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,amp);
+					      retval.post = new BAST("ASSERTION",BLESS3Lexer.ASSERTION,amp);
+					      BAST anAnd = new BAST("and",BLESS3Lexer.LITERAL_and,amp);
 					      for (int i=0;i<ampersandPostconditions.size();i++)
 					        anAnd.addChild(parenthesize((BAST)ampersandPostconditions.get(i).getChild(0)));
 					      retval.post.addChild(anAnd);
@@ -5045,10 +7553,10 @@ public class ASTtoAST extends TreeParser {
 					}
 					break;
 				case 4 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:239:3: elq= getPostconditionFromBehaviorActionsInELQ
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:251:3: elq= getPostconditionFromBehaviorActionsInELQ
 					{
 					_last = (BAST)input.LT(1);
-					pushFollow(FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions866);
+					pushFollow(FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933);
 					elq=getPostconditionFromBehaviorActionsInELQ();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -5065,7 +7573,7 @@ public class ASTtoAST extends TreeParser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (BAST)adaptor.nil();
-					// 240:5: ->
+					// 252:5: ->
 					{
 						adaptor.addChild(root_0, (elq!=null?((BAST)elq.getTree()):null));
 					}
@@ -5085,7 +7593,7 @@ public class ASTtoAST extends TreeParser {
 
 		}
 		catch (RecognitionException re) {
-			Dump.it("Aw shucks.");
+			 //Dump.it("Aw shucks.");
 			  tell("ASTtoAST.getPostconditionFromBehaviorActions",re,(BAST)retval.getTree());
 			  throw re;
 		}
@@ -5098,17 +7606,17 @@ public class ASTtoAST extends TreeParser {
 	// $ANTLR end "getPostconditionFromBehaviorActions"
 
 
-	public static class get_invariant_from_thread_behavior_return extends TreeRuleReturnScope {
+	public static class get_invariant_from_bless_subclause_return extends TreeRuleReturnScope {
 		BAST tree;
 		@Override
 		public BAST getTree() { return tree; }
 	};
 
 
-	// $ANTLR start "get_invariant_from_thread_behavior"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:262:1: get_invariant_from_thread_behavior : ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) ;
-	public final ASTtoAST.get_invariant_from_thread_behavior_return get_invariant_from_thread_behavior() throws RecognitionException {
-		ASTtoAST.get_invariant_from_thread_behavior_return retval = new ASTtoAST.get_invariant_from_thread_behavior_return();
+	// $ANTLR start "get_invariant_from_bless_subclause"
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:1: get_invariant_from_bless_subclause : ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ( ^( LITERAL_assert ( . )+ ) )? ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= . ) )? pred= . ) ) ( . )* ) -> ^( $ass $pred) ;
+	public final ASTtoAST.get_invariant_from_bless_subclause_return get_invariant_from_bless_subclause() throws RecognitionException {
+		ASTtoAST.get_invariant_from_bless_subclause_return retval = new ASTtoAST.get_invariant_from_bless_subclause_return();
 		retval.start = input.LT(1);
 
 		BAST root_0 = null;
@@ -5117,101 +7625,37 @@ public class ASTtoAST extends TreeParser {
 		BAST _last = null;
 
 
-		BAST c=null;
-		BAST dcti=null;
-		BAST des=null;
+		BAST ta=null;
 		BAST ass=null;
-		BAST a=null;
-		BAST LITERAL_implementation42=null;
-		BAST PERIOD43=null;
-		BAST ID44=null;
-		BAST LITERAL_features45=null;
-		BAST wildcard46=null;
-		BAST LITERAL_properties47=null;
-		BAST wildcard48=null;
-		BAST LITERAL_annex49=null;
-		BAST LITERAL_BLESS50=null;
-		BAST THREAD_ANNEX51=null;
-		BAST LITERAL_states52=null;
-		BAST wildcard53=null;
-		BAST LITERAL_availability54=null;
-		BAST wildcard55=null;
-		BAST LITERAL_assert56=null;
-		BAST wildcard57=null;
-		BAST LITERAL_invariant58=null;
-		BAST LABEL59=null;
-		BAST PARAMETERS60=null;
-		BAST LITERAL_variables61=null;
-		BAST wildcard62=null;
-		BAST LITERAL_transitions63=null;
-		BAST wildcard64=null;
-		BAST DO_NOT_PROVE65=null;
-		BAST STOP66=null;
-		BAST LITERAL_end67=null;
-		BAST cc=null;
-		BAST predicate=null;
-		BAST lv=null;
-		List<Object> list_lv=null;
+		BAST BLESS_SUBCLAUSE46=null;
+		BAST DO_NOT_PROVE47=null;
+		BAST LITERAL_assert48=null;
+		BAST wildcard49=null;
+		BAST LABEL50=null;
+		BAST wildcard51=null;
+		BAST id=null;
+		BAST pred=null;
 
-		BAST c_tree=null;
-		BAST dcti_tree=null;
-		BAST des_tree=null;
+		BAST ta_tree=null;
 		BAST ass_tree=null;
-		BAST a_tree=null;
-		BAST LITERAL_implementation42_tree=null;
-		BAST PERIOD43_tree=null;
-		BAST ID44_tree=null;
-		BAST LITERAL_features45_tree=null;
-		BAST wildcard46_tree=null;
-		BAST LITERAL_properties47_tree=null;
-		BAST wildcard48_tree=null;
-		BAST LITERAL_annex49_tree=null;
-		BAST LITERAL_BLESS50_tree=null;
-		BAST THREAD_ANNEX51_tree=null;
-		BAST LITERAL_states52_tree=null;
-		BAST wildcard53_tree=null;
-		BAST LITERAL_availability54_tree=null;
-		BAST wildcard55_tree=null;
-		BAST LITERAL_assert56_tree=null;
-		BAST wildcard57_tree=null;
-		BAST LITERAL_invariant58_tree=null;
-		BAST LABEL59_tree=null;
-		BAST PARAMETERS60_tree=null;
-		BAST LITERAL_variables61_tree=null;
-		BAST wildcard62_tree=null;
-		BAST LITERAL_transitions63_tree=null;
-		BAST wildcard64_tree=null;
-		BAST DO_NOT_PROVE65_tree=null;
-		BAST STOP66_tree=null;
-		BAST LITERAL_end67_tree=null;
-		BAST cc_tree=null;
-		BAST predicate_tree=null;
-		BAST lv_tree=null;
-		RewriteRuleNodeStream stream_LITERAL_implementation=new RewriteRuleNodeStream(adaptor,"token LITERAL_implementation");
-		RewriteRuleNodeStream stream_THREAD_ANNEX=new RewriteRuleNodeStream(adaptor,"token THREAD_ANNEX");
-		RewriteRuleNodeStream stream_LITERAL_features=new RewriteRuleNodeStream(adaptor,"token LITERAL_features");
-		RewriteRuleNodeStream stream_LITERAL_invariant=new RewriteRuleNodeStream(adaptor,"token LITERAL_invariant");
-		RewriteRuleNodeStream stream_STOP=new RewriteRuleNodeStream(adaptor,"token STOP");
-		RewriteRuleNodeStream stream_LITERAL_end=new RewriteRuleNodeStream(adaptor,"token LITERAL_end");
-		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
-		RewriteRuleNodeStream stream_DO_NOT_PROVE=new RewriteRuleNodeStream(adaptor,"token DO_NOT_PROVE");
-		RewriteRuleNodeStream stream_LITERAL_states=new RewriteRuleNodeStream(adaptor,"token LITERAL_states");
+		BAST BLESS_SUBCLAUSE46_tree=null;
+		BAST DO_NOT_PROVE47_tree=null;
+		BAST LITERAL_assert48_tree=null;
+		BAST wildcard49_tree=null;
+		BAST LABEL50_tree=null;
+		BAST wildcard51_tree=null;
+		BAST id_tree=null;
+		BAST pred_tree=null;
+		RewriteRuleNodeStream stream_BLESS_SUBCLAUSE=new RewriteRuleNodeStream(adaptor,"token BLESS_SUBCLAUSE");
 		RewriteRuleNodeStream stream_ASSERTION=new RewriteRuleNodeStream(adaptor,"token ASSERTION");
-		RewriteRuleNodeStream stream_LITERAL_availability=new RewriteRuleNodeStream(adaptor,"token LITERAL_availability");
 		RewriteRuleNodeStream stream_LITERAL_assert=new RewriteRuleNodeStream(adaptor,"token LITERAL_assert");
-		RewriteRuleNodeStream stream_LITERAL_transitions=new RewriteRuleNodeStream(adaptor,"token LITERAL_transitions");
-		RewriteRuleNodeStream stream_PERIOD=new RewriteRuleNodeStream(adaptor,"token PERIOD");
-		RewriteRuleNodeStream stream_LITERAL_annex=new RewriteRuleNodeStream(adaptor,"token LITERAL_annex");
+		RewriteRuleNodeStream stream_LITERAL_invariant=new RewriteRuleNodeStream(adaptor,"token LITERAL_invariant");
 		RewriteRuleNodeStream stream_LABEL=new RewriteRuleNodeStream(adaptor,"token LABEL");
-		RewriteRuleNodeStream stream_COMPONENT=new RewriteRuleNodeStream(adaptor,"token COMPONENT");
-		RewriteRuleNodeStream stream_ID=new RewriteRuleNodeStream(adaptor,"token ID");
-		RewriteRuleNodeStream stream_LITERAL_properties=new RewriteRuleNodeStream(adaptor,"token LITERAL_properties");
-		RewriteRuleNodeStream stream_LITERAL_BLESS=new RewriteRuleNodeStream(adaptor,"token LITERAL_BLESS");
-		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
+		RewriteRuleNodeStream stream_DO_NOT_PROVE=new RewriteRuleNodeStream(adaptor,"token DO_NOT_PROVE");
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:263:3: ( ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:264:3: ^(c= COMPONENT cc= . ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID ) ( ^( LITERAL_features ( . )+ ) )? ( ^( LITERAL_properties ( . )+ ) )? ^( LITERAL_annex LITERAL_BLESS ^( THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) ) LITERAL_end )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:3: ( ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ( ^( LITERAL_assert ( . )+ ) )? ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= . ) )? pred= . ) ) ( . )* ) -> ^( $ass $pred) )
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:3: ^( BLESS_SUBCLAUSE ( DO_NOT_PROVE )? ( ^( LITERAL_assert ( . )+ ) )? ^(ta= LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL id= . ) )? pred= . ) ) ( . )* )
 			{
 			_last = (BAST)input.LT(1);
 			{
@@ -5219,159 +7663,25 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_1 = null;
 			BAST root_1 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			c=(BAST)match(input,COMPONENT,FOLLOW_COMPONENT_in_get_invariant_from_thread_behavior911); if (state.failed) return retval;
+			BLESS_SUBCLAUSE46=(BAST)match(input,BLESS_SUBCLAUSE,FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_COMPONENT.add(c);
+			if ( state.backtracking==0 ) stream_BLESS_SUBCLAUSE.add(BLESS_SUBCLAUSE46);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			cc=(BAST)input.LT(1);
-			matchAny(input); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			cc_tree = (BAST)adaptor.dupTree(cc);
-			adaptor.addChild(root_1, cc_tree);
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:265:5: ( LITERAL_implementation ^( PERIOD dcti= ID des= ID ) | ID )
-			int alt24=2;
-			int LA24_0 = input.LA(1);
-			if ( (LA24_0==LITERAL_implementation) ) {
-				alt24=1;
-			}
-			else if ( (LA24_0==ID) ) {
-				alt24=2;
-			}
-
-			else {
-				if (state.backtracking>0) {state.failed=true; return retval;}
-				NoViableAltException nvae =
-					new NoViableAltException("", 24, 0, input);
-				throw nvae;
-			}
-
-			switch (alt24) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:265:6: LITERAL_implementation ^( PERIOD dcti= ID des= ID )
-					{
-					_last = (BAST)input.LT(1);
-					LITERAL_implementation42=(BAST)match(input,LITERAL_implementation,FOLLOW_LITERAL_implementation_in_get_invariant_from_thread_behavior923); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_implementation.add(LITERAL_implementation42);
-
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_2 = _last;
-					BAST _first_2 = null;
-					BAST root_2 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					PERIOD43=(BAST)match(input,PERIOD,FOLLOW_PERIOD_in_get_invariant_from_thread_behavior926); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_PERIOD.add(PERIOD43);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					_last = (BAST)input.LT(1);
-					dcti=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior930); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_ID.add(dcti);
-
-					_last = (BAST)input.LT(1);
-					des=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior934); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_ID.add(des);
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_1, root_2);
-					_last = _save_last_2;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-				case 2 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:266:9: ID
-					{
-					_last = (BAST)input.LT(1);
-					ID44=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior945); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_ID.add(ID44);
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:5: ( ^( LITERAL_features ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:5: ( DO_NOT_PROVE )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
-			if ( (LA26_0==LITERAL_features) ) {
+			if ( (LA26_0==DO_NOT_PROVE) ) {
 				alt26=1;
 			}
 			switch (alt26) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:7: ^( LITERAL_features ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:277:5: DO_NOT_PROVE
 					{
 					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_2 = _last;
-					BAST _first_2 = null;
-					BAST root_2 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_features45=(BAST)match(input,LITERAL_features,FOLLOW_LITERAL_features_in_get_invariant_from_thread_behavior955); if (state.failed) return retval;
+					DO_NOT_PROVE47=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause984); if (state.failed) return retval;
 					 
-					if ( state.backtracking==0 ) stream_LITERAL_features.add(LITERAL_features45);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:26: ( . )+
-					int cnt25=0;
-					loop25:
-					while (true) {
-						int alt25=2;
-						int LA25_0 = input.LA(1);
-						if ( ((LA25_0 >= AADL_STRING_LITERAL && LA25_0 <= LITERAL_BLESS)) ) {
-							alt25=1;
-						}
-						else if ( (LA25_0==UP) ) {
-							alt25=2;
-						}
-
-						switch (alt25) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:267:26: .
-							{
-							_last = (BAST)input.LT(1);
-							wildcard46=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							wildcard46_tree = (BAST)adaptor.dupTree(wildcard46);
-							adaptor.addChild(root_2, wildcard46_tree);
-							}
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt25 >= 1 ) break loop25;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(25, input);
-							throw eee;
-						}
-						cnt25++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_1, root_2);
-					_last = _save_last_2;
-					}
-
+					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE47);
 
 					if ( state.backtracking==0 ) {
 					}
@@ -5381,15 +7691,15 @@ public class ASTtoAST extends TreeParser {
 
 			}
 
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:5: ( ^( LITERAL_properties ( . )+ ) )?
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:5: ( ^( LITERAL_assert ( . )+ ) )?
 			int alt28=2;
 			int LA28_0 = input.LA(1);
-			if ( (LA28_0==LITERAL_properties) ) {
+			if ( (LA28_0==LITERAL_assert) ) {
 				alt28=1;
 			}
 			switch (alt28) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:7: ^( LITERAL_properties ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:7: ^( LITERAL_assert ( . )+ )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -5397,18 +7707,18 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_2 = null;
 					BAST root_2 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					LITERAL_properties47=(BAST)match(input,LITERAL_properties,FOLLOW_LITERAL_properties_in_get_invariant_from_thread_behavior971); if (state.failed) return retval;
+					LITERAL_assert48=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause996); if (state.failed) return retval;
 					 
-					if ( state.backtracking==0 ) stream_LITERAL_properties.add(LITERAL_properties47);
+					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert48);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:29: ( . )+
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:25: ( . )+
 					int cnt27=0;
 					loop27:
 					while (true) {
 						int alt27=2;
 						int LA27_0 = input.LA(1);
-						if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= LITERAL_BLESS)) ) {
+						if ( ((LA27_0 >= AADL_STRING_LITERAL && LA27_0 <= WS)) ) {
 							alt27=1;
 						}
 						else if ( (LA27_0==UP) ) {
@@ -5417,14 +7727,14 @@ public class ASTtoAST extends TreeParser {
 
 						switch (alt27) {
 						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:268:29: .
+							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:25: .
 							{
 							_last = (BAST)input.LT(1);
-							wildcard48=(BAST)input.LT(1);
+							wildcard49=(BAST)input.LT(1);
 							matchAny(input); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
-							wildcard48_tree = (BAST)adaptor.dupTree(wildcard48);
-							adaptor.addChild(root_2, wildcard48_tree);
+							wildcard49_tree = (BAST)adaptor.dupTree(wildcard49);
+							adaptor.addChild(root_2, wildcard49_tree);
 							}
 
 							if ( state.backtracking==0 ) {
@@ -5462,376 +7772,46 @@ public class ASTtoAST extends TreeParser {
 			BAST _first_2 = null;
 			BAST root_2 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			LITERAL_annex49=(BAST)match(input,LITERAL_annex,FOLLOW_LITERAL_annex_in_get_invariant_from_thread_behavior986); if (state.failed) return retval;
+			ta=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1014); if (state.failed) return retval;
 			 
-			if ( state.backtracking==0 ) stream_LITERAL_annex.add(LITERAL_annex49);
+			if ( state.backtracking==0 ) stream_LITERAL_invariant.add(ta);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			LITERAL_BLESS50=(BAST)match(input,LITERAL_BLESS,FOLLOW_LITERAL_BLESS_in_get_invariant_from_thread_behavior988); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_BLESS.add(LITERAL_BLESS50);
-
 			_last = (BAST)input.LT(1);
 			{
 			BAST _save_last_3 = _last;
 			BAST _first_3 = null;
 			BAST root_3 = (BAST)adaptor.nil();
 			_last = (BAST)input.LT(1);
-			THREAD_ANNEX51=(BAST)match(input,THREAD_ANNEX,FOLLOW_THREAD_ANNEX_in_get_invariant_from_thread_behavior999); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_THREAD_ANNEX.add(THREAD_ANNEX51);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_4 = _last;
-			BAST _first_4 = null;
-			BAST root_4 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_states52=(BAST)match(input,LITERAL_states,FOLLOW_LITERAL_states_in_get_invariant_from_thread_behavior1010); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_states.add(LITERAL_states52);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:271:24: ( . )+
-			int cnt29=0;
-			loop29:
-			while (true) {
-				int alt29=2;
-				int LA29_0 = input.LA(1);
-				if ( ((LA29_0 >= AADL_STRING_LITERAL && LA29_0 <= LITERAL_BLESS)) ) {
-					alt29=1;
-				}
-				else if ( (LA29_0==UP) ) {
-					alt29=2;
-				}
-
-				switch (alt29) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:271:24: .
-					{
-					_last = (BAST)input.LT(1);
-					wildcard53=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard53_tree = (BAST)adaptor.dupTree(wildcard53);
-					adaptor.addChild(root_4, wildcard53_tree);
-					}
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-				default :
-					if ( cnt29 >= 1 ) break loop29;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(29, input);
-					throw eee;
-				}
-				cnt29++;
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_3, root_4);
-			_last = _save_last_4;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:272:7: ( ^( LITERAL_availability . ) )?
-			int alt30=2;
-			int LA30_0 = input.LA(1);
-			if ( (LA30_0==LITERAL_availability) ) {
-				alt30=1;
-			}
-			switch (alt30) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:272:8: ^( LITERAL_availability . )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_4 = _last;
-					BAST _first_4 = null;
-					BAST root_4 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_availability54=(BAST)match(input,LITERAL_availability,FOLLOW_LITERAL_availability_in_get_invariant_from_thread_behavior1026); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_availability.add(LITERAL_availability54);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					_last = (BAST)input.LT(1);
-					wildcard55=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard55_tree = (BAST)adaptor.dupTree(wildcard55);
-					adaptor.addChild(root_4, wildcard55_tree);
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_3, root_4);
-					_last = _save_last_4;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:7: ( ^( LITERAL_assert ( . )+ ) )?
-			int alt32=2;
-			int LA32_0 = input.LA(1);
-			if ( (LA32_0==LITERAL_assert) ) {
-				alt32=1;
-			}
-			switch (alt32) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:8: ^( LITERAL_assert ( . )+ )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_4 = _last;
-					BAST _first_4 = null;
-					BAST root_4 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_assert56=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_thread_behavior1043); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert56);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:25: ( . )+
-					int cnt31=0;
-					loop31:
-					while (true) {
-						int alt31=2;
-						int LA31_0 = input.LA(1);
-						if ( ((LA31_0 >= AADL_STRING_LITERAL && LA31_0 <= LITERAL_BLESS)) ) {
-							alt31=1;
-						}
-						else if ( (LA31_0==UP) ) {
-							alt31=2;
-						}
-
-						switch (alt31) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:273:25: .
-							{
-							_last = (BAST)input.LT(1);
-							wildcard57=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							wildcard57_tree = (BAST)adaptor.dupTree(wildcard57);
-							adaptor.addChild(root_4, wildcard57_tree);
-							}
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt31 >= 1 ) break loop31;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(31, input);
-							throw eee;
-						}
-						cnt31++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_3, root_4);
-					_last = _save_last_4;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_4 = _last;
-			BAST _first_4 = null;
-			BAST root_4 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_invariant58=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_thread_behavior1059); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_invariant.add(LITERAL_invariant58);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_5 = _last;
-			BAST _first_5 = null;
-			BAST root_5 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_thread_behavior1066); if (state.failed) return retval;
+			ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1027); if (state.failed) return retval;
 			 
 			if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
 
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:46: ( ^( LABEL a= ID ) )?
-			int alt33=2;
-			int LA33_0 = input.LA(1);
-			if ( (LA33_0==LABEL) ) {
-				int LA33_1 = input.LA(2);
-				if ( (LA33_1==DOWN) ) {
-					int LA33_3 = input.LA(3);
-					if ( (LA33_3==ID) ) {
-						int LA33_4 = input.LA(4);
-						if ( (LA33_4==UP) ) {
-							int LA33_5 = input.LA(5);
-							if ( ((LA33_5 >= AADL_STRING_LITERAL && LA33_5 <= LITERAL_BLESS)) ) {
-								alt33=1;
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:280:24: ( ^( LABEL id= . ) )?
+			int alt29=2;
+			int LA29_0 = input.LA(1);
+			if ( (LA29_0==LABEL) ) {
+				int LA29_1 = input.LA(2);
+				if ( (LA29_1==DOWN) ) {
+					int LA29_3 = input.LA(3);
+					if ( ((LA29_3 >= AADL_STRING_LITERAL && LA29_3 <= WS)) ) {
+						int LA29_4 = input.LA(4);
+						if ( (LA29_4==DOWN) ) {
+							alt29=1;
+						}
+						else if ( (LA29_4==UP) ) {
+							int LA29_6 = input.LA(5);
+							if ( ((LA29_6 >= AADL_STRING_LITERAL && LA29_6 <= WS)) ) {
+								alt29=1;
 							}
 						}
 					}
 				}
 			}
-			switch (alt33) {
+			switch (alt29) {
 				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:47: ^( LABEL a= ID )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_6 = _last;
-					BAST _first_6 = null;
-					BAST root_6 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LABEL59=(BAST)match(input,LABEL,FOLLOW_LABEL_in_get_invariant_from_thread_behavior1072); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LABEL.add(LABEL59);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					_last = (BAST)input.LT(1);
-					a=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_thread_behavior1076); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_ID.add(a);
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_5, root_6);
-					_last = _save_last_6;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:66: ( ^( PARAMETERS (lv+= . )+ ) )?
-			int alt35=2;
-			alt35 = dfa35.predict(input);
-			switch (alt35) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:68: ^( PARAMETERS (lv+= . )+ )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_6 = _last;
-					BAST _first_6 = null;
-					BAST root_6 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					PARAMETERS60=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_get_invariant_from_thread_behavior1086); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS60);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: (lv+= . )+
-					int cnt34=0;
-					loop34:
-					while (true) {
-						int alt34=2;
-						int LA34_0 = input.LA(1);
-						if ( ((LA34_0 >= AADL_STRING_LITERAL && LA34_0 <= LITERAL_BLESS)) ) {
-							alt34=1;
-						}
-
-						switch (alt34) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:274:83: lv+= .
-							{
-							_last = (BAST)input.LT(1);
-							lv=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							lv_tree = (BAST)adaptor.dupTree(lv);
-							adaptor.addChild(root_6, lv_tree);
-							}
-
-							if (list_lv==null) list_lv=new ArrayList<Object>();
-							list_lv.add(lv);
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt34 >= 1 ) break loop34;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(34, input);
-							throw eee;
-						}
-						cnt34++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_5, root_6);
-					_last = _save_last_6;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			predicate=(BAST)input.LT(1);
-			matchAny(input); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			predicate_tree = (BAST)adaptor.dupTree(predicate);
-			adaptor.addChild(root_5, predicate_tree);
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_4, root_5);
-			_last = _save_last_5;
-			}
-
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_3, root_4);
-			_last = _save_last_4;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:7: ( ^( LITERAL_variables ( . )+ ) )?
-			int alt37=2;
-			int LA37_0 = input.LA(1);
-			if ( (LA37_0==LITERAL_variables) ) {
-				alt37=1;
-			}
-			switch (alt37) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:8: ^( LITERAL_variables ( . )+ )
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:280:26: ^( LABEL id= . )
 					{
 					_last = (BAST)input.LT(1);
 					{
@@ -5839,49 +7819,17 @@ public class ASTtoAST extends TreeParser {
 					BAST _first_4 = null;
 					BAST root_4 = (BAST)adaptor.nil();
 					_last = (BAST)input.LT(1);
-					LITERAL_variables61=(BAST)match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_get_invariant_from_thread_behavior1114); if (state.failed) return retval;
+					LABEL50=(BAST)match(input,LABEL,FOLLOW_LABEL_in_get_invariant_from_bless_subclause1032); if (state.failed) return retval;
 					 
-					if ( state.backtracking==0 ) stream_LITERAL_variables.add(LITERAL_variables61);
+					if ( state.backtracking==0 ) stream_LABEL.add(LABEL50);
 
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:28: ( . )+
-					int cnt36=0;
-					loop36:
-					while (true) {
-						int alt36=2;
-						int LA36_0 = input.LA(1);
-						if ( ((LA36_0 >= AADL_STRING_LITERAL && LA36_0 <= LITERAL_BLESS)) ) {
-							alt36=1;
-						}
-						else if ( (LA36_0==UP) ) {
-							alt36=2;
-						}
-
-						switch (alt36) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:275:28: .
-							{
-							_last = (BAST)input.LT(1);
-							wildcard62=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							wildcard62_tree = (BAST)adaptor.dupTree(wildcard62);
-							adaptor.addChild(root_4, wildcard62_tree);
-							}
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt36 >= 1 ) break loop36;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(36, input);
-							throw eee;
-						}
-						cnt36++;
+					_last = (BAST)input.LT(1);
+					id=(BAST)input.LT(1);
+					matchAny(input); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					id_tree = (BAST)adaptor.dupTree(id);
+					adaptor.addChild(root_4, id_tree);
 					}
 
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -5899,89 +7847,12 @@ public class ASTtoAST extends TreeParser {
 			}
 
 			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_4 = _last;
-			BAST _first_4 = null;
-			BAST root_4 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_transitions63=(BAST)match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_get_invariant_from_thread_behavior1130); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_transitions.add(LITERAL_transitions63);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:29: ( . )+
-			int cnt38=0;
-			loop38:
-			while (true) {
-				int alt38=2;
-				int LA38_0 = input.LA(1);
-				if ( ((LA38_0 >= AADL_STRING_LITERAL && LA38_0 <= LITERAL_BLESS)) ) {
-					alt38=1;
-				}
-				else if ( (LA38_0==UP) ) {
-					alt38=2;
-				}
-
-				switch (alt38) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:276:29: .
-					{
-					_last = (BAST)input.LT(1);
-					wildcard64=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard64_tree = (BAST)adaptor.dupTree(wildcard64);
-					adaptor.addChild(root_4, wildcard64_tree);
-					}
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-				default :
-					if ( cnt38 >= 1 ) break loop38;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(38, input);
-					throw eee;
-				}
-				cnt38++;
+			pred=(BAST)input.LT(1);
+			matchAny(input); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			pred_tree = (BAST)adaptor.dupTree(pred);
+			adaptor.addChild(root_3, pred_tree);
 			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_3, root_4);
-			_last = _save_last_4;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:7: ( DO_NOT_PROVE )?
-			int alt39=2;
-			int LA39_0 = input.LA(1);
-			if ( (LA39_0==DO_NOT_PROVE) ) {
-				alt39=1;
-			}
-			switch (alt39) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:278:7: DO_NOT_PROVE
-					{
-					_last = (BAST)input.LT(1);
-					DO_NOT_PROVE65=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_thread_behavior1144); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE65);
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			STOP66=(BAST)match(input,STOP,FOLLOW_STOP_in_get_invariant_from_thread_behavior1153); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_STOP.add(STOP66);
 
 			match(input, Token.UP, null); if (state.failed) return retval;
 			adaptor.addChild(root_2, root_3);
@@ -5995,10 +7866,40 @@ public class ASTtoAST extends TreeParser {
 			}
 
 
-			_last = (BAST)input.LT(1);
-			LITERAL_end67=(BAST)match(input,LITERAL_end,FOLLOW_LITERAL_end_in_get_invariant_from_thread_behavior1174); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_end.add(LITERAL_end67);
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:5: ( . )*
+			loop30:
+			while (true) {
+				int alt30=2;
+				int LA30_0 = input.LA(1);
+				if ( ((LA30_0 >= AADL_STRING_LITERAL && LA30_0 <= WS)) ) {
+					alt30=1;
+				}
+				else if ( (LA30_0==UP) ) {
+					alt30=2;
+				}
+
+				switch (alt30) {
+				case 1 :
+					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:281:5: .
+					{
+					_last = (BAST)input.LT(1);
+					wildcard51=(BAST)input.LT(1);
+					matchAny(input); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					wildcard51_tree = (BAST)adaptor.dupTree(wildcard51);
+					adaptor.addChild(root_1, wildcard51_tree);
+					}
+
+					if ( state.backtracking==0 ) {
+					}
+
+					}
+					break;
+
+				default :
+					break loop30;
+				}
+			}
 
 			match(input, Token.UP, null); if (state.failed) return retval;
 			adaptor.addChild(root_0, root_1);
@@ -6007,26 +7908,26 @@ public class ASTtoAST extends TreeParser {
 
 
 			// AST REWRITE
-			// elements: predicate, ass
+			// elements: ass, pred
 			// token labels: ass
 			// rule labels: retval
 			// token list labels: 
 			// rule list labels: 
-			// wildcard labels: predicate
+			// wildcard labels: pred
 			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
-			RewriteRuleSubtreeStream stream_predicate=new RewriteRuleSubtreeStream(adaptor,"wildcard predicate",predicate);
+			RewriteRuleSubtreeStream stream_pred=new RewriteRuleSubtreeStream(adaptor,"wildcard pred",pred);
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (BAST)adaptor.nil();
-			// 284:5: -> ^( $ass $predicate)
+			// 283:5: -> ^( $ass $pred)
 			{
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:284:8: ^( $ass $predicate)
+				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:283:8: ^( $ass $pred)
 				{
 				BAST root_1 = (BAST)adaptor.nil();
 				root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
-				adaptor.addChild(root_1, stream_predicate.nextTree());
+				adaptor.addChild(root_1, stream_pred.nextTree());
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -6045,655 +7946,8 @@ public class ASTtoAST extends TreeParser {
 
 		}
 		catch (RecognitionException re) {
-			Dump.it("Did you forget an invariant clause, Bub?");
-			  tell("ASTtoAST.get_invariant_from_thread_behavior",re,(BAST)retval.getTree());
-		}
-
-		finally {
-			// do for sure before leaving
-		}
-		return retval;
-	}
-	// $ANTLR end "get_invariant_from_thread_behavior"
-
-
-	public static class get_invariant_from_bless_subclause_return extends TreeRuleReturnScope {
-		BAST tree;
-		@Override
-		public BAST getTree() { return tree; }
-	};
-
-
-	// $ANTLR start "get_invariant_from_bless_subclause"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:290:1: get_invariant_from_bless_subclause : ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) ;
-	public final ASTtoAST.get_invariant_from_bless_subclause_return get_invariant_from_bless_subclause() throws RecognitionException {
-		ASTtoAST.get_invariant_from_bless_subclause_return retval = new ASTtoAST.get_invariant_from_bless_subclause_return();
-		retval.start = input.LT(1);
-
-		BAST root_0 = null;
-
-		BAST _first_0 = null;
-		BAST _last = null;
-
-
-		BAST ta=null;
-		BAST ass=null;
-		BAST a=null;
-		BAST LITERAL_states68=null;
-		BAST wildcard69=null;
-		BAST LITERAL_availability70=null;
-		BAST wildcard71=null;
-		BAST LITERAL_assert72=null;
-		BAST wildcard73=null;
-		BAST LITERAL_invariant74=null;
-		BAST LABEL75=null;
-		BAST PARAMETERS76=null;
-		BAST LITERAL_variables77=null;
-		BAST wildcard78=null;
-		BAST LITERAL_transitions79=null;
-		BAST wildcard80=null;
-		BAST DO_NOT_PROVE81=null;
-		BAST STOP82=null;
-		BAST predicate=null;
-		BAST lv=null;
-		List<Object> list_lv=null;
-
-		BAST ta_tree=null;
-		BAST ass_tree=null;
-		BAST a_tree=null;
-		BAST LITERAL_states68_tree=null;
-		BAST wildcard69_tree=null;
-		BAST LITERAL_availability70_tree=null;
-		BAST wildcard71_tree=null;
-		BAST LITERAL_assert72_tree=null;
-		BAST wildcard73_tree=null;
-		BAST LITERAL_invariant74_tree=null;
-		BAST LABEL75_tree=null;
-		BAST PARAMETERS76_tree=null;
-		BAST LITERAL_variables77_tree=null;
-		BAST wildcard78_tree=null;
-		BAST LITERAL_transitions79_tree=null;
-		BAST wildcard80_tree=null;
-		BAST DO_NOT_PROVE81_tree=null;
-		BAST STOP82_tree=null;
-		BAST predicate_tree=null;
-		BAST lv_tree=null;
-		RewriteRuleNodeStream stream_THREAD_ANNEX=new RewriteRuleNodeStream(adaptor,"token THREAD_ANNEX");
-		RewriteRuleNodeStream stream_LITERAL_invariant=new RewriteRuleNodeStream(adaptor,"token LITERAL_invariant");
-		RewriteRuleNodeStream stream_STOP=new RewriteRuleNodeStream(adaptor,"token STOP");
-		RewriteRuleNodeStream stream_PARAMETERS=new RewriteRuleNodeStream(adaptor,"token PARAMETERS");
-		RewriteRuleNodeStream stream_DO_NOT_PROVE=new RewriteRuleNodeStream(adaptor,"token DO_NOT_PROVE");
-		RewriteRuleNodeStream stream_LITERAL_states=new RewriteRuleNodeStream(adaptor,"token LITERAL_states");
-		RewriteRuleNodeStream stream_ASSERTION=new RewriteRuleNodeStream(adaptor,"token ASSERTION");
-		RewriteRuleNodeStream stream_LITERAL_availability=new RewriteRuleNodeStream(adaptor,"token LITERAL_availability");
-		RewriteRuleNodeStream stream_LITERAL_assert=new RewriteRuleNodeStream(adaptor,"token LITERAL_assert");
-		RewriteRuleNodeStream stream_LITERAL_transitions=new RewriteRuleNodeStream(adaptor,"token LITERAL_transitions");
-		RewriteRuleNodeStream stream_LABEL=new RewriteRuleNodeStream(adaptor,"token LABEL");
-		RewriteRuleNodeStream stream_ID=new RewriteRuleNodeStream(adaptor,"token ID");
-		RewriteRuleNodeStream stream_LITERAL_variables=new RewriteRuleNodeStream(adaptor,"token LITERAL_variables");
-
-		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:291:3: ( ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP ) -> ^( $ass $predicate) )
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:292:7: ^(ta= THREAD_ANNEX ^( LITERAL_states ( . )+ ) ( ^( LITERAL_availability . ) )? ( ^( LITERAL_assert ( . )+ ) )? ^( LITERAL_invariant ^(ass= ASSERTION ( ^( LABEL a= ID ) )? ( ^( PARAMETERS (lv+= . )+ ) )? predicate= . ) ) ( ^( LITERAL_variables ( . )+ ) )? ^( LITERAL_transitions ( . )+ ) ( DO_NOT_PROVE )? STOP )
-			{
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_1 = _last;
-			BAST _first_1 = null;
-			BAST root_1 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			ta=(BAST)match(input,THREAD_ANNEX,FOLLOW_THREAD_ANNEX_in_get_invariant_from_bless_subclause1234); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_THREAD_ANNEX.add(ta);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_2 = _last;
-			BAST _first_2 = null;
-			BAST root_2 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_states68=(BAST)match(input,LITERAL_states,FOLLOW_LITERAL_states_in_get_invariant_from_bless_subclause1245); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_states.add(LITERAL_states68);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:293:24: ( . )+
-			int cnt40=0;
-			loop40:
-			while (true) {
-				int alt40=2;
-				int LA40_0 = input.LA(1);
-				if ( ((LA40_0 >= AADL_STRING_LITERAL && LA40_0 <= LITERAL_BLESS)) ) {
-					alt40=1;
-				}
-				else if ( (LA40_0==UP) ) {
-					alt40=2;
-				}
-
-				switch (alt40) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:293:24: .
-					{
-					_last = (BAST)input.LT(1);
-					wildcard69=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard69_tree = (BAST)adaptor.dupTree(wildcard69);
-					adaptor.addChild(root_2, wildcard69_tree);
-					}
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-				default :
-					if ( cnt40 >= 1 ) break loop40;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(40, input);
-					throw eee;
-				}
-				cnt40++;
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_1, root_2);
-			_last = _save_last_2;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:294:7: ( ^( LITERAL_availability . ) )?
-			int alt41=2;
-			int LA41_0 = input.LA(1);
-			if ( (LA41_0==LITERAL_availability) ) {
-				alt41=1;
-			}
-			switch (alt41) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:294:8: ^( LITERAL_availability . )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_2 = _last;
-					BAST _first_2 = null;
-					BAST root_2 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_availability70=(BAST)match(input,LITERAL_availability,FOLLOW_LITERAL_availability_in_get_invariant_from_bless_subclause1261); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_availability.add(LITERAL_availability70);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					_last = (BAST)input.LT(1);
-					wildcard71=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard71_tree = (BAST)adaptor.dupTree(wildcard71);
-					adaptor.addChild(root_2, wildcard71_tree);
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_1, root_2);
-					_last = _save_last_2;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:7: ( ^( LITERAL_assert ( . )+ ) )?
-			int alt43=2;
-			int LA43_0 = input.LA(1);
-			if ( (LA43_0==LITERAL_assert) ) {
-				alt43=1;
-			}
-			switch (alt43) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:8: ^( LITERAL_assert ( . )+ )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_2 = _last;
-					BAST _first_2 = null;
-					BAST root_2 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_assert72=(BAST)match(input,LITERAL_assert,FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause1278); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_assert.add(LITERAL_assert72);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:25: ( . )+
-					int cnt42=0;
-					loop42:
-					while (true) {
-						int alt42=2;
-						int LA42_0 = input.LA(1);
-						if ( ((LA42_0 >= AADL_STRING_LITERAL && LA42_0 <= LITERAL_BLESS)) ) {
-							alt42=1;
-						}
-						else if ( (LA42_0==UP) ) {
-							alt42=2;
-						}
-
-						switch (alt42) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:295:25: .
-							{
-							_last = (BAST)input.LT(1);
-							wildcard73=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							wildcard73_tree = (BAST)adaptor.dupTree(wildcard73);
-							adaptor.addChild(root_2, wildcard73_tree);
-							}
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt42 >= 1 ) break loop42;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(42, input);
-							throw eee;
-						}
-						cnt42++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_1, root_2);
-					_last = _save_last_2;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_2 = _last;
-			BAST _first_2 = null;
-			BAST root_2 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_invariant74=(BAST)match(input,LITERAL_invariant,FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1294); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_invariant.add(LITERAL_invariant74);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_3 = _last;
-			BAST _first_3 = null;
-			BAST root_3 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			ass=(BAST)match(input,ASSERTION,FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1301); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_ASSERTION.add(ass);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:46: ( ^( LABEL a= ID ) )?
-			int alt44=2;
-			int LA44_0 = input.LA(1);
-			if ( (LA44_0==LABEL) ) {
-				int LA44_1 = input.LA(2);
-				if ( (LA44_1==DOWN) ) {
-					int LA44_3 = input.LA(3);
-					if ( (LA44_3==ID) ) {
-						int LA44_4 = input.LA(4);
-						if ( (LA44_4==UP) ) {
-							int LA44_5 = input.LA(5);
-							if ( ((LA44_5 >= AADL_STRING_LITERAL && LA44_5 <= LITERAL_BLESS)) ) {
-								alt44=1;
-							}
-						}
-					}
-				}
-			}
-			switch (alt44) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:47: ^( LABEL a= ID )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_4 = _last;
-					BAST _first_4 = null;
-					BAST root_4 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LABEL75=(BAST)match(input,LABEL,FOLLOW_LABEL_in_get_invariant_from_bless_subclause1307); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LABEL.add(LABEL75);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					_last = (BAST)input.LT(1);
-					a=(BAST)match(input,ID,FOLLOW_ID_in_get_invariant_from_bless_subclause1311); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_ID.add(a);
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_3, root_4);
-					_last = _save_last_4;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:66: ( ^( PARAMETERS (lv+= . )+ ) )?
-			int alt46=2;
-			alt46 = dfa46.predict(input);
-			switch (alt46) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:68: ^( PARAMETERS (lv+= . )+ )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_4 = _last;
-					BAST _first_4 = null;
-					BAST root_4 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					PARAMETERS76=(BAST)match(input,PARAMETERS,FOLLOW_PARAMETERS_in_get_invariant_from_bless_subclause1321); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_PARAMETERS.add(PARAMETERS76);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: (lv+= . )+
-					int cnt45=0;
-					loop45:
-					while (true) {
-						int alt45=2;
-						int LA45_0 = input.LA(1);
-						if ( ((LA45_0 >= AADL_STRING_LITERAL && LA45_0 <= LITERAL_BLESS)) ) {
-							alt45=1;
-						}
-
-						switch (alt45) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:296:83: lv+= .
-							{
-							_last = (BAST)input.LT(1);
-							lv=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							lv_tree = (BAST)adaptor.dupTree(lv);
-							adaptor.addChild(root_4, lv_tree);
-							}
-
-							if (list_lv==null) list_lv=new ArrayList<Object>();
-							list_lv.add(lv);
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt45 >= 1 ) break loop45;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(45, input);
-							throw eee;
-						}
-						cnt45++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_3, root_4);
-					_last = _save_last_4;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			predicate=(BAST)input.LT(1);
-			matchAny(input); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			predicate_tree = (BAST)adaptor.dupTree(predicate);
-			adaptor.addChild(root_3, predicate_tree);
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_2, root_3);
-			_last = _save_last_3;
-			}
-
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_1, root_2);
-			_last = _save_last_2;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:7: ( ^( LITERAL_variables ( . )+ ) )?
-			int alt48=2;
-			int LA48_0 = input.LA(1);
-			if ( (LA48_0==LITERAL_variables) ) {
-				alt48=1;
-			}
-			switch (alt48) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:8: ^( LITERAL_variables ( . )+ )
-					{
-					_last = (BAST)input.LT(1);
-					{
-					BAST _save_last_2 = _last;
-					BAST _first_2 = null;
-					BAST root_2 = (BAST)adaptor.nil();
-					_last = (BAST)input.LT(1);
-					LITERAL_variables77=(BAST)match(input,LITERAL_variables,FOLLOW_LITERAL_variables_in_get_invariant_from_bless_subclause1349); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_LITERAL_variables.add(LITERAL_variables77);
-
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:28: ( . )+
-					int cnt47=0;
-					loop47:
-					while (true) {
-						int alt47=2;
-						int LA47_0 = input.LA(1);
-						if ( ((LA47_0 >= AADL_STRING_LITERAL && LA47_0 <= LITERAL_BLESS)) ) {
-							alt47=1;
-						}
-						else if ( (LA47_0==UP) ) {
-							alt47=2;
-						}
-
-						switch (alt47) {
-						case 1 :
-							// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:297:28: .
-							{
-							_last = (BAST)input.LT(1);
-							wildcard78=(BAST)input.LT(1);
-							matchAny(input); if (state.failed) return retval;
-							if ( state.backtracking==0 ) {
-							wildcard78_tree = (BAST)adaptor.dupTree(wildcard78);
-							adaptor.addChild(root_2, wildcard78_tree);
-							}
-
-							if ( state.backtracking==0 ) {
-							}
-
-							}
-							break;
-
-						default :
-							if ( cnt47 >= 1 ) break loop47;
-							if (state.backtracking>0) {state.failed=true; return retval;}
-							EarlyExitException eee = new EarlyExitException(47, input);
-							throw eee;
-						}
-						cnt47++;
-					}
-
-					match(input, Token.UP, null); if (state.failed) return retval;
-					adaptor.addChild(root_1, root_2);
-					_last = _save_last_2;
-					}
-
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			{
-			BAST _save_last_2 = _last;
-			BAST _first_2 = null;
-			BAST root_2 = (BAST)adaptor.nil();
-			_last = (BAST)input.LT(1);
-			LITERAL_transitions79=(BAST)match(input,LITERAL_transitions,FOLLOW_LITERAL_transitions_in_get_invariant_from_bless_subclause1365); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_LITERAL_transitions.add(LITERAL_transitions79);
-
-			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:298:29: ( . )+
-			int cnt49=0;
-			loop49:
-			while (true) {
-				int alt49=2;
-				int LA49_0 = input.LA(1);
-				if ( ((LA49_0 >= AADL_STRING_LITERAL && LA49_0 <= LITERAL_BLESS)) ) {
-					alt49=1;
-				}
-				else if ( (LA49_0==UP) ) {
-					alt49=2;
-				}
-
-				switch (alt49) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:298:29: .
-					{
-					_last = (BAST)input.LT(1);
-					wildcard80=(BAST)input.LT(1);
-					matchAny(input); if (state.failed) return retval;
-					if ( state.backtracking==0 ) {
-					wildcard80_tree = (BAST)adaptor.dupTree(wildcard80);
-					adaptor.addChild(root_2, wildcard80_tree);
-					}
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-				default :
-					if ( cnt49 >= 1 ) break loop49;
-					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(49, input);
-					throw eee;
-				}
-				cnt49++;
-			}
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_1, root_2);
-			_last = _save_last_2;
-			}
-
-
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:300:7: ( DO_NOT_PROVE )?
-			int alt50=2;
-			int LA50_0 = input.LA(1);
-			if ( (LA50_0==DO_NOT_PROVE) ) {
-				alt50=1;
-			}
-			switch (alt50) {
-				case 1 :
-					// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:300:7: DO_NOT_PROVE
-					{
-					_last = (BAST)input.LT(1);
-					DO_NOT_PROVE81=(BAST)match(input,DO_NOT_PROVE,FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1379); if (state.failed) return retval;
-					 
-					if ( state.backtracking==0 ) stream_DO_NOT_PROVE.add(DO_NOT_PROVE81);
-
-					if ( state.backtracking==0 ) {
-					}
-
-					}
-					break;
-
-			}
-
-			_last = (BAST)input.LT(1);
-			STOP82=(BAST)match(input,STOP,FOLLOW_STOP_in_get_invariant_from_bless_subclause1388); if (state.failed) return retval;
-			 
-			if ( state.backtracking==0 ) stream_STOP.add(STOP82);
-
-			match(input, Token.UP, null); if (state.failed) return retval;
-			adaptor.addChild(root_0, root_1);
-			_last = _save_last_1;
-			}
-
-
-			// AST REWRITE
-			// elements: ass, predicate
-			// token labels: ass
-			// rule labels: retval
-			// token list labels: 
-			// rule list labels: 
-			// wildcard labels: predicate
-			if ( state.backtracking==0 ) {
-			retval.tree = root_0;
-			RewriteRuleNodeStream stream_ass=new RewriteRuleNodeStream(adaptor,"token ass",ass);
-			RewriteRuleSubtreeStream stream_predicate=new RewriteRuleSubtreeStream(adaptor,"wildcard predicate",predicate);
-			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
-
-			root_0 = (BAST)adaptor.nil();
-			// 303:5: -> ^( $ass $predicate)
-			{
-				// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/ASTtoAST.g:303:8: ^( $ass $predicate)
-				{
-				BAST root_1 = (BAST)adaptor.nil();
-				root_1 = (BAST)adaptor.becomeRoot(stream_ass.nextNode(), root_1);
-				adaptor.addChild(root_1, stream_predicate.nextTree());
-				adaptor.addChild(root_0, root_1);
-				}
-
-			}
-
-
-			retval.tree = root_0;
-			}
-
-			}
-
-			if ( state.backtracking==0 ) {
-
-			retval.tree = (BAST)adaptor.rulePostProcessing(root_0);
-			}
-
-		}
-		catch (RecognitionException re) {
-			Dump.it("Did you forget an invariant clause, Bub?");
-			  tell("Did you forget an invariant clause, Bub?",re,ta);
+			 //Dump.it("Did you forget an invariant clause, Bub?");
+			  tell("Did you forget an invariant clause?",re,ta);
 			//  tell("ASTtoAST.get_invariant_from_bless_subclause",re,(BAST)retval.getTree());
 			  
 		}
@@ -6708,119 +7962,58 @@ public class ASTtoAST extends TreeParser {
 	// Delegated rules
 
 
-	protected DFA3 dfa3 = new DFA3(this);
-	protected DFA5 dfa5 = new DFA5(this);
-	protected DFA16 dfa16 = new DFA16(this);
-	protected DFA35 dfa35 = new DFA35(this);
-	protected DFA46 dfa46 = new DFA46(this);
-	static final String DFA3_eotS =
-		"\7\uffff";
-	static final String DFA3_eofS =
-		"\7\uffff";
-	static final String DFA3_minS =
-		"\1\4\1\2\1\uffff\1\4\2\3\1\uffff";
-	static final String DFA3_maxS =
-		"\1\u012f\1\3\1\uffff\3\u012f\1\uffff";
-	static final String DFA3_acceptS =
-		"\2\uffff\1\2\3\uffff\1\1";
-	static final String DFA3_specialS =
-		"\7\uffff}>";
-	static final String[] DFA3_transitionS = {
-			"\u00fc\2\1\1\57\2",
-			"\1\3\1\2",
-			"",
-			"\72\2\1\4\u00f1\2",
-			"\1\5\72\2\1\4\u00f1\2",
-			"\1\2\u012c\6",
-			""
-	};
-
-	static final short[] DFA3_eot = DFA.unpackEncodedString(DFA3_eotS);
-	static final short[] DFA3_eof = DFA.unpackEncodedString(DFA3_eofS);
-	static final char[] DFA3_min = DFA.unpackEncodedStringToUnsignedChars(DFA3_minS);
-	static final char[] DFA3_max = DFA.unpackEncodedStringToUnsignedChars(DFA3_maxS);
-	static final short[] DFA3_accept = DFA.unpackEncodedString(DFA3_acceptS);
-	static final short[] DFA3_special = DFA.unpackEncodedString(DFA3_specialS);
-	static final short[][] DFA3_transition;
-
-	static {
-		int numStates = DFA3_transitionS.length;
-		DFA3_transition = new short[numStates][];
-		for (int i=0; i<numStates; i++) {
-			DFA3_transition[i] = DFA.unpackEncodedString(DFA3_transitionS[i]);
-		}
-	}
-
-	protected class DFA3 extends DFA {
-
-		public DFA3(BaseRecognizer recognizer) {
-			this.recognizer = recognizer;
-			this.decisionNumber = 3;
-			this.eot = DFA3_eot;
-			this.eof = DFA3_eof;
-			this.min = DFA3_min;
-			this.max = DFA3_max;
-			this.accept = DFA3_accept;
-			this.special = DFA3_special;
-			this.transition = DFA3_transition;
-		}
-		@Override
-		public String getDescription() {
-			return "130:34: ( ^( PARAMETERS ( ID )+ ) )?";
-		}
-	}
-
-	static final String DFA5_eotS =
+	protected DFA4 dfa4 = new DFA4(this);
+	static final String DFA4_eotS =
 		"\10\uffff";
-	static final String DFA5_eofS =
+	static final String DFA4_eofS =
 		"\10\uffff";
-	static final String DFA5_minS =
+	static final String DFA4_minS =
 		"\1\4\1\2\1\uffff\1\3\1\2\1\uffff\1\4\1\2";
-	static final String DFA5_maxS =
-		"\1\u012f\1\u0113\1\uffff\2\u012f\1\uffff\1\u012f\1\u0113";
-	static final String DFA5_acceptS =
+	static final String DFA4_maxS =
+		"\1\u00d8\1\u00c2\1\uffff\2\u00d8\1\uffff\1\u00d8\1\u00c2";
+	static final String DFA4_acceptS =
 		"\2\uffff\1\2\2\uffff\1\1\2\uffff";
-	static final String DFA5_specialS =
+	static final String DFA4_specialS =
 		"\10\uffff}>";
-	static final String[] DFA5_transitionS = {
-			"\161\2\1\1\u00ba\2",
-			"\1\3\u0110\uffff\1\2",
+	static final String[] DFA4_transitionS = {
+			"\114\2\1\1\u0088\2",
+			"\1\3\u00bf\uffff\1\2",
 			"",
-			"\1\5\u012c\4",
-			"\1\5\1\6\u012c\4",
+			"\1\5\u00d5\4",
+			"\1\5\1\6\u00d5\4",
 			"",
-			"\u010f\5\1\7\34\5",
-			"\1\5\1\2\u010f\uffff\1\5"
+			"\u00be\5\1\7\26\5",
+			"\1\5\1\2\107\uffff\1\2\166\uffff\1\5"
 	};
 
-	static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
-	static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
-	static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
-	static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
-	static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
-	static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
-	static final short[][] DFA5_transition;
+	static final short[] DFA4_eot = DFA.unpackEncodedString(DFA4_eotS);
+	static final short[] DFA4_eof = DFA.unpackEncodedString(DFA4_eofS);
+	static final char[] DFA4_min = DFA.unpackEncodedStringToUnsignedChars(DFA4_minS);
+	static final char[] DFA4_max = DFA.unpackEncodedStringToUnsignedChars(DFA4_maxS);
+	static final short[] DFA4_accept = DFA.unpackEncodedString(DFA4_acceptS);
+	static final short[] DFA4_special = DFA.unpackEncodedString(DFA4_specialS);
+	static final short[][] DFA4_transition;
 
 	static {
-		int numStates = DFA5_transitionS.length;
-		DFA5_transition = new short[numStates][];
+		int numStates = DFA4_transitionS.length;
+		DFA4_transition = new short[numStates][];
 		for (int i=0; i<numStates; i++) {
-			DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
+			DFA4_transition[i] = DFA.unpackEncodedString(DFA4_transitionS[i]);
 		}
 	}
 
-	protected class DFA5 extends DFA {
+	protected class DFA4 extends DFA {
 
-		public DFA5(BaseRecognizer recognizer) {
+		public DFA4(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
-			this.decisionNumber = 5;
-			this.eot = DFA5_eot;
-			this.eof = DFA5_eof;
-			this.min = DFA5_min;
-			this.max = DFA5_max;
-			this.accept = DFA5_accept;
-			this.special = DFA5_special;
-			this.transition = DFA5_transition;
+			this.decisionNumber = 4;
+			this.eot = DFA4_eot;
+			this.eof = DFA4_eof;
+			this.min = DFA4_min;
+			this.max = DFA4_max;
+			this.accept = DFA4_accept;
+			this.special = DFA4_special;
+			this.transition = DFA4_transition;
 		}
 		@Override
 		public String getDescription() {
@@ -6828,266 +8021,62 @@ public class ASTtoAST extends TreeParser {
 		}
 	}
 
-	static final String DFA16_eotS =
-		"\16\uffff";
-	static final String DFA16_eofS =
-		"\16\uffff";
-	static final String DFA16_minS =
-		"\1\15\1\2\1\4\1\2\1\uffff\1\4\2\3\1\2\1\uffff\1\4\2\3\1\uffff";
-	static final String DFA16_maxS =
-		"\1\15\1\2\1\u012f\1\3\1\uffff\3\u012f\1\3\1\uffff\3\u012f\1\uffff";
-	static final String DFA16_acceptS =
-		"\4\uffff\1\3\4\uffff\1\2\3\uffff\1\1";
-	static final String DFA16_specialS =
-		"\16\uffff}>";
-	static final String[] DFA16_transitionS = {
-			"\1\1",
-			"\1\2",
-			"\105\4\1\3\u00e6\4",
-			"\1\5\1\4",
-			"",
-			"\72\4\1\6\u00f1\4",
-			"\1\7\u012c\4",
-			"\1\4\u00fc\11\1\10\57\11",
-			"\1\12\1\11",
-			"",
-			"\72\11\1\13\u00f1\11",
-			"\1\14\72\11\1\13\u00f1\11",
-			"\1\11\u012c\15",
-			""
-	};
-
-	static final short[] DFA16_eot = DFA.unpackEncodedString(DFA16_eotS);
-	static final short[] DFA16_eof = DFA.unpackEncodedString(DFA16_eofS);
-	static final char[] DFA16_min = DFA.unpackEncodedStringToUnsignedChars(DFA16_minS);
-	static final char[] DFA16_max = DFA.unpackEncodedStringToUnsignedChars(DFA16_maxS);
-	static final short[] DFA16_accept = DFA.unpackEncodedString(DFA16_acceptS);
-	static final short[] DFA16_special = DFA.unpackEncodedString(DFA16_specialS);
-	static final short[][] DFA16_transition;
-
-	static {
-		int numStates = DFA16_transitionS.length;
-		DFA16_transition = new short[numStates][];
-		for (int i=0; i<numStates; i++) {
-			DFA16_transition[i] = DFA.unpackEncodedString(DFA16_transitionS[i]);
-		}
-	}
-
-	protected class DFA16 extends DFA {
-
-		public DFA16(BaseRecognizer recognizer) {
-			this.recognizer = recognizer;
-			this.decisionNumber = 16;
-			this.eot = DFA16_eot;
-			this.eof = DFA16_eof;
-			this.min = DFA16_min;
-			this.max = DFA16_max;
-			this.accept = DFA16_accept;
-			this.special = DFA16_special;
-			this.transition = DFA16_transition;
-		}
-		@Override
-		public String getDescription() {
-			return "195:1: anAssertion : ( ^(ass= ASSERTION ^(l= LABEL a= ID ) ^(par= PARAMETERS (lv+= ID )+ ) p= . ) -> ^( $ass ^( $l $a) ^( $par ( $lv)+ ) $p) | ^(ass= ASSERTION ^(l= LABEL a= ID ) p= . ) -> ^( $ass ^( $l $a) $p) | ^(ass= ASSERTION p= . ) -> ^( $ass $p) );";
-		}
-	}
-
-	static final String DFA35_eotS =
-		"\7\uffff";
-	static final String DFA35_eofS =
-		"\7\uffff";
-	static final String DFA35_minS =
-		"\1\4\1\2\1\uffff\1\4\1\2\1\uffff\1\3";
-	static final String DFA35_maxS =
-		"\1\u012f\1\3\1\uffff\2\u012f\1\uffff\1\u012f";
-	static final String DFA35_acceptS =
-		"\2\uffff\1\2\2\uffff\1\1\1\uffff";
-	static final String DFA35_specialS =
-		"\7\uffff}>";
-	static final String[] DFA35_transitionS = {
-			"\u00fc\2\1\1\57\2",
-			"\1\3\1\2",
-			"",
-			"\u012c\4",
-			"\1\5\1\6\u012c\4",
-			"",
-			"\1\2\u012c\5"
-	};
-
-	static final short[] DFA35_eot = DFA.unpackEncodedString(DFA35_eotS);
-	static final short[] DFA35_eof = DFA.unpackEncodedString(DFA35_eofS);
-	static final char[] DFA35_min = DFA.unpackEncodedStringToUnsignedChars(DFA35_minS);
-	static final char[] DFA35_max = DFA.unpackEncodedStringToUnsignedChars(DFA35_maxS);
-	static final short[] DFA35_accept = DFA.unpackEncodedString(DFA35_acceptS);
-	static final short[] DFA35_special = DFA.unpackEncodedString(DFA35_specialS);
-	static final short[][] DFA35_transition;
-
-	static {
-		int numStates = DFA35_transitionS.length;
-		DFA35_transition = new short[numStates][];
-		for (int i=0; i<numStates; i++) {
-			DFA35_transition[i] = DFA.unpackEncodedString(DFA35_transitionS[i]);
-		}
-	}
-
-	protected class DFA35 extends DFA {
-
-		public DFA35(BaseRecognizer recognizer) {
-			this.recognizer = recognizer;
-			this.decisionNumber = 35;
-			this.eot = DFA35_eot;
-			this.eof = DFA35_eof;
-			this.min = DFA35_min;
-			this.max = DFA35_max;
-			this.accept = DFA35_accept;
-			this.special = DFA35_special;
-			this.transition = DFA35_transition;
-		}
-		@Override
-		public String getDescription() {
-			return "274:66: ( ^( PARAMETERS (lv+= . )+ ) )?";
-		}
-	}
-
-	static final String DFA46_eotS =
-		"\7\uffff";
-	static final String DFA46_eofS =
-		"\7\uffff";
-	static final String DFA46_minS =
-		"\1\4\1\2\1\uffff\1\4\1\2\1\uffff\1\3";
-	static final String DFA46_maxS =
-		"\1\u012f\1\3\1\uffff\2\u012f\1\uffff\1\u012f";
-	static final String DFA46_acceptS =
-		"\2\uffff\1\2\2\uffff\1\1\1\uffff";
-	static final String DFA46_specialS =
-		"\7\uffff}>";
-	static final String[] DFA46_transitionS = {
-			"\u00fc\2\1\1\57\2",
-			"\1\3\1\2",
-			"",
-			"\u012c\4",
-			"\1\5\1\6\u012c\4",
-			"",
-			"\1\2\u012c\5"
-	};
-
-	static final short[] DFA46_eot = DFA.unpackEncodedString(DFA46_eotS);
-	static final short[] DFA46_eof = DFA.unpackEncodedString(DFA46_eofS);
-	static final char[] DFA46_min = DFA.unpackEncodedStringToUnsignedChars(DFA46_minS);
-	static final char[] DFA46_max = DFA.unpackEncodedStringToUnsignedChars(DFA46_maxS);
-	static final short[] DFA46_accept = DFA.unpackEncodedString(DFA46_acceptS);
-	static final short[] DFA46_special = DFA.unpackEncodedString(DFA46_specialS);
-	static final short[][] DFA46_transition;
-
-	static {
-		int numStates = DFA46_transitionS.length;
-		DFA46_transition = new short[numStates][];
-		for (int i=0; i<numStates; i++) {
-			DFA46_transition[i] = DFA.unpackEncodedString(DFA46_transitionS[i]);
-		}
-	}
-
-	protected class DFA46 extends DFA {
-
-		public DFA46(BaseRecognizer recognizer) {
-			this.recognizer = recognizer;
-			this.decisionNumber = 46;
-			this.eot = DFA46_eot;
-			this.eof = DFA46_eof;
-			this.min = DFA46_min;
-			this.max = DFA46_max;
-			this.accept = DFA46_accept;
-			this.special = DFA46_special;
-			this.transition = DFA46_transition;
-		}
-		@Override
-		public String getDescription() {
-			return "296:66: ( ^( PARAMETERS (lv+= . )+ ) )?";
-		}
-	}
-
-	public static final BitSet FOLLOW_ASSERTION_in_getPredicateFromAssertion102 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_getPredicateFromAssertion108 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_getPredicateFromAssertion110 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PARAMETERS_in_getPredicateFromAssertion118 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_getPredicateFromAssertion120 = new BitSet(new long[]{0x4000000000000008L});
-	public static final BitSet FOLLOW_LCURLY_in_getBehaviorActionsFromELQ157 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ161 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ174 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ203 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ212 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
-	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ214 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions263 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions266 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions275 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions282 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_SEMICOLON_in_getPreconditionFromBehaviorActions304 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions307 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions310 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions319 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions326 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions356 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions368 = new BitSet(new long[]{0x0000000000000248L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
-	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions410 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ434 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ446 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000080000L});
-	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ448 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ASSERTION_in_anAssertion493 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_anAssertion500 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_anAssertion504 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PARAMETERS_in_anAssertion511 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_anAssertion515 = new BitSet(new long[]{0x4000000000000008L});
-	public static final BitSet FOLLOW_ASSERTION_in_anAssertion568 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_anAssertion575 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_anAssertion579 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ASSERTION_in_anAssertion622 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions684 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions687 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions694 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions701 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_SEMICOLON_in_getPostconditionFromBehaviorActions727 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions737 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions747 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ASSERTION_in_getPredicateFromAssertion96 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_getPredicateFromAssertion102 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_getPredicateFromAssertion104 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PARAMETERS_in_getPredicateFromAssertion112 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LCURLY_in_getBehaviorActionsFromELQ150 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_declare_in_getBehaviorActionsFromELQ154 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_RCURLY_in_getBehaviorActionsFromELQ167 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000800L});
+	public static final BitSet FOLLOW_LITERAL_catch_in_getBehaviorActionsFromELQ172 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LCURLY_in_getPreconditionFromBehaviorActionsInELQ209 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActionsInELQ218 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_RCURLY_in_getPreconditionFromBehaviorActionsInELQ220 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions269 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions272 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions281 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions288 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_SEMICOLON_in_getPreconditionFromBehaviorActions310 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ACTION_in_getPreconditionFromBehaviorActions313 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_getPreconditionFromBehaviorActions316 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_S_in_getPreconditionFromBehaviorActions325 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Q_in_getPreconditionFromBehaviorActions332 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_AMPERSAND_in_getPreconditionFromBehaviorActions362 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActions_in_getPreconditionFromBehaviorActions374 = new BitSet(new long[]{0x0800000000000448L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+	public static final BitSet FOLLOW_getPreconditionFromBehaviorActionsInELQ_in_getPreconditionFromBehaviorActions416 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LCURLY_in_getPostconditionFromBehaviorActionsInELQ440 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActionsInELQ452 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000004L});
+	public static final BitSet FOLLOW_RCURLY_in_getPostconditionFromBehaviorActionsInELQ454 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSERTION_in_anAssertion499 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_anAssertion506 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_anAssertion510 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PARAMETERS_in_anAssertion517 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variableList_in_anAssertion521 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSERTION_in_anAssertion572 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_anAssertion579 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_anAssertion583 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSERTION_in_anAssertion626 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variable_in_variableList667 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_COMMA_in_variableList677 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_variable_in_variableList681 = new BitSet(new long[]{0x0000000000000008L,0x0000000000000000L,0x0000000000000000L,0x0000000000002000L});
+	public static final BitSet FOLLOW_TILDE_in_variable702 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ID_in_variable706 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0xFFFFFFFFFFFFFFFFL,0xFFFFFFFFFFFFFFFFL,0x0000000001FFFFFFL});
+	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions751 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions754 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions761 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions775 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions816 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000248L,0x0000000000002000L,0x0000000000000000L,0x0000000000000000L,0x0000000001000000L});
-	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions866 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_COMPONENT_in_get_invariant_from_thread_behavior911 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_implementation_in_get_invariant_from_thread_behavior923 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000002L});
-	public static final BitSet FOLLOW_PERIOD_in_get_invariant_from_thread_behavior926 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior930 = new BitSet(new long[]{0x4000000000000000L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior934 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior945 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L,0x2000000000000010L});
-	public static final BitSet FOLLOW_LITERAL_features_in_get_invariant_from_thread_behavior955 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_properties_in_get_invariant_from_thread_behavior971 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_annex_in_get_invariant_from_thread_behavior986 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_BLESS_in_get_invariant_from_thread_behavior988 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000100000000L});
-	public static final BitSet FOLLOW_THREAD_ANNEX_in_get_invariant_from_thread_behavior999 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_states_in_get_invariant_from_thread_behavior1010 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_availability_in_get_invariant_from_thread_behavior1026 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_thread_behavior1043 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_thread_behavior1059 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_thread_behavior1066 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_thread_behavior1072 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_thread_behavior1076 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PARAMETERS_in_get_invariant_from_thread_behavior1086 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_variables_in_get_invariant_from_thread_behavior1114 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_transitions_in_get_invariant_from_thread_behavior1130 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_thread_behavior1144 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
-	public static final BitSet FOLLOW_STOP_in_get_invariant_from_thread_behavior1153 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LITERAL_end_in_get_invariant_from_thread_behavior1174 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_THREAD_ANNEX_in_get_invariant_from_bless_subclause1234 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_states_in_get_invariant_from_bless_subclause1245 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_availability_in_get_invariant_from_bless_subclause1261 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause1278 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1294 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1301 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_bless_subclause1307 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_ID_in_get_invariant_from_bless_subclause1311 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PARAMETERS_in_get_invariant_from_bless_subclause1321 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_variables_in_get_invariant_from_bless_subclause1349 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_LITERAL_transitions_in_get_invariant_from_bless_subclause1365 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause1379 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000000000000L,0x0000000020000000L});
-	public static final BitSet FOLLOW_STOP_in_get_invariant_from_bless_subclause1388 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions768 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_SEMICOLON_in_getPostconditionFromBehaviorActions794 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ACTION_in_getPostconditionFromBehaviorActions804 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_P_in_getPostconditionFromBehaviorActions814 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_S_in_getPostconditionFromBehaviorActions828 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_Q_in_getPostconditionFromBehaviorActions842 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_AMPERSAND_in_getPostconditionFromBehaviorActions883 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActions_in_getPostconditionFromBehaviorActions895 = new BitSet(new long[]{0x0800000000000448L,0x0000000000000000L,0x0000000000000000L,0x0000000000000080L});
+	public static final BitSet FOLLOW_getPostconditionFromBehaviorActionsInELQ_in_getPostconditionFromBehaviorActions933 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BLESS_SUBCLAUSE_in_get_invariant_from_bless_subclause977 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_DO_NOT_PROVE_in_get_invariant_from_bless_subclause984 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000004L});
+	public static final BitSet FOLLOW_LITERAL_assert_in_get_invariant_from_bless_subclause996 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LITERAL_invariant_in_get_invariant_from_bless_subclause1014 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_ASSERTION_in_get_invariant_from_bless_subclause1027 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_LABEL_in_get_invariant_from_bless_subclause1032 = new BitSet(new long[]{0x0000000000000004L});
 }

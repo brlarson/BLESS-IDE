@@ -6,7 +6,7 @@ tree grammar GetTimeoutDispatchTriggers;
 
 options
 {
-tokenVocab=BLESStoAST;
+tokenVocab=BLESS3;
 ASTLabelType=BAST;
 output=AST;
 filter=true;  //tree pattern matching mode
@@ -26,7 +26,7 @@ import com.multitude.bless.exceptions.Dump;
 import java.util.Vector;
 import java.util.HashSet;
 import java.util.ArrayList;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 
 import com.multitude.bless.codegeneration.TimeoutRecord;
 }

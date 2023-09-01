@@ -1,11 +1,13 @@
 package com.multitude.aadl.bless.util;
 
 import com.multitude.aadl.bless.bLESS.UnitName;
+import com.multitude.aadl.bless.exception.ValidationException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 @SuppressWarnings("all")
@@ -59,8 +61,16 @@ public class UnitRecord {
     this.isBase = isbase;
     this.myUnit = myunit;
     this.rootUnit = rootunit;
-    this.top = t;
-    this.bottom = b;
+    if ((t != null)) {
+      for (final String un : t) {
+        this.top.add(un);
+      }
+    }
+    if ((b != null)) {
+      for (final String un_1 : b) {
+        this.bottom.add(un_1);
+      }
+    }
     this.isScalar = isscalar;
     this.multiplyFactor = mult;
     this.divideFactor = div;
@@ -102,9 +112,6 @@ public class UnitRecord {
   }
 
   public void multiply(final UnitRecord ur) {
-    if (ur.isScalar) {
-      return;
-    }
     this.top.addAll(ur.top);
     this.bottom.addAll(ur.bottom);
     this.removeCommonUnits();
@@ -131,60 +138,75 @@ public class UnitRecord {
   }
 
   public boolean matchTopAndBottom(final UnitRecord ur) {
-    if ((this.notANumber && ur.notANumber)) {
-      return true;
-    }
-    if ((this.notANumber && (!ur.notANumber))) {
-      return false;
-    }
-    if (((!this.notANumber) && ur.notANumber)) {
-      return false;
-    }
-    if (((this.isScalar || this.isWhole) && (ur.isScalar || ur.isWhole))) {
-      return true;
-    }
-    if (((!(this.isScalar || this.isWhole)) && (ur.isScalar || ur.isWhole))) {
-      return false;
-    }
-    if (((this.isScalar || this.isWhole) && (!(ur.isScalar || ur.isWhole)))) {
-      return false;
-    }
-    if (((this.top == null) && (ur.top != null))) {
-      return false;
-    }
-    if (((this.top != null) && (ur.top == null))) {
-      return false;
-    }
-    if (((this.bottom == null) && (ur.bottom != null))) {
-      return false;
-    }
-    if (((this.bottom != null) && (ur.bottom == null))) {
-      return false;
-    }
-    if ((((this.top != null) && (ur.top != null)) && (this.top.size() != ur.top.size()))) {
-      return false;
-    }
-    if ((((this.bottom != null) && (ur.bottom != null)) && (this.bottom.size() != ur.bottom.size()))) {
-      return false;
-    }
-    this.sort();
-    ur.sort();
-    if ((this.top != null)) {
-      for (int t = 0; (t < this.top.size()); t++) {
-        boolean _contentEquals = this.top.get(t).contentEquals(ur.top.get(t));
-        boolean _not = (!_contentEquals);
-        if (_not) {
-          return false;
+    try {
+      if ((ur == null)) {
+        throw new ValidationException("null unit record passed to UnitRecord.matchTopAndBottom");
+      }
+      if ((this.notANumber && ur.notANumber)) {
+        return true;
+      }
+      if ((this.notANumber && (!ur.notANumber))) {
+        return false;
+      }
+      if (((!this.notANumber) && ur.notANumber)) {
+        return false;
+      }
+      if (((this.isScalar || this.isWhole) && (ur.isScalar || ur.isWhole))) {
+        return true;
+      }
+      if (((!(this.isScalar || this.isWhole)) && (ur.isScalar || ur.isWhole))) {
+        return false;
+      }
+      if (((this.isScalar || this.isWhole) && (!(ur.isScalar || ur.isWhole)))) {
+        return false;
+      }
+      if (((this.top == null) && (ur.top != null))) {
+        return false;
+      }
+      if (((this.top != null) && (ur.top == null))) {
+        return false;
+      }
+      if (((this.bottom == null) && (ur.bottom != null))) {
+        return false;
+      }
+      if (((this.bottom != null) && (ur.bottom == null))) {
+        return false;
+      }
+      if ((((this.top != null) && (ur.top != null)) && (this.top.size() != ur.top.size()))) {
+        return false;
+      }
+      if ((((this.bottom != null) && (ur.bottom != null)) && (this.bottom.size() != ur.bottom.size()))) {
+        return false;
+      }
+      this.sort();
+      ur.sort();
+      if ((this.top != null)) {
+        for (int t = 0; (t < this.top.size()); t++) {
+          boolean _contentEquals = this.top.get(t).contentEquals(ur.top.get(t));
+          boolean _not = (!_contentEquals);
+          if (_not) {
+            return false;
+          }
         }
       }
-    }
-    if ((this.bottom != null)) {
-      for (int b = 0; (b < this.bottom.size()); b++) {
-        boolean _contentEquals = this.bottom.get(b).contentEquals(ur.bottom.get(b));
-        boolean _not = (!_contentEquals);
-        if (_not) {
-          return false;
+      if ((this.bottom != null)) {
+        for (int b = 0; (b < this.bottom.size()); b++) {
+          boolean _contentEquals = this.bottom.get(b).contentEquals(ur.bottom.get(b));
+          boolean _not = (!_contentEquals);
+          if (_not) {
+            return false;
+          }
         }
+      }
+    } catch (final Throwable _t) {
+      if (_t instanceof ValidationException) {
+        final ValidationException yi = (ValidationException)_t;
+        yi.handleException();
+      } else if (_t instanceof Exception) {
+        final Exception ex = (Exception)_t;
+        ex.printStackTrace();
+      } else {
+        throw Exceptions.sneakyThrow(_t);
       }
     }
     return true;

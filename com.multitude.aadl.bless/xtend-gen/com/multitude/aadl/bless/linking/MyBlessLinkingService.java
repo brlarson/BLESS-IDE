@@ -13,6 +13,7 @@ import com.multitude.aadl.bless.util.BlessUtil;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -50,8 +51,9 @@ public class MyBlessLinkingService extends DefaultLinkingService {
       if (_eIsProxy) {
         EcoreUtil.resolve(ref, context);
       }
-      if ((Objects.equal(ref, BLESSPackage.eINSTANCE.getQuantityType_Representation()) || 
-        Objects.equal(ref, BLESSPackage.eINSTANCE.getANumber_PropertyConstant()))) {
+      EReference _aNumber_PropertyConstant = BLESSPackage.eINSTANCE.getANumber_PropertyConstant();
+      boolean _equals = Objects.equal(ref, _aNumber_PropertyConstant);
+      if (_equals) {
         final PropertyConstant propertyConstant = GetProperties.lookupPropertyConstant(context, s);
         if ((propertyConstant != null)) {
           result.add(propertyConstant);
@@ -60,8 +62,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
         }
       } else {
         EReference _propertyReference_Pname = BLESSPackage.eINSTANCE.getPropertyReference_Pname();
-        boolean _equals = Objects.equal(ref, _propertyReference_Pname);
-        if (_equals) {
+        boolean _equals_1 = Objects.equal(ref, _propertyReference_Pname);
+        if (_equals_1) {
           final Property propertyDefinition = GetProperties.lookupPropertyDefinition(context, s);
           if ((propertyDefinition != null)) {
             result.add(propertyDefinition);
@@ -70,8 +72,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
           }
         } else {
           EReference _propertyReference_Cpname = BLESSPackage.eINSTANCE.getPropertyReference_Cpname();
-          boolean _equals_1 = Objects.equal(ref, _propertyReference_Cpname);
-          if (_equals_1) {
+          boolean _equals_2 = Objects.equal(ref, _propertyReference_Cpname);
+          if (_equals_2) {
             final ComponentClassifier component = ((PropertyReference) context).getComponent();
             final Property componentPropertyDefinition = GetProperties.lookupPropertyDefinition(component, s);
             if ((componentPropertyDefinition != null)) {
@@ -84,8 +86,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
             }
           } else {
             EReference _propertyReference_Spname = BLESSPackage.eINSTANCE.getPropertyReference_Spname();
-            boolean _equals_2 = Objects.equal(ref, _propertyReference_Spname);
-            if (_equals_2) {
+            boolean _equals_3 = Objects.equal(ref, _propertyReference_Spname);
+            if (_equals_3) {
               final Classifier me = AadlUtil.getContainingClassifier(context);
               final Property selfPropertyDefinition = GetProperties.lookupPropertyDefinition(me, s);
               if ((selfPropertyDefinition != null)) {
@@ -95,8 +97,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
               }
             } else {
               EReference _formalActual_Formal = BLESSPackage.eINSTANCE.getFormalActual_Formal();
-              boolean _equals_3 = Objects.equal(ref, _formalActual_Formal);
-              if (_equals_3) {
+              boolean _equals_4 = Objects.equal(ref, _formalActual_Formal);
+              if (_equals_4) {
                 if ((context instanceof FormalActual)) {
                   final FormalActual fa = ((FormalActual) context);
                   EObject _eContainer = fa.eContainer();
@@ -115,8 +117,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
                           EList<Parameter> _ownedParameters = st.getOwnedParameters();
                           for (final Parameter f : _ownedParameters) {
                             if ((f instanceof Parameter)) {
-                              boolean _equals_4 = ((Parameter) f).getName().equals(s);
-                              if (_equals_4) {
+                              boolean _equals_5 = ((Parameter) f).getName().equals(s);
+                              if (_equals_5) {
                                 result.add(f);
                                 found = true;
                               }
@@ -148,8 +150,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
                               EList<Parameter> _ownedParameters_1 = ex.getOwnedParameters();
                               for (final Parameter f2 : _ownedParameters_1) {
                                 if ((f2 instanceof Parameter)) {
-                                  boolean _equals_5 = ((Parameter) f2).getName().equals(s);
-                                  if (_equals_5) {
+                                  boolean _equals_6 = ((Parameter) f2).getName().equals(s);
+                                  if (_equals_6) {
                                     result.add(f2);
                                     found = true;
                                   }
@@ -163,9 +165,9 @@ public class MyBlessLinkingService extends DefaultLinkingService {
                   }
                 }
               } else {
-                EReference _eventTrigger_Port = BLESSPackage.eINSTANCE.getEventTrigger_Port();
-                boolean _equals_5 = Objects.equal(ref, _eventTrigger_Port);
-                if (_equals_5) {
+                EAttribute _eventTrigger_Sub = BLESSPackage.eINSTANCE.getEventTrigger_Sub();
+                boolean _equals_6 = Objects.equal(ref, _eventTrigger_Sub);
+                if (_equals_6) {
                   if ((context instanceof EventTrigger)) {
                     final ComponentClassifier component_1 = this._blessUtil.getSubcomponentFromListOfIDs(context, ((EventTrigger) context).getSub());
                     if ((component_1 != null)) {

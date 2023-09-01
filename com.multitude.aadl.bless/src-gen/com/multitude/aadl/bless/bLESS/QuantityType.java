@@ -18,8 +18,8 @@ import org.osate.aadl2.PropertyConstant;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#isScalar <em>Scalar</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#isWhole <em>Whole</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getWhole <em>Whole</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getLb <em>Lb</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getUb <em>Ub</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.QuantityType#getStep <em>Step</em>}</li>
@@ -59,44 +59,44 @@ public interface QuantityType extends Element, Type
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Scalar</em>' attribute.
-   * @see #setScalar(boolean)
+   * @see #setScalar(String)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Scalar()
    * @model
    * @generated
    */
-  boolean isScalar();
+  String getScalar();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#isScalar <em>Scalar</em>}' attribute.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getScalar <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Scalar</em>' attribute.
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    */
-  void setScalar(boolean value);
+  void setScalar(String value);
 
   /**
    * Returns the value of the '<em><b>Whole</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Whole</em>' attribute.
-   * @see #setWhole(boolean)
+   * @see #setWhole(String)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getQuantityType_Whole()
    * @model
    * @generated
    */
-  boolean isWhole();
+  String getWhole();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#isWhole <em>Whole</em>}' attribute.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.QuantityType#getWhole <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Whole</em>' attribute.
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    */
-  void setWhole(boolean value);
+  void setWhole(String value);
 
   /**
    * Returns the value of the '<em><b>Lb</b></em>' containment reference.

@@ -117,6 +117,10 @@ import com.multitude.aadl.bless.bLESS.CaseChoice
 import com.multitude.aadl.bless.bLESS.BehaviorActions
 import com.multitude.aadl.bless.bLESS.InvariantClause
 import com.multitude.aadl.bless.bLESS.PortOutput
+import com.multitude.aadl.bless.exception.ValidationException
+import org.osate.xtext.aadl2.properties.util.GetProperties
+import org.osate.xtext.aadl2.properties.util.PropertyUtils
+import com.multitude.aadl.bless.bLESS.UnitName
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -142,6 +146,11 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 	override protected isResponsible(Map<Object, Object> context, EObject eObject) {
 		eObject.eClass().getEPackage() == BLESSPackage.eINSTANCE
 	}
+	
+	override protected handleExceptionDuringValidation(Throwable targetException)
+	  {
+	    targetException.printStackTrace
+	  }
 
 //check to see if this is the first error from this source
   def fError(String message, EObject source, EStructuralFeature feature)
@@ -197,7 +206,7 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
  @Check(CheckType.NORMAL)
 def checkInvariantHasNoParameters(InvariantClause ic)
   {
-    if (ic.inv?.namedassertion.formals !== null)
+    if (ic.inv?.namedassertion?.formals !== null)
     fError('Assertions used as invariants must not have parameters.', ic.inv.namedassertion,
       BLESSPackage.eINSTANCE.namedAssertion_Formals) 
   }  
@@ -220,15 +229,17 @@ def checkIfPositiveUnitFactor(UnitFactor uf)
       BLESSPackage.eINSTANCE.unitFactor_Factor) 
   }
 
-@Check(CheckType.NORMAL)
-def checkQuantityLiteralLackingUnitIsWhole(Constant c)
-  {
-  if (c.numeric_constant !== null)
-  if (!c.numeric_constant.isScalar && !c.numeric_constant.isWhole && c.numeric_constant.unit === null)
-  if (c.numeric_constant.number.lit.contains('.'))
-    warning('quantity literal lacking unit must be integer', c,
-      BLESSPackage.eINSTANCE.constant_Numeric_constant) 
-  }
+//@Check(CheckType.NORMAL)
+//def checkQuantityLiteralLackingUnitIsWhole(Constant c)
+//  {
+//  if (c.numeric_constant !== null
+//    && c.numeric_constant.isWhole 
+//    && c.numeric_constant.number !== null
+//    && c.numeric_constant.number.lit !== null
+//    && c.numeric_constant.number.lit.contains('.'))
+//  warning('quantity literal lacking unit must be integer', c,
+//      BLESSPackage.eINSTANCE.constant_Numeric_constant) 
+//  }
 
 
 @Check(CheckType.NORMAL)
@@ -390,7 +401,7 @@ def void checkThatNamelessFunctionHaveQuantity(NamelessFunction n)
 @Check(CheckType.NORMAL)
 def void checkThatNamedAssertionType(NamedAssertion n)
   {
-  if (n.pred && !n.predicate.getType.boolean)	
+  if (n.pred && !n.predicate.getType.isBoolean)	
     fError('Assertions must have boolean predicates.',n,
 			BLESSPackage::eINSTANCE.namedAssertion_Predicate, IssueCodes.TYPE_MUST_BE_BOOLEAN)   
   if (n.func && !(n.functionvalue.getType.sameStructuralType(n.tod.getType)))
@@ -413,22 +424,11 @@ def void checkThatNamedAssertionType(NamedAssertion n)
 
 
 @Check(CheckType.NORMAL)
-def void checkPortOutput(PortOutput o)
-  {
-  if (!o.port.direction.outgoing)
-    fError('Port output of port that is not \'out\'.', o,
-      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkPortInput(PortInput n)
+def void checkPortInputTarget(PortInput n)
   {
   if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
     fError('Target of port input must be a variable name.',n,
       BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
-  if (!n.port.direction.incoming)
-    fError('Port input of port that is not \'in\'.',n,
-      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
 @Check(CheckType.NORMAL)
@@ -490,7 +490,8 @@ def void checkPElhsIsWhole(Relation r)
       val ty = (r.l as ValueName).getType
       if (ty instanceof QuantityType)
         {
-        if (!(ty as QuantityType).whole)      
+        if ((ty as QuantityType).whole !== null)      
+//        if (!(ty as QuantityType).whole)      
           fError('+= only apples to whole variables.',r,
             BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
         }
@@ -515,18 +516,19 @@ def void checkNameTickValue(NameTick n)
 @Check(CheckType.NORMAL)
 def void checkSubProgramParameterValue(SubProgramParameter n)
   {
-  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
+  if ((n.value !== null ) && (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
     fError('Subprogram parameters may not be port input.',n,
       BLESSPackage::eINSTANCE.subProgramParameter_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
   }
 
-@Check(CheckType.NORMAL)
-def void checkBehaviorTimeValue(BehaviorTime n)
-  {
-  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
-    fError('Behavior time may not be port input.',n,
-      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
+//WHAT'S THIS SUPPOSED TO CHECK?  removed May 22, 2023
+//@Check(CheckType.NORMAL)
+//def void checkBehaviorTimeValue(BehaviorTime n)
+//  {
+//  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
+//    fError('Behavior time may not be port input.',n,
+//      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+//  }
 
 //@Check(CheckType.NORMAL)
 //def void checkValueNameInAssertion(Value n)
@@ -596,6 +598,135 @@ def void checkSumQuantificationNumericExpression(SumQuantification sq)
 //      BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.ASSERTION_ENUMERATION_INVOCATION_NOT_ALLOWED)   
 //  }
 
+@Check(CheckType.NORMAL)
+def void checkNamedAssertionHasNoNow(Value v)
+  {
+  if (v.now !== null) 
+    {
+    var p = v.eContainer
+    while (p !== null && !(p instanceof NamedAssertion)) 
+      p = p.eContainer
+    if (p !== null)
+      fWarning('Don\'t use \"now\" in named assertions.',v,
+            BLESSPackage::eINSTANCE.value_Now, IssueCodes.NOW_IN_NAMED_ASSERTION)         
+    }
+  }
+
+@Check(CheckType.NORMAL)
+def void checkNamedAssertionInvocation(Invocation i)
+  { //first check for named enumeration
+  if (i.label.assertionvariable !==null )
+    {
+    if (i.params.size != 1)  
+      fError('Assertion enumeration invocation must have a single value.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+    else 
+      {
+      val vd = i.params.head.actual?.l?.l?.l?.l?.l?.l?.l?.timed_expression?.subject?.value?.enum_val  
+      if (!(vd instanceof EnumerationValue))
+        fError('Parameter for assertion enumeration invocation must be enumeration value.',i,
+          BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+      else if ((vd as EnumerationValue).enumeration_type.name !=  i.label.enumerationType.name) 
+      fError('Parameter for assertion enumeration invocation must have the same enumeration type: '+
+        (vd as EnumerationValue).enumeration_type.name+" is not "+ 
+        i.label.enumerationType.name+".",i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)
+      }
+    }
+  //then check no parameter
+  else if (i.label.formals === null)
+    {
+    if (i.params !== null  && i.params.size > 0)
+        fError('Invoked assertion has no parameters.',i,
+            BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)                  
+    else if (i.actual_parameter !== null ) 
+        fError('Invoked assertion has no parameters.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    }
+  else if (i.actual_parameter !== null)
+    {  //one parameter
+    if (i.label.formals.parameter !== null && i.label.formals.parameter.size > 0) 
+        fError('Invoked assertion has more than one parameter.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)  
+    val Type actualType = (i.actual_parameter as Expression).getType      
+    val formalType = i.label.formals.first.getType 
+    if (!sameStructuralType(actualType, formalType))  
+        fError('Invocation parameter type mismatch.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)              
+    if (actualType.isQuantity && formalType.isQuantity) 
+      {
+      val actualQuantity = actualType as QuantityType
+      val formalQuantity = formalType as QuantityType
+      if (actualQuantity.whole !== null && formalQuantity.whole === null)
+        fError('Invocation actual parameter is whole, but it\'s formal parameter is not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.scalar !== null && formalQuantity.scalar === null)
+        fError('Invocation actual parameter is scalar, but it\'s formal parameter is not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.unit !== null && formalQuantity.unit === null)
+        fError('Invocation actual parameter has a unit, but it\'s formal parameter does not.',i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      if (actualQuantity.unit !== null && formalQuantity.unit !== null && !sameUnitRoot(actualQuantity.unit, formalQuantity.unit)) 
+        fError('Invocation parameter unit mismatch; '+actualQuantity.unit.name+" is not "+formalQuantity.unit.name,i,
+            BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.ASSERTION_INVOCATION)             
+      }    
+    }
+  else  //multiple parameters
+    {  //check number
+    if (i.label.formals.parameter === null) 
+      fError('Invocation has more parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)              
+    else if (i.label.formals.parameter.size + 1 > i.params.size) 
+      fError('Invocation has fewer parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION)              
+    else if (i.label.formals.parameter.size + 1 < i.params.size) 
+      fError('Invocation has more parameters than assertion.',i,
+         BLESSPackage::eINSTANCE.invocation_Params, IssueCodes.ASSERTION_INVOCATION) 
+    else
+      {  //check labels then types
+      for (param : i.params) 
+        {
+        var found = false
+        if (i.label.formals.first.name == param.formal)
+          {
+          found = true
+          if (!sameStructuralType(i.label.formals.first.getType, param.actual.getType)) 
+            fError('Invocation parameter \"'+param.formal+'\" type mismatch: '+
+              i.label.formals.first.name + "~" +i.label.formals.first.getType.typeString+
+              " is not " +param.formal+ "~" +param.actual.getType.typeString, param,
+              BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+          else if (param.actual.getType.isQuantity && i.label.formals.first.getType.isQuantity
+            && !param.actual.getUnitRecord.matchTopAndBottom(i.label.formals.first.tod.getUnitRecord))
+            fError('Invocation parameter \"'+param.formal+'\" unit mismatch: '+
+              i.label.formals.first.name + "~" +i.label.formals.first.tod.getUnitRecord+
+              " is not " +param.formal+ "~" +param.actual.getUnitRecord, param,
+              BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+          }
+        for (formal : i.label.formals.parameter) 
+          {
+          if (formal.name == param.formal)
+            {
+            found = true
+            if (!sameStructuralType(formal.tod.getType, param.actual.getType)) 
+              fError('Invocation parameter \"'+param.formal+'\" type mismatch: '+
+              formal.name + "~" +formal.getType.typeString+
+              " is not " +param.formal+ "~" +param.actual.getType.typeString, param,
+                BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)              
+            else if (param.actual.getType.isQuantity && formal.tod.getType.isQuantity
+                && !param.actual.getUnitRecord.matchTopAndBottom(formal.tod.getUnitRecord))
+              fError('Invocation parameter \"'+param.formal+'\" unit mismatch: '+
+                formal.name + "~" +(formal.getType as QuantityType).unit+
+              " is not " +param.formal+ "~" +(param.actual.getType as QuantityType).unit,param,
+                BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)               
+            }  
+          }  // done for formal
+        if (!found)
+          fError('Invocation parameter \"'+param.formal+'\" not found.',param,
+             BLESSPackage::eINSTANCE.actualParameter_Formal, IssueCodes.ASSERTION_INVOCATION)               
+        }
+      }             
+    }
+  }  //end of checkNamedAssertionInvocation
 
 //////////////////////////  EXPRESSION  \\\\\\\\\\\\\\\\\\\\
  
@@ -641,11 +772,11 @@ def void checkThatRelationsHaveCompatibleUnits(Relation r)
     val rrqt = r.r.getType
     if (rlqt instanceof QuantityType && rrqt instanceof QuantityType)
 	   {
-	   val rlur = (rlqt as QuantityType).getUnitRecord  	
-	   val rrur = (rrqt as QuantityType).getUnitRecord  	
+	   val rlur = r.l.getUnitRecord  	
+	   val rrur = r.r.getUnitRecord 	
 	   if (!rlur.matchTopAndBottom(rrur))	
        fError('Operands of \''+r.sym+'\' must have the same base units; '+
-      	 r.l.getUnitRecord.toString+' is not '+r.r.getUnitRecord.toString,r,
+      	 rlur.toString+' is not '+rrur.toString,r,
 						BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.INCOMPATIBLE_UNITS) 		
 	   }	
     else if (!r.l.getType.sameStructuralType(r.r.getType))
@@ -690,7 +821,7 @@ def void checkThatVariableDelcarationAssignmentHasCompatibleUnits(VariableDeclar
   {
   if (vd.assign) 
     {
-    if (vd.expression.getType.isNull)
+    if (vd.expression===null || vd.expression.getType.isNull)
       {}  //null matches all types
     else if (vd.variable.tod.getType instanceof ArrayType)
       {
@@ -708,7 +839,7 @@ def void checkThatVariableDelcarationAssignmentHasCompatibleUnits(VariableDeclar
       fError('Variable declaration initialization expression must match its type.', vd,
             BLESSPackage.eINSTANCE.variableDeclaration_Expression, IssueCodes.INCOMPATIBLE_TYPES)            
     else if ( vd.variable.tod.getType instanceof QuantityType && vd.expression.getType instanceof QuantityType &&
-               !vd.variable.tod.getUnitRecord.matchTopAndBottom(vd.expression?.getUnitRecord)) 
+               !vd.variable.tod.getUnitRecord.matchTopAndBottom(vd.expression.getUnitRecord)) 
         fError('Variable declaration initialization expression must have the same base units; '+
             vd.variable.tod.getUnitRecord.toString+' is not '+vd.expression.getUnitRecord.toString, vd,
             BLESSPackage.eINSTANCE.variableDeclaration_Expression, IssueCodes.INCOMPATIBLE_UNITS)              
@@ -733,19 +864,21 @@ def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignmen
     {
     val target = a.lhs.get(i).value
     val expression = a.rhs.get(i).exp
-    if (expression.getType.isNull)
+    val targetType = target.getType
+    val expressionType = expression.getType
+    if (expressionType.isNull)
       {}  //null matches all types
-	  else if (!target.getType.sameStructuralType(expression?.getType))
+	  else if (!targetType.sameStructuralType(expressionType))
 	    {
-      fError('Targets of simultaneous assignment must have compatible types with expressions.  '+
-        target.getType.typeString+" is not "+expression?.getType.typeString, a,
+      error('Targets of simultaneous assignment must have compatible types with expressions.  '+
+        targetType.typeString+" is not "+expressionType.typeString, a,
 						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)
 //      fError('Expressions of simultaneous assignment must have compatible types with targets', a,
 //						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)			
 			}
 	  else if (!target.getUnitRecord.matchTopAndBottom(expression?.getUnitRecord))
 	    {	
-      fError('Target of assignment of must have the same base units as its expression; '+
+      error('Target of assignment of must have the same base units as its expression; '+
       	target.getUnitRecord.toString+' is not '+expression.getUnitRecord.toString, a,
 						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)  	
 //      fError('Expressions too ', a,
@@ -846,6 +979,105 @@ checkSubprogramInvocationParametersHavingExpressionsAreIn(SubprogramCall sc)
         }
   }
 
+
+
+@Check(CheckType.NORMAL)
+def void checkPortOutput(PortOutput o)
+  {
+  if (!o.port.direction.outgoing)
+    fError('Port output of port that is not \'out\'.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_NOT_ALLOWED)  
+  if (o.port instanceof DataPort  && o.eor===null)   
+    fError('Port output of data port lacks parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_LACKS_PARAMETER)  
+  if (o.port instanceof EventDataPort && o.eor===null)   
+    fError('Port output of event data port lacks parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_LACKS_PARAMETER)  
+  if (o.port instanceof EventPort  && o.eor!==null)   
+    fError('Port output of event port has parameter.', o,
+      BLESSPackage::eINSTANCE.portOutput_Eor, IssueCodes.PORT_OUTPUT_HAS_PARAMETER)  
+  if (o.port instanceof EventPort  && !isBoolean(o.port.getFeatureType))   
+    fError('Event port must have boolean type.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)  
+  if (o.port instanceof DataPort  && !o.port.getFeatureType.sameStructuralType(o.eor.getType))   
+    fError('Port output parameter must have same type as its data port.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)  
+  if (o.port instanceof EventDataPort  && !o.port.getFeatureType.sameStructuralType(o.eor.getType))   
+    fError('Port output parameter must have same type as its event data port.', o,
+      BLESSPackage::eINSTANCE.portOutput_Port, IssueCodes.PORT_OUTPUT_WRONG_TYPE)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkPortInput(PortInput n)
+  {
+  if ((n.target.q ||n.target.fresh ||n.target.count ||n.target.updated ) &&
+       !(n.target.id!==null && n.target.id instanceof Variable))
+    fError('Target of port input must be a variable name.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
+  if (!n.port.direction.incoming)
+    fError('Port input of port that is not \'in\'.',n,
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_NOT_ALLOWED) 
+  try {  
+  if (n.target.id!==null && n.target.id instanceof Variable && 
+        !n.port.featureType.sameStructuralType((n.target.id as Variable).tod.getType))
+    fError('Target of port input must have same type as its port.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_WRONG_TYPE) 
+      } 
+  catch (ValidationException ve)
+    fError(ve.getMessage(),n,
+      BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_WRONG_TYPE) 
+    
+  }
+
+//@Check(CheckType.NORMAL)
+//def void checkAssignmentToInPort(Assignment asgn)
+//  {
+//  val vName = asgn.lhs.value.id
+//  if (vName instanceof DataPort && !(vName as DataPort).out)
+//    fError('May not assign to in data port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
+//    fError('May not assign to in event data port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof EventPort && !(vName as EventPort).out)
+//    fError('May not assign to in event port.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+//  if (vName instanceof Parameter && !(vName as Parameter).out)
+//    fError('May not assign to in parameter.',asgn,
+//      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
+//  }
+
+//@Check(CheckType.NORMAL)
+//def void checkInPortValueHasQuestionMark(ValueName vn)
+//  {
+//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort) 
+//    if (!vn.q && !vn.fresh && !vn.count && !vn.updated && vn.inBehaviorActions) 
+//        fError('Values of in ports must use ?, fresh, count, or updated.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
+//  }
+
+//@Check(CheckType.NORMAL)
+//def void checkPortIndexIsNaturalLiteral(ValueName vn)
+//  {
+//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
+//    if (vn.array_index !== null && vn.array_index.size > 0)
+//      {
+//      if (vn.array_index.size > 1)  
+//        fError('Port arrays are one dimensional.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//      else if (vn.array_index.head instanceof ANumber)
+//        {
+//        val num = vn.array_index.head as ANumber
+//        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
+//          fError('Port array index must be natural literal.',vn,
+//            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//        }   
+//      else
+//        fError('Port array index must be natural literal.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+//      }
+//  }
+
 //@Check(CheckType.NORMAL)
 //def void checkWhileLoopInvariantIsNameless(WhileLoop wl)
 //  {
@@ -881,7 +1113,10 @@ def void checkTimeoutBehaviorTimeHasTimeUnits(DispatchTrigger dt)
     if (ur === null)
     	fError('No unit definition found for timeout duration.',dt,
 						BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.UNIT_DEFINITION_NOT_FOUND) 
-    if (!ur.rootUnit.name.equals('s'))
+    else if (ur.rootUnit === null || ur.rootUnit.name === null)
+      fError('Timeout dispatch trigger has no root unit.',dt,
+            BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.MUST_HAVE_TIME_UNITS)             
+    else if (!ur.rootUnit.name.equals('s'))
     	fError('Timeout dispatch trigger must have time units, but has unit \''+ur.rootUnit.name+'\'.',dt,
 						BLESSPackage.eINSTANCE.dispatchTrigger_Time, IssueCodes.MUST_HAVE_TIME_UNITS) 						
 		}
@@ -1035,7 +1270,7 @@ checkPortNamesForCodegen(DispatchTrigger dt)
   {
   if (dt.port !== null)
     {
-    if (dt.port.port.name.equalsIgnoreCase("halt"))
+    if (dt.port.port.name !==null && dt.port.port.name.equalsIgnoreCase("halt"))
       fWarning('"halt" should not be used as a port name due to code generation name conflict.',
         dt, BLESSPackage.eINSTANCE.dispatchTrigger_Port )
     }
@@ -1060,7 +1295,8 @@ def boolean isBoolean(Type t)
 
 def boolean isScalar(Type t)  
   {
-  return t.isQuantity && (t as QuantityType).scalar
+  return t.isQuantity && (t as QuantityType).scalar!==null
+//  return t.isQuantity && (t as QuantityType).scalar
   }
 
 def boolean isQuantity(Type t)
@@ -1170,6 +1406,12 @@ def Type getType(TimedSubject a)
   a.invocation?.getType
   }
 
+def Type getType(TypeOrReference tor)
+  {
+  tor?.ty ?: 
+  tor.ref.type
+  }
+  
 def Type getType(ParenthesizedSubexpression e)
   {
   if (e.expression !== null && e.t !== null && e.f !== null)
@@ -1247,7 +1489,7 @@ def Type getType(ConditionalExpression e)
         BLESSPackage::eINSTANCE.conditionalExpression_F, IssueCodes.INDETERMINATE_UNITS)     
     if (tUnitRecord !== null && fUnitRecord !== null && !tUnitRecord.matchTopAndBottom(fUnitRecord) )
       fError('Choices of conditional expression (then x else y) must have same root units \''+e.t.getUnitRecord.toString+
-         '\' is not \''+e.f.getUnitRecord.toString, e,
+         '\' is not \''+e.f.getUnitRecord.toString +"\'", e,
       BLESSPackage::eINSTANCE.conditionalExpression_F, IssueCodes.MISMATCHED_UNITS)     
   e.t.getType
   }
@@ -1359,38 +1601,46 @@ def Type getType(CountingQuantification a)
 
 def Type getType(Expression e)
   {
-  if (e.sym !==null && e.sym.equals('iff'))
+  try
     {
-    if (!e.l?.getType.isBoolean)  
-    fError('Operands of if-and-only-in must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_L, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    if (!e.r?.getType.isBoolean)  
-    fError('Operands of if-and-only-in must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_R, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    return booleanType
+      if (e.sym !== null && e.sym.equals('iff'))
+      {
+        if (!e.l?.getType.isBoolean)
+          fError('Operands of if-and-only-in must be boolean.', e, BLESSPackage::eINSTANCE.expression_L,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        if (!e.r?.getType.isBoolean)
+          fError('Operands of if-and-only-in must be boolean.', e, BLESSPackage::eINSTANCE.expression_R,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        return booleanType
+      }
+      else if (e.sym !== null && e.sym.equals('implies'))
+      {
+        if (!e.l?.getType.isBoolean)
+          fError('Premise of implication must be boolean.', e, BLESSPackage::eINSTANCE.expression_L,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        if (!e.r?.getType.isBoolean)
+          fError('Consequent of implication must be boolean.', e, BLESSPackage::eINSTANCE.expression_R,
+            IssueCodes.TYPE_MUST_BE_BOOLEAN)
+        return booleanType
+      }
+      if (e.all !== null)
+        return e.all.getType
+      if (e.exists !== null)
+        return e.exists.getType
+      if (e.sum !== null)
+        return e.sum.getType
+      if (e.product !== null)
+        return e.product.getType
+      if (e.numberof !== null)
+        return e.numberof.getType
+      if (e.l !== null)
+        return e.l.getType
     }
-  else if (e.sym !==null && e.sym.equals('implies'))
+    catch (Exception ex)
     {
-    if (!e.l?.getType.isBoolean)  
-    fError('Premise of implication must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_L, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    if (!e.r?.getType.isBoolean)  
-    fError('Consequent of implication must be boolean.',
-      e, BLESSPackage::eINSTANCE.expression_R, IssueCodes.TYPE_MUST_BE_BOOLEAN)    
-    return booleanType
+      ex.printStackTrace
     }
-  if (e.all !== null)
-    return e.all.getType
-  if (e.exists !== null)
-    return e.exists.getType
-  if (e.sum !== null)
-    return e.sum.getType
-  if (e.product !== null)
-    return e.product.getType
-  if (e.numberof !== null)
-    return e.numberof.getType  
-  if (e.l !== null)
-    return e.l.getType
+    null
   }
 
 def Type getType(Conjunction e)
@@ -1425,30 +1675,33 @@ def Type getType(Disjunction e)
 
 def Type getType(Relation e)
   {
+  val ltype = e.l.getType  
   if (e.sym !== null) 
 //    return booleanType
     {
-    if (e.l.getType.isBoolean)
+    val rtype = e.r.getType
+    if (ltype.isBoolean)
       fError('Operands of '+e.sym+' must not be boolean.  Use \'iff\' instead of =',
         e, BLESSPackage::eINSTANCE.relation_L, IssueCodes.MUST_NOT_BE_BOOLEAN)  
-    if (e.r.getType.isBoolean)
+    if (rtype.isBoolean)
       fError('Operands of '+e.sym+' must not be boolean.  Use \'iff\' instead of =',
         e, BLESSPackage::eINSTANCE.relation_R, IssueCodes.MUST_NOT_BE_BOOLEAN)  
 //null matches all types
-    if (e.r.getType.isNull || e.l.getType.isNull)
+    if (rtype.isNull || ltype.isNull)
           return booleanType
-    if (e.l.getType.isQuantity && e.r.getType.isQuantity && !e.l.getUnitRecord.matchTopAndBottom(e.r.getUnitRecord))
+    if (ltype.isQuantity && rtype.isQuantity && !e.l.getUnitRecord.matchTopAndBottom(e.r.getUnitRecord))
       fError('Operands of '+e.sym+' must have root base units \''+e.l.getUnitRecord.toString+
            '\' is not \''+e.r.getUnitRecord.toString, 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.MISMATCHED_UNITS) 
-    else if (!e.l.getType.sameStructuralType(e.r.getType)) 
-      fError('Operands of '+e.sym+' must be have compatible types.', 
+    else if (!ltype.sameStructuralType(rtype)) 
+      fError('Operands of '+e.sym+' must be have compatible types.'+
+            ltype.typeString+" is not "+rtype.typeString , 
         e,BLESSPackage.eINSTANCE.relation_Sym, IssueCodes.INCOMPATIBLE_TYPES)            
     return booleanType
     } 
   if (e.in !== null)
     {
-    if (!e.l.getType.isQuantity)
+    if (!ltype.isQuantity)
       fError('lhs of \'in\' must be quantity type.',
           e, BLESSPackage::eINSTANCE.relation_L, IssueCodes.MUST_BE_QUANTITY)  
     //check range
@@ -1468,7 +1721,7 @@ def Type getType(Relation e)
            e, BLESSPackage::eINSTANCE.range_Upper_bound, IssueCodes.MISMATCHED_UNITS)     
     return booleanType
     }   
-  e.l.getType
+  ltype
   }
   
 def Type getType(Exp e)
@@ -1526,7 +1779,8 @@ def Type getType(ValueName a)
     {
       val aid = a.id as Variable
       val Type nameRootType = aid.tod.getType
-      if (a.lb) // is it an array name
+      if (a.array_index!==null && a.array_index.size>0) // is it an array name
+//      if (a.lb) // is it an array name
       {
         if (!(nameRootType instanceof ArrayType))
           fError('Variable name \'' + aid.name + '\' has array index, but it\'s type is not array', a,
@@ -1563,17 +1817,16 @@ def Type getType(ValueName a)
         else
           return getType(a.pn, (nameRootType as ArrayType).typ.getType) // get partial name type
       }
-      if (!a.dot) // no index, no record field reference
-        return nameRootType
-      else
+      if (a.dot) // no index, no record field reference
         return getType(a.pn, nameRootType) // get partial name type
+     return nameRootType   
     }
 //  if (a.id instanceof Property)
 //    return getType(a.id as Property)
   if (a.id instanceof Feature)
     {
       val aid = a.id as Feature
-      val featureType = getType(a.id as Feature)
+      val featureType = getType(aid)
       if (featureType === null)
       {
         fError("BLESS::Typed properties of data components used as feature types must" +
@@ -1645,7 +1898,7 @@ def Type getType(Iterable<PartialName> pn, Type typ)
                 pn.head.array_index.last, BLESSPackage::eINSTANCE.valueName_Array_index,
                 IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION)
             if (pn.size === 1) // no record field reference
-              return (fieldType as ArrayType)
+              return (fieldType as ArrayType).typ.getType  //get type of record field array 3/23/2023
             else  // get partial name type 
               return getType(pn.tail, (fieldType as ArrayType).typ.getType)    
           }
@@ -1669,10 +1922,26 @@ def Type getType(Constant c)
 def Type getType(Quantity q)
   {
     val qt = BLESSFactory.eINSTANCE.createQuantityType
-    qt.scalar = q.scalar
-    qt.unit = q.unit 
-    if (qt.unit === null) 
-      qt.scalar = true
+    if (q.unit !== null)
+      qt.unit = q.unit 
+    else if (q.scalar !== null)
+      qt.scalar = 'scalar'
+    else if (q.whole !== null)
+      qt.whole = 'whole'
+    else //look for . in number
+      if (q.number.lit !== null)
+        {
+        if (q.number.lit.contains('.'))
+          qt.scalar = 'scalar'
+        else
+          qt.whole = 'whole'
+        }
+    else //assume property is scalar
+      qt.scalar = 'scalar'  
+//    qt.scalar = q.scalar
+//    qt.unit = q.unit 
+//    if (qt.unit === null) 
+//      qt.scalar = true
     return qt    
   }
   
@@ -1718,85 +1987,116 @@ def Type getType(EnumerationValue ev)
     ev.enumeration_type.type
   }
 
+def Type getType(Variable v)
+  {
+  v.tod?.ty ?:
+  v.tod.ref.type 
+  }
+  
 ////////////////////////   GET UNIT RECORD   ///////////////////////////////
 
 def UnitRecord getUnitRecord(AddSub a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  val retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.addSub_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  for (r : a.r)
-    if (!retval.matchTopAndBottom(r.getUnitRecord))
-        fError( 'Unit mismatch for '+ a.sym + ' :  ' + r.getUnitRecord.toString +
-          ' is not ' + a.l.getUnitRecord.toString, a, BLESSPackage.eINSTANCE.addSub_Sym,
-          IssueCodes.MISMATCHED_UNITS)
-  if (cacheUnits) unitRecordMap.put(a, retval)
-  retval
+    val retval = a.l.getUnitRecord
+    try
+    {
+      if (cacheUnits && unitRecordMap.containsKey(a))
+        return unitRecordMap.get(a)
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.addSub_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      for (r : a.r)
+        {
+        val runit = r.getUnitRecord  
+        if (!retval.matchTopAndBottom(runit))
+          fError(
+            'Unit mismatch for ' + a.sym + ' :  ' + retval.toString + ' is not ' + runit.toString,
+            a, BLESSPackage.eINSTANCE.addSub_Sym, IssueCodes.MISMATCHED_UNITS)
+        }
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
 
 def UnitRecord getUnitRecord(MultDiv a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  var retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.multDiv_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)      
-  if (a.sym !== null)
-    if (a.sym.equals('*'))
-      for (rval : a.r)
-        retval.multiply(rval.getUnitRecord)
-    else if (a.sym.equals('/'))
-        retval.divide(a.r.head.getUnitRecord)
-    else if (a.sym.equals('div') || a.sym.equals('mod'))
-        {  //check that each is a whole number
-        if (!a.l.getUnitRecord.isWhole)
-          fError('Operands of \''+a.sym+'\' must be whole numbers.',
-            a, BLESSPackage::eINSTANCE.multDiv_L, IssueCodes.MUST_BE_WHOLE_NUMBER)  
-        if (!a.r.head.getUnitRecord.isWhole)
-          fError('Operands of \''+a.sym+'\' must be whole numbers.',
-            a, BLESSPackage::eINSTANCE.multDiv_R, IssueCodes.MUST_BE_WHOLE_NUMBER)        
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = a.l.getUnitRecord
+    try
+    {
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.multDiv_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      if (a.sym !== null)
+        if (a.sym.equals('*'))
+          for (rval : a.r)
+            retval.multiply(rval.getUnitRecord)
+        else if (a.sym.equals('/'))
+          retval.divide(a.r.head.getUnitRecord)
+        else if (a.sym.equals('div') || a.sym.equals('mod'))
+        { // check that each is a whole number
+          if (!a.l.getUnitRecord.isWhole)
+            fError('Operands of \'' + a.sym + '\' must be whole numbers.', a, BLESSPackage::eINSTANCE.multDiv_L,
+              IssueCodes.MUST_BE_WHOLE_NUMBER)
+          if (!a.r.head.getUnitRecord.isWhole)
+            fError('Operands of \'' + a.sym + '\' must be whole numbers.', a, BLESSPackage::eINSTANCE.multDiv_R,
+              IssueCodes.MUST_BE_WHOLE_NUMBER)
         }
-  retval
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
 
-def UnitRecord getUnitRecord(Exp a) 
+def UnitRecord getUnitRecord(Exp a)
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  if (a.sym === null)
-    return a.l.getUnitRecord
-  var retval = a.l.getUnitRecord
-  if (retval === null)
-    fError('unit not found:  '+a.l.toString,a,BLESSPackage.eINSTANCE.exp_L, IssueCodes.UNIT_DEFINITION_NOT_FOUND)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  if (a.r !== null && !a.r.getType.isScalar)
-    fError('Exponents must be scalar.',
-       a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)  
-  if (a.r !== null && a.r instanceof Quantity)
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = a.l.getUnitRecord
+    try
     {
-    val exponent = (a.r as Quantity).number.lit
-    if (exponent.contains('.') || exponent.contains('-'))
-      fWarning('Exponents must be positive whole numbers for unit determination',
-       a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)  
-    val exponent_as_int = Integer.parseInt(exponent) 
-    var newRetVal = retval
-    for (var i=1; i<exponent_as_int; i++) 
-      newRetVal.multiply(retval)
-    retval = newRetVal  
+      if (retval === null)
+        fError('unit not found:  ' + a.l.toString.substring(36,a.l.toString.indexOf('@')), 
+          a, BLESSPackage.eINSTANCE.exp_L,
+          IssueCodes.UNIT_DEFINITION_NOT_FOUND)
+      if (a.sym === null)
+        return retval
+      if (a.r !== null && !a.r.getType.isScalar)
+        fError('Exponents must be scalar.', a, BLESSPackage::eINSTANCE.exp_L, IssueCodes.MUST_BE_SCALAR)
+      if (a.r !== null && a.r instanceof Quantity)
+      {
+        val exponent = (a.r as Quantity).number.lit
+        if (exponent.contains('.') || exponent.contains('-'))
+          fWarning('Exponents must be positive whole numbers for unit determination', a, BLESSPackage::eINSTANCE.exp_L,
+            IssueCodes.MUST_BE_SCALAR)
+        val exponent_as_int = Integer.parseInt(exponent)
+        var newRetVal = retval
+        for (var i = 1; i < exponent_as_int; i++)
+          newRetVal.multiply(retval)
+        retval = newRetVal
+      }
+      else
+        fError('Operands of ** must be whole scalar.', a, BLESSPackage::eINSTANCE.exp_R, IssueCodes.MUST_BE_SCALAR)
     }
-  else
-    fError('Operands of ** must be whole scalar.',
-       a, BLESSPackage::eINSTANCE.exp_R, IssueCodes.MUST_BE_SCALAR)  
-  retval
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(Subexpression a) 
@@ -1832,22 +2132,32 @@ def UnitRecord getUnitRecord(ParenthesizedSubexpression a)
   
 def UnitRecord getUnitRecord(Expression a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval = nan
-  if (a.sum !== null)   
-    retval = a.sum.getUnitRecord
-  else if (a.product !== null)   
-    retval = a.product.getUnitRecord
-  else if (a.numberof !== null)   
-    retval = a.numberof.getUnitRecord
-  else if (a.sym !== null)
-    retval = nan
-  else if (a.l !== null)   
-    retval = a.l.getUnitRecord
-  if (retval !== null)
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = nan
+    try
+    {
+      if (a.sum !== null)
+        retval = a.sum.getUnitRecord
+      else if (a.product !== null)
+        retval = a.product.getUnitRecord
+      else if (a.numberof !== null)
+        retval = a.numberof.getUnitRecord
+      else if (a.sym !== null)
+        retval = nan
+      else if (a.l !== null)
+        retval = a.l.getUnitRecord
+      if (retval !== null)
+        if (cacheUnits) unitRecordMap.put(a, retval)
+    if (retval===null)
+      throw new ValidationException("no unit record found for expression")
+    }
+    catch (ValidationException ve) {ve.handleException}
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(Disjunction a) 
@@ -1873,27 +2183,34 @@ def UnitRecord getUnitRecord(Relation a)
   
 def UnitRecord getUnitRecord(Value a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval = scalar
-  if ( a.value_name !== null)
-    retval = a.value_name.getUnitRecord
-  if ( a.constant !== null)
-    retval = a.constant.getUnitRecord 
-  if ( a.enum_val !== null)   
-    retval = nan 
-  if (a.now !== null || a.tops !== null)
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = scalar
+    try
     {
-    val qt=BLESSFactory.eINSTANCE.createQuantityType
-    qt.unit = a.getTimeUnit
-    retval = qt.getUnitRecord
-    }   
+      if (a.value_name !== null)
+        retval = a.value_name.getUnitRecord
+      if (a.constant !== null)
+        retval = a.constant.getUnitRecord
+      if (a.enum_val !== null)
+        retval = nan
+      if (a.now !== null || a.tops !== null)
+      {
+        val qt = BLESSFactory.eINSTANCE.createQuantityType
+        qt.unit = a.getTimeUnit
+        retval = qt.getUnitRecord
+      }
 //  if (retval === null)
 //    error('unit not found for Value',a.eContainingFeature)
 //  else 
-  if (retval !==null)
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+      if (retval !== null)
+        if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(ConditionalExpression a) 
@@ -1919,26 +2236,31 @@ def UnitRecord getUnitRecord(RecordTerm a)
   
 def UnitRecord getUnitRecord(Invocation a) 
   {
-  if (cacheUnits && unitRecordMap.containsKey(a))
-    return unitRecordMap.get(a)
-  var retval =  scalar  
-  if (a.label.tod !== null) 
-    if (a.label.tod.getType instanceof QuantityType)
-      {
-      val t = a.label.tod.getType as QuantityType
-      if (t.unit !== null)
-        retval = toUnitRecord(t.unit) 
-        //o.w. leave as scalar
-      }
-    else
-      fError('Return type of assertion invocation must be quantity type.',
-            a, BLESSPackage::eINSTANCE.invocation_Label, 
-            IssueCodes.MUST_BE_QUANTITY)           
-  if (retval === null)
-    fError('unit not found for Invocation:  '+a.label.name,a,BLESSPackage::eINSTANCE.invocation_Label)
-  else
-    if (cacheUnits) unitRecordMap.put(a,retval)    
-  retval
+    if (cacheUnits && unitRecordMap.containsKey(a))
+      return unitRecordMap.get(a)
+    var retval = scalar
+    try
+    {
+      if (a.label.tod !== null)
+        if (a.label.tod.getType instanceof QuantityType)
+        {
+          val t = a.label.tod.getType as QuantityType
+          if (t.unit !== null)
+            retval = toUnitRecord(t.unit)
+        // o.w. leave as scalar
+        }
+        else
+          fError('Return type of assertion invocation must be quantity type.', a,
+            BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.MUST_BE_QUANTITY)
+      if (retval === null)
+        fError('unit not found for Invocation:  ' + a.label.name, a, BLESSPackage::eINSTANCE.invocation_Label)
+      if (cacheUnits) unitRecordMap.put(a, retval)
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace
+    }
+    retval
   }
   
 def UnitRecord getUnitRecord(SumQuantification a) 
@@ -1946,7 +2268,7 @@ def UnitRecord getUnitRecord(SumQuantification a)
   if (cacheUnits && unitRecordMap.containsKey(a))
     return unitRecordMap.get(a)
   val retval =  a.numeric_expression.getUnitRecord
-  if (cacheUnits) unitRecordMap.put(a,retval)    
+//  if (cacheUnits) unitRecordMap.put(a,retval)    
   retval
   }
   
@@ -1959,8 +2281,7 @@ def UnitRecord getUnitRecord(ProductQuantification a)
     fError('Subject of product must be scalar.',
         a, BLESSPackage::eINSTANCE.productQuantification_Numeric_expression, 
         IssueCodes.MUST_BE_SCALAR)        
-  else 
-    if (cacheUnits) unitRecordMap.put(a,retval)    
+  if (cacheUnits) unitRecordMap.put(a,retval)    
   retval
   }
   
@@ -1975,52 +2296,59 @@ def UnitRecord getUnitRecord(CountingQuantification a)
   
 def UnitRecord getUnitRecord(ValueName a) 
   {
+  var  UnitRecord retval = null
+    try {
   if (cacheUnits && unitRecordMap.containsKey(a))
     return unitRecordMap.get(a)
-  var  UnitRecord retval = null
   val itsType=a.getType
   if (itsType instanceof QuantityType)
     retval = (itsType as QuantityType).getUnitRecord
   else
     retval = nan
-//  if (a.id instanceof Feature)
-//    {
-//    val f = a.id as Feature
+  if (a.id instanceof Feature)
+    {
+    val f = a.id as Feature
+    val ty = a.type
+    if (ty===null)
+      fError('No BLESS::Typed property found for feature '+f.name,
+            a, BLESSPackage::eINSTANCE.valueName_Id, 
+            IssueCodes.MISSING_BLESS_TYPED_PROPERTY) 
+    else if (ty instanceof QuantityType) 
+      retval = (ty as QuantityType).getUnitRecord
+    else if (ty instanceof BooleanType) 
+      retval = nan
+    else  
+      fError('No BLESS::Typed property for feature '+f.name+' must be quantity, not '+ty.typeString+' .',
+            a, BLESSPackage::eINSTANCE.valueName_Id, 
+            IssueCodes.MUST_BE_QUANTITY)           
 //    val Property blessTyped = GetProperties.lookupPropertyDefinition(f, 'BLESS', 'Typed');
 //    val String blesstypestring = (blessTyped !== null ? PropertyUtils.getStringValue(f,blessTyped) : '')
 //    if (blesstypestring === null || blesstypestring.length === 0 )
 //      fError('No BLESS::Typed property found for feature '+f.name,
 //            a, BLESSPackage::eINSTANCE.valueName_Id, 
 //            IssueCodes.MISSING_BLESS_TYPED_PROPERTY)           
-//    else if (blesstypestring.startsWith('quantity')) 
-//      {  //cheat with parsing
-////TODO parse type string      
-//      val String suffix = blesstypestring.substring(9)
-//      val UnitName un = a.findUnitNameFromString(suffix)
-//      if (un === null && !suffix.equalsIgnoreCase('scalar'))
-//        fError('No unit name matching \''+suffix+'\' found for feature '+f.name,
-//            a, BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.UNIT_DEFINITION_NOT_FOUND)           
-//      retval = new UnitRecord(un)
-//      } 
-//    }
-//  if (a.id instanceof Variable) 
-//    if ((a.id as Variable).tod.getType instanceof QuantityType)
+//    else 
 //      {
-//      val t = (a.id as Variable).tod.getType as QuantityType
-//      if (t.unit !== null)
-//        retval = new UnitRecord(t.unit) 
-//      else 
-//        retval = new UnitRecord(false,null,null,null,t.scalar,t.whole) //
+//      val Type ty = blesstypestring.parseBlessType(f.eResource) 
 //      }
+    }
+  if (a.id instanceof Variable) 
+    if ((a.id as Variable).tod.getType instanceof QuantityType)
+      {
+      val t = (a.id as Variable).tod.getType as QuantityType
+      retval = t.getUnitRecord
+      }
 //    else
 //      fError('Variables in numeric expressions must be quantity type.',
 //            a, BLESSPackage::eINSTANCE.valueName_Id, 
 //            IssueCodes.MUST_BE_QUANTITY)           
-//  if (retval === null)
-//    fError('unit not found for ValueName',a,BLESSPackage::eINSTANCE.valueName_Id)
-//  else
+  if (retval === null)
+    fError('unit not found for ValueName',a,BLESSPackage::eINSTANCE.valueName_Id)
+  else
   if (retval !== null)
     if (cacheUnits) unitRecordMap.put(a,retval)    
+  }
+  catch (Exception ex) {ex.printStackTrace}
   retval
   }
   
@@ -2069,112 +2397,112 @@ def UnitRecord getUnitRecord(NumericExpression a)
 //  retval
 //  }
 
-def UnitRecord getUnitRecord(PropertyConstant a)
-  {
-  if (a.constantValue instanceof RealLiteral)
-    {
-    val rl = a.constantValue as RealLiteral
-    if (rl.unit === null)
-      return scalar  //scalar real
-    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
-      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
-    else
-      {
-      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
-//      fError("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.",a.constantValue,
-//        BLESSPackage::eINSTANCE. )    
-      return scalar  //scalar real
-      }
-    }
-  else if (a.constantValue instanceof IntegerLiteral)
-    {
-    val rl = a.constantValue as IntegerLiteral
-    if (rl.unit === null)
-      return whole  //scalar integer isWhole
-    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
-      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
-    else
-      {
-      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
-      return scalar  //scalar 
-      }
-    }
-  else if (a.constantValue instanceof RangeValue)
-    {
-    val rl = a.constantValue as RangeValue
-    if (rl.delta === null)
-      return whole  //scalar integer isWhole
-    else if (rl.delta instanceof RealLiteral)
-      {
-      if ((rl.delta as RealLiteral).unit !== null) 
-        return toUnitRecord(BlessMaps.unitMapGet((rl.delta as RealLiteral).unit.name))
-      else
-        return scalar  //scalar real
-      }
-    else
-       return whole  //scalar integer isWhole
-    }
-  }  //end of getUnitRecord(PropertyConstant
-
-def UnitLiteral getUnitLiteral(Property p)
-  {
-  for (o : p.eContents)
-    if (o instanceof NamedValue && (o as NamedValue).namedValue instanceof PropertyConstant)
-        {
-        val pc = (o as NamedValue).namedValue as PropertyConstant
-        if (pc.constantValue instanceof IntegerLiteral)
-          return (pc.constantValue as IntegerLiteral).unit  
-        else if (pc.constantValue instanceof RealLiteral)
-          return (pc.constantValue as RealLiteral).unit
-        }
-    else if (o instanceof IntegerLiteral)
-      return (o as IntegerLiteral).unit 
-    else if (o instanceof RealLiteral)
-      return (o as RealLiteral).unit  
-  }
-
-def UnitRecord getUnitRecord(Property p)
-  {
-  val UnitLiteral ul = getUnitLiteral(p)  
-  if (BlessMaps.unitMapContainsKey(ul.name))
-      return toUnitRecord(BlessMaps.unitMapGet(ul.name))
-  else
-    return whole  //scalar integer isWhole
-  }
-
-
-def UnitRecord getUnitRecord(PropertyReference a)
-  {
-  if (a.pname !== null)  
-    {
-    val NamedElement ne = a.pname 
-    if (ne instanceof PropertyConstant) 
-      {
-      val PropertyConstant pc = ne as PropertyConstant
-      if (pc.eIsProxy)
-        EcoreUtil.resolve(pc,a.resourceSet)
-      if (pc.referencedPropertyType !== null)
-        return getUnitRecord(pc)
-      }
-    if (ne instanceof Property) 
-      {
-      val Property prop = ne as Property
-      if (prop.eIsProxy)
-        EcoreUtil.resolve(prop,a.resourceSet)
-      if (prop.referencedPropertyType !== null)
-        return getUnitRecord(prop)
-      if (prop.ownedPropertyType !== null) 
-        if (prop.ownedPropertyType instanceof AadlInteger)
-          return whole  //scalar isWhole
-        else if (prop.ownedPropertyType instanceof AadlReal)
-          return scalar  //scalar not isWhole
-      }
-    }
-  if (a.spname !== null)
-    return getUnitRecord(a.spname)
-  if (a.cpname !== null)
-    return getUnitRecord(a.cpname)
-  }
+//def UnitRecord getUnitRecord(PropertyConstant a)
+//  {
+//  if (a.constantValue instanceof RealLiteral)
+//    {
+//    val rl = a.constantValue as RealLiteral
+//    if (rl.unit === null)
+//      return scalar  //scalar real
+//    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
+//    else
+//      {
+//      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
+////      fError("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.",a.constantValue,
+////        BLESSPackage::eINSTANCE. )    
+//      return scalar  //scalar real
+//      }
+//    }
+//  else if (a.constantValue instanceof IntegerLiteral)
+//    {
+//    val rl = a.constantValue as IntegerLiteral
+//    if (rl.unit === null)
+//      return whole  //scalar integer isWhole
+//    else if (BlessMaps.unitMapContainsKey(rl.unit.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(rl.unit.name))
+//    else
+//      {
+//      BlessControl.println("No Unit annex definition for \""+rl.unit.name+"\" was found; treated as scalar.")  
+//      return scalar  //scalar 
+//      }
+//    }
+//  else if (a.constantValue instanceof RangeValue)
+//    {
+//    val rl = a.constantValue as RangeValue
+//    if (rl.delta === null)
+//      return whole  //scalar integer isWhole
+//    else if (rl.delta instanceof RealLiteral)
+//      {
+//      if ((rl.delta as RealLiteral).unit !== null) 
+//        return toUnitRecord(BlessMaps.unitMapGet((rl.delta as RealLiteral).unit.name))
+//      else
+//        return scalar  //scalar real
+//      }
+//    else
+//       return whole  //scalar integer isWhole
+//    }
+//  }  //end of getUnitRecord(PropertyConstant
+//
+//def UnitLiteral getUnitLiteral(Property p)
+//  {
+//  for (o : p.eContents)
+//    if (o instanceof NamedValue && (o as NamedValue).namedValue instanceof PropertyConstant)
+//        {
+//        val pc = (o as NamedValue).namedValue as PropertyConstant
+//        if (pc.constantValue instanceof IntegerLiteral)
+//          return (pc.constantValue as IntegerLiteral).unit  
+//        else if (pc.constantValue instanceof RealLiteral)
+//          return (pc.constantValue as RealLiteral).unit
+//        }
+//    else if (o instanceof IntegerLiteral)
+//      return (o as IntegerLiteral).unit 
+//    else if (o instanceof RealLiteral)
+//      return (o as RealLiteral).unit  
+//  }
+//
+//def UnitRecord getUnitRecord(Property p)
+//  {
+//  val UnitLiteral ul = getUnitLiteral(p)  
+//  if (BlessMaps.unitMapContainsKey(ul.name))
+//      return toUnitRecord(BlessMaps.unitMapGet(ul.name))
+//  else
+//    return whole  //scalar integer isWhole
+//  }
+//
+//
+//def UnitRecord getUnitRecord(PropertyReference a)
+//  {
+//  if (a.pname !== null)  
+//    {
+//    val NamedElement ne = a.pname 
+//    if (ne instanceof PropertyConstant) 
+//      {
+//      val PropertyConstant pc = ne as PropertyConstant
+//      if (pc.eIsProxy)
+//        EcoreUtil.resolve(pc,a.resourceSet)
+//      if (pc.referencedPropertyType !== null)
+//        return getUnitRecord(pc)
+//      }
+//    if (ne instanceof Property) 
+//      {
+//      val Property prop = ne as Property
+//      if (prop.eIsProxy)
+//        EcoreUtil.resolve(prop,a.resourceSet)
+//      if (prop.referencedPropertyType !== null)
+//        return getUnitRecord(prop)
+//      if (prop.ownedPropertyType !== null) 
+//        if (prop.ownedPropertyType instanceof AadlInteger)
+//          return whole  //scalar isWhole
+//        else if (prop.ownedPropertyType instanceof AadlReal)
+//          return scalar  //scalar not isWhole
+//      }
+//    }
+//  if (a.spname !== null)
+//    return getUnitRecord(a.spname)
+//  if (a.cpname !== null)
+//    return getUnitRecord(a.cpname)
+//  }
 
 
 def UnitRecord getUnitRecord(QuantityType a) 
@@ -2212,9 +2540,16 @@ def UnitRecord getUnitRecord(ConditionalAssertionFunction a)
   
 def UnitRecord getUnitRecord(BehaviorTime a)
   {
-  a.quantity?.getUnitRecord ?:
-  a.value?.getUnitRecord ?:
-  a.duration.getUnitRecord
+  if (a.quantity !== null)  
+    a.quantity.getUnitRecord 
+  else if (a.whole !== null)
+    whole
+  else if (a.scalar !== null)
+    scalar
+  else if (a.unit !== null)
+    a.unit.toUnitRecord
+  else
+    a.value.getUnitRecord
   }
 
 
@@ -2230,7 +2565,7 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   
  def UnitRecord getUnitRecord(Quantity q)
   {
-  q?.unit.toUnitRecord ?:
+  q?.unit?.toUnitRecord ?:
   scalar
   }  
   
@@ -2238,7 +2573,7 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   
 def boolean isWhole(Variable v)  
   {
-  return (v.tod.getType instanceof QuantityType) && (v.tod.getType as QuantityType).whole
+  return (v.tod.getType instanceof QuantityType) && (v.tod.getType as QuantityType).whole !== null
   }
   
 def boolean isWhole(ForallVariable v)  
@@ -2278,7 +2613,7 @@ def boolean isWhole(Value v)
   {
   if (v.value_name !== null)
     if (v.value_name.getType instanceof QuantityType)
-      return (v.value_name.getType as QuantityType).whole
+      return (v.value_name.getType as QuantityType).whole !== null
 //  if (v.q) return (v.feature as Feature).isWhole
   if (v.constant !== null) return v.constant.isWhole
   false
@@ -2432,11 +2767,9 @@ def boolean isWhole(MultDiv e)
 
 def boolean isWhole(Exp e)
   {
-  if (!e.l.isWhole)
-    return false
-  if (!e.r.isWhole)
-      return false
-  true      
+  if (e.r === null)
+    e.l.isWhole
+  else e.l.isWhole && e.r.whole
   }
   
 def boolean isWhole(NumericExpression e) 

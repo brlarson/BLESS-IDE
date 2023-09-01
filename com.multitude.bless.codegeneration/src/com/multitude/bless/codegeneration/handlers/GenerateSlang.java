@@ -30,8 +30,8 @@ import com.multitude.aadl.bless.bLESS.BLESSSubclause;
 import com.multitude.aadl.bless.bLESS.impl.ActionSubclauseImpl;
 import com.multitude.aadl.bless.bLESS.impl.BLESSSubclauseImpl;
 import com.multitude.bless.BLESS;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
-import com.multitude.bless.antlr3generated.UnparseBLESS;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
+import com.multitude.bless.antlr3generated.UnparseBLESS3;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Time;
 import com.multitude.bless.codegeneration.WriteSlangFile;
@@ -217,7 +217,7 @@ public class GenerateSlang extends AbstractBLESSHandler
 //			}
 		
 		
-//restore BLESS.stg
+//restore BLESS3.stg
     Global.templates = Global.BLESStemplates;
     Global.usingSlangStringTemplateGroup = false;
     Global.usingBLESSStringTemplateGroup = true;
@@ -275,8 +275,8 @@ generateSlangForComponentInstance(List<String> path, ComponentInstance ci)
 generateSlangForAction(List<String> path, BAST ast)
   throws YouIdiot
   {
-
-  }  //end of generateSlangForBLESS
+  throw new YouIdiot("No Slang generation for Action annex subclauses, yet.", ast);
+  }  //end of generateSlangForAction
 	
   private String 
 makeSlangFileName(List<String> path, ComponentInstance ci)
@@ -302,7 +302,7 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 //	for (int ch=1;ch<tr.ast.getChildCount();ch++)
 //		{
 //		BAST child = (BAST)tr.ast.getChild(ch);
-//		if (child.hasType(BLESStoASTLexer.LITERAL_transitions))
+//		if (child.hasType(BLESS3Lexer.LITERAL_transitions))
 //			transitionsRoot=child;
 //		}
 		sb.append("//#Sireum \n\n");
@@ -329,15 +329,15 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 		for (int s = 0; s < states.getChildCount(); s++)
 			{
 			BAST stateLabel = (BAST) states.getChild(s).getChild(0);
-			if (stateLabel.hasType(BLESStoASTLexer.LITERAL_complete))
+			if (stateLabel.hasType(BLESS3Lexer.LITERAL_complete))
 				{
 				completeStateLabels.add(states.getChild(s).getChild(1).getText());
 				}
-			else if (stateLabel.hasType(BLESStoASTLexer.LITERAL_initial))
+			else if (stateLabel.hasType(BLESS3Lexer.LITERAL_initial))
 				{
 				initialStateLabel = states.getChild(s).getChild(1).getText();
 				}
-			else if (stateLabel.hasType(BLESStoASTLexer.LITERAL_final))
+			else if (stateLabel.hasType(BLESS3Lexer.LITERAL_final))
 				{
 				finalStateLabels.add(states.getChild(s).getChild(1).getText());
 				}
@@ -370,7 +370,7 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 		BAST varRoot = null;
 		for (int i = 1; i < ast.getChildCount(); i++)
 			{
-			if (((BAST) ast.getChild(i)).hasType(BLESStoASTLexer.LITERAL_variables))
+			if (((BAST) ast.getChild(i)).hasType(BLESS3Lexer.LITERAL_variables))
 				{
 				varRoot = (BAST) ast.getChild(i);
 				}
@@ -382,11 +382,11 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 		else
 			{
 			CommonTreeNodeStream nodes = new CommonTreeNodeStream(varRoot);
-			UnparseBLESS unparser = new UnparseBLESS(nodes);
+			UnparseBLESS3 unparser = new UnparseBLESS3(nodes);
 			unparser.setTemplateLib(Global.Slangtemplates);
 			try
 				{
-				sb.append(unparser.variables().toString());
+				sb.append(unparser.variablesSection().toString());
 				}
 			catch (RecognitionException e)
 				{
@@ -488,12 +488,12 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 				} else
 					{
 					CommonTreeNodeStream nodes = new CommonTreeNodeStream(tc.dupTree());
-					UnparseBLESS unparser = new UnparseBLESS(nodes);
+					UnparseBLESS3 unparser = new UnparseBLESS3(nodes);
 					unparser.setTemplateLib(Global.Slangtemplates);
-					UnparseBLESS.expression_or_relation_return bau = null;
+					UnparseBLESS3.expression_return bau = null;
 					try
 						{
-						bau = unparser.expression_or_relation();
+						bau = unparser.expression();
 						}
 					catch (RecognitionException e)
 						{
@@ -620,7 +620,7 @@ generateSlangForBLESS(List<String> path, BAST ast, ComponentInstance ci)
 		BAST tRoot = null;
 		for (int i = 1; i < root.getChildCount(); i++)
 			{
-			if (((BAST) root.getChild(i)).hasType(BLESStoASTLexer.LITERAL_transitions))
+			if (((BAST) root.getChild(i)).hasType(BLESS3Lexer.LITERAL_transitions))
 				{
 				tRoot = (BAST) root.getChild(i);
 				}

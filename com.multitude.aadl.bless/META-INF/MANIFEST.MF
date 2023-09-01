@@ -3,7 +3,7 @@ Automatic-Module-Name: com.multitude.aadl.bless
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS metamodel and Xtext editor
 Bundle-Vendor: Multitude Corporation
-Bundle-Version: 3.1.5.qualifier
+Bundle-Version: 3.2.1.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
@@ -45,6 +45,7 @@ Export-Package: com.multitude.aadl.bless;uses:="com.google.inject",
    com.multitude.aadl.bless.bLESS,
    org.eclipse.emf.common.notify.impl,
    org.eclipse.emf.ecore.util",
+ com.multitude.aadl.bless.exception,
  com.multitude.aadl.bless.formatting2;uses:="com.multitude.aadl.bless.bLESS,org.eclipse.xtext.formatting2",
  com.multitude.aadl.bless.generator;uses:="org.eclipse.xtext.generator,org.eclipse.emf.ecore.resource",
  com.multitude.aadl.bless.linking,

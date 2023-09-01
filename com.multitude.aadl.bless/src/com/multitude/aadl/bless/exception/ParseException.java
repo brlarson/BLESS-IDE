@@ -39,6 +39,7 @@ public class ParseException extends Exception
   public void handleException()
     {
     BlessControl.println("Parse Exception:  "+getMessage());
+    printStackTrace();
     }
   
 }

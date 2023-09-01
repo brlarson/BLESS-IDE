@@ -192,7 +192,7 @@ EventTrigger:
   //subcomponent_port_reference
   //change to how OSATE references subcomponents?
 //  subcomponent=[aadl2::Subcomponent|ID]	<-just one level down
-	sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+	sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 	| '(' tle=TriggerLogicalExpression ')'
 ;
 
@@ -553,9 +553,9 @@ ActionTimeout:
 BehaviorTime:
 	quantity=Quantity
 	|
-	value=ValueName
-  |
-  duration=ParenthesizedSubexpression
+	value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+//    |
+//    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 ;
 
 ///////////////////////////////////  EXCEPTION   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -679,7 +679,7 @@ AddSub:
 MultDiv:
 	l=Exp
 	( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-	| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )	
+	| ( sym='*' r+=Exp ( '*' r+=Exp )* )	
 	)?
 ;
 
@@ -874,7 +874,7 @@ ExistentialQuantification:
 
 
 RecordTerm:
-  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 ;
 
 RecordValue:
@@ -957,13 +957,9 @@ EnumerationType:
  'enumeration' '(' defining_enumeration_literal+=ID+ ')'
 ;
    
-//EnumerationLiteral:
-//	name=ID
-//;
-
 QuantityType: 
   'quantity' 
-  ( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
   ( '[' lb=ANumber DOTDOT ub=ANumber ']' )? 
   ( 'step' step=ANumber )?  //check if positive
   ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -1058,7 +1054,7 @@ MulDiv: ( TIMES | '/' );
 UnitFactor: ',' unit=UnitName op=MulDiv factor=PositiveNumber;
 
 Quantity: number=ANumber 
-	(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+	(unit=[UnitName] | scalar='scalar' | whole='whole' )?
 ;  
 
 
@@ -1125,6 +1121,7 @@ Element returns aadl2::Element:
 	| LogicVariables
 	| MultDiv
 	| NumericExpression
+	| NullType
 	| ParenthesizedSubexpression
 	| PartialName
 	| PeriodShift

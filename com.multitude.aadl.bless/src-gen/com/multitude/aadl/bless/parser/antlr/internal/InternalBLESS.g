@@ -2130,14 +2130,19 @@ ruleEventTrigger returns [EObject current=null]
 			}
 			(
 				(
+					lv_sub_4_0=RULE_ID
+					{
+						newLeafNode(lv_sub_4_0, grammarAccess.getEventTriggerAccess().getSubIDTerminalRuleCall_0_3_0());
+					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getEventTriggerRule());
 						}
-					}
-					otherlv_4=RULE_ID
-					{
-						newLeafNode(otherlv_4, grammarAccess.getEventTriggerAccess().getPortNamedElementCrossReference_0_3_0());
+						addWithLastConsumed(
+							$current,
+							"sub",
+							lv_sub_4_0,
+							"com.multitude.aadl.bless.BLESS.ID");
 					}
 				)
 			)
@@ -6328,42 +6333,69 @@ ruleBehaviorTime returns [EObject current=null]
 		    |
 		(
 			(
-				{
-					newCompositeNode(grammarAccess.getBehaviorTimeAccess().getValueValueNameParserRuleCall_1_0());
-				}
-				lv_value_1_0=ruleValueName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
+				(
+					{
+						newCompositeNode(grammarAccess.getBehaviorTimeAccess().getValueValueNameParserRuleCall_1_0_0());
 					}
-					set(
-						$current,
-						"value",
-						lv_value_1_0,
-						"com.multitude.aadl.bless.BLESS.ValueName");
-					afterParserOrEnumRuleCall();
-				}
+					lv_value_1_0=ruleValueName
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
+						}
+						set(
+							$current,
+							"value",
+							lv_value_1_0,
+							"com.multitude.aadl.bless.BLESS.ValueName");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
-		)
-		    |
-		(
 			(
-				{
-					newCompositeNode(grammarAccess.getBehaviorTimeAccess().getDurationParenthesizedSubexpressionParserRuleCall_2_0());
-				}
-				lv_duration_2_0=ruleParenthesizedSubexpression
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getBehaviorTimeRule());
-					}
-					set(
-						$current,
-						"duration",
-						lv_duration_2_0,
-						"com.multitude.aadl.bless.BLESS.ParenthesizedSubexpression");
-					afterParserOrEnumRuleCall();
-				}
-			)
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+						}
+						otherlv_2=RULE_ID
+						{
+							newLeafNode(otherlv_2, grammarAccess.getBehaviorTimeAccess().getUnitUnitNameCrossReference_1_1_0_0());
+						}
+					)
+				)
+				    |
+				(
+					(
+						lv_scalar_3_0='scalar'
+						{
+							newLeafNode(lv_scalar_3_0, grammarAccess.getBehaviorTimeAccess().getScalarScalarKeyword_1_1_1_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+							setWithLastConsumed($current, "scalar", lv_scalar_3_0, "scalar");
+						}
+					)
+				)
+				    |
+				(
+					(
+						lv_whole_4_0='whole'
+						{
+							newLeafNode(lv_whole_4_0, grammarAccess.getBehaviorTimeAccess().getWholeWholeKeyword_1_1_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getBehaviorTimeRule());
+							}
+							setWithLastConsumed($current, "whole", lv_whole_4_0, "whole");
+						}
+					)
+				)
+			)?
 		)
 	)
 ;
@@ -8194,20 +8226,15 @@ ruleMultDiv returns [EObject current=null]
 			(
 				(
 					(
+						lv_sym_3_0='*'
 						{
-							newCompositeNode(grammarAccess.getMultDivAccess().getSymTIMESParserRuleCall_1_1_0_0());
+							newLeafNode(lv_sym_3_0, grammarAccess.getMultDivAccess().getSymAsteriskKeyword_1_1_0_0());
 						}
-						lv_sym_3_0=ruleTIMES
 						{
 							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getMultDivRule());
+								$current = createModelElement(grammarAccess.getMultDivRule());
 							}
-							set(
-								$current,
-								"sym",
-								lv_sym_3_0,
-								"com.multitude.aadl.bless.BLESS.TIMES");
-							afterParserOrEnumRuleCall();
+							setWithLastConsumed($current, "sym", lv_sym_3_0, "*");
 						}
 					)
 				)
@@ -8231,12 +8258,9 @@ ruleMultDiv returns [EObject current=null]
 					)
 				)
 				(
+					otherlv_5='*'
 					{
-						newCompositeNode(grammarAccess.getMultDivAccess().getTIMESParserRuleCall_1_1_2_0());
-					}
-					ruleTIMES
-					{
-						afterParserOrEnumRuleCall();
+						newLeafNode(otherlv_5, grammarAccess.getMultDivAccess().getAsteriskKeyword_1_1_2_0());
 					}
 					(
 						(
@@ -11124,9 +11148,9 @@ ruleRecordTerm returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='('
+		otherlv_0='['
 		{
-			newLeafNode(otherlv_0, grammarAccess.getRecordTermAccess().getLeftParenthesisKeyword_0());
+			newLeafNode(otherlv_0, grammarAccess.getRecordTermAccess().getLeftSquareBracketKeyword_0());
 		}
 		(
 			(
@@ -11164,9 +11188,9 @@ ruleRecordTerm returns [EObject current=null]
 				}
 			)
 		)+
-		otherlv_4=')'
+		otherlv_4=']'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getRecordTermAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getRecordTermAccess().getRightSquareBracketKeyword_4());
 		}
 	)
 ;
@@ -12181,7 +12205,7 @@ ruleQuantityType returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityTypeRule());
 						}
-						setWithLastConsumed($current, "scalar", lv_scalar_2_0 != null, "scalar");
+						setWithLastConsumed($current, "scalar", lv_scalar_2_0, "scalar");
 					}
 				)
 			)
@@ -12196,7 +12220,7 @@ ruleQuantityType returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityTypeRule());
 						}
-						setWithLastConsumed($current, "whole", lv_whole_3_0 != null, "whole");
+						setWithLastConsumed($current, "whole", lv_whole_3_0, "whole");
 					}
 				)
 			)
@@ -13608,7 +13632,7 @@ ruleQuantity returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityRule());
 						}
-						setWithLastConsumed($current, "scalar", lv_scalar_2_0 != null, "scalar");
+						setWithLastConsumed($current, "scalar", lv_scalar_2_0, "scalar");
 					}
 				)
 			)
@@ -13623,7 +13647,7 @@ ruleQuantity returns [EObject current=null]
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getQuantityRule());
 						}
-						setWithLastConsumed($current, "whole", lv_whole_3_0 != null, "whole");
+						setWithLastConsumed($current, "whole", lv_whole_3_0, "whole");
 					}
 				)
 			)

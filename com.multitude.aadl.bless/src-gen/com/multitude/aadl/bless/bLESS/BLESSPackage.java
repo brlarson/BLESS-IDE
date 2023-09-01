@@ -1761,22 +1761,13 @@ public interface BLESSPackage extends EPackage
   int EVENT_TRIGGER__SUB = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Port</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EVENT_TRIGGER__PORT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Index</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER__INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int EVENT_TRIGGER__INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Tle</b></em>' containment reference.
@@ -1785,7 +1776,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER__TLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+  int EVENT_TRIGGER__TLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Event Trigger</em>' class.
@@ -1794,7 +1785,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EVENT_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
+  int EVENT_TRIGGER_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.LogicalOperatorImpl <em>Logical Operator</em>}' class.
@@ -4714,13 +4705,31 @@ public interface BLESSPackage extends EPackage
   int BEHAVIOR_TIME__VALUE = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Duration</b></em>' containment reference.
+   * The feature id for the '<em><b>Unit</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BEHAVIOR_TIME__DURATION = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int BEHAVIOR_TIME__UNIT = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Scalar</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BEHAVIOR_TIME__SCALAR = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Whole</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BEHAVIOR_TIME__WHOLE = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Behavior Time</em>' class.
@@ -4729,7 +4738,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BEHAVIOR_TIME_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+  int BEHAVIOR_TIME_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.ExceptionImpl <em>Exception</em>}' class.
@@ -8642,25 +8651,6 @@ public interface BLESSPackage extends EPackage
   int STRING_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see com.multitude.aadl.bless.bLESS.impl.TypeImpl
-   * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 147;
-
-  /**
-   * The number of structural features of the '<em>Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.NullTypeImpl <em>Null Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -8671,13 +8661,31 @@ public interface BLESSPackage extends EPackage
   int NULL_TYPE = 129;
 
   /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_TYPE__OWNED_ELEMENT = Aadl2Package.ELEMENT__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_TYPE__OWNED_COMMENT = Aadl2Package.ELEMENT__OWNED_COMMENT;
+
+  /**
    * The feature id for the '<em><b>N</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NULL_TYPE__N = TYPE_FEATURE_COUNT + 0;
+  int NULL_TYPE__N = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Null Type</em>' class.
@@ -8686,7 +8694,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NULL_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+  int NULL_TYPE_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.EnumerationTypeImpl <em>Enumeration Type</em>}' class.
@@ -9812,6 +9820,25 @@ public interface BLESSPackage extends EPackage
    */
   int QUANTITY_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
 
+  /**
+   * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.multitude.aadl.bless.bLESS.impl.TypeImpl
+   * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 147;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = 0;
+
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.BLESSGrammarRoots <em>Grammar Roots</em>}'.
@@ -10832,17 +10859,6 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EAttribute getEventTrigger_Sub();
-
-  /**
-   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.EventTrigger#getPort <em>Port</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Port</em>'.
-   * @see com.multitude.aadl.bless.bLESS.EventTrigger#getPort()
-   * @see #getEventTrigger()
-   * @generated
-   */
-  EReference getEventTrigger_Port();
 
   /**
    * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.EventTrigger#getIndex <em>Index</em>}'.
@@ -12878,15 +12894,37 @@ public interface BLESSPackage extends EPackage
   EReference getBehaviorTime_Value();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getDuration <em>Duration</em>}'.
+   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getUnit <em>Unit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Duration</em>'.
-   * @see com.multitude.aadl.bless.bLESS.BehaviorTime#getDuration()
+   * @return the meta object for the reference '<em>Unit</em>'.
+   * @see com.multitude.aadl.bless.bLESS.BehaviorTime#getUnit()
    * @see #getBehaviorTime()
    * @generated
    */
-  EReference getBehaviorTime_Duration();
+  EReference getBehaviorTime_Unit();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getScalar <em>Scalar</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Scalar</em>'.
+   * @see com.multitude.aadl.bless.bLESS.BehaviorTime#getScalar()
+   * @see #getBehaviorTime()
+   * @generated
+   */
+  EAttribute getBehaviorTime_Scalar();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.BehaviorTime#getWhole <em>Whole</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Whole</em>'.
+   * @see com.multitude.aadl.bless.bLESS.BehaviorTime#getWhole()
+   * @see #getBehaviorTime()
+   * @generated
+   */
+  EAttribute getBehaviorTime_Whole();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.Exception <em>Exception</em>}'.
@@ -15490,22 +15528,22 @@ public interface BLESSPackage extends EPackage
   EReference getQuantityType_Unit();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#isScalar <em>Scalar</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#getScalar <em>Scalar</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Scalar</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#isScalar()
+   * @see com.multitude.aadl.bless.bLESS.QuantityType#getScalar()
    * @see #getQuantityType()
    * @generated
    */
   EAttribute getQuantityType_Scalar();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#isWhole <em>Whole</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.QuantityType#getWhole <em>Whole</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Whole</em>'.
-   * @see com.multitude.aadl.bless.bLESS.QuantityType#isWhole()
+   * @see com.multitude.aadl.bless.bLESS.QuantityType#getWhole()
    * @see #getQuantityType()
    * @generated
    */
@@ -16146,22 +16184,22 @@ public interface BLESSPackage extends EPackage
   EReference getQuantity_Unit();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.Quantity#isScalar <em>Scalar</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.Quantity#getScalar <em>Scalar</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Scalar</em>'.
-   * @see com.multitude.aadl.bless.bLESS.Quantity#isScalar()
+   * @see com.multitude.aadl.bless.bLESS.Quantity#getScalar()
    * @see #getQuantity()
    * @generated
    */
   EAttribute getQuantity_Scalar();
 
   /**
-   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.Quantity#isWhole <em>Whole</em>}'.
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.Quantity#getWhole <em>Whole</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Whole</em>'.
-   * @see com.multitude.aadl.bless.bLESS.Quantity#isWhole()
+   * @see com.multitude.aadl.bless.bLESS.Quantity#getWhole()
    * @see #getQuantity()
    * @generated
    */

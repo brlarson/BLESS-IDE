@@ -17,14 +17,11 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
-
-import org.osate.aadl2.NamedElement;
 
 import org.osate.aadl2.impl.ElementImpl;
 
@@ -37,7 +34,6 @@ import org.osate.aadl2.impl.ElementImpl;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.EventTriggerImpl#getSub <em>Sub</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.EventTriggerImpl#getPort <em>Port</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.EventTriggerImpl#getIndex <em>Index</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.EventTriggerImpl#getTle <em>Tle</em>}</li>
  * </ul>
@@ -55,16 +51,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
    * @ordered
    */
   protected EList<String> sub;
-
-  /**
-   * The cached value of the '{@link #getPort() <em>Port</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPort()
-   * @generated
-   * @ordered
-   */
-  protected NamedElement port;
 
   /**
    * The default value of the '{@link #getIndex() <em>Index</em>}' attribute.
@@ -130,51 +116,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
       sub = new EDataTypeEList<String>(String.class, this, BLESSPackage.EVENT_TRIGGER__SUB);
     }
     return sub;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NamedElement getPort()
-  {
-    if (port != null && ((EObject)port).eIsProxy())
-    {
-      InternalEObject oldPort = (InternalEObject)port;
-      port = (NamedElement)eResolveProxy(oldPort);
-      if (port != oldPort)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, BLESSPackage.EVENT_TRIGGER__PORT, oldPort, port));
-      }
-    }
-    return port;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NamedElement basicGetPort()
-  {
-    return port;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setPort(NamedElement newPort)
-  {
-    NamedElement oldPort = port;
-    port = newPort;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.EVENT_TRIGGER__PORT, oldPort, port));
   }
 
   /**
@@ -280,9 +221,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
     {
       case BLESSPackage.EVENT_TRIGGER__SUB:
         return getSub();
-      case BLESSPackage.EVENT_TRIGGER__PORT:
-        if (resolve) return getPort();
-        return basicGetPort();
       case BLESSPackage.EVENT_TRIGGER__INDEX:
         return getIndex();
       case BLESSPackage.EVENT_TRIGGER__TLE:
@@ -305,9 +243,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
       case BLESSPackage.EVENT_TRIGGER__SUB:
         getSub().clear();
         getSub().addAll((Collection<? extends String>)newValue);
-        return;
-      case BLESSPackage.EVENT_TRIGGER__PORT:
-        setPort((NamedElement)newValue);
         return;
       case BLESSPackage.EVENT_TRIGGER__INDEX:
         setIndex((String)newValue);
@@ -332,9 +267,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
       case BLESSPackage.EVENT_TRIGGER__SUB:
         getSub().clear();
         return;
-      case BLESSPackage.EVENT_TRIGGER__PORT:
-        setPort((NamedElement)null);
-        return;
       case BLESSPackage.EVENT_TRIGGER__INDEX:
         setIndex(INDEX_EDEFAULT);
         return;
@@ -357,8 +289,6 @@ public class EventTriggerImpl extends ElementImpl implements EventTrigger
     {
       case BLESSPackage.EVENT_TRIGGER__SUB:
         return sub != null && !sub.isEmpty();
-      case BLESSPackage.EVENT_TRIGGER__PORT:
-        return port != null;
       case BLESSPackage.EVENT_TRIGGER__INDEX:
         return INDEX_EDEFAULT == null ? index != null : !INDEX_EDEFAULT.equals(index);
       case BLESSPackage.EVENT_TRIGGER__TLE:

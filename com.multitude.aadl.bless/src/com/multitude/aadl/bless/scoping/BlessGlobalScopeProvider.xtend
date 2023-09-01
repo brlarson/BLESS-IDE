@@ -38,6 +38,7 @@ getScope(Resource context, EReference reference, Predicate<IEObjectDescription> 
     } // done looking for unit names
 //type references    
   if (reference == BLESSPackage.eINSTANCE.typeOrReference_Ref || 
+      reference == BLESSPackage.eINSTANCE.recordTerm_Record_type || 
       reference == BLESSPackage.eINSTANCE.enumerationValue_Enumeration_type || 
       reference == BLESSPackage.eINSTANCE.namedAssertion_EnumerationType )
     {

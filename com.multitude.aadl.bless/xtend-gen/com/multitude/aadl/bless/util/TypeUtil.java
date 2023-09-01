@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.util;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.AddSub;
@@ -25,10 +24,14 @@ import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.bLESS.Value;
+import com.multitude.aadl.bless.exception.ValidationException;
 import com.multitude.aadl.bless.maps.BlessMaps;
+import com.multitude.aadl.bless.parser.antlr.BLESSParser;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -37,7 +40,9 @@ import org.osate.aadl2.EventPort;
 import org.osate.aadl2.Feature;
 import org.osate.aadl2.ModalPropertyValue;
 import org.osate.aadl2.NamedElement;
+import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyAssociation;
+import org.osate.aadl2.PropertyConstant;
 import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.StringLiteral;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
@@ -55,6 +60,10 @@ public class TypeUtil {
   @Inject
   @Extension
   private BlessIndex _blessIndex;
+
+  @Inject
+  @Extension
+  private BLESSParser blessParser;
 
   public Type booleanType() {
     return BLESSFactory.eINSTANCE.createBooleanType();
@@ -79,10 +88,16 @@ public class TypeUtil {
       return (this.sameArrayRangeLists(((ArrayType) a).getArray_ranges(), ((ArrayType) b).getArray_ranges()) && this.sameStructuralType(this.getType(((ArrayType) a).getTyp()), this.getType(((ArrayType) b).getTyp())));
     }
     if (((a instanceof RecordType) && (b instanceof RecordType))) {
-      final Function1<RecordField, Boolean> _function = (RecordField f) -> {
-        return Boolean.valueOf(this.recordHasFieldWith(((RecordType) b), f.getLabel(), this.getType(f.getTyp())));
-      };
-      return IterableExtensions.<RecordField>forall(((RecordType) a).getFields(), _function);
+      final RecordType bRecord = ((RecordType) b);
+      EList<RecordField> _fields = ((RecordType) a).getFields();
+      for (final RecordField aField : _fields) {
+        boolean _recordHasFieldWith = this.recordHasFieldWith(bRecord, aField.getLabel(), this.getType(aField.getTyp()));
+        boolean _not = (!_recordHasFieldWith);
+        if (_not) {
+          return false;
+        }
+      }
+      return true;
     }
     if (((a instanceof BooleanType) && (b instanceof BooleanType))) {
       return true;
@@ -94,18 +109,22 @@ public class TypeUtil {
   }
 
   public Type getType(final TypeOrReference tod) {
-    Type _xblockexpression = null;
-    {
-      if (tod!=null) {
-        tod.getTy();
-      }
+    Type _elvis = null;
+    Type _ty = null;
+    if (tod!=null) {
+      _ty=tod.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
       TypeDeclaration _ref = null;
       if (tod!=null) {
         _ref=tod.getRef();
       }
-      _xblockexpression = _ref.getType();
+      Type _type = _ref.getType();
+      _elvis = _type;
     }
-    return _xblockexpression;
+    return _elvis;
   }
 
   public boolean sameArrayRangeLists(final ArrayRangeList c, final ArrayRangeList d) {
@@ -117,18 +136,99 @@ public class TypeUtil {
       if (_notEquals) {
         return false;
       }
-      _xblockexpression = IterableExtensions.elementsEqual(c.getRange(), d.getRange());
+      for (int i = 0; (i < c.getRange().size()); i++) {
+        boolean _sameArrayRange = this.sameArrayRange(c.getRange().get(i), d.getRange().get(i));
+        boolean _not = (!_sameArrayRange);
+        if (_not) {
+          return false;
+        }
+      }
+      _xblockexpression = true;
     }
     return _xblockexpression;
   }
 
   public boolean sameArrayRange(final ArrayRange e, final ArrayRange f) {
-    return (Objects.equal(e.getLb(), f.getLb()) && Objects.equal(e.getUb(), f.getUb()));
+    boolean _xifexpression = false;
+    if (((e.getUb() != null) && (f.getUb() != null))) {
+      _xifexpression = (this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb())) && this.getStringValue(e.getUb()).equals(this.getStringValue(f.getUb())));
+    } else {
+      boolean _xifexpression_1 = false;
+      if (((e.getUb() == null) && (f.getUb() == null))) {
+        _xifexpression_1 = this.getStringValue(e.getLb()).equals(this.getStringValue(f.getLb()));
+      } else {
+        _xifexpression_1 = false;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+
+  public String getStringValue(final ANumber n) {
+    String _elvis = null;
+    String _elvis_1 = null;
+    String _elvis_2 = null;
+    String _elvis_3 = null;
+    String _lit = null;
+    if (n!=null) {
+      _lit=n.getLit();
+    }
+    if (_lit != null) {
+      _elvis_3 = _lit;
+    } else {
+      PropertyReference _property = null;
+      if (n!=null) {
+        _property=n.getProperty();
+      }
+      Property _pname = null;
+      if (_property!=null) {
+        _pname=_property.getPname();
+      }
+      String _name = null;
+      if (_pname!=null) {
+        _name=_pname.getName();
+      }
+      _elvis_3 = _name;
+    }
+    if (_elvis_3 != null) {
+      _elvis_2 = _elvis_3;
+    } else {
+      PropertyReference _property_1 = null;
+      if (n!=null) {
+        _property_1=n.getProperty();
+      }
+      Property _spname = null;
+      if (_property_1!=null) {
+        _spname=_property_1.getSpname();
+      }
+      String _name_1 = null;
+      if (_spname!=null) {
+        _name_1=_spname.getName();
+      }
+      _elvis_2 = _name_1;
+    }
+    if (_elvis_2 != null) {
+      _elvis_1 = _elvis_2;
+    } else {
+      PropertyConstant _propertyConstant = null;
+      if (n!=null) {
+        _propertyConstant=n.getPropertyConstant();
+      }
+      String _string = _propertyConstant.getConstantValue().toString();
+      _elvis_1 = _string;
+    }
+    if (_elvis_1 != null) {
+      _elvis = _elvis_1;
+    } else {
+      String _string_1 = n.toString();
+      _elvis = _string_1;
+    }
+    return _elvis;
   }
 
   public boolean recordHasFieldWith(final RecordType r, final String label, final Type typ) {
     final Function1<RecordField, Boolean> _function = (RecordField u) -> {
-      return Boolean.valueOf((u.getLabel().equalsIgnoreCase(label) && this.sameStructuralType(this.getType(u.getTyp()), typ)));
+      return Boolean.valueOf(((u.getLabel().compareTo(label) == 0) && this.sameStructuralType(this.getType(u.getTyp()), typ)));
     };
     return IterableExtensions.<RecordField>exists(r.getFields(), _function);
   }
@@ -136,7 +236,7 @@ public class TypeUtil {
   public boolean quantityTypesHaveSameUnits(final QuantityType a, final QuantityType b) {
     boolean _xblockexpression = false;
     {
-      if ((a.isScalar() && b.isScalar())) {
+      if (((a.getScalar() != null) && (b.getScalar() != null))) {
         return true;
       }
       if (((a.getUnit() == null) || a.getUnit().equals(this._unitUtil.nullUnitName()))) {
@@ -169,64 +269,84 @@ public class TypeUtil {
   private final String idregex = "[a-zA-Z][[_]?[a-zA-Z0-9]]*";
 
   public Type getFeatureType(final Feature f) {
-    boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
-    if (_typeMapIsNull) {
-      BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
-    }
-    if ((f instanceof EventPort)) {
-      return this.booleanType();
-    }
-    final Classifier c = f.getClassifier();
-    EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
-    for (final PropertyAssociation pa : _ownedPropertyAssociations) {
-      boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
-      if (_equalsIgnoreCase) {
-        PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
-        final String str = ((StringLiteral) _ownedValue).getValue();
-        return this.getTypeOfString(str);
+    try {
+      boolean _typeMapIsNull = BlessMaps.typeMapIsNull();
+      if (_typeMapIsNull) {
+        BlessMaps.makeTypeMap(this._blessIndex.getVisibleTypeDeclarations(f.eResource()));
       }
+      if ((f instanceof EventPort)) {
+        return this.booleanType();
+      }
+      final Classifier c = f.getClassifier();
+      EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
+      for (final PropertyAssociation pa : _ownedPropertyAssociations) {
+        boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
+        if (_equalsIgnoreCase) {
+          PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
+          final String str = ((StringLiteral) _ownedValue).getValue();
+          Resource _eResource = f.eResource();
+          boolean _tripleNotEquals = (_eResource != null);
+          if (_tripleNotEquals) {
+            return this.getTypeOfString(str, f);
+          }
+        }
+      }
+      return null;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    return null;
   }
 
-  public Type getTypeOfString(final String str) {
-    boolean _startsWith = str.startsWith("boolean");
-    if (_startsWith) {
-      return this.booleanType();
-    }
-    if ((str.matches(this.idregex) && BlessMaps.typeMapContainsKey(str))) {
-      return BlessMaps.typeMapGet(str).getType();
-    }
-    boolean _startsWith_1 = str.startsWith("quantity");
-    if (_startsWith_1) {
-      final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-      boolean _endsWith = str.endsWith("scalar");
-      if (_endsWith) {
-        qt.setScalar(true);
+  public Type getTypeOfString(final String str, final EObject context) throws ValidationException {
+    Type _xblockexpression = null;
+    {
+      boolean _startsWith = str.startsWith("boolean");
+      if (_startsWith) {
+        return this.booleanType();
+      }
+      boolean _startsWith_1 = str.startsWith("quantity");
+      if (_startsWith_1) {
+        final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
+        boolean _endsWith = str.endsWith("scalar");
+        if (_endsWith) {
+          qt.setScalar("scalar");
+          return qt;
+        }
+        boolean _endsWith_1 = str.endsWith("whole");
+        if (_endsWith_1) {
+          qt.setWhole("whole");
+          return qt;
+        }
+        final String unitstring = str.substring(9);
+        final UnitName un = this._blessIndex.findUnitNameFromString(context, unitstring);
+        qt.setUnit(un);
         return qt;
       }
-      boolean _endsWith_1 = str.endsWith("whole");
-      if (_endsWith_1) {
-        qt.setWhole(true);
-        return qt;
+      Type _xifexpression = null;
+      boolean _matches = str.matches(this.idregex);
+      if (_matches) {
+        _xifexpression = this._blessIndex.getTypeFromID(str, context.eResource());
       }
-      final UnitName un = BLESSFactory.eINSTANCE.createUnitName();
-      int _lastIndexOf = str.lastIndexOf(" ");
-      int _plus = (_lastIndexOf + 1);
-      un.setName(str.substring(_plus));
-      qt.setUnit(un);
-      return qt;
+      _xblockexpression = _xifexpression;
     }
-    return null;
+    return _xblockexpression;
   }
 
   public QuantityType toQuantityType(final UnitRecord ur) {
     QuantityType _xblockexpression = null;
     {
       final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-      qt.setScalar(ur.isScalar);
-      qt.setUnit(ur.rootUnit);
-      qt.setWhole(ur.isWhole);
+      if ((ur.rootUnit != null)) {
+        qt.setUnit(ur.rootUnit);
+      } else {
+        if (ur.isScalar) {
+          qt.setScalar("scalar");
+        } else {
+          if (ur.isWhole) {
+            qt.setWhole("whole");
+          }
+        }
+      }
       _xblockexpression = qt;
     }
     return _xblockexpression;
@@ -257,12 +377,14 @@ public class TypeUtil {
           if (_tripleNotEquals) {
             sb.append(qt.getUnit().getName());
           }
-          boolean _isScalar = qt.isScalar();
-          if (_isScalar) {
+          String _scalar = qt.getScalar();
+          boolean _tripleNotEquals_1 = (_scalar != null);
+          if (_tripleNotEquals_1) {
             sb.append("scalar");
           }
-          boolean _isWhole = qt.isWhole();
-          if (_isWhole) {
+          String _whole = qt.getWhole();
+          boolean _tripleNotEquals_2 = (_whole != null);
+          if (_tripleNotEquals_2) {
             sb.append("whole");
           }
         }
@@ -402,7 +524,7 @@ public class TypeUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType wq = BLESSFactory.eINSTANCE.createQuantityType();
-      wq.setWhole(true);
+      wq.setWhole("whole");
       _xblockexpression = wq;
     }
     return _xblockexpression;

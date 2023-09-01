@@ -1285,6 +1285,7 @@ public class BLESSSwitch<T> extends Switch<T>
       {
         NullType nullType = (NullType)theEObject;
         T result = caseNullType(nullType);
+        if (result == null) result = caseElement(nullType);
         if (result == null) result = caseType(nullType);
         if (result == null) result = defaultCase(theEObject);
         return result;

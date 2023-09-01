@@ -30,8 +30,8 @@ import org.osate.aadl2.impl.ElementImpl;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#getNumber <em>Number</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#isScalar <em>Scalar</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#isWhole <em>Whole</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityImpl#getWhole <em>Whole</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,44 +59,44 @@ public class QuantityImpl extends ElementImpl implements Quantity
   protected UnitName unit;
 
   /**
-   * The default value of the '{@link #isScalar() <em>Scalar</em>}' attribute.
+   * The default value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    * @ordered
    */
-  protected static final boolean SCALAR_EDEFAULT = false;
+  protected static final String SCALAR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isScalar() <em>Scalar</em>}' attribute.
+   * The cached value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    * @ordered
    */
-  protected boolean scalar = SCALAR_EDEFAULT;
+  protected String scalar = SCALAR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isWhole() <em>Whole</em>}' attribute.
+   * The default value of the '{@link #getWhole() <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    * @ordered
    */
-  protected static final boolean WHOLE_EDEFAULT = false;
+  protected static final String WHOLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isWhole() <em>Whole</em>}' attribute.
+   * The cached value of the '{@link #getWhole() <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    * @ordered
    */
-  protected boolean whole = WHOLE_EDEFAULT;
+  protected String whole = WHOLE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -220,7 +220,7 @@ public class QuantityImpl extends ElementImpl implements Quantity
    * @generated
    */
   @Override
-  public boolean isScalar()
+  public String getScalar()
   {
     return scalar;
   }
@@ -231,9 +231,9 @@ public class QuantityImpl extends ElementImpl implements Quantity
    * @generated
    */
   @Override
-  public void setScalar(boolean newScalar)
+  public void setScalar(String newScalar)
   {
-    boolean oldScalar = scalar;
+    String oldScalar = scalar;
     scalar = newScalar;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY__SCALAR, oldScalar, scalar));
@@ -245,7 +245,7 @@ public class QuantityImpl extends ElementImpl implements Quantity
    * @generated
    */
   @Override
-  public boolean isWhole()
+  public String getWhole()
   {
     return whole;
   }
@@ -256,9 +256,9 @@ public class QuantityImpl extends ElementImpl implements Quantity
    * @generated
    */
   @Override
-  public void setWhole(boolean newWhole)
+  public void setWhole(String newWhole)
   {
-    boolean oldWhole = whole;
+    String oldWhole = whole;
     whole = newWhole;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY__WHOLE, oldWhole, whole));
@@ -296,9 +296,9 @@ public class QuantityImpl extends ElementImpl implements Quantity
         if (resolve) return getUnit();
         return basicGetUnit();
       case BLESSPackage.QUANTITY__SCALAR:
-        return isScalar();
+        return getScalar();
       case BLESSPackage.QUANTITY__WHOLE:
-        return isWhole();
+        return getWhole();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -320,10 +320,10 @@ public class QuantityImpl extends ElementImpl implements Quantity
         setUnit((UnitName)newValue);
         return;
       case BLESSPackage.QUANTITY__SCALAR:
-        setScalar((Boolean)newValue);
+        setScalar((String)newValue);
         return;
       case BLESSPackage.QUANTITY__WHOLE:
-        setWhole((Boolean)newValue);
+        setWhole((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -370,9 +370,9 @@ public class QuantityImpl extends ElementImpl implements Quantity
       case BLESSPackage.QUANTITY__UNIT:
         return unit != null;
       case BLESSPackage.QUANTITY__SCALAR:
-        return scalar != SCALAR_EDEFAULT;
+        return SCALAR_EDEFAULT == null ? scalar != null : !SCALAR_EDEFAULT.equals(scalar);
       case BLESSPackage.QUANTITY__WHOLE:
-        return whole != WHOLE_EDEFAULT;
+        return WHOLE_EDEFAULT == null ? whole != null : !WHOLE_EDEFAULT.equals(whole);
     }
     return super.eIsSet(featureID);
   }

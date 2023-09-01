@@ -39,7 +39,7 @@ import com.multitude.bless.tree.BAST;
 	public class
 Global	//global variables
 {
-public static String CopyrightYear = "2022";
+public static String CopyrightYear = "2023";
 public static String OsateVersion = "2.11.0";
 public static String EclipseVersion = "22_06";
 
@@ -137,7 +137,7 @@ public static String fileName = "";	//name of current file being parsed
 public static String packageOrPropertySetID = "";	//used to generate BA or DataModel text for a package to hold the data component declarations
 public static boolean usingDataModelStringTemplateGroup = false;	//using DataModel.stg?
 public static boolean usingBAStringTemplateGroup = false;	//using BA.stg?
-public static boolean usingBLESSStringTemplateGroup = false; //using BLESS.stg?
+public static boolean usingBLESSStringTemplateGroup = false; //using BLESS3.stg?
 public static boolean usingSignalStringTemplateGroup = false; //using Signal.stg?
 public static boolean usingSlangStringTemplateGroup = false; //using Slang.stg?
 public static int newlineNodeCountThreshold = 20;	//how many nodes in tree needed to get a newline prepended
@@ -169,7 +169,8 @@ public static HashSet<Integer> normalizationReason = new HashSet<Integer>();	//s
 
 //holds flags and constants
 public static int YouIdiotShowParseTreeLimit = 3;	//how many YI parse trees to show?
-public static int YouIdiotReportLimit = 100;	//how many YI reports to show?
+public static int YouIdiotReportLimit = 10; //how many YI exception reports to show?
+public static int UnparserReportLimit = 2; //how many unparser exception reports to show?
 //public static boolean stopProof = false;	//set by ProofException.handleException() to stop further proof
 public static boolean automaticallyNormalizeAfterAssertionLabelSubstitution = false;  //automatically normalize P and Q after Assertion label substition
 //public static boolean replaceImplicationWithNotAorB = false;		//in Law.replaceImplication; changes A=>B to not A or B

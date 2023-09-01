@@ -1,11 +1,13 @@
-//Slang.stg
+//BLESS3.stg
 group Java;
-//these are string templates used to generate Slang text from BLESS ASTs
 
 action_subclause(no_proof,tc,ac,pre,post,inv,elq) ::=
 <<
+annex Action
+  {**  <if(no_proof)>DO_NOT_PROVE<endif>
+  <tc><ac><if(pre)>pre <pre><\n><endif><if(post)>post <post><\n><endif><if(inv)>inv <inv><\n><endif><elq>
+  **};  --end of Action annex subclause
 >>
-
 
 actual_parameter(formal,actual) ::=
   "<formal> : <actual>" 
@@ -14,82 +16,102 @@ add(terms) ::=
   "<terms; wrap, separator=\" + \">" 
 
 alternative(gf) ::=
-<<    if <gf; separator="\n    else if\n    ">
+<<
+  if 
+  <gf; separator="\n[]\n">
+  fi
 >>
 
 and(terms) ::=
-  "<terms; wrap, separator=\" & \">" 
+  "<terms; wrap, separator=\"\n and \">" 
 
 annex_library_assertion(ghosts,ass) ::=
 <<
+annex Assertion 
+  {** <if(ghosts)>
+  <ghosts><endif>
+  <ass; separator="\n">
+  **};  --end of Assertion annex library
 >>  
-
 
 annex_subclause_action(sb) ::=
     "annex Action <\n>{**<\n><sb><\n>**};  --end of Action annex<\n>"
 
-array_range(l,r)::="<l>..<r>"
+array_range(l,r)::="<l> .. <r>"
 
 array_range_list(r) ::=
    "<r; separator=\", \">"
 
-array_type(arl,t,at)::=  //at parameter not used in BLESS.stg
-  "array[<arl>] of <t>"
+array_type(arl,t,at)::= "array[<arl>] of <t>"
 
-assert_clause(a) ::= ""
+assert_clause(a) ::=
+<<
+assert
+  <a; separator="\n">
+>>
 
 asserted_action(p,s,q) ::= 
-  "<s>"
+  "<if(p)><p><\n><endif><s><if(q)><\n><q><endif>"
 
-assertion(a,lv,p)::= ""
-
+assertion(a,lv,p)::=
+   "\<\< <if(a)><a>:<lv; separator=\" \"> :<endif><p> \>\>"
+    
 assertion_enumeration_pairs(ep) ::=
-"+=\> <ep; separator=\", \">"
+  "+=\> <ep; separator=\",\n  \">"
 
 assertion_enumeration_predicate_invocation(pi) ::=
-"+=\> <pi>" 
+  "+=\> <pi>" 
 
 assertion_function(a,lv,e) ::=
-<<\<\<<if(a)><a>:<endif><if(lv)><lv; separator=" "><else> <endif>:= <e>\>\> >>
+<<\<\< <if(a)><a>:<endif><if(lv)><lv; separator=" "><else> <endif>:= <e> \>\> >>
 
-assignment(nt,eort)::=  
-<<<nt> = <eort>
->>
+assignment(nt,eort)::="<nt> := <eort>"
 
 at(p,t) ::= "<p>@<t>"
 
 behavior_state(bsi,i,com,finl,a) ::=
     "<bsi> : <if(i)><i> <endif><if(com)><com> <endif><if(finl)><finl> <endif>state<if(a)><\n>  <a><endif>;"
 
-behavior_time(e,u) ::= "<e><if(u)>_<u><endif>"
+behavior_time(e,u) ::= "<e> <u>"
 
 behavior_transition(i,pr,ssi,bc,dsi,ba,btq) ::=
-<<<if(i)><i><pr>: <endif><ssi; separator=",">-[<bc>]-\><dsi>
-<if(ba)>  { <ba; anchor> }<\n><else>  {}<endif> <if(btq)><btq><endif>;<if(btl)>  --end of <btl><endif>
+<<
+<i><pr> : <ssi; separator=",">-[<bc>]-\><dsi>
+  { 
+  <ba> 
+  } --end of <i><if(btq)><\n><btq><endif>  
 >>
 
 behavior_variable_type(d,t,p,s,con,sp,e,finl,ass) ::=
 <<
-var <d> : <t> <if(e)>= <e><endif>
+<d; separator=","> ~ <p><s><con><sp><finl> <t><if(e)>:=<e><endif><if(ass)>
+  <ass><endif>;
 >>
-
+   
 bless_property_association(bpa,ass) ::=
   "BLESS::<bpa> =\> \"<ass>\";"   
 
 bless_subclause(n,ac,inv,vs,ss,t) ::=
 <<
-<ac><inv><vs><ss><t>
+annex BLESS
+  {** <if(n)>DO_NOT_PROVE<endif>
+  <ac><inv><vs><ss><t>
+  **};
 >>
 
 boolean()::="boolean"
 
-cand(t) ::= "<t; wrap, separator=\" && \">" 
+cand(t) ::= "<t; wrap, separator=\" and then \">" 
 
 caret(p,cv) ::= "<p>^<cv>"
 
-case_choice(be,exp) ::= "(<be>) -\> <exp>"
+case_choice(be,exp) ::= "(<be> -> <exp>)"
 
-case_expression(cc) ::= "(<cc; wrap, separator=\",\">)"
+case_expression(cc) ::= 
+<< 
+case
+  <cc; separator="\n"> 
+>>
 
 catch_clause(cct) ::= "catch <cct; separator=\" \">"
 
@@ -114,23 +136,24 @@ component_name(ci,imp) ::=
 computation(lb,ub,c) ::=
   "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
-concurrent_composition(g) ::=  
-<<<g; anchor, separator="\n">
+concurrent_composition(g)::=
+<<
+  <g; anchor, separator="\n&\n"> 
 >>
 
 conditional_assertion_function(cvp) ::=
 <<
-  (<cvp; wrap, anchor, separator=", ">)
+  [<cvp; wrap, anchor, separator=", ">]
 >>
 
-conditional_expression(be,t,f) ::= "(<be> ?? <t> : <f>)"
+conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
 
-condition_value_pair(pp,pe) ::= "<pp> -\> <pe>" 
+condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
 
 conjunction(bopt) ::=
-  "<bopt; separator=\" and \">"
+  "<bopt; separator=\"\n  and \">"
 
-cor(t) ::= "<t; wrap, separator=\" || \">" 
+cor(t) ::= "<t; wrap, separator=\" or else \">" 
 
 declarator(i,lit) ::=   
   "<i>[<lit; separator=\"][\">]"
@@ -139,45 +162,41 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; separator=\" or \">"
+  "<bopt; wrap, separator=\" or \">"
 
-dispatch_condition(dle) ::=  //dispatch condition for slang
-  "<if(dle)><dle><else>true<endif>"
+dispatch_condition(dle) ::= "on dispatch <dle>"
 
-dispatch_trigger(i) ::=  //added for Slang translation
-  "api.get_<i>().nonEmpty"
+dispatch_trigger(i) ::= "<i>"
 
-do_until(be,ba,bd,inv) ::=  //changed for Slang <while-stmt> no bound function
-<<do { 
-  <ba; anchor><if(inv)><\n>  <inv><endif>
-while (!(<be>))>>  
+do_until(be,ba,bd,inv) ::=
+<<do <if(inv)><\n>  invariant <inv><endif><if(bd)><\n>  bound <bd><endif>
+  <ba; anchor>
+until (<be>)>>  
 
 elq(v,ba,cc) ::=
 <<
-<v>
-<ba; anchor> >>
+<if(v)><v>
+<endif>  {
+  <ba; anchor>
+  }<if(cc)><\n><cc><endif> >>
 
 enumeration_pair(i,pe) ::=
 "<i> -\> <pe>"
 
 enumeration_type(id)::=
-<<@enum {
-  '<id; separator="\n\'">
-  }  
->>
+  "enumeration (<id; wrap, anchor, separator=\" \">)"
 
 enumeration_value(t,v) ::=
-  "<t>.<v>"
+  "<t>'<v>"
 
-event_port_output(o) ::= 
-<<api.put_<o>() 
->>
+event_port_output(o) ::= "<o>!"
 
 existential_quantification(e,lv2,d2,p2)::=
 <<
-<e> <lv2>
-  <d2> 
-  that <p2; anchor> >>
+<e> <lv2> 
+   <d2> 
+   that <p2> 
+>>
 
 exp(l,r) ::= "<l>**<r>"
 
@@ -185,29 +204,34 @@ false() ::= "false"
 
 formal_actual(f,ap) ::= "<f>:<ap>"  
 
-formal_actual_list(ns) ::= "<ns; separator=\",\">"
+formal_actual_list(ns) ::= "<ns; anchor, wrap, separator=\", \">"
 
-formal_assertion_parameter(p,t) ::= "<p>:<t>"
+formal_assertion_parameter(p,t) ::= "<p>~<t>"
 
 formal_assertion_parameter_list(faps) ::= "<faps; separator=\", \">"
 
-formal_expression_pair(f,a) ::= "<a>"
+formal_expression_pair(f,a) ::= "<f>=\><a>"
 
-for_loop(a,lb,ub,ba,inv) ::=  //changed for Slang <for-stmt>
-<<for (<a> \<- <lb> to <ub>)
-  {
-  <ba> 
-  <if(inv)><inv>\n<endif>}>>
+for_loop(a,lb,ub,ba,inv) ::=
+<<for <a> in <lb>..<ub><if(inv)>
+  invariant <inv><endif>
+  <ba> >>
 
 function_call(f,pl,p) ::= 
-<<<f>(<pl>)>>
+<<<if(p)><p; separator="::">::<endif><f>(<pl>)>>
 
-ghost_variable(id,tod) ::= ""
+ghost_variable(id,tod) ::=
+  "def <id> ~ <tod>"
   
 ghost_variables(gv) ::=
-<< >>
+<<
+ghost variables
+  <gv; separator="\n">
+>>
 
-guarded_action(be,ba) ::= "( <be> )\n  { <ba> }\n"
+guarded_action(be,ba) ::=
+ <<  (<be>)~> 
+    <ba> >>
 
 id_cc_id(fst,snd) ::=
   "<fst>::<snd>"  
@@ -218,13 +242,13 @@ id_cc_id_dot_id(fst,snd,thr) ::=
 id_dot_id(fst,snd) ::=
   "<fst>.<snd>" 
 
-iff(l,r) ::= "<l> \<-\> <r>"
+iff(l,r) ::= "<l> iff <r>"
 
 implies(s,c) ::= "<s> -\> <c>"
 
-integer()::="integer"
+integer()::="quantity whole"
 
-integer_literal(i) ::= "z\"<i>\""
+integer_literal(i) ::= "<i>"
 
 invariant_clause(a) ::=
 <<
@@ -240,7 +264,7 @@ internal_condition(p) ::=
 invocation(i,p) ::=
   "<i>(<p; separator=\", \">)"
 
-in_port_value(pn)::="api.get_<pn>().get"  
+in_port_value(pn)::="<pn>?"  
 
 in_range(p,ra) ::= "<p> in <ra>"
 
@@ -249,23 +273,23 @@ issue_exception(ex,m) ::=
 
 local_name(n,imp,pn)::="<n><if(imp)>.<imp><endif>"
 
-logic_variables(t,i) ::= "<i; separator=\",\">:<t>" 
+logic_variables(t,i) ::= "<i; separator=\",\">~<t>" 
 
-logic_variable_domain(i,l,h,rs) ::=  //make l..h into [l,h], l,,h into (l,h) etc.
-"<if({rs.toString().charAt(0)=='.'})>[<else>(<endif><l>,<h>if(rs.toString().charAt(1)=='.')>]<else>)<endif>  "
+logic_variable_domain(i,l,h,rs) ::=
+"<i> <l> <rs> <h>"
 
 logic_variable_domain2(i2,p) ::=
-"<p>"
+"<i2> <p>"
 
-l_and(bs) ::= "<bs; wrap, separator=\" & \">"
+l_and(bs) ::= "<bs; anchor, wrap, separator=\" and \">"
 
-l_cand(bs) ::= "<bs; wrap, separator=\" && \">"
+l_cand(bs) ::= "<bs; anchor, wrap, separator=\" and then \">"
 
-l_cor(bs) ::= "<bs; wrap, separator=\" || \">"
+l_cor(bs) ::= "<bs; anchor, wrap, separator=\" or else \">"
 
-l_or(bs) ::= "<bs; wrap, separator=\" | \">"
+l_or(bs) ::= "<bs; anchor, wrap, separator=\" or \">"
 
-l_xor(bs) ::= "<bs; wrap, separator=\" |^ \">"
+l_xor(bs) ::= "<bs; anchor, wrap, separator=\" xor \">"
 
 mod(l,r) ::= "<l> mod <r>"
 
@@ -274,38 +298,42 @@ mode_condition(tle) ::=
 
 mode_trigger(mt) ::=
   "<mt; separator=\".\">"
-
+  
 multiply(terms) ::=
-  "<terms; wrap, separator=\" * \">" 
+  "<terms; wrap, separator=\"*\">" 
 
 name(id,index,rec) ::= 
   "<id><if(index)>[<index; separator=\"][\">]<endif><if(rec)>.<rec; separator=\".\"><endif>"
 
 named_assertion(id,pred,formals,tod,functionvalue) ::=
-<< >>
+<<
+\<\<<id>: <formals><if(pred)>:<pred><endif><if(tod)> returns <tod> := <functionvalue><endif> \>\>>>
 
 named_assertion_enum(id,assertionvariable,enumerationTy,enumeration) ::=
-<< >>
+<<
+\<\<<id>: <assertionvariable> ~ <enumerationTy> 
+  <enumeration> \>\> >>
 
-nameless_assertion(a) ::= ""
+nameless_assertion(a) ::=
+<<\<\< <a> \>\>>>
 
-nameless_enumeration(inv) ::= ""
+nameless_enumeration(inv) ::=
+  "\<\< +=> <inv> \>\>"
 
 nameless_function(tod,a) ::=
-<< >>
+<<\<\< returns <tod> := <a> \>\>>>
 
-name_tick(vn) ::= "<vn>"
+name_tick(vn) ::= "<vn>'"
 
-natural()::="natural"
+natural()::="quantity whole"
 
-not(bt) ::=
-  "!<bt>" 
+not(bt) ::= "not <bt>"  
 
-not_equal_relation(lhs,rhs) ::= "<lhs> != <rhs>"
+not_equal_relation(lhs,rhs) ::= "<lhs> \<\> <rhs>"
 
-not_paren(bt) ::= "!(<bt>)"  
+not_paren(bt) ::= "not (<bt>)"  
 
-now() ::= "Art.time()"
+now() ::= "now"
 
 numberof(lv,d,pe) ::=
 <<
@@ -319,7 +347,10 @@ number_type(nr,ud,nw) ::=
 number_type_plain(n)::="<n>"
 
 or(terms) ::=
-  "<terms; wrap, separator=\" | \">" 
+  "<terms; wrap, separator=\" or \">" 
+
+parameter_spec(dpi,io,uccr,mpa)::=
+  "<dpi>: <io> parameter <uccr> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
 
 parentheses(be) ::=
   "( <be> )"  
@@ -329,27 +360,24 @@ parenthesized_predicate(p) ::= "(<p>)"
 partial_name(i,p) ::=
   "<i><if(p)>[<p; separator=\"][\">]<endif>"
 
-port_count(i) ::= "api.<i>.Count()"
+port_count(i) ::= "<i>'count" 
 
-port_fresh(i) ::= "api.<i>.Fresh()"
+port_fresh(i) ::= "<i>'fresh" 
 
-port_input(i,n) ::= 
-<<<n> = api.get_<i>.get().value 
->>
+port_input(i,n) ::= "<i>?(<n>)"
 
 port_name(port,index) ::=
-  "<port><if(index)>(<index>)<endif>"
+  "<port><if(index)>[<index>]<endif>"
 
-port_output(o,be) ::=
-<<api.put_<o>(<be>)
->>
+port_output(o,be) ::= "<o>!<if(be)>(<be>)<endif>"
 
 port_spec(dpi,io,pt,mpa)::=
   "<dpi>: <io> <pt> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"
 
-port_updated(i) ::= "api.<i>.Updated()"
+port_updated(i) ::= "<i>'updated" 
 
-predicate_invocation(p,ip,a) ::= "<p>(<if(ip)><ip; wrap, separator=\",\"><endif><if(a)><a><endif>)"
+predicate_invocation(p,ip,a) ::= 
+  "<p>(<if(ip)><ip; anchor, wrap, separator=\", \"><endif><if(a)><a><endif>)"
 
 priority(num) ::=
   "[<num>]"
@@ -363,33 +391,36 @@ product(p,lv,d,pe) ::=
   <d> 
   of <pe; anchor> >>
 
-property_name(ps,p) ::= "<ps>.<p>"
+property_name(ps,p) ::= "<ps>::<p>"
 
 property_number_type(kind,range,units,designator) ::=
   "<kind> <range><if(units)> <units> <designator><endif>" 
 
-property_reference(component,pname,f) ::= "<if(component)><component>.<endif><pname><f>"
+property_reference(component,pname,f) ::= "<component>#<pname><f>"
 
 quantified_variables(bv) ::=
-<< 
+<<declare 
   <bv; anchor, separator="\n">
 >>
 
 quantity(num,unit) ::= "<num> <unit>"
 
 quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
-<<<if(whole)>Z<else>F32<endif> >>
+<<
+quantity <unit><scalar><whole><if(lb)> [<lb> .. <ub>]<endif><if(step)> 
+  step <step><endif><if(representation)> 
+  representation <representation><endif> >>
 
-range(rs,lb,ub)::=  "<lb><rs><ub>"  
+range(rs,lb,ub)::=  "<lb> <rs> <ub>" 
 
 range_type(rt)::= 
   "range of <rt>"
 
-rational()::="rational"
+rational()::="quantity scalar"
 
-real()::="real"
+real()::="quantity scalar"
 
-real_literal(r) ::=  "f32\"<r>\""
+real_literal(r) ::=  "<r>"
 
 record_field(df,ptd,t) ::=
     "<df>:<if(t)>list of <endif><ptd>;"
@@ -397,8 +428,8 @@ record_field(df,ptd,t) ::=
 record_term(typeid,prv) ::=
   "[<typeid>: <prv; wrap, separator=\" \">]"
 
-record_type(rf) ::= 
-<<record 
+record_type(rvu,rf) ::= 
+<<<rvu> 
   (<rf;anchor, separator="\n">)>>   
 
 record_value(id,v) ::=
@@ -415,18 +446,20 @@ root_declaration(base,formula,kindWords,unit,factors) ::=
 <<
 <base><formula> [ <kindWords; separator=" "> ] <unit> <factors; separator=" ">; >>
 
-sequential_composition(f) ::=  
-<<<f; anchor, separator="\n">
->>
+sequential_composition(f)::=
+<<
+  <f; anchor, separator="\n;\n"> 
+>> 
 
 simultaneous_assignment(l,r) ::=
 <<
-(<l; separator=","> := <r; separator=",">)  >>
+|<l; separator=","> := <r; separator=",">|  >>
 
-skip() ::= "" 
+skip() ::= "skip" 
 
 states_section(bs) ::=
 <<
+states
   <bs; separator="\n">
 >>
 
@@ -451,37 +484,45 @@ sum(s,lv,d,pe) ::=
   <d> 
   of <pe; anchor> >>
 
+
 throws_clause(ex) ::=
   "throws <ex; wrap, separator=\" \">"
 
-tick(tp) ::= "\'<tp>"
+tick(tp) ::= "<tp>'"
 
-time()::= "S64"
+time()::= "time"
 
-timeout(bt,p) ::= "timeout_<p; separator=\"_\">_<bt>"
+timeout(bt,p) ::= "timeout <if(p)>(<p; separator=\" \">) <endif><bt>"
 
 transitions(bt) ::=
-<<transitions
+<< \n
+transitions
   <bt; separator="\n\n">
 >>
 
 true() ::= "true"
 
 two_element_expression(op,l,r) ::=
-  "<l><op><r>"  
+  "<l> <op> <r>"  
 
 two_element_expression_spaced(op,l,r) ::=
   "<l> <op> <r>"  
 
 type_declaration(id,ty)::=
-<<<id>: type <ty>;
+<<
+type <id> is <ty> >>
+
+type_library(decs) ::=
+<<
+annex Typedef
+  {**
+  <decs; separator="\n">
+  **};
 >>
 
-type_library(decs) ::= ""
-  
 ulq(lv,lb,ub,elq) ::=
 <<
-forall <lv> in ,lb> .. <ub>
+forall <lv> in <lb> .. <ub>
   <elq> >>
 
 unary(sym,ex) ::=
@@ -489,25 +530,40 @@ unary(sym,ex) ::=
 
 unary_paren(sym,ex) ::=
   "<sym>(<ex>)"
-
+  
 unique_component_classifier_reference(p,ii) ::=
-  "<p; separator=\".\"><if(ii)>.<ii><endif>"
+  "<p; separator=\"::\"><if(ii)>.<ii><endif>"
 
-unit_formula(top,bottom) ::= ""
+unit_formula(top,bottom) ::=
+  "<top; separator=\" \"><if(bottom)> / <bottom; separator=\" \"> <endif>"
 
-unit_library(unitDeclarations) ::= ""
+unit_library(unitDeclarations) ::=
+<<
+annex Unit 
+  {**
+  <unitDeclarations; separator="\n">
+  **};  --end of Unit annex library
+>>  
 
-unit_name(id,longname) ::= ""
+unit_name(id,longname) ::=
+  "<if(longname)>\< <longname; separator=\" \"> \> <endif><id>"
 
-units_declaration(i,ul)::= ""
+units_declaration(i,ul)::=
+<<<i> : units <ul>;
+>>
 
-unit_extension(root,factors) ::= ""
+unit_extension(root,factors) ::=
+<<
+extension <root> <factors; separator=" ">;>>
 
-unit_factor(unit,op,factor) ::= ""
+unit_factor(unit,op,factor) ::=
+  ", <unit> <op> <factor>"
 
-units_list(fu,au) ::= ""
+units_list(fu,au) ::=
+    "(<fu><if(au)>,<\n>     <au; separator=\",\n     \"><endif>)"
 
-units_type(ul)::= ""
+units_type(ul)::=
+  "units <ul>"
 
 universal_quantification(a,lv,d,p)::=
 <<
@@ -516,15 +572,17 @@ universal_quantification(a,lv,d,p)::=
   are <p; anchor> >>  
 
 variable(id,tod) ::=
-  " <id> : <tod>"
+  " <id> ~ <tod>"
 
-variables(bv) ::=  //changed to generate local variables for threads in Slang
+variables(bv) ::=
 <<
+variables
   <bv; separator="\n"> >>
 
 variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
 <<
-var <v><if(exp)> = <exp><endif> >>
+<v> <nv><sh><c><sp><f><if(exp)>:= <exp><endif><if(a)>
+  <a><endif> >>
 
 variable_list(parameter) ::=
 <<<parameter; wrap, separator=", "> >>
@@ -539,12 +597,11 @@ variant_type(vf)::=
 when_throw(e,i,m) ::=
   "when (<e>) throw <i> <m>"
 
-while_loop(be,elq,bd,inv) ::=  //changed for Slang <while-stmt> no bound function
-<<while (<be>) 
-  {<if(inv)> 
-  <inv> <endif>
-  <elq>
-  } >>
+while_loop(be,elq,bd,inv) ::= 
+<<while (<be>)<if(inv)> 
+  invariant <inv> <endif>
+  bound <bd>
+  <elq> >>
 
 xor(terms) ::=
-  "<terms; wrap, separator=\" |^ \">" 
+  "<terms; wrap, separator=\" xor \">" 

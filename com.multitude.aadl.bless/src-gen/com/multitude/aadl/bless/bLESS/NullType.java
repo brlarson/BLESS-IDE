@@ -5,6 +5,7 @@
  */
 package com.multitude.aadl.bless.bLESS;
 
+import org.osate.aadl2.Element;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package com.multitude.aadl.bless.bLESS;
  * @model
  * @generated
  */
-public interface NullType extends Type
+public interface NullType extends Element, Type
 {
   /**
    * Returns the value of the '<em><b>N</b></em>' attribute.

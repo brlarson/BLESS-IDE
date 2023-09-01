@@ -30,8 +30,8 @@ import org.osate.aadl2.Feature;
 import org.osate.annexsupport.AnnexUtil;
 
 import com.multitude.bless.Activator;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
-import com.multitude.bless.antlr3generated.UnparseBLESS;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
+import com.multitude.bless.antlr3generated.UnparseBLESS3;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Time;
 import com.multitude.bless.codegeneration.TimeoutRecord;
@@ -186,14 +186,14 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 //	for (int ch=1;ch<tr.ast.getChildCount();ch++)
 //		{
 //		BAST child = (BAST)tr.ast.getChild(ch);
-//		if (child.hasType(BLESStoASTLexer.LITERAL_transitions))
+//		if (child.hasType(BLESS3Lexer.LITERAL_transitions))
 //			transitionsRoot=child;
 //		}
 		sb.append("// " + isoFolderName + "/" + threadName + ".cc \n");
 		sb.append("// generated " + Time.todayString + "\n\n");
 		sb.append(getSource(tr.context));
 //find actual values for AADL properties
-		UnparseBLESS.lookUpPropertyValues = true;
+		UnparseBLESS3.lookUpPropertyValues = true;
 		//make unparser use ISOSCELES templates
 		try
 			{
@@ -293,15 +293,15 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		for (int s = 0; s < states.getChildCount(); s++)
 			{
 			BAST stateLabel = (BAST) states.getChild(s).getChild(0);
-			if (stateLabel.hasType(BLESStoASTLexer.LITERAL_complete))
+			if (stateLabel.hasType(BLESS3Lexer.LITERAL_complete))
 				{
 				completeStateLabels.add(states.getChild(s).getChild(1).getText());
 				}
-			else if (stateLabel.hasType(BLESStoASTLexer.LITERAL_initial))
+			else if (stateLabel.hasType(BLESS3Lexer.LITERAL_initial))
 				{
 				initialStateLabel = states.getChild(s).getChild(1).getText();
 				}
-			else if (stateLabel.hasType(BLESStoASTLexer.LITERAL_final))
+			else if (stateLabel.hasType(BLESS3Lexer.LITERAL_final))
 				{
 				finalStateLabels.add(states.getChild(s).getChild(1).getText());
 				}
@@ -334,7 +334,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		BAST varRoot = null;
 		for (int i = 1; i < tr.ast.getChildCount(); i++)
 			{
-			if (((BAST) tr.ast.getChild(i)).hasType(BLESStoASTLexer.LITERAL_variables))
+			if (((BAST) tr.ast.getChild(i)).hasType(BLESS3Lexer.LITERAL_variables))
 				{
 				varRoot = (BAST) tr.ast.getChild(i);
 				}
@@ -347,11 +347,11 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 			{
 			sb.append("\n//VARIABLES\n");
 			CommonTreeNodeStream nodes = new CommonTreeNodeStream(varRoot);
-			UnparseBLESS unparser = new UnparseBLESS(nodes);
+			UnparseBLESS3 unparser = new UnparseBLESS3(nodes);
 			unparser.setTemplateLib(Global.ISOSCELEStemplates);
 			try
 				{
-				sb.append(unparser.variables().toString());
+				sb.append(unparser.variablesSection().toString());
 				}
 			catch (RecognitionException e)
 				{
@@ -363,7 +363,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		Vector<BAST> transitions = findTransitions(tr.ast);
 		for (BAST bt : transitions)
 			{
-			if (!bt.hasType(BLESStoASTLexer.TRANSITION))
+			if (!bt.hasType(BLESS3Lexer.TRANSITION))
 				{
 				throw new YouIdiot("transition must have TRANSITION as root", bt);
 				}
@@ -740,7 +740,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 			{
 			Dump.it(sb.toString());
 			}
-		UnparseBLESS.lookUpPropertyValues = false;
+		UnparseBLESS3.lookUpPropertyValues = false;
 		WriteISOSCELESFile.writeISOSCELES(isoFolderName, threadName, sb.toString());
 //	return sb;
 		} // end of generateISOSCELESForThisThread
@@ -773,7 +773,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		BAST tRoot = null;
 		for (int i = 1; i < root.getChildCount(); i++)
 			{
-			if (((BAST) root.getChild(i)).hasType(BLESStoASTLexer.LITERAL_transitions))
+			if (((BAST) root.getChild(i)).hasType(BLESS3Lexer.LITERAL_transitions))
 				{
 				tRoot = (BAST) root.getChild(i);
 				}
@@ -798,7 +798,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		BAST tRoot = null;
 		for (int i = 1; i < root.getChildCount(); i++)
 			{
-			if (((BAST) root.getChild(i)).hasType(BLESStoASTLexer.LITERAL_transitions))
+			if (((BAST) root.getChild(i)).hasType(BLESS3Lexer.LITERAL_transitions))
 				{
 				tRoot = (BAST) root.getChild(i);
 				}
@@ -845,7 +845,7 @@ public class GenerateISOSCELES extends AbstractHandler implements IHandler
 		//make unparser use BLESS templates
 		try
 			{
-			Global.templates = Activator.loadStringTemplateGroup(Activator.stringTemplateGroupFolder + "BLESS.stg");
+			Global.templates = Activator.loadStringTemplateGroup(Activator.stringTemplateGroupFolder + "BLESS3.stg");
 			}
 		catch (YouIdiot e)
 			{

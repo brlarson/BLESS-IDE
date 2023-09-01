@@ -1,7 +1,7 @@
 package com.multitude.aadl.bless.util
 
 import com.google.inject.Inject
-import com.multitude.aadl.bless.BlessControl
+import com.multitude.aadl.bless.bLESS.ANumber
 import com.multitude.aadl.bless.bLESS.AddSub
 import com.multitude.aadl.bless.bLESS.ArrayRange
 import com.multitude.aadl.bless.bLESS.ArrayRangeList
@@ -11,6 +11,7 @@ import com.multitude.aadl.bless.bLESS.BooleanType
 import com.multitude.aadl.bless.bLESS.EnumerationType
 import com.multitude.aadl.bless.bLESS.Exp
 import com.multitude.aadl.bless.bLESS.MultDiv
+import com.multitude.aadl.bless.bLESS.PropertyReference
 import com.multitude.aadl.bless.bLESS.Quantity
 import com.multitude.aadl.bless.bLESS.QuantityType
 import com.multitude.aadl.bless.bLESS.RecordField
@@ -22,16 +23,22 @@ import com.multitude.aadl.bless.bLESS.Type
 import com.multitude.aadl.bless.bLESS.TypeOrReference
 import com.multitude.aadl.bless.bLESS.UnitName
 import com.multitude.aadl.bless.bLESS.Value
-import com.multitude.aadl.bless.exception.ParseException
 import com.multitude.aadl.bless.maps.BlessMaps
-import com.multitude.aadl.bless.parsing.TypeAnnexParser
+import com.multitude.aadl.bless.scoping.BlessIndex
 import org.eclipse.emf.ecore.EObject
 import org.osate.aadl2.EventPort
 import org.osate.aadl2.Feature
 import org.osate.aadl2.StringLiteral
 import org.osate.aadl2.modelsupport.util.AadlUtil
-import org.osate.aadl2.Aadl2Package
-import com.multitude.aadl.bless.scoping.BlessIndex
+import org.osate.aadl2.PropertyExpression
+import org.osate.aadl2.properties.EvaluationContext
+import org.eclipse.xtext.parser.IParseResult
+import java.io.StringReader
+import com.multitude.aadl.bless.parser.antlr.BLESSParser
+import org.eclipse.emf.ecore.resource.Resource
+import com.multitude.aadl.bless.exception.ParseException
+import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
+import com.multitude.aadl.bless.exception.ValidationException
 
 class TypeUtil {
 
@@ -39,10 +46,22 @@ class TypeUtil {
 @Inject extension BlessUtil
 @Inject extension BlessIndex
 //@Inject extension PropertyUtil
+@Inject extension BLESSParser blessParser;
 
 def Type booleanType() { BLESSFactory.eINSTANCE.createBooleanType }
 def Type stringType() {BLESSFactory.eINSTANCE.createStringType}
 def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
+
+
+//def Type parseBlessType(String propertyText, Resource r)
+//  {
+//  val parseRule = blessParser.getGrammarAccess().getBLESSGrammarRootsRule()
+////  val parseRule = blessParser.getGrammarAccess().getTypeOrReferenceRule()
+//  val IParseResult parseResult = blessParser.parse(parseRule, new StringReader(propertyText));
+//  val TypeOrReference tor = (parseResult.rootASTElement as BLESSGrammarRoots).ty
+//  tor?.ty ?:
+//  tor?.ref.name.getTypeFromID(r) 
+//  }
 
 
    def boolean sameStructuralType(Type a, Type b)
@@ -62,7 +81,14 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
      	  return (a as ArrayType).array_ranges.sameArrayRangeLists((b as ArrayType).array_ranges)
      	    && (a as ArrayType).typ.getType.sameStructuralType((b as ArrayType).typ.getType)
      	if (a instanceof RecordType && b instanceof RecordType )
-     	  return (a as RecordType).fields.forall[ f | (b as RecordType).recordHasFieldWith(f.label,f.typ.getType)]
+     	  {
+     	  val bRecord = (b as RecordType)
+     	  for (aField : (a as RecordType).fields)
+     	     if (!bRecord.recordHasFieldWith(aField.label,aField.typ.getType))
+     	       return false; 
+     	  return true;
+     	  }
+//     	  return (a as RecordType).fields.forall[ f | (b as RecordType).recordHasFieldWith(f.label,f.typ.getType)]
       if (a instanceof BooleanType && b instanceof BooleanType )
      	  return true
       if (a instanceof StringType && b instanceof StringType )
@@ -72,7 +98,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 	
 	 def Type getType(TypeOrReference tod)
 	   {
-	   	tod?.ty
+	   	tod?.ty ?:
 	   	tod?.ref.type
 	   }
 	
@@ -80,17 +106,36 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
     {
     	if (c.range.size != d.range.size)
     	  return false;
-    	(c.range.elementsEqual(d.range))  //use sameArrayRange?
+    	for (var i=0;i<c.range.size;i++)
+    	  {
+    	  if (!c.range.get(i).sameArrayRange(d.range.get(i))) 
+    	    return false 
+    	  }
+    	true
     }
  
    def boolean sameArrayRange(ArrayRange e, ArrayRange f) 
      {
-     return e.lb == f.lb && e.ub == f.ub  
+     if (e.ub!==null && f.ub!==null)  
+       e.lb.getStringValue.equals(f.lb.getStringValue) && e.ub.getStringValue.equals(f.ub.getStringValue)  
+     else if (e.ub===null && f.ub===null)
+       e.lb.getStringValue.equals(f.lb.getStringValue) 
+     else false
      } 
+   
+   def String getStringValue(ANumber n)
+     {
+     n?.lit  ?:
+     n?.property?.pname?.name ?:
+     n?.property?.spname?.name ?:
+//     n?.property?.component?.getPropertyValue(n.property?.cpname).toString ?:
+     n?.propertyConstant.constantValue.toString ?:
+     n.toString
+     }
      
    def boolean recordHasFieldWith(RecordType r, String label, Type typ) 
      {
-     r.fields.exists[ u | u.label.equalsIgnoreCase(label) && u.typ.getType.sameStructuralType(typ)]	
+     r.fields.exists[ u | u.label.compareTo(label)==0 && u.typ.getType.sameStructuralType(typ)]	
      } 
      
 //   def boolean variantHasFieldWith(VariantType r, String label, Type typ) 
@@ -101,13 +146,14 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 
   def boolean quantityTypesHaveSameUnits(QuantityType a, QuantityType b)
     {
-      	if (a.isScalar && b.isScalar)
+      if (a.scalar!==null && b.scalar!==null)
+//      if (a.isScalar && b.isScalar)
      	  return true
-     	if (a.unit === null || a.unit.equals(nullUnitName))
+      if (a.unit === null || a.unit.equals(nullUnitName))
      	  return false
-     	if (b.unit === null || b.unit.equals(nullUnitName))
+      if (b.unit === null || b.unit.equals(nullUnitName))
      	  return false
-     	if (a.unit.equals(b.unit))
+      if (a.unit.equals(b.unit))
     	    return true;
     	//otherwise
     	false
@@ -115,7 +161,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
 
   def UnitName getUnitName(Quantity q)
 	{
-		q.unit ?: nullUnitName
+		q.unit ?: 
+		nullUnitName
 	}
 	
 //identifier regular expression
@@ -132,36 +179,40 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
       if (pa.property.getQualifiedName.equalsIgnoreCase('BLESS::Typed'))
         {
         val str = (pa.ownedValues.head.ownedValue as StringLiteral).value
-        return getTypeOfString(str)
+        if (f.eResource!==null)
+        return getTypeOfString(str, f)
+//        if (f.eResource!==null)
+//          return parseBlessType(str, f.eResource)
+//        else throw new ParseException("Feature "+f.name+" did had null Resource")
         }    
     //otherwise error  
     return null
     }  //end of getFeatureType
     
-  def Type getTypeOfString(String str)
+  def Type getTypeOfString(String str, EObject context) throws ValidationException
   {
     if (str.startsWith("boolean"))
       return booleanType
-    if (str.matches(idregex) && BlessMaps.typeMapContainsKey(str))
-      return BlessMaps.typeMapGet(str).type
     if (str.startsWith('quantity'))
     { // kludge quantity type because parsing doesn't fill in unit
       val QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType
       if (str.endsWith('scalar'))
       {
-        qt.scalar = true
+        qt.scalar = 'scalar' // true
         return qt
       }
       if (str.endsWith('whole'))
       {
-        qt.whole = true
+        qt.whole = 'whole' // true
         return qt
       }
-      val UnitName un = BLESSFactory.eINSTANCE.createUnitName
-      un.name = str.substring(str.lastIndexOf(' ') + 1)
+      val unitstring = str.substring(9)
+      val UnitName un = findUnitNameFromString(context, unitstring)
       qt.unit = un
       return qt
     }
+    if (str.matches(idregex))
+      getTypeFromID(str, context.eResource)
   } // end of getTypeOfString
   
   
@@ -173,9 +224,15 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
   def QuantityType toQuantityType(UnitRecord ur)
     {
     val QuantityType qt =	BLESSFactory.eINSTANCE.createQuantityType
-    qt.scalar = ur.isScalar
-    qt.unit = ur.rootUnit
-    qt.whole = ur.isWhole
+    if (ur.rootUnit !== null)
+      qt.unit = ur.rootUnit
+    else if (ur.isScalar)
+      qt.scalar = 'scalar'
+    else if (ur.isWhole)
+      qt.whole = 'whole'
+//    qt.scalar = ur.isScalar
+//    qt.unit = ur.rootUnit
+//    qt.whole = ur.isWhole
     qt
     }
    
@@ -198,8 +255,8 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
         sb.append('quantity ')
         if (qt.unit !== null)
           sb.append(qt.unit.name)
-        if (qt.scalar) sb.append('scalar')
-        if (qt.whole) sb.append('whole')
+        if (qt.scalar !== null) sb.append('scalar')
+        if (qt.whole !== null) sb.append('whole')
         }
       ArrayType:
         {
@@ -275,7 +332,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
  def Type makeWholeQuantity()
   {
   var wq = BLESSFactory.eINSTANCE.createQuantityType
-  wq.whole = true
+  wq.whole = 'whole' // true
   wq 	
   }
 

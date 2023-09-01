@@ -76,10 +76,12 @@ import org.osate.xtext.aadl2.properties.util.PropertyUtils;
 import com.google.inject.Injector;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.maps.BlessMaps;
+import com.multitude.aadl.bless.parser.antlr.BLESSParser;
+import com.multitude.aadl.bless.parsing.BlessAnnexParser;
 import com.multitude.aadl.bless.parsing.TypeAnnexParser;
 import com.multitude.aadl.bless.util.TraverseBlessWorkspace;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
-import com.multitude.bless.antlr3generated.BLESStoASTParser;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
+import com.multitude.bless.antlr3generated.BLESS3Parser;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
@@ -246,10 +248,11 @@ load() throws YouIdiot
               {
               BAST ass = (BAST) aal.getChild(ch);
               // does it have a label?
-              if (((BAST) ass.getChild(0)).hasType(BLESStoASTLexer.LABEL))
+              if (((BAST) ass.getChild(0)).hasType(BLESS3Lexer.LABEL))
                 {
                 // then put it in the map
                 pr.assertions_in_library.put(((BAST) ass.getChild(0).getChild(0)).getText(), ass);
+                Global.label_assertion_map.put(((BAST) ass.getChild(0).getChild(0)).getText(), ass);
                 }
               }
             }
@@ -525,7 +528,7 @@ load() throws YouIdiot
             // BLESS::Typed property
             Global.data_type_map.put(ct.getQualifiedName(), rootOfTyped);
             // put enumeration literals into global set
-            if (rootOfTyped.hasType(BLESStoASTLexer.LITERAL_enumeration))
+            if (rootOfTyped.hasType(BLESS3Lexer.LITERAL_enumeration))
               {
               for (int e = 0; e < rootOfTyped.getChildCount(); e++)
                 { Global.enum_label_set.add(rootOfTyped.getChild(e).getText()); }
@@ -661,7 +664,7 @@ load() throws YouIdiot
           {
           // create EntityRecord for this port
           EntityRecord er = new EntityRecord(EntityRecord.PARAMETER,
-              new BAST(featureName, BLESStoASTLexer.ID, featureLine));
+              new BAST(featureName, BLESS3Lexer.ID, featureLine));
           // put EntityRecord into map
           if (componentTypeParseRecord.parameter_entity_map == null)
             { componentTypeParseRecord.parameter_entity_map = new HashMap<String, EntityRecord>(); }
@@ -769,7 +772,7 @@ load() throws YouIdiot
         if (f instanceof Port)
           {
           // create EntityRecord for this port
-          EntityRecord er = new EntityRecord(EntityRecord.PORT, new BAST(featureName, BLESStoASTLexer.ID, featureLine));
+          EntityRecord er = new EntityRecord(EntityRecord.PORT, new BAST(featureName, BLESS3Lexer.ID, featureLine));
           // put EntityRecord into map
           componentTypeParseRecord.port_entity_map.put(featureName, er);
           Port p = (Port) f;
@@ -798,7 +801,7 @@ load() throws YouIdiot
             {
             case PortCategory.EVENT_VALUE:
               er.eventPort = true;
-              er.type = new BAST("boolean", BLESStoASTLexer.LITERAL_boolean, er.identifier);
+              er.type = new BAST("boolean", BLESS3Lexer.LITERAL_boolean, er.identifier);
               // add Assertion to map
               assertionText = LoadBLESS.getPropertyStringValue(p, blessAssertion, "");
               if (assertionText.length() > 0) // does it have an Assertion property?
@@ -832,12 +835,12 @@ load() throws YouIdiot
                   e.printStackTrace();
                   }
                 }
-              else
-                {
-//PUT DOWN ERROR MARKER?
-                er.type = new BAST("TOP", BLESStoASTLexer.TOP, er.identifier);
-                componentTypeParseRecord.port_typed_map.put(featureName, er.type);
-                }
+//              else
+//                {
+////PUT DOWN ERROR MARKER?
+//                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
+//                componentTypeParseRecord.port_typed_map.put(featureName, er.type);
+//                }
               // add Assertion to map
               assertionText = LoadBLESS.getPropertyStringValue(p, blessAssertion, "");
               if (assertionText.length() > 0) // does it have an Assertion property?
@@ -871,12 +874,12 @@ load() throws YouIdiot
                 er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, pr.file );
                 componentTypeParseRecord.port_typed_map.put(featureName, er.type);
                 }
-              else
-                {
-//PUT DOWN ERROR MARKER?
-                er.type = new BAST("TOP", BLESStoASTLexer.TOP, er.identifier);
-                componentTypeParseRecord.port_typed_map.put(featureName, null);
-                }
+//              else
+//                {
+////PUT DOWN ERROR MARKER?
+//                er.type = new BAST("TOP", BLESS3Lexer.TOP, er.identifier);
+//                componentTypeParseRecord.port_typed_map.put(featureName, null);
+//                }
               // add Assertion to map
               assertionText = LoadBLESS.getPropertyStringValue(p, blessAssertion, "");
               if (assertionText.length() > 0) // does it have an Assertion property?
@@ -923,10 +926,10 @@ load() throws YouIdiot
               {
               Property blessPrecondition = GetProperties.lookupPropertyDefinition(sst, "BLESS", "Precondition");
               if (blessPrecondition == null)
-                throw new YouIdiot("BLESS::Precondition property is null. \nRefresh, clean, then try again.");
+                throw new YouIdiot("BLESS::Precondition property of \""+sst.getQualifiedName()+"\" is null. \nRefresh, clean, then try again.");
               Property blessPostcondition = GetProperties.lookupPropertyDefinition(sst, "BLESS", "Postcondition");
               if (blessPostcondition == null)
-                throw new YouIdiot("BLESS::Postcondition property is null. \nRefresh, clean, then try again.");
+                throw new YouIdiot("BLESS::Postcondition property \""+sst.getQualifiedName()+"\" is null. \nRefresh, clean, then try again.");
               // initialize subprogram_access_map?
               if (componentTypeParseRecord.subprogram_access_map == null)
                 { componentTypeParseRecord.subprogram_access_map = new HashMap<String, SubprogramAccessFeature>(); }
@@ -974,7 +977,7 @@ load() throws YouIdiot
                     }
                   // put it in map, null if no Assertion property; rootOfAssertion will be null if
                   // no Assertion property
-                  if (rootOfAssertion.hasType(BLESStoASTLexer.ASSERTION) && (rootOfAssertion.getChildCount() == 1))
+                  if (rootOfAssertion.hasType(BLESS3Lexer.ASSERTION) && (rootOfAssertion.getChildCount() == 1))
                     {
                     saf.precondition = (BAST) rootOfAssertion.getChild(0);
                     }
@@ -987,7 +990,7 @@ load() throws YouIdiot
                   {
                   // throw new ProofException(
                   Dump.it((f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                      + " subprogram access feature \"" + featureName + "\" has no precondition for subprogram type \""
+                      + " subprogram access feature \"" + featureName + "\" of component type \""+ct.getQualifiedName()+"\"has no precondition for subprogram type \""
                       + sst.getName() + "\".");
                   }
                 } // done with precondition
@@ -995,7 +998,7 @@ load() throws YouIdiot
                 {
                 throw new YouIdiot(
                     (f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                        + " subprogram access feature \"" + featureName + "\" does not accept BLESS preconditions.");
+                        + " subprogram access feature \"" + featureName + "\" of component type \""+ct.getQualifiedName() + "\" does not accept BLESS preconditions.");
                 }
               // do postcondition
               if (sst.acceptsProperty(blessPostcondition)
@@ -1008,7 +1011,7 @@ load() throws YouIdiot
                   {
                   if (verbose())
                     {
-                    Dump.it("  subprogram access \"" + featureName + "\" has Postcondition property \"" + assertionText
+                    Dump.it("  subprogram access \"" + featureName + "\" of component type \""+ct.getQualifiedName()+ "\" has Postcondition property \"" + assertionText
                         + "\".");
                     }
                   try
@@ -1035,7 +1038,7 @@ load() throws YouIdiot
                     }
                   // put it in map, null if no Assertion property; rootOfAssertion will be null if
                   // no Assertion property
-                  if (rootOfAssertion.hasType(BLESStoASTLexer.ASSERTION) && (rootOfAssertion.getChildCount() == 1))
+                  if (rootOfAssertion.hasType(BLESS3Lexer.ASSERTION) && (rootOfAssertion.getChildCount() == 1))
                     {
                     saf.postcondition = (BAST) rootOfAssertion.getChild(0);
                     }
@@ -1056,7 +1059,7 @@ load() throws YouIdiot
                 {
                 throw new YouIdiot(
                     (f.getLocationReference() != null ? "On line " + f.getLocationReference().getLine() : "")
-                        + " subprogram access feature \"" + featureName + "\" does not accept BLESS postconditions.");
+                        + " subprogram access feature \"" + featureName  + "\" of component type \""+ct.getQualifiedName()+ "\" does not accept BLESS postconditions.");
                 }
               // load up map of formal parameters to their types
               if (verbose())              
@@ -1266,7 +1269,7 @@ load() throws YouIdiot
           {
           // defaultAnnexSubclause.getName() gets you the name
           String annexName = defaultAnnexSubclause.getName();
-          if (annexName.endsWith("subBLESS"))
+          if (annexName.endsWith("Action"))
             {
             try
               {
@@ -1281,17 +1284,17 @@ load() throws YouIdiot
               // assertions_in_library
               // set up ANTLR file reader
               CharStream        spec       = new ANTLRReaderStream(new StringReader(sourceText));
-              BLESStoASTLexer   lexer      = new BLESStoASTLexer(spec);
+              BLESS3Lexer   lexer      = new BLESS3Lexer(spec);
               CommonTokenStream tokens     = new CommonTokenStream();
-              BAST.tokens = tokens;
+ //             BAST.tokens = tokens;
               tokens.setTokenSource(lexer);
-              BLESStoASTParser parser = new BLESStoASTParser(tokens);
+              BLESS3Parser parser = new BLESS3Parser(tokens);
               parser.setTreeAdaptor(new BASTTreeAdaptor());
               parser.setStartingLine(AadlUtil.getLineNumberFor(defaultAnnexSubclause));
-              // okay, now parse it subprogram_behavior
-              rootOfASTofBLESSbehavior = parser.subprogram_behavior().getTree();
+              // okay, now parse it actionSubclause
+              rootOfASTofBLESSbehavior = parser.actionSubclause().getTree();
               // save AST in SubprogramRecord
-              sr                       = new SubprogramRecord(rootOfASTofBLESSbehavior, ci.getName(),
+              sr = new SubprogramRecord(rootOfASTofBLESSbehavior, ci.getName(),
                   ci.getImplementationName(), ci, pr);
               // make and BAST node in the tree find the SubprogramRecord at the
               // top
@@ -1370,7 +1373,7 @@ load() throws YouIdiot
             // BLESS::Typed property
             Global.data_type_map.put(ci.getQualifiedName(), rootOfTyped);
             // put enumeration literals into global set
-            if (rootOfTyped.hasType(BLESStoASTLexer.LITERAL_enumeration))
+            if (rootOfTyped.hasType(BLESS3Lexer.LITERAL_enumeration))
               {
               for (int e = 0; e < rootOfTyped.getChildCount(); e++)
                 {
@@ -1418,19 +1421,18 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
   throws RecognitionException
     {
 // set up ANTLR string reader
-    CharStream        spec   = new ANTLRStringStream(text);
-    BLESStoASTLexer   lexer  = new BLESStoASTLexer(spec);
+ //KLUDGE FOR MISSING formal=ID IN INVOCATION
+    CharStream spec = new ANTLRStringStream(text.replace(":=", "%%%").replace(":", " : ").replace("%%%", ":="));
+    BLESS3Lexer lexer = new BLESS3Lexer(spec);
     CommonTokenStream tokens = new CommonTokenStream();
-    BAST.tokens = tokens;
+//    BAST.tokens = tokens;
     tokens.setTokenSource(lexer);
 
-    BLESStoASTParser parser = new BLESStoASTParser(tokens);
+    BLESS3Parser parser = new BLESS3Parser(tokens);
     parser.setStartingLine(line);
     parser.setTreeAdaptor(new BASTTreeAdaptor());
     parser.currentPackageRecord = pr;
 //parser.putAssertionsIntoMap = putAssertionsIntoMap; // put Assertions found into map?
-// parser.setLine(line);
-// parser.setColumn(column);
     BAST tb = null;
 //   try {
     tb = parser.assertion().getTree();
@@ -1440,52 +1442,36 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
 //      }
     return tb;
     } // end of parseAssertion
-
-//  public static BAST 
-//parseAssertion(String text, int line, int column, IResource rsrc)
-//      throws RecognitionException
-//    {
-//    MarkerParseErrorReporter errorReporter = new MarkerParseErrorReporter(rsrc, "assertion");
-//    if (text.matches(namedassertion))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamedAssertion(text,
-//          "",line,column,errorReporter));
-//    if (text.matches(namelessfunction))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamelessFunction(text,
-//          "",line,column,errorReporter));
-//    if (text.matches(namelessenumeration))
-//      return ToAST.TOAST.toAST(BlessAnnexParser.eINSTANCE.parseNamelessEnumeration(text,
-//          "",line,column,errorReporter));
-//    NamelessAssertion na = BlessAnnexParser.eINSTANCE.parseNamelessAssertion(text,
-//        "",line,column,errorReporter);
-//    if (na != null)
-//      return ToAST.TOAST.toAST(na);
-//    throw new YouIdiot("Assertion \"" + text + "\" at line " + line + " is ungrammatical.");
-//    } // end of parseAssertion
   
   public static BAST parseTyped(String text, int line, int column, IResource rsrc) 
       throws RecognitionException, YouIdiot
     {
-    if (TypeAnnexParser.eINSTANCE == null)
-       new TypeAnnexParser();
-//    if (rsrc == null)
-//      throw new YouIdiot("Null IResource (file) passed to parseTyped");
-    if (text == null)
-      throw new YouIdiot("Null text passed to parseTyped");
-//   MarkerParseErrorReporter errorReporter = new MarkerParseErrorReporter(rsrc, "type");
-//look for type identifiers
-//    if (text.matches(idregex))
-//      return new BAST(text, BLESStoASTLexer.ID,line); 
-//    if (TypeAnnexParser.eINSTANCE == null)
-//      tap = new com.multitude.aadl.bless.parsing.TypeAnnexParser();
-//    
-//  WORKAROUND  change column to line => see issue #2713
-    TypeOrReference t = TypeAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,line, //errorReporter
-        (rsrc == null ? null : new MarkerParseErrorReporter(rsrc, "type")));
-//    TypeOrReference t = TypeAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,column,errorReporter);
-//    Type t = TypeAnnexParser.eINSTANCE.parseType(text,"",line,column,errorReporter);
-    if (t == null)
-      throw new YouIdiot("Type \"" + text + "\" at line " + line + " is ungrammatical.");
-    return ToAST.TOAST.toAST(t);
+    CharStream spec;
+    try
+      {
+      spec = new ANTLRReaderStream(new StringReader(text));
+      }
+    catch (IOException e)
+      {
+      throw new YouIdiot(e);
+      }
+    BLESS3Lexer   lexer      = new BLESS3Lexer(spec);
+    CommonTokenStream tokens     = new CommonTokenStream();
+//    BAST.tokens = tokens;
+    tokens.setTokenSource(lexer);
+    BLESS3Parser parser = new BLESS3Parser(tokens);
+    parser.setTreeAdaptor(new BASTTreeAdaptor());
+    parser.setStartingLine(line);
+    BAST result = parser.typeOrReference().getTree();
+    return result;
+    
+//    if (text == null)
+//      throw new YouIdiot("Null text passed to parseTyped");
+//    TypeOrReference t = BlessAnnexParser.eINSTANCE.parseTypeOrReference(text,"",line,line, //errorReporter
+//        (rsrc == null ? null : new MarkerParseErrorReporter(rsrc, "type")));
+//    if (t == null)
+//      throw new YouIdiot("Type \"" + text + "\" at line " + line + " is ungrammatical.");
+//    return ToAST.TOAST.toAST(t);
     } // end of parseTyped
 
   /**
@@ -1522,7 +1508,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
 //			// if (ps.getName().equalsIgnoreCase("Plugin_Resources"))
 //			// {Dump.it("Plugin_Resources not loaded.");}
 //			// else
-//			BAST psrRoot = new BAST(psi.getName(), BLESStoASTLexer.DUMMY, getLine(psod));
+//			BAST psrRoot = new BAST(psi.getName(), BLESS3Lexer.DUMMY, getLine(psod));
 //			// create a BLESS PropertySetRecord, put in Model.addPropertySet automatically
 //			PropertySetRecord psr = new PropertySetRecord(psrRoot, psi.getName(), psi, null);
 //			// put it in compilation units
@@ -1551,7 +1537,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
 //					}
 //				} // done with property types
 //			// now do property values
-////    BAST propRoot = new BAST(psi.getName(),BLESStoASTLexer.DUMMY,getLine(psod));
+////    BAST propRoot = new BAST(psi.getName(),BLESS3Lexer.DUMMY,getLine(psod));
 //			EList<Property> propertylist = psi.getOwnedProperties();
 //			for (Property prop : propertylist)
 //				{
@@ -1618,48 +1604,50 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
     // boolean
     if (pt instanceof AadlBoolean)
       {
-      resultTree = new BAST("boolean", BLESStoASTLexer.LITERAL_boolean, getLine(pt));
+      resultTree = new BAST("boolean", BLESS3Lexer.LITERAL_boolean, getLine(pt));
       }
     // integer
     else if (pt instanceof AadlInteger)
       {
-      resultTree = new BAST("integer", BLESStoASTLexer.LITERAL_integer, getLine(pt));
+      resultTree = new BAST("quantity", BLESS3Lexer.LITERAL_quantity, getLine(pt));
+      resultTree.addChild(new BAST("whole", BLESS3Lexer.LITERAL_whole, getLine(pt)));
       }
     // string
     else if (pt instanceof StringLiteral)
       {
-      resultTree = new BAST("string", BLESStoASTLexer.LITERAL_string, getLine(pt));
+      resultTree = new BAST("string", BLESS3Lexer.LITERAL_string, getLine(pt));
       }
     else if (pt instanceof AadlString)
       {
-      resultTree = new BAST("string", BLESStoASTLexer.LITERAL_string, getLine(pt));
+      resultTree = new BAST("string", BLESS3Lexer.LITERAL_string, getLine(pt));
       }
     // real
     else if (pt instanceof AadlReal)
       {
-      resultTree = new BAST("real", BLESStoASTLexer.LITERAL_real, getLine(pt));
+      resultTree = new BAST("real", BLESS3Lexer.LITERAL_quantity, getLine(pt));
+      resultTree.addChild(new BAST("scalar", BLESS3Lexer.LITERAL_scalar, getLine(pt)));
       }
     // enumeration
     else if (pt instanceof EnumerationType)
       {
-      resultTree = new BAST("enumeration", BLESStoASTLexer.LITERAL_enumeration, getLine(pt));
+      resultTree = new BAST("enumeration", BLESS3Lexer.LITERAL_enumeration, getLine(pt));
       // then add children for enumeration literals
       EnumerationType et = (EnumerationType) pt;
       for (NamedElement ch : et.getOwnedMembers())
         { // make a BAST for the enum literal and attach it to the tree
-        resultTree.addChild(new BAST(ch.getName(), BLESStoASTLexer.ID, getLine(pt)));
+        resultTree.addChild(new BAST(ch.getName(), BLESS3Lexer.ID, getLine(pt)));
         } // done with enumeration literals
       } // done with enumeration type
     // is list type enumeration??? or array?
     else if (pt instanceof ListType)
       {
-      resultTree = new BAST("enumeration", BLESStoASTLexer.LITERAL_enumeration, getLine(pt));
+      resultTree = new BAST("enumeration", BLESS3Lexer.LITERAL_enumeration, getLine(pt));
       }
 //record_type : LITERAL_record^ LPAREN! record_field+ RPAREN!
 //record_field : identifier COLON^ type SEMICOLON!
     else if (pt instanceof RecordType)
       {
-      resultTree = new BAST("record", BLESStoASTLexer.LITERAL_record, getLine(pt));
+      resultTree = new BAST("record", BLESS3Lexer.LITERAL_record, getLine(pt));
       // put record fields on "record" root
       RecordType pcr = (RecordType) pt;
       EList<BasicProperty> ownedFieldsList = pcr.getOwnedFields();
@@ -1673,7 +1661,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
       } // done with record type
     else if (pt instanceof UnitsType)
       {
-      resultTree = new BAST("units", BLESStoASTLexer.LITERAL_units, getLine(pt));
+      resultTree = new BAST("units", BLESS3Lexer.LITERAL_units, getLine(pt));
       // add units tree
 //units_type :LITERAL_units^ units_list
 //units_list : lp=LPAREN /*defining_unit_*/first_unit=identifier  ( COMMA au+=another_unit )* RPAREN
@@ -1683,7 +1671,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
 //| LITERAL_range^ LITERAL_of! /*number_*/unique_property_type_name
     else if (pt instanceof RangeType)
       {
-      resultTree = new BAST("range", BLESStoASTLexer.LITERAL_range, getLine(pt));
+      resultTree = new BAST("range", BLESS3Lexer.LITERAL_range, getLine(pt));
       // then add children for either property_number_type or unique_property_type_name ??
       RangeType rt = (RangeType) pt;
 //need to find range domain
@@ -1692,7 +1680,7 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
       } // done with range type
     else if (pt instanceof NumericRange)
       {
-      resultTree = new BAST("range", BLESStoASTLexer.LITERAL_range, getLine(pt));
+      resultTree = new BAST("range", BLESS3Lexer.LITERAL_range, getLine(pt));
       // then add children for either
 //   range_type : LITERAL_range^ LITERAL_of! property_number_type
 //    | LITERAL_range^ LITERAL_of! /*number_*/unique_property_type_name
@@ -1702,10 +1690,10 @@ parseAssertion(String text, int line, int column, boolean putAssertionsIntoMap, 
       } // done with NUMERIC range type
     else if (pt instanceof ReferenceType)
       {
-      resultTree = new BAST("ReferenceType", BLESStoASTLexer.DUMMY, getLine(pt));
+      resultTree = new BAST("ReferenceType", BLESS3Lexer.DUMMY, getLine(pt));
       }
     else if (pt instanceof ClassifierType)
-      { resultTree = new BAST("ClassifierType", BLESStoASTLexer.DUMMY, getLine(pt)); }
+      { resultTree = new BAST("ClassifierType", BLESS3Lexer.DUMMY, getLine(pt)); }
     return resultTree;
     } // end of getTypeTree
 

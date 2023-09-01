@@ -3,7 +3,7 @@ package com.multitude.bless.codegeneration;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.tree.BAST;
 
@@ -17,22 +17,23 @@ public TimeoutRecord(){};
     StringBuffer sb = new StringBuffer("timeout_");
 //load reset ports
     resetPorts = new ArrayList<BAST>();
-    for (int ch = 1; ((BAST) t.getChild(ch)).hasType(BLESStoASTLexer.ID); ch++)
+    for (int ch = 1; (ch<t.getChildCount()) && ((BAST) t.getChild(ch)).hasType(BLESS3Lexer.ID); ch++)
       {
       resetPorts.add((BAST) t.getChild(ch));
       sb.append(t.getChild(ch).getText() + "_");
       }
     BAST behavior_time = (BAST) t.getChild(t.getChildCount() - 1);
     BAST e = (BAST) behavior_time.getChild(0);
-    if (e.getChildCount() > 0)
-      {
-      Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
-      }
-    else
-      {
-      duration = e.getText();
-      sb.append(duration);
-      }
+    if (e != null)
+//      if (e.getChildCount() > 0)
+//        {
+//        Dump.it("Please don't use expressions for timeout durations!" + e.toStringTree());
+//        }
+//      else
+        {
+        duration = e.getText();
+        sb.append(duration);
+        }
     timeUnit = ((BAST) behavior_time.getChild(0)).getText();
     timeoutPortId = sb.toString();
     }

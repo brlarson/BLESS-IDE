@@ -5,7 +5,7 @@ tree grammar GetTimeouts;
 
 options
 {
-tokenVocab=BLESStoAST;
+tokenVocab=BLESS3;
 ASTLabelType=BAST;
 output=AST;
 filter=true;  //tree pattern matching mode

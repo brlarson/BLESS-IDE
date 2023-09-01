@@ -20,6 +20,12 @@ type Float_32 is quantity scalar representation BLESS_Properties::Float_32
 type Float_64 is quantity scalar representation BLESS_Properties::Float_64
 **};
 
+--annex Assertion
+--{**
+--<<  -- most-recent; ts is the most-recent timestamp which e was true
+--  MR: e~boolean, ts~time : e@ts and not (exists t~time in ts,,now that e@t) >>
+--**};
+
 data flag extends Base_Types::Boolean --boolean flag
   properties
     BLESS::Typed=>"boolean";

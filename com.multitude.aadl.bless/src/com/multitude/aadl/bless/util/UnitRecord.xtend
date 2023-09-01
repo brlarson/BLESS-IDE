@@ -5,6 +5,7 @@ import java.util.ArrayList
 import java.util.Iterator
 import java.util.List
 import org.eclipse.emf.common.util.EList
+import com.multitude.aadl.bless.exception.ValidationException
 
 class UnitRecord
 {
@@ -60,8 +61,20 @@ class UnitRecord
 		isBase = isbase
     myUnit = myunit
 		rootUnit = rootunit
-		top = t
-		bottom = b
+    if(t !== null)
+    {
+      for (un : t)
+      {
+        top.add(un)
+      }
+    }
+    if(b !== null)
+    {
+      for (un : b)
+      {
+        bottom.add(un)
+      }
+    }
 		isScalar = isscalar
 		multiplyFactor = mult
 		divideFactor = div
@@ -105,10 +118,10 @@ class UnitRecord
 
 	def void multiply(UnitRecord ur)
 	{
-		if(ur.isScalar)
-		{
-			return;
-		}
+//		if(ur.isScalar)
+//		{
+//			return;
+//		}
 		top.addAll(ur.top)
 		bottom.addAll(ur.bottom)
 		removeCommonUnits()
@@ -138,6 +151,9 @@ class UnitRecord
 
 	def boolean matchTopAndBottom(UnitRecord ur)
 	{
+	  try {
+	  if (ur===null)
+	    throw new ValidationException("null unit record passed to UnitRecord.matchTopAndBottom")
     if(notANumber && ur.notANumber)
       return true
     if(notANumber && !ur.notANumber)
@@ -172,6 +188,9 @@ class UnitRecord
 		for (var int b = 0; b < bottom.size(); b++)
 			if(!bottom.get(b).contentEquals(ur.bottom.get(b)))
 				return false
+		}
+		catch (ValidationException yi) {yi.handleException}
+		catch (Exception ex) {ex.printStackTrace}
 		return true
 	}
 

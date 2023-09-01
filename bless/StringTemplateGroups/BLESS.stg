@@ -125,7 +125,7 @@ declarators(d,ds) ::=
   "<d>,<ds; separator=\",\">"
 
 disjunction(bopt) ::=
-  "<bopt; wrap, anchor,  separator=\"\n or \">"
+  "<bopt; wrap, separator=\" or \">"
 
 dispatch_condition(dle) ::= "on dispatch <dle>"
 
@@ -228,13 +228,13 @@ logic_variable_domain(i,l,h,rs) ::=
 logic_variable_domain2(i2,p) ::=
 "<i2> <p>"
 
-l_and(bs) ::= "<bs; anchor, wrap, separator=\"\n and \">"
+l_and(bs) ::= "<bs; anchor, wrap, separator=\" and \">"
 
 l_cand(bs) ::= "<bs; anchor, wrap, separator=\" and then \">"
 
 l_cor(bs) ::= "<bs; anchor, wrap, separator=\" or else \">"
 
-l_or(bs) ::= "<bs; anchor, wrap, separator=\"\n or \">"
+l_or(bs) ::= "<bs; anchor, wrap, separator=\" or \">"
 
 l_xor(bs) ::= "<bs; anchor, wrap, separator=\" xor \">"
 
@@ -269,7 +269,7 @@ number_type(nr,ud,nw) ::=
 number_type_plain(n)::="<n>"
 
 or(terms) ::=
-  "<terms; wrap, separator=\" or \n\">" 
+  "<terms; wrap, separator=\" or \">" 
 
 parameter_spec(dpi,io,uccr,mpa)::=
   "<dpi>: <io> parameter <uccr> <if(mpa)><\n>  { <mpa; separator=\"\n  \">}<endif>;"

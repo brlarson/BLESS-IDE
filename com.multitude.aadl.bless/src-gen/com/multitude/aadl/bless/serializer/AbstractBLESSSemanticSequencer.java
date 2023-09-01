@@ -1062,7 +1062,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns BehaviorTime
 	 *
 	 * Constraint:
-	 *     (quantity=Quantity | value=ValueName | duration=ParenthesizedSubexpression)
+	 *     (quantity=Quantity | (value=ValueName (unit=[UnitName|ID] | scalar='scalar' | whole='whole')?))
 	 * </pre>
 	 */
 	protected void sequence_BehaviorTime(ISerializationContext context, BehaviorTime semanticObject) {
@@ -1558,7 +1558,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns EventTrigger
 	 *
 	 * Constraint:
-	 *     ((sub+=ID sub+=ID* port=[NamedElement|ID] index=NUMBER?) | tle=TriggerLogicalExpression)
+	 *     ((sub+=ID sub+=ID* sub+=ID index=NUMBER?) | tle=TriggerLogicalExpression)
 	 * </pre>
 	 */
 	protected void sequence_EventTrigger(ISerializationContext context, EventTrigger semanticObject) {
@@ -2076,7 +2076,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns MultDiv
 	 *
 	 * Constraint:
-	 *     (l=Exp (((sym='/' | sym='div' | sym='mod' | sym='rem') r+=Exp) | (sym=TIMES r+=Exp r+=Exp*))?)
+	 *     (l=Exp (((sym='/' | sym='div' | sym='mod' | sym='rem') r+=Exp) | (sym='*' r+=Exp r+=Exp*))?)
 	 * </pre>
 	 */
 	protected void sequence_MultDiv(ISerializationContext context, MultDiv semanticObject) {
@@ -2193,6 +2193,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 * <pre>
 	 * Contexts:
 	 *     NullType returns NullType
+	 *     Element returns NullType
 	 *     Type returns NullType
 	 *
 	 * Constraint:
@@ -2442,7 +2443,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Type returns QuantityType
 	 *
 	 * Constraint:
-	 *     ((unit=[UnitName|ID] | scalar?='scalar' | whole?='whole') (lb=ANumber ub=ANumber)? step=ANumber? representation=[PropertyConstant|QCLREF]?)
+	 *     ((unit=[UnitName|ID] | scalar='scalar' | whole='whole') (lb=ANumber ub=ANumber)? step=ANumber? representation=[PropertyConstant|QCLREF]?)
 	 * </pre>
 	 */
 	protected void sequence_QuantityType(ISerializationContext context, QuantityType semanticObject) {
@@ -2457,7 +2458,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns Quantity
 	 *
 	 * Constraint:
-	 *     (number=ANumber (unit=[UnitName|ID] | scalar?='scalar' | whole?='whole')?)
+	 *     (number=ANumber (unit=[UnitName|ID] | scalar='scalar' | whole='whole')?)
 	 * </pre>
 	 */
 	protected void sequence_Quantity(ISerializationContext context, Quantity semanticObject) {

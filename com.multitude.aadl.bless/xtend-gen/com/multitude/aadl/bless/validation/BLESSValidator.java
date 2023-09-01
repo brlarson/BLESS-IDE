@@ -5,8 +5,8 @@ package com.multitude.aadl.bless.validation;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
-import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.ANumber;
+import com.multitude.aadl.bless.bLESS.ActualParameter;
 import com.multitude.aadl.bless.bLESS.AddSub;
 import com.multitude.aadl.bless.bLESS.ArrayRange;
 import com.multitude.aadl.bless.bLESS.ArrayType;
@@ -99,7 +99,7 @@ import com.multitude.aadl.bless.bLESS.Variable;
 import com.multitude.aadl.bless.bLESS.VariableDeclaration;
 import com.multitude.aadl.bless.bLESS.VariableList;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
-import com.multitude.aadl.bless.maps.BlessMaps;
+import com.multitude.aadl.bless.exception.ValidationException;
 import com.multitude.aadl.bless.scoping.BlessIndex;
 import com.multitude.aadl.bless.util.BlessUtil;
 import com.multitude.aadl.bless.util.TypeUtil;
@@ -114,34 +114,23 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.osate.aadl2.AadlInteger;
-import org.osate.aadl2.AadlReal;
-import org.osate.aadl2.AbstractNamedValue;
 import org.osate.aadl2.CalledSubprogram;
 import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.DataPort;
 import org.osate.aadl2.EventDataPort;
 import org.osate.aadl2.EventPort;
 import org.osate.aadl2.Feature;
-import org.osate.aadl2.IntegerLiteral;
 import org.osate.aadl2.Mode;
 import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.NamedValue;
 import org.osate.aadl2.Parameter;
-import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyConstant;
-import org.osate.aadl2.PropertyExpression;
-import org.osate.aadl2.PropertyType;
-import org.osate.aadl2.RangeValue;
-import org.osate.aadl2.RealLiteral;
 import org.osate.aadl2.SubprogramSubcomponent;
 import org.osate.aadl2.SubprogramSubcomponentType;
-import org.osate.aadl2.UnitLiteral;
 import org.osate.aadl2.impl.SubprogramTypeImpl;
 
 /**
@@ -175,6 +164,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
   protected boolean isResponsible(final Map<Object, Object> context, final EObject eObject) {
     EPackage _ePackage = eObject.eClass().getEPackage();
     return Objects.equal(_ePackage, BLESSPackage.eINSTANCE);
+  }
+
+  @Override
+  protected void handleExceptionDuringValidation(final Throwable targetException) {
+    targetException.printStackTrace();
   }
 
   public void fError(final String message, final EObject source, final EStructuralFeature feature) {
@@ -226,7 +220,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_inv!=null) {
       _namedassertion=_inv.getNamedassertion();
     }
-    VariableList _formals = _namedassertion.getFormals();
+    VariableList _formals = null;
+    if (_namedassertion!=null) {
+      _formals=_namedassertion.getFormals();
+    }
     boolean _tripleNotEquals = (_formals != null);
     if (_tripleNotEquals) {
       this.fError("Assertions used as invariants must not have parameters.", ic.getInv().getNamedassertion(), 
@@ -241,21 +238,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (_not) {
       this.fError("Unit factors must be positive", uf, 
         BLESSPackage.eINSTANCE.getUnitFactor_Factor());
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkQuantityLiteralLackingUnitIsWhole(final Constant c) {
-    Quantity _numeric_constant = c.getNumeric_constant();
-    boolean _tripleNotEquals = (_numeric_constant != null);
-    if (_tripleNotEquals) {
-      if ((((!c.getNumeric_constant().isScalar()) && (!c.getNumeric_constant().isWhole())) && (c.getNumeric_constant().getUnit() == null))) {
-        boolean _contains = c.getNumeric_constant().getNumber().getLit().contains(".");
-        if (_contains) {
-          this.warning("quantity literal lacking unit must be integer", c, 
-            BLESSPackage.eINSTANCE.getConstant_Numeric_constant());
-        }
-      }
     }
   }
 
@@ -491,7 +473,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public void checkThatAssertionFunctionHasCompatibleUnits(final NamedAssertion a) {
     boolean _isFunc = a.isFunc();
     if (_isFunc) {
-      boolean _sameStructuralType = this._typeUtil.sameStructuralType(this._typeUtil.getType(a.getTod()), this.getType(a.getFunctionvalue()));
+      boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(a.getTod()), this.getType(a.getFunctionvalue()));
       boolean _not = (!_sameStructuralType);
       if (_not) {
         this.fError("Operands of assertion functions must have compatible types", a, 
@@ -538,33 +520,17 @@ public class BLESSValidator extends AbstractBLESSValidator {
       this.fError("Assertions must have boolean predicates.", n, 
         BLESSPackage.eINSTANCE.getNamedAssertion_Predicate(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
     }
-    if ((n.isFunc() && (!this._typeUtil.sameStructuralType(this.getType(n.getFunctionvalue()), this._typeUtil.getType(n.getTod()))))) {
+    if ((n.isFunc() && (!this._typeUtil.sameStructuralType(this.getType(n.getFunctionvalue()), this.getType(n.getTod()))))) {
       this.fError("Assertion functions must match their types.", n, 
         BLESSPackage.eINSTANCE.getNamedAssertion_Tod(), IssueCodes.MISMATCHED_UNITS);
     }
   }
 
   @Check(CheckType.NORMAL)
-  public void checkPortOutput(final PortOutput o) {
-    boolean _outgoing = o.getPort().getDirection().outgoing();
-    boolean _not = (!_outgoing);
-    if (_not) {
-      this.fError("Port output of port that is not \'out\'.", o, 
-        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortInput(final PortInput n) {
+  public void checkPortInputTarget(final PortInput n) {
     if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
       this.fError("Target of port input must be a variable name.", n, 
         BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
-    }
-    boolean _incoming = n.getPort().getDirection().incoming();
-    boolean _not = (!_incoming);
-    if (_not) {
-      this.fError("Port input of port that is not \'in\'.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
   }
 
@@ -624,9 +590,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
         AddSub _l_1 = r.getL();
         final Type ty = this.getType(((ValueName) _l_1));
         if ((ty instanceof QuantityType)) {
-          boolean _isWhole = ((QuantityType) ty).isWhole();
-          boolean _not = (!_isWhole);
-          if (_not) {
+          String _whole = ((QuantityType) ty).getWhole();
+          boolean _tripleNotEquals = (_whole != null);
+          if (_tripleNotEquals) {
             this.fError("+= only apples to whole variables.", r, 
               BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
           }
@@ -651,17 +617,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkSubProgramParameterValue(final SubProgramParameter n) {
-    if ((((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated())) {
+    if (((n.getValue() != null) && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
       this.fError("Subprogram parameters may not be port input.", n, 
         BLESSPackage.eINSTANCE.getSubProgramParameter_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkBehaviorTimeValue(final BehaviorTime n) {
-    if ((((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated())) {
-      this.fError("Behavior time may not be port input.", n, 
-        BLESSPackage.eINSTANCE.getBehaviorTime_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
   }
 
@@ -727,6 +685,298 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void checkNamedAssertionHasNoNow(final Value v) {
+    String _now = v.getNow();
+    boolean _tripleNotEquals = (_now != null);
+    if (_tripleNotEquals) {
+      EObject p = v.eContainer();
+      while (((p != null) && (!(p instanceof NamedAssertion)))) {
+        p = p.eContainer();
+      }
+      if ((p != null)) {
+        this.fWarning("Don\'t use \"now\" in named assertions.", v, 
+          BLESSPackage.eINSTANCE.getValue_Now(), IssueCodes.NOW_IN_NAMED_ASSERTION);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkNamedAssertionInvocation(final Invocation i) {
+    String _assertionvariable = i.getLabel().getAssertionvariable();
+    boolean _tripleNotEquals = (_assertionvariable != null);
+    if (_tripleNotEquals) {
+      int _size = i.getParams().size();
+      boolean _notEquals = (_size != 1);
+      if (_notEquals) {
+        this.fError("Assertion enumeration invocation must have a single value.", i, 
+          BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+      } else {
+        Expression _actual = IterableExtensions.<ActualParameter>head(i.getParams()).getActual();
+        Disjunction _l = null;
+        if (_actual!=null) {
+          _l=_actual.getL();
+        }
+        Conjunction _l_1 = null;
+        if (_l!=null) {
+          _l_1=_l.getL();
+        }
+        Relation _l_2 = null;
+        if (_l_1!=null) {
+          _l_2=_l_1.getL();
+        }
+        AddSub _l_3 = null;
+        if (_l_2!=null) {
+          _l_3=_l_2.getL();
+        }
+        MultDiv _l_4 = null;
+        if (_l_3!=null) {
+          _l_4=_l_3.getL();
+        }
+        Exp _l_5 = null;
+        if (_l_4!=null) {
+          _l_5=_l_4.getL();
+        }
+        Subexpression _l_6 = null;
+        if (_l_5!=null) {
+          _l_6=_l_5.getL();
+        }
+        TimedExpression _timed_expression = null;
+        if (_l_6!=null) {
+          _timed_expression=_l_6.getTimed_expression();
+        }
+        TimedSubject _subject = null;
+        if (_timed_expression!=null) {
+          _subject=_timed_expression.getSubject();
+        }
+        Value _value = null;
+        if (_subject!=null) {
+          _value=_subject.getValue();
+        }
+        EnumerationValue _enum_val = null;
+        if (_value!=null) {
+          _enum_val=_value.getEnum_val();
+        }
+        final EnumerationValue vd = _enum_val;
+        if ((!(vd instanceof EnumerationValue))) {
+          this.fError("Parameter for assertion enumeration invocation must be enumeration value.", i, 
+            BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+        } else {
+          String _name = ((EnumerationValue) vd).getEnumeration_type().getName();
+          String _name_1 = i.getLabel().getEnumerationType().getName();
+          boolean _notEquals_1 = (!Objects.equal(_name, _name_1));
+          if (_notEquals_1) {
+            String _name_2 = ((EnumerationValue) vd).getEnumeration_type().getName();
+            String _plus = ("Parameter for assertion enumeration invocation must have the same enumeration type: " + _name_2);
+            String _plus_1 = (_plus + " is not ");
+            String _name_3 = i.getLabel().getEnumerationType().getName();
+            String _plus_2 = (_plus_1 + _name_3);
+            String _plus_3 = (_plus_2 + ".");
+            this.fError(_plus_3, i, 
+              BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+          }
+        }
+      }
+    } else {
+      VariableList _formals = i.getLabel().getFormals();
+      boolean _tripleEquals = (_formals == null);
+      if (_tripleEquals) {
+        if (((i.getParams() != null) && (i.getParams().size() > 0))) {
+          this.fError("Invoked assertion has no parameters.", i, 
+            BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+        } else {
+          NumericExpression _actual_parameter = i.getActual_parameter();
+          boolean _tripleNotEquals_1 = (_actual_parameter != null);
+          if (_tripleNotEquals_1) {
+            this.fError("Invoked assertion has no parameters.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+          }
+        }
+      } else {
+        NumericExpression _actual_parameter_1 = i.getActual_parameter();
+        boolean _tripleNotEquals_2 = (_actual_parameter_1 != null);
+        if (_tripleNotEquals_2) {
+          if (((i.getLabel().getFormals().getParameter() != null) && (i.getLabel().getFormals().getParameter().size() > 0))) {
+            this.fError("Invoked assertion has more than one parameter.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+          }
+          NumericExpression _actual_parameter_2 = i.getActual_parameter();
+          final Type actualType = this.getType(((Expression) _actual_parameter_2));
+          final Type formalType = this.getType(i.getLabel().getFormals().getFirst());
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(actualType, formalType);
+          boolean _not = (!_sameStructuralType);
+          if (_not) {
+            this.fError("Invocation parameter type mismatch.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+          }
+          if ((this.isQuantity(actualType) && this.isQuantity(formalType))) {
+            final QuantityType actualQuantity = ((QuantityType) actualType);
+            final QuantityType formalQuantity = ((QuantityType) formalType);
+            if (((actualQuantity.getWhole() != null) && (formalQuantity.getWhole() == null))) {
+              this.fError("Invocation actual parameter is whole, but it\'s formal parameter is not.", i, 
+                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+            }
+            if (((actualQuantity.getScalar() != null) && (formalQuantity.getScalar() == null))) {
+              this.fError("Invocation actual parameter is scalar, but it\'s formal parameter is not.", i, 
+                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+            }
+            if (((actualQuantity.getUnit() != null) && (formalQuantity.getUnit() == null))) {
+              this.fError("Invocation actual parameter has a unit, but it\'s formal parameter does not.", i, 
+                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+            }
+            if ((((actualQuantity.getUnit() != null) && (formalQuantity.getUnit() != null)) && (!this._unitUtil.sameUnitRoot(actualQuantity.getUnit(), formalQuantity.getUnit())))) {
+              String _name_4 = actualQuantity.getUnit().getName();
+              String _plus_4 = ("Invocation parameter unit mismatch; " + _name_4);
+              String _plus_5 = (_plus_4 + " is not ");
+              String _name_5 = formalQuantity.getUnit().getName();
+              String _plus_6 = (_plus_5 + _name_5);
+              this.fError(_plus_6, i, 
+                BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.ASSERTION_INVOCATION);
+            }
+          }
+        } else {
+          EList<Variable> _parameter = i.getLabel().getFormals().getParameter();
+          boolean _tripleEquals_1 = (_parameter == null);
+          if (_tripleEquals_1) {
+            this.fError("Invocation has more parameters than assertion.", i, 
+              BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+          } else {
+            int _size_1 = i.getLabel().getFormals().getParameter().size();
+            int _plus_7 = (_size_1 + 1);
+            int _size_2 = i.getParams().size();
+            boolean _greaterThan = (_plus_7 > _size_2);
+            if (_greaterThan) {
+              this.fError("Invocation has fewer parameters than assertion.", i, 
+                BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+            } else {
+              int _size_3 = i.getLabel().getFormals().getParameter().size();
+              int _plus_8 = (_size_3 + 1);
+              int _size_4 = i.getParams().size();
+              boolean _lessThan = (_plus_8 < _size_4);
+              if (_lessThan) {
+                this.fError("Invocation has more parameters than assertion.", i, 
+                  BLESSPackage.eINSTANCE.getInvocation_Params(), IssueCodes.ASSERTION_INVOCATION);
+              } else {
+                EList<ActualParameter> _params = i.getParams();
+                for (final ActualParameter param : _params) {
+                  {
+                    boolean found = false;
+                    String _name_6 = i.getLabel().getFormals().getFirst().getName();
+                    String _formal = param.getFormal();
+                    boolean _equals = Objects.equal(_name_6, _formal);
+                    if (_equals) {
+                      found = true;
+                      boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(i.getLabel().getFormals().getFirst()), this.getType(param.getActual()));
+                      boolean _not_1 = (!_sameStructuralType_1);
+                      if (_not_1) {
+                        String _formal_1 = param.getFormal();
+                        String _plus_9 = ("Invocation parameter \"" + _formal_1);
+                        String _plus_10 = (_plus_9 + "\" type mismatch: ");
+                        String _name_7 = i.getLabel().getFormals().getFirst().getName();
+                        String _plus_11 = (_plus_10 + _name_7);
+                        String _plus_12 = (_plus_11 + "~");
+                        String _typeString = this._typeUtil.typeString(this.getType(i.getLabel().getFormals().getFirst()));
+                        String _plus_13 = (_plus_12 + _typeString);
+                        String _plus_14 = (_plus_13 + 
+                          " is not ");
+                        String _formal_2 = param.getFormal();
+                        String _plus_15 = (_plus_14 + _formal_2);
+                        String _plus_16 = (_plus_15 + "~");
+                        String _typeString_1 = this._typeUtil.typeString(this.getType(param.getActual()));
+                        String _plus_17 = (_plus_16 + _typeString_1);
+                        this.fError(_plus_17, param, 
+                          BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                      } else {
+                        if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(i.getLabel().getFormals().getFirst()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod()))))) {
+                          String _formal_3 = param.getFormal();
+                          String _plus_18 = ("Invocation parameter \"" + _formal_3);
+                          String _plus_19 = (_plus_18 + "\" unit mismatch: ");
+                          String _name_8 = i.getLabel().getFormals().getFirst().getName();
+                          String _plus_20 = (_plus_19 + _name_8);
+                          String _plus_21 = (_plus_20 + "~");
+                          UnitRecord _unitRecord = this.getUnitRecord(i.getLabel().getFormals().getFirst().getTod());
+                          String _plus_22 = (_plus_21 + _unitRecord);
+                          String _plus_23 = (_plus_22 + 
+                            " is not ");
+                          String _formal_4 = param.getFormal();
+                          String _plus_24 = (_plus_23 + _formal_4);
+                          String _plus_25 = (_plus_24 + "~");
+                          UnitRecord _unitRecord_1 = this.getUnitRecord(param.getActual());
+                          String _plus_26 = (_plus_25 + _unitRecord_1);
+                          this.fError(_plus_26, param, 
+                            BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                        }
+                      }
+                    }
+                    EList<Variable> _parameter_1 = i.getLabel().getFormals().getParameter();
+                    for (final Variable formal : _parameter_1) {
+                      String _name_9 = formal.getName();
+                      String _formal_5 = param.getFormal();
+                      boolean _equals_1 = Objects.equal(_name_9, _formal_5);
+                      if (_equals_1) {
+                        found = true;
+                        boolean _sameStructuralType_2 = this._typeUtil.sameStructuralType(this.getType(formal.getTod()), this.getType(param.getActual()));
+                        boolean _not_2 = (!_sameStructuralType_2);
+                        if (_not_2) {
+                          String _formal_6 = param.getFormal();
+                          String _plus_27 = ("Invocation parameter \"" + _formal_6);
+                          String _plus_28 = (_plus_27 + "\" type mismatch: ");
+                          String _name_10 = formal.getName();
+                          String _plus_29 = (_plus_28 + _name_10);
+                          String _plus_30 = (_plus_29 + "~");
+                          String _typeString_2 = this._typeUtil.typeString(this.getType(formal));
+                          String _plus_31 = (_plus_30 + _typeString_2);
+                          String _plus_32 = (_plus_31 + 
+                            " is not ");
+                          String _formal_7 = param.getFormal();
+                          String _plus_33 = (_plus_32 + _formal_7);
+                          String _plus_34 = (_plus_33 + "~");
+                          String _typeString_3 = this._typeUtil.typeString(this.getType(param.getActual()));
+                          String _plus_35 = (_plus_34 + _typeString_3);
+                          this.fError(_plus_35, param, 
+                            BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                        } else {
+                          if (((this.isQuantity(this.getType(param.getActual())) && this.isQuantity(this.getType(formal.getTod()))) && (!this.getUnitRecord(param.getActual()).matchTopAndBottom(this.getUnitRecord(formal.getTod()))))) {
+                            String _formal_8 = param.getFormal();
+                            String _plus_36 = ("Invocation parameter \"" + _formal_8);
+                            String _plus_37 = (_plus_36 + "\" unit mismatch: ");
+                            String _name_11 = formal.getName();
+                            String _plus_38 = (_plus_37 + _name_11);
+                            String _plus_39 = (_plus_38 + "~");
+                            Type _type = this.getType(formal);
+                            UnitName _unit = ((QuantityType) _type).getUnit();
+                            String _plus_40 = (_plus_39 + _unit);
+                            String _plus_41 = (_plus_40 + 
+                              " is not ");
+                            String _formal_9 = param.getFormal();
+                            String _plus_42 = (_plus_41 + _formal_9);
+                            String _plus_43 = (_plus_42 + "~");
+                            Type _type_1 = this.getType(param.getActual());
+                            UnitName _unit_1 = ((QuantityType) _type_1).getUnit();
+                            String _plus_44 = (_plus_43 + _unit_1);
+                            this.fError(_plus_44, param, 
+                              BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                          }
+                        }
+                      }
+                    }
+                    if ((!found)) {
+                      String _formal_10 = param.getFormal();
+                      String _plus_45 = ("Invocation parameter \"" + _formal_10);
+                      String _plus_46 = (_plus_45 + "\" not found.");
+                      this.fError(_plus_46, param, 
+                        BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkThatBooleanExpressionsAreBoolean(final BooleanExpression be) {
     final Expression le = ((Expression) be);
     if (((le.getAll() != null) && (!this._typeUtil.sameStructuralType(this.getType(le.getAll()), this._typeUtil.booleanType())))) {
@@ -782,18 +1032,18 @@ public class BLESSValidator extends AbstractBLESSValidator {
       final Type rlqt = this.getType(r.getL());
       final Type rrqt = this.getType(r.getR());
       if (((rlqt instanceof QuantityType) && (rrqt instanceof QuantityType))) {
-        final UnitRecord rlur_1 = this.getUnitRecord(((QuantityType) rlqt));
-        final UnitRecord rrur_1 = this.getUnitRecord(((QuantityType) rrqt));
+        final UnitRecord rlur_1 = this.getUnitRecord(r.getL());
+        final UnitRecord rrur_1 = this.getUnitRecord(r.getR());
         boolean _matchTopAndBottom_2 = rlur_1.matchTopAndBottom(rrur_1);
         boolean _not_2 = (!_matchTopAndBottom_2);
         if (_not_2) {
           String _sym = r.getSym();
           String _plus_6 = ("Operands of \'" + _sym);
           String _plus_7 = (_plus_6 + "\' must have the same base units; ");
-          String _string_4 = this.getUnitRecord(r.getL()).toString();
+          String _string_4 = rlur_1.toString();
           String _plus_8 = (_plus_7 + _string_4);
           String _plus_9 = (_plus_8 + " is not ");
-          String _string_5 = this.getUnitRecord(r.getR()).toString();
+          String _string_5 = rrur_1.toString();
           String _plus_10 = (_plus_9 + _string_5);
           this.fError(_plus_10, r, 
             BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_UNITS);
@@ -897,21 +1147,20 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public void checkThatVariableDelcarationAssignmentHasCompatibleUnits(final VariableDeclaration vd) {
     boolean _isAssign = vd.isAssign();
     if (_isAssign) {
-      boolean _isNull = this.isNull(this.getType(vd.getExpression()));
-      if (_isNull) {
+      if (((vd.getExpression() == null) || this.isNull(this.getType(vd.getExpression())))) {
       } else {
-        Type _type = this._typeUtil.getType(vd.getVariable().getTod());
+        Type _type = this.getType(vd.getVariable().getTod());
         if ((_type instanceof ArrayType)) {
-          Type _type_1 = this._typeUtil.getType(vd.getVariable().getTod());
+          Type _type_1 = this.getType(vd.getVariable().getTod());
           final ArrayType art = ((ArrayType) _type_1);
-          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this._typeUtil.getType(art.getTyp()), this.getType(vd.getExpression()));
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(art.getTyp()), this.getType(vd.getExpression()));
           boolean _not = (!_sameStructuralType);
           if (_not) {
             this.fError("Array variable declaration initialization expression must match its element type.", vd, 
               BLESSPackage.eINSTANCE.getVariableDeclaration_Expression(), IssueCodes.INCOMPATIBLE_TYPES);
           } else {
             boolean _and = false;
-            if (!((this._typeUtil.getType(art.getTyp()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
+            if (!((this.getType(art.getTyp()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
               _and = false;
             } else {
               UnitRecord _unitRecord = this.getUnitRecord(art.getTyp());
@@ -935,27 +1184,14 @@ public class BLESSValidator extends AbstractBLESSValidator {
             }
           }
         } else {
-          boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this._typeUtil.getType(vd.getVariable().getTod()), this.getType(vd.getExpression()));
+          boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(vd.getVariable().getTod()), this.getType(vd.getExpression()));
           boolean _not_2 = (!_sameStructuralType_1);
           if (_not_2) {
             this.fError("Variable declaration initialization expression must match its type.", vd, 
               BLESSPackage.eINSTANCE.getVariableDeclaration_Expression(), IssueCodes.INCOMPATIBLE_TYPES);
           } else {
-            boolean _and_1 = false;
-            if (!((this._typeUtil.getType(vd.getVariable().getTod()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType))) {
-              _and_1 = false;
-            } else {
-              UnitRecord _unitRecord_2 = this.getUnitRecord(vd.getVariable().getTod());
-              Expression _expression_1 = vd.getExpression();
-              UnitRecord _unitRecord_3 = null;
-              if (_expression_1!=null) {
-                _unitRecord_3=this.getUnitRecord(_expression_1);
-              }
-              boolean _matchTopAndBottom_1 = _unitRecord_2.matchTopAndBottom(_unitRecord_3);
-              boolean _not_3 = (!_matchTopAndBottom_1);
-              _and_1 = _not_3;
-            }
-            if (_and_1) {
+            if ((((this.getType(vd.getVariable().getTod()) instanceof QuantityType) && (this.getType(vd.getExpression()) instanceof QuantityType)) && 
+              (!this.getUnitRecord(vd.getVariable().getTod()).matchTopAndBottom(this.getUnitRecord(vd.getExpression()))))) {
               String _string_2 = this.getUnitRecord(vd.getVariable().getTod()).toString();
               String _plus_3 = ("Variable declaration initialization expression must have the same base units; " + _string_2);
               String _plus_4 = (_plus_3 + " is not ");
@@ -992,27 +1228,20 @@ public class BLESSValidator extends AbstractBLESSValidator {
         {
           final ValueName target = a.getLhs().get(i).getValue();
           final Expression expression = a.getRhs().get(i).getExp();
-          boolean _isNull = this.isNull(this.getType(expression));
+          final Type targetType = this.getType(target);
+          final Type expressionType = this.getType(expression);
+          boolean _isNull = this.isNull(expressionType);
           if (_isNull) {
           } else {
-            Type _type = this.getType(target);
-            Type _type_1 = null;
-            if (expression!=null) {
-              _type_1=this.getType(expression);
-            }
-            boolean _sameStructuralType = this._typeUtil.sameStructuralType(_type, _type_1);
+            boolean _sameStructuralType = this._typeUtil.sameStructuralType(targetType, expressionType);
             boolean _not = (!_sameStructuralType);
             if (_not) {
-              String _typeString = this._typeUtil.typeString(this.getType(target));
+              String _typeString = this._typeUtil.typeString(targetType);
               String _plus = ("Targets of simultaneous assignment must have compatible types with expressions.  " + _typeString);
               String _plus_1 = (_plus + " is not ");
-              Type _type_2 = null;
-              if (expression!=null) {
-                _type_2=this.getType(expression);
-              }
-              String _typeString_1 = this._typeUtil.typeString(_type_2);
+              String _typeString_1 = this._typeUtil.typeString(expressionType);
               String _plus_2 = (_plus_1 + _typeString_1);
-              this.fError(_plus_2, a, 
+              this.error(_plus_2, a, 
                 BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
             } else {
               UnitRecord _unitRecord = this.getUnitRecord(target);
@@ -1028,7 +1257,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 String _plus_4 = (_plus_3 + " is not ");
                 String _string_1 = this.getUnitRecord(expression).toString();
                 String _plus_5 = (_plus_4 + _string_1);
-                this.fError(_plus_5, a, 
+                this.error(_plus_5, a, 
                   BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
               }
             }
@@ -1160,6 +1389,70 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void checkPortOutput(final PortOutput o) {
+    boolean _outgoing = o.getPort().getDirection().outgoing();
+    boolean _not = (!_outgoing);
+    if (_not) {
+      this.fError("Port output of port that is not \'out\'.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_NOT_ALLOWED);
+    }
+    if (((o.getPort() instanceof DataPort) && (o.getEor() == null))) {
+      this.fError("Port output of data port lacks parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_LACKS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventDataPort) && (o.getEor() == null))) {
+      this.fError("Port output of event data port lacks parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_LACKS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventPort) && (o.getEor() != null))) {
+      this.fError("Port output of event port has parameter.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Eor(), IssueCodes.PORT_OUTPUT_HAS_PARAMETER);
+    }
+    if (((o.getPort() instanceof EventPort) && (!this.isBoolean(this._typeUtil.getFeatureType(o.getPort()))))) {
+      this.fError("Event port must have boolean type.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
+    }
+    if (((o.getPort() instanceof DataPort) && (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(o.getPort()), this.getType(o.getEor()))))) {
+      this.fError("Port output parameter must have same type as its data port.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
+    }
+    if (((o.getPort() instanceof EventDataPort) && (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(o.getPort()), this.getType(o.getEor()))))) {
+      this.fError("Port output parameter must have same type as its event data port.", o, 
+        BLESSPackage.eINSTANCE.getPortOutput_Port(), IssueCodes.PORT_OUTPUT_WRONG_TYPE);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortInput(final PortInput n) {
+    if (((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated()) && 
+      (!((n.getTarget().getId() != null) && (n.getTarget().getId() instanceof Variable))))) {
+      this.fError("Target of port input must be a variable name.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
+    }
+    boolean _incoming = n.getPort().getDirection().incoming();
+    boolean _not = (!_incoming);
+    if (_not) {
+      this.fError("Port input of port that is not \'in\'.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+    try {
+      if ((((n.getTarget().getId() != null) && (n.getTarget().getId() instanceof Variable)) && 
+        (!this._typeUtil.sameStructuralType(this._typeUtil.getFeatureType(n.getPort()), this.getType(((Variable) n.getTarget().getId()).getTod()))))) {
+        this.fError("Target of port input must have same type as its port.", n, 
+          BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_WRONG_TYPE);
+      }
+    } catch (final Throwable _t) {
+      if (_t instanceof ValidationException) {
+        final ValidationException ve = (ValidationException)_t;
+        this.fError(ve.getMessage(), n, 
+          BLESSPackage.eINSTANCE.getPortInput_Port(), IssueCodes.PORT_INPUT_WRONG_TYPE);
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkTimeoutBehaviorTimeHasTimeUnits(final DispatchTrigger dt) {
     BehaviorTime _time = dt.getTime();
     boolean _tripleNotEquals = (_time != null);
@@ -1168,15 +1461,21 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((ur == null)) {
         this.fError("No unit definition found for timeout duration.", dt, 
           BLESSPackage.eINSTANCE.getDispatchTrigger_Time(), IssueCodes.UNIT_DEFINITION_NOT_FOUND);
-      }
-      boolean _equals = ur.rootUnit.getName().equals("s");
-      boolean _not = (!_equals);
-      if (_not) {
-        String _name = ur.rootUnit.getName();
-        String _plus = ("Timeout dispatch trigger must have time units, but has unit \'" + _name);
-        String _plus_1 = (_plus + "\'.");
-        this.fError(_plus_1, dt, 
-          BLESSPackage.eINSTANCE.getDispatchTrigger_Time(), IssueCodes.MUST_HAVE_TIME_UNITS);
+      } else {
+        if (((ur.rootUnit == null) || (ur.rootUnit.getName() == null))) {
+          this.fError("Timeout dispatch trigger has no root unit.", dt, 
+            BLESSPackage.eINSTANCE.getDispatchTrigger_Time(), IssueCodes.MUST_HAVE_TIME_UNITS);
+        } else {
+          boolean _equals = ur.rootUnit.getName().equals("s");
+          boolean _not = (!_equals);
+          if (_not) {
+            String _name = ur.rootUnit.getName();
+            String _plus = ("Timeout dispatch trigger must have time units, but has unit \'" + _name);
+            String _plus_1 = (_plus + "\'.");
+            this.fError(_plus_1, dt, 
+              BLESSPackage.eINSTANCE.getDispatchTrigger_Time(), IssueCodes.MUST_HAVE_TIME_UNITS);
+          }
+        }
       }
     }
   }
@@ -1359,8 +1658,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     PortName _port = dt.getPort();
     boolean _tripleNotEquals = (_port != null);
     if (_tripleNotEquals) {
-      boolean _equalsIgnoreCase = dt.getPort().getPort().getName().equalsIgnoreCase("halt");
-      if (_equalsIgnoreCase) {
+      if (((dt.getPort().getPort().getName() != null) && dt.getPort().getPort().getName().equalsIgnoreCase("halt"))) {
         this.fWarning("\"halt\" should not be used as a port name due to code generation name conflict.", dt, BLESSPackage.eINSTANCE.getDispatchTrigger_Port());
       }
     }
@@ -1371,7 +1669,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isScalar(final Type t) {
-    return (this.isQuantity(t) && ((QuantityType) t).isScalar());
+    return (this.isQuantity(t) && (((QuantityType) t).getScalar() != null));
   }
 
   public boolean isQuantity(final Type t) {
@@ -1577,6 +1875,21 @@ public class BLESSValidator extends AbstractBLESSValidator {
     return _elvis;
   }
 
+  public Type getType(final TypeOrReference tor) {
+    Type _elvis = null;
+    Type _ty = null;
+    if (tor!=null) {
+      _ty=tor.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
+      Type _type = tor.getRef().getType();
+      _elvis = _type;
+    }
+    return _elvis;
+  }
+
   public Type getType(final ParenthesizedSubexpression e) {
     Type _xblockexpression = null;
     {
@@ -1694,7 +2007,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
           "\' is not \'");
         String _string_1 = this.getUnitRecord(e.getF()).toString();
         String _plus_2 = (_plus_1 + _string_1);
-        this.fError(_plus_2, e, 
+        String _plus_3 = (_plus_2 + "\'");
+        this.fError(_plus_3, e, 
           BLESSPackage.eINSTANCE.getConditionalExpression_F(), IssueCodes.MISMATCHED_UNITS);
       }
       _xblockexpression = this.getType(e.getT());
@@ -1713,7 +2027,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     }
     boolean _isFunc = e.getLabel().isFunc();
     if (_isFunc) {
-      return this._typeUtil.getType(e.getLabel().getTod());
+      return this.getType(e.getLabel().getTod());
     }
     boolean _isEnumer = e.getLabel().isEnumer();
     if (_isEnumer) {
@@ -1832,84 +2146,101 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public Type getType(final Expression e) {
-    if (((e.getSym() != null) && e.getSym().equals("iff"))) {
-      Disjunction _l = e.getL();
-      Type _type = null;
-      if (_l!=null) {
-        _type=this.getType(_l);
-      }
-      boolean _isBoolean = this.isBoolean(_type);
-      boolean _not = (!_isBoolean);
-      if (_not) {
-        this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
-      }
-      Disjunction _r = e.getR();
-      Type _type_1 = null;
-      if (_r!=null) {
-        _type_1=this.getType(_r);
-      }
-      boolean _isBoolean_1 = this.isBoolean(_type_1);
-      boolean _not_1 = (!_isBoolean_1);
-      if (_not_1) {
-        this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
-      }
-      return this._typeUtil.booleanType();
-    } else {
-      if (((e.getSym() != null) && e.getSym().equals("implies"))) {
-        Disjunction _l_1 = e.getL();
-        Type _type_2 = null;
-        if (_l_1!=null) {
-          _type_2=this.getType(_l_1);
+    Object _xblockexpression = null;
+    {
+      try {
+        if (((e.getSym() != null) && e.getSym().equals("iff"))) {
+          Disjunction _l = e.getL();
+          Type _type = null;
+          if (_l!=null) {
+            _type=this.getType(_l);
+          }
+          boolean _isBoolean = this.isBoolean(_type);
+          boolean _not = (!_isBoolean);
+          if (_not) {
+            this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), 
+              IssueCodes.TYPE_MUST_BE_BOOLEAN);
+          }
+          Disjunction _r = e.getR();
+          Type _type_1 = null;
+          if (_r!=null) {
+            _type_1=this.getType(_r);
+          }
+          boolean _isBoolean_1 = this.isBoolean(_type_1);
+          boolean _not_1 = (!_isBoolean_1);
+          if (_not_1) {
+            this.fError("Operands of if-and-only-in must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), 
+              IssueCodes.TYPE_MUST_BE_BOOLEAN);
+          }
+          return this._typeUtil.booleanType();
+        } else {
+          if (((e.getSym() != null) && e.getSym().equals("implies"))) {
+            Disjunction _l_1 = e.getL();
+            Type _type_2 = null;
+            if (_l_1!=null) {
+              _type_2=this.getType(_l_1);
+            }
+            boolean _isBoolean_2 = this.isBoolean(_type_2);
+            boolean _not_2 = (!_isBoolean_2);
+            if (_not_2) {
+              this.fError("Premise of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), 
+                IssueCodes.TYPE_MUST_BE_BOOLEAN);
+            }
+            Disjunction _r_1 = e.getR();
+            Type _type_3 = null;
+            if (_r_1!=null) {
+              _type_3=this.getType(_r_1);
+            }
+            boolean _isBoolean_3 = this.isBoolean(_type_3);
+            boolean _not_3 = (!_isBoolean_3);
+            if (_not_3) {
+              this.fError("Consequent of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), 
+                IssueCodes.TYPE_MUST_BE_BOOLEAN);
+            }
+            return this._typeUtil.booleanType();
+          }
         }
-        boolean _isBoolean_2 = this.isBoolean(_type_2);
-        boolean _not_2 = (!_isBoolean_2);
-        if (_not_2) {
-          this.fError("Premise of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_L(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
+        UniversalQuantification _all = e.getAll();
+        boolean _tripleNotEquals = (_all != null);
+        if (_tripleNotEquals) {
+          return this.getType(e.getAll());
         }
-        Disjunction _r_1 = e.getR();
-        Type _type_3 = null;
-        if (_r_1!=null) {
-          _type_3=this.getType(_r_1);
+        ExistentialQuantification _exists = e.getExists();
+        boolean _tripleNotEquals_1 = (_exists != null);
+        if (_tripleNotEquals_1) {
+          return this.getType(e.getExists());
         }
-        boolean _isBoolean_3 = this.isBoolean(_type_3);
-        boolean _not_3 = (!_isBoolean_3);
-        if (_not_3) {
-          this.fError("Consequent of implication must be boolean.", e, BLESSPackage.eINSTANCE.getExpression_R(), IssueCodes.TYPE_MUST_BE_BOOLEAN);
+        SumQuantification _sum = e.getSum();
+        boolean _tripleNotEquals_2 = (_sum != null);
+        if (_tripleNotEquals_2) {
+          return this.getType(e.getSum());
         }
-        return this._typeUtil.booleanType();
+        ProductQuantification _product = e.getProduct();
+        boolean _tripleNotEquals_3 = (_product != null);
+        if (_tripleNotEquals_3) {
+          return this.getType(e.getProduct());
+        }
+        CountingQuantification _numberof = e.getNumberof();
+        boolean _tripleNotEquals_4 = (_numberof != null);
+        if (_tripleNotEquals_4) {
+          return this.getType(e.getNumberof());
+        }
+        Disjunction _l_2 = e.getL();
+        boolean _tripleNotEquals_5 = (_l_2 != null);
+        if (_tripleNotEquals_5) {
+          return this.getType(e.getL());
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
       }
+      _xblockexpression = null;
     }
-    UniversalQuantification _all = e.getAll();
-    boolean _tripleNotEquals = (_all != null);
-    if (_tripleNotEquals) {
-      return this.getType(e.getAll());
-    }
-    ExistentialQuantification _exists = e.getExists();
-    boolean _tripleNotEquals_1 = (_exists != null);
-    if (_tripleNotEquals_1) {
-      return this.getType(e.getExists());
-    }
-    SumQuantification _sum = e.getSum();
-    boolean _tripleNotEquals_2 = (_sum != null);
-    if (_tripleNotEquals_2) {
-      return this.getType(e.getSum());
-    }
-    ProductQuantification _product = e.getProduct();
-    boolean _tripleNotEquals_3 = (_product != null);
-    if (_tripleNotEquals_3) {
-      return this.getType(e.getProduct());
-    }
-    CountingQuantification _numberof = e.getNumberof();
-    boolean _tripleNotEquals_4 = (_numberof != null);
-    if (_tripleNotEquals_4) {
-      return this.getType(e.getNumberof());
-    }
-    Disjunction _l_2 = e.getL();
-    boolean _tripleNotEquals_5 = (_l_2 != null);
-    if (_tripleNotEquals_5) {
-      return this.getType(e.getL());
-    }
-    return null;
+    return ((Type)_xblockexpression);
   }
 
   public Type getType(final Conjunction e) {
@@ -1965,27 +2296,29 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public Type getType(final Relation e) {
     Type _xblockexpression = null;
     {
+      final Type ltype = this.getType(e.getL());
       String _sym = e.getSym();
       boolean _tripleNotEquals = (_sym != null);
       if (_tripleNotEquals) {
-        boolean _isBoolean = this.isBoolean(this.getType(e.getL()));
+        final Type rtype = this.getType(e.getR());
+        boolean _isBoolean = this.isBoolean(ltype);
         if (_isBoolean) {
           String _sym_1 = e.getSym();
           String _plus = ("Operands of " + _sym_1);
           String _plus_1 = (_plus + " must not be boolean.  Use \'iff\' instead of =");
           this.fError(_plus_1, e, BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.MUST_NOT_BE_BOOLEAN);
         }
-        boolean _isBoolean_1 = this.isBoolean(this.getType(e.getR()));
+        boolean _isBoolean_1 = this.isBoolean(rtype);
         if (_isBoolean_1) {
           String _sym_2 = e.getSym();
           String _plus_2 = ("Operands of " + _sym_2);
           String _plus_3 = (_plus_2 + " must not be boolean.  Use \'iff\' instead of =");
           this.fError(_plus_3, e, BLESSPackage.eINSTANCE.getRelation_R(), IssueCodes.MUST_NOT_BE_BOOLEAN);
         }
-        if ((this.isNull(this.getType(e.getR())) || this.isNull(this.getType(e.getL())))) {
+        if ((this.isNull(rtype) || this.isNull(ltype))) {
           return this._typeUtil.booleanType();
         }
-        if (((this.isQuantity(this.getType(e.getL())) && this.isQuantity(this.getType(e.getR()))) && (!this.getUnitRecord(e.getL()).matchTopAndBottom(this.getUnitRecord(e.getR()))))) {
+        if (((this.isQuantity(ltype) && this.isQuantity(rtype)) && (!this.getUnitRecord(e.getL()).matchTopAndBottom(this.getUnitRecord(e.getR()))))) {
           String _sym_3 = e.getSym();
           String _plus_4 = ("Operands of " + _sym_3);
           String _plus_5 = (_plus_4 + " must have root base units \'");
@@ -1997,13 +2330,18 @@ public class BLESSValidator extends AbstractBLESSValidator {
           String _plus_8 = (_plus_7 + _string_1);
           this.fError(_plus_8, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.MISMATCHED_UNITS);
         } else {
-          boolean _sameStructuralType = this._typeUtil.sameStructuralType(this.getType(e.getL()), this.getType(e.getR()));
+          boolean _sameStructuralType = this._typeUtil.sameStructuralType(ltype, rtype);
           boolean _not = (!_sameStructuralType);
           if (_not) {
             String _sym_4 = e.getSym();
             String _plus_9 = ("Operands of " + _sym_4);
             String _plus_10 = (_plus_9 + " must be have compatible types.");
-            this.fError(_plus_10, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_TYPES);
+            String _typeString = this._typeUtil.typeString(ltype);
+            String _plus_11 = (_plus_10 + _typeString);
+            String _plus_12 = (_plus_11 + " is not ");
+            String _typeString_1 = this._typeUtil.typeString(rtype);
+            String _plus_13 = (_plus_12 + _typeString_1);
+            this.fError(_plus_13, e, BLESSPackage.eINSTANCE.getRelation_Sym(), IssueCodes.INCOMPATIBLE_TYPES);
           }
         }
         return this._typeUtil.booleanType();
@@ -2011,7 +2349,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       String _in = e.getIn();
       boolean _tripleNotEquals_1 = (_in != null);
       if (_tripleNotEquals_1) {
-        boolean _isQuantity = this.isQuantity(this.getType(e.getL()));
+        boolean _isQuantity = this.isQuantity(ltype);
         boolean _not_1 = (!_isQuantity);
         if (_not_1) {
           this.fError("lhs of \'in\' must be quantity type.", e, BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.MUST_BE_QUANTITY);
@@ -2026,12 +2364,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _not_3 = (!_matchTopAndBottom);
           if (_not_3) {
             String _string_2 = this.getUnitRecord(e.getL()).toString();
-            String _plus_11 = ("Lower bound of range must have same root units as subject \'" + _string_2);
-            String _plus_12 = (_plus_11 + 
+            String _plus_14 = ("Lower bound of range must have same root units as subject \'" + _string_2);
+            String _plus_15 = (_plus_14 + 
               "\' is not \'");
             String _string_3 = this.getUnitRecord(e.getRange().getLower_bound()).toString();
-            String _plus_13 = (_plus_12 + _string_3);
-            this.fError(_plus_13, e, BLESSPackage.eINSTANCE.getRange_Lower_bound(), IssueCodes.MISMATCHED_UNITS);
+            String _plus_16 = (_plus_15 + _string_3);
+            this.fError(_plus_16, e, BLESSPackage.eINSTANCE.getRange_Lower_bound(), IssueCodes.MISMATCHED_UNITS);
           }
         }
         boolean _isQuantity_2 = this.isQuantity(this.getType(e.getRange().getUpper_bound()));
@@ -2044,17 +2382,17 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _not_5 = (!_matchTopAndBottom_1);
           if (_not_5) {
             String _string_4 = this.getUnitRecord(e.getL()).toString();
-            String _plus_14 = ("Upper bound of range must have same root units as subject \'" + _string_4);
-            String _plus_15 = (_plus_14 + 
+            String _plus_17 = ("Upper bound of range must have same root units as subject \'" + _string_4);
+            String _plus_18 = (_plus_17 + 
               "\' is not \'");
             String _string_5 = this.getUnitRecord(e.getRange().getUpper_bound()).toString();
-            String _plus_16 = (_plus_15 + _string_5);
-            this.fError(_plus_16, e, BLESSPackage.eINSTANCE.getRange_Upper_bound(), IssueCodes.MISMATCHED_UNITS);
+            String _plus_19 = (_plus_18 + _string_5);
+            this.fError(_plus_19, e, BLESSPackage.eINSTANCE.getRange_Upper_bound(), IssueCodes.MISMATCHED_UNITS);
           }
         }
         return this._typeUtil.booleanType();
       }
-      _xblockexpression = this.getType(e.getL());
+      _xblockexpression = ltype;
     }
     return _xblockexpression;
   }
@@ -2161,9 +2499,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id_1 instanceof Variable)) {
         NamedElement _id_2 = a.getId();
         final Variable aid = ((Variable) _id_2);
-        final Type nameRootType = this._typeUtil.getType(aid.getTod());
-        boolean _isLb = a.isLb();
-        if (_isLb) {
+        final Type nameRootType = this.getType(aid.getTod());
+        if (((a.getArray_index() != null) && (a.getArray_index().size() > 0))) {
           if ((!(nameRootType instanceof ArrayType))) {
             String _name = aid.getName();
             String _plus = ("Variable name \'" + _name);
@@ -2186,9 +2523,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _isDot = a.isDot();
           boolean _not = (!_isDot);
           if (_not) {
-            return this._typeUtil.getType(((ArrayType) nameRootType).getTyp());
+            return this.getType(((ArrayType) nameRootType).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) nameRootType).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) nameRootType).getTyp()));
           }
         }
         boolean _isDot_1 = a.isDot();
@@ -2203,9 +2540,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id_3 instanceof GhostVariable)) {
         NamedElement _id_4 = a.getId();
         final GhostVariable aid_1 = ((GhostVariable) _id_4);
-        final Type nameRootType_1 = this._typeUtil.getType(aid_1.getTod());
-        boolean _isLb_1 = a.isLb();
-        if (_isLb_1) {
+        final Type nameRootType_1 = this.getType(aid_1.getTod());
+        boolean _isLb = a.isLb();
+        if (_isLb) {
           if ((!(nameRootType_1 instanceof ArrayType))) {
             String _name_2 = aid_1.getName();
             String _plus_4 = ("Ghost Variable name \'" + _name_2);
@@ -2228,33 +2565,30 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _isDot_2 = a.isDot();
           boolean _not_2 = (!_isDot_2);
           if (_not_2) {
-            return this._typeUtil.getType(((ArrayType) nameRootType_1).getTyp());
+            return this.getType(((ArrayType) nameRootType_1).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) nameRootType_1).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) nameRootType_1).getTyp()));
           }
         }
         boolean _isDot_3 = a.isDot();
-        boolean _not_3 = (!_isDot_3);
-        if (_not_3) {
-          return nameRootType_1;
-        } else {
+        if (_isDot_3) {
           return this.getType(a.getPn(), nameRootType_1);
         }
+        return nameRootType_1;
       }
       NamedElement _id_5 = a.getId();
       if ((_id_5 instanceof Feature)) {
         NamedElement _id_6 = a.getId();
         final Feature aid_2 = ((Feature) _id_6);
-        NamedElement _id_7 = a.getId();
-        final Type featureType = this.getType(((Feature) _id_7));
+        final Type featureType = this.getType(aid_2);
         if ((featureType == null)) {
           this.fError(("BLESS::Typed properties of data components used as feature types must" + 
             " be a quantity, or the identifier of a type declared in a typedef annex library.  \""), a, 
             BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.FEATURE_TYPED_ERROR);
           return this._typeUtil.booleanType();
         }
-        boolean _isLb_2 = a.isLb();
-        if (_isLb_2) {
+        boolean _isLb_1 = a.isLb();
+        if (_isLb_1) {
           if ((!(featureType instanceof ArrayType))) {
             String _name_4 = aid_2.getName();
             String _plus_8 = ("Feature name \'" + _name_4);
@@ -2275,28 +2609,28 @@ public class BLESSValidator extends AbstractBLESSValidator {
             }
           }
           boolean _isDot_4 = a.isDot();
-          boolean _not_4 = (!_isDot_4);
-          if (_not_4) {
-            return this._typeUtil.getType(((ArrayType) featureType).getTyp());
+          boolean _not_3 = (!_isDot_4);
+          if (_not_3) {
+            return this.getType(((ArrayType) featureType).getTyp());
           } else {
-            return this.getType(a.getPn(), this._typeUtil.getType(((ArrayType) featureType).getTyp()));
+            return this.getType(a.getPn(), this.getType(((ArrayType) featureType).getTyp()));
           }
         }
         boolean _isDot_5 = a.isDot();
-        boolean _not_5 = (!_isDot_5);
-        if (_not_5) {
+        boolean _not_4 = (!_isDot_5);
+        if (_not_4) {
           return featureType;
         } else {
           return this.getType(a.getPn(), featureType);
         }
       }
       Type _xifexpression = null;
-      NamedElement _id_8 = a.getId();
-      if ((_id_8 instanceof SubprogramSubcomponent)) {
+      NamedElement _id_7 = a.getId();
+      if ((_id_7 instanceof SubprogramSubcomponent)) {
         Type _xblockexpression_1 = null;
         {
-          NamedElement _id_9 = a.getId();
-          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_9);
+          NamedElement _id_8 = a.getId();
+          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_8);
           SubprogramSubcomponentType _subprogramSubcomponentType = sub.getSubprogramSubcomponentType();
           final SubprogramTypeImpl st = ((SubprogramTypeImpl) _subprogramSubcomponentType);
           EList<Parameter> _ownedParameters = st.getOwnedParameters();
@@ -2313,8 +2647,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
           }
           final Parameter outParameter = IterableExtensions.<Parameter>last(st.getOwnedParameters());
           boolean _isOut = ((Parameter) outParameter).isOut();
-          boolean _not_6 = (!_isOut);
-          if (_not_6) {
+          boolean _not_5 = (!_isOut);
+          if (_not_5) {
             String _name_7 = a.getId().getName();
             String _plus_15 = ("Subprogram \'" + _name_7);
             String _plus_16 = (_plus_15 + " feature \'");
@@ -2348,11 +2682,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _equals = field.getLabel().equals(IterableExtensions.<PartialName>head(pn).getRecord_id());
           if (_equals) {
             if (((IterableExtensions.size(pn) == 1) && (!IterableExtensions.<PartialName>head(pn).isLb()))) {
-              return this._typeUtil.getType(field.getTyp());
+              return this.getType(field.getTyp());
             } else {
               boolean _isLb = IterableExtensions.<PartialName>head(pn).isLb();
               if (_isLb) {
-                final Type fieldType = this._typeUtil.getType(field.getTyp());
+                final Type fieldType = this.getType(field.getTyp());
                 if ((!(fieldType instanceof ArrayType))) {
                   String _record_id = IterableExtensions.<PartialName>head(pn).getRecord_id();
                   String _plus = ("Variable field \'" + _record_id);
@@ -2377,12 +2711,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 int _size_2 = IterableExtensions.size(pn);
                 boolean _tripleEquals = (_size_2 == 1);
                 if (_tripleEquals) {
-                  return ((ArrayType) fieldType);
+                  return this.getType(((ArrayType) fieldType).getTyp());
                 } else {
-                  return this.getType(IterableExtensions.<PartialName>tail(pn), this._typeUtil.getType(((ArrayType) fieldType).getTyp()));
+                  return this.getType(IterableExtensions.<PartialName>tail(pn), this.getType(((ArrayType) fieldType).getTyp()));
                 }
               } else {
-                return this.getType(IterableExtensions.<PartialName>tail(pn), this._typeUtil.getType(field.getTyp()));
+                return this.getType(IterableExtensions.<PartialName>tail(pn), this.getType(field.getTyp()));
               }
             }
           }
@@ -2421,12 +2755,35 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public Type getType(final Quantity q) {
     final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-    qt.setScalar(q.isScalar());
-    qt.setUnit(q.getUnit());
-    UnitName _unit = qt.getUnit();
-    boolean _tripleEquals = (_unit == null);
-    if (_tripleEquals) {
-      qt.setScalar(true);
+    UnitName _unit = q.getUnit();
+    boolean _tripleNotEquals = (_unit != null);
+    if (_tripleNotEquals) {
+      qt.setUnit(q.getUnit());
+    } else {
+      String _scalar = q.getScalar();
+      boolean _tripleNotEquals_1 = (_scalar != null);
+      if (_tripleNotEquals_1) {
+        qt.setScalar("scalar");
+      } else {
+        String _whole = q.getWhole();
+        boolean _tripleNotEquals_2 = (_whole != null);
+        if (_tripleNotEquals_2) {
+          qt.setWhole("whole");
+        } else {
+          String _lit = q.getNumber().getLit();
+          boolean _tripleNotEquals_3 = (_lit != null);
+          if (_tripleNotEquals_3) {
+            boolean _contains = q.getNumber().getLit().contains(".");
+            if (_contains) {
+              qt.setScalar("scalar");
+            } else {
+              qt.setWhole("whole");
+            }
+          } else {
+            qt.setScalar("scalar");
+          }
+        }
+      }
     }
     return qt;
   }
@@ -2439,43 +2796,70 @@ public class BLESSValidator extends AbstractBLESSValidator {
     return ev.getEnumeration_type().getType();
   }
 
+  public Type getType(final Variable v) {
+    Type _elvis = null;
+    TypeOrReference _tod = v.getTod();
+    Type _ty = null;
+    if (_tod!=null) {
+      _ty=_tod.getTy();
+    }
+    if (_ty != null) {
+      _elvis = _ty;
+    } else {
+      Type _type = v.getTod().getRef().getType();
+      _elvis = _type;
+    }
+    return _elvis;
+  }
+
   public UnitRecord getUnitRecord(final AddSub a) {
     UnitRecord _xblockexpression = null;
     {
-      if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
-        return this.unitRecordMap.get(a);
-      }
-      String _sym = a.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        return this.getUnitRecord(a.getL());
-      }
       final UnitRecord retval = this.getUnitRecord(a.getL());
-      if ((retval == null)) {
-        String _string = a.getL().toString();
-        String _plus = ("unit not found:  " + _string);
-        this.fError(_plus, a, BLESSPackage.eINSTANCE.getAddSub_L(), IssueCodes.UNIT_DEFINITION_NOT_FOUND);
-      }
-      EList<MultDiv> _r = a.getR();
-      for (final MultDiv r : _r) {
-        boolean _matchTopAndBottom = retval.matchTopAndBottom(this.getUnitRecord(r));
-        boolean _not = (!_matchTopAndBottom);
-        if (_not) {
-          String _sym_1 = a.getSym();
-          String _plus_1 = ("Unit mismatch for " + _sym_1);
-          String _plus_2 = (_plus_1 + " :  ");
-          String _string_1 = this.getUnitRecord(r).toString();
-          String _plus_3 = (_plus_2 + _string_1);
-          String _plus_4 = (_plus_3 + 
-            " is not ");
-          String _string_2 = this.getUnitRecord(a.getL()).toString();
-          String _plus_5 = (_plus_4 + _string_2);
-          this.fError(_plus_5, a, BLESSPackage.eINSTANCE.getAddSub_Sym(), 
-            IssueCodes.MISMATCHED_UNITS);
+      try {
+        if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
+          return this.unitRecordMap.get(a);
         }
-      }
-      if (this.cacheUnits) {
-        this.unitRecordMap.put(a, retval);
+        if ((retval == null)) {
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
+          this.fError(_plus, a, BLESSPackage.eINSTANCE.getAddSub_L(), 
+            IssueCodes.UNIT_DEFINITION_NOT_FOUND);
+        }
+        String _sym = a.getSym();
+        boolean _tripleEquals = (_sym == null);
+        if (_tripleEquals) {
+          return retval;
+        }
+        EList<MultDiv> _r = a.getR();
+        for (final MultDiv r : _r) {
+          {
+            final UnitRecord runit = this.getUnitRecord(r);
+            boolean _matchTopAndBottom = retval.matchTopAndBottom(runit);
+            boolean _not = (!_matchTopAndBottom);
+            if (_not) {
+              String _sym_1 = a.getSym();
+              String _plus_1 = ("Unit mismatch for " + _sym_1);
+              String _plus_2 = (_plus_1 + " :  ");
+              String _string = retval.toString();
+              String _plus_3 = (_plus_2 + _string);
+              String _plus_4 = (_plus_3 + " is not ");
+              String _string_1 = runit.toString();
+              String _plus_5 = (_plus_4 + _string_1);
+              this.fError(_plus_5, a, BLESSPackage.eINSTANCE.getAddSub_Sym(), IssueCodes.MISMATCHED_UNITS);
+            }
+          }
+        }
+        if (this.cacheUnits) {
+          this.unitRecordMap.put(a, retval);
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
       }
       _xblockexpression = retval;
     }
@@ -2488,50 +2872,61 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
         return this.unitRecordMap.get(a);
       }
-      String _sym = a.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        return this.getUnitRecord(a.getL());
-      }
       UnitRecord retval = this.getUnitRecord(a.getL());
-      if ((retval == null)) {
-        String _string = a.getL().toString();
-        String _plus = ("unit not found:  " + _string);
-        this.fError(_plus, a, BLESSPackage.eINSTANCE.getMultDiv_L(), IssueCodes.UNIT_DEFINITION_NOT_FOUND);
-      } else {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+      try {
+        if ((retval == null)) {
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
+          this.fError(_plus, a, BLESSPackage.eINSTANCE.getMultDiv_L(), 
+            IssueCodes.UNIT_DEFINITION_NOT_FOUND);
         }
-      }
-      String _sym_1 = a.getSym();
-      boolean _tripleNotEquals = (_sym_1 != null);
-      if (_tripleNotEquals) {
-        boolean _equals = a.getSym().equals("*");
-        if (_equals) {
-          EList<Exp> _r = a.getR();
-          for (final Exp rval : _r) {
-            retval.multiply(this.getUnitRecord(rval));
-          }
-        } else {
-          boolean _equals_1 = a.getSym().equals("/");
-          if (_equals_1) {
-            retval.divide(this.getUnitRecord(IterableExtensions.<Exp>head(a.getR())));
+        String _sym = a.getSym();
+        boolean _tripleEquals = (_sym == null);
+        if (_tripleEquals) {
+          return retval;
+        }
+        String _sym_1 = a.getSym();
+        boolean _tripleNotEquals = (_sym_1 != null);
+        if (_tripleNotEquals) {
+          boolean _equals = a.getSym().equals("*");
+          if (_equals) {
+            EList<Exp> _r = a.getR();
+            for (final Exp rval : _r) {
+              retval.multiply(this.getUnitRecord(rval));
+            }
           } else {
-            if ((a.getSym().equals("div") || a.getSym().equals("mod"))) {
-              if ((!this.getUnitRecord(a.getL()).isWhole)) {
-                String _sym_2 = a.getSym();
-                String _plus_1 = ("Operands of \'" + _sym_2);
-                String _plus_2 = (_plus_1 + "\' must be whole numbers.");
-                this.fError(_plus_2, a, BLESSPackage.eINSTANCE.getMultDiv_L(), IssueCodes.MUST_BE_WHOLE_NUMBER);
-              }
-              if ((!this.getUnitRecord(IterableExtensions.<Exp>head(a.getR())).isWhole)) {
-                String _sym_3 = a.getSym();
-                String _plus_3 = ("Operands of \'" + _sym_3);
-                String _plus_4 = (_plus_3 + "\' must be whole numbers.");
-                this.fError(_plus_4, a, BLESSPackage.eINSTANCE.getMultDiv_R(), IssueCodes.MUST_BE_WHOLE_NUMBER);
+            boolean _equals_1 = a.getSym().equals("/");
+            if (_equals_1) {
+              retval.divide(this.getUnitRecord(IterableExtensions.<Exp>head(a.getR())));
+            } else {
+              if ((a.getSym().equals("div") || a.getSym().equals("mod"))) {
+                if ((!this.getUnitRecord(a.getL()).isWhole)) {
+                  String _sym_2 = a.getSym();
+                  String _plus_1 = ("Operands of \'" + _sym_2);
+                  String _plus_2 = (_plus_1 + "\' must be whole numbers.");
+                  this.fError(_plus_2, a, BLESSPackage.eINSTANCE.getMultDiv_L(), 
+                    IssueCodes.MUST_BE_WHOLE_NUMBER);
+                }
+                if ((!this.getUnitRecord(IterableExtensions.<Exp>head(a.getR())).isWhole)) {
+                  String _sym_3 = a.getSym();
+                  String _plus_3 = ("Operands of \'" + _sym_3);
+                  String _plus_4 = (_plus_3 + "\' must be whole numbers.");
+                  this.fError(_plus_4, a, BLESSPackage.eINSTANCE.getMultDiv_R(), 
+                    IssueCodes.MUST_BE_WHOLE_NUMBER);
+                }
               }
             }
           }
+        }
+        if (this.cacheUnits) {
+          this.unitRecordMap.put(a, retval);
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
@@ -2545,38 +2940,45 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
         return this.unitRecordMap.get(a);
       }
-      String _sym = a.getSym();
-      boolean _tripleEquals = (_sym == null);
-      if (_tripleEquals) {
-        return this.getUnitRecord(a.getL());
-      }
       UnitRecord retval = this.getUnitRecord(a.getL());
-      if ((retval == null)) {
-        String _string = a.getL().toString();
-        String _plus = ("unit not found:  " + _string);
-        this.fError(_plus, a, BLESSPackage.eINSTANCE.getExp_L(), IssueCodes.UNIT_DEFINITION_NOT_FOUND);
-      } else {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+      try {
+        if ((retval == null)) {
+          String _substring = a.getL().toString().substring(36, a.getL().toString().indexOf("@"));
+          String _plus = ("unit not found:  " + _substring);
+          this.fError(_plus, a, BLESSPackage.eINSTANCE.getExp_L(), 
+            IssueCodes.UNIT_DEFINITION_NOT_FOUND);
         }
-      }
-      if (((a.getR() != null) && (!this.isScalar(this.getType(a.getR()))))) {
-        this.fError("Exponents must be scalar.", a, BLESSPackage.eINSTANCE.getExp_L(), IssueCodes.MUST_BE_SCALAR);
-      }
-      if (((a.getR() != null) && (a.getR() instanceof Quantity))) {
-        Subexpression _r = a.getR();
-        final String exponent = ((Quantity) _r).getNumber().getLit();
-        if ((exponent.contains(".") || exponent.contains("-"))) {
-          this.fWarning("Exponents must be positive whole numbers for unit determination", a, BLESSPackage.eINSTANCE.getExp_L(), IssueCodes.MUST_BE_SCALAR);
+        String _sym = a.getSym();
+        boolean _tripleEquals = (_sym == null);
+        if (_tripleEquals) {
+          return retval;
         }
-        final int exponent_as_int = Integer.parseInt(exponent);
-        UnitRecord newRetVal = retval;
-        for (int i = 1; (i < exponent_as_int); i++) {
-          newRetVal.multiply(retval);
+        if (((a.getR() != null) && (!this.isScalar(this.getType(a.getR()))))) {
+          this.fError("Exponents must be scalar.", a, BLESSPackage.eINSTANCE.getExp_L(), IssueCodes.MUST_BE_SCALAR);
         }
-        retval = newRetVal;
-      } else {
-        this.fError("Operands of ** must be whole scalar.", a, BLESSPackage.eINSTANCE.getExp_R(), IssueCodes.MUST_BE_SCALAR);
+        if (((a.getR() != null) && (a.getR() instanceof Quantity))) {
+          Subexpression _r = a.getR();
+          final String exponent = ((Quantity) _r).getNumber().getLit();
+          if ((exponent.contains(".") || exponent.contains("-"))) {
+            this.fWarning("Exponents must be positive whole numbers for unit determination", a, BLESSPackage.eINSTANCE.getExp_L(), 
+              IssueCodes.MUST_BE_SCALAR);
+          }
+          final int exponent_as_int = Integer.parseInt(exponent);
+          UnitRecord newRetVal = retval;
+          for (int i = 1; (i < exponent_as_int); i++) {
+            newRetVal.multiply(retval);
+          }
+          retval = newRetVal;
+        } else {
+          this.fError("Operands of ** must be whole scalar.", a, BLESSPackage.eINSTANCE.getExp_R(), IssueCodes.MUST_BE_SCALAR);
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
+        }
       }
       _xblockexpression = retval;
     }
@@ -2701,38 +3103,53 @@ public class BLESSValidator extends AbstractBLESSValidator {
         return this.unitRecordMap.get(a);
       }
       UnitRecord retval = this._unitUtil.nan();
-      SumQuantification _sum = a.getSum();
-      boolean _tripleNotEquals = (_sum != null);
-      if (_tripleNotEquals) {
-        retval = this.getUnitRecord(a.getSum());
-      } else {
-        ProductQuantification _product = a.getProduct();
-        boolean _tripleNotEquals_1 = (_product != null);
-        if (_tripleNotEquals_1) {
-          retval = this.getUnitRecord(a.getProduct());
+      try {
+        SumQuantification _sum = a.getSum();
+        boolean _tripleNotEquals = (_sum != null);
+        if (_tripleNotEquals) {
+          retval = this.getUnitRecord(a.getSum());
         } else {
-          CountingQuantification _numberof = a.getNumberof();
-          boolean _tripleNotEquals_2 = (_numberof != null);
-          if (_tripleNotEquals_2) {
-            retval = this.getUnitRecord(a.getNumberof());
+          ProductQuantification _product = a.getProduct();
+          boolean _tripleNotEquals_1 = (_product != null);
+          if (_tripleNotEquals_1) {
+            retval = this.getUnitRecord(a.getProduct());
           } else {
-            String _sym = a.getSym();
-            boolean _tripleNotEquals_3 = (_sym != null);
-            if (_tripleNotEquals_3) {
-              retval = this._unitUtil.nan();
+            CountingQuantification _numberof = a.getNumberof();
+            boolean _tripleNotEquals_2 = (_numberof != null);
+            if (_tripleNotEquals_2) {
+              retval = this.getUnitRecord(a.getNumberof());
             } else {
-              Disjunction _l = a.getL();
-              boolean _tripleNotEquals_4 = (_l != null);
-              if (_tripleNotEquals_4) {
-                retval = this.getUnitRecord(a.getL());
+              String _sym = a.getSym();
+              boolean _tripleNotEquals_3 = (_sym != null);
+              if (_tripleNotEquals_3) {
+                retval = this._unitUtil.nan();
+              } else {
+                Disjunction _l = a.getL();
+                boolean _tripleNotEquals_4 = (_l != null);
+                if (_tripleNotEquals_4) {
+                  retval = this.getUnitRecord(a.getL());
+                }
               }
             }
           }
         }
-      }
-      if ((retval != null)) {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+        if ((retval != null)) {
+          if (this.cacheUnits) {
+            this.unitRecordMap.put(a, retval);
+          }
+        }
+        if ((retval == null)) {
+          throw new ValidationException("no unit record found for expression");
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof ValidationException) {
+          final ValidationException ve = (ValidationException)_t;
+          ve.handleException();
+        } else if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
@@ -2781,29 +3198,38 @@ public class BLESSValidator extends AbstractBLESSValidator {
         return this.unitRecordMap.get(a);
       }
       UnitRecord retval = this._unitUtil.scalar();
-      ValueName _value_name = a.getValue_name();
-      boolean _tripleNotEquals = (_value_name != null);
-      if (_tripleNotEquals) {
-        retval = this.getUnitRecord(a.getValue_name());
-      }
-      Constant _constant = a.getConstant();
-      boolean _tripleNotEquals_1 = (_constant != null);
-      if (_tripleNotEquals_1) {
-        retval = this.getUnitRecord(a.getConstant());
-      }
-      EnumerationValue _enum_val = a.getEnum_val();
-      boolean _tripleNotEquals_2 = (_enum_val != null);
-      if (_tripleNotEquals_2) {
-        retval = this._unitUtil.nan();
-      }
-      if (((a.getNow() != null) || (a.getTops() != null))) {
-        final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
-        qt.setUnit(this._blessIndex.getTimeUnit(a));
-        retval = this.getUnitRecord(qt);
-      }
-      if ((retval != null)) {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+      try {
+        ValueName _value_name = a.getValue_name();
+        boolean _tripleNotEquals = (_value_name != null);
+        if (_tripleNotEquals) {
+          retval = this.getUnitRecord(a.getValue_name());
+        }
+        Constant _constant = a.getConstant();
+        boolean _tripleNotEquals_1 = (_constant != null);
+        if (_tripleNotEquals_1) {
+          retval = this.getUnitRecord(a.getConstant());
+        }
+        EnumerationValue _enum_val = a.getEnum_val();
+        boolean _tripleNotEquals_2 = (_enum_val != null);
+        if (_tripleNotEquals_2) {
+          retval = this._unitUtil.nan();
+        }
+        if (((a.getNow() != null) || (a.getTops() != null))) {
+          final QuantityType qt = BLESSFactory.eINSTANCE.createQuantityType();
+          qt.setUnit(this._blessIndex.getTimeUnit(a));
+          retval = this.getUnitRecord(qt);
+        }
+        if ((retval != null)) {
+          if (this.cacheUnits) {
+            this.unitRecordMap.put(a, retval);
+          }
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
@@ -2859,30 +3285,38 @@ public class BLESSValidator extends AbstractBLESSValidator {
         return this.unitRecordMap.get(a);
       }
       UnitRecord retval = this._unitUtil.scalar();
-      TypeOrReference _tod = a.getLabel().getTod();
-      boolean _tripleNotEquals = (_tod != null);
-      if (_tripleNotEquals) {
-        Type _type = this._typeUtil.getType(a.getLabel().getTod());
-        if ((_type instanceof QuantityType)) {
-          Type _type_1 = this._typeUtil.getType(a.getLabel().getTod());
-          final QuantityType t = ((QuantityType) _type_1);
-          UnitName _unit = t.getUnit();
-          boolean _tripleNotEquals_1 = (_unit != null);
-          if (_tripleNotEquals_1) {
-            retval = this._unitUtil.toUnitRecord(t.getUnit());
+      try {
+        TypeOrReference _tod = a.getLabel().getTod();
+        boolean _tripleNotEquals = (_tod != null);
+        if (_tripleNotEquals) {
+          Type _type = this.getType(a.getLabel().getTod());
+          if ((_type instanceof QuantityType)) {
+            Type _type_1 = this.getType(a.getLabel().getTod());
+            final QuantityType t = ((QuantityType) _type_1);
+            UnitName _unit = t.getUnit();
+            boolean _tripleNotEquals_1 = (_unit != null);
+            if (_tripleNotEquals_1) {
+              retval = this._unitUtil.toUnitRecord(t.getUnit());
+            }
+          } else {
+            this.fError("Return type of assertion invocation must be quantity type.", a, 
+              BLESSPackage.eINSTANCE.getInvocation_Label(), IssueCodes.MUST_BE_QUANTITY);
           }
-        } else {
-          this.fError("Return type of assertion invocation must be quantity type.", a, BLESSPackage.eINSTANCE.getInvocation_Label(), 
-            IssueCodes.MUST_BE_QUANTITY);
         }
-      }
-      if ((retval == null)) {
-        String _name = a.getLabel().getName();
-        String _plus = ("unit not found for Invocation:  " + _name);
-        this.fError(_plus, a, BLESSPackage.eINSTANCE.getInvocation_Label());
-      } else {
+        if ((retval == null)) {
+          String _name = a.getLabel().getName();
+          String _plus = ("unit not found for Invocation:  " + _name);
+          this.fError(_plus, a, BLESSPackage.eINSTANCE.getInvocation_Label());
+        }
         if (this.cacheUnits) {
           this.unitRecordMap.put(a, retval);
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
@@ -2897,9 +3331,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
         return this.unitRecordMap.get(a);
       }
       final UnitRecord retval = this.getUnitRecord(a.getNumeric_expression());
-      if (this.cacheUnits) {
-        this.unitRecordMap.put(a, retval);
-      }
       _xblockexpression = retval;
     }
     return _xblockexpression;
@@ -2915,10 +3346,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((!retval.isScalar)) {
         this.fError("Subject of product must be scalar.", a, BLESSPackage.eINSTANCE.getProductQuantification_Numeric_expression(), 
           IssueCodes.MUST_BE_SCALAR);
-      } else {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
-        }
+      }
+      if (this.cacheUnits) {
+        this.unitRecordMap.put(a, retval);
       }
       _xblockexpression = retval;
     }
@@ -2943,19 +3373,72 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public UnitRecord getUnitRecord(final ValueName a) {
     UnitRecord _xblockexpression = null;
     {
-      if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
-        return this.unitRecordMap.get(a);
-      }
       UnitRecord retval = null;
-      final Type itsType = this.getType(a);
-      if ((itsType instanceof QuantityType)) {
-        retval = this.getUnitRecord(((QuantityType) itsType));
-      } else {
-        retval = this._unitUtil.nan();
-      }
-      if ((retval != null)) {
-        if (this.cacheUnits) {
-          this.unitRecordMap.put(a, retval);
+      try {
+        if ((this.cacheUnits && this.unitRecordMap.containsKey(a))) {
+          return this.unitRecordMap.get(a);
+        }
+        final Type itsType = this.getType(a);
+        if ((itsType instanceof QuantityType)) {
+          retval = this.getUnitRecord(((QuantityType) itsType));
+        } else {
+          retval = this._unitUtil.nan();
+        }
+        NamedElement _id = a.getId();
+        if ((_id instanceof Feature)) {
+          NamedElement _id_1 = a.getId();
+          final Feature f = ((Feature) _id_1);
+          final Type ty = this.getType(a);
+          if ((ty == null)) {
+            String _name = f.getName();
+            String _plus = ("No BLESS::Typed property found for feature " + _name);
+            this.fError(_plus, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+              IssueCodes.MISSING_BLESS_TYPED_PROPERTY);
+          } else {
+            if ((ty instanceof QuantityType)) {
+              retval = this.getUnitRecord(((QuantityType) ty));
+            } else {
+              if ((ty instanceof BooleanType)) {
+                retval = this._unitUtil.nan();
+              } else {
+                String _name_1 = f.getName();
+                String _plus_1 = ("No BLESS::Typed property for feature " + _name_1);
+                String _plus_2 = (_plus_1 + " must be quantity, not ");
+                String _typeString = this._typeUtil.typeString(ty);
+                String _plus_3 = (_plus_2 + _typeString);
+                String _plus_4 = (_plus_3 + " .");
+                this.fError(_plus_4, a, BLESSPackage.eINSTANCE.getValueName_Id(), 
+                  IssueCodes.MUST_BE_QUANTITY);
+              }
+            }
+          }
+        }
+        NamedElement _id_2 = a.getId();
+        if ((_id_2 instanceof Variable)) {
+          NamedElement _id_3 = a.getId();
+          Type _type = this.getType(((Variable) _id_3).getTod());
+          if ((_type instanceof QuantityType)) {
+            NamedElement _id_4 = a.getId();
+            Type _type_1 = this.getType(((Variable) _id_4).getTod());
+            final QuantityType t = ((QuantityType) _type_1);
+            retval = this.getUnitRecord(t);
+          }
+        }
+        if ((retval == null)) {
+          this.fError("unit not found for ValueName", a, BLESSPackage.eINSTANCE.getValueName_Id());
+        } else {
+          if ((retval != null)) {
+            if (this.cacheUnits) {
+              this.unitRecordMap.put(a, retval);
+            }
+          }
+        }
+      } catch (final Throwable _t) {
+        if (_t instanceof Exception) {
+          final Exception ex = (Exception)_t;
+          ex.printStackTrace();
+        } else {
+          throw Exceptions.sneakyThrow(_t);
         }
       }
       _xblockexpression = retval;
@@ -2981,175 +3464,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   public UnitRecord getUnitRecord(final NumericExpression a) {
     return this.getUnitRecord(((Expression) a));
-  }
-
-  public UnitRecord getUnitRecord(final PropertyConstant a) {
-    PropertyExpression _constantValue = a.getConstantValue();
-    if ((_constantValue instanceof RealLiteral)) {
-      PropertyExpression _constantValue_1 = a.getConstantValue();
-      final RealLiteral rl = ((RealLiteral) _constantValue_1);
-      UnitLiteral _unit = rl.getUnit();
-      boolean _tripleEquals = (_unit == null);
-      if (_tripleEquals) {
-        return this._unitUtil.scalar();
-      } else {
-        boolean _unitMapContainsKey = BlessMaps.unitMapContainsKey(rl.getUnit().getName());
-        if (_unitMapContainsKey) {
-          return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(rl.getUnit().getName()));
-        } else {
-          String _name = rl.getUnit().getName();
-          String _plus = ("No Unit annex definition for \"" + _name);
-          String _plus_1 = (_plus + "\" was found; treated as scalar.");
-          BlessControl.println(_plus_1);
-          return this._unitUtil.scalar();
-        }
-      }
-    } else {
-      PropertyExpression _constantValue_2 = a.getConstantValue();
-      if ((_constantValue_2 instanceof IntegerLiteral)) {
-        PropertyExpression _constantValue_3 = a.getConstantValue();
-        final IntegerLiteral rl_1 = ((IntegerLiteral) _constantValue_3);
-        UnitLiteral _unit_1 = rl_1.getUnit();
-        boolean _tripleEquals_1 = (_unit_1 == null);
-        if (_tripleEquals_1) {
-          return this._unitUtil.whole();
-        } else {
-          boolean _unitMapContainsKey_1 = BlessMaps.unitMapContainsKey(rl_1.getUnit().getName());
-          if (_unitMapContainsKey_1) {
-            return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(rl_1.getUnit().getName()));
-          } else {
-            String _name_1 = rl_1.getUnit().getName();
-            String _plus_2 = ("No Unit annex definition for \"" + _name_1);
-            String _plus_3 = (_plus_2 + "\" was found; treated as scalar.");
-            BlessControl.println(_plus_3);
-            return this._unitUtil.scalar();
-          }
-        }
-      } else {
-        PropertyExpression _constantValue_4 = a.getConstantValue();
-        if ((_constantValue_4 instanceof RangeValue)) {
-          PropertyExpression _constantValue_5 = a.getConstantValue();
-          final RangeValue rl_2 = ((RangeValue) _constantValue_5);
-          PropertyExpression _delta = rl_2.getDelta();
-          boolean _tripleEquals_2 = (_delta == null);
-          if (_tripleEquals_2) {
-            return this._unitUtil.whole();
-          } else {
-            PropertyExpression _delta_1 = rl_2.getDelta();
-            if ((_delta_1 instanceof RealLiteral)) {
-              PropertyExpression _delta_2 = rl_2.getDelta();
-              UnitLiteral _unit_2 = ((RealLiteral) _delta_2).getUnit();
-              boolean _tripleNotEquals = (_unit_2 != null);
-              if (_tripleNotEquals) {
-                PropertyExpression _delta_3 = rl_2.getDelta();
-                return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(((RealLiteral) _delta_3).getUnit().getName()));
-              } else {
-                return this._unitUtil.scalar();
-              }
-            } else {
-              return this._unitUtil.whole();
-            }
-          }
-        }
-      }
-    }
-    return null;
-  }
-
-  public UnitLiteral getUnitLiteral(final Property p) {
-    EList<EObject> _eContents = p.eContents();
-    for (final EObject o : _eContents) {
-      if (((o instanceof NamedValue) && (((NamedValue) o).getNamedValue() instanceof PropertyConstant))) {
-        AbstractNamedValue _namedValue = ((NamedValue) o).getNamedValue();
-        final PropertyConstant pc = ((PropertyConstant) _namedValue);
-        PropertyExpression _constantValue = pc.getConstantValue();
-        if ((_constantValue instanceof IntegerLiteral)) {
-          PropertyExpression _constantValue_1 = pc.getConstantValue();
-          return ((IntegerLiteral) _constantValue_1).getUnit();
-        } else {
-          PropertyExpression _constantValue_2 = pc.getConstantValue();
-          if ((_constantValue_2 instanceof RealLiteral)) {
-            PropertyExpression _constantValue_3 = pc.getConstantValue();
-            return ((RealLiteral) _constantValue_3).getUnit();
-          }
-        }
-      } else {
-        if ((o instanceof IntegerLiteral)) {
-          return ((IntegerLiteral) o).getUnit();
-        } else {
-          if ((o instanceof RealLiteral)) {
-            return ((RealLiteral) o).getUnit();
-          }
-        }
-      }
-    }
-    return null;
-  }
-
-  public UnitRecord getUnitRecord(final Property p) {
-    final UnitLiteral ul = this.getUnitLiteral(p);
-    boolean _unitMapContainsKey = BlessMaps.unitMapContainsKey(ul.getName());
-    if (_unitMapContainsKey) {
-      return this._unitUtil.toUnitRecord(BlessMaps.unitMapGet(ul.getName()));
-    } else {
-      return this._unitUtil.whole();
-    }
-  }
-
-  public UnitRecord getUnitRecord(final PropertyReference a) {
-    Property _pname = a.getPname();
-    boolean _tripleNotEquals = (_pname != null);
-    if (_tripleNotEquals) {
-      final NamedElement ne = a.getPname();
-      if ((ne instanceof PropertyConstant)) {
-        final PropertyConstant pc = ((PropertyConstant) ne);
-        boolean _eIsProxy = pc.eIsProxy();
-        if (_eIsProxy) {
-          EcoreUtil.resolve(pc, this._blessIndex.getResourceSet(a));
-        }
-        PropertyType _referencedPropertyType = pc.getReferencedPropertyType();
-        boolean _tripleNotEquals_1 = (_referencedPropertyType != null);
-        if (_tripleNotEquals_1) {
-          return this.getUnitRecord(pc);
-        }
-      }
-      if ((ne instanceof Property)) {
-        final Property prop = ((Property) ne);
-        boolean _eIsProxy_1 = prop.eIsProxy();
-        if (_eIsProxy_1) {
-          EcoreUtil.resolve(prop, this._blessIndex.getResourceSet(a));
-        }
-        PropertyType _referencedPropertyType_1 = prop.getReferencedPropertyType();
-        boolean _tripleNotEquals_2 = (_referencedPropertyType_1 != null);
-        if (_tripleNotEquals_2) {
-          return this.getUnitRecord(prop);
-        }
-        PropertyType _ownedPropertyType = prop.getOwnedPropertyType();
-        boolean _tripleNotEquals_3 = (_ownedPropertyType != null);
-        if (_tripleNotEquals_3) {
-          PropertyType _ownedPropertyType_1 = prop.getOwnedPropertyType();
-          if ((_ownedPropertyType_1 instanceof AadlInteger)) {
-            return this._unitUtil.whole();
-          } else {
-            PropertyType _ownedPropertyType_2 = prop.getOwnedPropertyType();
-            if ((_ownedPropertyType_2 instanceof AadlReal)) {
-              return this._unitUtil.scalar();
-            }
-          }
-        }
-      }
-    }
-    Property _spname = a.getSpname();
-    boolean _tripleNotEquals_4 = (_spname != null);
-    if (_tripleNotEquals_4) {
-      return this.getUnitRecord(a.getSpname());
-    }
-    Property _cpname = a.getCpname();
-    boolean _tripleNotEquals_5 = (_cpname != null);
-    if (_tripleNotEquals_5) {
-      return this.getUnitRecord(a.getCpname());
-    }
-    return null;
   }
 
   public UnitRecord getUnitRecord(final QuantityType a) {
@@ -3196,30 +3510,39 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public UnitRecord getUnitRecord(final BehaviorTime a) {
-    UnitRecord _elvis = null;
-    UnitRecord _elvis_1 = null;
+    UnitRecord _xifexpression = null;
     Quantity _quantity = a.getQuantity();
-    UnitRecord _unitRecord = null;
-    if (_quantity!=null) {
-      _unitRecord=this.getUnitRecord(_quantity);
-    }
-    if (_unitRecord != null) {
-      _elvis_1 = _unitRecord;
+    boolean _tripleNotEquals = (_quantity != null);
+    if (_tripleNotEquals) {
+      _xifexpression = this.getUnitRecord(a.getQuantity());
     } else {
-      ValueName _value = a.getValue();
-      UnitRecord _unitRecord_1 = null;
-      if (_value!=null) {
-        _unitRecord_1=this.getUnitRecord(_value);
+      UnitRecord _xifexpression_1 = null;
+      String _whole = a.getWhole();
+      boolean _tripleNotEquals_1 = (_whole != null);
+      if (_tripleNotEquals_1) {
+        _xifexpression_1 = this._unitUtil.whole();
+      } else {
+        UnitRecord _xifexpression_2 = null;
+        String _scalar = a.getScalar();
+        boolean _tripleNotEquals_2 = (_scalar != null);
+        if (_tripleNotEquals_2) {
+          _xifexpression_2 = this._unitUtil.scalar();
+        } else {
+          UnitRecord _xifexpression_3 = null;
+          UnitName _unit = a.getUnit();
+          boolean _tripleNotEquals_3 = (_unit != null);
+          if (_tripleNotEquals_3) {
+            _xifexpression_3 = this._unitUtil.toUnitRecord(a.getUnit());
+          } else {
+            _xifexpression_3 = this.getUnitRecord(a.getValue());
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
       }
-      _elvis_1 = _unitRecord_1;
+      _xifexpression = _xifexpression_1;
     }
-    if (_elvis_1 != null) {
-      _elvis = _elvis_1;
-    } else {
-      UnitRecord _unitRecord_2 = this.getUnitRecord(a.getDuration());
-      _elvis = _unitRecord_2;
-    }
-    return _elvis;
+    return _xifexpression;
   }
 
   public UnitRecord getUnitRecord(final ForallVariable p) {
@@ -3236,7 +3559,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
     if (q!=null) {
       _unit=q.getUnit();
     }
-    UnitRecord _unitRecord = this._unitUtil.toUnitRecord(_unit);
+    UnitRecord _unitRecord = null;
+    if (_unit!=null) {
+      _unitRecord=this._unitUtil.toUnitRecord(_unit);
+    }
     if (_unitRecord != null) {
       _elvis = _unitRecord;
     } else {
@@ -3247,7 +3573,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isWhole(final Variable v) {
-    return ((this._typeUtil.getType(v.getTod()) instanceof QuantityType) && ((QuantityType) this._typeUtil.getType(v.getTod())).isWhole());
+    return ((this.getType(v.getTod()) instanceof QuantityType) && (((QuantityType) this.getType(v.getTod())).getWhole() != null));
   }
 
   public boolean isWhole(final ForallVariable v) {
@@ -3318,7 +3644,8 @@ public class BLESSValidator extends AbstractBLESSValidator {
         Type _type = this.getType(v.getValue_name());
         if ((_type instanceof QuantityType)) {
           Type _type_1 = this.getType(v.getValue_name());
-          return ((QuantityType) _type_1).isWhole();
+          String _whole = ((QuantityType) _type_1).getWhole();
+          return (_whole != null);
         }
       }
       Constant _constant = v.getConstant();
@@ -3595,21 +3922,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public boolean isWhole(final Exp e) {
-    boolean _xblockexpression = false;
-    {
-      boolean _isWhole = this.isWhole(e.getL());
-      boolean _not = (!_isWhole);
-      if (_not) {
-        return false;
-      }
-      boolean _isWhole_1 = this.isWhole(e.getR());
-      boolean _not_1 = (!_isWhole_1);
-      if (_not_1) {
-        return false;
-      }
-      _xblockexpression = true;
+    boolean _xifexpression = false;
+    Subexpression _r = e.getR();
+    boolean _tripleEquals = (_r == null);
+    if (_tripleEquals) {
+      _xifexpression = this.isWhole(e.getL());
+    } else {
+      _xifexpression = (this.isWhole(e.getL()) && this.isWhole(e.getR()));
     }
-    return _xblockexpression;
+    return _xifexpression;
   }
 
   public boolean isWhole(final NumericExpression e) {

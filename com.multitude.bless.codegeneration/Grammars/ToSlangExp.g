@@ -5,7 +5,7 @@
 tree grammar ToSlangExp;
 
 options {
-tokenVocab=BLESStoAST;
+tokenVocab=BLESS3;
 ASTLabelType=BAST;
 language = Java;
 output=AST;
@@ -26,7 +26,7 @@ import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.HelpfulHints;
 import com.multitude.bless.app.Global;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 }
 
 @members
@@ -105,10 +105,10 @@ removeTopParentheses
  
 convertFeatureNames
   :
-  ^(p=PERIOD label=ID rest+=ID+ { featureNames.contains($label.text) }? )
+  ^(p=DOT label=ID rest+=ID+ { featureNames.contains($label.text) }? )
     -> ^($p ID["api"] ID["get_"+$label.text+"()"] ID["get"] $rest+)
   |
-  ^(p=PERIOD label=ID { featureNames.contains($label.text) }? )
+  ^(p=DOT label=ID { featureNames.contains($label.text) }? )
     -> ^($p ID["api"] ID["get_"+$label.text+"()"] ID["get"] )
   ;
  

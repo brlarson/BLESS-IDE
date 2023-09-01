@@ -6,7 +6,7 @@ tree grammar ASTtoAST;
 
 options
 {
-tokenVocab=BLESStoAST;
+tokenVocab=BLESS3;
 ASTLabelType=BAST;
 output=AST;
 //filter=true;  //tree pattern matching mode
@@ -23,7 +23,7 @@ import org.antlr.runtime.tree.*;
 import org.antlr.stringtemplate.*;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
-import com.multitude.bless.antlr3generated.BLESStoASTLexer;
+import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.BLESS;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.*;
@@ -82,7 +82,7 @@ makeConjunctionOfAssertions(BAST amp)
   {
   if (amp==null)
     {Dump.it("null parameter to ASTtoAST.makeConjunctionOfAssertions"); return null;}
-  if (!amp.hasType(BLESStoASTLexer.AMPERSAND))
+  if (!amp.hasType(BLESS3Lexer.AMPERSAND))
     {Dump.it("parameter to ASTtoAST.makeConjunctionOfAssertions"+
       " must be AMPERSAND "+amp.getText()); return null;}
   if (amp.getChildCount()==0)
@@ -90,11 +90,11 @@ makeConjunctionOfAssertions(BAST amp)
   if (amp.getChildCount()==1)
     {return (BAST)amp.getChild(0);}  //return only child of &
   //o.w. make conjunction
-  BAST theAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,amp);
+  BAST theAnd = new BAST("and",BLESS3Lexer.LITERAL_and,amp);
   for (int f=0; f<amp.getChildCount();f++)
     {
     BAST anAssertion = (BAST)amp.getChild(f);
-    if (!amp.hasType(BLESStoASTLexer.ASSERTION))
+    if (!amp.hasType(BLESS3Lexer.ASSERTION))
       {Dump.it("children of & of parameter to ASTtoAST.makeConjunctionOfAssertions"+
         " must be ASSERTION "+amp.getText()); return null;}
     if (anAssertion.getChildCount()==1) //just predicate as child
@@ -111,30 +111,30 @@ makeConjunctionOfAssertions(BAST amp)
   public static BAST
   parenthesize(BAST t)
   { //put parentheses around t
-    BAST lp = new BAST("(",BLESStoASTLexer.LPAREN,t);
+    BAST lp = new BAST("(",BLESS3Lexer.LPAREN,t);
     lp.addChild(t);
-    lp.addChild(new BAST(")",BLESStoASTLexer.RPAREN,t));
+    lp.addChild(new BAST(")",BLESS3Lexer.RPAREN,t));
     return lp;
   }
   
 } //end of members
 
 //   all a:t in r are P1
-makeAnAllAreTree[Tree a, Tree t, Tree r, Tree p1]
+makeAnAllAreTree[Tree lv, Tree iw, Tree pred]
   :
-  -> ^(LITERAL_all {$a} COLON {$t} LITERAL_in {$r} LITERAL_are {$p1} )
+  -> ^(LITERAL_all {$lv} {$iw} LITERAL_are {$pred} )
   ;
 
 getPredicateFromAssertion
   :
-  ^( ASSERTION  (^( LABEL ID ))? (^(PARAMETERS ID+ ))?  p=. )
+  ^( ASSERTION  (^( LABEL ID ))? (^(PARAMETERS . ))?  p=. )
     -> {$p}
   ;
 
 
 getBehaviorActionsFromELQ
   :
-  ^(LCURLY (^(LITERAL_declare .*) )? ba=. RCURLY )
+  ^(LCURLY (^(LITERAL_declare .*) )? ba=. RCURLY (^( LITERAL_catch .+ ) )? )
     -> {$ba}
   
   ;
@@ -165,8 +165,8 @@ getPreconditionFromBehaviorActions returns [BAST pre = null]
     else if (andTerms.size()==1) $pre=andTerms.get(0);
     else
       {
-      $pre = new BAST("ASSERTION",BLESStoASTLexer.ASSERTION,$amp);
-      BAST anAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,$amp);
+      $pre = new BAST("ASSERTION",BLESS3Lexer.ASSERTION,$amp);
+      BAST anAnd = new BAST("and",BLESS3Lexer.LITERAL_and,$amp);
       for (int i=0;i<andTerms.size();i++)
         anAnd.addChild(parenthesize((BAST)andTerms.get(i).getChild(0)));
       $pre.addChild(parenthesize(anAnd));
@@ -187,15 +187,15 @@ getPostconditionFromBehaviorActionsInELQ
     -> {$b.post}  
   ;
   catch [RecognitionException re] 
-  {Dump.it("Aw elq.");
+  { //Dump.it("Aw elq.");
   tell("ASTtoAST.getPostconditionFromBehaviorActionsInELQ",re,(BAST)retval.getTree());
   throw re;}
 //  return null;}
   
 anAssertion
   :
-  ^( ass=ASSERTION  ^( l=LABEL a=ID ) ^(par=PARAMETERS lv+=ID+ )  p=. )
-    -> ^($ass ^($l $a) ^($par $lv+) $p)
+  ^( ass=ASSERTION  ^( l=LABEL a=ID ) ^(par=PARAMETERS formals=variableList )  p=. )
+    -> ^($ass ^($l $a) ^($par $formals) $p)
   |
   ^( ass=ASSERTION  ^( l=LABEL a=ID )  p=. )
     -> ^($ass ^($l $a) $p)
@@ -203,6 +203,18 @@ anAssertion
   ^( ass=ASSERTION p=. ) 
     -> ^($ass $p)
   ;  
+ 
+variableList
+  :
+  v=variable
+  |
+  ^( COMMA parameter+=variable+ )
+  ; 
+
+variable
+  :
+  ^( TILDE id=ID tod=. )
+  ;
   
 getPostconditionFromBehaviorActions returns [BAST post = null]
   options {backtrack=true;}  
@@ -228,8 +240,8 @@ getPostconditionFromBehaviorActions returns [BAST post = null]
     else if (ampersandPostconditions.size()==1) $post=ampersandPostconditions.get(0);
     else
       {
-      $post = new BAST("ASSERTION",BLESStoASTLexer.ASSERTION,$amp);
-      BAST anAnd = new BAST("and",BLESStoASTLexer.LITERAL_and,$amp);
+      $post = new BAST("ASSERTION",BLESS3Lexer.ASSERTION,$amp);
+      BAST anAnd = new BAST("and",BLESS3Lexer.LITERAL_and,$amp);
       for (int i=0;i<ampersandPostconditions.size();i++)
         anAnd.addChild(parenthesize((BAST)ampersandPostconditions.get(i).getChild(0)));
       $post.addChild(anAnd);
@@ -240,7 +252,7 @@ getPostconditionFromBehaviorActions returns [BAST post = null]
     -> {$elq.tree}
   ;
   catch [RecognitionException re] 
-  {Dump.it("Aw shucks.");
+  { //Dump.it("Aw shucks.");
   tell("ASTtoAST.getPostconditionFromBehaviorActions",re,(BAST)retval.getTree());
   throw re;}
 
@@ -259,52 +271,20 @@ get_x_t_from_behavior_variable
    ; 
 */
  
-get_invariant_from_thread_behavior  
-  :  
-  ^(c=COMPONENT cc=. 
-    (LITERAL_implementation ^(PERIOD dcti=ID des=ID)
-      | ID)
-    ( ^(LITERAL_features .+) )?
-    ( ^(LITERAL_properties  .+) )?
-    ^(LITERAL_annex LITERAL_BLESS 
-      ^( THREAD_ANNEX  
-      ^(LITERAL_states .+ ) 
-      (^(LITERAL_availability .) )? 
-      (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
-      (^(LITERAL_variables .+) )?
-      ^(LITERAL_transitions .+) 
-//      (^(LITERAL_transitions .+) )?
-      DO_NOT_PROVE?
-      STOP
-      )
-    ) 
-    LITERAL_end
-  )
-    -> ^($ass $predicate)  //get the predicate only
-  ;  
-  catch [RecognitionException re] 
-  {Dump.it("Did you forget an invariant clause, Bub?");
-  tell("ASTtoAST.get_invariant_from_thread_behavior",re,(BAST)retval.getTree());}
-
 get_invariant_from_bless_subclause  
   :  
-      ^( ta=THREAD_ANNEX  
-      ^(LITERAL_states .+ ) 
-      (^(LITERAL_availability .) )? 
-      (^(LITERAL_assert .+) )?
-      ^(LITERAL_invariant  ^( ass=ASSERTION  (^( LABEL a=ID ) )? ( ^(PARAMETERS lv+=.+ ) )? predicate=. )) //must have invariant
-      (^(LITERAL_variables .+) )?
-      ^(LITERAL_transitions .+) 
-//      (^(LITERAL_transitions .+) )?
-      DO_NOT_PROVE?
-      STOP
-      )
-    -> ^($ass $predicate)  //get the predicate only
+  ^( BLESS_SUBCLAUSE 
+    DO_NOT_PROVE? 
+    ( ^( LITERAL_assert .+ ) )?
+    ^( ta=LITERAL_invariant 
+      ^( ass=ASSERTION ( ^(LABEL id=. ) )?  pred=. ) )
+    .*
+    )
+    -> ^($ass $pred)  //get the predicate only
   ;  
   catch [RecognitionException re] 
-  {Dump.it("Did you forget an invariant clause, Bub?");
-  tell("Did you forget an invariant clause, Bub?",re,$ta);
+  { //Dump.it("Did you forget an invariant clause, Bub?");
+  tell("Did you forget an invariant clause?",re,$ta);
 //  tell("ASTtoAST.get_invariant_from_bless_subclause",re,(BAST)retval.getTree());
   }
 

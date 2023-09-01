@@ -1,5 +1,6 @@
 package com.multitude.aadl.bless.scoping;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -8,10 +9,12 @@ import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.RootDeclaration;
+import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitExtension;
 import com.multitude.aadl.bless.bLESS.UnitName;
+import com.multitude.aadl.bless.exception.ValidationException;
 import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -197,14 +200,24 @@ public class BlessIndex {
         BLESSRuntimeModule _bLESSRuntimeModule = new BLESSRuntimeModule();
         this.rdp = Guice.createInjector(_bLESSRuntimeModule).<ResourceDescriptionsProvider>getInstance(ResourceDescriptionsProvider.class);
       }
-      final IResourceDescriptions rd = this.rdp.getResourceDescriptions(o.eResource());
-      final Function1<IEObjectDescription, EObject> _function = (IEObjectDescription it) -> {
-        return it.getEObjectOrProxy();
-      };
-      final Function1<EObject, EObject> _function_1 = (EObject it) -> {
-        return EcoreUtil.resolve(it, o);
-      };
-      _xblockexpression = Iterables.<RootDeclaration>filter(IterableExtensions.<EObject, EObject>map(IterableExtensions.<IEObjectDescription, EObject>map(rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.getRootDeclaration()), _function), _function_1), RootDeclaration.class);
+      Iterable<RootDeclaration> _xifexpression = null;
+      Resource _eResource = o.eResource();
+      boolean _tripleNotEquals = (_eResource != null);
+      if (_tripleNotEquals) {
+        Iterable<RootDeclaration> _xblockexpression_1 = null;
+        {
+          final IResourceDescriptions rd = this.rdp.getResourceDescriptions(o.eResource());
+          final Function1<IEObjectDescription, EObject> _function = (IEObjectDescription it) -> {
+            return it.getEObjectOrProxy();
+          };
+          final Function1<EObject, EObject> _function_1 = (EObject it) -> {
+            return EcoreUtil.resolve(it, o);
+          };
+          _xblockexpression_1 = Iterables.<RootDeclaration>filter(IterableExtensions.<EObject, EObject>map(IterableExtensions.<IEObjectDescription, EObject>map(rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.getRootDeclaration()), _function), _function_1), RootDeclaration.class);
+        }
+        _xifexpression = _xblockexpression_1;
+      }
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -222,7 +235,26 @@ public class BlessIndex {
       final RootDeclaration root = EcoreUtil2.<RootDeclaration>getContainerOfType(o, RootDeclaration.class);
       UnitName _xifexpression = null;
       if ((root == null)) {
-        _xifexpression = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class).getRoot();
+        UnitName _xblockexpression_1 = null;
+        {
+          final UnitExtension ext = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class);
+          UnitName _xifexpression_1 = null;
+          if ((ext != null)) {
+            _xifexpression_1 = ext.getRoot();
+          } else {
+            UnitName _xblockexpression_2 = null;
+            {
+              String _name = o.getName();
+              String _plus = ("Unit name \"" + _name);
+              String _plus_1 = (_plus + "\" has neither root declaration, nor unit extension.");
+              System.out.println(_plus_1);
+              _xblockexpression_2 = o;
+            }
+            _xifexpression_1 = _xblockexpression_2;
+          }
+          _xblockexpression_1 = _xifexpression_1;
+        }
+        _xifexpression = _xblockexpression_1;
       } else {
         _xifexpression = root.getUnitName();
       }
@@ -234,6 +266,13 @@ public class BlessIndex {
   public RootDeclaration getRootDeclaration(final UnitName o) {
     RootDeclaration _xblockexpression = null;
     {
+      final UnitExtension ue = EcoreUtil2.<UnitExtension>getContainerOfType(o, UnitExtension.class);
+      if ((ue != null)) {
+        EObject _resolve = EcoreUtil.resolve(ue.getRoot(), o);
+        final UnitName extensionRoot = ((UnitName) _resolve);
+        EObject _eContainer = extensionRoot.eContainer();
+        return ((RootDeclaration) _eContainer);
+      }
       RootDeclaration rd = EcoreUtil2.<RootDeclaration>getContainerOfType(o, RootDeclaration.class);
       if ((rd == null)) {
         final Function1<RootDeclaration, Boolean> _function = (RootDeclaration it) -> {
@@ -294,10 +333,32 @@ public class BlessIndex {
     return _xblockexpression;
   }
 
+  private UnitName s = null;
+
   public UnitName getTimeUnit(final EObject o) {
-    final Function1<RootDeclaration, Boolean> _function = (RootDeclaration it) -> {
-      return Boolean.valueOf(it.getUnitName().getName().equals("s"));
-    };
-    return IterableExtensions.<RootDeclaration>head(IterableExtensions.<RootDeclaration>filter(this.getBaseUnitDeclarations(o), _function)).getUnitName();
+    UnitName _xblockexpression = null;
+    {
+      if ((this.s == null)) {
+        this.s = this.findUnitNameFromString(o, "s");
+      }
+      _xblockexpression = this.s;
+    }
+    return _xblockexpression;
+  }
+
+  public Type getTypeFromID(final String id, final Resource r) throws ValidationException {
+    Type _xblockexpression = null;
+    {
+      final Function1<TypeDeclaration, Boolean> _function = (TypeDeclaration it) -> {
+        String _name = it.getName();
+        return Boolean.valueOf(Objects.equal(_name, id));
+      };
+      final TypeDeclaration td = IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function));
+      if ((td == null)) {
+        throw new ValidationException((("No type declaration found for \"" + id) + "\""));
+      }
+      _xblockexpression = td.getType();
+    }
+    return _xblockexpression;
   }
 }

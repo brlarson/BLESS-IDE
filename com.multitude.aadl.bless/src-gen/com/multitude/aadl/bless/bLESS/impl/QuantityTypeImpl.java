@@ -32,8 +32,8 @@ import org.osate.aadl2.impl.ElementImpl;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getUnit <em>Unit</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#isScalar <em>Scalar</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#isWhole <em>Whole</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getScalar <em>Scalar</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getWhole <em>Whole</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getLb <em>Lb</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getUb <em>Ub</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.QuantityTypeImpl#getStep <em>Step</em>}</li>
@@ -55,44 +55,44 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
   protected UnitName unit;
 
   /**
-   * The default value of the '{@link #isScalar() <em>Scalar</em>}' attribute.
+   * The default value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    * @ordered
    */
-  protected static final boolean SCALAR_EDEFAULT = false;
+  protected static final String SCALAR_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isScalar() <em>Scalar</em>}' attribute.
+   * The cached value of the '{@link #getScalar() <em>Scalar</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isScalar()
+   * @see #getScalar()
    * @generated
    * @ordered
    */
-  protected boolean scalar = SCALAR_EDEFAULT;
+  protected String scalar = SCALAR_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isWhole() <em>Whole</em>}' attribute.
+   * The default value of the '{@link #getWhole() <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    * @ordered
    */
-  protected static final boolean WHOLE_EDEFAULT = false;
+  protected static final String WHOLE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isWhole() <em>Whole</em>}' attribute.
+   * The cached value of the '{@link #getWhole() <em>Whole</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isWhole()
+   * @see #getWhole()
    * @generated
    * @ordered
    */
-  protected boolean whole = WHOLE_EDEFAULT;
+  protected String whole = WHOLE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getLb() <em>Lb</em>}' containment reference.
@@ -206,7 +206,7 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @generated
    */
   @Override
-  public boolean isScalar()
+  public String getScalar()
   {
     return scalar;
   }
@@ -217,9 +217,9 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @generated
    */
   @Override
-  public void setScalar(boolean newScalar)
+  public void setScalar(String newScalar)
   {
-    boolean oldScalar = scalar;
+    String oldScalar = scalar;
     scalar = newScalar;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__SCALAR, oldScalar, scalar));
@@ -231,7 +231,7 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @generated
    */
   @Override
-  public boolean isWhole()
+  public String getWhole()
   {
     return whole;
   }
@@ -242,9 +242,9 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
    * @generated
    */
   @Override
-  public void setWhole(boolean newWhole)
+  public void setWhole(String newWhole)
   {
-    boolean oldWhole = whole;
+    String oldWhole = whole;
     whole = newWhole;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.QUANTITY_TYPE__WHOLE, oldWhole, whole));
@@ -479,9 +479,9 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
         if (resolve) return getUnit();
         return basicGetUnit();
       case BLESSPackage.QUANTITY_TYPE__SCALAR:
-        return isScalar();
+        return getScalar();
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
-        return isWhole();
+        return getWhole();
       case BLESSPackage.QUANTITY_TYPE__LB:
         return getLb();
       case BLESSPackage.QUANTITY_TYPE__UB:
@@ -509,10 +509,10 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
         setUnit((UnitName)newValue);
         return;
       case BLESSPackage.QUANTITY_TYPE__SCALAR:
-        setScalar((Boolean)newValue);
+        setScalar((String)newValue);
         return;
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
-        setWhole((Boolean)newValue);
+        setWhole((String)newValue);
         return;
       case BLESSPackage.QUANTITY_TYPE__LB:
         setLb((ANumber)newValue);
@@ -578,9 +578,9 @@ public class QuantityTypeImpl extends ElementImpl implements QuantityType
       case BLESSPackage.QUANTITY_TYPE__UNIT:
         return unit != null;
       case BLESSPackage.QUANTITY_TYPE__SCALAR:
-        return scalar != SCALAR_EDEFAULT;
+        return SCALAR_EDEFAULT == null ? scalar != null : !SCALAR_EDEFAULT.equals(scalar);
       case BLESSPackage.QUANTITY_TYPE__WHOLE:
-        return whole != WHOLE_EDEFAULT;
+        return WHOLE_EDEFAULT == null ? whole != null : !WHOLE_EDEFAULT.equals(whole);
       case BLESSPackage.QUANTITY_TYPE__LB:
         return lb != null;
       case BLESSPackage.QUANTITY_TYPE__UB:

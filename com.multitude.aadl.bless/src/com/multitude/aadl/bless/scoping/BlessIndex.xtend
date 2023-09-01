@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.resource.IContainer
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
+import com.multitude.aadl.bless.BlessControl
+import com.multitude.aadl.bless.bLESS.Type
+import com.multitude.aadl.bless.exception.ValidationException
 
 //import org.example.smalljava.smallJava.SmallJavaPackage
 class BlessIndex
@@ -127,8 +130,11 @@ getVisibleRootDeclarations(EObject o)
 	{
 	if (rdp === null) 
 		rdp = Guice.createInjector(new BLESSRuntimeModule()).getInstance(ResourceDescriptionsProvider)
-  val rd = rdp.getResourceDescriptions(o.eResource)
-  rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.rootDeclaration).map[EObjectOrProxy].map[EcoreUtil.resolve(it,o)].filter(RootDeclaration)
+	if (o.eResource!==null)
+	  {
+    val rd = rdp.getResourceDescriptions(o.eResource)
+    rd.getExportedObjectsByType(BLESSPackage.eINSTANCE.rootDeclaration).map[EObjectOrProxy].map[EcoreUtil.resolve(it,o)].filter(RootDeclaration)
+	  }	
 	}
 
 	def Iterable<RootDeclaration> 
@@ -139,18 +145,35 @@ getBaseUnitDeclarations(EObject o)
 
 	def UnitName 
 getRootUnit(UnitName o)
-	{
-		val root = EcoreUtil2.getContainerOfType(o, RootDeclaration)
-		if (root === null) {
-			EcoreUtil2.getContainerOfType(o, UnitExtension).root
-		} else {
-			root.unitName
-		}
-	}
+  {
+    val root = EcoreUtil2.getContainerOfType(o, RootDeclaration)
+    if (root === null)
+    {
+      val ext = EcoreUtil2.getContainerOfType(o, UnitExtension)
+      if (ext !== null)
+        ext.root
+      else
+      {
+        //BlessControl. 
+        System.out.println("Unit name \"" + o.name + "\" has neither root declaration, nor unit extension.")
+        o
+      }
+    }
+    else
+    {
+      root.unitName
+    }
+  }
 
 	def RootDeclaration 
 getRootDeclaration(UnitName o)
 	{
+	val ue = EcoreUtil2.getContainerOfType(o, UnitExtension)
+	if (ue !== null)
+	  {
+	  val UnitName extensionRoot = EcoreUtil.resolve(ue.root,o) as UnitName
+	  return extensionRoot.eContainer as RootDeclaration
+	  }
 	var rd = EcoreUtil2.getContainerOfType(o, RootDeclaration)
 	if (rd === null)
 		rd = o.getVisibleRootDeclarations.filter[it.unitName.name.equals(o.name)].head
@@ -192,12 +215,25 @@ getVisibleContainers(EObject o)
 //	{
 //		o.getResourceDescription.getExportedObjects
 //	}
+
+var UnitName s = null;  //cached unit name for seconds
 	
 def	UnitName getTimeUnit(EObject o)
   {
-  	o.getBaseUnitDeclarations.filter[it.unitName.name.equals('s')].head.unitName
+  if (s===null) 
+    s = o.findUnitNameFromString("s")   
+  s	
   }
+  
 
+def Type getTypeFromID(String id, Resource r) throws ValidationException
+  {
+  val td = r.getVisibleTypeDeclarations.filter[it.name==id].head
+  if (td ===null)
+    throw new ValidationException("No type declaration found for \""+id+"\"")
+  td.type 
+  }
+  
 //def UnitName findRootUnitWithTopAndBottom(EObject o, EList<UnitName> t, EList<UnitName> b)
 //  {
 //  var UnitName un = null

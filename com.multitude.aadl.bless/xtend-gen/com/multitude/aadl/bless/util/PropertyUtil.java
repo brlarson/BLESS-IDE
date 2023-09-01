@@ -1,7 +1,6 @@
 package com.multitude.aadl.bless.util;
 
 import com.google.inject.Inject;
-import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.BLESSFactory;
 import com.multitude.aadl.bless.bLESS.QuantityType;
 import com.multitude.aadl.bless.bLESS.RecordField;
@@ -22,7 +21,6 @@ import org.osate.aadl2.ClassifierType;
 import org.osate.aadl2.EnumerationLiteral;
 import org.osate.aadl2.EnumerationType;
 import org.osate.aadl2.NumberType;
-import org.osate.aadl2.NumericRange;
 import org.osate.aadl2.Property;
 import org.osate.aadl2.PropertyExpression;
 import org.osate.aadl2.PropertyType;
@@ -232,21 +230,12 @@ public class PropertyUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType ar = BLESSFactory.eINSTANCE.createQuantityType();
-      ar.setWhole(false);
       UnitsType _referencedUnitsType = e.getReferencedUnitsType();
       boolean _tripleNotEquals = (_referencedUnitsType != null);
       if (_tripleNotEquals) {
         ar.setUnit(this.getUnitName(e, e.getReferencedUnitsType()));
       } else {
-        ar.setScalar(true);
-      }
-      NumericRange _range = e.getRange();
-      boolean _tripleNotEquals_1 = (_range != null);
-      if (_tripleNotEquals_1) {
-        ANumber _lb = ar.getLb();
-        _lb.setLit(this.toRealLiteral(e.getRange().getLowerBound()));
-        ANumber _ub = ar.getUb();
-        _ub.setLit(this.toRealLiteral(e.getRange().getUpperBound()));
+        ar.setScalar("scalar");
       }
       _xblockexpression = ar;
     }
@@ -257,21 +246,12 @@ public class PropertyUtil {
     QuantityType _xblockexpression = null;
     {
       QuantityType ar = BLESSFactory.eINSTANCE.createQuantityType();
-      ar.setWhole(true);
       UnitsType _referencedUnitsType = e.getReferencedUnitsType();
       boolean _tripleNotEquals = (_referencedUnitsType != null);
       if (_tripleNotEquals) {
         ar.setUnit(this.getUnitName(e, e.getReferencedUnitsType()));
       } else {
-        ar.setScalar(true);
-      }
-      NumericRange _range = e.getRange();
-      boolean _tripleNotEquals_1 = (_range != null);
-      if (_tripleNotEquals_1) {
-        ANumber _lb = ar.getLb();
-        _lb.setLit(this.toWholeLiteral(e.getRange().getLowerBound()));
-        ANumber _ub = ar.getUb();
-        _ub.setLit(this.toWholeLiteral(e.getRange().getUpperBound()));
+        ar.setWhole("whole");
       }
       _xblockexpression = ar;
     }

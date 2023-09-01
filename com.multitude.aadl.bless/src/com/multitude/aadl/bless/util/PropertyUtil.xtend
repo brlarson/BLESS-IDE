@@ -141,32 +141,36 @@ def Type getType(EnumerationType e)
 def Type getType(AadlReal e)
   {
   var ar = BLESSFactory.eINSTANCE.createQuantityType
-  ar.whole = false
+//  ar.whole = false
   if (e.referencedUnitsType !== null)
     ar.unit = getUnitName(e,e.referencedUnitsType)
   else
-    ar.scalar = true
-  if (e.range !== null)
-    {
-    ar.lb.lit = e.range.lowerBound.toRealLiteral
-    ar.ub.lit = e.range.upperBound.toRealLiteral
-    }
+    ar.scalar = 'scalar'
+//  if (e.range !== null)
+//    {
+//    ar.lb.lit = e.range.lowerBound.toRealLiteral
+//    ar.ub.lit = e.range.upperBound.toRealLiteral
+//    }
   ar	
   }
 
 def Type getType(AadlInteger e)
   {
   var ar = BLESSFactory.eINSTANCE.createQuantityType
-  ar.whole = true
   if (e.referencedUnitsType !== null)
     ar.unit = getUnitName(e,e.referencedUnitsType)
   else
-    ar.scalar = true
-  if (e.range !== null)
-    {
-    ar.lb.lit = e.range.lowerBound.toWholeLiteral
-    ar.ub.lit = e.range.upperBound.toWholeLiteral
-    }
+    ar.whole = 'whole'
+//  ar.whole = true
+//  if (e.referencedUnitsType !== null)
+//    ar.unit = getUnitName(e,e.referencedUnitsType)
+//  else
+//    ar.scalar = true
+//  if (e.range !== null)
+//    {
+//    ar.lb.lit = e.range.lowerBound.toWholeLiteral
+//    ar.ub.lit = e.range.upperBound.toWholeLiteral
+//    }
   ar	
   }
 

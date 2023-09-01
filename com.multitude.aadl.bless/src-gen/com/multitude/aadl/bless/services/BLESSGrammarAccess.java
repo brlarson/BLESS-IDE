@@ -1404,9 +1404,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cSubAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
 		private final RuleCall cSubIDTerminalRuleCall_0_1_1_0 = (RuleCall)cSubAssignment_0_1_1.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cPortAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final CrossReference cPortNamedElementCrossReference_0_3_0 = (CrossReference)cPortAssignment_0_3.eContents().get(0);
-		private final RuleCall cPortNamedElementIDTerminalRuleCall_0_3_0_1 = (RuleCall)cPortNamedElementCrossReference_0_3_0.eContents().get(1);
+		private final Assignment cSubAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cSubIDTerminalRuleCall_0_3_0 = (RuleCall)cSubAssignment_0_3.eContents().get(0);
 		private final Group cGroup_0_4 = (Group)cGroup_0.eContents().get(4);
 		private final Keyword cLeftSquareBracketKeyword_0_4_0 = (Keyword)cGroup_0_4.eContents().get(0);
 		private final Assignment cIndexAssignment_0_4_1 = (Assignment)cGroup_0_4.eContents().get(1);
@@ -1423,7 +1422,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		//    | '(' tle=TriggerLogicalExpression ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
@@ -1431,14 +1430,14 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		//    | '(' tle=TriggerLogicalExpression ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//  //subcomponent_port_reference
 		//  //change to how OSATE references subcomponents?
 		////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-		//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+		//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//  //subcomponent_port_reference
@@ -1465,14 +1464,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'.'
 		public Keyword getFullStopKeyword_0_2() { return cFullStopKeyword_0_2; }
 		
-		//port=[aadl2::NamedElement|ID]
-		public Assignment getPortAssignment_0_3() { return cPortAssignment_0_3; }
-		
-		//[aadl2::NamedElement|ID]
-		public CrossReference getPortNamedElementCrossReference_0_3_0() { return cPortNamedElementCrossReference_0_3_0; }
+		//sub+=ID
+		public Assignment getSubAssignment_0_3() { return cSubAssignment_0_3; }
 		
 		//ID
-		public RuleCall getPortNamedElementIDTerminalRuleCall_0_3_0_1() { return cPortNamedElementIDTerminalRuleCall_0_3_0_1; }
+		public RuleCall getSubIDTerminalRuleCall_0_3_0() { return cSubIDTerminalRuleCall_0_3_0; }
 		
 		//( '[' index=NUMBER ']' )?
 		public Group getGroup_0_4() { return cGroup_0_4; }
@@ -4235,26 +4231,31 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cQuantityAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cQuantityQuantityParserRuleCall_0_0 = (RuleCall)cQuantityAssignment_0.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cValueValueNameParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		private final Assignment cDurationAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cDurationParenthesizedSubexpressionParserRuleCall_2_0 = (RuleCall)cDurationAssignment_2.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cValueAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cValueValueNameParserRuleCall_1_0_0 = (RuleCall)cValueAssignment_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
+		private final Assignment cUnitAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
+		private final CrossReference cUnitUnitNameCrossReference_1_1_0_0 = (CrossReference)cUnitAssignment_1_1_0.eContents().get(0);
+		private final RuleCall cUnitUnitNameIDTerminalRuleCall_1_1_0_0_1 = (RuleCall)cUnitUnitNameCrossReference_1_1_0_0.eContents().get(1);
+		private final Assignment cScalarAssignment_1_1_1 = (Assignment)cAlternatives_1_1.eContents().get(1);
+		private final Keyword cScalarScalarKeyword_1_1_1_0 = (Keyword)cScalarAssignment_1_1_1.eContents().get(0);
+		private final Assignment cWholeAssignment_1_1_2 = (Assignment)cAlternatives_1_1.eContents().get(2);
+		private final Keyword cWholeWholeKeyword_1_1_2_0 = (Keyword)cWholeAssignment_1_1_2.eContents().get(0);
 		
 		////behavior_time
 		//BehaviorTime:
 		//    quantity=Quantity
 		//    |
-		//    value=ValueName
-		//  |
-		//  duration=ParenthesizedSubexpression
+		//    value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		////    |
+		////    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//  quantity=Quantity
-		//  |
-		//  value=ValueName
+		//quantity=Quantity
 		//|
-		//duration=ParenthesizedSubexpression
+		//value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//quantity=Quantity
@@ -4263,17 +4264,38 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Quantity
 		public RuleCall getQuantityQuantityParserRuleCall_0_0() { return cQuantityQuantityParserRuleCall_0_0; }
 		
+		//value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		public Group getGroup_1() { return cGroup_1; }
+		
 		//value=ValueName
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		public Assignment getValueAssignment_1_0() { return cValueAssignment_1_0; }
 		
 		//ValueName
-		public RuleCall getValueValueNameParserRuleCall_1_0() { return cValueValueNameParserRuleCall_1_0; }
+		public RuleCall getValueValueNameParserRuleCall_1_0_0() { return cValueValueNameParserRuleCall_1_0_0; }
 		
-		//duration=ParenthesizedSubexpression
-		public Assignment getDurationAssignment_2() { return cDurationAssignment_2; }
+		//(unit=[UnitName] | scalar='scalar' | whole='whole' )?
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
-		//ParenthesizedSubexpression
-		public RuleCall getDurationParenthesizedSubexpressionParserRuleCall_2_0() { return cDurationParenthesizedSubexpressionParserRuleCall_2_0; }
+		//unit=[UnitName]
+		public Assignment getUnitAssignment_1_1_0() { return cUnitAssignment_1_1_0; }
+		
+		//[UnitName]
+		public CrossReference getUnitUnitNameCrossReference_1_1_0_0() { return cUnitUnitNameCrossReference_1_1_0_0; }
+		
+		//ID
+		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_1_0_0_1; }
+		
+		//scalar='scalar'
+		public Assignment getScalarAssignment_1_1_1() { return cScalarAssignment_1_1_1; }
+		
+		//'scalar'
+		public Keyword getScalarScalarKeyword_1_1_1_0() { return cScalarScalarKeyword_1_1_1_0; }
+		
+		//whole='whole'
+		public Assignment getWholeAssignment_1_1_2() { return cWholeAssignment_1_1_2; }
+		
+		//'whole'
+		public Keyword getWholeWholeKeyword_1_1_2_0() { return cWholeWholeKeyword_1_1_2_0; }
 	}
 	public class ExceptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.Exception");
@@ -5387,25 +5409,25 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cRExpParserRuleCall_1_0_1_0 = (RuleCall)cRAssignment_1_0_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
 		private final Assignment cSymAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cSymTIMESParserRuleCall_1_1_0_0 = (RuleCall)cSymAssignment_1_1_0.eContents().get(0);
+		private final Keyword cSymAsteriskKeyword_1_1_0_0 = (Keyword)cSymAssignment_1_1_0.eContents().get(0);
 		private final Assignment cRAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cRExpParserRuleCall_1_1_1_0 = (RuleCall)cRAssignment_1_1_1.eContents().get(0);
 		private final Group cGroup_1_1_2 = (Group)cGroup_1_1.eContents().get(2);
-		private final RuleCall cTIMESParserRuleCall_1_1_2_0 = (RuleCall)cGroup_1_1_2.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1_1_2_0 = (Keyword)cGroup_1_1_2.eContents().get(0);
 		private final Assignment cRAssignment_1_1_2_1 = (Assignment)cGroup_1_1_2.eContents().get(1);
 		private final RuleCall cRExpParserRuleCall_1_1_2_1_0 = (RuleCall)cRAssignment_1_1_2_1.eContents().get(0);
 		
 		//MultDiv:
 		//    l=Exp
 		//    ( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//    | ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//    | ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//    )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//l=Exp
 		//( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//| ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//)?
 		public Group getGroup() { return cGroup; }
 		
@@ -5416,7 +5438,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		public RuleCall getLExpParserRuleCall_0_0() { return cLExpParserRuleCall_0_0; }
 		
 		//( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-		//| ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//| ( sym='*' r+=Exp ( '*' r+=Exp )* )
 		//)?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
@@ -5447,14 +5469,14 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Exp
 		public RuleCall getRExpParserRuleCall_1_0_1_0() { return cRExpParserRuleCall_1_0_1_0; }
 		
-		//( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+		//( sym='*' r+=Exp ( '*' r+=Exp )* )
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//sym=TIMES
+		//sym='*'
 		public Assignment getSymAssignment_1_1_0() { return cSymAssignment_1_1_0; }
 		
-		//TIMES
-		public RuleCall getSymTIMESParserRuleCall_1_1_0_0() { return cSymTIMESParserRuleCall_1_1_0_0; }
+		//'*'
+		public Keyword getSymAsteriskKeyword_1_1_0_0() { return cSymAsteriskKeyword_1_1_0_0; }
 		
 		//r+=Exp
 		public Assignment getRAssignment_1_1_1() { return cRAssignment_1_1_1; }
@@ -5462,11 +5484,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//Exp
 		public RuleCall getRExpParserRuleCall_1_1_1_0() { return cRExpParserRuleCall_1_1_1_0; }
 		
-		//( TIMES r+=Exp )*
+		//( '*' r+=Exp )*
 		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 		
-		//TIMES
-		public RuleCall getTIMESParserRuleCall_1_1_2_0() { return cTIMESParserRuleCall_1_1_2_0; }
+		//'*'
+		public Keyword getAsteriskKeyword_1_1_2_0() { return cAsteriskKeyword_1_1_2_0; }
 		
 		//r+=Exp
 		public Assignment getRAssignment_1_1_2_1() { return cRAssignment_1_1_2_1; }
@@ -7266,26 +7288,26 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	public class RecordTermElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.RecordTerm");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cRecord_typeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cRecord_typeTypeDeclarationCrossReference_1_0 = (CrossReference)cRecord_typeAssignment_1.eContents().get(0);
 		private final RuleCall cRecord_typeTypeDeclarationIDTerminalRuleCall_1_0_1 = (RuleCall)cRecord_typeTypeDeclarationCrossReference_1_0.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cRecord_valueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRecord_valueRecordValueParserRuleCall_3_0 = (RuleCall)cRecord_valueAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cRightSquareBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		/////////////////////   RECORD VALUES   //////////////////////
 		//RecordTerm:
-		//  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+		//  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+		//'[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 		public Group getGroup() { return cGroup; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 		
 		//record_type=[TypeDeclaration]
 		public Assignment getRecord_typeAssignment_1() { return cRecord_typeAssignment_1; }
@@ -7305,8 +7327,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//RecordValue
 		public RuleCall getRecord_valueRecordValueParserRuleCall_3_0() { return cRecord_valueRecordValueParserRuleCall_3_0; }
 		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		//']'
+		public Keyword getRightSquareBracketKeyword_4() { return cRightSquareBracketKeyword_4; }
 	}
 	public class RecordValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.RecordValue");
@@ -7916,12 +7938,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final CrossReference cRepresentationPropertyConstantCrossReference_4_1_0 = (CrossReference)cRepresentationAssignment_4_1.eContents().get(0);
 		private final RuleCall cRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1 = (RuleCall)cRepresentationPropertyConstantCrossReference_4_1_0.eContents().get(1);
 		
-		////EnumerationLiteral:
-		////    name=ID
-		////;
 		//QuantityType:
 		//  'quantity'
-		//  ( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 		//  ( 'step' step=ANumber )?  //check if positive
 		//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -7929,7 +7948,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'quantity'
-		//( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		//( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 		//( 'step' step=ANumber )?  //check if positive
 		//( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -7938,7 +7957,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//'quantity'
 		public Keyword getQuantityKeyword_0() { return cQuantityKeyword_0; }
 		
-		//( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+		//( unit=[UnitName] | scalar='scalar' | whole='whole' )
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//unit=[UnitName]
@@ -7950,13 +7969,13 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_0_0_1; }
 		
-		//scalar?='scalar'
+		//scalar='scalar'
 		public Assignment getScalarAssignment_1_1() { return cScalarAssignment_1_1; }
 		
 		//'scalar'
 		public Keyword getScalarScalarKeyword_1_1_0() { return cScalarScalarKeyword_1_1_0; }
 		
-		//whole?='whole'
+		//whole='whole'
 		public Assignment getWholeAssignment_1_2() { return cWholeAssignment_1_2; }
 		
 		//'whole'
@@ -8833,12 +8852,12 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cWholeWholeKeyword_1_2_0 = (Keyword)cWholeAssignment_1_2.eContents().get(0);
 		
 		//Quantity: number=ANumber
-		//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//    (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//number=ANumber
-		//   (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//   (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Group getGroup() { return cGroup; }
 		
 		//number=ANumber
@@ -8847,7 +8866,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ANumber
 		public RuleCall getNumberANumberParserRuleCall_0_0() { return cNumberANumberParserRuleCall_0_0; }
 		
-		//(unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+		//(unit=[UnitName] | scalar='scalar' | whole='whole' )?
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//unit=[UnitName]
@@ -8859,13 +8878,13 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ID
 		public RuleCall getUnitUnitNameIDTerminalRuleCall_1_0_0_1() { return cUnitUnitNameIDTerminalRuleCall_1_0_0_1; }
 		
-		//scalar?='scalar'
+		//scalar='scalar'
 		public Assignment getScalarAssignment_1_1() { return cScalarAssignment_1_1; }
 		
 		//'scalar'
 		public Keyword getScalarScalarKeyword_1_1_0() { return cScalarScalarKeyword_1_1_0; }
 		
-		//whole?='whole'
+		//whole='whole'
 		public Assignment getWholeAssignment_1_2() { return cWholeAssignment_1_2; }
 		
 		//'whole'
@@ -8994,97 +9013,98 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cLogicVariablesParserRuleCall_38 = (RuleCall)cAlternatives.eContents().get(38);
 		private final RuleCall cMultDivParserRuleCall_39 = (RuleCall)cAlternatives.eContents().get(39);
 		private final RuleCall cNumericExpressionParserRuleCall_40 = (RuleCall)cAlternatives.eContents().get(40);
-		private final RuleCall cParenthesizedSubexpressionParserRuleCall_41 = (RuleCall)cAlternatives.eContents().get(41);
-		private final RuleCall cPartialNameParserRuleCall_42 = (RuleCall)cAlternatives.eContents().get(42);
-		private final RuleCall cPeriodShiftParserRuleCall_43 = (RuleCall)cAlternatives.eContents().get(43);
-		private final RuleCall cPredicateParserRuleCall_44 = (RuleCall)cAlternatives.eContents().get(44);
-		private final RuleCall cProductQuantificationParserRuleCall_45 = (RuleCall)cAlternatives.eContents().get(45);
-		private final RuleCall cPropertyFieldParserRuleCall_46 = (RuleCall)cAlternatives.eContents().get(46);
-		private final RuleCall cRangeParserRuleCall_47 = (RuleCall)cAlternatives.eContents().get(47);
-		private final RuleCall cRecordFieldParserRuleCall_48 = (RuleCall)cAlternatives.eContents().get(48);
-		private final RuleCall cRecordTermParserRuleCall_49 = (RuleCall)cAlternatives.eContents().get(49);
-		private final RuleCall cRecordValueParserRuleCall_50 = (RuleCall)cAlternatives.eContents().get(50);
-		private final RuleCall cRelationParserRuleCall_51 = (RuleCall)cAlternatives.eContents().get(51);
-		private final RuleCall cSubexpressionParserRuleCall_52 = (RuleCall)cAlternatives.eContents().get(52);
-		private final RuleCall cSumQuantificationParserRuleCall_53 = (RuleCall)cAlternatives.eContents().get(53);
-		private final RuleCall cTimedExpressionParserRuleCall_54 = (RuleCall)cAlternatives.eContents().get(54);
-		private final RuleCall cTimedSubjectParserRuleCall_55 = (RuleCall)cAlternatives.eContents().get(55);
-		private final RuleCall cUnaryOperatorParserRuleCall_56 = (RuleCall)cAlternatives.eContents().get(56);
-		private final RuleCall cUniversalQuantificationParserRuleCall_57 = (RuleCall)cAlternatives.eContents().get(57);
-		private final RuleCall cValueParserRuleCall_58 = (RuleCall)cAlternatives.eContents().get(58);
-		private final RuleCall cValueNameParserRuleCall_59 = (RuleCall)cAlternatives.eContents().get(59);
-		private final RuleCall cVariableListParserRuleCall_60 = (RuleCall)cAlternatives.eContents().get(60);
-		private final RuleCall cAssertionParserRuleCall_61 = (RuleCall)cAlternatives.eContents().get(61);
-		private final RuleCall cAssertionLibraryParserRuleCall_62 = (RuleCall)cAlternatives.eContents().get(62);
-		private final RuleCall cGhostVariablesParserRuleCall_63 = (RuleCall)cAlternatives.eContents().get(63);
-		private final RuleCall cNamelessAssertionParserRuleCall_64 = (RuleCall)cAlternatives.eContents().get(64);
-		private final RuleCall cNamelessEnumerationParserRuleCall_65 = (RuleCall)cAlternatives.eContents().get(65);
-		private final RuleCall cNamelessFunctionParserRuleCall_66 = (RuleCall)cAlternatives.eContents().get(66);
-		private final RuleCall cActionSubclauseParserRuleCall_67 = (RuleCall)cAlternatives.eContents().get(67);
-		private final RuleCall cActionParserRuleCall_68 = (RuleCall)cAlternatives.eContents().get(68);
-		private final RuleCall cActionTimeoutParserRuleCall_69 = (RuleCall)cAlternatives.eContents().get(69);
-		private final RuleCall cActualParameterParserRuleCall_70 = (RuleCall)cAlternatives.eContents().get(70);
-		private final RuleCall cAlternativeParserRuleCall_71 = (RuleCall)cAlternatives.eContents().get(71);
-		private final RuleCall cBLESSAlternativeParserRuleCall_72 = (RuleCall)cAlternatives.eContents().get(72);
-		private final RuleCall cAssertClauseParserRuleCall_73 = (RuleCall)cAlternatives.eContents().get(73);
-		private final RuleCall cAssertedActionParserRuleCall_74 = (RuleCall)cAlternatives.eContents().get(74);
-		private final RuleCall cAssignmentParserRuleCall_75 = (RuleCall)cAlternatives.eContents().get(75);
-		private final RuleCall cBAAlternativeParserRuleCall_76 = (RuleCall)cAlternatives.eContents().get(76);
-		private final RuleCall cBasicActionParserRuleCall_77 = (RuleCall)cAlternatives.eContents().get(77);
-		private final RuleCall cBehaviorActionsParserRuleCall_78 = (RuleCall)cAlternatives.eContents().get(78);
-		private final RuleCall cBehaviorTimeParserRuleCall_79 = (RuleCall)cAlternatives.eContents().get(79);
-		private final RuleCall cVariableDeclarationParserRuleCall_80 = (RuleCall)cAlternatives.eContents().get(80);
-		private final RuleCall cCatchClauseParserRuleCall_81 = (RuleCall)cAlternatives.eContents().get(81);
-		private final RuleCall cCatchClauseTermParserRuleCall_82 = (RuleCall)cAlternatives.eContents().get(82);
-		private final RuleCall cCombinableOperationParserRuleCall_83 = (RuleCall)cAlternatives.eContents().get(83);
-		private final RuleCall cCommunicationActionParserRuleCall_84 = (RuleCall)cAlternatives.eContents().get(84);
-		private final RuleCall cComputationParserRuleCall_85 = (RuleCall)cAlternatives.eContents().get(85);
-		private final RuleCall cDoUntilLoopParserRuleCall_86 = (RuleCall)cAlternatives.eContents().get(86);
-		private final RuleCall cElseAlternativeParserRuleCall_87 = (RuleCall)cAlternatives.eContents().get(87);
-		private final RuleCall cElseifAlternativeParserRuleCall_88 = (RuleCall)cAlternatives.eContents().get(88);
-		private final RuleCall cExistentialLatticeQuantificationParserRuleCall_89 = (RuleCall)cAlternatives.eContents().get(89);
-		private final RuleCall cExpressionParserRuleCall_90 = (RuleCall)cAlternatives.eContents().get(90);
-		private final RuleCall cExpressionOrAnyParserRuleCall_91 = (RuleCall)cAlternatives.eContents().get(91);
-		private final RuleCall cForLoopParserRuleCall_92 = (RuleCall)cAlternatives.eContents().get(92);
-		private final RuleCall cFormalActualParserRuleCall_93 = (RuleCall)cAlternatives.eContents().get(93);
-		private final RuleCall cFormalActualListParserRuleCall_94 = (RuleCall)cAlternatives.eContents().get(94);
-		private final RuleCall cFormalExpressionPairParserRuleCall_95 = (RuleCall)cAlternatives.eContents().get(95);
-		private final RuleCall cFunctionParametersParserRuleCall_96 = (RuleCall)cAlternatives.eContents().get(96);
-		private final RuleCall cGuardedActionParserRuleCall_97 = (RuleCall)cAlternatives.eContents().get(97);
-		private final RuleCall cIssueExceptionParserRuleCall_98 = (RuleCall)cAlternatives.eContents().get(98);
-		private final RuleCall cNameTickParserRuleCall_99 = (RuleCall)cAlternatives.eContents().get(99);
-		private final RuleCall cPeriodShiftParserRuleCall_100 = (RuleCall)cAlternatives.eContents().get(100);
-		private final RuleCall cPortInputParserRuleCall_101 = (RuleCall)cAlternatives.eContents().get(101);
-		private final RuleCall cPortOutputParserRuleCall_102 = (RuleCall)cAlternatives.eContents().get(102);
-		private final RuleCall cQuantifiedVariablesParserRuleCall_103 = (RuleCall)cAlternatives.eContents().get(103);
-		private final RuleCall cRangeParserRuleCall_104 = (RuleCall)cAlternatives.eContents().get(104);
-		private final RuleCall cRecordTermParserRuleCall_105 = (RuleCall)cAlternatives.eContents().get(105);
-		private final RuleCall cRecordValueParserRuleCall_106 = (RuleCall)cAlternatives.eContents().get(106);
-		private final RuleCall cSimultaneousAssignmentParserRuleCall_107 = (RuleCall)cAlternatives.eContents().get(107);
-		private final RuleCall cSubprogramCallParserRuleCall_108 = (RuleCall)cAlternatives.eContents().get(108);
-		private final RuleCall cSubProgramParameterParserRuleCall_109 = (RuleCall)cAlternatives.eContents().get(109);
-		private final RuleCall cUniversalLatticeQuantificationParserRuleCall_110 = (RuleCall)cAlternatives.eContents().get(110);
-		private final RuleCall cWhenThrowParserRuleCall_111 = (RuleCall)cAlternatives.eContents().get(111);
-		private final RuleCall cWhileLoopParserRuleCall_112 = (RuleCall)cAlternatives.eContents().get(112);
-		private final RuleCall cBLESSSubclauseParserRuleCall_113 = (RuleCall)cAlternatives.eContents().get(113);
-		private final RuleCall cStatesSectionParserRuleCall_114 = (RuleCall)cAlternatives.eContents().get(114);
-		private final RuleCall cDispatchConditionParserRuleCall_115 = (RuleCall)cAlternatives.eContents().get(115);
-		private final RuleCall cDispatchConjunctionParserRuleCall_116 = (RuleCall)cAlternatives.eContents().get(116);
-		private final RuleCall cDispatchExpressionParserRuleCall_117 = (RuleCall)cAlternatives.eContents().get(117);
-		private final RuleCall cDispatchTriggerParserRuleCall_118 = (RuleCall)cAlternatives.eContents().get(118);
-		private final RuleCall cEventTriggerParserRuleCall_119 = (RuleCall)cAlternatives.eContents().get(119);
-		private final RuleCall cExecuteConditionParserRuleCall_120 = (RuleCall)cAlternatives.eContents().get(120);
-		private final RuleCall cIndexExpressionOrRangeParserRuleCall_121 = (RuleCall)cAlternatives.eContents().get(121);
-		private final RuleCall cInternalConditionParserRuleCall_122 = (RuleCall)cAlternatives.eContents().get(122);
-		private final RuleCall cInvariantClauseParserRuleCall_123 = (RuleCall)cAlternatives.eContents().get(123);
-		private final RuleCall cLogicalOperatorParserRuleCall_124 = (RuleCall)cAlternatives.eContents().get(124);
-		private final RuleCall cModeConditionParserRuleCall_125 = (RuleCall)cAlternatives.eContents().get(125);
-		private final RuleCall cOtherwiseParserRuleCall_126 = (RuleCall)cAlternatives.eContents().get(126);
-		private final RuleCall cPriorityParserRuleCall_127 = (RuleCall)cAlternatives.eContents().get(127);
-		private final RuleCall cSubprogramAccessDispatchParserRuleCall_128 = (RuleCall)cAlternatives.eContents().get(128);
-		private final RuleCall cTransitionsParserRuleCall_129 = (RuleCall)cAlternatives.eContents().get(129);
-		private final RuleCall cTriggerLogicalExpressionParserRuleCall_130 = (RuleCall)cAlternatives.eContents().get(130);
-		private final RuleCall cVariablesSectionParserRuleCall_131 = (RuleCall)cAlternatives.eContents().get(131);
+		private final RuleCall cNullTypeParserRuleCall_41 = (RuleCall)cAlternatives.eContents().get(41);
+		private final RuleCall cParenthesizedSubexpressionParserRuleCall_42 = (RuleCall)cAlternatives.eContents().get(42);
+		private final RuleCall cPartialNameParserRuleCall_43 = (RuleCall)cAlternatives.eContents().get(43);
+		private final RuleCall cPeriodShiftParserRuleCall_44 = (RuleCall)cAlternatives.eContents().get(44);
+		private final RuleCall cPredicateParserRuleCall_45 = (RuleCall)cAlternatives.eContents().get(45);
+		private final RuleCall cProductQuantificationParserRuleCall_46 = (RuleCall)cAlternatives.eContents().get(46);
+		private final RuleCall cPropertyFieldParserRuleCall_47 = (RuleCall)cAlternatives.eContents().get(47);
+		private final RuleCall cRangeParserRuleCall_48 = (RuleCall)cAlternatives.eContents().get(48);
+		private final RuleCall cRecordFieldParserRuleCall_49 = (RuleCall)cAlternatives.eContents().get(49);
+		private final RuleCall cRecordTermParserRuleCall_50 = (RuleCall)cAlternatives.eContents().get(50);
+		private final RuleCall cRecordValueParserRuleCall_51 = (RuleCall)cAlternatives.eContents().get(51);
+		private final RuleCall cRelationParserRuleCall_52 = (RuleCall)cAlternatives.eContents().get(52);
+		private final RuleCall cSubexpressionParserRuleCall_53 = (RuleCall)cAlternatives.eContents().get(53);
+		private final RuleCall cSumQuantificationParserRuleCall_54 = (RuleCall)cAlternatives.eContents().get(54);
+		private final RuleCall cTimedExpressionParserRuleCall_55 = (RuleCall)cAlternatives.eContents().get(55);
+		private final RuleCall cTimedSubjectParserRuleCall_56 = (RuleCall)cAlternatives.eContents().get(56);
+		private final RuleCall cUnaryOperatorParserRuleCall_57 = (RuleCall)cAlternatives.eContents().get(57);
+		private final RuleCall cUniversalQuantificationParserRuleCall_58 = (RuleCall)cAlternatives.eContents().get(58);
+		private final RuleCall cValueParserRuleCall_59 = (RuleCall)cAlternatives.eContents().get(59);
+		private final RuleCall cValueNameParserRuleCall_60 = (RuleCall)cAlternatives.eContents().get(60);
+		private final RuleCall cVariableListParserRuleCall_61 = (RuleCall)cAlternatives.eContents().get(61);
+		private final RuleCall cAssertionParserRuleCall_62 = (RuleCall)cAlternatives.eContents().get(62);
+		private final RuleCall cAssertionLibraryParserRuleCall_63 = (RuleCall)cAlternatives.eContents().get(63);
+		private final RuleCall cGhostVariablesParserRuleCall_64 = (RuleCall)cAlternatives.eContents().get(64);
+		private final RuleCall cNamelessAssertionParserRuleCall_65 = (RuleCall)cAlternatives.eContents().get(65);
+		private final RuleCall cNamelessEnumerationParserRuleCall_66 = (RuleCall)cAlternatives.eContents().get(66);
+		private final RuleCall cNamelessFunctionParserRuleCall_67 = (RuleCall)cAlternatives.eContents().get(67);
+		private final RuleCall cActionSubclauseParserRuleCall_68 = (RuleCall)cAlternatives.eContents().get(68);
+		private final RuleCall cActionParserRuleCall_69 = (RuleCall)cAlternatives.eContents().get(69);
+		private final RuleCall cActionTimeoutParserRuleCall_70 = (RuleCall)cAlternatives.eContents().get(70);
+		private final RuleCall cActualParameterParserRuleCall_71 = (RuleCall)cAlternatives.eContents().get(71);
+		private final RuleCall cAlternativeParserRuleCall_72 = (RuleCall)cAlternatives.eContents().get(72);
+		private final RuleCall cBLESSAlternativeParserRuleCall_73 = (RuleCall)cAlternatives.eContents().get(73);
+		private final RuleCall cAssertClauseParserRuleCall_74 = (RuleCall)cAlternatives.eContents().get(74);
+		private final RuleCall cAssertedActionParserRuleCall_75 = (RuleCall)cAlternatives.eContents().get(75);
+		private final RuleCall cAssignmentParserRuleCall_76 = (RuleCall)cAlternatives.eContents().get(76);
+		private final RuleCall cBAAlternativeParserRuleCall_77 = (RuleCall)cAlternatives.eContents().get(77);
+		private final RuleCall cBasicActionParserRuleCall_78 = (RuleCall)cAlternatives.eContents().get(78);
+		private final RuleCall cBehaviorActionsParserRuleCall_79 = (RuleCall)cAlternatives.eContents().get(79);
+		private final RuleCall cBehaviorTimeParserRuleCall_80 = (RuleCall)cAlternatives.eContents().get(80);
+		private final RuleCall cVariableDeclarationParserRuleCall_81 = (RuleCall)cAlternatives.eContents().get(81);
+		private final RuleCall cCatchClauseParserRuleCall_82 = (RuleCall)cAlternatives.eContents().get(82);
+		private final RuleCall cCatchClauseTermParserRuleCall_83 = (RuleCall)cAlternatives.eContents().get(83);
+		private final RuleCall cCombinableOperationParserRuleCall_84 = (RuleCall)cAlternatives.eContents().get(84);
+		private final RuleCall cCommunicationActionParserRuleCall_85 = (RuleCall)cAlternatives.eContents().get(85);
+		private final RuleCall cComputationParserRuleCall_86 = (RuleCall)cAlternatives.eContents().get(86);
+		private final RuleCall cDoUntilLoopParserRuleCall_87 = (RuleCall)cAlternatives.eContents().get(87);
+		private final RuleCall cElseAlternativeParserRuleCall_88 = (RuleCall)cAlternatives.eContents().get(88);
+		private final RuleCall cElseifAlternativeParserRuleCall_89 = (RuleCall)cAlternatives.eContents().get(89);
+		private final RuleCall cExistentialLatticeQuantificationParserRuleCall_90 = (RuleCall)cAlternatives.eContents().get(90);
+		private final RuleCall cExpressionParserRuleCall_91 = (RuleCall)cAlternatives.eContents().get(91);
+		private final RuleCall cExpressionOrAnyParserRuleCall_92 = (RuleCall)cAlternatives.eContents().get(92);
+		private final RuleCall cForLoopParserRuleCall_93 = (RuleCall)cAlternatives.eContents().get(93);
+		private final RuleCall cFormalActualParserRuleCall_94 = (RuleCall)cAlternatives.eContents().get(94);
+		private final RuleCall cFormalActualListParserRuleCall_95 = (RuleCall)cAlternatives.eContents().get(95);
+		private final RuleCall cFormalExpressionPairParserRuleCall_96 = (RuleCall)cAlternatives.eContents().get(96);
+		private final RuleCall cFunctionParametersParserRuleCall_97 = (RuleCall)cAlternatives.eContents().get(97);
+		private final RuleCall cGuardedActionParserRuleCall_98 = (RuleCall)cAlternatives.eContents().get(98);
+		private final RuleCall cIssueExceptionParserRuleCall_99 = (RuleCall)cAlternatives.eContents().get(99);
+		private final RuleCall cNameTickParserRuleCall_100 = (RuleCall)cAlternatives.eContents().get(100);
+		private final RuleCall cPeriodShiftParserRuleCall_101 = (RuleCall)cAlternatives.eContents().get(101);
+		private final RuleCall cPortInputParserRuleCall_102 = (RuleCall)cAlternatives.eContents().get(102);
+		private final RuleCall cPortOutputParserRuleCall_103 = (RuleCall)cAlternatives.eContents().get(103);
+		private final RuleCall cQuantifiedVariablesParserRuleCall_104 = (RuleCall)cAlternatives.eContents().get(104);
+		private final RuleCall cRangeParserRuleCall_105 = (RuleCall)cAlternatives.eContents().get(105);
+		private final RuleCall cRecordTermParserRuleCall_106 = (RuleCall)cAlternatives.eContents().get(106);
+		private final RuleCall cRecordValueParserRuleCall_107 = (RuleCall)cAlternatives.eContents().get(107);
+		private final RuleCall cSimultaneousAssignmentParserRuleCall_108 = (RuleCall)cAlternatives.eContents().get(108);
+		private final RuleCall cSubprogramCallParserRuleCall_109 = (RuleCall)cAlternatives.eContents().get(109);
+		private final RuleCall cSubProgramParameterParserRuleCall_110 = (RuleCall)cAlternatives.eContents().get(110);
+		private final RuleCall cUniversalLatticeQuantificationParserRuleCall_111 = (RuleCall)cAlternatives.eContents().get(111);
+		private final RuleCall cWhenThrowParserRuleCall_112 = (RuleCall)cAlternatives.eContents().get(112);
+		private final RuleCall cWhileLoopParserRuleCall_113 = (RuleCall)cAlternatives.eContents().get(113);
+		private final RuleCall cBLESSSubclauseParserRuleCall_114 = (RuleCall)cAlternatives.eContents().get(114);
+		private final RuleCall cStatesSectionParserRuleCall_115 = (RuleCall)cAlternatives.eContents().get(115);
+		private final RuleCall cDispatchConditionParserRuleCall_116 = (RuleCall)cAlternatives.eContents().get(116);
+		private final RuleCall cDispatchConjunctionParserRuleCall_117 = (RuleCall)cAlternatives.eContents().get(117);
+		private final RuleCall cDispatchExpressionParserRuleCall_118 = (RuleCall)cAlternatives.eContents().get(118);
+		private final RuleCall cDispatchTriggerParserRuleCall_119 = (RuleCall)cAlternatives.eContents().get(119);
+		private final RuleCall cEventTriggerParserRuleCall_120 = (RuleCall)cAlternatives.eContents().get(120);
+		private final RuleCall cExecuteConditionParserRuleCall_121 = (RuleCall)cAlternatives.eContents().get(121);
+		private final RuleCall cIndexExpressionOrRangeParserRuleCall_122 = (RuleCall)cAlternatives.eContents().get(122);
+		private final RuleCall cInternalConditionParserRuleCall_123 = (RuleCall)cAlternatives.eContents().get(123);
+		private final RuleCall cInvariantClauseParserRuleCall_124 = (RuleCall)cAlternatives.eContents().get(124);
+		private final RuleCall cLogicalOperatorParserRuleCall_125 = (RuleCall)cAlternatives.eContents().get(125);
+		private final RuleCall cModeConditionParserRuleCall_126 = (RuleCall)cAlternatives.eContents().get(126);
+		private final RuleCall cOtherwiseParserRuleCall_127 = (RuleCall)cAlternatives.eContents().get(127);
+		private final RuleCall cPriorityParserRuleCall_128 = (RuleCall)cAlternatives.eContents().get(128);
+		private final RuleCall cSubprogramAccessDispatchParserRuleCall_129 = (RuleCall)cAlternatives.eContents().get(129);
+		private final RuleCall cTransitionsParserRuleCall_130 = (RuleCall)cAlternatives.eContents().get(130);
+		private final RuleCall cTriggerLogicalExpressionParserRuleCall_131 = (RuleCall)cAlternatives.eContents().get(131);
+		private final RuleCall cVariablesSectionParserRuleCall_132 = (RuleCall)cAlternatives.eContents().get(132);
 		
 		//Element returns aadl2::Element:
 		//    UnitDeclaration
@@ -9130,6 +9150,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    | LogicVariables
 		//    | MultDiv
 		//    | NumericExpression
+		//    | NullType
 		//    | ParenthesizedSubexpression
 		//    | PartialName
 		//    | PeriodShift
@@ -9273,6 +9294,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//    | LogicVariables
 		//    | MultDiv
 		//    | NumericExpression
+		//    | NullType
 		//    | ParenthesizedSubexpression
 		//    | PartialName
 		//    | PeriodShift
@@ -9495,278 +9517,281 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//NumericExpression
 		public RuleCall getNumericExpressionParserRuleCall_40() { return cNumericExpressionParserRuleCall_40; }
 		
+		//NullType
+		public RuleCall getNullTypeParserRuleCall_41() { return cNullTypeParserRuleCall_41; }
+		
 		//ParenthesizedSubexpression
-		public RuleCall getParenthesizedSubexpressionParserRuleCall_41() { return cParenthesizedSubexpressionParserRuleCall_41; }
+		public RuleCall getParenthesizedSubexpressionParserRuleCall_42() { return cParenthesizedSubexpressionParserRuleCall_42; }
 		
 		//PartialName
-		public RuleCall getPartialNameParserRuleCall_42() { return cPartialNameParserRuleCall_42; }
+		public RuleCall getPartialNameParserRuleCall_43() { return cPartialNameParserRuleCall_43; }
 		
 		//PeriodShift
-		public RuleCall getPeriodShiftParserRuleCall_43() { return cPeriodShiftParserRuleCall_43; }
+		public RuleCall getPeriodShiftParserRuleCall_44() { return cPeriodShiftParserRuleCall_44; }
 		
 		//Predicate
-		public RuleCall getPredicateParserRuleCall_44() { return cPredicateParserRuleCall_44; }
+		public RuleCall getPredicateParserRuleCall_45() { return cPredicateParserRuleCall_45; }
 		
 		//ProductQuantification
-		public RuleCall getProductQuantificationParserRuleCall_45() { return cProductQuantificationParserRuleCall_45; }
+		public RuleCall getProductQuantificationParserRuleCall_46() { return cProductQuantificationParserRuleCall_46; }
 		
 		//PropertyField
-		public RuleCall getPropertyFieldParserRuleCall_46() { return cPropertyFieldParserRuleCall_46; }
+		public RuleCall getPropertyFieldParserRuleCall_47() { return cPropertyFieldParserRuleCall_47; }
 		
 		//Range
-		public RuleCall getRangeParserRuleCall_47() { return cRangeParserRuleCall_47; }
+		public RuleCall getRangeParserRuleCall_48() { return cRangeParserRuleCall_48; }
 		
 		//RecordField
-		public RuleCall getRecordFieldParserRuleCall_48() { return cRecordFieldParserRuleCall_48; }
+		public RuleCall getRecordFieldParserRuleCall_49() { return cRecordFieldParserRuleCall_49; }
 		
 		//RecordTerm
-		public RuleCall getRecordTermParserRuleCall_49() { return cRecordTermParserRuleCall_49; }
+		public RuleCall getRecordTermParserRuleCall_50() { return cRecordTermParserRuleCall_50; }
 		
 		//RecordValue
-		public RuleCall getRecordValueParserRuleCall_50() { return cRecordValueParserRuleCall_50; }
+		public RuleCall getRecordValueParserRuleCall_51() { return cRecordValueParserRuleCall_51; }
 		
 		//Relation
-		public RuleCall getRelationParserRuleCall_51() { return cRelationParserRuleCall_51; }
+		public RuleCall getRelationParserRuleCall_52() { return cRelationParserRuleCall_52; }
 		
 		//Subexpression
-		public RuleCall getSubexpressionParserRuleCall_52() { return cSubexpressionParserRuleCall_52; }
+		public RuleCall getSubexpressionParserRuleCall_53() { return cSubexpressionParserRuleCall_53; }
 		
 		//SumQuantification
-		public RuleCall getSumQuantificationParserRuleCall_53() { return cSumQuantificationParserRuleCall_53; }
+		public RuleCall getSumQuantificationParserRuleCall_54() { return cSumQuantificationParserRuleCall_54; }
 		
 		//TimedExpression
-		public RuleCall getTimedExpressionParserRuleCall_54() { return cTimedExpressionParserRuleCall_54; }
+		public RuleCall getTimedExpressionParserRuleCall_55() { return cTimedExpressionParserRuleCall_55; }
 		
 		//TimedSubject
-		public RuleCall getTimedSubjectParserRuleCall_55() { return cTimedSubjectParserRuleCall_55; }
+		public RuleCall getTimedSubjectParserRuleCall_56() { return cTimedSubjectParserRuleCall_56; }
 		
 		//UnaryOperator
-		public RuleCall getUnaryOperatorParserRuleCall_56() { return cUnaryOperatorParserRuleCall_56; }
+		public RuleCall getUnaryOperatorParserRuleCall_57() { return cUnaryOperatorParserRuleCall_57; }
 		
 		//UniversalQuantification
-		public RuleCall getUniversalQuantificationParserRuleCall_57() { return cUniversalQuantificationParserRuleCall_57; }
+		public RuleCall getUniversalQuantificationParserRuleCall_58() { return cUniversalQuantificationParserRuleCall_58; }
 		
 		//Value
-		public RuleCall getValueParserRuleCall_58() { return cValueParserRuleCall_58; }
+		public RuleCall getValueParserRuleCall_59() { return cValueParserRuleCall_59; }
 		
 		//ValueName
-		public RuleCall getValueNameParserRuleCall_59() { return cValueNameParserRuleCall_59; }
+		public RuleCall getValueNameParserRuleCall_60() { return cValueNameParserRuleCall_60; }
 		
 		//VariableList
-		public RuleCall getVariableListParserRuleCall_60() { return cVariableListParserRuleCall_60; }
+		public RuleCall getVariableListParserRuleCall_61() { return cVariableListParserRuleCall_61; }
 		
 		//Assertion
-		public RuleCall getAssertionParserRuleCall_61() { return cAssertionParserRuleCall_61; }
+		public RuleCall getAssertionParserRuleCall_62() { return cAssertionParserRuleCall_62; }
 		
 		//AssertionLibrary
-		public RuleCall getAssertionLibraryParserRuleCall_62() { return cAssertionLibraryParserRuleCall_62; }
+		public RuleCall getAssertionLibraryParserRuleCall_63() { return cAssertionLibraryParserRuleCall_63; }
 		
 		//GhostVariables
-		public RuleCall getGhostVariablesParserRuleCall_63() { return cGhostVariablesParserRuleCall_63; }
+		public RuleCall getGhostVariablesParserRuleCall_64() { return cGhostVariablesParserRuleCall_64; }
 		
 		//NamelessAssertion
-		public RuleCall getNamelessAssertionParserRuleCall_64() { return cNamelessAssertionParserRuleCall_64; }
+		public RuleCall getNamelessAssertionParserRuleCall_65() { return cNamelessAssertionParserRuleCall_65; }
 		
 		//NamelessEnumeration
-		public RuleCall getNamelessEnumerationParserRuleCall_65() { return cNamelessEnumerationParserRuleCall_65; }
+		public RuleCall getNamelessEnumerationParserRuleCall_66() { return cNamelessEnumerationParserRuleCall_66; }
 		
 		//NamelessFunction
-		public RuleCall getNamelessFunctionParserRuleCall_66() { return cNamelessFunctionParserRuleCall_66; }
+		public RuleCall getNamelessFunctionParserRuleCall_67() { return cNamelessFunctionParserRuleCall_67; }
 		
 		//ActionSubclause
-		public RuleCall getActionSubclauseParserRuleCall_67() { return cActionSubclauseParserRuleCall_67; }
+		public RuleCall getActionSubclauseParserRuleCall_68() { return cActionSubclauseParserRuleCall_68; }
 		
 		//Action
-		public RuleCall getActionParserRuleCall_68() { return cActionParserRuleCall_68; }
+		public RuleCall getActionParserRuleCall_69() { return cActionParserRuleCall_69; }
 		
 		//ActionTimeout
-		public RuleCall getActionTimeoutParserRuleCall_69() { return cActionTimeoutParserRuleCall_69; }
+		public RuleCall getActionTimeoutParserRuleCall_70() { return cActionTimeoutParserRuleCall_70; }
 		
 		//ActualParameter
-		public RuleCall getActualParameterParserRuleCall_70() { return cActualParameterParserRuleCall_70; }
+		public RuleCall getActualParameterParserRuleCall_71() { return cActualParameterParserRuleCall_71; }
 		
 		//Alternative
-		public RuleCall getAlternativeParserRuleCall_71() { return cAlternativeParserRuleCall_71; }
+		public RuleCall getAlternativeParserRuleCall_72() { return cAlternativeParserRuleCall_72; }
 		
 		//BLESSAlternative
-		public RuleCall getBLESSAlternativeParserRuleCall_72() { return cBLESSAlternativeParserRuleCall_72; }
+		public RuleCall getBLESSAlternativeParserRuleCall_73() { return cBLESSAlternativeParserRuleCall_73; }
 		
 		//AssertClause
-		public RuleCall getAssertClauseParserRuleCall_73() { return cAssertClauseParserRuleCall_73; }
+		public RuleCall getAssertClauseParserRuleCall_74() { return cAssertClauseParserRuleCall_74; }
 		
 		//AssertedAction
-		public RuleCall getAssertedActionParserRuleCall_74() { return cAssertedActionParserRuleCall_74; }
+		public RuleCall getAssertedActionParserRuleCall_75() { return cAssertedActionParserRuleCall_75; }
 		
 		//Assignment
-		public RuleCall getAssignmentParserRuleCall_75() { return cAssignmentParserRuleCall_75; }
+		public RuleCall getAssignmentParserRuleCall_76() { return cAssignmentParserRuleCall_76; }
 		
 		//BAAlternative
-		public RuleCall getBAAlternativeParserRuleCall_76() { return cBAAlternativeParserRuleCall_76; }
+		public RuleCall getBAAlternativeParserRuleCall_77() { return cBAAlternativeParserRuleCall_77; }
 		
 		//BasicAction
-		public RuleCall getBasicActionParserRuleCall_77() { return cBasicActionParserRuleCall_77; }
+		public RuleCall getBasicActionParserRuleCall_78() { return cBasicActionParserRuleCall_78; }
 		
 		//BehaviorActions
-		public RuleCall getBehaviorActionsParserRuleCall_78() { return cBehaviorActionsParserRuleCall_78; }
+		public RuleCall getBehaviorActionsParserRuleCall_79() { return cBehaviorActionsParserRuleCall_79; }
 		
 		//BehaviorTime
-		public RuleCall getBehaviorTimeParserRuleCall_79() { return cBehaviorTimeParserRuleCall_79; }
+		public RuleCall getBehaviorTimeParserRuleCall_80() { return cBehaviorTimeParserRuleCall_80; }
 		
 		//VariableDeclaration
-		public RuleCall getVariableDeclarationParserRuleCall_80() { return cVariableDeclarationParserRuleCall_80; }
+		public RuleCall getVariableDeclarationParserRuleCall_81() { return cVariableDeclarationParserRuleCall_81; }
 		
 		//CatchClause
-		public RuleCall getCatchClauseParserRuleCall_81() { return cCatchClauseParserRuleCall_81; }
+		public RuleCall getCatchClauseParserRuleCall_82() { return cCatchClauseParserRuleCall_82; }
 		
 		//CatchClauseTerm
-		public RuleCall getCatchClauseTermParserRuleCall_82() { return cCatchClauseTermParserRuleCall_82; }
+		public RuleCall getCatchClauseTermParserRuleCall_83() { return cCatchClauseTermParserRuleCall_83; }
 		
 		//CombinableOperation
-		public RuleCall getCombinableOperationParserRuleCall_83() { return cCombinableOperationParserRuleCall_83; }
+		public RuleCall getCombinableOperationParserRuleCall_84() { return cCombinableOperationParserRuleCall_84; }
 		
 		//CommunicationAction
-		public RuleCall getCommunicationActionParserRuleCall_84() { return cCommunicationActionParserRuleCall_84; }
+		public RuleCall getCommunicationActionParserRuleCall_85() { return cCommunicationActionParserRuleCall_85; }
 		
 		//Computation
-		public RuleCall getComputationParserRuleCall_85() { return cComputationParserRuleCall_85; }
+		public RuleCall getComputationParserRuleCall_86() { return cComputationParserRuleCall_86; }
 		
 		//DoUntilLoop
-		public RuleCall getDoUntilLoopParserRuleCall_86() { return cDoUntilLoopParserRuleCall_86; }
+		public RuleCall getDoUntilLoopParserRuleCall_87() { return cDoUntilLoopParserRuleCall_87; }
 		
 		//ElseAlternative
-		public RuleCall getElseAlternativeParserRuleCall_87() { return cElseAlternativeParserRuleCall_87; }
+		public RuleCall getElseAlternativeParserRuleCall_88() { return cElseAlternativeParserRuleCall_88; }
 		
 		//ElseifAlternative
-		public RuleCall getElseifAlternativeParserRuleCall_88() { return cElseifAlternativeParserRuleCall_88; }
+		public RuleCall getElseifAlternativeParserRuleCall_89() { return cElseifAlternativeParserRuleCall_89; }
 		
 		//ExistentialLatticeQuantification
-		public RuleCall getExistentialLatticeQuantificationParserRuleCall_89() { return cExistentialLatticeQuantificationParserRuleCall_89; }
+		public RuleCall getExistentialLatticeQuantificationParserRuleCall_90() { return cExistentialLatticeQuantificationParserRuleCall_90; }
 		
 		//Expression
-		public RuleCall getExpressionParserRuleCall_90() { return cExpressionParserRuleCall_90; }
+		public RuleCall getExpressionParserRuleCall_91() { return cExpressionParserRuleCall_91; }
 		
 		//ExpressionOrAny
-		public RuleCall getExpressionOrAnyParserRuleCall_91() { return cExpressionOrAnyParserRuleCall_91; }
+		public RuleCall getExpressionOrAnyParserRuleCall_92() { return cExpressionOrAnyParserRuleCall_92; }
 		
 		//ForLoop
-		public RuleCall getForLoopParserRuleCall_92() { return cForLoopParserRuleCall_92; }
+		public RuleCall getForLoopParserRuleCall_93() { return cForLoopParserRuleCall_93; }
 		
 		//FormalActual
-		public RuleCall getFormalActualParserRuleCall_93() { return cFormalActualParserRuleCall_93; }
+		public RuleCall getFormalActualParserRuleCall_94() { return cFormalActualParserRuleCall_94; }
 		
 		//FormalActualList
-		public RuleCall getFormalActualListParserRuleCall_94() { return cFormalActualListParserRuleCall_94; }
+		public RuleCall getFormalActualListParserRuleCall_95() { return cFormalActualListParserRuleCall_95; }
 		
 		//FormalExpressionPair
-		public RuleCall getFormalExpressionPairParserRuleCall_95() { return cFormalExpressionPairParserRuleCall_95; }
+		public RuleCall getFormalExpressionPairParserRuleCall_96() { return cFormalExpressionPairParserRuleCall_96; }
 		
 		//FunctionParameters
-		public RuleCall getFunctionParametersParserRuleCall_96() { return cFunctionParametersParserRuleCall_96; }
+		public RuleCall getFunctionParametersParserRuleCall_97() { return cFunctionParametersParserRuleCall_97; }
 		
 		//GuardedAction
-		public RuleCall getGuardedActionParserRuleCall_97() { return cGuardedActionParserRuleCall_97; }
+		public RuleCall getGuardedActionParserRuleCall_98() { return cGuardedActionParserRuleCall_98; }
 		
 		//IssueException
-		public RuleCall getIssueExceptionParserRuleCall_98() { return cIssueExceptionParserRuleCall_98; }
+		public RuleCall getIssueExceptionParserRuleCall_99() { return cIssueExceptionParserRuleCall_99; }
 		
 		//NameTick
-		public RuleCall getNameTickParserRuleCall_99() { return cNameTickParserRuleCall_99; }
+		public RuleCall getNameTickParserRuleCall_100() { return cNameTickParserRuleCall_100; }
 		
 		//PeriodShift
-		public RuleCall getPeriodShiftParserRuleCall_100() { return cPeriodShiftParserRuleCall_100; }
+		public RuleCall getPeriodShiftParserRuleCall_101() { return cPeriodShiftParserRuleCall_101; }
 		
 		//PortInput
-		public RuleCall getPortInputParserRuleCall_101() { return cPortInputParserRuleCall_101; }
+		public RuleCall getPortInputParserRuleCall_102() { return cPortInputParserRuleCall_102; }
 		
 		//PortOutput
-		public RuleCall getPortOutputParserRuleCall_102() { return cPortOutputParserRuleCall_102; }
+		public RuleCall getPortOutputParserRuleCall_103() { return cPortOutputParserRuleCall_103; }
 		
 		//QuantifiedVariables
-		public RuleCall getQuantifiedVariablesParserRuleCall_103() { return cQuantifiedVariablesParserRuleCall_103; }
+		public RuleCall getQuantifiedVariablesParserRuleCall_104() { return cQuantifiedVariablesParserRuleCall_104; }
 		
 		//Range
-		public RuleCall getRangeParserRuleCall_104() { return cRangeParserRuleCall_104; }
+		public RuleCall getRangeParserRuleCall_105() { return cRangeParserRuleCall_105; }
 		
 		//RecordTerm
-		public RuleCall getRecordTermParserRuleCall_105() { return cRecordTermParserRuleCall_105; }
+		public RuleCall getRecordTermParserRuleCall_106() { return cRecordTermParserRuleCall_106; }
 		
 		//RecordValue
-		public RuleCall getRecordValueParserRuleCall_106() { return cRecordValueParserRuleCall_106; }
+		public RuleCall getRecordValueParserRuleCall_107() { return cRecordValueParserRuleCall_107; }
 		
 		//SimultaneousAssignment
-		public RuleCall getSimultaneousAssignmentParserRuleCall_107() { return cSimultaneousAssignmentParserRuleCall_107; }
+		public RuleCall getSimultaneousAssignmentParserRuleCall_108() { return cSimultaneousAssignmentParserRuleCall_108; }
 		
 		//SubprogramCall
-		public RuleCall getSubprogramCallParserRuleCall_108() { return cSubprogramCallParserRuleCall_108; }
+		public RuleCall getSubprogramCallParserRuleCall_109() { return cSubprogramCallParserRuleCall_109; }
 		
 		//SubProgramParameter
-		public RuleCall getSubProgramParameterParserRuleCall_109() { return cSubProgramParameterParserRuleCall_109; }
+		public RuleCall getSubProgramParameterParserRuleCall_110() { return cSubProgramParameterParserRuleCall_110; }
 		
 		//UniversalLatticeQuantification
-		public RuleCall getUniversalLatticeQuantificationParserRuleCall_110() { return cUniversalLatticeQuantificationParserRuleCall_110; }
+		public RuleCall getUniversalLatticeQuantificationParserRuleCall_111() { return cUniversalLatticeQuantificationParserRuleCall_111; }
 		
 		//WhenThrow
-		public RuleCall getWhenThrowParserRuleCall_111() { return cWhenThrowParserRuleCall_111; }
+		public RuleCall getWhenThrowParserRuleCall_112() { return cWhenThrowParserRuleCall_112; }
 		
 		//WhileLoop
-		public RuleCall getWhileLoopParserRuleCall_112() { return cWhileLoopParserRuleCall_112; }
+		public RuleCall getWhileLoopParserRuleCall_113() { return cWhileLoopParserRuleCall_113; }
 		
 		//BLESSSubclause
-		public RuleCall getBLESSSubclauseParserRuleCall_113() { return cBLESSSubclauseParserRuleCall_113; }
+		public RuleCall getBLESSSubclauseParserRuleCall_114() { return cBLESSSubclauseParserRuleCall_114; }
 		
 		//StatesSection
-		public RuleCall getStatesSectionParserRuleCall_114() { return cStatesSectionParserRuleCall_114; }
+		public RuleCall getStatesSectionParserRuleCall_115() { return cStatesSectionParserRuleCall_115; }
 		
 		//DispatchCondition
-		public RuleCall getDispatchConditionParserRuleCall_115() { return cDispatchConditionParserRuleCall_115; }
+		public RuleCall getDispatchConditionParserRuleCall_116() { return cDispatchConditionParserRuleCall_116; }
 		
 		//DispatchConjunction
-		public RuleCall getDispatchConjunctionParserRuleCall_116() { return cDispatchConjunctionParserRuleCall_116; }
+		public RuleCall getDispatchConjunctionParserRuleCall_117() { return cDispatchConjunctionParserRuleCall_117; }
 		
 		//DispatchExpression
-		public RuleCall getDispatchExpressionParserRuleCall_117() { return cDispatchExpressionParserRuleCall_117; }
+		public RuleCall getDispatchExpressionParserRuleCall_118() { return cDispatchExpressionParserRuleCall_118; }
 		
 		//DispatchTrigger
-		public RuleCall getDispatchTriggerParserRuleCall_118() { return cDispatchTriggerParserRuleCall_118; }
+		public RuleCall getDispatchTriggerParserRuleCall_119() { return cDispatchTriggerParserRuleCall_119; }
 		
 		//EventTrigger
-		public RuleCall getEventTriggerParserRuleCall_119() { return cEventTriggerParserRuleCall_119; }
+		public RuleCall getEventTriggerParserRuleCall_120() { return cEventTriggerParserRuleCall_120; }
 		
 		//ExecuteCondition
-		public RuleCall getExecuteConditionParserRuleCall_120() { return cExecuteConditionParserRuleCall_120; }
+		public RuleCall getExecuteConditionParserRuleCall_121() { return cExecuteConditionParserRuleCall_121; }
 		
 		//IndexExpressionOrRange
-		public RuleCall getIndexExpressionOrRangeParserRuleCall_121() { return cIndexExpressionOrRangeParserRuleCall_121; }
+		public RuleCall getIndexExpressionOrRangeParserRuleCall_122() { return cIndexExpressionOrRangeParserRuleCall_122; }
 		
 		//InternalCondition
-		public RuleCall getInternalConditionParserRuleCall_122() { return cInternalConditionParserRuleCall_122; }
+		public RuleCall getInternalConditionParserRuleCall_123() { return cInternalConditionParserRuleCall_123; }
 		
 		//InvariantClause
-		public RuleCall getInvariantClauseParserRuleCall_123() { return cInvariantClauseParserRuleCall_123; }
+		public RuleCall getInvariantClauseParserRuleCall_124() { return cInvariantClauseParserRuleCall_124; }
 		
 		//LogicalOperator
-		public RuleCall getLogicalOperatorParserRuleCall_124() { return cLogicalOperatorParserRuleCall_124; }
+		public RuleCall getLogicalOperatorParserRuleCall_125() { return cLogicalOperatorParserRuleCall_125; }
 		
 		//ModeCondition
-		public RuleCall getModeConditionParserRuleCall_125() { return cModeConditionParserRuleCall_125; }
+		public RuleCall getModeConditionParserRuleCall_126() { return cModeConditionParserRuleCall_126; }
 		
 		//Otherwise
-		public RuleCall getOtherwiseParserRuleCall_126() { return cOtherwiseParserRuleCall_126; }
+		public RuleCall getOtherwiseParserRuleCall_127() { return cOtherwiseParserRuleCall_127; }
 		
 		//Priority
-		public RuleCall getPriorityParserRuleCall_127() { return cPriorityParserRuleCall_127; }
+		public RuleCall getPriorityParserRuleCall_128() { return cPriorityParserRuleCall_128; }
 		
 		//SubprogramAccessDispatch
-		public RuleCall getSubprogramAccessDispatchParserRuleCall_128() { return cSubprogramAccessDispatchParserRuleCall_128; }
+		public RuleCall getSubprogramAccessDispatchParserRuleCall_129() { return cSubprogramAccessDispatchParserRuleCall_129; }
 		
 		//Transitions
-		public RuleCall getTransitionsParserRuleCall_129() { return cTransitionsParserRuleCall_129; }
+		public RuleCall getTransitionsParserRuleCall_130() { return cTransitionsParserRuleCall_130; }
 		
 		//TriggerLogicalExpression
-		public RuleCall getTriggerLogicalExpressionParserRuleCall_130() { return cTriggerLogicalExpressionParserRuleCall_130; }
+		public RuleCall getTriggerLogicalExpressionParserRuleCall_131() { return cTriggerLogicalExpressionParserRuleCall_131; }
 		
 		//VariablesSection
-		public RuleCall getVariablesSectionParserRuleCall_131() { return cVariablesSectionParserRuleCall_131; }
+		public RuleCall getVariablesSectionParserRuleCall_132() { return cVariablesSectionParserRuleCall_132; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.Type");
@@ -10660,7 +10685,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//  //subcomponent_port_reference
 	//  //change to how OSATE references subcomponents?
 	////  subcomponent=[aadl2::Subcomponent|ID]    <-just one level down
-	//    sub+=ID ( '.' sub+=ID )* '.' port=[aadl2::NamedElement|ID] ( '[' index=NUMBER ']' )?
+	//    sub+=ID ( '.' sub+=ID )* '.' sub+=ID ( '[' index=NUMBER ']' )?
 	//    | '(' tle=TriggerLogicalExpression ')'
 	//;
 	public EventTriggerElements getEventTriggerAccess() {
@@ -11332,9 +11357,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//BehaviorTime:
 	//    quantity=Quantity
 	//    |
-	//    value=ValueName
-	//  |
-	//  duration=ParenthesizedSubexpression
+	//    value=ValueName  (unit=[UnitName] | scalar='scalar' | whole='whole' )?
+	////    |
+	////    duration=ParenthesizedSubexpression // (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
 	//;
 	public BehaviorTimeElements getBehaviorTimeAccess() {
 		return pBehaviorTime;
@@ -11580,7 +11605,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//MultDiv:
 	//    l=Exp
 	//    ( ( sym=('/' | 'div' | 'mod' | 'rem') r+=Exp)
-	//    | ( sym=TIMES r+=Exp ( TIMES r+=Exp )* )
+	//    | ( sym='*' r+=Exp ( '*' r+=Exp )* )
 	//    )?
 	//;
 	public MultDivElements getMultDivAccess() {
@@ -11951,7 +11976,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	/////////////////////   RECORD VALUES   //////////////////////
 	//RecordTerm:
-	//  '(' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ')'
+	//  '[' record_type=[TypeDeclaration] ':' record_value+=RecordValue+ ']'
 	//;
 	public RecordTermElements getRecordTermAccess() {
 		return pRecordTerm;
@@ -12151,12 +12176,9 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getEnumerationTypeAccess().getRule();
 	}
 	
-	////EnumerationLiteral:
-	////    name=ID
-	////;
 	//QuantityType:
 	//  'quantity'
-	//  ( unit=[UnitName] | scalar?='scalar' | whole?='whole' )
+	//  ( unit=[UnitName] | scalar='scalar' | whole='whole' )
 	//  ( '[' lb=ANumber DOTDOT ub=ANumber ']' )?
 	//  ( 'step' step=ANumber )?  //check if positive
 	//  ( 'representation' representation=[aadl2::PropertyConstant|QCLREF] )?
@@ -12356,7 +12378,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	//Quantity: number=ANumber
-	//    (unit=[UnitName] | scalar?='scalar' | whole?='whole' )?
+	//    (unit=[UnitName] | scalar='scalar' | whole='whole' )?
 	//;
 	public QuantityElements getQuantityAccess() {
 		return pQuantity;
@@ -12442,6 +12464,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//    | LogicVariables
 	//    | MultDiv
 	//    | NumericExpression
+	//    | NullType
 	//    | ParenthesizedSubexpression
 	//    | PartialName
 	//    | PeriodShift

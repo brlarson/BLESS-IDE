@@ -49,6 +49,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer
     store.setDefault(ConfigurationPreferencePage.EPITHET_FIELD, false);
     store.setDefault(ConfigurationPreferencePage.SHOW_UNPARSED_FIELD, false);
     store.setDefault(ConfigurationPreferencePage.SHOW_VC_FIELD, false);
+    store.setDefault(ConfigurationPreferencePage.CONTINUUM_FIELD, false);
     }
 
 }
