@@ -114,7 +114,7 @@ component_name(ci,imp) ::=
 computation(lb,ub,c) ::=
   "computation(<lb><if(ub)>, <ub><endif>)<if(c)> in binding <c; separator=\" \"><endif>"
 
-concurrent_composition(g) ::=  /
+concurrent_composition(g) ::=  
 <<<g; anchor, separator="\n">
 >>
 
@@ -415,7 +415,7 @@ root_declaration(base,formula,kindWords,unit,factors) ::=
 <<
 <base><formula> [ <kindWords; separator=" "> ] <unit> <factors; separator=" ">; >>
 
-sequential_composition(f) ::=  // "    <f; separator=\"\n    \">" 
+sequential_composition(f) ::=  
 <<<f; anchor, separator="\n">
 >>
 
