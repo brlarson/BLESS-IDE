@@ -244,9 +244,7 @@ public class UnitUtil {
     } else {
       _xifexpression = " * ";
     }
-    String _plus = ("( " + _xifexpression);
-    String _plus_1 = (_plus + Double.valueOf(rec.conversionFactor));
-    return (_plus_1 + " )");
+    return (_xifexpression + Double.valueOf(rec.conversionFactor));
   }
 
   public String getConversionFromRootUnit(final UnitName u) {

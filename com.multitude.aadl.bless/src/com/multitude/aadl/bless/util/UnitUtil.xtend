@@ -172,7 +172,7 @@ def boolean hasTimeUnit(UnitName u)
 def String getConversionToRootUnit(UnitName u)
   {
   val rec = u.toUnitRecord 
-  return "( "+(rec.multiplyFactor ? " / " : " * ")+rec.conversionFactor + " )" 
+  return (rec.multiplyFactor ? " / " : " * ")+rec.conversionFactor 
   }
   
 def String getConversionFromRootUnit(UnitName u)
