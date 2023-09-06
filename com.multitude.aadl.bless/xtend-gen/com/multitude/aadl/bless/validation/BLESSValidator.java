@@ -3572,6 +3572,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
     return _elvis;
   }
 
+  public UnitRecord getUnitRecord(final NameTick a) {
+    return this.getUnitRecord(a.getValue());
+  }
+
   public boolean isWhole(final Variable v) {
     return ((this.getType(v.getTod()) instanceof QuantityType) && (((QuantityType) this.getType(v.getTod())).getWhole() != null));
   }

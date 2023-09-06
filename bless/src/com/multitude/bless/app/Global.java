@@ -40,8 +40,8 @@ import com.multitude.bless.tree.BAST;
 Global	//global variables
 {
 public static String CopyrightYear = "2023";
-public static String OsateVersion = "2.11.0";
-public static String EclipseVersion = "22_06";
+public static String OsateVersion = "2.13.0";
+public static String EclipseVersion = "2023_03";
 
 public static boolean kindMessages = true;  //put out kind rather than insulting messages
 public static boolean runningAsOSATEplugin = false;

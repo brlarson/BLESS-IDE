@@ -109,14 +109,15 @@ def UnitRecord toUnitRecord(QuantityType t)
 
 def UnitRecord toUnitRecord(UnitName unit)
   {
-  	var UnitRecord retval
-   if (unit.eContainer instanceof RootDeclaration)
-    {val root=unit.eContainer as RootDeclaration
-			if (root.base)
-			  retval = new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, ECollections.singletonEList(unit), 
+  var UnitRecord retval
+  if (unit.eContainer instanceof RootDeclaration)
+    {
+    val root=unit.eContainer as RootDeclaration
+		if (root.base)
+			retval = new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, ECollections.singletonEList(unit), 
 			    ECollections.emptyEList, false, false, false, 1.0)
-			else
-			  retval =  new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, root.formula.top, 
+		else
+			retval =  new UnitRecord(unit.isBaseType, unit, unit.getRootUnit, root.formula.top, 
 			    root.formula.bottom, false, false, false, 1.0) 
 		}
 	else

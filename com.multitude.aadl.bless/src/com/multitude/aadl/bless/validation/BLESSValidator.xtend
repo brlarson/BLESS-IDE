@@ -2569,6 +2569,11 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   scalar
   }  
   
+ def UnitRecord getUnitRecord(NameTick a) 
+  {
+  a.value.getUnitRecord  
+  } 
+  
 ////////////////////   WHOLE NUMBERS   \\\\\\\\\\\\\\\\\\\\\\\\\\\  
   
 def boolean isWhole(Variable v)  
