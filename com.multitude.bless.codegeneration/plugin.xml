@@ -66,7 +66,7 @@
     </extension>
    <extension
          id="blessentrypoint"
-         name="BLESS Entrypoint Provider"
+         name="BLESS Entrypoint Provider to HAMR"
          point="org.sireum.aadl.osate.hamr.HamrCodegenPluginProvider">
       <provider
             class="com.multitude.bless.codegeneration.bless2hamr.BlessEntrypointProvider">

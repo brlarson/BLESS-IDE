@@ -39,8 +39,6 @@ import org.sireum.IS;
 import org.sireum.Z;
 import org.sireum.$internal.MutableMarker;
 import org.sireum.aadl.osate.hamr.plugin.OSATECodegenPlugin;
-//import org.sireum.aadl.osate.bless2air.BuildComponentInstanceMap;
-//import org.sireum.aadl.osate.bless2air.UnparseToSlang;
 import org.sireum.aadl.osate.util.VisitorUtil;
 import org.sireum.hamr.arsit.plugin.BehaviorProviderPlugin;
 import org.sireum.hamr.codegen.common.containers.*;

@@ -25,7 +25,8 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ClassPath: bin/,
  .,
  lib/ST-4.3.4.jar,
- external:$org.sireum.home$/bin/sireum.jar
+ external:$org.sireum.home$/bin/sireum.jar,
+ resources/
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Import-Package: org.antlr.stringtemplate,

@@ -328,7 +328,7 @@ public class BLESS3Parser extends Parser {
 	//MUST SET currentPackageRecord BEFORE USE
 	public PackageRecord currentPackageRecord = null;  //created by package_spec
 	public PropertySetRecord currentPropertySetRecord = null;  //created by property_set
-	public ParseRecord currentParseRecord = null;  //either currentPackageRecord or currentPropertySetRecord
+//	public ParseRecord currentParseRecord = null;  //either currentPackageRecord or currentPropertySetRecord
 	//public boolean putAssertionsIntoMap = true;  //put Assertions with labels into Proof.label_assertion_map?
 	boolean saidTypeError = false;  //has a type exception already happened
 	public String fileName = null;
