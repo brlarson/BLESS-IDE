@@ -56,5 +56,29 @@
          </menu>
       </menuContribution>
    </extension>
+   <extension
+         id="blessbehavior"
+         name="BLESS Behavior Provider to HAMR"
+         point="org.sireum.aadl.osate.hamr.HamrCodegenPluginProvider">
+      <provider
+            class="com.multitude.bless.codegeneration.bless2hamr.BlessBehaviorProvider">
+      </provider>
+    </extension>
+   <extension
+         id="blessentrypoint"
+         name="BLESS Entrypoint Provider"
+         point="org.sireum.aadl.osate.hamr.HamrCodegenPluginProvider">
+      <provider
+            class="com.multitude.bless.codegeneration.bless2hamr.BlessEntrypointProvider">
+      </provider>
+   </extension>
+   <extension
+         id="blessdatatype"
+         name="BLESS Datatype Provider"
+         point="org.sireum.aadl.osate.hamr.HamrCodegenPluginProvider">
+       <provider
+            class="com.multitude.bless.codegeneration.bless2hamr.BlessDatatypeProvider">
+      </provider>
+   </extension>
 
 </plugin>

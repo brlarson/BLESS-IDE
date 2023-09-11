@@ -1,0 +1,285 @@
+group SLANG;
+
+id(s) ::= <<$s$>>
+
+
+slangFile(source, packageName, importPackages, singletonName, 
+          states, executionStateLabels, finalStateLabels, initialState, 
+          variables, methods, initialStateMethods,
+          completeStateMethods, executionStateMethods,
+          subprograms, propertyVals) ::= <<
+// #Sireum
+
+$source$
+
+package $packageName$
+
+import org.sireum._
+import org.sireum.S64._  //type for time
+import org.sireum.Z._    //type for integers
+import org.sireum.F32._  //type for quantities
+import art.Art           // for .time() timestamp
+$importPackages; separator="\n"$
+
+object $singletonName$ 
+  {
+  @enum object CompleteStates 
+    {
+    $states; separator="\n"$
+    }
+  //  execution states: $executionStateLabels; separator=" "$
+  //  final states: $finalStateLabels; separator=" "$
+  
+  var currentState: CompleteStates.Type = CompleteStates.$initialState$
+  
+  $variables; separator="\n"$
+   
+  $methods; separator="\n\n"$
+
+  // methods for transitions leaving initial state  
+  $initialStateMethods; separator="\n\n"$
+
+  // methods for transitions leaving complete states  
+  $completeStateMethods; separator="\n\n"$
+  
+  // methods for execution states
+  $executionStateMethods; separator="\n\n"$
+  
+  def contains(isz : ISZ[Art.PortId], elt : Art.PortId) : B =
+    { for ( i <- isz )
+      { if (i == elt) { return T } }
+    return F
+    }
+  }
+ 
+$subprograms$
+$propertyVals$
+>>
+
+methodDef(methodName, args, returnType, body, sep) ::= 
+<<
+def $methodName$($args; wrap, anchor, separator=", "$): $returnType$ = 
+  {
+  $body; separator=sep$
+  }  //end of $methodName$
+>>
+
+varDecl(varName, varType, initValue) ::= 
+<<
+var $varName$: $varType$ =$if(initValue)$ $initValue$ $else$ // you must supply an initial value$endif$
+>>
+
+makeSubprograms(singletonName,subs)  ::= <<
+@ext object $singletonName$_subprograms 
+  {
+  $subs; separator="\n"$
+  }
+>>
+
+aSubprogram(subcomponentName,inputs,result) ::= <<
+  def $subcomponentName$($inputs; separator=", "$): $result$ = \$
+>>
+  
+makeTimeout(name,portSet) ::= 
+<<api.makeTimeout($name$, $portSet; separator=","$)>>
+
+setTimeoutDuration(name,exp) ::=
+<<api.setDuration($name$, $exp$)>>
+  
+l_and(bs) ::= <<$bs; wrap, separator=" & "$>>
+l_or(bs) ::= <<$bs; wrap, separator=" | "$>>
+l_xor(bs) ::= <<$bs; wrap, separator=" |^ "$>>
+l_cand(bs) ::= <<$bs; wrap, separator=" && "$>>
+l_cor(bs) ::= <<$bs; wrap, separator=" || "$>>
+
+iff(l,r) ::= 
+<<$l$ \<-\> $r$>>
+
+implies(s,c) ::= 
+<<$s$ -\> $c$>>
+
+relation(l,sym,r) ::= <<($l$ $sym$ $r$)>>
+
+arithmetic(t,sym) ::= <<$t; wrap, separator=sym$>>
+
+unary(u,e) ::= <<$u$ $e$>>
+
+triple_nospace(l,sym,r) ::= <<$l$$sym$$r$>>
+
+if_assign_exp(b,t,f) ::= 
+<<if ($b$) $t$ 
+  else $f$>>
+
+parentheses(e) ::= <<($e$)>>
+
+propertyReference(c,p,f) ::= <<$c$$p$$if(f)$$f; separator="_"$$endif$>>
+
+dotID(i) ::= <<.$i$>>
+
+dotSeparator(s) ::= <<$s; separator="."$>>
+
+ifClause(guard,action) ::= 
+<<if ( $guard$ )
+  { $action; separator="\n    "$ }
+>>
+
+matchStatement(case,clauses) ::=
+<<$case$ match
+  {
+  $clauses; separator="\n"$
+  }
+>>
+
+caseClause(t,action) ::=
+<<case $t$ =>
+  $action; separator="\n"$
+>>
+
+dispatchCondition(de) ::= <<$de$>>
+
+eventPort(p) ::= //<<api.get_$p$().nonEmpty>>
+<<Dispatch_Status.contains($p$_Id)>>
+
+dataPort(p,unit) ::= <<api.get_$p$().get.$unit$>>
+
+timeout(ports,bt) ::= <<timeout_$ports; separator="_"$_$bt$>>
+
+timeoutQuantity(number,unit) ::= <<$number$_$unit$>>
+
+actions(a) ::= <<$a; separator="\n"$>>
+
+assign(lhs,e) ::= <<$lhs$ = $e$>>
+
+invoke(label,params) ::= <<$label$($params; wrap, anchor, separator=", "$)>>
+
+formal_actual(formal,actual) ::= <<$if(formal)$$formal$:$endif$$actual$>>
+
+port_output(p,e,ty) ::= <<api.put_$p$($ty$($e$))>>
+
+while(guard,elq) ::=
+<<while ($guard$)
+  $elq$
+>>
+
+block(a) ::=
+<<  {
+  $a; separator="\n"$
+  }
+>>
+
+decl(v,i,t,e) ::= <<$v$ $i$ : $t$ = $e$>>
+
+for(v,lb,up,a) ::= 
+<<for ( $v$ <- $lb$ to $ub$ )
+  {
+  $a$
+  }
+>>
+  
+do_until(guard,actions) ::=
+<<do {
+  $actions$
+  }
+while ( $guard$ )
+>>
+
+index(i) ::= <<(i)>>
+
+partialName(rec,indx) ::= <<$rec$$indx; separator=""$>>
+
+valueName(id,indx,pnames) ::= <<$id$$indx; separator=""$$if(pnames)$.$pnames; separator="."$$endif$>>
+
+csl(items) ::= <<$csl; wrap, anchor, separator=", "$>>
+
+tl(ports) ::= <<timeout_$ports; separator="_"$>>
+
+timeoutVars(timeoutID,portNumber) ::=
+<<val $timeoutID$_ID : Art.PortId = timeout_id+Art.PortId.fromZ($portNumber$)
+var $timeoutID$_Duration : Art.Time = s64"0"
+>>
+
+callbackclass(timeoutID) ::=
+<<@datatype class Callback_$timeoutID$(ep : EntryPoints) extends TimerCallback
+  {
+  override def callback(): Unit = { ep.$timeoutID$_expires( mc = this ) }
+  }
+>>
+
+callbackmethod(timeoutID) ::=
+<<def $timeoutID$_expires(mc: Callback_$timeoutID$): Unit =
+  {
+  operational_api.logDebug("$timeoutID$ expires")
+  event_set = event_set + $timeoutID$_ID
+  compute()
+  }
+>>
+
+contains(typ) ::=
+<<def contains(isz : ISZ[$typ$], elt : $typ$) : B =
+  { for ( i <- isz )
+    { if (i == elt) { return T } }
+  return F
+  }
+>>
+
+initializeBody(bridgeID, schedules) ::=
+<<// i'm an initialize body
+  initialization_api.logDebug("$bridgeID$.initialise()")  
+  component.Initialize_Entrypoint(initialization_api)
+  $schedules; separator = "\n  "$
+  Art.sendOutput(eventOutPortIds, dataOutPortIds)
+>>
+
+
+computeBody(bridgeID,schedules) ::=
+<<// i'm a compute body
+  operational_api.logDebug("$bridgeID$.compute()")  
+  val EventTriggered(receivedEvents) = Art.dispatchStatus($bridgeID$Id)
+  event_set = event_set ++ receivedEvents  
+  Art.receiveInput(eventInPortIds, dataInPortIds)
+  val dispatched : B = { component.Compute_Entrypoint(operational_api, event_set) }
+  if (dispatched) { event_set = Set.empty[Art.PortId] }
+  $schedules; separator = "\n  "$
+  Art.sendOutput(eventOutPortIds, dataOutPortIds)
+>>
+
+periodicComputeBody() ::=
+<<// i'm a compute body for periodic thread
+  Art.receiveInput(eventInPortIds, dataInPortIds)
+  component.Compute_Entrypoint(operational_api)
+  Art.sendOutput(eventOutPortIds, dataOutPortIds)
+>>
+
+
+scheduleTrait(timeoutID) ::=
+<<ArtTimer.scheduleTrait("$timeoutID$", T, $timeoutID$_Duration, Callback_$timeoutID$(this))
+>>
+
+eventSet(portID,inout) ::=
+<<Art.observe$inout$PortValue($portID$_Id).nonEmpty>>
+
+exampleDatatype(qualifiedReferencedTypeName,qualifiedTypeName,args) ::=
+<<def example(): $qualifiedReferencedTypeName$ =
+  { return $qualifiedTypeName$($args; separator=", "$) }
+>>  
+
+//not being used
+computeEntrypointTimeoutValue(npbridge,timeoutID,exp) ::=
+<<if ()
+  { $npbridge$.$timeoutID$_Duration = $exp$ }
+else
+  { api.logInfo("No value for $exp$ from $npbridge$.") }
+>>
+
+expressionfromRootUnit(expression,conversion) ::=
+<<( $expression$ ) $conversion>>
+
+valueToRootUnit(value,conversion) ::=
+<<( $value$ $conversion$ )>>
+
+
+
+
+
+
+    
