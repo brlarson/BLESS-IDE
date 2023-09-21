@@ -156,7 +156,6 @@ public static boolean sortProofObligationsByLineNumber = false;		//put po's in l
 public static boolean sortProofObligationsBySerialNumber = true;		//put po's in serial number order
 public static boolean removeAssertionLabels = false;		//remove rather than replace Assertion labels?
 public static boolean allQuantifiedVariablesAreEqual = true;		//used by BAST.equalTree() to make #12# = #2#, should really set up a Map when encountering exists or all quantified variables and check the map instead, but this shouldn't be a problem until people have wierd, nested quantifiers
-//public static boolean replaceLEwithNotLT = false;		//during normalization replace replace a<=b with (not b<a)
 
 
 //file of user-defined manipulation-technique names
@@ -171,10 +170,7 @@ public static HashSet<Integer> normalizationReason = new HashSet<Integer>();	//s
 public static int YouIdiotShowParseTreeLimit = 3;	//how many YI parse trees to show?
 public static int YouIdiotReportLimit = 10; //how many YI exception reports to show?
 public static int UnparserReportLimit = 2; //how many unparser exception reports to show?
-//public static boolean stopProof = false;	//set by ProofException.handleException() to stop further proof
 public static boolean automaticallyNormalizeAfterAssertionLabelSubstitution = false;  //automatically normalize P and Q after Assertion label substition
-//public static boolean replaceImplicationWithNotAorB = false;		//in Law.replaceImplication; changes A=>B to not A or B
-//public static boolean presumeDispatchConditionsAreDisjoint = false;	//make precondition with "not" the other dispatch conditions leaving its source complete state
 public static boolean repeatedlyNormalize = true;  //cause Strategy.normalize() to put new p.o. back into unsolvedProofObligations; or copy new p.o. after all unsolved normalized once
 public static boolean parsingPredeclaredProperties = false; //are files holding predeclared AADL or BLESS properties or packages being parsed?
 public static boolean replaceSubtractionWithAddingNegation = false; //flag used by Normalize.g to cause (a-b) to become (a+ -b)
@@ -220,6 +216,9 @@ public static TreeMap<String,BAST> label_assertion_map = new TreeMap<String,BAST
 public static boolean verbose = true;
 
 public static String scriptFileName = "";
+
+// code generation
+public static boolean generatingSlangTime = false;  //use S64 ms for Art.Time and literals
 
 
 //regular constructor
