@@ -378,7 +378,7 @@ quantified_variables(bv) ::=
 quantity(num,unit) ::= "<num> <unit>"
 
 quantity_type(unit,scalar,whole,lb,ub,step,representation) ::=
-<<<if(whole)>Z<else>F32<endif> >>
+<<<if(whole)>S64<else>F64<endif> >>
 
 range(rs,lb,ub)::=  "<lb><rs><ub>"  
 
@@ -389,7 +389,7 @@ rational()::="rational"
 
 real()::="real"
 
-real_literal(r) ::=  "f32\"<r>\""
+real_literal(r) ::=  "f64\"<r>\""
 
 record_field(df,ptd,t) ::=
     "<df>:<if(t)>list of <endif><ptd>;"
