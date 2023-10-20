@@ -35,6 +35,8 @@ public class ValidationException extends Exception
     {
     BlessControl.println("Validation Exception:  "+getMessage());
     printStackTrace();
+//    BlessControl.println(this.toString());
+    System.err.println(this.toString());
     }
   
 }
