@@ -1843,7 +1843,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     NamedElement returns GhostVariable
 	 *
 	 * Constraint:
-	 *     (name=ID tod=TypeOrReference assn=NamedAssertion?)
+	 *     (name=ID tod=TypeOrReference assn=Assertion?)
 	 * </pre>
 	 */
 	protected void sequence_GhostVariable(ISerializationContext context, GhostVariable semanticObject) {

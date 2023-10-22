@@ -6588,9 +6588,9 @@ ruleGhostVariable returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0());
 					}
-					lv_assn_5_0=ruleNamedAssertion
+					lv_assn_5_0=ruleAssertion
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getGhostVariableRule());
@@ -6599,7 +6599,7 @@ ruleGhostVariable returns [EObject current=null]
 							$current,
 							"assn",
 							lv_assn_5_0,
-							"com.multitude.aadl.bless.BLESS.NamedAssertion");
+							"com.multitude.aadl.bless.BLESS.Assertion");
 						afterParserOrEnumRuleCall();
 					}
 				)

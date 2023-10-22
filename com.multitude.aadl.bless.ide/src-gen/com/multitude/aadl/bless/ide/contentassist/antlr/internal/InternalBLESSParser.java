@@ -96197,25 +96197,25 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__GhostVariable__AssnAssignment_4_1"
-    // InternalBLESS.g:31019:1: rule__GhostVariable__AssnAssignment_4_1 : ( ruleNamedAssertion ) ;
+    // InternalBLESS.g:31019:1: rule__GhostVariable__AssnAssignment_4_1 : ( ruleAssertion ) ;
     public final void rule__GhostVariable__AssnAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:31023:1: ( ( ruleNamedAssertion ) )
-            // InternalBLESS.g:31024:2: ( ruleNamedAssertion )
+            // InternalBLESS.g:31023:1: ( ( ruleAssertion ) )
+            // InternalBLESS.g:31024:2: ( ruleAssertion )
             {
-            // InternalBLESS.g:31024:2: ( ruleNamedAssertion )
-            // InternalBLESS.g:31025:3: ruleNamedAssertion
+            // InternalBLESS.g:31024:2: ( ruleAssertion )
+            // InternalBLESS.g:31025:3: ruleAssertion
             {
-             before(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0()); 
+             before(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleNamedAssertion();
+            ruleAssertion();
 
             state._fsp--;
 
-             after(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0()); 
+             after(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0()); 
 
             }
 

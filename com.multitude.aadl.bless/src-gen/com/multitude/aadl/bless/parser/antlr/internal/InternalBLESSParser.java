@@ -16431,7 +16431,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGhostVariable"
-    // InternalBLESS.g:6530:1: ruleGhostVariable returns [EObject current=null] : (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )? ) ;
+    // InternalBLESS.g:6530:1: ruleGhostVariable returns [EObject current=null] : (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )? ) ;
     public final EObject ruleGhostVariable() throws RecognitionException {
         EObject current = null;
 
@@ -16448,11 +16448,11 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBLESS.g:6536:2: ( (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )? ) )
-            // InternalBLESS.g:6537:2: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )? )
+            // InternalBLESS.g:6536:2: ( (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )? ) )
+            // InternalBLESS.g:6537:2: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )? )
             {
-            // InternalBLESS.g:6537:2: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )? )
-            // InternalBLESS.g:6538:3: otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )?
+            // InternalBLESS.g:6537:2: (otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )? )
+            // InternalBLESS.g:6538:3: otherlv_0= 'def' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '~' ( (lv_tod_3_0= ruleTypeOrReference ) ) (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )?
             {
             otherlv_0=(Token)match(input,106,FOLLOW_7); 
 
@@ -16519,7 +16519,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBLESS.g:6583:3: (otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) ) )?
+            // InternalBLESS.g:6583:3: (otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) ) )?
             int alt111=2;
             int LA111_0 = input.LA(1);
 
@@ -16528,23 +16528,23 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
             }
             switch (alt111) {
                 case 1 :
-                    // InternalBLESS.g:6584:4: otherlv_4= ':' ( (lv_assn_5_0= ruleNamedAssertion ) )
+                    // InternalBLESS.g:6584:4: otherlv_4= ':' ( (lv_assn_5_0= ruleAssertion ) )
                     {
                     otherlv_4=(Token)match(input,27,FOLLOW_17); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getGhostVariableAccess().getColonKeyword_4_0());
                     			
-                    // InternalBLESS.g:6588:4: ( (lv_assn_5_0= ruleNamedAssertion ) )
-                    // InternalBLESS.g:6589:5: (lv_assn_5_0= ruleNamedAssertion )
+                    // InternalBLESS.g:6588:4: ( (lv_assn_5_0= ruleAssertion ) )
+                    // InternalBLESS.g:6589:5: (lv_assn_5_0= ruleAssertion )
                     {
-                    // InternalBLESS.g:6589:5: (lv_assn_5_0= ruleNamedAssertion )
-                    // InternalBLESS.g:6590:6: lv_assn_5_0= ruleNamedAssertion
+                    // InternalBLESS.g:6589:5: (lv_assn_5_0= ruleAssertion )
+                    // InternalBLESS.g:6590:6: lv_assn_5_0= ruleAssertion
                     {
 
-                    						newCompositeNode(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_assn_5_0=ruleNamedAssertion();
+                    lv_assn_5_0=ruleAssertion();
 
                     state._fsp--;
 
@@ -16556,7 +16556,7 @@ public class InternalBLESSParser extends AbstractInternalAntlrParser {
                     							current,
                     							"assn",
                     							lv_assn_5_0,
-                    							"com.multitude.aadl.bless.BLESS.NamedAssertion");
+                    							"com.multitude.aadl.bless.BLESS.Assertion");
                     						afterParserOrEnumRuleCall();
                     					
 

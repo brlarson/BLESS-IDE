@@ -514,7 +514,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="GhostVariable" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tod" eType="#//TypeOrReference"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assn" eType="#//NamedAssertion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assn" eType="#//Assertion"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assertion" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">

@@ -55,12 +55,12 @@ public interface GhostVariable extends EObject, NamedElement
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Assn</em>' containment reference.
-   * @see #setAssn(NamedAssertion)
+   * @see #setAssn(Assertion)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getGhostVariable_Assn()
    * @model containment="true"
    * @generated
    */
-  NamedAssertion getAssn();
+  Assertion getAssn();
 
   /**
    * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.GhostVariable#getAssn <em>Assn</em>}' containment reference.
@@ -70,6 +70,6 @@ public interface GhostVariable extends EObject, NamedElement
    * @see #getAssn()
    * @generated
    */
-  void setAssn(NamedAssertion value);
+  void setAssn(Assertion value);
 
 } // GhostVariable

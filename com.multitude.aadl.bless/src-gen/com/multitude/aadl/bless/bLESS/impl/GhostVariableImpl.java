@@ -5,9 +5,9 @@
  */
 package com.multitude.aadl.bless.bLESS.impl;
 
+import com.multitude.aadl.bless.bLESS.Assertion;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
-import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,7 +54,7 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * @generated
    * @ordered
    */
-  protected NamedAssertion assn;
+  protected Assertion assn;
 
   /**
    * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * @generated
    */
   @Override
-  public NamedAssertion getAssn()
+  public Assertion getAssn()
   {
     return assn;
   }
@@ -143,9 +143,9 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetAssn(NamedAssertion newAssn, NotificationChain msgs)
+  public NotificationChain basicSetAssn(Assertion newAssn, NotificationChain msgs)
   {
-    NamedAssertion oldAssn = assn;
+    Assertion oldAssn = assn;
     assn = newAssn;
     if (eNotificationRequired())
     {
@@ -161,7 +161,7 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * @generated
    */
   @Override
-  public void setAssn(NamedAssertion newAssn)
+  public void setAssn(Assertion newAssn)
   {
     if (newAssn != assn)
     {
@@ -227,7 +227,7 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
         setTod((TypeOrReference)newValue);
         return;
       case BLESSPackage.GHOST_VARIABLE__ASSN:
-        setAssn((NamedAssertion)newValue);
+        setAssn((Assertion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -247,7 +247,7 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
         setTod((TypeOrReference)null);
         return;
       case BLESSPackage.GHOST_VARIABLE__ASSN:
-        setAssn((NamedAssertion)null);
+        setAssn((Assertion)null);
         return;
     }
     super.eUnset(featureID);

@@ -4379,15 +4379,15 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cColonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cAssnAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cAssnNamedAssertionParserRuleCall_4_1_0 = (RuleCall)cAssnAssignment_4_1.eContents().get(0);
+		private final RuleCall cAssnAssertionParserRuleCall_4_1_0 = (RuleCall)cAssnAssignment_4_1.eContents().get(0);
 		
 		//@Exported
 		//GhostVariable:
-		// 'def'  name=ID '~' tod=TypeOrReference ( ':' assn=NamedAssertion )?
+		// 'def'  name=ID '~' tod=TypeOrReference ( ':' assn=Assertion )?
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'def'  name=ID '~' tod=TypeOrReference ( ':' assn=NamedAssertion )?
+		//'def'  name=ID '~' tod=TypeOrReference ( ':' assn=Assertion )?
 		public Group getGroup() { return cGroup; }
 		
 		//'def'
@@ -4408,17 +4408,17 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//TypeOrReference
 		public RuleCall getTodTypeOrReferenceParserRuleCall_3_0() { return cTodTypeOrReferenceParserRuleCall_3_0; }
 		
-		//( ':' assn=NamedAssertion )?
+		//( ':' assn=Assertion )?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//':'
 		public Keyword getColonKeyword_4_0() { return cColonKeyword_4_0; }
 		
-		//assn=NamedAssertion
+		//assn=Assertion
 		public Assignment getAssnAssignment_4_1() { return cAssnAssignment_4_1; }
 		
-		//NamedAssertion
-		public RuleCall getAssnNamedAssertionParserRuleCall_4_1_0() { return cAssnNamedAssertionParserRuleCall_4_1_0; }
+		//Assertion
+		public RuleCall getAssnAssertionParserRuleCall_4_1_0() { return cAssnAssertionParserRuleCall_4_1_0; }
 	}
 	public class AssertionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.Assertion");
@@ -11414,7 +11414,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	
 	//@Exported
 	//GhostVariable:
-	// 'def'  name=ID '~' tod=TypeOrReference ( ':' assn=NamedAssertion )?
+	// 'def'  name=ID '~' tod=TypeOrReference ( ':' assn=Assertion )?
 	//    ;
 	public GhostVariableElements getGhostVariableAccess() {
 		return pGhostVariable;

@@ -31022,9 +31022,9 @@ rule__GhostVariable__AssnAssignment_4_1
 	}
 :
 	(
-		{ before(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0()); }
-		ruleNamedAssertion
-		{ after(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0()); }
+		{ before(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0()); }
+		ruleAssertion
+		{ after(grammarAccess.getGhostVariableAccess().getAssnAssertionParserRuleCall_4_1_0()); }
 	)
 ;
 finally {
