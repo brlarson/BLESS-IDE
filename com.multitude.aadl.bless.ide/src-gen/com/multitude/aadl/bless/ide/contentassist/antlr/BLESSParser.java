@@ -218,6 +218,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExceptionAccess().getGroup(), "rule__Exception__Group__0");
 			builder.put(grammarAccess.getGhostVariablesAccess().getGroup(), "rule__GhostVariables__Group__0");
 			builder.put(grammarAccess.getGhostVariableAccess().getGroup(), "rule__GhostVariable__Group__0");
+			builder.put(grammarAccess.getGhostVariableAccess().getGroup_4(), "rule__GhostVariable__Group_4__0");
 			builder.put(grammarAccess.getNamedAssertionAccess().getGroup(), "rule__NamedAssertion__Group__0");
 			builder.put(grammarAccess.getNamedAssertionAccess().getGroup_3_0(), "rule__NamedAssertion__Group_3_0__0");
 			builder.put(grammarAccess.getNamedAssertionAccess().getGroup_3_0_1_0(), "rule__NamedAssertion__Group_3_0_1_0__0");
@@ -610,6 +611,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getGhostVariablesAccess().getGvAssignment_2(), "rule__GhostVariables__GvAssignment_2");
 			builder.put(grammarAccess.getGhostVariableAccess().getNameAssignment_1(), "rule__GhostVariable__NameAssignment_1");
 			builder.put(grammarAccess.getGhostVariableAccess().getTodAssignment_3(), "rule__GhostVariable__TodAssignment_3");
+			builder.put(grammarAccess.getGhostVariableAccess().getAssnAssignment_4_1(), "rule__GhostVariable__AssnAssignment_4_1");
 			builder.put(grammarAccess.getAssertionAccess().getNamedassertionAssignment_0(), "rule__Assertion__NamedassertionAssignment_0");
 			builder.put(grammarAccess.getAssertionAccess().getNamelessassertionAssignment_1(), "rule__Assertion__NamelessassertionAssignment_1");
 			builder.put(grammarAccess.getAssertionAccess().getNamelessfunctionAssignment_2(), "rule__Assertion__NamelessfunctionAssignment_2");

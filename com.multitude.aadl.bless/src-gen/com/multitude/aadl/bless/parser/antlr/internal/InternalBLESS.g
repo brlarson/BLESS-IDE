@@ -6580,6 +6580,31 @@ ruleGhostVariable returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_4=':'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getGhostVariableAccess().getColonKeyword_4_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getGhostVariableAccess().getAssnNamedAssertionParserRuleCall_4_1_0());
+					}
+					lv_assn_5_0=ruleNamedAssertion
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getGhostVariableRule());
+						}
+						set(
+							$current,
+							"assn",
+							lv_assn_5_0,
+							"com.multitude.aadl.bless.BLESS.NamedAssertion");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

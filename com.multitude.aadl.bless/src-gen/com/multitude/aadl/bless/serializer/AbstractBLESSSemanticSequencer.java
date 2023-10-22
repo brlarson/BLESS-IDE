@@ -1843,20 +1843,11 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     NamedElement returns GhostVariable
 	 *
 	 * Constraint:
-	 *     (name=ID tod=TypeOrReference)
+	 *     (name=ID tod=TypeOrReference assn=NamedAssertion?)
 	 * </pre>
 	 */
 	protected void sequence_GhostVariable(ISerializationContext context, GhostVariable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, Aadl2Package.eINSTANCE.getNamedElement_Name()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, Aadl2Package.eINSTANCE.getNamedElement_Name()));
-			if (transientValues.isValueTransient(semanticObject, BLESSPackage.eINSTANCE.getGhostVariable_Tod()) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BLESSPackage.eINSTANCE.getGhostVariable_Tod()));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGhostVariableAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getGhostVariableAccess().getTodTypeOrReferenceParserRuleCall_3_0(), semanticObject.getTod());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

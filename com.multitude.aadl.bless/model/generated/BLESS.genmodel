@@ -372,6 +372,7 @@
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//GhostVariable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//GhostVariable/tod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//GhostVariable/assn"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//Assertion">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Assertion/namedassertion"/>

@@ -4681,6 +4681,17 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
+  public EReference getGhostVariable_Assn()
+  {
+        return (EReference)getGhostVariable().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getAssertion()
   {
     if (assertionEClass == null)

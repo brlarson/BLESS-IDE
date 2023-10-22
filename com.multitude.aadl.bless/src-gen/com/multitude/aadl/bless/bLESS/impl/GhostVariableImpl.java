@@ -7,6 +7,7 @@ package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
+import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -28,6 +29,7 @@ import org.osate.aadl2.impl.NamedElementImpl;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.GhostVariableImpl#getTod <em>Tod</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.GhostVariableImpl#getAssn <em>Assn</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +45,16 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * @ordered
    */
   protected TypeOrReference tod;
+
+  /**
+   * The cached value of the '{@link #getAssn() <em>Assn</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssn()
+   * @generated
+   * @ordered
+   */
+  protected NamedAssertion assn;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,12 +133,64 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
    * @generated
    */
   @Override
+  public NamedAssertion getAssn()
+  {
+    return assn;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetAssn(NamedAssertion newAssn, NotificationChain msgs)
+  {
+    NamedAssertion oldAssn = assn;
+    assn = newAssn;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.GHOST_VARIABLE__ASSN, oldAssn, newAssn);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAssn(NamedAssertion newAssn)
+  {
+    if (newAssn != assn)
+    {
+      NotificationChain msgs = null;
+      if (assn != null)
+        msgs = ((InternalEObject)assn).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.GHOST_VARIABLE__ASSN, null, msgs);
+      if (newAssn != null)
+        msgs = ((InternalEObject)newAssn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.GHOST_VARIABLE__ASSN, null, msgs);
+      msgs = basicSetAssn(newAssn, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.GHOST_VARIABLE__ASSN, newAssn, newAssn));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case BLESSPackage.GHOST_VARIABLE__TOD:
         return basicSetTod(null, msgs);
+      case BLESSPackage.GHOST_VARIABLE__ASSN:
+        return basicSetAssn(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -143,6 +207,8 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
     {
       case BLESSPackage.GHOST_VARIABLE__TOD:
         return getTod();
+      case BLESSPackage.GHOST_VARIABLE__ASSN:
+        return getAssn();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -159,6 +225,9 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
     {
       case BLESSPackage.GHOST_VARIABLE__TOD:
         setTod((TypeOrReference)newValue);
+        return;
+      case BLESSPackage.GHOST_VARIABLE__ASSN:
+        setAssn((NamedAssertion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -177,6 +246,9 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
       case BLESSPackage.GHOST_VARIABLE__TOD:
         setTod((TypeOrReference)null);
         return;
+      case BLESSPackage.GHOST_VARIABLE__ASSN:
+        setAssn((NamedAssertion)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -193,6 +265,8 @@ public class GhostVariableImpl extends NamedElementImpl implements GhostVariable
     {
       case BLESSPackage.GHOST_VARIABLE__TOD:
         return tod != null;
+      case BLESSPackage.GHOST_VARIABLE__ASSN:
+        return assn != null;
     }
     return super.eIsSet(featureID);
   }

@@ -4933,13 +4933,22 @@ public interface BLESSPackage extends EPackage
   int GHOST_VARIABLE__TOD = Aadl2Package.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Assn</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GHOST_VARIABLE__ASSN = Aadl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Ghost Variable</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int GHOST_VARIABLE_FEATURE_COUNT = Aadl2Package.NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int GHOST_VARIABLE_FEATURE_COUNT = Aadl2Package.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.AssertionImpl <em>Assertion</em>}' class.
@@ -12999,6 +13008,17 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EReference getGhostVariable_Tod();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.GhostVariable#getAssn <em>Assn</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Assn</em>'.
+   * @see com.multitude.aadl.bless.bLESS.GhostVariable#getAssn()
+   * @see #getGhostVariable()
+   * @generated
+   */
+  EReference getGhostVariable_Assn();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.Assertion <em>Assertion</em>}'.

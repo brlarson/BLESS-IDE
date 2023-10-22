@@ -19,6 +19,7 @@ import org.osate.aadl2.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.GhostVariable#getTod <em>Tod</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.GhostVariable#getAssn <em>Assn</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getGhostVariable()
@@ -48,5 +49,27 @@ public interface GhostVariable extends EObject, NamedElement
    * @generated
    */
   void setTod(TypeOrReference value);
+
+  /**
+   * Returns the value of the '<em><b>Assn</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Assn</em>' containment reference.
+   * @see #setAssn(NamedAssertion)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getGhostVariable_Assn()
+   * @model containment="true"
+   * @generated
+   */
+  NamedAssertion getAssn();
+
+  /**
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.GhostVariable#getAssn <em>Assn</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Assn</em>' containment reference.
+   * @see #getAssn()
+   * @generated
+   */
+  void setAssn(NamedAssertion value);
 
 } // GhostVariable
