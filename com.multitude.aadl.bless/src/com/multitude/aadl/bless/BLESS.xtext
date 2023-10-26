@@ -576,7 +576,7 @@ GhostVariables
 
 @Exported
 GhostVariable:
- 'def'  name=ID '~' tod=TypeOrReference  
+ 'def'  name=ID '~' tod=TypeOrReference ( ':' assn=Assertion )?
 	;
 
 //assertion
