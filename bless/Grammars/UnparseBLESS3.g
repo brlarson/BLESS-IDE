@@ -1024,8 +1024,16 @@ constant
   |
   n=LITERAL_null
     -> {%{$n.text}}
+  |
+  nnp = nonNumericProperty
+    -> {$nnp.st}  
 	;	
 
+nonNumericProperty:
+  ^( LBRACKET  pv=propertyValue RCON type=ID )
+    -> nonNumericProperty(pv={$pv.st}, ty={$type.st})
+	;
+	
 quantity
   :
   ^( QUANTITY num=aNumber )
@@ -1044,12 +1052,17 @@ quantity
 aNumber:
  lit=NUMBER
    -> {%{$lit.text}}
- | property=propertyReference
+ | pv=propertyValue
+   -> {$pv.st}
+  ;
+
+propertyValue:
+  property=propertyReference
    -> {$property.st}
  | propertyConstant=propertyName //[aadl2::PropertyConstant|QCLREF]
    -> {$propertyConstant.st}
-  ;
-    
+ ;
+     
 propertyReference
  :
   //just property name

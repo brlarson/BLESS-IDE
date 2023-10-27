@@ -9405,6 +9405,104 @@ ruleConstant returns [EObject current=null]
 				}
 			)
 		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConstantAccess().getPropNonNumericPropertyParserRuleCall_5_0());
+				}
+				lv_prop_5_0=ruleNonNumericProperty
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConstantRule());
+					}
+					set(
+						$current,
+						"prop",
+						lv_prop_5_0,
+						"com.multitude.aadl.bless.BLESS.NonNumericProperty");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNonNumericProperty
+entryRuleNonNumericProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNonNumericPropertyRule()); }
+	iv_ruleNonNumericProperty=ruleNonNumericProperty
+	{ $current=$iv_ruleNonNumericProperty.current; }
+	EOF;
+
+// Rule NonNumericProperty
+ruleNonNumericProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='['
+		{
+			newLeafNode(otherlv_0, grammarAccess.getNonNumericPropertyAccess().getLeftSquareBracketKeyword_0());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNonNumericPropertyAccess().getPropertyPropertyReferenceParserRuleCall_1_0_0());
+					}
+					lv_property_1_0=rulePropertyReference
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNonNumericPropertyRule());
+						}
+						set(
+							$current,
+							"property",
+							lv_property_1_0,
+							"com.multitude.aadl.bless.BLESS.PropertyReference");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNonNumericPropertyRule());
+						}
+					}
+					{
+						newCompositeNode(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantPropertyConstantCrossReference_1_1_0());
+					}
+					ruleQCLREF
+					{
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		otherlv_3=']->'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getNonNumericPropertyAccess().getRightSquareBracketHyphenMinusGreaterThanSignKeyword_2());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNonNumericPropertyRule());
+					}
+				}
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0());
+				}
+			)
+		)
 	)
 ;
 

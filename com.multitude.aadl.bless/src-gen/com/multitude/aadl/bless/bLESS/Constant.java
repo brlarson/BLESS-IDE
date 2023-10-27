@@ -23,6 +23,7 @@ import org.osate.aadl2.Element;
  *   <li>{@link com.multitude.aadl.bless.bLESS.Constant#getT <em>T</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Constant#getF <em>F</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Constant#getNul <em>Nul</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.Constant#getProp <em>Prop</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getConstant()
@@ -140,5 +141,27 @@ public interface Constant extends EObject, Element
    * @generated
    */
   void setNul(String value);
+
+  /**
+   * Returns the value of the '<em><b>Prop</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Prop</em>' containment reference.
+   * @see #setProp(NonNumericProperty)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getConstant_Prop()
+   * @model containment="true"
+   * @generated
+   */
+  NonNumericProperty getProp();
+
+  /**
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Constant#getProp <em>Prop</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Prop</em>' containment reference.
+   * @see #getProp()
+   * @generated
+   */
+  void setProp(NonNumericProperty value);
 
 } // Constant

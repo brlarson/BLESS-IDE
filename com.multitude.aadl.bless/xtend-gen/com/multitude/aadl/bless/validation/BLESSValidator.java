@@ -15,7 +15,6 @@ import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
 import com.multitude.aadl.bless.bLESS.BLESSFactory;
-import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.BLESSSubclause;
 import com.multitude.aadl.bless.bLESS.BehaviorState;
@@ -215,14 +214,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkStatesExist(final BLESSGrammarRoots bgr) {
-    BLESSSubclause _bless_subclause = bgr.getBless_subclause();
-    boolean _tripleNotEquals = (_bless_subclause != null);
-    if (_tripleNotEquals) {
-      if ((((bgr.getBless_subclause().getStatesSection() == null) || (bgr.getBless_subclause().getStatesSection().getStates() == null)) || bgr.getBless_subclause().getStatesSection().getStates().isEmpty())) {
-        this.fError("BLESS annex subclauses must have at least one state.", bgr, 
-          BLESSPackage.eINSTANCE.getBLESSGrammarRoots_Bless_subclause());
-      }
+  public void checkStatesExist(final BLESSSubclause bsc) {
+    if ((((bsc.getStatesSection() == null) || (bsc.getStatesSection().getStates() == null)) || bsc.getStatesSection().getStates().isEmpty())) {
+      this.fWarning("BLESS annex subclauses must have at least one state.", bsc, 
+        BLESSPackage.eINSTANCE.getBLESSSubclause_StatesSection());
     }
   }
 
@@ -1575,11 +1570,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public void checkMixedModeAndCompleteStates(final BLESSSubclause sub) {
     boolean hasComplete = false;
     boolean hasMode = false;
-    EList<BehaviorState> _states = sub.getStatesSection().getStates();
-    boolean _tripleNotEquals = (_states != null);
+    StatesSection _statesSection = sub.getStatesSection();
+    boolean _tripleNotEquals = (_statesSection != null);
     if (_tripleNotEquals) {
-      EList<BehaviorState> _states_1 = sub.getStatesSection().getStates();
-      for (final BehaviorState state : _states_1) {
+      EList<BehaviorState> _states = sub.getStatesSection().getStates();
+      for (final BehaviorState state : _states) {
         {
           boolean _isComplete = state.isComplete();
           if (_isComplete) {

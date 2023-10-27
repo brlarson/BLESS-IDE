@@ -207,13 +207,12 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 //  }  
  
  @Check(CheckType.NORMAL)
- def checkStatesExist(BLESSGrammarRoots bgr)
+ def checkStatesExist(BLESSSubclause bsc)
    {
-   if (bgr.bless_subclause !== null)
-     if (bgr.bless_subclause.statesSection === null || bgr.bless_subclause.statesSection.states === null
-       ||  bgr.bless_subclause.statesSection.states.empty )
-    fError('BLESS annex subclauses must have at least one state.', bgr,
-      BLESSPackage.eINSTANCE.BLESSGrammarRoots_Bless_subclause) 
+     if (bsc.statesSection === null || bsc.statesSection.states === null
+       ||  bsc.statesSection.states.empty )
+    fWarning('BLESS annex subclauses must have at least one state.', bsc,
+      BLESSPackage.eINSTANCE.BLESSSubclause_StatesSection) 
    }
 
 
@@ -1215,7 +1214,7 @@ checkMixedModeAndCompleteStates(BLESSSubclause sub)
   {
   var hasComplete = false
   var hasMode = false
-  if (sub.statesSection.states !== null)
+  if (sub.statesSection !== null)
   for (state : sub.statesSection.states)
     {
     if (state.complete) hasComplete = true

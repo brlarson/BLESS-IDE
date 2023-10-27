@@ -79,6 +79,7 @@ VARIABLE_DECLARATION;
 
 // 3-character tokens
 CVP = ')->';
+//RBRACKET_ARROW = ']->';
 PLUS_ARROW = '+=>';
 
 // 2-character tokens
@@ -1125,8 +1126,13 @@ constant:
   LITERAL_false
   |
   LITERAL_null
+ // |
+ // nonNumericProperty
   ;
-	
+
+//nonNumericProperty:
+//  LBRACKET^ npv=propertyValue RCON type=ID
+//  ;	
 
 quantity: 
   num=aNumber u=ID 
@@ -1144,10 +1150,14 @@ quantity:
 
 aNumber:
  lit=NUMBER
- | property=propertyReference
- | propertyConstant=propertyName //[aadl2::PropertyConstant|propertyName]
+ | pv=propertyValue
   ;
-  
+
+propertyValue:
+  property=propertyReference
+ | propertyConstant=propertyName //[aadl2::PropertyConstant|propertyName]
+ ;
+ 
 propertyReference:
 	OCTOTHORPE^ pname=propertyName  //[aadl2::Property|propertyName] 
 	  ( field+=propertyField )*

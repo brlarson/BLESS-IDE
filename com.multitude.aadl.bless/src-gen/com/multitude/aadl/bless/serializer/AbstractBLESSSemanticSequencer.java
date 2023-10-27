@@ -92,6 +92,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.Otherwise;
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
@@ -434,6 +435,9 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case BLESSPackage.NAMELESS_FUNCTION:
 				sequence_NamelessFunction(context, (NamelessFunction) semanticObject); 
+				return; 
+			case BLESSPackage.NON_NUMERIC_PROPERTY:
+				sequence_NonNumericProperty(context, (NonNumericProperty) semanticObject); 
 				return; 
 			case BLESSPackage.NULL_TYPE:
 				sequence_NullType(context, (NullType) semanticObject); 
@@ -1323,7 +1327,14 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns Constant
 	 *
 	 * Constraint:
-	 *     (numeric_constant=Quantity | string_literal=STRING | t='true' | f='false' | nul='null')
+	 *     (
+	 *         numeric_constant=Quantity | 
+	 *         string_literal=STRING | 
+	 *         t='true' | 
+	 *         f='false' | 
+	 *         nul='null' | 
+	 *         prop=NonNumericProperty
+	 *     )
 	 * </pre>
 	 */
 	protected void sequence_Constant(ISerializationContext context, Constant semanticObject) {
@@ -2177,6 +2188,21 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 		feeder.accept(grammarAccess.getNamelessFunctionAccess().getFuncColonEqualsSignKeyword_3_0(), semanticObject.isFunc());
 		feeder.accept(grammarAccess.getNamelessFunctionAccess().getFunctionvalueAssertionFunctionValueParserRuleCall_4_0(), semanticObject.getFunctionvalue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     NonNumericProperty returns NonNumericProperty
+	 *     Element returns NonNumericProperty
+	 *
+	 * Constraint:
+	 *     ((property=PropertyReference | propertyConstant=[PropertyConstant|QCLREF]) type=[TypeDeclaration|ID])
+	 * </pre>
+	 */
+	protected void sequence_NonNumericProperty(ISerializationContext context, NonNumericProperty semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

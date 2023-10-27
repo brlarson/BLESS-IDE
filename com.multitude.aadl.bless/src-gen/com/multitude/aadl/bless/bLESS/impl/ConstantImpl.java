@@ -7,6 +7,7 @@ package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.Constant;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.Quantity;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -32,6 +33,7 @@ import org.osate.aadl2.impl.ElementImpl;
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ConstantImpl#getT <em>T</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ConstantImpl#getF <em>F</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ConstantImpl#getNul <em>Nul</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ConstantImpl#getProp <em>Prop</em>}</li>
  * </ul>
  *
  * @generated
@@ -127,6 +129,16 @@ public class ConstantImpl extends ElementImpl implements Constant
    * @ordered
    */
   protected String nul = NUL_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getProp() <em>Prop</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProp()
+   * @generated
+   * @ordered
+   */
+  protected NonNumericProperty prop;
 
   /**
    * <!-- begin-user-doc -->
@@ -305,12 +317,64 @@ public class ConstantImpl extends ElementImpl implements Constant
    * @generated
    */
   @Override
+  public NonNumericProperty getProp()
+  {
+    return prop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetProp(NonNumericProperty newProp, NotificationChain msgs)
+  {
+    NonNumericProperty oldProp = prop;
+    prop = newProp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.CONSTANT__PROP, oldProp, newProp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setProp(NonNumericProperty newProp)
+  {
+    if (newProp != prop)
+    {
+      NotificationChain msgs = null;
+      if (prop != null)
+        msgs = ((InternalEObject)prop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.CONSTANT__PROP, null, msgs);
+      if (newProp != null)
+        msgs = ((InternalEObject)newProp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.CONSTANT__PROP, null, msgs);
+      msgs = basicSetProp(newProp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.CONSTANT__PROP, newProp, newProp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case BLESSPackage.CONSTANT__NUMERIC_CONSTANT:
         return basicSetNumeric_constant(null, msgs);
+      case BLESSPackage.CONSTANT__PROP:
+        return basicSetProp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -335,6 +399,8 @@ public class ConstantImpl extends ElementImpl implements Constant
         return getF();
       case BLESSPackage.CONSTANT__NUL:
         return getNul();
+      case BLESSPackage.CONSTANT__PROP:
+        return getProp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -363,6 +429,9 @@ public class ConstantImpl extends ElementImpl implements Constant
         return;
       case BLESSPackage.CONSTANT__NUL:
         setNul((String)newValue);
+        return;
+      case BLESSPackage.CONSTANT__PROP:
+        setProp((NonNumericProperty)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -393,6 +462,9 @@ public class ConstantImpl extends ElementImpl implements Constant
       case BLESSPackage.CONSTANT__NUL:
         setNul(NUL_EDEFAULT);
         return;
+      case BLESSPackage.CONSTANT__PROP:
+        setProp((NonNumericProperty)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -417,6 +489,8 @@ public class ConstantImpl extends ElementImpl implements Constant
         return F_EDEFAULT == null ? f != null : !F_EDEFAULT.equals(f);
       case BLESSPackage.CONSTANT__NUL:
         return NUL_EDEFAULT == null ? nul != null : !NUL_EDEFAULT.equals(nul);
+      case BLESSPackage.CONSTANT__PROP:
+        return prop != null;
     }
     return super.eIsSet(featureID);
   }

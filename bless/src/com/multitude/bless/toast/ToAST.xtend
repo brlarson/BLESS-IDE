@@ -128,6 +128,7 @@ import com.multitude.aadl.bless.bLESS.GhostVariables
 import com.multitude.aadl.bless.bLESS.GhostVariable
 import com.multitude.aadl.bless.bLESS.NullType
 import com.multitude.aadl.bless.bLESS.EventTrigger
+import com.multitude.aadl.bless.bLESS.NonNumericProperty
 
 class ToAST {
 
@@ -3816,5 +3817,14 @@ toAST(SubProgramParameter e)
     } 
   catch (Exception ex) {ex.printStackTrace x}       
   }	//end of SubProgramParameter
+
+
+  def dispatch BAST
+toAST(NonNumericProperty e)  
+  {
+    e.property?.toAST  ?:
+    e.propertyConstant?.qualifiedName().makeBASTforPropertyName(e)   
+  }
+  
   
 }

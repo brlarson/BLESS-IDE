@@ -327,6 +327,8 @@ name_tick(vn) ::= "<vn>'"
 
 natural()::="quantity whole"
 
+nonNumericProperty(pv,ty) ::= "[<pv>]-\><ty>"
+
 not(bt) ::= "not <bt>"  
 
 not_equal_relation(lhs,rhs) ::= "<lhs> \<\> <rhs>"

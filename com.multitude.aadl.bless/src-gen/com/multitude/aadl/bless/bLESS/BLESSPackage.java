@@ -6732,13 +6732,86 @@ public interface BLESSPackage extends EPackage
   int CONSTANT__NUL = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Prop</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT__PROP = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTANT_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
+  int CONSTANT_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl <em>Non Numeric Property</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl
+   * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getNonNumericProperty()
+   * @generated
+   */
+  int NON_NUMERIC_PROPERTY = 100;
+
+  /**
+   * The feature id for the '<em><b>Owned Element</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY__OWNED_ELEMENT = Aadl2Package.ELEMENT__OWNED_ELEMENT;
+
+  /**
+   * The feature id for the '<em><b>Owned Comment</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY__OWNED_COMMENT = Aadl2Package.ELEMENT__OWNED_COMMENT;
+
+  /**
+   * The feature id for the '<em><b>Property</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY__PROPERTY = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Property Constant</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY__TYPE = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Non Numeric Property</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NON_NUMERIC_PROPERTY_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.VariableImpl <em>Variable</em>}' class.
@@ -6748,7 +6821,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 100;
+  int VARIABLE = 101;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -6821,7 +6894,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getValueName()
    * @generated
    */
-  int VALUE_NAME = 101;
+  int VALUE_NAME = 102;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -6957,7 +7030,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getPartialName()
    * @generated
    */
-  int PARTIAL_NAME = 102;
+  int PARTIAL_NAME = 103;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7021,7 +7094,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getIndexExpressionOrRange()
    * @generated
    */
-  int INDEX_EXPRESSION_OR_RANGE = 103;
+  int INDEX_EXPRESSION_OR_RANGE = 104;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7085,7 +7158,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getPeriodShift()
    * @generated
    */
-  int PERIOD_SHIFT = 104;
+  int PERIOD_SHIFT = 105;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7149,7 +7222,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getIndexExpression()
    * @generated
    */
-  int INDEX_EXPRESSION = 105;
+  int INDEX_EXPRESSION = 106;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7213,7 +7286,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getCaseExpression()
    * @generated
    */
-  int CASE_EXPRESSION = 106;
+  int CASE_EXPRESSION = 107;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7259,7 +7332,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getCaseChoice()
    * @generated
    */
-  int CASE_CHOICE = 107;
+  int CASE_CHOICE = 108;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7314,7 +7387,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getLogicVariables()
    * @generated
    */
-  int LOGIC_VARIABLES = 108;
+  int LOGIC_VARIABLES = 109;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7360,7 +7433,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getSumQuantification()
    * @generated
    */
-  int SUM_QUANTIFICATION = 109;
+  int SUM_QUANTIFICATION = 110;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7451,7 +7524,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getProductQuantification()
    * @generated
    */
-  int PRODUCT_QUANTIFICATION = 110;
+  int PRODUCT_QUANTIFICATION = 111;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7542,7 +7615,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getCountingQuantification()
    * @generated
    */
-  int COUNTING_QUANTIFICATION = 111;
+  int COUNTING_QUANTIFICATION = 112;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7633,7 +7706,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUniversalQuantification()
    * @generated
    */
-  int UNIVERSAL_QUANTIFICATION = 112;
+  int UNIVERSAL_QUANTIFICATION = 113;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7724,7 +7797,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getExistentialQuantification()
    * @generated
    */
-  int EXISTENTIAL_QUANTIFICATION = 113;
+  int EXISTENTIAL_QUANTIFICATION = 114;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7815,7 +7888,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getRecordTerm()
    * @generated
    */
-  int RECORD_TERM = 114;
+  int RECORD_TERM = 115;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7870,7 +7943,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getRecordValue()
    * @generated
    */
-  int RECORD_VALUE = 115;
+  int RECORD_VALUE = 116;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7925,7 +7998,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getInvocation()
    * @generated
    */
-  int INVOCATION = 116;
+  int INVOCATION = 117;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -7989,7 +8062,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getActualParameter()
    * @generated
    */
-  int ACTUAL_PARAMETER = 117;
+  int ACTUAL_PARAMETER = 118;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8044,7 +8117,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getVariableList()
    * @generated
    */
-  int VARIABLE_LIST = 118;
+  int VARIABLE_LIST = 119;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8108,7 +8181,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getAssertionFunctionValue()
    * @generated
    */
-  int ASSERTION_FUNCTION_VALUE = 119;
+  int ASSERTION_FUNCTION_VALUE = 120;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8163,7 +8236,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getConditionalAssertionFunction()
    * @generated
    */
-  int CONDITIONAL_ASSERTION_FUNCTION = 120;
+  int CONDITIONAL_ASSERTION_FUNCTION = 121;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8209,7 +8282,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getConditionValuePair()
    * @generated
    */
-  int CONDITION_VALUE_PAIR = 121;
+  int CONDITION_VALUE_PAIR = 122;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8264,7 +8337,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getAssertionEnumeration()
    * @generated
    */
-  int ASSERTION_ENUMERATION = 122;
+  int ASSERTION_ENUMERATION = 123;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8319,7 +8392,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getEnumerationPair()
    * @generated
    */
-  int ENUMERATION_PAIR = 123;
+  int ENUMERATION_PAIR = 124;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8374,7 +8447,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getTypeLibrary()
    * @generated
    */
-  int TYPE_LIBRARY = 124;
+  int TYPE_LIBRARY = 125;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8447,7 +8520,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getTypeDeclaration()
    * @generated
    */
-  int TYPE_DECLARATION = 125;
+  int TYPE_DECLARATION = 126;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8520,7 +8593,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getTypeOrReference()
    * @generated
    */
-  int TYPE_OR_REFERENCE = 126;
+  int TYPE_OR_REFERENCE = 127;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8575,7 +8648,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getBooleanType()
    * @generated
    */
-  int BOOLEAN_TYPE = 127;
+  int BOOLEAN_TYPE = 128;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8621,7 +8694,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getStringType()
    * @generated
    */
-  int STRING_TYPE = 128;
+  int STRING_TYPE = 129;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8667,7 +8740,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getNullType()
    * @generated
    */
-  int NULL_TYPE = 129;
+  int NULL_TYPE = 130;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8713,7 +8786,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getEnumerationType()
    * @generated
    */
-  int ENUMERATION_TYPE = 130;
+  int ENUMERATION_TYPE = 131;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8759,7 +8832,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getQuantityType()
    * @generated
    */
-  int QUANTITY_TYPE = 131;
+  int QUANTITY_TYPE = 132;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8859,7 +8932,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getANumber()
    * @generated
    */
-  int ANUMBER = 132;
+  int ANUMBER = 133;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8923,7 +8996,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getArrayType()
    * @generated
    */
-  int ARRAY_TYPE = 133;
+  int ARRAY_TYPE = 134;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -8978,7 +9051,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getArrayRangeList()
    * @generated
    */
-  int ARRAY_RANGE_LIST = 134;
+  int ARRAY_RANGE_LIST = 135;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9033,7 +9106,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getArrayRange()
    * @generated
    */
-  int ARRAY_RANGE = 135;
+  int ARRAY_RANGE = 136;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9088,7 +9161,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getRecordType()
    * @generated
    */
-  int RECORD_TYPE = 136;
+  int RECORD_TYPE = 137;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9152,7 +9225,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getRecordField()
    * @generated
    */
-  int RECORD_FIELD = 137;
+  int RECORD_FIELD = 138;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9207,7 +9280,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getPropertyReference()
    * @generated
    */
-  int PROPERTY_REFERENCE = 138;
+  int PROPERTY_REFERENCE = 139;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9298,7 +9371,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getPropertyField()
    * @generated
    */
-  int PROPERTY_FIELD = 139;
+  int PROPERTY_FIELD = 140;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9380,7 +9453,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUnitName()
    * @generated
    */
-  int UNIT_NAME = 140;
+  int UNIT_NAME = 141;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9453,7 +9526,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUnitFormula()
    * @generated
    */
-  int UNIT_FORMULA = 141;
+  int UNIT_FORMULA = 142;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9517,7 +9590,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUnitDeclaration()
    * @generated
    */
-  int UNIT_DECLARATION = 142;
+  int UNIT_DECLARATION = 143;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9563,7 +9636,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getRootDeclaration()
    * @generated
    */
-  int ROOT_DECLARATION = 143;
+  int ROOT_DECLARATION = 144;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9645,7 +9718,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUnitExtension()
    * @generated
    */
-  int UNIT_EXTENSION = 144;
+  int UNIT_EXTENSION = 145;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9700,7 +9773,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getUnitFactor()
    * @generated
    */
-  int UNIT_FACTOR = 145;
+  int UNIT_FACTOR = 146;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9764,7 +9837,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getQuantity()
    * @generated
    */
-  int QUANTITY = 146;
+  int QUANTITY = 147;
 
   /**
    * The feature id for the '<em><b>Owned Element</b></em>' reference list.
@@ -9837,7 +9910,7 @@ public interface BLESSPackage extends EPackage
    * @see com.multitude.aadl.bless.bLESS.impl.BLESSPackageImpl#getType()
    * @generated
    */
-  int TYPE = 147;
+  int TYPE = 148;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -14258,6 +14331,60 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EAttribute getConstant_Nul();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.Constant#getProp <em>Prop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Prop</em>'.
+   * @see com.multitude.aadl.bless.bLESS.Constant#getProp()
+   * @see #getConstant()
+   * @generated
+   */
+  EReference getConstant_Prop();
+
+  /**
+   * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty <em>Non Numeric Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Non Numeric Property</em>'.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty
+   * @generated
+   */
+  EClass getNonNumericProperty();
+
+  /**
+   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getProperty <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Property</em>'.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty#getProperty()
+   * @see #getNonNumericProperty()
+   * @generated
+   */
+  EReference getNonNumericProperty_Property();
+
+  /**
+   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getPropertyConstant <em>Property Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Property Constant</em>'.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty#getPropertyConstant()
+   * @see #getNonNumericProperty()
+   * @generated
+   */
+  EReference getNonNumericProperty_PropertyConstant();
+
+  /**
+   * Returns the meta object for the reference '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty#getType()
+   * @see #getNonNumericProperty()
+   * @generated
+   */
+  EReference getNonNumericProperty_Type();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.Variable <em>Variable</em>}'.

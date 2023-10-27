@@ -75,6 +75,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRangeSymbolAccess().getAlternatives(), "rule__RangeSymbol__Alternatives");
 			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 			builder.put(grammarAccess.getConstantAccess().getAlternatives(), "rule__Constant__Alternatives");
+			builder.put(grammarAccess.getNonNumericPropertyAccess().getAlternatives_1(), "rule__NonNumericProperty__Alternatives_1");
 			builder.put(grammarAccess.getValueNameAccess().getAlternatives_4(), "rule__ValueName__Alternatives_4");
 			builder.put(grammarAccess.getPeriodShiftAccess().getAlternatives_1(), "rule__PeriodShift__Alternatives_1");
 			builder.put(grammarAccess.getIndexExpressionAccess().getAlternatives_1(), "rule__IndexExpression__Alternatives_1");
@@ -264,6 +265,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getRangeAccess().getGroup(), "rule__Range__Group__0");
 			builder.put(grammarAccess.getConditionalExpressionAccess().getGroup(), "rule__ConditionalExpression__Group__0");
 			builder.put(grammarAccess.getEnumerationValueAccess().getGroup(), "rule__EnumerationValue__Group__0");
+			builder.put(grammarAccess.getNonNumericPropertyAccess().getGroup(), "rule__NonNumericProperty__Group__0");
 			builder.put(grammarAccess.getVariableAccess().getGroup(), "rule__Variable__Group__0");
 			builder.put(grammarAccess.getValueNameAccess().getGroup(), "rule__ValueName__Group__0");
 			builder.put(grammarAccess.getValueNameAccess().getGroup_1(), "rule__ValueName__Group_1__0");
@@ -720,6 +722,10 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstantAccess().getTAssignment_2(), "rule__Constant__TAssignment_2");
 			builder.put(grammarAccess.getConstantAccess().getFAssignment_3(), "rule__Constant__FAssignment_3");
 			builder.put(grammarAccess.getConstantAccess().getNulAssignment_4(), "rule__Constant__NulAssignment_4");
+			builder.put(grammarAccess.getConstantAccess().getPropAssignment_5(), "rule__Constant__PropAssignment_5");
+			builder.put(grammarAccess.getNonNumericPropertyAccess().getPropertyAssignment_1_0(), "rule__NonNumericProperty__PropertyAssignment_1_0");
+			builder.put(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantAssignment_1_1(), "rule__NonNumericProperty__PropertyConstantAssignment_1_1");
+			builder.put(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3(), "rule__NonNumericProperty__TypeAssignment_3");
 			builder.put(grammarAccess.getVariableAccess().getNameAssignment_0(), "rule__Variable__NameAssignment_0");
 			builder.put(grammarAccess.getVariableAccess().getTodAssignment_2(), "rule__Variable__TodAssignment_2");
 			builder.put(grammarAccess.getValueNameAccess().getIdAssignment_0(), "rule__ValueName__IdAssignment_0");

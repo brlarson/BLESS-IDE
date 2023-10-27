@@ -510,6 +510,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Constant/t"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Constant/f"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Constant/nul"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Constant/prop"/>
+    </genClasses>
+    <genClasses ecoreClass="BLESS.ecore#//NonNumericProperty">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/property"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/propertyConstant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/type"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//Variable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Variable/tod"/>

@@ -2583,6 +2583,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleNonNumericProperty
+entryRuleNonNumericProperty
+:
+{ before(grammarAccess.getNonNumericPropertyRule()); }
+	 ruleNonNumericProperty
+{ after(grammarAccess.getNonNumericPropertyRule()); } 
+	 EOF 
+;
+
+// Rule NonNumericProperty
+ruleNonNumericProperty 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getGroup()); }
+		(rule__NonNumericProperty__Group__0)
+		{ after(grammarAccess.getNonNumericPropertyAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleVariable
 entryRuleVariable
 :
@@ -5146,6 +5171,33 @@ rule__Constant__Alternatives
 		{ before(grammarAccess.getConstantAccess().getNulAssignment_4()); }
 		(rule__Constant__NulAssignment_4)
 		{ after(grammarAccess.getConstantAccess().getNulAssignment_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getConstantAccess().getPropAssignment_5()); }
+		(rule__Constant__PropAssignment_5)
+		{ after(grammarAccess.getConstantAccess().getPropAssignment_5()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Alternatives_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getPropertyAssignment_1_0()); }
+		(rule__NonNumericProperty__PropertyAssignment_1_0)
+		{ after(grammarAccess.getNonNumericPropertyAccess().getPropertyAssignment_1_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantAssignment_1_1()); }
+		(rule__NonNumericProperty__PropertyConstantAssignment_1_1)
+		{ after(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantAssignment_1_1()); }
 	)
 ;
 finally {
@@ -19634,6 +19686,114 @@ finally {
 }
 
 
+rule__NonNumericProperty__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NonNumericProperty__Group__0__Impl
+	rule__NonNumericProperty__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNonNumericPropertyAccess().getLeftSquareBracketKeyword_0()); }
+	'['
+	{ after(grammarAccess.getNonNumericPropertyAccess().getLeftSquareBracketKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NonNumericProperty__Group__1__Impl
+	rule__NonNumericProperty__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNonNumericPropertyAccess().getAlternatives_1()); }
+	(rule__NonNumericProperty__Alternatives_1)
+	{ after(grammarAccess.getNonNumericPropertyAccess().getAlternatives_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NonNumericProperty__Group__2__Impl
+	rule__NonNumericProperty__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNonNumericPropertyAccess().getRightSquareBracketHyphenMinusGreaterThanSignKeyword_2()); }
+	']->'
+	{ after(grammarAccess.getNonNumericPropertyAccess().getRightSquareBracketHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__NonNumericProperty__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); }
+	(rule__NonNumericProperty__TypeAssignment_3)
+	{ after(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Variable__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -32777,6 +32937,74 @@ rule__Constant__NulAssignment_4
 			{ after(grammarAccess.getConstantAccess().getNulNullKeyword_4_0()); }
 		)
 		{ after(grammarAccess.getConstantAccess().getNulNullKeyword_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Constant__PropAssignment_5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getConstantAccess().getPropNonNumericPropertyParserRuleCall_5_0()); }
+		ruleNonNumericProperty
+		{ after(grammarAccess.getConstantAccess().getPropNonNumericPropertyParserRuleCall_5_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__PropertyAssignment_1_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getPropertyPropertyReferenceParserRuleCall_1_0_0()); }
+		rulePropertyReference
+		{ after(grammarAccess.getNonNumericPropertyAccess().getPropertyPropertyReferenceParserRuleCall_1_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__PropertyConstantAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantPropertyConstantCrossReference_1_1_0()); }
+		(
+			{ before(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantPropertyConstantQCLREFParserRuleCall_1_1_0_1()); }
+			ruleQCLREF
+			{ after(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantPropertyConstantQCLREFParserRuleCall_1_1_0_1()); }
+		)
+		{ after(grammarAccess.getNonNumericPropertyAccess().getPropertyConstantPropertyConstantCrossReference_1_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__NonNumericProperty__TypeAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); }
+		(
+			{ before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); }
+		)
+		{ after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); }
 	)
 ;
 finally {

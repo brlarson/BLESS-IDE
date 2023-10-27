@@ -95,6 +95,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.Otherwise;
@@ -315,6 +316,7 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
       case BLESSPackage.VALUE: return createValue();
       case BLESSPackage.ENUMERATION_VALUE: return createEnumerationValue();
       case BLESSPackage.CONSTANT: return createConstant();
+      case BLESSPackage.NON_NUMERIC_PROPERTY: return createNonNumericProperty();
       case BLESSPackage.VARIABLE: return createVariable();
       case BLESSPackage.VALUE_NAME: return createValueName();
       case BLESSPackage.PARTIAL_NAME: return createPartialName();
@@ -1566,6 +1568,18 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
   {
     ConstantImpl constant = new ConstantImpl();
     return constant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NonNumericProperty createNonNumericProperty()
+  {
+    NonNumericPropertyImpl nonNumericProperty = new NonNumericPropertyImpl();
+    return nonNumericProperty;
   }
 
   /**

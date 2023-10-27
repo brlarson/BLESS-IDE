@@ -80,6 +80,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
@@ -6665,6 +6666,27 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
+  protected BAST _toAST(final NonNumericProperty e) {
+    BAST _elvis = null;
+    PropertyReference _property = e.getProperty();
+    BAST _aST = null;
+    if (_property!=null) {
+      _aST=this.toAST(_property);
+    }
+    if (_aST != null) {
+      _elvis = _aST;
+    } else {
+      PropertyConstant _propertyConstant = e.getPropertyConstant();
+      String _qualifiedName = null;
+      if (_propertyConstant!=null) {
+        _qualifiedName=_propertyConstant.qualifiedName();
+      }
+      BAST _makeBASTforPropertyName = this.makeBASTforPropertyName(_qualifiedName, e);
+      _elvis = _makeBASTforPropertyName;
+    }
+    return _elvis;
+  }
+
   public BAST toAST(final Notifier e) {
     if (e instanceof ActionSubclause) {
       return _toAST((ActionSubclause)e);
@@ -6816,6 +6838,8 @@ public class ToAST {
       return _toAST((NamelessEnumeration)e);
     } else if (e instanceof NamelessFunction) {
       return _toAST((NamelessFunction)e);
+    } else if (e instanceof NonNumericProperty) {
+      return _toAST((NonNumericProperty)e);
     } else if (e instanceof NullType) {
       return _toAST((NullType)e);
     } else if (e instanceof ParenthesizedSubexpression) {

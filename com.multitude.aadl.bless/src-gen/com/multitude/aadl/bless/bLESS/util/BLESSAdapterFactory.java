@@ -94,6 +94,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.Otherwise;
@@ -729,6 +730,11 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
       public Adapter caseConstant(Constant object)
       {
         return createConstantAdapter();
+      }
+      @Override
+      public Adapter caseNonNumericProperty(NonNumericProperty object)
+      {
+        return createNonNumericPropertyAdapter();
       }
       @Override
       public Adapter caseVariable(Variable object)
@@ -2513,6 +2519,21 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty <em>Non Numeric Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty
+   * @generated
+   */
+  public Adapter createNonNumericPropertyAdapter()
   {
     return null;
   }

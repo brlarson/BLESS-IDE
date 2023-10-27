@@ -750,6 +750,13 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass nonNumericPropertyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass variableEClass = null;
 
   /**
@@ -6061,11 +6068,70 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
+  public EReference getConstant_Prop()
+  {
+        return (EReference)getConstant().getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNonNumericProperty()
+  {
+    if (nonNumericPropertyEClass == null)
+    {
+      nonNumericPropertyEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(100);
+    }
+    return nonNumericPropertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNonNumericProperty_Property()
+  {
+        return (EReference)getNonNumericProperty().getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNonNumericProperty_PropertyConstant()
+  {
+        return (EReference)getNonNumericProperty().getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNonNumericProperty_Type()
+  {
+        return (EReference)getNonNumericProperty().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getVariable()
   {
     if (variableEClass == null)
     {
-      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(100);
+      variableEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(101);
     }
     return variableEClass;
   }
@@ -6091,7 +6157,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (valueNameEClass == null)
     {
-      valueNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(101);
+      valueNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(102);
     }
     return valueNameEClass;
   }
@@ -6227,7 +6293,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (partialNameEClass == null)
     {
-      partialNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(102);
+      partialNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(103);
     }
     return partialNameEClass;
   }
@@ -6275,7 +6341,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (indexExpressionOrRangeEClass == null)
     {
-      indexExpressionOrRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(103);
+      indexExpressionOrRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(104);
     }
     return indexExpressionOrRangeEClass;
   }
@@ -6323,7 +6389,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (periodShiftEClass == null)
     {
-      periodShiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(104);
+      periodShiftEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(105);
     }
     return periodShiftEClass;
   }
@@ -6371,7 +6437,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (indexExpressionEClass == null)
     {
-      indexExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(105);
+      indexExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(106);
     }
     return indexExpressionEClass;
   }
@@ -6419,7 +6485,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (caseExpressionEClass == null)
     {
-      caseExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(106);
+      caseExpressionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(107);
     }
     return caseExpressionEClass;
   }
@@ -6445,7 +6511,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (caseChoiceEClass == null)
     {
-      caseChoiceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(107);
+      caseChoiceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(108);
     }
     return caseChoiceEClass;
   }
@@ -6482,7 +6548,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (logicVariablesEClass == null)
     {
-      logicVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(108);
+      logicVariablesEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(109);
     }
     return logicVariablesEClass;
   }
@@ -6508,7 +6574,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (sumQuantificationEClass == null)
     {
-      sumQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(109);
+      sumQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(110);
     }
     return sumQuantificationEClass;
   }
@@ -6589,7 +6655,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (productQuantificationEClass == null)
     {
-      productQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(110);
+      productQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(111);
     }
     return productQuantificationEClass;
   }
@@ -6670,7 +6736,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (countingQuantificationEClass == null)
     {
-      countingQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(111);
+      countingQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(112);
     }
     return countingQuantificationEClass;
   }
@@ -6751,7 +6817,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (universalQuantificationEClass == null)
     {
-      universalQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(112);
+      universalQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(113);
     }
     return universalQuantificationEClass;
   }
@@ -6832,7 +6898,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (existentialQuantificationEClass == null)
     {
-      existentialQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(113);
+      existentialQuantificationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(114);
     }
     return existentialQuantificationEClass;
   }
@@ -6913,7 +6979,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (recordTermEClass == null)
     {
-      recordTermEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(114);
+      recordTermEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(115);
     }
     return recordTermEClass;
   }
@@ -6950,7 +7016,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (recordValueEClass == null)
     {
-      recordValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(115);
+      recordValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(116);
     }
     return recordValueEClass;
   }
@@ -6987,7 +7053,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (invocationEClass == null)
     {
-      invocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(116);
+      invocationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(117);
     }
     return invocationEClass;
   }
@@ -7035,7 +7101,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (actualParameterEClass == null)
     {
-      actualParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(117);
+      actualParameterEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(118);
     }
     return actualParameterEClass;
   }
@@ -7072,7 +7138,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (variableListEClass == null)
     {
-      variableListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(118);
+      variableListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(119);
     }
     return variableListEClass;
   }
@@ -7120,7 +7186,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (assertionFunctionValueEClass == null)
     {
-      assertionFunctionValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(119);
+      assertionFunctionValueEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(120);
     }
     return assertionFunctionValueEClass;
   }
@@ -7157,7 +7223,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (conditionalAssertionFunctionEClass == null)
     {
-      conditionalAssertionFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(120);
+      conditionalAssertionFunctionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(121);
     }
     return conditionalAssertionFunctionEClass;
   }
@@ -7183,7 +7249,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (conditionValuePairEClass == null)
     {
-      conditionValuePairEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(121);
+      conditionValuePairEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(122);
     }
     return conditionValuePairEClass;
   }
@@ -7220,7 +7286,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (assertionEnumerationEClass == null)
     {
-      assertionEnumerationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(122);
+      assertionEnumerationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(123);
     }
     return assertionEnumerationEClass;
   }
@@ -7257,7 +7323,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (enumerationPairEClass == null)
     {
-      enumerationPairEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(123);
+      enumerationPairEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(124);
     }
     return enumerationPairEClass;
   }
@@ -7294,7 +7360,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (typeLibraryEClass == null)
     {
-      typeLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(124);
+      typeLibraryEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(125);
     }
     return typeLibraryEClass;
   }
@@ -7320,7 +7386,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (typeDeclarationEClass == null)
     {
-      typeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(125);
+      typeDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(126);
     }
     return typeDeclarationEClass;
   }
@@ -7346,7 +7412,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (typeOrReferenceEClass == null)
     {
-      typeOrReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(126);
+      typeOrReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(127);
     }
     return typeOrReferenceEClass;
   }
@@ -7383,7 +7449,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (booleanTypeEClass == null)
     {
-      booleanTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(127);
+      booleanTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(128);
     }
     return booleanTypeEClass;
   }
@@ -7409,7 +7475,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (stringTypeEClass == null)
     {
-      stringTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(128);
+      stringTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(129);
     }
     return stringTypeEClass;
   }
@@ -7435,7 +7501,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (nullTypeEClass == null)
     {
-      nullTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(129);
+      nullTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(130);
     }
     return nullTypeEClass;
   }
@@ -7461,7 +7527,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (enumerationTypeEClass == null)
     {
-      enumerationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(130);
+      enumerationTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(131);
     }
     return enumerationTypeEClass;
   }
@@ -7487,7 +7553,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (quantityTypeEClass == null)
     {
-      quantityTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(131);
+      quantityTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(132);
     }
     return quantityTypeEClass;
   }
@@ -7579,7 +7645,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (aNumberEClass == null)
     {
-      aNumberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(132);
+      aNumberEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(133);
     }
     return aNumberEClass;
   }
@@ -7627,7 +7693,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (arrayTypeEClass == null)
     {
-      arrayTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(133);
+      arrayTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(134);
     }
     return arrayTypeEClass;
   }
@@ -7664,7 +7730,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (arrayRangeListEClass == null)
     {
-      arrayRangeListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(134);
+      arrayRangeListEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(135);
     }
     return arrayRangeListEClass;
   }
@@ -7701,7 +7767,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (arrayRangeEClass == null)
     {
-      arrayRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(135);
+      arrayRangeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(136);
     }
     return arrayRangeEClass;
   }
@@ -7738,7 +7804,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (recordTypeEClass == null)
     {
-      recordTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(136);
+      recordTypeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(137);
     }
     return recordTypeEClass;
   }
@@ -7786,7 +7852,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (recordFieldEClass == null)
     {
-      recordFieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(137);
+      recordFieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(138);
     }
     return recordFieldEClass;
   }
@@ -7823,7 +7889,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (propertyReferenceEClass == null)
     {
-      propertyReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(138);
+      propertyReferenceEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(139);
     }
     return propertyReferenceEClass;
   }
@@ -7904,7 +7970,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (propertyFieldEClass == null)
     {
-      propertyFieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(139);
+      propertyFieldEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(140);
     }
     return propertyFieldEClass;
   }
@@ -7974,7 +8040,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (unitNameEClass == null)
     {
-      unitNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(140);
+      unitNameEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(141);
     }
     return unitNameEClass;
   }
@@ -8000,7 +8066,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (unitFormulaEClass == null)
     {
-      unitFormulaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(141);
+      unitFormulaEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(142);
     }
     return unitFormulaEClass;
   }
@@ -8048,7 +8114,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (unitDeclarationEClass == null)
     {
-      unitDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(142);
+      unitDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(143);
     }
     return unitDeclarationEClass;
   }
@@ -8074,7 +8140,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (rootDeclarationEClass == null)
     {
-      rootDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(143);
+      rootDeclarationEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(144);
     }
     return rootDeclarationEClass;
   }
@@ -8133,7 +8199,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (unitExtensionEClass == null)
     {
-      unitExtensionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(144);
+      unitExtensionEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(145);
     }
     return unitExtensionEClass;
   }
@@ -8159,7 +8225,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (unitFactorEClass == null)
     {
-      unitFactorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(145);
+      unitFactorEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(146);
     }
     return unitFactorEClass;
   }
@@ -8207,7 +8273,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (quantityEClass == null)
     {
-      quantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(146);
+      quantityEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(147);
     }
     return quantityEClass;
   }
@@ -8266,7 +8332,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   {
     if (typeEClass == null)
     {
-      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(147);
+      typeEClass = (EClass)EPackage.Registry.INSTANCE.getEPackage(BLESSPackage.eNS_URI).getEClassifiers().get(148);
     }
     return typeEClass;
   }

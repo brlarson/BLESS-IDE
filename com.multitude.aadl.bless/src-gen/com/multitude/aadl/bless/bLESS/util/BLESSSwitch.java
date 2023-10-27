@@ -94,6 +94,7 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.Otherwise;
@@ -1040,6 +1041,14 @@ public class BLESSSwitch<T> extends Switch<T>
         Constant constant = (Constant)theEObject;
         T result = caseConstant(constant);
         if (result == null) result = caseElement(constant);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BLESSPackage.NON_NUMERIC_PROPERTY:
+      {
+        NonNumericProperty nonNumericProperty = (NonNumericProperty)theEObject;
+        T result = caseNonNumericProperty(nonNumericProperty);
+        if (result == null) result = caseElement(nonNumericProperty);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -3040,6 +3049,22 @@ public class BLESSSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseConstant(Constant object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Non Numeric Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Non Numeric Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNonNumericProperty(NonNumericProperty object)
   {
     return null;
   }

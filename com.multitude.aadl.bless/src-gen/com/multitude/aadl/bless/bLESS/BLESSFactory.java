@@ -926,6 +926,15 @@ public interface BLESSFactory extends EFactory
   Constant createConstant();
 
   /**
+   * Returns a new object of class '<em>Non Numeric Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Non Numeric Property</em>'.
+   * @generated
+   */
+  NonNumericProperty createNonNumericProperty();
+
+  /**
    * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

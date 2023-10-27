@@ -760,6 +760,15 @@ Constant:
   | t='true' 
   | f='false' 	
   | nul='null'
+  | prop=NonNumericProperty
+;
+
+NonNumericProperty:
+   "["   
+  ( property=PropertyReference
+  | propertyConstant=[aadl2::PropertyConstant|QCLREF]
+  )
+  "]->"   type=[TypeDeclaration]  
 ;
 
 ///////////////////////   NAME  ////////////////////////////////////
@@ -1120,6 +1129,7 @@ Element returns aadl2::Element:
 	| InvariantClause
 	| LogicVariables
 	| MultDiv
+	| NonNumericProperty
 	| NumericExpression
 	| NullType
 	| ParenthesizedSubexpression
