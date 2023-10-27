@@ -21,7 +21,7 @@ import org.osate.aadl2.PropertyConstant;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getProperty <em>Property</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getPropertyConstant <em>Property Constant</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy <em>Ty</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTod <em>Tod</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty()
@@ -75,25 +75,25 @@ public interface NonNumericProperty extends EObject, Element
   void setPropertyConstant(PropertyConstant value);
 
   /**
-   * Returns the value of the '<em><b>Ty</b></em>' containment reference.
+   * Returns the value of the '<em><b>Tod</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ty</em>' containment reference.
-   * @see #setTy(Type)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty_Ty()
+   * @return the value of the '<em>Tod</em>' containment reference.
+   * @see #setTod(TypeOrReference)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty_Tod()
    * @model containment="true"
    * @generated
    */
-  Type getTy();
+  TypeOrReference getTod();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy <em>Ty</em>}' containment reference.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTod <em>Tod</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ty</em>' containment reference.
-   * @see #getTy()
+   * @param value the new value of the '<em>Tod</em>' containment reference.
+   * @see #getTod()
    * @generated
    */
-  void setTy(Type value);
+  void setTod(TypeOrReference value);
 
 } // NonNumericProperty

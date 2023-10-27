@@ -2198,7 +2198,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns NonNumericProperty
 	 *
 	 * Constraint:
-	 *     ((property=PropertyReference | propertyConstant=[PropertyConstant|QCLREF]) ty=Type)
+	 *     ((property=PropertyReference | propertyConstant=[PropertyConstant|QCLREF]) tod=TypeOrReference)
 	 * </pre>
 	 */
 	protected void sequence_NonNumericProperty(ISerializationContext context, NonNumericProperty semanticObject) {

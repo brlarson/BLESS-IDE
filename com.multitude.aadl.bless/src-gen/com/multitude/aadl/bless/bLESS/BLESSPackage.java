@@ -6796,13 +6796,13 @@ public interface BLESSPackage extends EPackage
   int NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Ty</b></em>' containment reference.
+   * The feature id for the '<em><b>Tod</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NON_NUMERIC_PROPERTY__TY = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int NON_NUMERIC_PROPERTY__TOD = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Non Numeric Property</em>' class.
@@ -14376,15 +14376,15 @@ public interface BLESSPackage extends EPackage
   EReference getNonNumericProperty_PropertyConstant();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy <em>Ty</em>}'.
+   * Returns the meta object for the containment reference '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTod <em>Tod</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ty</em>'.
-   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy()
+   * @return the meta object for the containment reference '<em>Tod</em>'.
+   * @see com.multitude.aadl.bless.bLESS.NonNumericProperty#getTod()
    * @see #getNonNumericProperty()
    * @generated
    */
-  EReference getNonNumericProperty_Ty();
+  EReference getNonNumericProperty_Tod();
 
   /**
    * Returns the meta object for class '{@link com.multitude.aadl.bless.bLESS.Variable <em>Variable</em>}'.

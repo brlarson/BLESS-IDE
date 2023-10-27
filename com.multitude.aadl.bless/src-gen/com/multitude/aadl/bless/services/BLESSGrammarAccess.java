@@ -6180,15 +6180,15 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final CrossReference cPropertyConstantPropertyConstantCrossReference_1_1_0 = (CrossReference)cPropertyConstantAssignment_1_1.eContents().get(0);
 		private final RuleCall cPropertyConstantPropertyConstantQCLREFParserRuleCall_1_1_0_1 = (RuleCall)cPropertyConstantPropertyConstantCrossReference_1_1_0.eContents().get(1);
 		private final Keyword cRightSquareBracketHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cTyAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cTyTypeParserRuleCall_3_0 = (RuleCall)cTyAssignment_3.eContents().get(0);
+		private final Assignment cTodAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cTodTypeOrReferenceParserRuleCall_3_0 = (RuleCall)cTodAssignment_3.eContents().get(0);
 		
 		//NonNumericProperty:
 		//   "["
 		//  ( property=PropertyReference
 		//  | propertyConstant=[aadl2::PropertyConstant|QCLREF]
 		//  )
-		//  "]->"   ty=Type
+		//  "]->"   tod=TypeOrReference
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -6196,7 +6196,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//( property=PropertyReference
 		//| propertyConstant=[aadl2::PropertyConstant|QCLREF]
 		//)
-		//"]->"   ty=Type
+		//"]->"   tod=TypeOrReference
 		public Group getGroup() { return cGroup; }
 		
 		//"["
@@ -6225,11 +6225,11 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//"]->"
 		public Keyword getRightSquareBracketHyphenMinusGreaterThanSignKeyword_2() { return cRightSquareBracketHyphenMinusGreaterThanSignKeyword_2; }
 		
-		//ty=Type
-		public Assignment getTyAssignment_3() { return cTyAssignment_3; }
+		//tod=TypeOrReference
+		public Assignment getTodAssignment_3() { return cTodAssignment_3; }
 		
-		//Type
-		public RuleCall getTyTypeParserRuleCall_3_0() { return cTyTypeParserRuleCall_3_0; }
+		//TypeOrReference
+		public RuleCall getTodTypeOrReferenceParserRuleCall_3_0() { return cTodTypeOrReferenceParserRuleCall_3_0; }
 	}
 	public class VariableElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "com.multitude.aadl.bless.BLESS.Variable");
@@ -11878,7 +11878,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//  ( property=PropertyReference
 	//  | propertyConstant=[aadl2::PropertyConstant|QCLREF]
 	//  )
-	//  "]->"   ty=Type
+	//  "]->"   tod=TypeOrReference
 	//;
 	public NonNumericPropertyElements getNonNumericPropertyAccess() {
 		return pNonNumericProperty;

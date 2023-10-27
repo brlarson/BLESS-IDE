@@ -6116,7 +6116,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EReference getNonNumericProperty_Ty()
+  public EReference getNonNumericProperty_Tod()
   {
         return (EReference)getNonNumericProperty().getEStructuralFeatures().get(2);
   }

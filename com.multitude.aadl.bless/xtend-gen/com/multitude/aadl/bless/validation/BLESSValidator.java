@@ -2778,7 +2778,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   public Type getType(final NonNumericProperty n) {
-    return n.getTy();
+    return this.getType(n.getTod());
   }
 
   public Type getType(final Quantity q) {

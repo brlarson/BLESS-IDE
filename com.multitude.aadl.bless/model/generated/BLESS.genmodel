@@ -515,7 +515,7 @@
     <genClasses ecoreClass="BLESS.ecore#//NonNumericProperty">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/property"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/propertyConstant"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/ty"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NonNumericProperty/tod"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//Variable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Variable/tod"/>

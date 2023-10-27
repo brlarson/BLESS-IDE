@@ -9493,18 +9493,18 @@ ruleNonNumericProperty returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getNonNumericPropertyAccess().getTodTypeOrReferenceParserRuleCall_3_0());
 				}
-				lv_ty_4_0=ruleType
+				lv_tod_4_0=ruleTypeOrReference
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getNonNumericPropertyRule());
 					}
 					set(
 						$current,
-						"ty",
-						lv_ty_4_0,
-						"com.multitude.aadl.bless.BLESS.Type");
+						"tod",
+						lv_tod_4_0,
+						"com.multitude.aadl.bless.BLESS.TypeOrReference");
 					afterParserOrEnumRuleCall();
 				}
 			)

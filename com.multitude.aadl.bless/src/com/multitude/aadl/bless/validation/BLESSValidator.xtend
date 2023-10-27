@@ -1936,7 +1936,9 @@ def Type getType(Constant c)
   }
 
 def Type getType(NonNumericProperty n)
-  { n.ty }
+  { 
+    n.tod.getType
+  }
 
 def Type getType(Quantity q)
   {

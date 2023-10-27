@@ -39,7 +39,7 @@ getLinkedObjects(EObject context, EReference ref, INode node) throws IllegalNode
 	if (ref.eIsProxy)
 	  EcoreUtil.resolve(ref,context)
 	if ( //ref == BLESSPackage.eINSTANCE.numericConstant_PropertyConstant ||
-//	  ref == BLESSPackage.eINSTANCE.quantityType_Representation ||
+	  ref == BLESSPackage.eINSTANCE.nonNumericProperty_PropertyConstant ||
 	    ref == BLESSPackage.eINSTANCE.ANumber_PropertyConstant)
 	  {
 	  val propertyConstant = // findPropertyConstant(context,s)  

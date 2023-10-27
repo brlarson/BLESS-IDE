@@ -19784,9 +19784,9 @@ rule__NonNumericProperty__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); }
-	(rule__NonNumericProperty__TyAssignment_3)
-	{ after(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); }
+	{ before(grammarAccess.getNonNumericPropertyAccess().getTodAssignment_3()); }
+	(rule__NonNumericProperty__TodAssignment_3)
+	{ after(grammarAccess.getNonNumericPropertyAccess().getTodAssignment_3()); }
 )
 ;
 finally {
@@ -32992,15 +32992,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NonNumericProperty__TyAssignment_3
+rule__NonNumericProperty__TodAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); }
-		ruleType
-		{ after(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); }
+		{ before(grammarAccess.getNonNumericPropertyAccess().getTodTypeOrReferenceParserRuleCall_3_0()); }
+		ruleTypeOrReference
+		{ after(grammarAccess.getNonNumericPropertyAccess().getTodTypeOrReferenceParserRuleCall_3_0()); }
 	)
 ;
 finally {

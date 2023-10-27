@@ -8,7 +8,7 @@ package com.multitude.aadl.bless.bLESS.impl;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.PropertyReference;
-import com.multitude.aadl.bless.bLESS.Type;
+import com.multitude.aadl.bless.bLESS.TypeOrReference;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,7 +33,7 @@ import org.osate.aadl2.impl.ElementImpl;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl#getPropertyConstant <em>Property Constant</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl#getTy <em>Ty</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NonNumericPropertyImpl#getTod <em>Tod</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,14 +61,14 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
   protected PropertyConstant propertyConstant;
 
   /**
-   * The cached value of the '{@link #getTy() <em>Ty</em>}' containment reference.
+   * The cached value of the '{@link #getTod() <em>Tod</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTy()
+   * @see #getTod()
    * @generated
    * @ordered
    */
-  protected Type ty;
+  protected TypeOrReference tod;
 
   /**
    * <!-- begin-user-doc -->
@@ -192,9 +192,9 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
    * @generated
    */
   @Override
-  public Type getTy()
+  public TypeOrReference getTod()
   {
-    return ty;
+    return tod;
   }
 
   /**
@@ -202,13 +202,13 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetTy(Type newTy, NotificationChain msgs)
+  public NotificationChain basicSetTod(TypeOrReference newTod, NotificationChain msgs)
   {
-    Type oldTy = ty;
-    ty = newTy;
+    TypeOrReference oldTod = tod;
+    tod = newTod;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.NON_NUMERIC_PROPERTY__TY, oldTy, newTy);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.NON_NUMERIC_PROPERTY__TOD, oldTod, newTod);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -220,20 +220,20 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
    * @generated
    */
   @Override
-  public void setTy(Type newTy)
+  public void setTod(TypeOrReference newTod)
   {
-    if (newTy != ty)
+    if (newTod != tod)
     {
       NotificationChain msgs = null;
-      if (ty != null)
-        msgs = ((InternalEObject)ty).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NON_NUMERIC_PROPERTY__TY, null, msgs);
-      if (newTy != null)
-        msgs = ((InternalEObject)newTy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NON_NUMERIC_PROPERTY__TY, null, msgs);
-      msgs = basicSetTy(newTy, msgs);
+      if (tod != null)
+        msgs = ((InternalEObject)tod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NON_NUMERIC_PROPERTY__TOD, null, msgs);
+      if (newTod != null)
+        msgs = ((InternalEObject)newTod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NON_NUMERIC_PROPERTY__TOD, null, msgs);
+      msgs = basicSetTod(newTod, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.NON_NUMERIC_PROPERTY__TY, newTy, newTy));
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.NON_NUMERIC_PROPERTY__TOD, newTod, newTod));
   }
 
   /**
@@ -248,8 +248,8 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
     {
       case BLESSPackage.NON_NUMERIC_PROPERTY__PROPERTY:
         return basicSetProperty(null, msgs);
-      case BLESSPackage.NON_NUMERIC_PROPERTY__TY:
-        return basicSetTy(null, msgs);
+      case BLESSPackage.NON_NUMERIC_PROPERTY__TOD:
+        return basicSetTod(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -269,8 +269,8 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
       case BLESSPackage.NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT:
         if (resolve) return getPropertyConstant();
         return basicGetPropertyConstant();
-      case BLESSPackage.NON_NUMERIC_PROPERTY__TY:
-        return getTy();
+      case BLESSPackage.NON_NUMERIC_PROPERTY__TOD:
+        return getTod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -291,8 +291,8 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
       case BLESSPackage.NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT:
         setPropertyConstant((PropertyConstant)newValue);
         return;
-      case BLESSPackage.NON_NUMERIC_PROPERTY__TY:
-        setTy((Type)newValue);
+      case BLESSPackage.NON_NUMERIC_PROPERTY__TOD:
+        setTod((TypeOrReference)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -314,8 +314,8 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
       case BLESSPackage.NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT:
         setPropertyConstant((PropertyConstant)null);
         return;
-      case BLESSPackage.NON_NUMERIC_PROPERTY__TY:
-        setTy((Type)null);
+      case BLESSPackage.NON_NUMERIC_PROPERTY__TOD:
+        setTod((TypeOrReference)null);
         return;
     }
     super.eUnset(featureID);
@@ -335,8 +335,8 @@ public class NonNumericPropertyImpl extends ElementImpl implements NonNumericPro
         return property != null;
       case BLESSPackage.NON_NUMERIC_PROPERTY__PROPERTY_CONSTANT:
         return propertyConstant != null;
-      case BLESSPackage.NON_NUMERIC_PROPERTY__TY:
-        return ty != null;
+      case BLESSPackage.NON_NUMERIC_PROPERTY__TOD:
+        return tod != null;
     }
     return super.eIsSet(featureID);
   }
