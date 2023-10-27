@@ -56,6 +56,7 @@ import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
+import com.multitude.aadl.bless.bLESS.NonNumericProperty;
 import com.multitude.aadl.bless.bLESS.NullType;
 import com.multitude.aadl.bless.bLESS.NumericExpression;
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression;
@@ -2755,14 +2756,29 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if (_tripleNotEquals_1) {
         return this._typeUtil.nullType();
       }
+      Type _elvis = null;
       Quantity _numeric_constant = c.getNumeric_constant();
       Type _type = null;
       if (_numeric_constant!=null) {
         _type=this.getType(_numeric_constant);
       }
-      _xblockexpression = _type;
+      if (_type != null) {
+        _elvis = _type;
+      } else {
+        NonNumericProperty _prop = c.getProp();
+        Type _type_1 = null;
+        if (_prop!=null) {
+          _type_1=this.getType(_prop);
+        }
+        _elvis = _type_1;
+      }
+      _xblockexpression = _elvis;
     }
     return _xblockexpression;
+  }
+
+  public Type getType(final NonNumericProperty n) {
+    return n.getTy();
   }
 
   public Type getType(final Quantity q) {

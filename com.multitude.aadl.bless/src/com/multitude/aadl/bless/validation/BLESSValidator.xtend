@@ -122,6 +122,7 @@ import org.osate.xtext.aadl2.properties.util.GetProperties
 import org.osate.xtext.aadl2.properties.util.PropertyUtils
 import com.multitude.aadl.bless.bLESS.UnitName
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
+import com.multitude.aadl.bless.bLESS.NonNumericProperty
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -1930,8 +1931,12 @@ def Type getType(Constant c)
   if (c.t!==null || c.f!==null) return booleanType
   if (c.string_literal !==null) return stringType
   if (c.nul !== null)return nullType
-  c.numeric_constant?.getType
+  c.numeric_constant?.getType ?:
+  c.prop?.getType
   }
+
+def Type getType(NonNumericProperty n)
+  { n.ty }
 
 def Type getType(Quantity q)
   {
