@@ -1126,13 +1126,13 @@ constant:
   LITERAL_false
   |
   LITERAL_null
- // |
- // nonNumericProperty
+  |
+  nonNumericProperty
   ;
 
-//nonNumericProperty:
-//  LBRACKET^ npv=propertyValue RCON type=ID
-//  ;	
+nonNumericProperty:
+  LBRACKET^ npv=propertyValue RCON ty=type
+  ;	
 
 quantity: 
   num=aNumber u=ID 

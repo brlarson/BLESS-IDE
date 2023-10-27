@@ -14364,34 +14364,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             case RULE_ID:
                 {
                 switch ( input.LA(2) ) {
-                case 55:
-                    {
-                    int LA17_4 = input.LA(3);
-
-                    if ( (LA17_4==RULE_ID) ) {
-                        int LA17_6 = input.LA(4);
-
-                        if ( (LA17_6==EOF||LA17_6==45||LA17_6==48||(LA17_6>=54 && LA17_6<=55)||LA17_6==65||LA17_6==99) ) {
-                            alt17=1;
-                        }
-                        else if ( (LA17_6==119) ) {
-                            alt17=2;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 17, 6, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 17, 4, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
                 case 119:
                 case 121:
                     {
@@ -14407,6 +14379,34 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 case 99:
                     {
                     alt17=1;
+                    }
+                    break;
+                case 55:
+                    {
+                    int LA17_5 = input.LA(3);
+
+                    if ( (LA17_5==RULE_ID) ) {
+                        int LA17_6 = input.LA(4);
+
+                        if ( (LA17_6==119) ) {
+                            alt17=2;
+                        }
+                        else if ( (LA17_6==EOF||LA17_6==45||LA17_6==48||(LA17_6>=54 && LA17_6<=55)||LA17_6==65||LA17_6==99) ) {
+                            alt17=1;
+                        }
+                        else {
+                            NoViableAltException nvae =
+                                new NoViableAltException("", 17, 6, input);
+
+                            throw nvae;
+                        }
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 17, 5, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 default:
@@ -15037,11 +15037,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     if ( (LA23_3==RULE_ID) ) {
                         int LA23_5 = input.LA(4);
 
-                        if ( (LA23_5==119) ) {
-                            alt23=1;
-                        }
-                        else if ( (LA23_5==EOF||LA23_5==RULE_ID||LA23_5==41||(LA23_5>=44 && LA23_5<=45)||(LA23_5>=47 && LA23_5<=48)||LA23_5==51||(LA23_5>=53 && LA23_5<=55)||LA23_5==62||LA23_5==65||(LA23_5>=69 && LA23_5<=70)||LA23_5==74||LA23_5==76||(LA23_5>=81 && LA23_5<=83)||LA23_5==85||LA23_5==90||LA23_5==99||(LA23_5>=147 && LA23_5<=148)) ) {
+                        if ( (LA23_5==EOF||LA23_5==RULE_ID||LA23_5==41||(LA23_5>=44 && LA23_5<=45)||(LA23_5>=47 && LA23_5<=48)||LA23_5==51||(LA23_5>=53 && LA23_5<=55)||LA23_5==62||LA23_5==65||(LA23_5>=69 && LA23_5<=70)||LA23_5==74||LA23_5==76||(LA23_5>=81 && LA23_5<=83)||LA23_5==85||LA23_5==90||LA23_5==99||(LA23_5>=147 && LA23_5<=148)) ) {
                             alt23=2;
+                        }
+                        else if ( (LA23_5==119) ) {
+                            alt23=1;
                         }
                         else {
                             NoViableAltException nvae =
@@ -15516,14 +15516,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                 if ( (LA26_1==89) ) {
                     int LA26_3 = input.LA(3);
 
-                    if ( (LA26_3==RULE_ID) ) {
+                    if ( ((LA26_3>=114 && LA26_3<=115)||LA26_3==118||LA26_3==163||(LA26_3>=168 && LA26_3<=172)) ) {
+                        alt26=1;
+                    }
+                    else if ( (LA26_3==RULE_ID) ) {
                         int LA26_4 = input.LA(4);
 
-                        if ( (LA26_4==93) ) {
-                            alt26=2;
-                        }
-                        else if ( (LA26_4==39||LA26_4==45||LA26_4==92) ) {
+                        if ( (LA26_4==39||LA26_4==45||LA26_4==92) ) {
                             alt26=1;
+                        }
+                        else if ( (LA26_4==93) ) {
+                            alt26=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -15531,9 +15534,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
                             throw nvae;
                         }
-                    }
-                    else if ( ((LA26_3>=114 && LA26_3<=115)||LA26_3==118||LA26_3==163||(LA26_3>=168 && LA26_3<=172)) ) {
-                        alt26=1;
                     }
                     else {
                         NoViableAltException nvae =
@@ -17935,7 +17935,10 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             else if ( (LA44_0==RULE_ID) ) {
                 int LA44_2 = input.LA(2);
 
-                if ( (LA44_2==121) ) {
+                if ( (LA44_2==55||LA44_2==119) ) {
+                    alt44=1;
+                }
+                else if ( (LA44_2==121) ) {
                     int LA44_3 = input.LA(3);
 
                     if ( (LA44_3==RULE_ID) ) {
@@ -17960,9 +17963,6 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
                         throw nvae;
                     }
-                }
-                else if ( (LA44_2==55||LA44_2==119) ) {
-                    alt44=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -19057,11 +19057,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             if ( (LA54_0==48) ) {
                 int LA54_1 = input.LA(2);
 
-                if ( (LA54_1==RULE_ID||LA54_1==119||LA54_1==173) ) {
-                    alt54=2;
-                }
-                else if ( (LA54_1==56) ) {
+                if ( (LA54_1==56) ) {
                     alt54=1;
+                }
+                else if ( (LA54_1==RULE_ID||LA54_1==119||LA54_1==173) ) {
+                    alt54=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -19161,11 +19161,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             if ( (LA55_0==RULE_ID) ) {
                 int LA55_1 = input.LA(2);
 
-                if ( (LA55_1==56) ) {
-                    alt55=1;
-                }
-                else if ( (LA55_1==101) ) {
+                if ( (LA55_1==101) ) {
                     alt55=2;
+                }
+                else if ( (LA55_1==56) ) {
+                    alt55=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -19495,11 +19495,11 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
                     if ( (LA58_4==RULE_ID) ) {
                         int LA58_5 = input.LA(4);
 
-                        if ( (LA58_5==EOF||(LA58_5>=RULE_DOTDOT && LA58_5<=RULE_ID)||(LA58_5>=16 && LA58_5<=28)||LA58_5==37||LA58_5==39||(LA58_5>=41 && LA58_5<=42)||(LA58_5>=44 && LA58_5<=47)||LA58_5==49||LA58_5==51||(LA58_5>=53 && LA58_5<=54)||(LA58_5>=59 && LA58_5<=63)||(LA58_5>=66 && LA58_5<=74)||(LA58_5>=76 && LA58_5<=77)||LA58_5==79||(LA58_5>=81 && LA58_5<=85)||LA58_5==88||(LA58_5>=90 && LA58_5<=92)||(LA58_5>=94 && LA58_5<=97)||LA58_5==99||LA58_5==101||LA58_5==103||LA58_5==106||LA58_5==108||(LA58_5>=111 && LA58_5<=112)||LA58_5==117||LA58_5==123||LA58_5==126||(LA58_5>=130 && LA58_5<=140)||(LA58_5>=142 && LA58_5<=143)||(LA58_5>=146 && LA58_5<=154)||LA58_5==167) ) {
-                            alt58=3;
-                        }
-                        else if ( (LA58_5==55||LA58_5==119||LA58_5==121) ) {
+                        if ( (LA58_5==55||LA58_5==119||LA58_5==121) ) {
                             alt58=2;
+                        }
+                        else if ( (LA58_5==EOF||(LA58_5>=RULE_DOTDOT && LA58_5<=RULE_ID)||(LA58_5>=16 && LA58_5<=28)||LA58_5==37||LA58_5==39||(LA58_5>=41 && LA58_5<=42)||(LA58_5>=44 && LA58_5<=47)||LA58_5==49||LA58_5==51||(LA58_5>=53 && LA58_5<=54)||(LA58_5>=59 && LA58_5<=63)||(LA58_5>=66 && LA58_5<=74)||(LA58_5>=76 && LA58_5<=77)||LA58_5==79||(LA58_5>=81 && LA58_5<=85)||LA58_5==88||(LA58_5>=90 && LA58_5<=92)||(LA58_5>=94 && LA58_5<=97)||LA58_5==99||LA58_5==101||LA58_5==103||LA58_5==106||LA58_5==108||(LA58_5>=111 && LA58_5<=112)||LA58_5==117||LA58_5==123||LA58_5==126||(LA58_5>=130 && LA58_5<=140)||(LA58_5>=142 && LA58_5<=143)||(LA58_5>=146 && LA58_5<=154)||LA58_5==167) ) {
+                            alt58=3;
                         }
                         else {
                             NoViableAltException nvae =
@@ -63642,7 +63642,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19747:1: ( rule__NonNumericProperty__Group__2__Impl rule__NonNumericProperty__Group__3 )
             // InternalBLESS.g:19748:2: rule__NonNumericProperty__Group__2__Impl rule__NonNumericProperty__Group__3
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_121);
             rule__NonNumericProperty__Group__2__Impl();
 
             state._fsp--;
@@ -63741,31 +63741,31 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NonNumericProperty__Group__3__Impl"
-    // InternalBLESS.g:19781:1: rule__NonNumericProperty__Group__3__Impl : ( ( rule__NonNumericProperty__TypeAssignment_3 ) ) ;
+    // InternalBLESS.g:19781:1: rule__NonNumericProperty__Group__3__Impl : ( ( rule__NonNumericProperty__TyAssignment_3 ) ) ;
     public final void rule__NonNumericProperty__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:19785:1: ( ( ( rule__NonNumericProperty__TypeAssignment_3 ) ) )
-            // InternalBLESS.g:19786:1: ( ( rule__NonNumericProperty__TypeAssignment_3 ) )
+            // InternalBLESS.g:19785:1: ( ( ( rule__NonNumericProperty__TyAssignment_3 ) ) )
+            // InternalBLESS.g:19786:1: ( ( rule__NonNumericProperty__TyAssignment_3 ) )
             {
-            // InternalBLESS.g:19786:1: ( ( rule__NonNumericProperty__TypeAssignment_3 ) )
-            // InternalBLESS.g:19787:2: ( rule__NonNumericProperty__TypeAssignment_3 )
+            // InternalBLESS.g:19786:1: ( ( rule__NonNumericProperty__TyAssignment_3 ) )
+            // InternalBLESS.g:19787:2: ( rule__NonNumericProperty__TyAssignment_3 )
             {
-             before(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); 
-            // InternalBLESS.g:19788:2: ( rule__NonNumericProperty__TypeAssignment_3 )
-            // InternalBLESS.g:19788:3: rule__NonNumericProperty__TypeAssignment_3
+             before(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); 
+            // InternalBLESS.g:19788:2: ( rule__NonNumericProperty__TyAssignment_3 )
+            // InternalBLESS.g:19788:3: rule__NonNumericProperty__TyAssignment_3
             {
             pushFollow(FOLLOW_2);
-            rule__NonNumericProperty__TypeAssignment_3();
+            rule__NonNumericProperty__TyAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); 
+             after(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); 
 
             }
 
@@ -64037,7 +64037,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19882:1: ( rule__ValueName__Group__0__Impl rule__ValueName__Group__1 )
             // InternalBLESS.g:19883:2: rule__ValueName__Group__0__Impl rule__ValueName__Group__1
             {
-            pushFollow(FOLLOW_121);
+            pushFollow(FOLLOW_122);
             rule__ValueName__Group__0__Impl();
 
             state._fsp--;
@@ -64122,7 +64122,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19909:1: ( rule__ValueName__Group__1__Impl rule__ValueName__Group__2 )
             // InternalBLESS.g:19910:2: rule__ValueName__Group__1__Impl rule__ValueName__Group__2
             {
-            pushFollow(FOLLOW_121);
+            pushFollow(FOLLOW_122);
             rule__ValueName__Group__1__Impl();
 
             state._fsp--;
@@ -64218,7 +64218,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19936:1: ( rule__ValueName__Group__2__Impl rule__ValueName__Group__3 )
             // InternalBLESS.g:19937:2: rule__ValueName__Group__2__Impl rule__ValueName__Group__3
             {
-            pushFollow(FOLLOW_121);
+            pushFollow(FOLLOW_122);
             rule__ValueName__Group__2__Impl();
 
             state._fsp--;
@@ -64314,7 +64314,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:19963:1: ( rule__ValueName__Group__3__Impl rule__ValueName__Group__4 )
             // InternalBLESS.g:19964:2: rule__ValueName__Group__3__Impl rule__ValueName__Group__4
             {
-            pushFollow(FOLLOW_121);
+            pushFollow(FOLLOW_122);
             rule__ValueName__Group__3__Impl();
 
             state._fsp--;
@@ -64583,7 +64583,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20044:1: ( rule__ValueName__Group_1__1__Impl rule__ValueName__Group_1__2 )
             // InternalBLESS.g:20045:2: rule__ValueName__Group_1__1__Impl rule__ValueName__Group_1__2
             {
-            pushFollow(FOLLOW_122);
+            pushFollow(FOLLOW_123);
             rule__ValueName__Group_1__1__Impl();
 
             state._fsp--;
@@ -64668,7 +64668,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20071:1: ( rule__ValueName__Group_1__2__Impl rule__ValueName__Group_1__3 )
             // InternalBLESS.g:20072:2: rule__ValueName__Group_1__2__Impl rule__ValueName__Group_1__3
             {
-            pushFollow(FOLLOW_122);
+            pushFollow(FOLLOW_123);
             rule__ValueName__Group_1__2__Impl();
 
             state._fsp--;
@@ -65131,7 +65131,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:20220:3: rule__ValueName__Group_2_3__0
             	    {
-            	    pushFollow(FOLLOW_123);
+            	    pushFollow(FOLLOW_124);
             	    rule__ValueName__Group_2_3__0();
 
             	    state._fsp--;
@@ -65830,7 +65830,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20449:1: ( rule__ValueName__Group_4_1__0__Impl rule__ValueName__Group_4_1__1 )
             // InternalBLESS.g:20450:2: rule__ValueName__Group_4_1__0__Impl rule__ValueName__Group_4_1__1
             {
-            pushFollow(FOLLOW_124);
+            pushFollow(FOLLOW_125);
             rule__ValueName__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -65985,7 +65985,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20503:1: ( rule__ValueName__Group_4_2__0__Impl rule__ValueName__Group_4_2__1 )
             // InternalBLESS.g:20504:2: rule__ValueName__Group_4_2__0__Impl rule__ValueName__Group_4_2__1
             {
-            pushFollow(FOLLOW_125);
+            pushFollow(FOLLOW_126);
             rule__ValueName__Group_4_2__0__Impl();
 
             state._fsp--;
@@ -66140,7 +66140,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:20557:1: ( rule__ValueName__Group_4_3__0__Impl rule__ValueName__Group_4_3__1 )
             // InternalBLESS.g:20558:2: rule__ValueName__Group_4_3__0__Impl rule__ValueName__Group_4_3__1
             {
-            pushFollow(FOLLOW_126);
+            pushFollow(FOLLOW_127);
             rule__ValueName__Group_4_3__0__Impl();
 
             state._fsp--;
@@ -66768,7 +66768,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:20760:3: rule__PartialName__Group_1_3__0
             	    {
-            	    pushFollow(FOLLOW_123);
+            	    pushFollow(FOLLOW_124);
             	    rule__PartialName__Group_1_3__0();
 
             	    state._fsp--;
@@ -67791,7 +67791,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21097:1: ( rule__IndexExpression__Group__0__Impl rule__IndexExpression__Group__1 )
             // InternalBLESS.g:21098:2: rule__IndexExpression__Group__0__Impl rule__IndexExpression__Group__1
             {
-            pushFollow(FOLLOW_127);
+            pushFollow(FOLLOW_128);
             rule__IndexExpression__Group__0__Impl();
 
             state._fsp--;
@@ -68970,7 +68970,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21475:1: ( rule__IndexExpression__Group_1_4__1__Impl rule__IndexExpression__Group_1_4__2 )
             // InternalBLESS.g:21476:2: rule__IndexExpression__Group_1_4__1__Impl rule__IndexExpression__Group_1_4__2
             {
-            pushFollow(FOLLOW_127);
+            pushFollow(FOLLOW_128);
             rule__IndexExpression__Group_1_4__1__Impl();
 
             state._fsp--;
@@ -69107,7 +69107,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             	case 1 :
             	    // InternalBLESS.g:21516:3: rule__IndexExpression__Group_1_4_2__0
             	    {
-            	    pushFollow(FOLLOW_128);
+            	    pushFollow(FOLLOW_129);
             	    rule__IndexExpression__Group_1_4_2__0();
 
             	    state._fsp--;
@@ -69585,7 +69585,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21671:1: ( rule__CaseChoice__Group__1__Impl rule__CaseChoice__Group__2 )
             // InternalBLESS.g:21672:2: rule__CaseChoice__Group__1__Impl rule__CaseChoice__Group__2
             {
-            pushFollow(FOLLOW_129);
+            pushFollow(FOLLOW_130);
             rule__CaseChoice__Group__1__Impl();
 
             state._fsp--;
@@ -70313,7 +70313,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21914:1: ( rule__SumQuantification__Group__1__Impl rule__SumQuantification__Group__2 )
             // InternalBLESS.g:21915:2: rule__SumQuantification__Group__1__Impl rule__SumQuantification__Group__2
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_131);
             rule__SumQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -70398,7 +70398,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:21941:1: ( rule__SumQuantification__Group__2__Impl rule__SumQuantification__Group__3 )
             // InternalBLESS.g:21942:2: rule__SumQuantification__Group__2__Impl rule__SumQuantification__Group__3
             {
-            pushFollow(FOLLOW_131);
+            pushFollow(FOLLOW_132);
             rule__SumQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -71043,7 +71043,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22157:1: ( rule__ProductQuantification__Group__1__Impl rule__ProductQuantification__Group__2 )
             // InternalBLESS.g:22158:2: rule__ProductQuantification__Group__1__Impl rule__ProductQuantification__Group__2
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_131);
             rule__ProductQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -71128,7 +71128,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22184:1: ( rule__ProductQuantification__Group__2__Impl rule__ProductQuantification__Group__3 )
             // InternalBLESS.g:22185:2: rule__ProductQuantification__Group__2__Impl rule__ProductQuantification__Group__3
             {
-            pushFollow(FOLLOW_131);
+            pushFollow(FOLLOW_132);
             rule__ProductQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -71773,7 +71773,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22400:1: ( rule__CountingQuantification__Group__1__Impl rule__CountingQuantification__Group__2 )
             // InternalBLESS.g:22401:2: rule__CountingQuantification__Group__1__Impl rule__CountingQuantification__Group__2
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_131);
             rule__CountingQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -71858,7 +71858,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22427:1: ( rule__CountingQuantification__Group__2__Impl rule__CountingQuantification__Group__3 )
             // InternalBLESS.g:22428:2: rule__CountingQuantification__Group__2__Impl rule__CountingQuantification__Group__3
             {
-            pushFollow(FOLLOW_132);
+            pushFollow(FOLLOW_133);
             rule__CountingQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -72503,7 +72503,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22643:1: ( rule__UniversalQuantification__Group__1__Impl rule__UniversalQuantification__Group__2 )
             // InternalBLESS.g:22644:2: rule__UniversalQuantification__Group__1__Impl rule__UniversalQuantification__Group__2
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_131);
             rule__UniversalQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -72588,7 +72588,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22670:1: ( rule__UniversalQuantification__Group__2__Impl rule__UniversalQuantification__Group__3 )
             // InternalBLESS.g:22671:2: rule__UniversalQuantification__Group__2__Impl rule__UniversalQuantification__Group__3
             {
-            pushFollow(FOLLOW_133);
+            pushFollow(FOLLOW_134);
             rule__UniversalQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -73233,7 +73233,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22886:1: ( rule__ExistentialQuantification__Group__1__Impl rule__ExistentialQuantification__Group__2 )
             // InternalBLESS.g:22887:2: rule__ExistentialQuantification__Group__1__Impl rule__ExistentialQuantification__Group__2
             {
-            pushFollow(FOLLOW_130);
+            pushFollow(FOLLOW_131);
             rule__ExistentialQuantification__Group__1__Impl();
 
             state._fsp--;
@@ -73318,7 +73318,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:22913:1: ( rule__ExistentialQuantification__Group__2__Impl rule__ExistentialQuantification__Group__3 )
             // InternalBLESS.g:22914:2: rule__ExistentialQuantification__Group__2__Impl rule__ExistentialQuantification__Group__3
             {
-            pushFollow(FOLLOW_132);
+            pushFollow(FOLLOW_133);
             rule__ExistentialQuantification__Group__2__Impl();
 
             state._fsp--;
@@ -74321,7 +74321,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23244:1: ( rule__RecordValue__Group__0__Impl rule__RecordValue__Group__1 )
             // InternalBLESS.g:23245:2: rule__RecordValue__Group__0__Impl rule__RecordValue__Group__1
             {
-            pushFollow(FOLLOW_134);
+            pushFollow(FOLLOW_135);
             rule__RecordValue__Group__0__Impl();
 
             state._fsp--;
@@ -74406,7 +74406,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23271:1: ( rule__RecordValue__Group__1__Impl rule__RecordValue__Group__2 )
             // InternalBLESS.g:23272:2: rule__RecordValue__Group__1__Impl rule__RecordValue__Group__2
             {
-            pushFollow(FOLLOW_135);
+            pushFollow(FOLLOW_136);
             rule__RecordValue__Group__1__Impl();
 
             state._fsp--;
@@ -74738,7 +74738,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23379:1: ( rule__Invocation__Group__1__Impl rule__Invocation__Group__2 )
             // InternalBLESS.g:23380:2: rule__Invocation__Group__1__Impl rule__Invocation__Group__2
             {
-            pushFollow(FOLLOW_136);
+            pushFollow(FOLLOW_137);
             rule__Invocation__Group__1__Impl();
 
             state._fsp--;
@@ -74813,7 +74813,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:23406:1: ( rule__Invocation__Group__2__Impl rule__Invocation__Group__3 )
             // InternalBLESS.g:23407:2: rule__Invocation__Group__2__Impl rule__Invocation__Group__3
             {
-            pushFollow(FOLLOW_136);
+            pushFollow(FOLLOW_137);
             rule__Invocation__Group__2__Impl();
 
             state._fsp--;
@@ -76744,7 +76744,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24034:1: ( rule__ConditionValuePair__Group__1__Impl rule__ConditionValuePair__Group__2 )
             // InternalBLESS.g:24035:2: rule__ConditionValuePair__Group__1__Impl rule__ConditionValuePair__Group__2
             {
-            pushFollow(FOLLOW_137);
+            pushFollow(FOLLOW_138);
             rule__ConditionValuePair__Group__1__Impl();
 
             state._fsp--;
@@ -77322,7 +77322,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24223:1: ( rule__EnumerationPair__Group__0__Impl rule__EnumerationPair__Group__1 )
             // InternalBLESS.g:24224:2: rule__EnumerationPair__Group__0__Impl rule__EnumerationPair__Group__1
             {
-            pushFollow(FOLLOW_129);
+            pushFollow(FOLLOW_130);
             rule__EnumerationPair__Group__0__Impl();
 
             state._fsp--;
@@ -77637,7 +77637,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24331:1: ( rule__TypeDeclaration__Group__1__Impl rule__TypeDeclaration__Group__2 )
             // InternalBLESS.g:24332:2: rule__TypeDeclaration__Group__1__Impl rule__TypeDeclaration__Group__2
             {
-            pushFollow(FOLLOW_138);
+            pushFollow(FOLLOW_139);
             rule__TypeDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -77722,7 +77722,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24358:1: ( rule__TypeDeclaration__Group__2__Impl rule__TypeDeclaration__Group__3 )
             // InternalBLESS.g:24359:2: rule__TypeDeclaration__Group__2__Impl rule__TypeDeclaration__Group__3
             {
-            pushFollow(FOLLOW_139);
+            pushFollow(FOLLOW_121);
             rule__TypeDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -79603,7 +79603,7 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
             // InternalBLESS.g:24986:1: ( rule__ArrayType__Group__3__Impl rule__ArrayType__Group__4 )
             // InternalBLESS.g:24987:2: rule__ArrayType__Group__3__Impl rule__ArrayType__Group__4
             {
-            pushFollow(FOLLOW_131);
+            pushFollow(FOLLOW_132);
             rule__ArrayType__Group__3__Impl();
 
             state._fsp--;
@@ -101412,30 +101412,26 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NonNumericProperty__PropertyConstantAssignment_1_1"
 
 
-    // $ANTLR start "rule__NonNumericProperty__TypeAssignment_3"
-    // InternalBLESS.g:32995:1: rule__NonNumericProperty__TypeAssignment_3 : ( ( RULE_ID ) ) ;
-    public final void rule__NonNumericProperty__TypeAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__NonNumericProperty__TyAssignment_3"
+    // InternalBLESS.g:32995:1: rule__NonNumericProperty__TyAssignment_3 : ( ruleType ) ;
+    public final void rule__NonNumericProperty__TyAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:32999:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:33000:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:32999:1: ( ( ruleType ) )
+            // InternalBLESS.g:33000:2: ( ruleType )
             {
-            // InternalBLESS.g:33000:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:33001:3: ( RULE_ID )
+            // InternalBLESS.g:33000:2: ( ruleType )
+            // InternalBLESS.g:33001:3: ruleType
             {
-             before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); 
-            // InternalBLESS.g:33002:3: ( RULE_ID )
-            // InternalBLESS.g:33003:4: RULE_ID
-            {
-             before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); 
+             before(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); 
+            pushFollow(FOLLOW_2);
+            ruleType();
 
-            }
+            state._fsp--;
 
-             after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); 
+             after(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); 
 
             }
 
@@ -101454,21 +101450,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__NonNumericProperty__TypeAssignment_3"
+    // $ANTLR end "rule__NonNumericProperty__TyAssignment_3"
 
 
     // $ANTLR start "rule__Variable__NameAssignment_0"
-    // InternalBLESS.g:33014:1: rule__Variable__NameAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:33010:1: rule__Variable__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Variable__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33018:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:33019:2: ( RULE_ID )
+            // InternalBLESS.g:33014:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:33015:2: ( RULE_ID )
             {
-            // InternalBLESS.g:33019:2: ( RULE_ID )
-            // InternalBLESS.g:33020:3: RULE_ID
+            // InternalBLESS.g:33015:2: ( RULE_ID )
+            // InternalBLESS.g:33016:3: RULE_ID
             {
              before(grammarAccess.getVariableAccess().getNameIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -101495,17 +101491,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Variable__TodAssignment_2"
-    // InternalBLESS.g:33029:1: rule__Variable__TodAssignment_2 : ( ruleTypeOrReference ) ;
+    // InternalBLESS.g:33025:1: rule__Variable__TodAssignment_2 : ( ruleTypeOrReference ) ;
     public final void rule__Variable__TodAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33033:1: ( ( ruleTypeOrReference ) )
-            // InternalBLESS.g:33034:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:33029:1: ( ( ruleTypeOrReference ) )
+            // InternalBLESS.g:33030:2: ( ruleTypeOrReference )
             {
-            // InternalBLESS.g:33034:2: ( ruleTypeOrReference )
-            // InternalBLESS.g:33035:3: ruleTypeOrReference
+            // InternalBLESS.g:33030:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:33031:3: ruleTypeOrReference
             {
              before(grammarAccess.getVariableAccess().getTodTypeOrReferenceParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -101536,21 +101532,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__IdAssignment_0"
-    // InternalBLESS.g:33044:1: rule__ValueName__IdAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:33040:1: rule__ValueName__IdAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ValueName__IdAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33048:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:33049:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:33044:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:33045:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:33049:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:33050:3: ( RULE_ID )
+            // InternalBLESS.g:33045:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:33046:3: ( RULE_ID )
             {
              before(grammarAccess.getValueNameAccess().getIdNamedElementCrossReference_0_0()); 
-            // InternalBLESS.g:33051:3: ( RULE_ID )
-            // InternalBLESS.g:33052:4: RULE_ID
+            // InternalBLESS.g:33047:3: ( RULE_ID )
+            // InternalBLESS.g:33048:4: RULE_ID
             {
              before(grammarAccess.getValueNameAccess().getIdNamedElementIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -101581,21 +101577,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__LpAssignment_1_1"
-    // InternalBLESS.g:33063:1: rule__ValueName__LpAssignment_1_1 : ( ( '(' ) ) ;
+    // InternalBLESS.g:33059:1: rule__ValueName__LpAssignment_1_1 : ( ( '(' ) ) ;
     public final void rule__ValueName__LpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33067:1: ( ( ( '(' ) ) )
-            // InternalBLESS.g:33068:2: ( ( '(' ) )
+            // InternalBLESS.g:33063:1: ( ( ( '(' ) ) )
+            // InternalBLESS.g:33064:2: ( ( '(' ) )
             {
-            // InternalBLESS.g:33068:2: ( ( '(' ) )
-            // InternalBLESS.g:33069:3: ( '(' )
+            // InternalBLESS.g:33064:2: ( ( '(' ) )
+            // InternalBLESS.g:33065:3: ( '(' )
             {
              before(grammarAccess.getValueNameAccess().getLpLeftParenthesisKeyword_1_1_0()); 
-            // InternalBLESS.g:33070:3: ( '(' )
-            // InternalBLESS.g:33071:4: '('
+            // InternalBLESS.g:33066:3: ( '(' )
+            // InternalBLESS.g:33067:4: '('
             {
              before(grammarAccess.getValueNameAccess().getLpLeftParenthesisKeyword_1_1_0()); 
             match(input,56,FOLLOW_2); 
@@ -101626,17 +101622,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__PrAssignment_1_2"
-    // InternalBLESS.g:33082:1: rule__ValueName__PrAssignment_1_2 : ( ruleFunctionParameters ) ;
+    // InternalBLESS.g:33078:1: rule__ValueName__PrAssignment_1_2 : ( ruleFunctionParameters ) ;
     public final void rule__ValueName__PrAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33086:1: ( ( ruleFunctionParameters ) )
-            // InternalBLESS.g:33087:2: ( ruleFunctionParameters )
+            // InternalBLESS.g:33082:1: ( ( ruleFunctionParameters ) )
+            // InternalBLESS.g:33083:2: ( ruleFunctionParameters )
             {
-            // InternalBLESS.g:33087:2: ( ruleFunctionParameters )
-            // InternalBLESS.g:33088:3: ruleFunctionParameters
+            // InternalBLESS.g:33083:2: ( ruleFunctionParameters )
+            // InternalBLESS.g:33084:3: ruleFunctionParameters
             {
              before(grammarAccess.getValueNameAccess().getPrFunctionParametersParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -101667,21 +101663,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__LbAssignment_2_0"
-    // InternalBLESS.g:33097:1: rule__ValueName__LbAssignment_2_0 : ( ( '[' ) ) ;
+    // InternalBLESS.g:33093:1: rule__ValueName__LbAssignment_2_0 : ( ( '[' ) ) ;
     public final void rule__ValueName__LbAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33101:1: ( ( ( '[' ) ) )
-            // InternalBLESS.g:33102:2: ( ( '[' ) )
+            // InternalBLESS.g:33097:1: ( ( ( '[' ) ) )
+            // InternalBLESS.g:33098:2: ( ( '[' ) )
             {
-            // InternalBLESS.g:33102:2: ( ( '[' ) )
-            // InternalBLESS.g:33103:3: ( '[' )
+            // InternalBLESS.g:33098:2: ( ( '[' ) )
+            // InternalBLESS.g:33099:3: ( '[' )
             {
              before(grammarAccess.getValueNameAccess().getLbLeftSquareBracketKeyword_2_0_0()); 
-            // InternalBLESS.g:33104:3: ( '[' )
-            // InternalBLESS.g:33105:4: '['
+            // InternalBLESS.g:33100:3: ( '[' )
+            // InternalBLESS.g:33101:4: '['
             {
              before(grammarAccess.getValueNameAccess().getLbLeftSquareBracketKeyword_2_0_0()); 
             match(input,48,FOLLOW_2); 
@@ -101712,17 +101708,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__Array_indexAssignment_2_1"
-    // InternalBLESS.g:33116:1: rule__ValueName__Array_indexAssignment_2_1 : ( ruleIndexExpressionOrRange ) ;
+    // InternalBLESS.g:33112:1: rule__ValueName__Array_indexAssignment_2_1 : ( ruleIndexExpressionOrRange ) ;
     public final void rule__ValueName__Array_indexAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33120:1: ( ( ruleIndexExpressionOrRange ) )
-            // InternalBLESS.g:33121:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33116:1: ( ( ruleIndexExpressionOrRange ) )
+            // InternalBLESS.g:33117:2: ( ruleIndexExpressionOrRange )
             {
-            // InternalBLESS.g:33121:2: ( ruleIndexExpressionOrRange )
-            // InternalBLESS.g:33122:3: ruleIndexExpressionOrRange
+            // InternalBLESS.g:33117:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33118:3: ruleIndexExpressionOrRange
             {
              before(grammarAccess.getValueNameAccess().getArray_indexIndexExpressionOrRangeParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -101753,17 +101749,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__Array_indexAssignment_2_3_1"
-    // InternalBLESS.g:33131:1: rule__ValueName__Array_indexAssignment_2_3_1 : ( ruleIndexExpressionOrRange ) ;
+    // InternalBLESS.g:33127:1: rule__ValueName__Array_indexAssignment_2_3_1 : ( ruleIndexExpressionOrRange ) ;
     public final void rule__ValueName__Array_indexAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33135:1: ( ( ruleIndexExpressionOrRange ) )
-            // InternalBLESS.g:33136:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33131:1: ( ( ruleIndexExpressionOrRange ) )
+            // InternalBLESS.g:33132:2: ( ruleIndexExpressionOrRange )
             {
-            // InternalBLESS.g:33136:2: ( ruleIndexExpressionOrRange )
-            // InternalBLESS.g:33137:3: ruleIndexExpressionOrRange
+            // InternalBLESS.g:33132:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33133:3: ruleIndexExpressionOrRange
             {
              before(grammarAccess.getValueNameAccess().getArray_indexIndexExpressionOrRangeParserRuleCall_2_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -101794,21 +101790,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__DotAssignment_3_0"
-    // InternalBLESS.g:33146:1: rule__ValueName__DotAssignment_3_0 : ( ( '.' ) ) ;
+    // InternalBLESS.g:33142:1: rule__ValueName__DotAssignment_3_0 : ( ( '.' ) ) ;
     public final void rule__ValueName__DotAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33150:1: ( ( ( '.' ) ) )
-            // InternalBLESS.g:33151:2: ( ( '.' ) )
+            // InternalBLESS.g:33146:1: ( ( ( '.' ) ) )
+            // InternalBLESS.g:33147:2: ( ( '.' ) )
             {
-            // InternalBLESS.g:33151:2: ( ( '.' ) )
-            // InternalBLESS.g:33152:3: ( '.' )
+            // InternalBLESS.g:33147:2: ( ( '.' ) )
+            // InternalBLESS.g:33148:3: ( '.' )
             {
              before(grammarAccess.getValueNameAccess().getDotFullStopKeyword_3_0_0()); 
-            // InternalBLESS.g:33153:3: ( '.' )
-            // InternalBLESS.g:33154:4: '.'
+            // InternalBLESS.g:33149:3: ( '.' )
+            // InternalBLESS.g:33150:4: '.'
             {
              before(grammarAccess.getValueNameAccess().getDotFullStopKeyword_3_0_0()); 
             match(input,55,FOLLOW_2); 
@@ -101839,17 +101835,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__PnAssignment_3_1"
-    // InternalBLESS.g:33165:1: rule__ValueName__PnAssignment_3_1 : ( rulePartialName ) ;
+    // InternalBLESS.g:33161:1: rule__ValueName__PnAssignment_3_1 : ( rulePartialName ) ;
     public final void rule__ValueName__PnAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33169:1: ( ( rulePartialName ) )
-            // InternalBLESS.g:33170:2: ( rulePartialName )
+            // InternalBLESS.g:33165:1: ( ( rulePartialName ) )
+            // InternalBLESS.g:33166:2: ( rulePartialName )
             {
-            // InternalBLESS.g:33170:2: ( rulePartialName )
-            // InternalBLESS.g:33171:3: rulePartialName
+            // InternalBLESS.g:33166:2: ( rulePartialName )
+            // InternalBLESS.g:33167:3: rulePartialName
             {
              before(grammarAccess.getValueNameAccess().getPnPartialNameParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -101880,17 +101876,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__PnAssignment_3_2_1"
-    // InternalBLESS.g:33180:1: rule__ValueName__PnAssignment_3_2_1 : ( rulePartialName ) ;
+    // InternalBLESS.g:33176:1: rule__ValueName__PnAssignment_3_2_1 : ( rulePartialName ) ;
     public final void rule__ValueName__PnAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33184:1: ( ( rulePartialName ) )
-            // InternalBLESS.g:33185:2: ( rulePartialName )
+            // InternalBLESS.g:33180:1: ( ( rulePartialName ) )
+            // InternalBLESS.g:33181:2: ( rulePartialName )
             {
-            // InternalBLESS.g:33185:2: ( rulePartialName )
-            // InternalBLESS.g:33186:3: rulePartialName
+            // InternalBLESS.g:33181:2: ( rulePartialName )
+            // InternalBLESS.g:33182:3: rulePartialName
             {
              before(grammarAccess.getValueNameAccess().getPnPartialNameParserRuleCall_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -101921,21 +101917,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__QAssignment_4_0"
-    // InternalBLESS.g:33195:1: rule__ValueName__QAssignment_4_0 : ( ( '?' ) ) ;
+    // InternalBLESS.g:33191:1: rule__ValueName__QAssignment_4_0 : ( ( '?' ) ) ;
     public final void rule__ValueName__QAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33199:1: ( ( ( '?' ) ) )
-            // InternalBLESS.g:33200:2: ( ( '?' ) )
+            // InternalBLESS.g:33195:1: ( ( ( '?' ) ) )
+            // InternalBLESS.g:33196:2: ( ( '?' ) )
             {
-            // InternalBLESS.g:33200:2: ( ( '?' ) )
-            // InternalBLESS.g:33201:3: ( '?' )
+            // InternalBLESS.g:33196:2: ( ( '?' ) )
+            // InternalBLESS.g:33197:3: ( '?' )
             {
              before(grammarAccess.getValueNameAccess().getQQuestionMarkKeyword_4_0_0()); 
-            // InternalBLESS.g:33202:3: ( '?' )
-            // InternalBLESS.g:33203:4: '?'
+            // InternalBLESS.g:33198:3: ( '?' )
+            // InternalBLESS.g:33199:4: '?'
             {
              before(grammarAccess.getValueNameAccess().getQQuestionMarkKeyword_4_0_0()); 
             match(input,65,FOLLOW_2); 
@@ -101966,21 +101962,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__FreshAssignment_4_1_1"
-    // InternalBLESS.g:33214:1: rule__ValueName__FreshAssignment_4_1_1 : ( ( 'fresh' ) ) ;
+    // InternalBLESS.g:33210:1: rule__ValueName__FreshAssignment_4_1_1 : ( ( 'fresh' ) ) ;
     public final void rule__ValueName__FreshAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33218:1: ( ( ( 'fresh' ) ) )
-            // InternalBLESS.g:33219:2: ( ( 'fresh' ) )
+            // InternalBLESS.g:33214:1: ( ( ( 'fresh' ) ) )
+            // InternalBLESS.g:33215:2: ( ( 'fresh' ) )
             {
-            // InternalBLESS.g:33219:2: ( ( 'fresh' ) )
-            // InternalBLESS.g:33220:3: ( 'fresh' )
+            // InternalBLESS.g:33215:2: ( ( 'fresh' ) )
+            // InternalBLESS.g:33216:3: ( 'fresh' )
             {
              before(grammarAccess.getValueNameAccess().getFreshFreshKeyword_4_1_1_0()); 
-            // InternalBLESS.g:33221:3: ( 'fresh' )
-            // InternalBLESS.g:33222:4: 'fresh'
+            // InternalBLESS.g:33217:3: ( 'fresh' )
+            // InternalBLESS.g:33218:4: 'fresh'
             {
              before(grammarAccess.getValueNameAccess().getFreshFreshKeyword_4_1_1_0()); 
             match(input,164,FOLLOW_2); 
@@ -102011,21 +102007,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__CountAssignment_4_2_1"
-    // InternalBLESS.g:33233:1: rule__ValueName__CountAssignment_4_2_1 : ( ( 'count' ) ) ;
+    // InternalBLESS.g:33229:1: rule__ValueName__CountAssignment_4_2_1 : ( ( 'count' ) ) ;
     public final void rule__ValueName__CountAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33237:1: ( ( ( 'count' ) ) )
-            // InternalBLESS.g:33238:2: ( ( 'count' ) )
+            // InternalBLESS.g:33233:1: ( ( ( 'count' ) ) )
+            // InternalBLESS.g:33234:2: ( ( 'count' ) )
             {
-            // InternalBLESS.g:33238:2: ( ( 'count' ) )
-            // InternalBLESS.g:33239:3: ( 'count' )
+            // InternalBLESS.g:33234:2: ( ( 'count' ) )
+            // InternalBLESS.g:33235:3: ( 'count' )
             {
              before(grammarAccess.getValueNameAccess().getCountCountKeyword_4_2_1_0()); 
-            // InternalBLESS.g:33240:3: ( 'count' )
-            // InternalBLESS.g:33241:4: 'count'
+            // InternalBLESS.g:33236:3: ( 'count' )
+            // InternalBLESS.g:33237:4: 'count'
             {
              before(grammarAccess.getValueNameAccess().getCountCountKeyword_4_2_1_0()); 
             match(input,165,FOLLOW_2); 
@@ -102056,21 +102052,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ValueName__UpdatedAssignment_4_3_1"
-    // InternalBLESS.g:33252:1: rule__ValueName__UpdatedAssignment_4_3_1 : ( ( 'updated' ) ) ;
+    // InternalBLESS.g:33248:1: rule__ValueName__UpdatedAssignment_4_3_1 : ( ( 'updated' ) ) ;
     public final void rule__ValueName__UpdatedAssignment_4_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33256:1: ( ( ( 'updated' ) ) )
-            // InternalBLESS.g:33257:2: ( ( 'updated' ) )
+            // InternalBLESS.g:33252:1: ( ( ( 'updated' ) ) )
+            // InternalBLESS.g:33253:2: ( ( 'updated' ) )
             {
-            // InternalBLESS.g:33257:2: ( ( 'updated' ) )
-            // InternalBLESS.g:33258:3: ( 'updated' )
+            // InternalBLESS.g:33253:2: ( ( 'updated' ) )
+            // InternalBLESS.g:33254:3: ( 'updated' )
             {
              before(grammarAccess.getValueNameAccess().getUpdatedUpdatedKeyword_4_3_1_0()); 
-            // InternalBLESS.g:33259:3: ( 'updated' )
-            // InternalBLESS.g:33260:4: 'updated'
+            // InternalBLESS.g:33255:3: ( 'updated' )
+            // InternalBLESS.g:33256:4: 'updated'
             {
              before(grammarAccess.getValueNameAccess().getUpdatedUpdatedKeyword_4_3_1_0()); 
             match(input,166,FOLLOW_2); 
@@ -102101,17 +102097,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PartialName__Record_idAssignment_0"
-    // InternalBLESS.g:33271:1: rule__PartialName__Record_idAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:33267:1: rule__PartialName__Record_idAssignment_0 : ( RULE_ID ) ;
     public final void rule__PartialName__Record_idAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33275:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:33276:2: ( RULE_ID )
+            // InternalBLESS.g:33271:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:33272:2: ( RULE_ID )
             {
-            // InternalBLESS.g:33276:2: ( RULE_ID )
-            // InternalBLESS.g:33277:3: RULE_ID
+            // InternalBLESS.g:33272:2: ( RULE_ID )
+            // InternalBLESS.g:33273:3: RULE_ID
             {
              before(grammarAccess.getPartialNameAccess().getRecord_idIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -102138,21 +102134,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PartialName__LbAssignment_1_0"
-    // InternalBLESS.g:33286:1: rule__PartialName__LbAssignment_1_0 : ( ( '[' ) ) ;
+    // InternalBLESS.g:33282:1: rule__PartialName__LbAssignment_1_0 : ( ( '[' ) ) ;
     public final void rule__PartialName__LbAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33290:1: ( ( ( '[' ) ) )
-            // InternalBLESS.g:33291:2: ( ( '[' ) )
+            // InternalBLESS.g:33286:1: ( ( ( '[' ) ) )
+            // InternalBLESS.g:33287:2: ( ( '[' ) )
             {
-            // InternalBLESS.g:33291:2: ( ( '[' ) )
-            // InternalBLESS.g:33292:3: ( '[' )
+            // InternalBLESS.g:33287:2: ( ( '[' ) )
+            // InternalBLESS.g:33288:3: ( '[' )
             {
              before(grammarAccess.getPartialNameAccess().getLbLeftSquareBracketKeyword_1_0_0()); 
-            // InternalBLESS.g:33293:3: ( '[' )
-            // InternalBLESS.g:33294:4: '['
+            // InternalBLESS.g:33289:3: ( '[' )
+            // InternalBLESS.g:33290:4: '['
             {
              before(grammarAccess.getPartialNameAccess().getLbLeftSquareBracketKeyword_1_0_0()); 
             match(input,48,FOLLOW_2); 
@@ -102183,17 +102179,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PartialName__Array_indexAssignment_1_1"
-    // InternalBLESS.g:33305:1: rule__PartialName__Array_indexAssignment_1_1 : ( ruleIndexExpressionOrRange ) ;
+    // InternalBLESS.g:33301:1: rule__PartialName__Array_indexAssignment_1_1 : ( ruleIndexExpressionOrRange ) ;
     public final void rule__PartialName__Array_indexAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33309:1: ( ( ruleIndexExpressionOrRange ) )
-            // InternalBLESS.g:33310:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33305:1: ( ( ruleIndexExpressionOrRange ) )
+            // InternalBLESS.g:33306:2: ( ruleIndexExpressionOrRange )
             {
-            // InternalBLESS.g:33310:2: ( ruleIndexExpressionOrRange )
-            // InternalBLESS.g:33311:3: ruleIndexExpressionOrRange
+            // InternalBLESS.g:33306:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33307:3: ruleIndexExpressionOrRange
             {
              before(grammarAccess.getPartialNameAccess().getArray_indexIndexExpressionOrRangeParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102224,17 +102220,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PartialName__Array_indexAssignment_1_3_1"
-    // InternalBLESS.g:33320:1: rule__PartialName__Array_indexAssignment_1_3_1 : ( ruleIndexExpressionOrRange ) ;
+    // InternalBLESS.g:33316:1: rule__PartialName__Array_indexAssignment_1_3_1 : ( ruleIndexExpressionOrRange ) ;
     public final void rule__PartialName__Array_indexAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33324:1: ( ( ruleIndexExpressionOrRange ) )
-            // InternalBLESS.g:33325:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33320:1: ( ( ruleIndexExpressionOrRange ) )
+            // InternalBLESS.g:33321:2: ( ruleIndexExpressionOrRange )
             {
-            // InternalBLESS.g:33325:2: ( ruleIndexExpressionOrRange )
-            // InternalBLESS.g:33326:3: ruleIndexExpressionOrRange
+            // InternalBLESS.g:33321:2: ( ruleIndexExpressionOrRange )
+            // InternalBLESS.g:33322:3: ruleIndexExpressionOrRange
             {
              before(grammarAccess.getPartialNameAccess().getArray_indexIndexExpressionOrRangeParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102265,17 +102261,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpressionOrRange__Left_hand_sideAssignment_0"
-    // InternalBLESS.g:33335:1: rule__IndexExpressionOrRange__Left_hand_sideAssignment_0 : ( ruleIndexExpression ) ;
+    // InternalBLESS.g:33331:1: rule__IndexExpressionOrRange__Left_hand_sideAssignment_0 : ( ruleIndexExpression ) ;
     public final void rule__IndexExpressionOrRange__Left_hand_sideAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33339:1: ( ( ruleIndexExpression ) )
-            // InternalBLESS.g:33340:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33335:1: ( ( ruleIndexExpression ) )
+            // InternalBLESS.g:33336:2: ( ruleIndexExpression )
             {
-            // InternalBLESS.g:33340:2: ( ruleIndexExpression )
-            // InternalBLESS.g:33341:3: ruleIndexExpression
+            // InternalBLESS.g:33336:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33337:3: ruleIndexExpression
             {
              before(grammarAccess.getIndexExpressionOrRangeAccess().getLeft_hand_sideIndexExpressionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -102306,17 +102302,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpressionOrRange__DdAssignment_1_0"
-    // InternalBLESS.g:33350:1: rule__IndexExpressionOrRange__DdAssignment_1_0 : ( RULE_DOTDOT ) ;
+    // InternalBLESS.g:33346:1: rule__IndexExpressionOrRange__DdAssignment_1_0 : ( RULE_DOTDOT ) ;
     public final void rule__IndexExpressionOrRange__DdAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33354:1: ( ( RULE_DOTDOT ) )
-            // InternalBLESS.g:33355:2: ( RULE_DOTDOT )
+            // InternalBLESS.g:33350:1: ( ( RULE_DOTDOT ) )
+            // InternalBLESS.g:33351:2: ( RULE_DOTDOT )
             {
-            // InternalBLESS.g:33355:2: ( RULE_DOTDOT )
-            // InternalBLESS.g:33356:3: RULE_DOTDOT
+            // InternalBLESS.g:33351:2: ( RULE_DOTDOT )
+            // InternalBLESS.g:33352:3: RULE_DOTDOT
             {
              before(grammarAccess.getIndexExpressionOrRangeAccess().getDdDOTDOTTerminalRuleCall_1_0_0()); 
             match(input,RULE_DOTDOT,FOLLOW_2); 
@@ -102343,17 +102339,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpressionOrRange__Right_hand_sideAssignment_1_1"
-    // InternalBLESS.g:33365:1: rule__IndexExpressionOrRange__Right_hand_sideAssignment_1_1 : ( ruleIndexExpression ) ;
+    // InternalBLESS.g:33361:1: rule__IndexExpressionOrRange__Right_hand_sideAssignment_1_1 : ( ruleIndexExpression ) ;
     public final void rule__IndexExpressionOrRange__Right_hand_sideAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33369:1: ( ( ruleIndexExpression ) )
-            // InternalBLESS.g:33370:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33365:1: ( ( ruleIndexExpression ) )
+            // InternalBLESS.g:33366:2: ( ruleIndexExpression )
             {
-            // InternalBLESS.g:33370:2: ( ruleIndexExpression )
-            // InternalBLESS.g:33371:3: ruleIndexExpression
+            // InternalBLESS.g:33366:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33367:3: ruleIndexExpression
             {
              before(grammarAccess.getIndexExpressionOrRangeAccess().getRight_hand_sideIndexExpressionParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102384,21 +102380,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PeriodShift__Unary_minusAssignment_0"
-    // InternalBLESS.g:33380:1: rule__PeriodShift__Unary_minusAssignment_0 : ( ( '-' ) ) ;
+    // InternalBLESS.g:33376:1: rule__PeriodShift__Unary_minusAssignment_0 : ( ( '-' ) ) ;
     public final void rule__PeriodShift__Unary_minusAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33384:1: ( ( ( '-' ) ) )
-            // InternalBLESS.g:33385:2: ( ( '-' ) )
+            // InternalBLESS.g:33380:1: ( ( ( '-' ) ) )
+            // InternalBLESS.g:33381:2: ( ( '-' ) )
             {
-            // InternalBLESS.g:33385:2: ( ( '-' ) )
-            // InternalBLESS.g:33386:3: ( '-' )
+            // InternalBLESS.g:33381:2: ( ( '-' ) )
+            // InternalBLESS.g:33382:3: ( '-' )
             {
              before(grammarAccess.getPeriodShiftAccess().getUnary_minusHyphenMinusKeyword_0_0()); 
-            // InternalBLESS.g:33387:3: ( '-' )
-            // InternalBLESS.g:33388:4: '-'
+            // InternalBLESS.g:33383:3: ( '-' )
+            // InternalBLESS.g:33384:4: '-'
             {
              before(grammarAccess.getPeriodShiftAccess().getUnary_minusHyphenMinusKeyword_0_0()); 
             match(input,151,FOLLOW_2); 
@@ -102429,17 +102425,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PeriodShift__VAssignment_1_0"
-    // InternalBLESS.g:33399:1: rule__PeriodShift__VAssignment_1_0 : ( ruleValue ) ;
+    // InternalBLESS.g:33395:1: rule__PeriodShift__VAssignment_1_0 : ( ruleValue ) ;
     public final void rule__PeriodShift__VAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33403:1: ( ( ruleValue ) )
-            // InternalBLESS.g:33404:2: ( ruleValue )
+            // InternalBLESS.g:33399:1: ( ( ruleValue ) )
+            // InternalBLESS.g:33400:2: ( ruleValue )
             {
-            // InternalBLESS.g:33404:2: ( ruleValue )
-            // InternalBLESS.g:33405:3: ruleValue
+            // InternalBLESS.g:33400:2: ( ruleValue )
+            // InternalBLESS.g:33401:3: ruleValue
             {
              before(grammarAccess.getPeriodShiftAccess().getVValueParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -102470,17 +102466,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PeriodShift__Index_expressionAssignment_1_1_1"
-    // InternalBLESS.g:33414:1: rule__PeriodShift__Index_expressionAssignment_1_1_1 : ( ruleIndexExpression ) ;
+    // InternalBLESS.g:33410:1: rule__PeriodShift__Index_expressionAssignment_1_1_1 : ( ruleIndexExpression ) ;
     public final void rule__PeriodShift__Index_expressionAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33418:1: ( ( ruleIndexExpression ) )
-            // InternalBLESS.g:33419:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33414:1: ( ( ruleIndexExpression ) )
+            // InternalBLESS.g:33415:2: ( ruleIndexExpression )
             {
-            // InternalBLESS.g:33419:2: ( ruleIndexExpression )
-            // InternalBLESS.g:33420:3: ruleIndexExpression
+            // InternalBLESS.g:33415:2: ( ruleIndexExpression )
+            // InternalBLESS.g:33416:3: ruleIndexExpression
             {
              before(grammarAccess.getPeriodShiftAccess().getIndex_expressionIndexExpressionParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102511,17 +102507,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__LAssignment_0"
-    // InternalBLESS.g:33429:1: rule__IndexExpression__LAssignment_0 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33425:1: rule__IndexExpression__LAssignment_0 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__LAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33433:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33434:2: ( rulePeriodShift )
+            // InternalBLESS.g:33429:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33430:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33434:2: ( rulePeriodShift )
-            // InternalBLESS.g:33435:3: rulePeriodShift
+            // InternalBLESS.g:33430:2: ( rulePeriodShift )
+            // InternalBLESS.g:33431:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getLPeriodShiftParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -102552,21 +102548,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__SymAssignment_1_0_0"
-    // InternalBLESS.g:33444:1: rule__IndexExpression__SymAssignment_1_0_0 : ( ( '-' ) ) ;
+    // InternalBLESS.g:33440:1: rule__IndexExpression__SymAssignment_1_0_0 : ( ( '-' ) ) ;
     public final void rule__IndexExpression__SymAssignment_1_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33448:1: ( ( ( '-' ) ) )
-            // InternalBLESS.g:33449:2: ( ( '-' ) )
+            // InternalBLESS.g:33444:1: ( ( ( '-' ) ) )
+            // InternalBLESS.g:33445:2: ( ( '-' ) )
             {
-            // InternalBLESS.g:33449:2: ( ( '-' ) )
-            // InternalBLESS.g:33450:3: ( '-' )
+            // InternalBLESS.g:33445:2: ( ( '-' ) )
+            // InternalBLESS.g:33446:3: ( '-' )
             {
              before(grammarAccess.getIndexExpressionAccess().getSymHyphenMinusKeyword_1_0_0_0()); 
-            // InternalBLESS.g:33451:3: ( '-' )
-            // InternalBLESS.g:33452:4: '-'
+            // InternalBLESS.g:33447:3: ( '-' )
+            // InternalBLESS.g:33448:4: '-'
             {
              before(grammarAccess.getIndexExpressionAccess().getSymHyphenMinusKeyword_1_0_0_0()); 
             match(input,151,FOLLOW_2); 
@@ -102597,17 +102593,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_0_1"
-    // InternalBLESS.g:33463:1: rule__IndexExpression__RAssignment_1_0_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33459:1: rule__IndexExpression__RAssignment_1_0_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33467:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33468:2: ( rulePeriodShift )
+            // InternalBLESS.g:33463:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33464:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33468:2: ( rulePeriodShift )
-            // InternalBLESS.g:33469:3: rulePeriodShift
+            // InternalBLESS.g:33464:2: ( rulePeriodShift )
+            // InternalBLESS.g:33465:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102638,21 +102634,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__SymAssignment_1_1_0"
-    // InternalBLESS.g:33478:1: rule__IndexExpression__SymAssignment_1_1_0 : ( ( 'div' ) ) ;
+    // InternalBLESS.g:33474:1: rule__IndexExpression__SymAssignment_1_1_0 : ( ( 'div' ) ) ;
     public final void rule__IndexExpression__SymAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33482:1: ( ( ( 'div' ) ) )
-            // InternalBLESS.g:33483:2: ( ( 'div' ) )
+            // InternalBLESS.g:33478:1: ( ( ( 'div' ) ) )
+            // InternalBLESS.g:33479:2: ( ( 'div' ) )
             {
-            // InternalBLESS.g:33483:2: ( ( 'div' ) )
-            // InternalBLESS.g:33484:3: ( 'div' )
+            // InternalBLESS.g:33479:2: ( ( 'div' ) )
+            // InternalBLESS.g:33480:3: ( 'div' )
             {
              before(grammarAccess.getIndexExpressionAccess().getSymDivKeyword_1_1_0_0()); 
-            // InternalBLESS.g:33485:3: ( 'div' )
-            // InternalBLESS.g:33486:4: 'div'
+            // InternalBLESS.g:33481:3: ( 'div' )
+            // InternalBLESS.g:33482:4: 'div'
             {
              before(grammarAccess.getIndexExpressionAccess().getSymDivKeyword_1_1_0_0()); 
             match(input,26,FOLLOW_2); 
@@ -102683,17 +102679,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_1_1"
-    // InternalBLESS.g:33497:1: rule__IndexExpression__RAssignment_1_1_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33493:1: rule__IndexExpression__RAssignment_1_1_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33501:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33502:2: ( rulePeriodShift )
+            // InternalBLESS.g:33497:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33498:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33502:2: ( rulePeriodShift )
-            // InternalBLESS.g:33503:3: rulePeriodShift
+            // InternalBLESS.g:33498:2: ( rulePeriodShift )
+            // InternalBLESS.g:33499:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102724,21 +102720,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__SymAssignment_1_2_0"
-    // InternalBLESS.g:33512:1: rule__IndexExpression__SymAssignment_1_2_0 : ( ( 'mod' ) ) ;
+    // InternalBLESS.g:33508:1: rule__IndexExpression__SymAssignment_1_2_0 : ( ( 'mod' ) ) ;
     public final void rule__IndexExpression__SymAssignment_1_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33516:1: ( ( ( 'mod' ) ) )
-            // InternalBLESS.g:33517:2: ( ( 'mod' ) )
+            // InternalBLESS.g:33512:1: ( ( ( 'mod' ) ) )
+            // InternalBLESS.g:33513:2: ( ( 'mod' ) )
             {
-            // InternalBLESS.g:33517:2: ( ( 'mod' ) )
-            // InternalBLESS.g:33518:3: ( 'mod' )
+            // InternalBLESS.g:33513:2: ( ( 'mod' ) )
+            // InternalBLESS.g:33514:3: ( 'mod' )
             {
              before(grammarAccess.getIndexExpressionAccess().getSymModKeyword_1_2_0_0()); 
-            // InternalBLESS.g:33519:3: ( 'mod' )
-            // InternalBLESS.g:33520:4: 'mod'
+            // InternalBLESS.g:33515:3: ( 'mod' )
+            // InternalBLESS.g:33516:4: 'mod'
             {
              before(grammarAccess.getIndexExpressionAccess().getSymModKeyword_1_2_0_0()); 
             match(input,27,FOLLOW_2); 
@@ -102769,17 +102765,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_2_1"
-    // InternalBLESS.g:33531:1: rule__IndexExpression__RAssignment_1_2_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33527:1: rule__IndexExpression__RAssignment_1_2_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33535:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33536:2: ( rulePeriodShift )
+            // InternalBLESS.g:33531:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33532:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33536:2: ( rulePeriodShift )
-            // InternalBLESS.g:33537:3: rulePeriodShift
+            // InternalBLESS.g:33532:2: ( rulePeriodShift )
+            // InternalBLESS.g:33533:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102810,21 +102806,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__SymAssignment_1_3_0"
-    // InternalBLESS.g:33546:1: rule__IndexExpression__SymAssignment_1_3_0 : ( ( '+' ) ) ;
+    // InternalBLESS.g:33542:1: rule__IndexExpression__SymAssignment_1_3_0 : ( ( '+' ) ) ;
     public final void rule__IndexExpression__SymAssignment_1_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33550:1: ( ( ( '+' ) ) )
-            // InternalBLESS.g:33551:2: ( ( '+' ) )
+            // InternalBLESS.g:33546:1: ( ( ( '+' ) ) )
+            // InternalBLESS.g:33547:2: ( ( '+' ) )
             {
-            // InternalBLESS.g:33551:2: ( ( '+' ) )
-            // InternalBLESS.g:33552:3: ( '+' )
+            // InternalBLESS.g:33547:2: ( ( '+' ) )
+            // InternalBLESS.g:33548:3: ( '+' )
             {
              before(grammarAccess.getIndexExpressionAccess().getSymPlusSignKeyword_1_3_0_0()); 
-            // InternalBLESS.g:33553:3: ( '+' )
-            // InternalBLESS.g:33554:4: '+'
+            // InternalBLESS.g:33549:3: ( '+' )
+            // InternalBLESS.g:33550:4: '+'
             {
              before(grammarAccess.getIndexExpressionAccess().getSymPlusSignKeyword_1_3_0_0()); 
             match(input,96,FOLLOW_2); 
@@ -102855,17 +102851,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_3_1"
-    // InternalBLESS.g:33565:1: rule__IndexExpression__RAssignment_1_3_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33561:1: rule__IndexExpression__RAssignment_1_3_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33569:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33570:2: ( rulePeriodShift )
+            // InternalBLESS.g:33565:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33566:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33570:2: ( rulePeriodShift )
-            // InternalBLESS.g:33571:3: rulePeriodShift
+            // InternalBLESS.g:33566:2: ( rulePeriodShift )
+            // InternalBLESS.g:33567:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102896,17 +102892,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_3_2_1"
-    // InternalBLESS.g:33580:1: rule__IndexExpression__RAssignment_1_3_2_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33576:1: rule__IndexExpression__RAssignment_1_3_2_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33584:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33585:2: ( rulePeriodShift )
+            // InternalBLESS.g:33580:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33581:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33585:2: ( rulePeriodShift )
-            // InternalBLESS.g:33586:3: rulePeriodShift
+            // InternalBLESS.g:33581:2: ( rulePeriodShift )
+            // InternalBLESS.g:33582:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_3_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -102937,17 +102933,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__SymAssignment_1_4_0"
-    // InternalBLESS.g:33595:1: rule__IndexExpression__SymAssignment_1_4_0 : ( ruleTIMES ) ;
+    // InternalBLESS.g:33591:1: rule__IndexExpression__SymAssignment_1_4_0 : ( ruleTIMES ) ;
     public final void rule__IndexExpression__SymAssignment_1_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33599:1: ( ( ruleTIMES ) )
-            // InternalBLESS.g:33600:2: ( ruleTIMES )
+            // InternalBLESS.g:33595:1: ( ( ruleTIMES ) )
+            // InternalBLESS.g:33596:2: ( ruleTIMES )
             {
-            // InternalBLESS.g:33600:2: ( ruleTIMES )
-            // InternalBLESS.g:33601:3: ruleTIMES
+            // InternalBLESS.g:33596:2: ( ruleTIMES )
+            // InternalBLESS.g:33597:3: ruleTIMES
             {
              before(grammarAccess.getIndexExpressionAccess().getSymTIMESParserRuleCall_1_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -102978,17 +102974,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_4_1"
-    // InternalBLESS.g:33610:1: rule__IndexExpression__RAssignment_1_4_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33606:1: rule__IndexExpression__RAssignment_1_4_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33614:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33615:2: ( rulePeriodShift )
+            // InternalBLESS.g:33610:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33611:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33615:2: ( rulePeriodShift )
-            // InternalBLESS.g:33616:3: rulePeriodShift
+            // InternalBLESS.g:33611:2: ( rulePeriodShift )
+            // InternalBLESS.g:33612:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103019,17 +103015,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IndexExpression__RAssignment_1_4_2_1"
-    // InternalBLESS.g:33625:1: rule__IndexExpression__RAssignment_1_4_2_1 : ( rulePeriodShift ) ;
+    // InternalBLESS.g:33621:1: rule__IndexExpression__RAssignment_1_4_2_1 : ( rulePeriodShift ) ;
     public final void rule__IndexExpression__RAssignment_1_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33629:1: ( ( rulePeriodShift ) )
-            // InternalBLESS.g:33630:2: ( rulePeriodShift )
+            // InternalBLESS.g:33625:1: ( ( rulePeriodShift ) )
+            // InternalBLESS.g:33626:2: ( rulePeriodShift )
             {
-            // InternalBLESS.g:33630:2: ( rulePeriodShift )
-            // InternalBLESS.g:33631:3: rulePeriodShift
+            // InternalBLESS.g:33626:2: ( rulePeriodShift )
+            // InternalBLESS.g:33627:3: rulePeriodShift
             {
              before(grammarAccess.getIndexExpressionAccess().getRPeriodShiftParserRuleCall_1_4_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103060,17 +103056,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CaseExpression__CcAssignment_1"
-    // InternalBLESS.g:33640:1: rule__CaseExpression__CcAssignment_1 : ( ruleCaseChoice ) ;
+    // InternalBLESS.g:33636:1: rule__CaseExpression__CcAssignment_1 : ( ruleCaseChoice ) ;
     public final void rule__CaseExpression__CcAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33644:1: ( ( ruleCaseChoice ) )
-            // InternalBLESS.g:33645:2: ( ruleCaseChoice )
+            // InternalBLESS.g:33640:1: ( ( ruleCaseChoice ) )
+            // InternalBLESS.g:33641:2: ( ruleCaseChoice )
             {
-            // InternalBLESS.g:33645:2: ( ruleCaseChoice )
-            // InternalBLESS.g:33646:3: ruleCaseChoice
+            // InternalBLESS.g:33641:2: ( ruleCaseChoice )
+            // InternalBLESS.g:33642:3: ruleCaseChoice
             {
              before(grammarAccess.getCaseExpressionAccess().getCcCaseChoiceParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103101,17 +103097,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CaseChoice__BeAssignment_1"
-    // InternalBLESS.g:33655:1: rule__CaseChoice__BeAssignment_1 : ( ruleBooleanExpression ) ;
+    // InternalBLESS.g:33651:1: rule__CaseChoice__BeAssignment_1 : ( ruleBooleanExpression ) ;
     public final void rule__CaseChoice__BeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33659:1: ( ( ruleBooleanExpression ) )
-            // InternalBLESS.g:33660:2: ( ruleBooleanExpression )
+            // InternalBLESS.g:33655:1: ( ( ruleBooleanExpression ) )
+            // InternalBLESS.g:33656:2: ( ruleBooleanExpression )
             {
-            // InternalBLESS.g:33660:2: ( ruleBooleanExpression )
-            // InternalBLESS.g:33661:3: ruleBooleanExpression
+            // InternalBLESS.g:33656:2: ( ruleBooleanExpression )
+            // InternalBLESS.g:33657:3: ruleBooleanExpression
             {
              before(grammarAccess.getCaseChoiceAccess().getBeBooleanExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103142,17 +103138,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CaseChoice__ExpAssignment_3"
-    // InternalBLESS.g:33670:1: rule__CaseChoice__ExpAssignment_3 : ( ruleExpression ) ;
+    // InternalBLESS.g:33666:1: rule__CaseChoice__ExpAssignment_3 : ( ruleExpression ) ;
     public final void rule__CaseChoice__ExpAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33674:1: ( ( ruleExpression ) )
-            // InternalBLESS.g:33675:2: ( ruleExpression )
+            // InternalBLESS.g:33670:1: ( ( ruleExpression ) )
+            // InternalBLESS.g:33671:2: ( ruleExpression )
             {
-            // InternalBLESS.g:33675:2: ( ruleExpression )
-            // InternalBLESS.g:33676:3: ruleExpression
+            // InternalBLESS.g:33671:2: ( ruleExpression )
+            // InternalBLESS.g:33672:3: ruleExpression
             {
              before(grammarAccess.getCaseChoiceAccess().getExpExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -103183,17 +103179,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LogicVariables__LvAssignment_0"
-    // InternalBLESS.g:33685:1: rule__LogicVariables__LvAssignment_0 : ( ruleVariable ) ;
+    // InternalBLESS.g:33681:1: rule__LogicVariables__LvAssignment_0 : ( ruleVariable ) ;
     public final void rule__LogicVariables__LvAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33689:1: ( ( ruleVariable ) )
-            // InternalBLESS.g:33690:2: ( ruleVariable )
+            // InternalBLESS.g:33685:1: ( ( ruleVariable ) )
+            // InternalBLESS.g:33686:2: ( ruleVariable )
             {
-            // InternalBLESS.g:33690:2: ( ruleVariable )
-            // InternalBLESS.g:33691:3: ruleVariable
+            // InternalBLESS.g:33686:2: ( ruleVariable )
+            // InternalBLESS.g:33687:3: ruleVariable
             {
              before(grammarAccess.getLogicVariablesAccess().getLvVariableParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -103224,17 +103220,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LogicVariables__LvAssignment_1_1"
-    // InternalBLESS.g:33700:1: rule__LogicVariables__LvAssignment_1_1 : ( ruleVariable ) ;
+    // InternalBLESS.g:33696:1: rule__LogicVariables__LvAssignment_1_1 : ( ruleVariable ) ;
     public final void rule__LogicVariables__LvAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33704:1: ( ( ruleVariable ) )
-            // InternalBLESS.g:33705:2: ( ruleVariable )
+            // InternalBLESS.g:33700:1: ( ( ruleVariable ) )
+            // InternalBLESS.g:33701:2: ( ruleVariable )
             {
-            // InternalBLESS.g:33705:2: ( ruleVariable )
-            // InternalBLESS.g:33706:3: ruleVariable
+            // InternalBLESS.g:33701:2: ( ruleVariable )
+            // InternalBLESS.g:33702:3: ruleVariable
             {
              before(grammarAccess.getLogicVariablesAccess().getLvVariableParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103265,17 +103261,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__VariablesAssignment_1"
-    // InternalBLESS.g:33715:1: rule__SumQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
+    // InternalBLESS.g:33711:1: rule__SumQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
     public final void rule__SumQuantification__VariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33719:1: ( ( ruleLogicVariables ) )
-            // InternalBLESS.g:33720:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33715:1: ( ( ruleLogicVariables ) )
+            // InternalBLESS.g:33716:2: ( ruleLogicVariables )
             {
-            // InternalBLESS.g:33720:2: ( ruleLogicVariables )
-            // InternalBLESS.g:33721:3: ruleLogicVariables
+            // InternalBLESS.g:33716:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33717:3: ruleLogicVariables
             {
              before(grammarAccess.getSumQuantificationAccess().getVariablesLogicVariablesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103306,21 +103302,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__InAssignment_2_0_0"
-    // InternalBLESS.g:33730:1: rule__SumQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
+    // InternalBLESS.g:33726:1: rule__SumQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
     public final void rule__SumQuantification__InAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33734:1: ( ( ( 'in' ) ) )
-            // InternalBLESS.g:33735:2: ( ( 'in' ) )
+            // InternalBLESS.g:33730:1: ( ( ( 'in' ) ) )
+            // InternalBLESS.g:33731:2: ( ( 'in' ) )
             {
-            // InternalBLESS.g:33735:2: ( ( 'in' ) )
-            // InternalBLESS.g:33736:3: ( 'in' )
+            // InternalBLESS.g:33731:2: ( ( 'in' ) )
+            // InternalBLESS.g:33732:3: ( 'in' )
             {
              before(grammarAccess.getSumQuantificationAccess().getInInKeyword_2_0_0_0()); 
-            // InternalBLESS.g:33737:3: ( 'in' )
-            // InternalBLESS.g:33738:4: 'in'
+            // InternalBLESS.g:33733:3: ( 'in' )
+            // InternalBLESS.g:33734:4: 'in'
             {
              before(grammarAccess.getSumQuantificationAccess().getInInKeyword_2_0_0_0()); 
             match(input,61,FOLLOW_2); 
@@ -103351,17 +103347,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__RangeAssignment_2_0_1"
-    // InternalBLESS.g:33749:1: rule__SumQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
+    // InternalBLESS.g:33745:1: rule__SumQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
     public final void rule__SumQuantification__RangeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33753:1: ( ( ruleRange ) )
-            // InternalBLESS.g:33754:2: ( ruleRange )
+            // InternalBLESS.g:33749:1: ( ( ruleRange ) )
+            // InternalBLESS.g:33750:2: ( ruleRange )
             {
-            // InternalBLESS.g:33754:2: ( ruleRange )
-            // InternalBLESS.g:33755:3: ruleRange
+            // InternalBLESS.g:33750:2: ( ruleRange )
+            // InternalBLESS.g:33751:3: ruleRange
             {
              before(grammarAccess.getSumQuantificationAccess().getRangeRangeParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103392,21 +103388,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__WhichAssignment_2_1_0"
-    // InternalBLESS.g:33764:1: rule__SumQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
+    // InternalBLESS.g:33760:1: rule__SumQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
     public final void rule__SumQuantification__WhichAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33768:1: ( ( ( 'which' ) ) )
-            // InternalBLESS.g:33769:2: ( ( 'which' ) )
+            // InternalBLESS.g:33764:1: ( ( ( 'which' ) ) )
+            // InternalBLESS.g:33765:2: ( ( 'which' ) )
             {
-            // InternalBLESS.g:33769:2: ( ( 'which' ) )
-            // InternalBLESS.g:33770:3: ( 'which' )
+            // InternalBLESS.g:33765:2: ( ( 'which' ) )
+            // InternalBLESS.g:33766:3: ( 'which' )
             {
              before(grammarAccess.getSumQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
-            // InternalBLESS.g:33771:3: ( 'which' )
-            // InternalBLESS.g:33772:4: 'which'
+            // InternalBLESS.g:33767:3: ( 'which' )
+            // InternalBLESS.g:33768:4: 'which'
             {
              before(grammarAccess.getSumQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
             match(input,167,FOLLOW_2); 
@@ -103437,17 +103433,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__ConditionAssignment_2_1_1"
-    // InternalBLESS.g:33783:1: rule__SumQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:33779:1: rule__SumQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
     public final void rule__SumQuantification__ConditionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33787:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:33788:2: ( rulePredicate )
+            // InternalBLESS.g:33783:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:33784:2: ( rulePredicate )
             {
-            // InternalBLESS.g:33788:2: ( rulePredicate )
-            // InternalBLESS.g:33789:3: rulePredicate
+            // InternalBLESS.g:33784:2: ( rulePredicate )
+            // InternalBLESS.g:33785:3: rulePredicate
             {
              before(grammarAccess.getSumQuantificationAccess().getConditionPredicateParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103478,17 +103474,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SumQuantification__Numeric_expressionAssignment_4"
-    // InternalBLESS.g:33798:1: rule__SumQuantification__Numeric_expressionAssignment_4 : ( ruleNumericExpression ) ;
+    // InternalBLESS.g:33794:1: rule__SumQuantification__Numeric_expressionAssignment_4 : ( ruleNumericExpression ) ;
     public final void rule__SumQuantification__Numeric_expressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33802:1: ( ( ruleNumericExpression ) )
-            // InternalBLESS.g:33803:2: ( ruleNumericExpression )
+            // InternalBLESS.g:33798:1: ( ( ruleNumericExpression ) )
+            // InternalBLESS.g:33799:2: ( ruleNumericExpression )
             {
-            // InternalBLESS.g:33803:2: ( ruleNumericExpression )
-            // InternalBLESS.g:33804:3: ruleNumericExpression
+            // InternalBLESS.g:33799:2: ( ruleNumericExpression )
+            // InternalBLESS.g:33800:3: ruleNumericExpression
             {
              before(grammarAccess.getSumQuantificationAccess().getNumeric_expressionNumericExpressionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -103519,17 +103515,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__VariablesAssignment_1"
-    // InternalBLESS.g:33813:1: rule__ProductQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
+    // InternalBLESS.g:33809:1: rule__ProductQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
     public final void rule__ProductQuantification__VariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33817:1: ( ( ruleLogicVariables ) )
-            // InternalBLESS.g:33818:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33813:1: ( ( ruleLogicVariables ) )
+            // InternalBLESS.g:33814:2: ( ruleLogicVariables )
             {
-            // InternalBLESS.g:33818:2: ( ruleLogicVariables )
-            // InternalBLESS.g:33819:3: ruleLogicVariables
+            // InternalBLESS.g:33814:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33815:3: ruleLogicVariables
             {
              before(grammarAccess.getProductQuantificationAccess().getVariablesLogicVariablesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103560,21 +103556,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__InAssignment_2_0_0"
-    // InternalBLESS.g:33828:1: rule__ProductQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
+    // InternalBLESS.g:33824:1: rule__ProductQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
     public final void rule__ProductQuantification__InAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33832:1: ( ( ( 'in' ) ) )
-            // InternalBLESS.g:33833:2: ( ( 'in' ) )
+            // InternalBLESS.g:33828:1: ( ( ( 'in' ) ) )
+            // InternalBLESS.g:33829:2: ( ( 'in' ) )
             {
-            // InternalBLESS.g:33833:2: ( ( 'in' ) )
-            // InternalBLESS.g:33834:3: ( 'in' )
+            // InternalBLESS.g:33829:2: ( ( 'in' ) )
+            // InternalBLESS.g:33830:3: ( 'in' )
             {
              before(grammarAccess.getProductQuantificationAccess().getInInKeyword_2_0_0_0()); 
-            // InternalBLESS.g:33835:3: ( 'in' )
-            // InternalBLESS.g:33836:4: 'in'
+            // InternalBLESS.g:33831:3: ( 'in' )
+            // InternalBLESS.g:33832:4: 'in'
             {
              before(grammarAccess.getProductQuantificationAccess().getInInKeyword_2_0_0_0()); 
             match(input,61,FOLLOW_2); 
@@ -103605,17 +103601,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__RangeAssignment_2_0_1"
-    // InternalBLESS.g:33847:1: rule__ProductQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
+    // InternalBLESS.g:33843:1: rule__ProductQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
     public final void rule__ProductQuantification__RangeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33851:1: ( ( ruleRange ) )
-            // InternalBLESS.g:33852:2: ( ruleRange )
+            // InternalBLESS.g:33847:1: ( ( ruleRange ) )
+            // InternalBLESS.g:33848:2: ( ruleRange )
             {
-            // InternalBLESS.g:33852:2: ( ruleRange )
-            // InternalBLESS.g:33853:3: ruleRange
+            // InternalBLESS.g:33848:2: ( ruleRange )
+            // InternalBLESS.g:33849:3: ruleRange
             {
              before(grammarAccess.getProductQuantificationAccess().getRangeRangeParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103646,21 +103642,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__WhichAssignment_2_1_0"
-    // InternalBLESS.g:33862:1: rule__ProductQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
+    // InternalBLESS.g:33858:1: rule__ProductQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
     public final void rule__ProductQuantification__WhichAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33866:1: ( ( ( 'which' ) ) )
-            // InternalBLESS.g:33867:2: ( ( 'which' ) )
+            // InternalBLESS.g:33862:1: ( ( ( 'which' ) ) )
+            // InternalBLESS.g:33863:2: ( ( 'which' ) )
             {
-            // InternalBLESS.g:33867:2: ( ( 'which' ) )
-            // InternalBLESS.g:33868:3: ( 'which' )
+            // InternalBLESS.g:33863:2: ( ( 'which' ) )
+            // InternalBLESS.g:33864:3: ( 'which' )
             {
              before(grammarAccess.getProductQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
-            // InternalBLESS.g:33869:3: ( 'which' )
-            // InternalBLESS.g:33870:4: 'which'
+            // InternalBLESS.g:33865:3: ( 'which' )
+            // InternalBLESS.g:33866:4: 'which'
             {
              before(grammarAccess.getProductQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
             match(input,167,FOLLOW_2); 
@@ -103691,17 +103687,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__ConditionAssignment_2_1_1"
-    // InternalBLESS.g:33881:1: rule__ProductQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:33877:1: rule__ProductQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
     public final void rule__ProductQuantification__ConditionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33885:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:33886:2: ( rulePredicate )
+            // InternalBLESS.g:33881:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:33882:2: ( rulePredicate )
             {
-            // InternalBLESS.g:33886:2: ( rulePredicate )
-            // InternalBLESS.g:33887:3: rulePredicate
+            // InternalBLESS.g:33882:2: ( rulePredicate )
+            // InternalBLESS.g:33883:3: rulePredicate
             {
              before(grammarAccess.getProductQuantificationAccess().getConditionPredicateParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103732,17 +103728,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ProductQuantification__Numeric_expressionAssignment_4"
-    // InternalBLESS.g:33896:1: rule__ProductQuantification__Numeric_expressionAssignment_4 : ( ruleNumericExpression ) ;
+    // InternalBLESS.g:33892:1: rule__ProductQuantification__Numeric_expressionAssignment_4 : ( ruleNumericExpression ) ;
     public final void rule__ProductQuantification__Numeric_expressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33900:1: ( ( ruleNumericExpression ) )
-            // InternalBLESS.g:33901:2: ( ruleNumericExpression )
+            // InternalBLESS.g:33896:1: ( ( ruleNumericExpression ) )
+            // InternalBLESS.g:33897:2: ( ruleNumericExpression )
             {
-            // InternalBLESS.g:33901:2: ( ruleNumericExpression )
-            // InternalBLESS.g:33902:3: ruleNumericExpression
+            // InternalBLESS.g:33897:2: ( ruleNumericExpression )
+            // InternalBLESS.g:33898:3: ruleNumericExpression
             {
              before(grammarAccess.getProductQuantificationAccess().getNumeric_expressionNumericExpressionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -103773,17 +103769,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__VariablesAssignment_1"
-    // InternalBLESS.g:33911:1: rule__CountingQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
+    // InternalBLESS.g:33907:1: rule__CountingQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
     public final void rule__CountingQuantification__VariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33915:1: ( ( ruleLogicVariables ) )
-            // InternalBLESS.g:33916:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33911:1: ( ( ruleLogicVariables ) )
+            // InternalBLESS.g:33912:2: ( ruleLogicVariables )
             {
-            // InternalBLESS.g:33916:2: ( ruleLogicVariables )
-            // InternalBLESS.g:33917:3: ruleLogicVariables
+            // InternalBLESS.g:33912:2: ( ruleLogicVariables )
+            // InternalBLESS.g:33913:3: ruleLogicVariables
             {
              before(grammarAccess.getCountingQuantificationAccess().getVariablesLogicVariablesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103814,21 +103810,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__InAssignment_2_0_0"
-    // InternalBLESS.g:33926:1: rule__CountingQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
+    // InternalBLESS.g:33922:1: rule__CountingQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
     public final void rule__CountingQuantification__InAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33930:1: ( ( ( 'in' ) ) )
-            // InternalBLESS.g:33931:2: ( ( 'in' ) )
+            // InternalBLESS.g:33926:1: ( ( ( 'in' ) ) )
+            // InternalBLESS.g:33927:2: ( ( 'in' ) )
             {
-            // InternalBLESS.g:33931:2: ( ( 'in' ) )
-            // InternalBLESS.g:33932:3: ( 'in' )
+            // InternalBLESS.g:33927:2: ( ( 'in' ) )
+            // InternalBLESS.g:33928:3: ( 'in' )
             {
              before(grammarAccess.getCountingQuantificationAccess().getInInKeyword_2_0_0_0()); 
-            // InternalBLESS.g:33933:3: ( 'in' )
-            // InternalBLESS.g:33934:4: 'in'
+            // InternalBLESS.g:33929:3: ( 'in' )
+            // InternalBLESS.g:33930:4: 'in'
             {
              before(grammarAccess.getCountingQuantificationAccess().getInInKeyword_2_0_0_0()); 
             match(input,61,FOLLOW_2); 
@@ -103859,17 +103855,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__RangeAssignment_2_0_1"
-    // InternalBLESS.g:33945:1: rule__CountingQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
+    // InternalBLESS.g:33941:1: rule__CountingQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
     public final void rule__CountingQuantification__RangeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33949:1: ( ( ruleRange ) )
-            // InternalBLESS.g:33950:2: ( ruleRange )
+            // InternalBLESS.g:33945:1: ( ( ruleRange ) )
+            // InternalBLESS.g:33946:2: ( ruleRange )
             {
-            // InternalBLESS.g:33950:2: ( ruleRange )
-            // InternalBLESS.g:33951:3: ruleRange
+            // InternalBLESS.g:33946:2: ( ruleRange )
+            // InternalBLESS.g:33947:3: ruleRange
             {
              before(grammarAccess.getCountingQuantificationAccess().getRangeRangeParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103900,21 +103896,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__WhichAssignment_2_1_0"
-    // InternalBLESS.g:33960:1: rule__CountingQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
+    // InternalBLESS.g:33956:1: rule__CountingQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
     public final void rule__CountingQuantification__WhichAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33964:1: ( ( ( 'which' ) ) )
-            // InternalBLESS.g:33965:2: ( ( 'which' ) )
+            // InternalBLESS.g:33960:1: ( ( ( 'which' ) ) )
+            // InternalBLESS.g:33961:2: ( ( 'which' ) )
             {
-            // InternalBLESS.g:33965:2: ( ( 'which' ) )
-            // InternalBLESS.g:33966:3: ( 'which' )
+            // InternalBLESS.g:33961:2: ( ( 'which' ) )
+            // InternalBLESS.g:33962:3: ( 'which' )
             {
              before(grammarAccess.getCountingQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
-            // InternalBLESS.g:33967:3: ( 'which' )
-            // InternalBLESS.g:33968:4: 'which'
+            // InternalBLESS.g:33963:3: ( 'which' )
+            // InternalBLESS.g:33964:4: 'which'
             {
              before(grammarAccess.getCountingQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
             match(input,167,FOLLOW_2); 
@@ -103945,17 +103941,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__ConditionAssignment_2_1_1"
-    // InternalBLESS.g:33979:1: rule__CountingQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:33975:1: rule__CountingQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
     public final void rule__CountingQuantification__ConditionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33983:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:33984:2: ( rulePredicate )
+            // InternalBLESS.g:33979:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:33980:2: ( rulePredicate )
             {
-            // InternalBLESS.g:33984:2: ( rulePredicate )
-            // InternalBLESS.g:33985:3: rulePredicate
+            // InternalBLESS.g:33980:2: ( rulePredicate )
+            // InternalBLESS.g:33981:3: rulePredicate
             {
              before(grammarAccess.getCountingQuantificationAccess().getConditionPredicateParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -103986,17 +103982,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CountingQuantification__CountedAssignment_4"
-    // InternalBLESS.g:33994:1: rule__CountingQuantification__CountedAssignment_4 : ( rulePredicate ) ;
+    // InternalBLESS.g:33990:1: rule__CountingQuantification__CountedAssignment_4 : ( rulePredicate ) ;
     public final void rule__CountingQuantification__CountedAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:33998:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:33999:2: ( rulePredicate )
+            // InternalBLESS.g:33994:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:33995:2: ( rulePredicate )
             {
-            // InternalBLESS.g:33999:2: ( rulePredicate )
-            // InternalBLESS.g:34000:3: rulePredicate
+            // InternalBLESS.g:33995:2: ( rulePredicate )
+            // InternalBLESS.g:33996:3: rulePredicate
             {
              before(grammarAccess.getCountingQuantificationAccess().getCountedPredicateParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -104027,17 +104023,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__VariablesAssignment_1"
-    // InternalBLESS.g:34009:1: rule__UniversalQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
+    // InternalBLESS.g:34005:1: rule__UniversalQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
     public final void rule__UniversalQuantification__VariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34013:1: ( ( ruleLogicVariables ) )
-            // InternalBLESS.g:34014:2: ( ruleLogicVariables )
+            // InternalBLESS.g:34009:1: ( ( ruleLogicVariables ) )
+            // InternalBLESS.g:34010:2: ( ruleLogicVariables )
             {
-            // InternalBLESS.g:34014:2: ( ruleLogicVariables )
-            // InternalBLESS.g:34015:3: ruleLogicVariables
+            // InternalBLESS.g:34010:2: ( ruleLogicVariables )
+            // InternalBLESS.g:34011:3: ruleLogicVariables
             {
              before(grammarAccess.getUniversalQuantificationAccess().getVariablesLogicVariablesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104068,21 +104064,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__InAssignment_2_0_0"
-    // InternalBLESS.g:34024:1: rule__UniversalQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
+    // InternalBLESS.g:34020:1: rule__UniversalQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
     public final void rule__UniversalQuantification__InAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34028:1: ( ( ( 'in' ) ) )
-            // InternalBLESS.g:34029:2: ( ( 'in' ) )
+            // InternalBLESS.g:34024:1: ( ( ( 'in' ) ) )
+            // InternalBLESS.g:34025:2: ( ( 'in' ) )
             {
-            // InternalBLESS.g:34029:2: ( ( 'in' ) )
-            // InternalBLESS.g:34030:3: ( 'in' )
+            // InternalBLESS.g:34025:2: ( ( 'in' ) )
+            // InternalBLESS.g:34026:3: ( 'in' )
             {
              before(grammarAccess.getUniversalQuantificationAccess().getInInKeyword_2_0_0_0()); 
-            // InternalBLESS.g:34031:3: ( 'in' )
-            // InternalBLESS.g:34032:4: 'in'
+            // InternalBLESS.g:34027:3: ( 'in' )
+            // InternalBLESS.g:34028:4: 'in'
             {
              before(grammarAccess.getUniversalQuantificationAccess().getInInKeyword_2_0_0_0()); 
             match(input,61,FOLLOW_2); 
@@ -104113,17 +104109,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__RangeAssignment_2_0_1"
-    // InternalBLESS.g:34043:1: rule__UniversalQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
+    // InternalBLESS.g:34039:1: rule__UniversalQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
     public final void rule__UniversalQuantification__RangeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34047:1: ( ( ruleRange ) )
-            // InternalBLESS.g:34048:2: ( ruleRange )
+            // InternalBLESS.g:34043:1: ( ( ruleRange ) )
+            // InternalBLESS.g:34044:2: ( ruleRange )
             {
-            // InternalBLESS.g:34048:2: ( ruleRange )
-            // InternalBLESS.g:34049:3: ruleRange
+            // InternalBLESS.g:34044:2: ( ruleRange )
+            // InternalBLESS.g:34045:3: ruleRange
             {
              before(grammarAccess.getUniversalQuantificationAccess().getRangeRangeParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104154,21 +104150,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__WhichAssignment_2_1_0"
-    // InternalBLESS.g:34058:1: rule__UniversalQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
+    // InternalBLESS.g:34054:1: rule__UniversalQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
     public final void rule__UniversalQuantification__WhichAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34062:1: ( ( ( 'which' ) ) )
-            // InternalBLESS.g:34063:2: ( ( 'which' ) )
+            // InternalBLESS.g:34058:1: ( ( ( 'which' ) ) )
+            // InternalBLESS.g:34059:2: ( ( 'which' ) )
             {
-            // InternalBLESS.g:34063:2: ( ( 'which' ) )
-            // InternalBLESS.g:34064:3: ( 'which' )
+            // InternalBLESS.g:34059:2: ( ( 'which' ) )
+            // InternalBLESS.g:34060:3: ( 'which' )
             {
              before(grammarAccess.getUniversalQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
-            // InternalBLESS.g:34065:3: ( 'which' )
-            // InternalBLESS.g:34066:4: 'which'
+            // InternalBLESS.g:34061:3: ( 'which' )
+            // InternalBLESS.g:34062:4: 'which'
             {
              before(grammarAccess.getUniversalQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
             match(input,167,FOLLOW_2); 
@@ -104199,17 +104195,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__ConditionAssignment_2_1_1"
-    // InternalBLESS.g:34077:1: rule__UniversalQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:34073:1: rule__UniversalQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
     public final void rule__UniversalQuantification__ConditionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34081:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34082:2: ( rulePredicate )
+            // InternalBLESS.g:34077:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34078:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34082:2: ( rulePredicate )
-            // InternalBLESS.g:34083:3: rulePredicate
+            // InternalBLESS.g:34078:2: ( rulePredicate )
+            // InternalBLESS.g:34079:3: rulePredicate
             {
              before(grammarAccess.getUniversalQuantificationAccess().getConditionPredicateParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104240,17 +104236,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UniversalQuantification__PredicateAssignment_4"
-    // InternalBLESS.g:34092:1: rule__UniversalQuantification__PredicateAssignment_4 : ( rulePredicate ) ;
+    // InternalBLESS.g:34088:1: rule__UniversalQuantification__PredicateAssignment_4 : ( rulePredicate ) ;
     public final void rule__UniversalQuantification__PredicateAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34096:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34097:2: ( rulePredicate )
+            // InternalBLESS.g:34092:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34093:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34097:2: ( rulePredicate )
-            // InternalBLESS.g:34098:3: rulePredicate
+            // InternalBLESS.g:34093:2: ( rulePredicate )
+            // InternalBLESS.g:34094:3: rulePredicate
             {
              before(grammarAccess.getUniversalQuantificationAccess().getPredicatePredicateParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -104281,17 +104277,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__VariablesAssignment_1"
-    // InternalBLESS.g:34107:1: rule__ExistentialQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
+    // InternalBLESS.g:34103:1: rule__ExistentialQuantification__VariablesAssignment_1 : ( ruleLogicVariables ) ;
     public final void rule__ExistentialQuantification__VariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34111:1: ( ( ruleLogicVariables ) )
-            // InternalBLESS.g:34112:2: ( ruleLogicVariables )
+            // InternalBLESS.g:34107:1: ( ( ruleLogicVariables ) )
+            // InternalBLESS.g:34108:2: ( ruleLogicVariables )
             {
-            // InternalBLESS.g:34112:2: ( ruleLogicVariables )
-            // InternalBLESS.g:34113:3: ruleLogicVariables
+            // InternalBLESS.g:34108:2: ( ruleLogicVariables )
+            // InternalBLESS.g:34109:3: ruleLogicVariables
             {
              before(grammarAccess.getExistentialQuantificationAccess().getVariablesLogicVariablesParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104322,21 +104318,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__InAssignment_2_0_0"
-    // InternalBLESS.g:34122:1: rule__ExistentialQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
+    // InternalBLESS.g:34118:1: rule__ExistentialQuantification__InAssignment_2_0_0 : ( ( 'in' ) ) ;
     public final void rule__ExistentialQuantification__InAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34126:1: ( ( ( 'in' ) ) )
-            // InternalBLESS.g:34127:2: ( ( 'in' ) )
+            // InternalBLESS.g:34122:1: ( ( ( 'in' ) ) )
+            // InternalBLESS.g:34123:2: ( ( 'in' ) )
             {
-            // InternalBLESS.g:34127:2: ( ( 'in' ) )
-            // InternalBLESS.g:34128:3: ( 'in' )
+            // InternalBLESS.g:34123:2: ( ( 'in' ) )
+            // InternalBLESS.g:34124:3: ( 'in' )
             {
              before(grammarAccess.getExistentialQuantificationAccess().getInInKeyword_2_0_0_0()); 
-            // InternalBLESS.g:34129:3: ( 'in' )
-            // InternalBLESS.g:34130:4: 'in'
+            // InternalBLESS.g:34125:3: ( 'in' )
+            // InternalBLESS.g:34126:4: 'in'
             {
              before(grammarAccess.getExistentialQuantificationAccess().getInInKeyword_2_0_0_0()); 
             match(input,61,FOLLOW_2); 
@@ -104367,17 +104363,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__RangeAssignment_2_0_1"
-    // InternalBLESS.g:34141:1: rule__ExistentialQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
+    // InternalBLESS.g:34137:1: rule__ExistentialQuantification__RangeAssignment_2_0_1 : ( ruleRange ) ;
     public final void rule__ExistentialQuantification__RangeAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34145:1: ( ( ruleRange ) )
-            // InternalBLESS.g:34146:2: ( ruleRange )
+            // InternalBLESS.g:34141:1: ( ( ruleRange ) )
+            // InternalBLESS.g:34142:2: ( ruleRange )
             {
-            // InternalBLESS.g:34146:2: ( ruleRange )
-            // InternalBLESS.g:34147:3: ruleRange
+            // InternalBLESS.g:34142:2: ( ruleRange )
+            // InternalBLESS.g:34143:3: ruleRange
             {
              before(grammarAccess.getExistentialQuantificationAccess().getRangeRangeParserRuleCall_2_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104408,21 +104404,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__WhichAssignment_2_1_0"
-    // InternalBLESS.g:34156:1: rule__ExistentialQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
+    // InternalBLESS.g:34152:1: rule__ExistentialQuantification__WhichAssignment_2_1_0 : ( ( 'which' ) ) ;
     public final void rule__ExistentialQuantification__WhichAssignment_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34160:1: ( ( ( 'which' ) ) )
-            // InternalBLESS.g:34161:2: ( ( 'which' ) )
+            // InternalBLESS.g:34156:1: ( ( ( 'which' ) ) )
+            // InternalBLESS.g:34157:2: ( ( 'which' ) )
             {
-            // InternalBLESS.g:34161:2: ( ( 'which' ) )
-            // InternalBLESS.g:34162:3: ( 'which' )
+            // InternalBLESS.g:34157:2: ( ( 'which' ) )
+            // InternalBLESS.g:34158:3: ( 'which' )
             {
              before(grammarAccess.getExistentialQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
-            // InternalBLESS.g:34163:3: ( 'which' )
-            // InternalBLESS.g:34164:4: 'which'
+            // InternalBLESS.g:34159:3: ( 'which' )
+            // InternalBLESS.g:34160:4: 'which'
             {
              before(grammarAccess.getExistentialQuantificationAccess().getWhichWhichKeyword_2_1_0_0()); 
             match(input,167,FOLLOW_2); 
@@ -104453,17 +104449,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__ConditionAssignment_2_1_1"
-    // InternalBLESS.g:34175:1: rule__ExistentialQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:34171:1: rule__ExistentialQuantification__ConditionAssignment_2_1_1 : ( rulePredicate ) ;
     public final void rule__ExistentialQuantification__ConditionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34179:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34180:2: ( rulePredicate )
+            // InternalBLESS.g:34175:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34176:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34180:2: ( rulePredicate )
-            // InternalBLESS.g:34181:3: rulePredicate
+            // InternalBLESS.g:34176:2: ( rulePredicate )
+            // InternalBLESS.g:34177:3: rulePredicate
             {
              before(grammarAccess.getExistentialQuantificationAccess().getConditionPredicateParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104494,17 +104490,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExistentialQuantification__PredicateAssignment_4"
-    // InternalBLESS.g:34190:1: rule__ExistentialQuantification__PredicateAssignment_4 : ( rulePredicate ) ;
+    // InternalBLESS.g:34186:1: rule__ExistentialQuantification__PredicateAssignment_4 : ( rulePredicate ) ;
     public final void rule__ExistentialQuantification__PredicateAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34194:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34195:2: ( rulePredicate )
+            // InternalBLESS.g:34190:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34191:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34195:2: ( rulePredicate )
-            // InternalBLESS.g:34196:3: rulePredicate
+            // InternalBLESS.g:34191:2: ( rulePredicate )
+            // InternalBLESS.g:34192:3: rulePredicate
             {
              before(grammarAccess.getExistentialQuantificationAccess().getPredicatePredicateParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -104535,21 +104531,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordTerm__Record_typeAssignment_1"
-    // InternalBLESS.g:34205:1: rule__RecordTerm__Record_typeAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:34201:1: rule__RecordTerm__Record_typeAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__RecordTerm__Record_typeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34209:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:34210:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34205:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:34206:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:34210:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:34211:3: ( RULE_ID )
+            // InternalBLESS.g:34206:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34207:3: ( RULE_ID )
             {
              before(grammarAccess.getRecordTermAccess().getRecord_typeTypeDeclarationCrossReference_1_0()); 
-            // InternalBLESS.g:34212:3: ( RULE_ID )
-            // InternalBLESS.g:34213:4: RULE_ID
+            // InternalBLESS.g:34208:3: ( RULE_ID )
+            // InternalBLESS.g:34209:4: RULE_ID
             {
              before(grammarAccess.getRecordTermAccess().getRecord_typeTypeDeclarationIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -104580,17 +104576,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordTerm__Record_valueAssignment_3"
-    // InternalBLESS.g:34224:1: rule__RecordTerm__Record_valueAssignment_3 : ( ruleRecordValue ) ;
+    // InternalBLESS.g:34220:1: rule__RecordTerm__Record_valueAssignment_3 : ( ruleRecordValue ) ;
     public final void rule__RecordTerm__Record_valueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34228:1: ( ( ruleRecordValue ) )
-            // InternalBLESS.g:34229:2: ( ruleRecordValue )
+            // InternalBLESS.g:34224:1: ( ( ruleRecordValue ) )
+            // InternalBLESS.g:34225:2: ( ruleRecordValue )
             {
-            // InternalBLESS.g:34229:2: ( ruleRecordValue )
-            // InternalBLESS.g:34230:3: ruleRecordValue
+            // InternalBLESS.g:34225:2: ( ruleRecordValue )
+            // InternalBLESS.g:34226:3: ruleRecordValue
             {
              before(grammarAccess.getRecordTermAccess().getRecord_valueRecordValueParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -104621,17 +104617,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordValue__LabelAssignment_0"
-    // InternalBLESS.g:34239:1: rule__RecordValue__LabelAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:34235:1: rule__RecordValue__LabelAssignment_0 : ( RULE_ID ) ;
     public final void rule__RecordValue__LabelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34243:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:34244:2: ( RULE_ID )
+            // InternalBLESS.g:34239:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:34240:2: ( RULE_ID )
             {
-            // InternalBLESS.g:34244:2: ( RULE_ID )
-            // InternalBLESS.g:34245:3: RULE_ID
+            // InternalBLESS.g:34240:2: ( RULE_ID )
+            // InternalBLESS.g:34241:3: RULE_ID
             {
              before(grammarAccess.getRecordValueAccess().getLabelIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -104658,17 +104654,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordValue__AvalAssignment_2"
-    // InternalBLESS.g:34254:1: rule__RecordValue__AvalAssignment_2 : ( ruleValue ) ;
+    // InternalBLESS.g:34250:1: rule__RecordValue__AvalAssignment_2 : ( ruleValue ) ;
     public final void rule__RecordValue__AvalAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34258:1: ( ( ruleValue ) )
-            // InternalBLESS.g:34259:2: ( ruleValue )
+            // InternalBLESS.g:34254:1: ( ( ruleValue ) )
+            // InternalBLESS.g:34255:2: ( ruleValue )
             {
-            // InternalBLESS.g:34259:2: ( ruleValue )
-            // InternalBLESS.g:34260:3: ruleValue
+            // InternalBLESS.g:34255:2: ( ruleValue )
+            // InternalBLESS.g:34256:3: ruleValue
             {
              before(grammarAccess.getRecordValueAccess().getAvalValueParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -104699,21 +104695,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Invocation__LabelAssignment_0"
-    // InternalBLESS.g:34269:1: rule__Invocation__LabelAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:34265:1: rule__Invocation__LabelAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Invocation__LabelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34273:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:34274:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34269:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:34270:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:34274:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:34275:3: ( RULE_ID )
+            // InternalBLESS.g:34270:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34271:3: ( RULE_ID )
             {
              before(grammarAccess.getInvocationAccess().getLabelNamedAssertionCrossReference_0_0()); 
-            // InternalBLESS.g:34276:3: ( RULE_ID )
-            // InternalBLESS.g:34277:4: RULE_ID
+            // InternalBLESS.g:34272:3: ( RULE_ID )
+            // InternalBLESS.g:34273:4: RULE_ID
             {
              before(grammarAccess.getInvocationAccess().getLabelNamedAssertionIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -104744,17 +104740,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Invocation__ParamsAssignment_2_0_0"
-    // InternalBLESS.g:34288:1: rule__Invocation__ParamsAssignment_2_0_0 : ( ruleActualParameter ) ;
+    // InternalBLESS.g:34284:1: rule__Invocation__ParamsAssignment_2_0_0 : ( ruleActualParameter ) ;
     public final void rule__Invocation__ParamsAssignment_2_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34292:1: ( ( ruleActualParameter ) )
-            // InternalBLESS.g:34293:2: ( ruleActualParameter )
+            // InternalBLESS.g:34288:1: ( ( ruleActualParameter ) )
+            // InternalBLESS.g:34289:2: ( ruleActualParameter )
             {
-            // InternalBLESS.g:34293:2: ( ruleActualParameter )
-            // InternalBLESS.g:34294:3: ruleActualParameter
+            // InternalBLESS.g:34289:2: ( ruleActualParameter )
+            // InternalBLESS.g:34290:3: ruleActualParameter
             {
              before(grammarAccess.getInvocationAccess().getParamsActualParameterParserRuleCall_2_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -104785,17 +104781,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Invocation__ParamsAssignment_2_0_1_1"
-    // InternalBLESS.g:34303:1: rule__Invocation__ParamsAssignment_2_0_1_1 : ( ruleActualParameter ) ;
+    // InternalBLESS.g:34299:1: rule__Invocation__ParamsAssignment_2_0_1_1 : ( ruleActualParameter ) ;
     public final void rule__Invocation__ParamsAssignment_2_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34307:1: ( ( ruleActualParameter ) )
-            // InternalBLESS.g:34308:2: ( ruleActualParameter )
+            // InternalBLESS.g:34303:1: ( ( ruleActualParameter ) )
+            // InternalBLESS.g:34304:2: ( ruleActualParameter )
             {
-            // InternalBLESS.g:34308:2: ( ruleActualParameter )
-            // InternalBLESS.g:34309:3: ruleActualParameter
+            // InternalBLESS.g:34304:2: ( ruleActualParameter )
+            // InternalBLESS.g:34305:3: ruleActualParameter
             {
              before(grammarAccess.getInvocationAccess().getParamsActualParameterParserRuleCall_2_0_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104826,17 +104822,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Invocation__Actual_parameterAssignment_2_1"
-    // InternalBLESS.g:34318:1: rule__Invocation__Actual_parameterAssignment_2_1 : ( ruleNumericExpression ) ;
+    // InternalBLESS.g:34314:1: rule__Invocation__Actual_parameterAssignment_2_1 : ( ruleNumericExpression ) ;
     public final void rule__Invocation__Actual_parameterAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34322:1: ( ( ruleNumericExpression ) )
-            // InternalBLESS.g:34323:2: ( ruleNumericExpression )
+            // InternalBLESS.g:34318:1: ( ( ruleNumericExpression ) )
+            // InternalBLESS.g:34319:2: ( ruleNumericExpression )
             {
-            // InternalBLESS.g:34323:2: ( ruleNumericExpression )
-            // InternalBLESS.g:34324:3: ruleNumericExpression
+            // InternalBLESS.g:34319:2: ( ruleNumericExpression )
+            // InternalBLESS.g:34320:3: ruleNumericExpression
             {
              before(grammarAccess.getInvocationAccess().getActual_parameterNumericExpressionParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -104867,17 +104863,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ActualParameter__FormalAssignment_0"
-    // InternalBLESS.g:34333:1: rule__ActualParameter__FormalAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:34329:1: rule__ActualParameter__FormalAssignment_0 : ( RULE_ID ) ;
     public final void rule__ActualParameter__FormalAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34337:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:34338:2: ( RULE_ID )
+            // InternalBLESS.g:34333:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:34334:2: ( RULE_ID )
             {
-            // InternalBLESS.g:34338:2: ( RULE_ID )
-            // InternalBLESS.g:34339:3: RULE_ID
+            // InternalBLESS.g:34334:2: ( RULE_ID )
+            // InternalBLESS.g:34335:3: RULE_ID
             {
              before(grammarAccess.getActualParameterAccess().getFormalIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -104904,17 +104900,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ActualParameter__ActualAssignment_2"
-    // InternalBLESS.g:34348:1: rule__ActualParameter__ActualAssignment_2 : ( ruleExpression ) ;
+    // InternalBLESS.g:34344:1: rule__ActualParameter__ActualAssignment_2 : ( ruleExpression ) ;
     public final void rule__ActualParameter__ActualAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34352:1: ( ( ruleExpression ) )
-            // InternalBLESS.g:34353:2: ( ruleExpression )
+            // InternalBLESS.g:34348:1: ( ( ruleExpression ) )
+            // InternalBLESS.g:34349:2: ( ruleExpression )
             {
-            // InternalBLESS.g:34353:2: ( ruleExpression )
-            // InternalBLESS.g:34354:3: ruleExpression
+            // InternalBLESS.g:34349:2: ( ruleExpression )
+            // InternalBLESS.g:34350:3: ruleExpression
             {
              before(grammarAccess.getActualParameterAccess().getActualExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -104945,17 +104941,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableList__FirstAssignment_0"
-    // InternalBLESS.g:34363:1: rule__VariableList__FirstAssignment_0 : ( ruleVariable ) ;
+    // InternalBLESS.g:34359:1: rule__VariableList__FirstAssignment_0 : ( ruleVariable ) ;
     public final void rule__VariableList__FirstAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34367:1: ( ( ruleVariable ) )
-            // InternalBLESS.g:34368:2: ( ruleVariable )
+            // InternalBLESS.g:34363:1: ( ( ruleVariable ) )
+            // InternalBLESS.g:34364:2: ( ruleVariable )
             {
-            // InternalBLESS.g:34368:2: ( ruleVariable )
-            // InternalBLESS.g:34369:3: ruleVariable
+            // InternalBLESS.g:34364:2: ( ruleVariable )
+            // InternalBLESS.g:34365:3: ruleVariable
             {
              before(grammarAccess.getVariableListAccess().getFirstVariableParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -104986,21 +104982,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableList__CommaAssignment_1_0"
-    // InternalBLESS.g:34378:1: rule__VariableList__CommaAssignment_1_0 : ( ( ',' ) ) ;
+    // InternalBLESS.g:34374:1: rule__VariableList__CommaAssignment_1_0 : ( ( ',' ) ) ;
     public final void rule__VariableList__CommaAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34382:1: ( ( ( ',' ) ) )
-            // InternalBLESS.g:34383:2: ( ( ',' ) )
+            // InternalBLESS.g:34378:1: ( ( ( ',' ) ) )
+            // InternalBLESS.g:34379:2: ( ( ',' ) )
             {
-            // InternalBLESS.g:34383:2: ( ( ',' ) )
-            // InternalBLESS.g:34384:3: ( ',' )
+            // InternalBLESS.g:34379:2: ( ( ',' ) )
+            // InternalBLESS.g:34380:3: ( ',' )
             {
              before(grammarAccess.getVariableListAccess().getCommaCommaKeyword_1_0_0()); 
-            // InternalBLESS.g:34385:3: ( ',' )
-            // InternalBLESS.g:34386:4: ','
+            // InternalBLESS.g:34381:3: ( ',' )
+            // InternalBLESS.g:34382:4: ','
             {
              before(grammarAccess.getVariableListAccess().getCommaCommaKeyword_1_0_0()); 
             match(input,45,FOLLOW_2); 
@@ -105031,17 +105027,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableList__ParameterAssignment_1_1"
-    // InternalBLESS.g:34397:1: rule__VariableList__ParameterAssignment_1_1 : ( ruleVariable ) ;
+    // InternalBLESS.g:34393:1: rule__VariableList__ParameterAssignment_1_1 : ( ruleVariable ) ;
     public final void rule__VariableList__ParameterAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34401:1: ( ( ruleVariable ) )
-            // InternalBLESS.g:34402:2: ( ruleVariable )
+            // InternalBLESS.g:34397:1: ( ( ruleVariable ) )
+            // InternalBLESS.g:34398:2: ( ruleVariable )
             {
-            // InternalBLESS.g:34402:2: ( ruleVariable )
-            // InternalBLESS.g:34403:3: ruleVariable
+            // InternalBLESS.g:34398:2: ( ruleVariable )
+            // InternalBLESS.g:34399:3: ruleVariable
             {
              before(grammarAccess.getVariableListAccess().getParameterVariableParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105072,17 +105068,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__VariableList__ParameterAssignment_1_2_1"
-    // InternalBLESS.g:34412:1: rule__VariableList__ParameterAssignment_1_2_1 : ( ruleVariable ) ;
+    // InternalBLESS.g:34408:1: rule__VariableList__ParameterAssignment_1_2_1 : ( ruleVariable ) ;
     public final void rule__VariableList__ParameterAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34416:1: ( ( ruleVariable ) )
-            // InternalBLESS.g:34417:2: ( ruleVariable )
+            // InternalBLESS.g:34412:1: ( ( ruleVariable ) )
+            // InternalBLESS.g:34413:2: ( ruleVariable )
             {
-            // InternalBLESS.g:34417:2: ( ruleVariable )
-            // InternalBLESS.g:34418:3: ruleVariable
+            // InternalBLESS.g:34413:2: ( ruleVariable )
+            // InternalBLESS.g:34414:3: ruleVariable
             {
              before(grammarAccess.getVariableListAccess().getParameterVariableParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105113,17 +105109,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssertionFunctionValue__CexpAssignment_0"
-    // InternalBLESS.g:34427:1: rule__AssertionFunctionValue__CexpAssignment_0 : ( ruleConditionalAssertionFunction ) ;
+    // InternalBLESS.g:34423:1: rule__AssertionFunctionValue__CexpAssignment_0 : ( ruleConditionalAssertionFunction ) ;
     public final void rule__AssertionFunctionValue__CexpAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34431:1: ( ( ruleConditionalAssertionFunction ) )
-            // InternalBLESS.g:34432:2: ( ruleConditionalAssertionFunction )
+            // InternalBLESS.g:34427:1: ( ( ruleConditionalAssertionFunction ) )
+            // InternalBLESS.g:34428:2: ( ruleConditionalAssertionFunction )
             {
-            // InternalBLESS.g:34432:2: ( ruleConditionalAssertionFunction )
-            // InternalBLESS.g:34433:3: ruleConditionalAssertionFunction
+            // InternalBLESS.g:34428:2: ( ruleConditionalAssertionFunction )
+            // InternalBLESS.g:34429:3: ruleConditionalAssertionFunction
             {
              before(grammarAccess.getAssertionFunctionValueAccess().getCexpConditionalAssertionFunctionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -105154,17 +105150,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssertionFunctionValue__PexpAssignment_1"
-    // InternalBLESS.g:34442:1: rule__AssertionFunctionValue__PexpAssignment_1 : ( ruleAssertionNumericExpression ) ;
+    // InternalBLESS.g:34438:1: rule__AssertionFunctionValue__PexpAssignment_1 : ( ruleAssertionNumericExpression ) ;
     public final void rule__AssertionFunctionValue__PexpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34446:1: ( ( ruleAssertionNumericExpression ) )
-            // InternalBLESS.g:34447:2: ( ruleAssertionNumericExpression )
+            // InternalBLESS.g:34442:1: ( ( ruleAssertionNumericExpression ) )
+            // InternalBLESS.g:34443:2: ( ruleAssertionNumericExpression )
             {
-            // InternalBLESS.g:34447:2: ( ruleAssertionNumericExpression )
-            // InternalBLESS.g:34448:3: ruleAssertionNumericExpression
+            // InternalBLESS.g:34443:2: ( ruleAssertionNumericExpression )
+            // InternalBLESS.g:34444:3: ruleAssertionNumericExpression
             {
              before(grammarAccess.getAssertionFunctionValueAccess().getPexpAssertionNumericExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105195,17 +105191,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConditionalAssertionFunction__CvpAssignment_1"
-    // InternalBLESS.g:34457:1: rule__ConditionalAssertionFunction__CvpAssignment_1 : ( ruleConditionValuePair ) ;
+    // InternalBLESS.g:34453:1: rule__ConditionalAssertionFunction__CvpAssignment_1 : ( ruleConditionValuePair ) ;
     public final void rule__ConditionalAssertionFunction__CvpAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34461:1: ( ( ruleConditionValuePair ) )
-            // InternalBLESS.g:34462:2: ( ruleConditionValuePair )
+            // InternalBLESS.g:34457:1: ( ( ruleConditionValuePair ) )
+            // InternalBLESS.g:34458:2: ( ruleConditionValuePair )
             {
-            // InternalBLESS.g:34462:2: ( ruleConditionValuePair )
-            // InternalBLESS.g:34463:3: ruleConditionValuePair
+            // InternalBLESS.g:34458:2: ( ruleConditionValuePair )
+            // InternalBLESS.g:34459:3: ruleConditionValuePair
             {
              before(grammarAccess.getConditionalAssertionFunctionAccess().getCvpConditionValuePairParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105236,17 +105232,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConditionalAssertionFunction__CvpAssignment_2_1"
-    // InternalBLESS.g:34472:1: rule__ConditionalAssertionFunction__CvpAssignment_2_1 : ( ruleConditionValuePair ) ;
+    // InternalBLESS.g:34468:1: rule__ConditionalAssertionFunction__CvpAssignment_2_1 : ( ruleConditionValuePair ) ;
     public final void rule__ConditionalAssertionFunction__CvpAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34476:1: ( ( ruleConditionValuePair ) )
-            // InternalBLESS.g:34477:2: ( ruleConditionValuePair )
+            // InternalBLESS.g:34472:1: ( ( ruleConditionValuePair ) )
+            // InternalBLESS.g:34473:2: ( ruleConditionValuePair )
             {
-            // InternalBLESS.g:34477:2: ( ruleConditionValuePair )
-            // InternalBLESS.g:34478:3: ruleConditionValuePair
+            // InternalBLESS.g:34473:2: ( ruleConditionValuePair )
+            // InternalBLESS.g:34474:3: ruleConditionValuePair
             {
              before(grammarAccess.getConditionalAssertionFunctionAccess().getCvpConditionValuePairParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105277,17 +105273,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConditionValuePair__ConditionAssignment_1"
-    // InternalBLESS.g:34487:1: rule__ConditionValuePair__ConditionAssignment_1 : ( rulePredicate ) ;
+    // InternalBLESS.g:34483:1: rule__ConditionValuePair__ConditionAssignment_1 : ( rulePredicate ) ;
     public final void rule__ConditionValuePair__ConditionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34491:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34492:2: ( rulePredicate )
+            // InternalBLESS.g:34487:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34488:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34492:2: ( rulePredicate )
-            // InternalBLESS.g:34493:3: rulePredicate
+            // InternalBLESS.g:34488:2: ( rulePredicate )
+            // InternalBLESS.g:34489:3: rulePredicate
             {
              before(grammarAccess.getConditionValuePairAccess().getConditionPredicateParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105318,17 +105314,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ConditionValuePair__ExpressionAssignment_3"
-    // InternalBLESS.g:34502:1: rule__ConditionValuePair__ExpressionAssignment_3 : ( ruleAssertionNumericExpression ) ;
+    // InternalBLESS.g:34498:1: rule__ConditionValuePair__ExpressionAssignment_3 : ( ruleAssertionNumericExpression ) ;
     public final void rule__ConditionValuePair__ExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34506:1: ( ( ruleAssertionNumericExpression ) )
-            // InternalBLESS.g:34507:2: ( ruleAssertionNumericExpression )
+            // InternalBLESS.g:34502:1: ( ( ruleAssertionNumericExpression ) )
+            // InternalBLESS.g:34503:2: ( ruleAssertionNumericExpression )
             {
-            // InternalBLESS.g:34507:2: ( ruleAssertionNumericExpression )
-            // InternalBLESS.g:34508:3: ruleAssertionNumericExpression
+            // InternalBLESS.g:34503:2: ( ruleAssertionNumericExpression )
+            // InternalBLESS.g:34504:3: ruleAssertionNumericExpression
             {
              before(grammarAccess.getConditionValuePairAccess().getExpressionAssertionNumericExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -105359,17 +105355,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssertionEnumeration__PredAssignment_0"
-    // InternalBLESS.g:34517:1: rule__AssertionEnumeration__PredAssignment_0 : ( ruleInvocation ) ;
+    // InternalBLESS.g:34513:1: rule__AssertionEnumeration__PredAssignment_0 : ( ruleInvocation ) ;
     public final void rule__AssertionEnumeration__PredAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34521:1: ( ( ruleInvocation ) )
-            // InternalBLESS.g:34522:2: ( ruleInvocation )
+            // InternalBLESS.g:34517:1: ( ( ruleInvocation ) )
+            // InternalBLESS.g:34518:2: ( ruleInvocation )
             {
-            // InternalBLESS.g:34522:2: ( ruleInvocation )
-            // InternalBLESS.g:34523:3: ruleInvocation
+            // InternalBLESS.g:34518:2: ( ruleInvocation )
+            // InternalBLESS.g:34519:3: ruleInvocation
             {
              before(grammarAccess.getAssertionEnumerationAccess().getPredInvocationParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -105400,17 +105396,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssertionEnumeration__PairAssignment_1_0"
-    // InternalBLESS.g:34532:1: rule__AssertionEnumeration__PairAssignment_1_0 : ( ruleEnumerationPair ) ;
+    // InternalBLESS.g:34528:1: rule__AssertionEnumeration__PairAssignment_1_0 : ( ruleEnumerationPair ) ;
     public final void rule__AssertionEnumeration__PairAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34536:1: ( ( ruleEnumerationPair ) )
-            // InternalBLESS.g:34537:2: ( ruleEnumerationPair )
+            // InternalBLESS.g:34532:1: ( ( ruleEnumerationPair ) )
+            // InternalBLESS.g:34533:2: ( ruleEnumerationPair )
             {
-            // InternalBLESS.g:34537:2: ( ruleEnumerationPair )
-            // InternalBLESS.g:34538:3: ruleEnumerationPair
+            // InternalBLESS.g:34533:2: ( ruleEnumerationPair )
+            // InternalBLESS.g:34534:3: ruleEnumerationPair
             {
              before(grammarAccess.getAssertionEnumerationAccess().getPairEnumerationPairParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -105441,17 +105437,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__AssertionEnumeration__PairAssignment_1_1_1"
-    // InternalBLESS.g:34547:1: rule__AssertionEnumeration__PairAssignment_1_1_1 : ( ruleEnumerationPair ) ;
+    // InternalBLESS.g:34543:1: rule__AssertionEnumeration__PairAssignment_1_1_1 : ( ruleEnumerationPair ) ;
     public final void rule__AssertionEnumeration__PairAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34551:1: ( ( ruleEnumerationPair ) )
-            // InternalBLESS.g:34552:2: ( ruleEnumerationPair )
+            // InternalBLESS.g:34547:1: ( ( ruleEnumerationPair ) )
+            // InternalBLESS.g:34548:2: ( ruleEnumerationPair )
             {
-            // InternalBLESS.g:34552:2: ( ruleEnumerationPair )
-            // InternalBLESS.g:34553:3: ruleEnumerationPair
+            // InternalBLESS.g:34548:2: ( ruleEnumerationPair )
+            // InternalBLESS.g:34549:3: ruleEnumerationPair
             {
              before(grammarAccess.getAssertionEnumerationAccess().getPairEnumerationPairParserRuleCall_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -105482,17 +105478,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumerationPair__Enumeration_literalAssignment_0"
-    // InternalBLESS.g:34562:1: rule__EnumerationPair__Enumeration_literalAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:34558:1: rule__EnumerationPair__Enumeration_literalAssignment_0 : ( RULE_ID ) ;
     public final void rule__EnumerationPair__Enumeration_literalAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34566:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:34567:2: ( RULE_ID )
+            // InternalBLESS.g:34562:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:34563:2: ( RULE_ID )
             {
-            // InternalBLESS.g:34567:2: ( RULE_ID )
-            // InternalBLESS.g:34568:3: RULE_ID
+            // InternalBLESS.g:34563:2: ( RULE_ID )
+            // InternalBLESS.g:34564:3: RULE_ID
             {
              before(grammarAccess.getEnumerationPairAccess().getEnumeration_literalIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -105519,17 +105515,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumerationPair__PredicateAssignment_2"
-    // InternalBLESS.g:34577:1: rule__EnumerationPair__PredicateAssignment_2 : ( rulePredicate ) ;
+    // InternalBLESS.g:34573:1: rule__EnumerationPair__PredicateAssignment_2 : ( rulePredicate ) ;
     public final void rule__EnumerationPair__PredicateAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34581:1: ( ( rulePredicate ) )
-            // InternalBLESS.g:34582:2: ( rulePredicate )
+            // InternalBLESS.g:34577:1: ( ( rulePredicate ) )
+            // InternalBLESS.g:34578:2: ( rulePredicate )
             {
-            // InternalBLESS.g:34582:2: ( rulePredicate )
-            // InternalBLESS.g:34583:3: rulePredicate
+            // InternalBLESS.g:34578:2: ( rulePredicate )
+            // InternalBLESS.g:34579:3: rulePredicate
             {
              before(grammarAccess.getEnumerationPairAccess().getPredicatePredicateParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -105560,17 +105556,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeLibrary__DecsAssignment"
-    // InternalBLESS.g:34592:1: rule__TypeLibrary__DecsAssignment : ( ruleTypeDeclaration ) ;
+    // InternalBLESS.g:34588:1: rule__TypeLibrary__DecsAssignment : ( ruleTypeDeclaration ) ;
     public final void rule__TypeLibrary__DecsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34596:1: ( ( ruleTypeDeclaration ) )
-            // InternalBLESS.g:34597:2: ( ruleTypeDeclaration )
+            // InternalBLESS.g:34592:1: ( ( ruleTypeDeclaration ) )
+            // InternalBLESS.g:34593:2: ( ruleTypeDeclaration )
             {
-            // InternalBLESS.g:34597:2: ( ruleTypeDeclaration )
-            // InternalBLESS.g:34598:3: ruleTypeDeclaration
+            // InternalBLESS.g:34593:2: ( ruleTypeDeclaration )
+            // InternalBLESS.g:34594:3: ruleTypeDeclaration
             {
              before(grammarAccess.getTypeLibraryAccess().getDecsTypeDeclarationParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -105601,17 +105597,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeDeclaration__NameAssignment_1"
-    // InternalBLESS.g:34607:1: rule__TypeDeclaration__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalBLESS.g:34603:1: rule__TypeDeclaration__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__TypeDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34611:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:34612:2: ( RULE_ID )
+            // InternalBLESS.g:34607:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:34608:2: ( RULE_ID )
             {
-            // InternalBLESS.g:34612:2: ( RULE_ID )
-            // InternalBLESS.g:34613:3: RULE_ID
+            // InternalBLESS.g:34608:2: ( RULE_ID )
+            // InternalBLESS.g:34609:3: RULE_ID
             {
              before(grammarAccess.getTypeDeclarationAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -105638,17 +105634,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeDeclaration__TypeAssignment_3"
-    // InternalBLESS.g:34622:1: rule__TypeDeclaration__TypeAssignment_3 : ( ruleType ) ;
+    // InternalBLESS.g:34618:1: rule__TypeDeclaration__TypeAssignment_3 : ( ruleType ) ;
     public final void rule__TypeDeclaration__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34626:1: ( ( ruleType ) )
-            // InternalBLESS.g:34627:2: ( ruleType )
+            // InternalBLESS.g:34622:1: ( ( ruleType ) )
+            // InternalBLESS.g:34623:2: ( ruleType )
             {
-            // InternalBLESS.g:34627:2: ( ruleType )
-            // InternalBLESS.g:34628:3: ruleType
+            // InternalBLESS.g:34623:2: ( ruleType )
+            // InternalBLESS.g:34624:3: ruleType
             {
              before(grammarAccess.getTypeDeclarationAccess().getTypeTypeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -105679,17 +105675,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeOrReference__TyAssignment_0"
-    // InternalBLESS.g:34637:1: rule__TypeOrReference__TyAssignment_0 : ( ruleType ) ;
+    // InternalBLESS.g:34633:1: rule__TypeOrReference__TyAssignment_0 : ( ruleType ) ;
     public final void rule__TypeOrReference__TyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34641:1: ( ( ruleType ) )
-            // InternalBLESS.g:34642:2: ( ruleType )
+            // InternalBLESS.g:34637:1: ( ( ruleType ) )
+            // InternalBLESS.g:34638:2: ( ruleType )
             {
-            // InternalBLESS.g:34642:2: ( ruleType )
-            // InternalBLESS.g:34643:3: ruleType
+            // InternalBLESS.g:34638:2: ( ruleType )
+            // InternalBLESS.g:34639:3: ruleType
             {
              before(grammarAccess.getTypeOrReferenceAccess().getTyTypeParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -105720,21 +105716,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TypeOrReference__RefAssignment_1"
-    // InternalBLESS.g:34652:1: rule__TypeOrReference__RefAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:34648:1: rule__TypeOrReference__RefAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__TypeOrReference__RefAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34656:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:34657:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34652:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:34653:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:34657:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:34658:3: ( RULE_ID )
+            // InternalBLESS.g:34653:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34654:3: ( RULE_ID )
             {
              before(grammarAccess.getTypeOrReferenceAccess().getRefTypeDeclarationCrossReference_1_0()); 
-            // InternalBLESS.g:34659:3: ( RULE_ID )
-            // InternalBLESS.g:34660:4: RULE_ID
+            // InternalBLESS.g:34655:3: ( RULE_ID )
+            // InternalBLESS.g:34656:4: RULE_ID
             {
              before(grammarAccess.getTypeOrReferenceAccess().getRefTypeDeclarationIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -105765,21 +105761,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanType__BAssignment"
-    // InternalBLESS.g:34671:1: rule__BooleanType__BAssignment : ( ( 'boolean' ) ) ;
+    // InternalBLESS.g:34667:1: rule__BooleanType__BAssignment : ( ( 'boolean' ) ) ;
     public final void rule__BooleanType__BAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34675:1: ( ( ( 'boolean' ) ) )
-            // InternalBLESS.g:34676:2: ( ( 'boolean' ) )
+            // InternalBLESS.g:34671:1: ( ( ( 'boolean' ) ) )
+            // InternalBLESS.g:34672:2: ( ( 'boolean' ) )
             {
-            // InternalBLESS.g:34676:2: ( ( 'boolean' ) )
-            // InternalBLESS.g:34677:3: ( 'boolean' )
+            // InternalBLESS.g:34672:2: ( ( 'boolean' ) )
+            // InternalBLESS.g:34673:3: ( 'boolean' )
             {
              before(grammarAccess.getBooleanTypeAccess().getBBooleanKeyword_0()); 
-            // InternalBLESS.g:34678:3: ( 'boolean' )
-            // InternalBLESS.g:34679:4: 'boolean'
+            // InternalBLESS.g:34674:3: ( 'boolean' )
+            // InternalBLESS.g:34675:4: 'boolean'
             {
              before(grammarAccess.getBooleanTypeAccess().getBBooleanKeyword_0()); 
             match(input,168,FOLLOW_2); 
@@ -105810,21 +105806,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StringType__SAssignment"
-    // InternalBLESS.g:34690:1: rule__StringType__SAssignment : ( ( 'string' ) ) ;
+    // InternalBLESS.g:34686:1: rule__StringType__SAssignment : ( ( 'string' ) ) ;
     public final void rule__StringType__SAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34694:1: ( ( ( 'string' ) ) )
-            // InternalBLESS.g:34695:2: ( ( 'string' ) )
+            // InternalBLESS.g:34690:1: ( ( ( 'string' ) ) )
+            // InternalBLESS.g:34691:2: ( ( 'string' ) )
             {
-            // InternalBLESS.g:34695:2: ( ( 'string' ) )
-            // InternalBLESS.g:34696:3: ( 'string' )
+            // InternalBLESS.g:34691:2: ( ( 'string' ) )
+            // InternalBLESS.g:34692:3: ( 'string' )
             {
              before(grammarAccess.getStringTypeAccess().getSStringKeyword_0()); 
-            // InternalBLESS.g:34697:3: ( 'string' )
-            // InternalBLESS.g:34698:4: 'string'
+            // InternalBLESS.g:34693:3: ( 'string' )
+            // InternalBLESS.g:34694:4: 'string'
             {
              before(grammarAccess.getStringTypeAccess().getSStringKeyword_0()); 
             match(input,169,FOLLOW_2); 
@@ -105855,21 +105851,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NullType__NAssignment"
-    // InternalBLESS.g:34709:1: rule__NullType__NAssignment : ( ( 'null' ) ) ;
+    // InternalBLESS.g:34705:1: rule__NullType__NAssignment : ( ( 'null' ) ) ;
     public final void rule__NullType__NAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34713:1: ( ( ( 'null' ) ) )
-            // InternalBLESS.g:34714:2: ( ( 'null' ) )
+            // InternalBLESS.g:34709:1: ( ( ( 'null' ) ) )
+            // InternalBLESS.g:34710:2: ( ( 'null' ) )
             {
-            // InternalBLESS.g:34714:2: ( ( 'null' ) )
-            // InternalBLESS.g:34715:3: ( 'null' )
+            // InternalBLESS.g:34710:2: ( ( 'null' ) )
+            // InternalBLESS.g:34711:3: ( 'null' )
             {
              before(grammarAccess.getNullTypeAccess().getNNullKeyword_0()); 
-            // InternalBLESS.g:34716:3: ( 'null' )
-            // InternalBLESS.g:34717:4: 'null'
+            // InternalBLESS.g:34712:3: ( 'null' )
+            // InternalBLESS.g:34713:4: 'null'
             {
              before(grammarAccess.getNullTypeAccess().getNNullKeyword_0()); 
             match(input,163,FOLLOW_2); 
@@ -105900,17 +105896,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EnumerationType__Defining_enumeration_literalAssignment_2"
-    // InternalBLESS.g:34728:1: rule__EnumerationType__Defining_enumeration_literalAssignment_2 : ( RULE_ID ) ;
+    // InternalBLESS.g:34724:1: rule__EnumerationType__Defining_enumeration_literalAssignment_2 : ( RULE_ID ) ;
     public final void rule__EnumerationType__Defining_enumeration_literalAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34732:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:34733:2: ( RULE_ID )
+            // InternalBLESS.g:34728:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:34729:2: ( RULE_ID )
             {
-            // InternalBLESS.g:34733:2: ( RULE_ID )
-            // InternalBLESS.g:34734:3: RULE_ID
+            // InternalBLESS.g:34729:2: ( RULE_ID )
+            // InternalBLESS.g:34730:3: RULE_ID
             {
              before(grammarAccess.getEnumerationTypeAccess().getDefining_enumeration_literalIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -105937,21 +105933,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__UnitAssignment_1_0"
-    // InternalBLESS.g:34743:1: rule__QuantityType__UnitAssignment_1_0 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:34739:1: rule__QuantityType__UnitAssignment_1_0 : ( ( RULE_ID ) ) ;
     public final void rule__QuantityType__UnitAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34747:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:34748:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34743:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:34744:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:34748:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:34749:3: ( RULE_ID )
+            // InternalBLESS.g:34744:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:34745:3: ( RULE_ID )
             {
              before(grammarAccess.getQuantityTypeAccess().getUnitUnitNameCrossReference_1_0_0()); 
-            // InternalBLESS.g:34750:3: ( RULE_ID )
-            // InternalBLESS.g:34751:4: RULE_ID
+            // InternalBLESS.g:34746:3: ( RULE_ID )
+            // InternalBLESS.g:34747:4: RULE_ID
             {
              before(grammarAccess.getQuantityTypeAccess().getUnitUnitNameIDTerminalRuleCall_1_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -105982,21 +105978,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__ScalarAssignment_1_1"
-    // InternalBLESS.g:34762:1: rule__QuantityType__ScalarAssignment_1_1 : ( ( 'scalar' ) ) ;
+    // InternalBLESS.g:34758:1: rule__QuantityType__ScalarAssignment_1_1 : ( ( 'scalar' ) ) ;
     public final void rule__QuantityType__ScalarAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34766:1: ( ( ( 'scalar' ) ) )
-            // InternalBLESS.g:34767:2: ( ( 'scalar' ) )
+            // InternalBLESS.g:34762:1: ( ( ( 'scalar' ) ) )
+            // InternalBLESS.g:34763:2: ( ( 'scalar' ) )
             {
-            // InternalBLESS.g:34767:2: ( ( 'scalar' ) )
-            // InternalBLESS.g:34768:3: ( 'scalar' )
+            // InternalBLESS.g:34763:2: ( ( 'scalar' ) )
+            // InternalBLESS.g:34764:3: ( 'scalar' )
             {
              before(grammarAccess.getQuantityTypeAccess().getScalarScalarKeyword_1_1_0()); 
-            // InternalBLESS.g:34769:3: ( 'scalar' )
-            // InternalBLESS.g:34770:4: 'scalar'
+            // InternalBLESS.g:34765:3: ( 'scalar' )
+            // InternalBLESS.g:34766:4: 'scalar'
             {
              before(grammarAccess.getQuantityTypeAccess().getScalarScalarKeyword_1_1_0()); 
             match(input,147,FOLLOW_2); 
@@ -106027,21 +106023,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__WholeAssignment_1_2"
-    // InternalBLESS.g:34781:1: rule__QuantityType__WholeAssignment_1_2 : ( ( 'whole' ) ) ;
+    // InternalBLESS.g:34777:1: rule__QuantityType__WholeAssignment_1_2 : ( ( 'whole' ) ) ;
     public final void rule__QuantityType__WholeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34785:1: ( ( ( 'whole' ) ) )
-            // InternalBLESS.g:34786:2: ( ( 'whole' ) )
+            // InternalBLESS.g:34781:1: ( ( ( 'whole' ) ) )
+            // InternalBLESS.g:34782:2: ( ( 'whole' ) )
             {
-            // InternalBLESS.g:34786:2: ( ( 'whole' ) )
-            // InternalBLESS.g:34787:3: ( 'whole' )
+            // InternalBLESS.g:34782:2: ( ( 'whole' ) )
+            // InternalBLESS.g:34783:3: ( 'whole' )
             {
              before(grammarAccess.getQuantityTypeAccess().getWholeWholeKeyword_1_2_0()); 
-            // InternalBLESS.g:34788:3: ( 'whole' )
-            // InternalBLESS.g:34789:4: 'whole'
+            // InternalBLESS.g:34784:3: ( 'whole' )
+            // InternalBLESS.g:34785:4: 'whole'
             {
              before(grammarAccess.getQuantityTypeAccess().getWholeWholeKeyword_1_2_0()); 
             match(input,148,FOLLOW_2); 
@@ -106072,17 +106068,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__LbAssignment_2_1"
-    // InternalBLESS.g:34800:1: rule__QuantityType__LbAssignment_2_1 : ( ruleANumber ) ;
+    // InternalBLESS.g:34796:1: rule__QuantityType__LbAssignment_2_1 : ( ruleANumber ) ;
     public final void rule__QuantityType__LbAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34804:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:34805:2: ( ruleANumber )
+            // InternalBLESS.g:34800:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:34801:2: ( ruleANumber )
             {
-            // InternalBLESS.g:34805:2: ( ruleANumber )
-            // InternalBLESS.g:34806:3: ruleANumber
+            // InternalBLESS.g:34801:2: ( ruleANumber )
+            // InternalBLESS.g:34802:3: ruleANumber
             {
              before(grammarAccess.getQuantityTypeAccess().getLbANumberParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106113,17 +106109,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__UbAssignment_2_3"
-    // InternalBLESS.g:34815:1: rule__QuantityType__UbAssignment_2_3 : ( ruleANumber ) ;
+    // InternalBLESS.g:34811:1: rule__QuantityType__UbAssignment_2_3 : ( ruleANumber ) ;
     public final void rule__QuantityType__UbAssignment_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34819:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:34820:2: ( ruleANumber )
+            // InternalBLESS.g:34815:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:34816:2: ( ruleANumber )
             {
-            // InternalBLESS.g:34820:2: ( ruleANumber )
-            // InternalBLESS.g:34821:3: ruleANumber
+            // InternalBLESS.g:34816:2: ( ruleANumber )
+            // InternalBLESS.g:34817:3: ruleANumber
             {
              before(grammarAccess.getQuantityTypeAccess().getUbANumberParserRuleCall_2_3_0()); 
             pushFollow(FOLLOW_2);
@@ -106154,17 +106150,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__StepAssignment_3_1"
-    // InternalBLESS.g:34830:1: rule__QuantityType__StepAssignment_3_1 : ( ruleANumber ) ;
+    // InternalBLESS.g:34826:1: rule__QuantityType__StepAssignment_3_1 : ( ruleANumber ) ;
     public final void rule__QuantityType__StepAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34834:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:34835:2: ( ruleANumber )
+            // InternalBLESS.g:34830:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:34831:2: ( ruleANumber )
             {
-            // InternalBLESS.g:34835:2: ( ruleANumber )
-            // InternalBLESS.g:34836:3: ruleANumber
+            // InternalBLESS.g:34831:2: ( ruleANumber )
+            // InternalBLESS.g:34832:3: ruleANumber
             {
              before(grammarAccess.getQuantityTypeAccess().getStepANumberParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106195,21 +106191,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantityType__RepresentationAssignment_4_1"
-    // InternalBLESS.g:34845:1: rule__QuantityType__RepresentationAssignment_4_1 : ( ( ruleQCLREF ) ) ;
+    // InternalBLESS.g:34841:1: rule__QuantityType__RepresentationAssignment_4_1 : ( ( ruleQCLREF ) ) ;
     public final void rule__QuantityType__RepresentationAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34849:1: ( ( ( ruleQCLREF ) ) )
-            // InternalBLESS.g:34850:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:34845:1: ( ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:34846:2: ( ( ruleQCLREF ) )
             {
-            // InternalBLESS.g:34850:2: ( ( ruleQCLREF ) )
-            // InternalBLESS.g:34851:3: ( ruleQCLREF )
+            // InternalBLESS.g:34846:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:34847:3: ( ruleQCLREF )
             {
              before(grammarAccess.getQuantityTypeAccess().getRepresentationPropertyConstantCrossReference_4_1_0()); 
-            // InternalBLESS.g:34852:3: ( ruleQCLREF )
-            // InternalBLESS.g:34853:4: ruleQCLREF
+            // InternalBLESS.g:34848:3: ( ruleQCLREF )
+            // InternalBLESS.g:34849:4: ruleQCLREF
             {
              before(grammarAccess.getQuantityTypeAccess().getRepresentationPropertyConstantQCLREFParserRuleCall_4_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -106244,17 +106240,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ANumber__LitAssignment_0"
-    // InternalBLESS.g:34864:1: rule__ANumber__LitAssignment_0 : ( RULE_NUMBER ) ;
+    // InternalBLESS.g:34860:1: rule__ANumber__LitAssignment_0 : ( RULE_NUMBER ) ;
     public final void rule__ANumber__LitAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34868:1: ( ( RULE_NUMBER ) )
-            // InternalBLESS.g:34869:2: ( RULE_NUMBER )
+            // InternalBLESS.g:34864:1: ( ( RULE_NUMBER ) )
+            // InternalBLESS.g:34865:2: ( RULE_NUMBER )
             {
-            // InternalBLESS.g:34869:2: ( RULE_NUMBER )
-            // InternalBLESS.g:34870:3: RULE_NUMBER
+            // InternalBLESS.g:34865:2: ( RULE_NUMBER )
+            // InternalBLESS.g:34866:3: RULE_NUMBER
             {
              before(grammarAccess.getANumberAccess().getLitNUMBERTerminalRuleCall_0_0()); 
             match(input,RULE_NUMBER,FOLLOW_2); 
@@ -106281,17 +106277,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ANumber__PropertyAssignment_1"
-    // InternalBLESS.g:34879:1: rule__ANumber__PropertyAssignment_1 : ( rulePropertyReference ) ;
+    // InternalBLESS.g:34875:1: rule__ANumber__PropertyAssignment_1 : ( rulePropertyReference ) ;
     public final void rule__ANumber__PropertyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34883:1: ( ( rulePropertyReference ) )
-            // InternalBLESS.g:34884:2: ( rulePropertyReference )
+            // InternalBLESS.g:34879:1: ( ( rulePropertyReference ) )
+            // InternalBLESS.g:34880:2: ( rulePropertyReference )
             {
-            // InternalBLESS.g:34884:2: ( rulePropertyReference )
-            // InternalBLESS.g:34885:3: rulePropertyReference
+            // InternalBLESS.g:34880:2: ( rulePropertyReference )
+            // InternalBLESS.g:34881:3: rulePropertyReference
             {
              before(grammarAccess.getANumberAccess().getPropertyPropertyReferenceParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106322,21 +106318,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ANumber__PropertyConstantAssignment_2"
-    // InternalBLESS.g:34894:1: rule__ANumber__PropertyConstantAssignment_2 : ( ( ruleQCLREF ) ) ;
+    // InternalBLESS.g:34890:1: rule__ANumber__PropertyConstantAssignment_2 : ( ( ruleQCLREF ) ) ;
     public final void rule__ANumber__PropertyConstantAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34898:1: ( ( ( ruleQCLREF ) ) )
-            // InternalBLESS.g:34899:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:34894:1: ( ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:34895:2: ( ( ruleQCLREF ) )
             {
-            // InternalBLESS.g:34899:2: ( ( ruleQCLREF ) )
-            // InternalBLESS.g:34900:3: ( ruleQCLREF )
+            // InternalBLESS.g:34895:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:34896:3: ( ruleQCLREF )
             {
              before(grammarAccess.getANumberAccess().getPropertyConstantPropertyConstantCrossReference_2_0()); 
-            // InternalBLESS.g:34901:3: ( ruleQCLREF )
-            // InternalBLESS.g:34902:4: ruleQCLREF
+            // InternalBLESS.g:34897:3: ( ruleQCLREF )
+            // InternalBLESS.g:34898:4: ruleQCLREF
             {
              before(grammarAccess.getANumberAccess().getPropertyConstantPropertyConstantQCLREFParserRuleCall_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -106371,17 +106367,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayType__Array_rangesAssignment_2"
-    // InternalBLESS.g:34913:1: rule__ArrayType__Array_rangesAssignment_2 : ( ruleArrayRangeList ) ;
+    // InternalBLESS.g:34909:1: rule__ArrayType__Array_rangesAssignment_2 : ( ruleArrayRangeList ) ;
     public final void rule__ArrayType__Array_rangesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34917:1: ( ( ruleArrayRangeList ) )
-            // InternalBLESS.g:34918:2: ( ruleArrayRangeList )
+            // InternalBLESS.g:34913:1: ( ( ruleArrayRangeList ) )
+            // InternalBLESS.g:34914:2: ( ruleArrayRangeList )
             {
-            // InternalBLESS.g:34918:2: ( ruleArrayRangeList )
-            // InternalBLESS.g:34919:3: ruleArrayRangeList
+            // InternalBLESS.g:34914:2: ( ruleArrayRangeList )
+            // InternalBLESS.g:34915:3: ruleArrayRangeList
             {
              before(grammarAccess.getArrayTypeAccess().getArray_rangesArrayRangeListParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -106412,17 +106408,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayType__TypAssignment_5"
-    // InternalBLESS.g:34928:1: rule__ArrayType__TypAssignment_5 : ( ruleTypeOrReference ) ;
+    // InternalBLESS.g:34924:1: rule__ArrayType__TypAssignment_5 : ( ruleTypeOrReference ) ;
     public final void rule__ArrayType__TypAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34932:1: ( ( ruleTypeOrReference ) )
-            // InternalBLESS.g:34933:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:34928:1: ( ( ruleTypeOrReference ) )
+            // InternalBLESS.g:34929:2: ( ruleTypeOrReference )
             {
-            // InternalBLESS.g:34933:2: ( ruleTypeOrReference )
-            // InternalBLESS.g:34934:3: ruleTypeOrReference
+            // InternalBLESS.g:34929:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:34930:3: ruleTypeOrReference
             {
              before(grammarAccess.getArrayTypeAccess().getTypTypeOrReferenceParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -106453,17 +106449,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRangeList__RangeAssignment_0"
-    // InternalBLESS.g:34943:1: rule__ArrayRangeList__RangeAssignment_0 : ( ruleArrayRange ) ;
+    // InternalBLESS.g:34939:1: rule__ArrayRangeList__RangeAssignment_0 : ( ruleArrayRange ) ;
     public final void rule__ArrayRangeList__RangeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34947:1: ( ( ruleArrayRange ) )
-            // InternalBLESS.g:34948:2: ( ruleArrayRange )
+            // InternalBLESS.g:34943:1: ( ( ruleArrayRange ) )
+            // InternalBLESS.g:34944:2: ( ruleArrayRange )
             {
-            // InternalBLESS.g:34948:2: ( ruleArrayRange )
-            // InternalBLESS.g:34949:3: ruleArrayRange
+            // InternalBLESS.g:34944:2: ( ruleArrayRange )
+            // InternalBLESS.g:34945:3: ruleArrayRange
             {
              before(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -106494,21 +106490,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRangeList__CommaAssignment_1_0"
-    // InternalBLESS.g:34958:1: rule__ArrayRangeList__CommaAssignment_1_0 : ( ( ',' ) ) ;
+    // InternalBLESS.g:34954:1: rule__ArrayRangeList__CommaAssignment_1_0 : ( ( ',' ) ) ;
     public final void rule__ArrayRangeList__CommaAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34962:1: ( ( ( ',' ) ) )
-            // InternalBLESS.g:34963:2: ( ( ',' ) )
+            // InternalBLESS.g:34958:1: ( ( ( ',' ) ) )
+            // InternalBLESS.g:34959:2: ( ( ',' ) )
             {
-            // InternalBLESS.g:34963:2: ( ( ',' ) )
-            // InternalBLESS.g:34964:3: ( ',' )
+            // InternalBLESS.g:34959:2: ( ( ',' ) )
+            // InternalBLESS.g:34960:3: ( ',' )
             {
              before(grammarAccess.getArrayRangeListAccess().getCommaCommaKeyword_1_0_0()); 
-            // InternalBLESS.g:34965:3: ( ',' )
-            // InternalBLESS.g:34966:4: ','
+            // InternalBLESS.g:34961:3: ( ',' )
+            // InternalBLESS.g:34962:4: ','
             {
              before(grammarAccess.getArrayRangeListAccess().getCommaCommaKeyword_1_0_0()); 
             match(input,45,FOLLOW_2); 
@@ -106539,17 +106535,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRangeList__RangeAssignment_1_1"
-    // InternalBLESS.g:34977:1: rule__ArrayRangeList__RangeAssignment_1_1 : ( ruleArrayRange ) ;
+    // InternalBLESS.g:34973:1: rule__ArrayRangeList__RangeAssignment_1_1 : ( ruleArrayRange ) ;
     public final void rule__ArrayRangeList__RangeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34981:1: ( ( ruleArrayRange ) )
-            // InternalBLESS.g:34982:2: ( ruleArrayRange )
+            // InternalBLESS.g:34977:1: ( ( ruleArrayRange ) )
+            // InternalBLESS.g:34978:2: ( ruleArrayRange )
             {
-            // InternalBLESS.g:34982:2: ( ruleArrayRange )
-            // InternalBLESS.g:34983:3: ruleArrayRange
+            // InternalBLESS.g:34978:2: ( ruleArrayRange )
+            // InternalBLESS.g:34979:3: ruleArrayRange
             {
              before(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106580,17 +106576,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRangeList__RangeAssignment_1_2_1"
-    // InternalBLESS.g:34992:1: rule__ArrayRangeList__RangeAssignment_1_2_1 : ( ruleArrayRange ) ;
+    // InternalBLESS.g:34988:1: rule__ArrayRangeList__RangeAssignment_1_2_1 : ( ruleArrayRange ) ;
     public final void rule__ArrayRangeList__RangeAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:34996:1: ( ( ruleArrayRange ) )
-            // InternalBLESS.g:34997:2: ( ruleArrayRange )
+            // InternalBLESS.g:34992:1: ( ( ruleArrayRange ) )
+            // InternalBLESS.g:34993:2: ( ruleArrayRange )
             {
-            // InternalBLESS.g:34997:2: ( ruleArrayRange )
-            // InternalBLESS.g:34998:3: ruleArrayRange
+            // InternalBLESS.g:34993:2: ( ruleArrayRange )
+            // InternalBLESS.g:34994:3: ruleArrayRange
             {
              before(grammarAccess.getArrayRangeListAccess().getRangeArrayRangeParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106621,17 +106617,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRange__LbAssignment_0"
-    // InternalBLESS.g:35007:1: rule__ArrayRange__LbAssignment_0 : ( ruleANumber ) ;
+    // InternalBLESS.g:35003:1: rule__ArrayRange__LbAssignment_0 : ( ruleANumber ) ;
     public final void rule__ArrayRange__LbAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35011:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:35012:2: ( ruleANumber )
+            // InternalBLESS.g:35007:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:35008:2: ( ruleANumber )
             {
-            // InternalBLESS.g:35012:2: ( ruleANumber )
-            // InternalBLESS.g:35013:3: ruleANumber
+            // InternalBLESS.g:35008:2: ( ruleANumber )
+            // InternalBLESS.g:35009:3: ruleANumber
             {
              before(grammarAccess.getArrayRangeAccess().getLbANumberParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -106662,17 +106658,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArrayRange__UbAssignment_1_1"
-    // InternalBLESS.g:35022:1: rule__ArrayRange__UbAssignment_1_1 : ( ruleANumber ) ;
+    // InternalBLESS.g:35018:1: rule__ArrayRange__UbAssignment_1_1 : ( ruleANumber ) ;
     public final void rule__ArrayRange__UbAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35026:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:35027:2: ( ruleANumber )
+            // InternalBLESS.g:35022:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:35023:2: ( ruleANumber )
             {
-            // InternalBLESS.g:35027:2: ( ruleANumber )
-            // InternalBLESS.g:35028:3: ruleANumber
+            // InternalBLESS.g:35023:2: ( ruleANumber )
+            // InternalBLESS.g:35024:3: ruleANumber
             {
              before(grammarAccess.getArrayRangeAccess().getUbANumberParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -106703,21 +106699,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordType__RecordAssignment_0_0"
-    // InternalBLESS.g:35037:1: rule__RecordType__RecordAssignment_0_0 : ( ( 'record' ) ) ;
+    // InternalBLESS.g:35033:1: rule__RecordType__RecordAssignment_0_0 : ( ( 'record' ) ) ;
     public final void rule__RecordType__RecordAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35041:1: ( ( ( 'record' ) ) )
-            // InternalBLESS.g:35042:2: ( ( 'record' ) )
+            // InternalBLESS.g:35037:1: ( ( ( 'record' ) ) )
+            // InternalBLESS.g:35038:2: ( ( 'record' ) )
             {
-            // InternalBLESS.g:35042:2: ( ( 'record' ) )
-            // InternalBLESS.g:35043:3: ( 'record' )
+            // InternalBLESS.g:35038:2: ( ( 'record' ) )
+            // InternalBLESS.g:35039:3: ( 'record' )
             {
              before(grammarAccess.getRecordTypeAccess().getRecordRecordKeyword_0_0_0()); 
-            // InternalBLESS.g:35044:3: ( 'record' )
-            // InternalBLESS.g:35045:4: 'record'
+            // InternalBLESS.g:35040:3: ( 'record' )
+            // InternalBLESS.g:35041:4: 'record'
             {
              before(grammarAccess.getRecordTypeAccess().getRecordRecordKeyword_0_0_0()); 
             match(input,170,FOLLOW_2); 
@@ -106748,21 +106744,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordType__VariantAssignment_0_1"
-    // InternalBLESS.g:35056:1: rule__RecordType__VariantAssignment_0_1 : ( ( 'variant' ) ) ;
+    // InternalBLESS.g:35052:1: rule__RecordType__VariantAssignment_0_1 : ( ( 'variant' ) ) ;
     public final void rule__RecordType__VariantAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35060:1: ( ( ( 'variant' ) ) )
-            // InternalBLESS.g:35061:2: ( ( 'variant' ) )
+            // InternalBLESS.g:35056:1: ( ( ( 'variant' ) ) )
+            // InternalBLESS.g:35057:2: ( ( 'variant' ) )
             {
-            // InternalBLESS.g:35061:2: ( ( 'variant' ) )
-            // InternalBLESS.g:35062:3: ( 'variant' )
+            // InternalBLESS.g:35057:2: ( ( 'variant' ) )
+            // InternalBLESS.g:35058:3: ( 'variant' )
             {
              before(grammarAccess.getRecordTypeAccess().getVariantVariantKeyword_0_1_0()); 
-            // InternalBLESS.g:35063:3: ( 'variant' )
-            // InternalBLESS.g:35064:4: 'variant'
+            // InternalBLESS.g:35059:3: ( 'variant' )
+            // InternalBLESS.g:35060:4: 'variant'
             {
              before(grammarAccess.getRecordTypeAccess().getVariantVariantKeyword_0_1_0()); 
             match(input,171,FOLLOW_2); 
@@ -106793,21 +106789,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordType__VariantAssignment_0_2"
-    // InternalBLESS.g:35075:1: rule__RecordType__VariantAssignment_0_2 : ( ( 'union' ) ) ;
+    // InternalBLESS.g:35071:1: rule__RecordType__VariantAssignment_0_2 : ( ( 'union' ) ) ;
     public final void rule__RecordType__VariantAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35079:1: ( ( ( 'union' ) ) )
-            // InternalBLESS.g:35080:2: ( ( 'union' ) )
+            // InternalBLESS.g:35075:1: ( ( ( 'union' ) ) )
+            // InternalBLESS.g:35076:2: ( ( 'union' ) )
             {
-            // InternalBLESS.g:35080:2: ( ( 'union' ) )
-            // InternalBLESS.g:35081:3: ( 'union' )
+            // InternalBLESS.g:35076:2: ( ( 'union' ) )
+            // InternalBLESS.g:35077:3: ( 'union' )
             {
              before(grammarAccess.getRecordTypeAccess().getVariantUnionKeyword_0_2_0()); 
-            // InternalBLESS.g:35082:3: ( 'union' )
-            // InternalBLESS.g:35083:4: 'union'
+            // InternalBLESS.g:35078:3: ( 'union' )
+            // InternalBLESS.g:35079:4: 'union'
             {
              before(grammarAccess.getRecordTypeAccess().getVariantUnionKeyword_0_2_0()); 
             match(input,172,FOLLOW_2); 
@@ -106838,17 +106834,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordType__FieldsAssignment_2"
-    // InternalBLESS.g:35094:1: rule__RecordType__FieldsAssignment_2 : ( ruleRecordField ) ;
+    // InternalBLESS.g:35090:1: rule__RecordType__FieldsAssignment_2 : ( ruleRecordField ) ;
     public final void rule__RecordType__FieldsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35098:1: ( ( ruleRecordField ) )
-            // InternalBLESS.g:35099:2: ( ruleRecordField )
+            // InternalBLESS.g:35094:1: ( ( ruleRecordField ) )
+            // InternalBLESS.g:35095:2: ( ruleRecordField )
             {
-            // InternalBLESS.g:35099:2: ( ruleRecordField )
-            // InternalBLESS.g:35100:3: ruleRecordField
+            // InternalBLESS.g:35095:2: ( ruleRecordField )
+            // InternalBLESS.g:35096:3: ruleRecordField
             {
              before(grammarAccess.getRecordTypeAccess().getFieldsRecordFieldParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -106879,17 +106875,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordField__LabelAssignment_0"
-    // InternalBLESS.g:35109:1: rule__RecordField__LabelAssignment_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:35105:1: rule__RecordField__LabelAssignment_0 : ( RULE_ID ) ;
     public final void rule__RecordField__LabelAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35113:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:35114:2: ( RULE_ID )
+            // InternalBLESS.g:35109:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:35110:2: ( RULE_ID )
             {
-            // InternalBLESS.g:35114:2: ( RULE_ID )
-            // InternalBLESS.g:35115:3: RULE_ID
+            // InternalBLESS.g:35110:2: ( RULE_ID )
+            // InternalBLESS.g:35111:3: RULE_ID
             {
              before(grammarAccess.getRecordFieldAccess().getLabelIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -106916,17 +106912,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RecordField__TypAssignment_2"
-    // InternalBLESS.g:35124:1: rule__RecordField__TypAssignment_2 : ( ruleTypeOrReference ) ;
+    // InternalBLESS.g:35120:1: rule__RecordField__TypAssignment_2 : ( ruleTypeOrReference ) ;
     public final void rule__RecordField__TypAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35128:1: ( ( ruleTypeOrReference ) )
-            // InternalBLESS.g:35129:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:35124:1: ( ( ruleTypeOrReference ) )
+            // InternalBLESS.g:35125:2: ( ruleTypeOrReference )
             {
-            // InternalBLESS.g:35129:2: ( ruleTypeOrReference )
-            // InternalBLESS.g:35130:3: ruleTypeOrReference
+            // InternalBLESS.g:35125:2: ( ruleTypeOrReference )
+            // InternalBLESS.g:35126:3: ruleTypeOrReference
             {
              before(grammarAccess.getRecordFieldAccess().getTypTypeOrReferenceParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -106957,21 +106953,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__PnameAssignment_0_1"
-    // InternalBLESS.g:35139:1: rule__PropertyReference__PnameAssignment_0_1 : ( ( ruleQCLREF ) ) ;
+    // InternalBLESS.g:35135:1: rule__PropertyReference__PnameAssignment_0_1 : ( ( ruleQCLREF ) ) ;
     public final void rule__PropertyReference__PnameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35143:1: ( ( ( ruleQCLREF ) ) )
-            // InternalBLESS.g:35144:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35139:1: ( ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:35140:2: ( ( ruleQCLREF ) )
             {
-            // InternalBLESS.g:35144:2: ( ( ruleQCLREF ) )
-            // InternalBLESS.g:35145:3: ( ruleQCLREF )
+            // InternalBLESS.g:35140:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35141:3: ( ruleQCLREF )
             {
              before(grammarAccess.getPropertyReferenceAccess().getPnamePropertyCrossReference_0_1_0()); 
-            // InternalBLESS.g:35146:3: ( ruleQCLREF )
-            // InternalBLESS.g:35147:4: ruleQCLREF
+            // InternalBLESS.g:35142:3: ( ruleQCLREF )
+            // InternalBLESS.g:35143:4: ruleQCLREF
             {
              before(grammarAccess.getPropertyReferenceAccess().getPnamePropertyQCLREFParserRuleCall_0_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -107006,17 +107002,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__FieldAssignment_0_2"
-    // InternalBLESS.g:35158:1: rule__PropertyReference__FieldAssignment_0_2 : ( rulePropertyField ) ;
+    // InternalBLESS.g:35154:1: rule__PropertyReference__FieldAssignment_0_2 : ( rulePropertyField ) ;
     public final void rule__PropertyReference__FieldAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35162:1: ( ( rulePropertyField ) )
-            // InternalBLESS.g:35163:2: ( rulePropertyField )
+            // InternalBLESS.g:35158:1: ( ( rulePropertyField ) )
+            // InternalBLESS.g:35159:2: ( rulePropertyField )
             {
-            // InternalBLESS.g:35163:2: ( rulePropertyField )
-            // InternalBLESS.g:35164:3: rulePropertyField
+            // InternalBLESS.g:35159:2: ( rulePropertyField )
+            // InternalBLESS.g:35160:3: rulePropertyField
             {
              before(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_0_2_0()); 
             pushFollow(FOLLOW_2);
@@ -107047,21 +107043,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__SelfAssignment_1_0"
-    // InternalBLESS.g:35173:1: rule__PropertyReference__SelfAssignment_1_0 : ( ( 'self' ) ) ;
+    // InternalBLESS.g:35169:1: rule__PropertyReference__SelfAssignment_1_0 : ( ( 'self' ) ) ;
     public final void rule__PropertyReference__SelfAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35177:1: ( ( ( 'self' ) ) )
-            // InternalBLESS.g:35178:2: ( ( 'self' ) )
+            // InternalBLESS.g:35173:1: ( ( ( 'self' ) ) )
+            // InternalBLESS.g:35174:2: ( ( 'self' ) )
             {
-            // InternalBLESS.g:35178:2: ( ( 'self' ) )
-            // InternalBLESS.g:35179:3: ( 'self' )
+            // InternalBLESS.g:35174:2: ( ( 'self' ) )
+            // InternalBLESS.g:35175:3: ( 'self' )
             {
              before(grammarAccess.getPropertyReferenceAccess().getSelfSelfKeyword_1_0_0()); 
-            // InternalBLESS.g:35180:3: ( 'self' )
-            // InternalBLESS.g:35181:4: 'self'
+            // InternalBLESS.g:35176:3: ( 'self' )
+            // InternalBLESS.g:35177:4: 'self'
             {
              before(grammarAccess.getPropertyReferenceAccess().getSelfSelfKeyword_1_0_0()); 
             match(input,173,FOLLOW_2); 
@@ -107092,21 +107088,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__SpnameAssignment_1_2"
-    // InternalBLESS.g:35192:1: rule__PropertyReference__SpnameAssignment_1_2 : ( ( ruleQCLREF ) ) ;
+    // InternalBLESS.g:35188:1: rule__PropertyReference__SpnameAssignment_1_2 : ( ( ruleQCLREF ) ) ;
     public final void rule__PropertyReference__SpnameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35196:1: ( ( ( ruleQCLREF ) ) )
-            // InternalBLESS.g:35197:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35192:1: ( ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:35193:2: ( ( ruleQCLREF ) )
             {
-            // InternalBLESS.g:35197:2: ( ( ruleQCLREF ) )
-            // InternalBLESS.g:35198:3: ( ruleQCLREF )
+            // InternalBLESS.g:35193:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35194:3: ( ruleQCLREF )
             {
              before(grammarAccess.getPropertyReferenceAccess().getSpnamePropertyCrossReference_1_2_0()); 
-            // InternalBLESS.g:35199:3: ( ruleQCLREF )
-            // InternalBLESS.g:35200:4: ruleQCLREF
+            // InternalBLESS.g:35195:3: ( ruleQCLREF )
+            // InternalBLESS.g:35196:4: ruleQCLREF
             {
              before(grammarAccess.getPropertyReferenceAccess().getSpnamePropertyQCLREFParserRuleCall_1_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -107141,17 +107137,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__FieldAssignment_1_3"
-    // InternalBLESS.g:35211:1: rule__PropertyReference__FieldAssignment_1_3 : ( rulePropertyField ) ;
+    // InternalBLESS.g:35207:1: rule__PropertyReference__FieldAssignment_1_3 : ( rulePropertyField ) ;
     public final void rule__PropertyReference__FieldAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35215:1: ( ( rulePropertyField ) )
-            // InternalBLESS.g:35216:2: ( rulePropertyField )
+            // InternalBLESS.g:35211:1: ( ( rulePropertyField ) )
+            // InternalBLESS.g:35212:2: ( rulePropertyField )
             {
-            // InternalBLESS.g:35216:2: ( rulePropertyField )
-            // InternalBLESS.g:35217:3: rulePropertyField
+            // InternalBLESS.g:35212:2: ( rulePropertyField )
+            // InternalBLESS.g:35213:3: rulePropertyField
             {
              before(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -107182,21 +107178,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__ComponentAssignment_2_0"
-    // InternalBLESS.g:35226:1: rule__PropertyReference__ComponentAssignment_2_0 : ( ( ruleQCREF ) ) ;
+    // InternalBLESS.g:35222:1: rule__PropertyReference__ComponentAssignment_2_0 : ( ( ruleQCREF ) ) ;
     public final void rule__PropertyReference__ComponentAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35230:1: ( ( ( ruleQCREF ) ) )
-            // InternalBLESS.g:35231:2: ( ( ruleQCREF ) )
+            // InternalBLESS.g:35226:1: ( ( ( ruleQCREF ) ) )
+            // InternalBLESS.g:35227:2: ( ( ruleQCREF ) )
             {
-            // InternalBLESS.g:35231:2: ( ( ruleQCREF ) )
-            // InternalBLESS.g:35232:3: ( ruleQCREF )
+            // InternalBLESS.g:35227:2: ( ( ruleQCREF ) )
+            // InternalBLESS.g:35228:3: ( ruleQCREF )
             {
              before(grammarAccess.getPropertyReferenceAccess().getComponentComponentClassifierCrossReference_2_0_0()); 
-            // InternalBLESS.g:35233:3: ( ruleQCREF )
-            // InternalBLESS.g:35234:4: ruleQCREF
+            // InternalBLESS.g:35229:3: ( ruleQCREF )
+            // InternalBLESS.g:35230:4: ruleQCREF
             {
              before(grammarAccess.getPropertyReferenceAccess().getComponentComponentClassifierQCREFParserRuleCall_2_0_0_1()); 
             pushFollow(FOLLOW_2);
@@ -107231,21 +107227,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__CpnameAssignment_2_2"
-    // InternalBLESS.g:35245:1: rule__PropertyReference__CpnameAssignment_2_2 : ( ( ruleQCLREF ) ) ;
+    // InternalBLESS.g:35241:1: rule__PropertyReference__CpnameAssignment_2_2 : ( ( ruleQCLREF ) ) ;
     public final void rule__PropertyReference__CpnameAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35249:1: ( ( ( ruleQCLREF ) ) )
-            // InternalBLESS.g:35250:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35245:1: ( ( ( ruleQCLREF ) ) )
+            // InternalBLESS.g:35246:2: ( ( ruleQCLREF ) )
             {
-            // InternalBLESS.g:35250:2: ( ( ruleQCLREF ) )
-            // InternalBLESS.g:35251:3: ( ruleQCLREF )
+            // InternalBLESS.g:35246:2: ( ( ruleQCLREF ) )
+            // InternalBLESS.g:35247:3: ( ruleQCLREF )
             {
              before(grammarAccess.getPropertyReferenceAccess().getCpnamePropertyCrossReference_2_2_0()); 
-            // InternalBLESS.g:35252:3: ( ruleQCLREF )
-            // InternalBLESS.g:35253:4: ruleQCLREF
+            // InternalBLESS.g:35248:3: ( ruleQCLREF )
+            // InternalBLESS.g:35249:4: ruleQCLREF
             {
              before(grammarAccess.getPropertyReferenceAccess().getCpnamePropertyQCLREFParserRuleCall_2_2_0_1()); 
             pushFollow(FOLLOW_2);
@@ -107280,17 +107276,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyReference__FieldAssignment_2_3"
-    // InternalBLESS.g:35264:1: rule__PropertyReference__FieldAssignment_2_3 : ( rulePropertyField ) ;
+    // InternalBLESS.g:35260:1: rule__PropertyReference__FieldAssignment_2_3 : ( rulePropertyField ) ;
     public final void rule__PropertyReference__FieldAssignment_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35268:1: ( ( rulePropertyField ) )
-            // InternalBLESS.g:35269:2: ( rulePropertyField )
+            // InternalBLESS.g:35264:1: ( ( rulePropertyField ) )
+            // InternalBLESS.g:35265:2: ( rulePropertyField )
             {
-            // InternalBLESS.g:35269:2: ( rulePropertyField )
-            // InternalBLESS.g:35270:3: rulePropertyField
+            // InternalBLESS.g:35265:2: ( rulePropertyField )
+            // InternalBLESS.g:35266:3: rulePropertyField
             {
              before(grammarAccess.getPropertyReferenceAccess().getFieldPropertyFieldParserRuleCall_2_3_0()); 
             pushFollow(FOLLOW_2);
@@ -107321,17 +107317,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyField__IndexAssignment_0_1_0"
-    // InternalBLESS.g:35279:1: rule__PropertyField__IndexAssignment_0_1_0 : ( RULE_NUMBER ) ;
+    // InternalBLESS.g:35275:1: rule__PropertyField__IndexAssignment_0_1_0 : ( RULE_NUMBER ) ;
     public final void rule__PropertyField__IndexAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35283:1: ( ( RULE_NUMBER ) )
-            // InternalBLESS.g:35284:2: ( RULE_NUMBER )
+            // InternalBLESS.g:35279:1: ( ( RULE_NUMBER ) )
+            // InternalBLESS.g:35280:2: ( RULE_NUMBER )
             {
-            // InternalBLESS.g:35284:2: ( RULE_NUMBER )
-            // InternalBLESS.g:35285:3: RULE_NUMBER
+            // InternalBLESS.g:35280:2: ( RULE_NUMBER )
+            // InternalBLESS.g:35281:3: RULE_NUMBER
             {
              before(grammarAccess.getPropertyFieldAccess().getIndexNUMBERTerminalRuleCall_0_1_0_0()); 
             match(input,RULE_NUMBER,FOLLOW_2); 
@@ -107358,21 +107354,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyField__VariableAssignment_0_1_1"
-    // InternalBLESS.g:35294:1: rule__PropertyField__VariableAssignment_0_1_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35290:1: rule__PropertyField__VariableAssignment_0_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__PropertyField__VariableAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35298:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35299:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35294:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35295:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35299:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35300:3: ( RULE_ID )
+            // InternalBLESS.g:35295:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35296:3: ( RULE_ID )
             {
              before(grammarAccess.getPropertyFieldAccess().getVariableVariableCrossReference_0_1_1_0()); 
-            // InternalBLESS.g:35301:3: ( RULE_ID )
-            // InternalBLESS.g:35302:4: RULE_ID
+            // InternalBLESS.g:35297:3: ( RULE_ID )
+            // InternalBLESS.g:35298:4: RULE_ID
             {
              before(grammarAccess.getPropertyFieldAccess().getVariableVariableIDTerminalRuleCall_0_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107403,17 +107399,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyField__PfAssignment_1_1_0"
-    // InternalBLESS.g:35313:1: rule__PropertyField__PfAssignment_1_1_0 : ( RULE_ID ) ;
+    // InternalBLESS.g:35309:1: rule__PropertyField__PfAssignment_1_1_0 : ( RULE_ID ) ;
     public final void rule__PropertyField__PfAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35317:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:35318:2: ( RULE_ID )
+            // InternalBLESS.g:35313:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:35314:2: ( RULE_ID )
             {
-            // InternalBLESS.g:35318:2: ( RULE_ID )
-            // InternalBLESS.g:35319:3: RULE_ID
+            // InternalBLESS.g:35314:2: ( RULE_ID )
+            // InternalBLESS.g:35315:3: RULE_ID
             {
              before(grammarAccess.getPropertyFieldAccess().getPfIDTerminalRuleCall_1_1_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107440,21 +107436,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyField__UpperAssignment_1_1_1"
-    // InternalBLESS.g:35328:1: rule__PropertyField__UpperAssignment_1_1_1 : ( ( 'upper_bound' ) ) ;
+    // InternalBLESS.g:35324:1: rule__PropertyField__UpperAssignment_1_1_1 : ( ( 'upper_bound' ) ) ;
     public final void rule__PropertyField__UpperAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35332:1: ( ( ( 'upper_bound' ) ) )
-            // InternalBLESS.g:35333:2: ( ( 'upper_bound' ) )
+            // InternalBLESS.g:35328:1: ( ( ( 'upper_bound' ) ) )
+            // InternalBLESS.g:35329:2: ( ( 'upper_bound' ) )
             {
-            // InternalBLESS.g:35333:2: ( ( 'upper_bound' ) )
-            // InternalBLESS.g:35334:3: ( 'upper_bound' )
+            // InternalBLESS.g:35329:2: ( ( 'upper_bound' ) )
+            // InternalBLESS.g:35330:3: ( 'upper_bound' )
             {
              before(grammarAccess.getPropertyFieldAccess().getUpperUpper_boundKeyword_1_1_1_0()); 
-            // InternalBLESS.g:35335:3: ( 'upper_bound' )
-            // InternalBLESS.g:35336:4: 'upper_bound'
+            // InternalBLESS.g:35331:3: ( 'upper_bound' )
+            // InternalBLESS.g:35332:4: 'upper_bound'
             {
              before(grammarAccess.getPropertyFieldAccess().getUpperUpper_boundKeyword_1_1_1_0()); 
             match(input,174,FOLLOW_2); 
@@ -107485,21 +107481,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PropertyField__LowerAssignment_1_1_2"
-    // InternalBLESS.g:35347:1: rule__PropertyField__LowerAssignment_1_1_2 : ( ( 'lower_bound' ) ) ;
+    // InternalBLESS.g:35343:1: rule__PropertyField__LowerAssignment_1_1_2 : ( ( 'lower_bound' ) ) ;
     public final void rule__PropertyField__LowerAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35351:1: ( ( ( 'lower_bound' ) ) )
-            // InternalBLESS.g:35352:2: ( ( 'lower_bound' ) )
+            // InternalBLESS.g:35347:1: ( ( ( 'lower_bound' ) ) )
+            // InternalBLESS.g:35348:2: ( ( 'lower_bound' ) )
             {
-            // InternalBLESS.g:35352:2: ( ( 'lower_bound' ) )
-            // InternalBLESS.g:35353:3: ( 'lower_bound' )
+            // InternalBLESS.g:35348:2: ( ( 'lower_bound' ) )
+            // InternalBLESS.g:35349:3: ( 'lower_bound' )
             {
              before(grammarAccess.getPropertyFieldAccess().getLowerLower_boundKeyword_1_1_2_0()); 
-            // InternalBLESS.g:35354:3: ( 'lower_bound' )
-            // InternalBLESS.g:35355:4: 'lower_bound'
+            // InternalBLESS.g:35350:3: ( 'lower_bound' )
+            // InternalBLESS.g:35351:4: 'lower_bound'
             {
              before(grammarAccess.getPropertyFieldAccess().getLowerLower_boundKeyword_1_1_2_0()); 
             match(input,175,FOLLOW_2); 
@@ -107530,17 +107526,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitName__LongnameAssignment_0_1"
-    // InternalBLESS.g:35366:1: rule__UnitName__LongnameAssignment_0_1 : ( RULE_ID ) ;
+    // InternalBLESS.g:35362:1: rule__UnitName__LongnameAssignment_0_1 : ( RULE_ID ) ;
     public final void rule__UnitName__LongnameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35370:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:35371:2: ( RULE_ID )
+            // InternalBLESS.g:35366:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:35367:2: ( RULE_ID )
             {
-            // InternalBLESS.g:35371:2: ( RULE_ID )
-            // InternalBLESS.g:35372:3: RULE_ID
+            // InternalBLESS.g:35367:2: ( RULE_ID )
+            // InternalBLESS.g:35368:3: RULE_ID
             {
              before(grammarAccess.getUnitNameAccess().getLongnameIDTerminalRuleCall_0_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107567,17 +107563,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitName__NameAssignment_1"
-    // InternalBLESS.g:35381:1: rule__UnitName__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalBLESS.g:35377:1: rule__UnitName__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__UnitName__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35385:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:35386:2: ( RULE_ID )
+            // InternalBLESS.g:35381:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:35382:2: ( RULE_ID )
             {
-            // InternalBLESS.g:35386:2: ( RULE_ID )
-            // InternalBLESS.g:35387:3: RULE_ID
+            // InternalBLESS.g:35382:2: ( RULE_ID )
+            // InternalBLESS.g:35383:3: RULE_ID
             {
              before(grammarAccess.getUnitNameAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107604,21 +107600,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFormula__TopAssignment_0_0"
-    // InternalBLESS.g:35396:1: rule__UnitFormula__TopAssignment_0_0 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35392:1: rule__UnitFormula__TopAssignment_0_0 : ( ( RULE_ID ) ) ;
     public final void rule__UnitFormula__TopAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35400:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35401:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35396:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35397:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35401:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35402:3: ( RULE_ID )
+            // InternalBLESS.g:35397:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35398:3: ( RULE_ID )
             {
              before(grammarAccess.getUnitFormulaAccess().getTopUnitNameCrossReference_0_0_0()); 
-            // InternalBLESS.g:35403:3: ( RULE_ID )
-            // InternalBLESS.g:35404:4: RULE_ID
+            // InternalBLESS.g:35399:3: ( RULE_ID )
+            // InternalBLESS.g:35400:4: RULE_ID
             {
              before(grammarAccess.getUnitFormulaAccess().getTopUnitNameIDTerminalRuleCall_0_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107649,21 +107645,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFormula__SlashAssignment_0_1_0"
-    // InternalBLESS.g:35415:1: rule__UnitFormula__SlashAssignment_0_1_0 : ( ( '/' ) ) ;
+    // InternalBLESS.g:35411:1: rule__UnitFormula__SlashAssignment_0_1_0 : ( ( '/' ) ) ;
     public final void rule__UnitFormula__SlashAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35419:1: ( ( ( '/' ) ) )
-            // InternalBLESS.g:35420:2: ( ( '/' ) )
+            // InternalBLESS.g:35415:1: ( ( ( '/' ) ) )
+            // InternalBLESS.g:35416:2: ( ( '/' ) )
             {
-            // InternalBLESS.g:35420:2: ( ( '/' ) )
-            // InternalBLESS.g:35421:3: ( '/' )
+            // InternalBLESS.g:35416:2: ( ( '/' ) )
+            // InternalBLESS.g:35417:3: ( '/' )
             {
              before(grammarAccess.getUnitFormulaAccess().getSlashSolidusKeyword_0_1_0_0()); 
-            // InternalBLESS.g:35422:3: ( '/' )
-            // InternalBLESS.g:35423:4: '/'
+            // InternalBLESS.g:35418:3: ( '/' )
+            // InternalBLESS.g:35419:4: '/'
             {
              before(grammarAccess.getUnitFormulaAccess().getSlashSolidusKeyword_0_1_0_0()); 
             match(input,25,FOLLOW_2); 
@@ -107694,21 +107690,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFormula__BottomAssignment_0_1_1"
-    // InternalBLESS.g:35434:1: rule__UnitFormula__BottomAssignment_0_1_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35430:1: rule__UnitFormula__BottomAssignment_0_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__UnitFormula__BottomAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35438:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35439:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35434:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35435:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35439:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35440:3: ( RULE_ID )
+            // InternalBLESS.g:35435:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35436:3: ( RULE_ID )
             {
              before(grammarAccess.getUnitFormulaAccess().getBottomUnitNameCrossReference_0_1_1_0()); 
-            // InternalBLESS.g:35441:3: ( RULE_ID )
-            // InternalBLESS.g:35442:4: RULE_ID
+            // InternalBLESS.g:35437:3: ( RULE_ID )
+            // InternalBLESS.g:35438:4: RULE_ID
             {
              before(grammarAccess.getUnitFormulaAccess().getBottomUnitNameIDTerminalRuleCall_0_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107739,21 +107735,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFormula__SlashAssignment_1_0"
-    // InternalBLESS.g:35453:1: rule__UnitFormula__SlashAssignment_1_0 : ( ( '/' ) ) ;
+    // InternalBLESS.g:35449:1: rule__UnitFormula__SlashAssignment_1_0 : ( ( '/' ) ) ;
     public final void rule__UnitFormula__SlashAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35457:1: ( ( ( '/' ) ) )
-            // InternalBLESS.g:35458:2: ( ( '/' ) )
+            // InternalBLESS.g:35453:1: ( ( ( '/' ) ) )
+            // InternalBLESS.g:35454:2: ( ( '/' ) )
             {
-            // InternalBLESS.g:35458:2: ( ( '/' ) )
-            // InternalBLESS.g:35459:3: ( '/' )
+            // InternalBLESS.g:35454:2: ( ( '/' ) )
+            // InternalBLESS.g:35455:3: ( '/' )
             {
              before(grammarAccess.getUnitFormulaAccess().getSlashSolidusKeyword_1_0_0()); 
-            // InternalBLESS.g:35460:3: ( '/' )
-            // InternalBLESS.g:35461:4: '/'
+            // InternalBLESS.g:35456:3: ( '/' )
+            // InternalBLESS.g:35457:4: '/'
             {
              before(grammarAccess.getUnitFormulaAccess().getSlashSolidusKeyword_1_0_0()); 
             match(input,25,FOLLOW_2); 
@@ -107784,21 +107780,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFormula__BottomAssignment_1_1"
-    // InternalBLESS.g:35472:1: rule__UnitFormula__BottomAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35468:1: rule__UnitFormula__BottomAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__UnitFormula__BottomAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35476:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35477:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35472:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35473:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35477:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35478:3: ( RULE_ID )
+            // InternalBLESS.g:35473:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35474:3: ( RULE_ID )
             {
              before(grammarAccess.getUnitFormulaAccess().getBottomUnitNameCrossReference_1_1_0()); 
-            // InternalBLESS.g:35479:3: ( RULE_ID )
-            // InternalBLESS.g:35480:4: RULE_ID
+            // InternalBLESS.g:35475:3: ( RULE_ID )
+            // InternalBLESS.g:35476:4: RULE_ID
             {
              before(grammarAccess.getUnitFormulaAccess().getBottomUnitNameIDTerminalRuleCall_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107829,21 +107825,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RootDeclaration__BaseAssignment_0_0"
-    // InternalBLESS.g:35491:1: rule__RootDeclaration__BaseAssignment_0_0 : ( ( 'base' ) ) ;
+    // InternalBLESS.g:35487:1: rule__RootDeclaration__BaseAssignment_0_0 : ( ( 'base' ) ) ;
     public final void rule__RootDeclaration__BaseAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35495:1: ( ( ( 'base' ) ) )
-            // InternalBLESS.g:35496:2: ( ( 'base' ) )
+            // InternalBLESS.g:35491:1: ( ( ( 'base' ) ) )
+            // InternalBLESS.g:35492:2: ( ( 'base' ) )
             {
-            // InternalBLESS.g:35496:2: ( ( 'base' ) )
-            // InternalBLESS.g:35497:3: ( 'base' )
+            // InternalBLESS.g:35492:2: ( ( 'base' ) )
+            // InternalBLESS.g:35493:3: ( 'base' )
             {
              before(grammarAccess.getRootDeclarationAccess().getBaseBaseKeyword_0_0_0()); 
-            // InternalBLESS.g:35498:3: ( 'base' )
-            // InternalBLESS.g:35499:4: 'base'
+            // InternalBLESS.g:35494:3: ( 'base' )
+            // InternalBLESS.g:35495:4: 'base'
             {
              before(grammarAccess.getRootDeclarationAccess().getBaseBaseKeyword_0_0_0()); 
             match(input,176,FOLLOW_2); 
@@ -107874,17 +107870,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RootDeclaration__FormulaAssignment_0_1"
-    // InternalBLESS.g:35510:1: rule__RootDeclaration__FormulaAssignment_0_1 : ( ruleUnitFormula ) ;
+    // InternalBLESS.g:35506:1: rule__RootDeclaration__FormulaAssignment_0_1 : ( ruleUnitFormula ) ;
     public final void rule__RootDeclaration__FormulaAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35514:1: ( ( ruleUnitFormula ) )
-            // InternalBLESS.g:35515:2: ( ruleUnitFormula )
+            // InternalBLESS.g:35510:1: ( ( ruleUnitFormula ) )
+            // InternalBLESS.g:35511:2: ( ruleUnitFormula )
             {
-            // InternalBLESS.g:35515:2: ( ruleUnitFormula )
-            // InternalBLESS.g:35516:3: ruleUnitFormula
+            // InternalBLESS.g:35511:2: ( ruleUnitFormula )
+            // InternalBLESS.g:35512:3: ruleUnitFormula
             {
              before(grammarAccess.getRootDeclarationAccess().getFormulaUnitFormulaParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -107915,17 +107911,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RootDeclaration__KindWordsAssignment_2"
-    // InternalBLESS.g:35525:1: rule__RootDeclaration__KindWordsAssignment_2 : ( RULE_ID ) ;
+    // InternalBLESS.g:35521:1: rule__RootDeclaration__KindWordsAssignment_2 : ( RULE_ID ) ;
     public final void rule__RootDeclaration__KindWordsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35529:1: ( ( RULE_ID ) )
-            // InternalBLESS.g:35530:2: ( RULE_ID )
+            // InternalBLESS.g:35525:1: ( ( RULE_ID ) )
+            // InternalBLESS.g:35526:2: ( RULE_ID )
             {
-            // InternalBLESS.g:35530:2: ( RULE_ID )
-            // InternalBLESS.g:35531:3: RULE_ID
+            // InternalBLESS.g:35526:2: ( RULE_ID )
+            // InternalBLESS.g:35527:3: RULE_ID
             {
              before(grammarAccess.getRootDeclarationAccess().getKindWordsIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -107952,17 +107948,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RootDeclaration__UnitNameAssignment_4"
-    // InternalBLESS.g:35540:1: rule__RootDeclaration__UnitNameAssignment_4 : ( ruleUnitName ) ;
+    // InternalBLESS.g:35536:1: rule__RootDeclaration__UnitNameAssignment_4 : ( ruleUnitName ) ;
     public final void rule__RootDeclaration__UnitNameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35544:1: ( ( ruleUnitName ) )
-            // InternalBLESS.g:35545:2: ( ruleUnitName )
+            // InternalBLESS.g:35540:1: ( ( ruleUnitName ) )
+            // InternalBLESS.g:35541:2: ( ruleUnitName )
             {
-            // InternalBLESS.g:35545:2: ( ruleUnitName )
-            // InternalBLESS.g:35546:3: ruleUnitName
+            // InternalBLESS.g:35541:2: ( ruleUnitName )
+            // InternalBLESS.g:35542:3: ruleUnitName
             {
              before(grammarAccess.getRootDeclarationAccess().getUnitNameUnitNameParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -107993,17 +107989,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RootDeclaration__FactorsAssignment_5"
-    // InternalBLESS.g:35555:1: rule__RootDeclaration__FactorsAssignment_5 : ( ruleUnitFactor ) ;
+    // InternalBLESS.g:35551:1: rule__RootDeclaration__FactorsAssignment_5 : ( ruleUnitFactor ) ;
     public final void rule__RootDeclaration__FactorsAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35559:1: ( ( ruleUnitFactor ) )
-            // InternalBLESS.g:35560:2: ( ruleUnitFactor )
+            // InternalBLESS.g:35555:1: ( ( ruleUnitFactor ) )
+            // InternalBLESS.g:35556:2: ( ruleUnitFactor )
             {
-            // InternalBLESS.g:35560:2: ( ruleUnitFactor )
-            // InternalBLESS.g:35561:3: ruleUnitFactor
+            // InternalBLESS.g:35556:2: ( ruleUnitFactor )
+            // InternalBLESS.g:35557:3: ruleUnitFactor
             {
              before(grammarAccess.getRootDeclarationAccess().getFactorsUnitFactorParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -108034,21 +108030,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitExtension__RootAssignment_1"
-    // InternalBLESS.g:35570:1: rule__UnitExtension__RootAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35566:1: rule__UnitExtension__RootAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__UnitExtension__RootAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35574:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35575:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35570:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35571:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35575:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35576:3: ( RULE_ID )
+            // InternalBLESS.g:35571:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35572:3: ( RULE_ID )
             {
              before(grammarAccess.getUnitExtensionAccess().getRootUnitNameCrossReference_1_0()); 
-            // InternalBLESS.g:35577:3: ( RULE_ID )
-            // InternalBLESS.g:35578:4: RULE_ID
+            // InternalBLESS.g:35573:3: ( RULE_ID )
+            // InternalBLESS.g:35574:4: RULE_ID
             {
              before(grammarAccess.getUnitExtensionAccess().getRootUnitNameIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -108079,17 +108075,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitExtension__FactorsAssignment_2"
-    // InternalBLESS.g:35589:1: rule__UnitExtension__FactorsAssignment_2 : ( ruleUnitFactor ) ;
+    // InternalBLESS.g:35585:1: rule__UnitExtension__FactorsAssignment_2 : ( ruleUnitFactor ) ;
     public final void rule__UnitExtension__FactorsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35593:1: ( ( ruleUnitFactor ) )
-            // InternalBLESS.g:35594:2: ( ruleUnitFactor )
+            // InternalBLESS.g:35589:1: ( ( ruleUnitFactor ) )
+            // InternalBLESS.g:35590:2: ( ruleUnitFactor )
             {
-            // InternalBLESS.g:35594:2: ( ruleUnitFactor )
-            // InternalBLESS.g:35595:3: ruleUnitFactor
+            // InternalBLESS.g:35590:2: ( ruleUnitFactor )
+            // InternalBLESS.g:35591:3: ruleUnitFactor
             {
              before(grammarAccess.getUnitExtensionAccess().getFactorsUnitFactorParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -108120,17 +108116,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFactor__UnitAssignment_1"
-    // InternalBLESS.g:35604:1: rule__UnitFactor__UnitAssignment_1 : ( ruleUnitName ) ;
+    // InternalBLESS.g:35600:1: rule__UnitFactor__UnitAssignment_1 : ( ruleUnitName ) ;
     public final void rule__UnitFactor__UnitAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35608:1: ( ( ruleUnitName ) )
-            // InternalBLESS.g:35609:2: ( ruleUnitName )
+            // InternalBLESS.g:35604:1: ( ( ruleUnitName ) )
+            // InternalBLESS.g:35605:2: ( ruleUnitName )
             {
-            // InternalBLESS.g:35609:2: ( ruleUnitName )
-            // InternalBLESS.g:35610:3: ruleUnitName
+            // InternalBLESS.g:35605:2: ( ruleUnitName )
+            // InternalBLESS.g:35606:3: ruleUnitName
             {
              before(grammarAccess.getUnitFactorAccess().getUnitUnitNameParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -108161,17 +108157,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFactor__OpAssignment_2"
-    // InternalBLESS.g:35619:1: rule__UnitFactor__OpAssignment_2 : ( ruleMulDiv ) ;
+    // InternalBLESS.g:35615:1: rule__UnitFactor__OpAssignment_2 : ( ruleMulDiv ) ;
     public final void rule__UnitFactor__OpAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35623:1: ( ( ruleMulDiv ) )
-            // InternalBLESS.g:35624:2: ( ruleMulDiv )
+            // InternalBLESS.g:35619:1: ( ( ruleMulDiv ) )
+            // InternalBLESS.g:35620:2: ( ruleMulDiv )
             {
-            // InternalBLESS.g:35624:2: ( ruleMulDiv )
-            // InternalBLESS.g:35625:3: ruleMulDiv
+            // InternalBLESS.g:35620:2: ( ruleMulDiv )
+            // InternalBLESS.g:35621:3: ruleMulDiv
             {
              before(grammarAccess.getUnitFactorAccess().getOpMulDivParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -108202,17 +108198,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__UnitFactor__FactorAssignment_3"
-    // InternalBLESS.g:35634:1: rule__UnitFactor__FactorAssignment_3 : ( rulePositiveNumber ) ;
+    // InternalBLESS.g:35630:1: rule__UnitFactor__FactorAssignment_3 : ( rulePositiveNumber ) ;
     public final void rule__UnitFactor__FactorAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35638:1: ( ( rulePositiveNumber ) )
-            // InternalBLESS.g:35639:2: ( rulePositiveNumber )
+            // InternalBLESS.g:35634:1: ( ( rulePositiveNumber ) )
+            // InternalBLESS.g:35635:2: ( rulePositiveNumber )
             {
-            // InternalBLESS.g:35639:2: ( rulePositiveNumber )
-            // InternalBLESS.g:35640:3: rulePositiveNumber
+            // InternalBLESS.g:35635:2: ( rulePositiveNumber )
+            // InternalBLESS.g:35636:3: rulePositiveNumber
             {
              before(grammarAccess.getUnitFactorAccess().getFactorPositiveNumberParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -108243,17 +108239,17 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Quantity__NumberAssignment_0"
-    // InternalBLESS.g:35649:1: rule__Quantity__NumberAssignment_0 : ( ruleANumber ) ;
+    // InternalBLESS.g:35645:1: rule__Quantity__NumberAssignment_0 : ( ruleANumber ) ;
     public final void rule__Quantity__NumberAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35653:1: ( ( ruleANumber ) )
-            // InternalBLESS.g:35654:2: ( ruleANumber )
+            // InternalBLESS.g:35649:1: ( ( ruleANumber ) )
+            // InternalBLESS.g:35650:2: ( ruleANumber )
             {
-            // InternalBLESS.g:35654:2: ( ruleANumber )
-            // InternalBLESS.g:35655:3: ruleANumber
+            // InternalBLESS.g:35650:2: ( ruleANumber )
+            // InternalBLESS.g:35651:3: ruleANumber
             {
              before(grammarAccess.getQuantityAccess().getNumberANumberParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -108284,21 +108280,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Quantity__UnitAssignment_1_0"
-    // InternalBLESS.g:35664:1: rule__Quantity__UnitAssignment_1_0 : ( ( RULE_ID ) ) ;
+    // InternalBLESS.g:35660:1: rule__Quantity__UnitAssignment_1_0 : ( ( RULE_ID ) ) ;
     public final void rule__Quantity__UnitAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35668:1: ( ( ( RULE_ID ) ) )
-            // InternalBLESS.g:35669:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35664:1: ( ( ( RULE_ID ) ) )
+            // InternalBLESS.g:35665:2: ( ( RULE_ID ) )
             {
-            // InternalBLESS.g:35669:2: ( ( RULE_ID ) )
-            // InternalBLESS.g:35670:3: ( RULE_ID )
+            // InternalBLESS.g:35665:2: ( ( RULE_ID ) )
+            // InternalBLESS.g:35666:3: ( RULE_ID )
             {
              before(grammarAccess.getQuantityAccess().getUnitUnitNameCrossReference_1_0_0()); 
-            // InternalBLESS.g:35671:3: ( RULE_ID )
-            // InternalBLESS.g:35672:4: RULE_ID
+            // InternalBLESS.g:35667:3: ( RULE_ID )
+            // InternalBLESS.g:35668:4: RULE_ID
             {
              before(grammarAccess.getQuantityAccess().getUnitUnitNameIDTerminalRuleCall_1_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -108329,21 +108325,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Quantity__ScalarAssignment_1_1"
-    // InternalBLESS.g:35683:1: rule__Quantity__ScalarAssignment_1_1 : ( ( 'scalar' ) ) ;
+    // InternalBLESS.g:35679:1: rule__Quantity__ScalarAssignment_1_1 : ( ( 'scalar' ) ) ;
     public final void rule__Quantity__ScalarAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35687:1: ( ( ( 'scalar' ) ) )
-            // InternalBLESS.g:35688:2: ( ( 'scalar' ) )
+            // InternalBLESS.g:35683:1: ( ( ( 'scalar' ) ) )
+            // InternalBLESS.g:35684:2: ( ( 'scalar' ) )
             {
-            // InternalBLESS.g:35688:2: ( ( 'scalar' ) )
-            // InternalBLESS.g:35689:3: ( 'scalar' )
+            // InternalBLESS.g:35684:2: ( ( 'scalar' ) )
+            // InternalBLESS.g:35685:3: ( 'scalar' )
             {
              before(grammarAccess.getQuantityAccess().getScalarScalarKeyword_1_1_0()); 
-            // InternalBLESS.g:35690:3: ( 'scalar' )
-            // InternalBLESS.g:35691:4: 'scalar'
+            // InternalBLESS.g:35686:3: ( 'scalar' )
+            // InternalBLESS.g:35687:4: 'scalar'
             {
              before(grammarAccess.getQuantityAccess().getScalarScalarKeyword_1_1_0()); 
             match(input,147,FOLLOW_2); 
@@ -108374,21 +108370,21 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Quantity__WholeAssignment_1_2"
-    // InternalBLESS.g:35702:1: rule__Quantity__WholeAssignment_1_2 : ( ( 'whole' ) ) ;
+    // InternalBLESS.g:35698:1: rule__Quantity__WholeAssignment_1_2 : ( ( 'whole' ) ) ;
     public final void rule__Quantity__WholeAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBLESS.g:35706:1: ( ( ( 'whole' ) ) )
-            // InternalBLESS.g:35707:2: ( ( 'whole' ) )
+            // InternalBLESS.g:35702:1: ( ( ( 'whole' ) ) )
+            // InternalBLESS.g:35703:2: ( ( 'whole' ) )
             {
-            // InternalBLESS.g:35707:2: ( ( 'whole' ) )
-            // InternalBLESS.g:35708:3: ( 'whole' )
+            // InternalBLESS.g:35703:2: ( ( 'whole' ) )
+            // InternalBLESS.g:35704:3: ( 'whole' )
             {
              before(grammarAccess.getQuantityAccess().getWholeWholeKeyword_1_2_0()); 
-            // InternalBLESS.g:35709:3: ( 'whole' )
-            // InternalBLESS.g:35710:4: 'whole'
+            // InternalBLESS.g:35705:3: ( 'whole' )
+            // InternalBLESS.g:35706:4: 'whole'
             {
              before(grammarAccess.getQuantityAccess().getWholeWholeKeyword_1_2_0()); 
             match(input,148,FOLLOW_2); 
@@ -108718,25 +108714,25 @@ public class InternalBLESSParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_118 = new BitSet(new long[]{0x00000000000001E0L});
     public static final BitSet FOLLOW_119 = new BitSet(new long[]{0x0000000000000210L,0x0080000000000000L,0x0000200000000000L});
     public static final BitSet FOLLOW_120 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0081000000000000L,0x0000000C00000002L});
-    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0040000000000200L});
-    public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
-    public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000002000000000L});
-    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
-    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x000000000C010000L,0x0000000100000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x000000000C010002L,0x0000000100000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_129 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
-    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x2000000000000000L,0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_131 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
-    public static final BitSet FOLLOW_132 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
-    public static final BitSet FOLLOW_133 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
-    public static final BitSet FOLLOW_134 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
-    public static final BitSet FOLLOW_135 = new BitSet(new long[]{0x0001000000000610L,0x0080000000400000L,0x0000200F80000000L});
-    public static final BitSet FOLLOW_136 = new BitSet(new long[]{0x0141000000000610L,0x00802B4000400000L,0x0000200FF8800000L});
-    public static final BitSet FOLLOW_137 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
-    public static final BitSet FOLLOW_138 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
-    public static final BitSet FOLLOW_139 = new BitSet(new long[]{0x0000000000000000L,0x004C000000000000L,0x00001F0800000000L});
+    public static final BitSet FOLLOW_121 = new BitSet(new long[]{0x0000000000000000L,0x004C000000000000L,0x00001F0800000000L});
+    public static final BitSet FOLLOW_122 = new BitSet(new long[]{0x0081000000000000L,0x0000000C00000002L});
+    public static final BitSet FOLLOW_123 = new BitSet(new long[]{0x0040000000000200L});
+    public static final BitSet FOLLOW_124 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_125 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000001000000000L});
+    public static final BitSet FOLLOW_126 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_127 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000004000000000L});
+    public static final BitSet FOLLOW_128 = new BitSet(new long[]{0x000000000C010000L,0x0000000100000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_129 = new BitSet(new long[]{0x000000000C010002L,0x0000000100000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_130 = new BitSet(new long[]{0x0000000000000000L,0x0000002000000000L});
+    public static final BitSet FOLLOW_131 = new BitSet(new long[]{0x2000000000000000L,0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_132 = new BitSet(new long[]{0x0000000000000000L,0x0000008000000000L});
+    public static final BitSet FOLLOW_133 = new BitSet(new long[]{0x0000000000000000L,0x0000040000000000L});
+    public static final BitSet FOLLOW_134 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000000L});
+    public static final BitSet FOLLOW_135 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
+    public static final BitSet FOLLOW_136 = new BitSet(new long[]{0x0001000000000610L,0x0080000000400000L,0x0000200F80000000L});
+    public static final BitSet FOLLOW_137 = new BitSet(new long[]{0x0141000000000610L,0x00802B4000400000L,0x0000200FF8800000L});
+    public static final BitSet FOLLOW_138 = new BitSet(new long[]{0x0000000000000000L,0x0000800000000000L});
+    public static final BitSet FOLLOW_139 = new BitSet(new long[]{0x0000000000000000L,0x0002000000000000L});
     public static final BitSet FOLLOW_140 = new BitSet(new long[]{0x0001000000000000L,0x0030000000000000L});
     public static final BitSet FOLLOW_141 = new BitSet(new long[]{0x0081000000000000L});
     public static final BitSet FOLLOW_142 = new BitSet(new long[]{0x0081000000000002L});

@@ -19784,9 +19784,9 @@ rule__NonNumericProperty__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); }
-	(rule__NonNumericProperty__TypeAssignment_3)
-	{ after(grammarAccess.getNonNumericPropertyAccess().getTypeAssignment_3()); }
+	{ before(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); }
+	(rule__NonNumericProperty__TyAssignment_3)
+	{ after(grammarAccess.getNonNumericPropertyAccess().getTyAssignment_3()); }
 )
 ;
 finally {
@@ -32992,19 +32992,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NonNumericProperty__TypeAssignment_3
+rule__NonNumericProperty__TyAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); }
-		(
-			{ before(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); }
-			RULE_ID
-			{ after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationIDTerminalRuleCall_3_0_1()); }
-		)
-		{ after(grammarAccess.getNonNumericPropertyAccess().getTypeTypeDeclarationCrossReference_3_0()); }
+		{ before(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); }
+		ruleType
+		{ after(grammarAccess.getNonNumericPropertyAccess().getTyTypeParserRuleCall_3_0()); }
 	)
 ;
 finally {

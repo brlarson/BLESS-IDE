@@ -1030,8 +1030,8 @@ constant
 	;	
 
 nonNumericProperty:
-  ^( LBRACKET  pv=propertyValue RCON type=ID )
-    -> nonNumericProperty(pv={$pv.st}, ty={$type.st})
+  ^( LBRACKET  pv=propertyValue RCON ty=type )
+    -> nonNumericProperty(pv={$pv.st}, ty={$ty.st})
 	;
 	
 quantity

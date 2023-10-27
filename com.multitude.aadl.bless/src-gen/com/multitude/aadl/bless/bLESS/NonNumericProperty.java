@@ -21,7 +21,7 @@ import org.osate.aadl2.PropertyConstant;
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getProperty <em>Property</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getPropertyConstant <em>Property Constant</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getType <em>Type</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy <em>Ty</em>}</li>
  * </ul>
  *
  * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty()
@@ -75,25 +75,25 @@ public interface NonNumericProperty extends EObject, Element
   void setPropertyConstant(PropertyConstant value);
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' reference.
+   * Returns the value of the '<em><b>Ty</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(TypeDeclaration)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty_Type()
-   * @model
+   * @return the value of the '<em>Ty</em>' containment reference.
+   * @see #setTy(Type)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getNonNumericProperty_Ty()
+   * @model containment="true"
    * @generated
    */
-  TypeDeclaration getType();
+  Type getTy();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getType <em>Type</em>}' reference.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.NonNumericProperty#getTy <em>Ty</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' reference.
-   * @see #getType()
+   * @param value the new value of the '<em>Ty</em>' containment reference.
+   * @see #getTy()
    * @generated
    */
-  void setType(TypeDeclaration value);
+  void setTy(Type value);
 
 } // NonNumericProperty

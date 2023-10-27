@@ -768,7 +768,7 @@ NonNumericProperty:
   ( property=PropertyReference
   | propertyConstant=[aadl2::PropertyConstant|QCLREF]
   )
-  "]->"   type=[TypeDeclaration]  
+  "]->"   ty=Type
 ;
 
 ///////////////////////   NAME  ////////////////////////////////////
