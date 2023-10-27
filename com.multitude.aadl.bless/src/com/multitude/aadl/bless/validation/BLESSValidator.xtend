@@ -121,6 +121,7 @@ import com.multitude.aadl.bless.exception.ValidationException
 import org.osate.xtext.aadl2.properties.util.GetProperties
 import org.osate.xtext.aadl2.properties.util.PropertyUtils
 import com.multitude.aadl.bless.bLESS.UnitName
+import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -152,6 +153,8 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 	    targetException.printStackTrace
 	  }
 
+
+//////////////////////  MARKERS   \\\\\\\\\\\\\\\\\\\\\\\\\
 //check to see if this is the first error from this source
   def fError(String message, EObject source, EStructuralFeature feature)
     {
@@ -203,6 +206,17 @@ val Map<EObject,UnitRecord> unitRecordMap = new HashMap<EObject,UnitRecord>();
 //      }
 //  }  
  
+ @Check(CheckType.NORMAL)
+ def checkStatesExist(BLESSGrammarRoots bgr)
+   {
+   if (bgr.bless_subclause !== null)
+     if (bgr.bless_subclause.statesSection === null || bgr.bless_subclause.statesSection.states === null
+       ||  bgr.bless_subclause.statesSection.states.empty )
+    fError('BLESS annex subclauses must have at least one state.', bgr,
+      BLESSPackage.eINSTANCE.BLESSGrammarRoots_Bless_subclause) 
+   }
+
+
  @Check(CheckType.NORMAL)
 def checkInvariantHasNoParameters(InvariantClause ic)
   {
@@ -1201,6 +1215,7 @@ checkMixedModeAndCompleteStates(BLESSSubclause sub)
   {
   var hasComplete = false
   var hasMode = false
+  if (sub.statesSection.states !== null)
   for (state : sub.statesSection.states)
     {
     if (state.complete) hasComplete = true
