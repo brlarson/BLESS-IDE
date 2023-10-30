@@ -278,16 +278,18 @@ public class TypeUtil {
         return this.booleanType();
       }
       final Classifier c = f.getClassifier();
-      EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
-      for (final PropertyAssociation pa : _ownedPropertyAssociations) {
-        boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
-        if (_equalsIgnoreCase) {
-          PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
-          final String str = ((StringLiteral) _ownedValue).getValue();
-          Resource _eResource = f.eResource();
-          boolean _tripleNotEquals = (_eResource != null);
-          if (_tripleNotEquals) {
-            return this.getTypeOfString(str, f);
+      if ((c != null)) {
+        EList<PropertyAssociation> _ownedPropertyAssociations = c.getOwnedPropertyAssociations();
+        for (final PropertyAssociation pa : _ownedPropertyAssociations) {
+          boolean _equalsIgnoreCase = pa.getProperty().getQualifiedName().equalsIgnoreCase("BLESS::Typed");
+          if (_equalsIgnoreCase) {
+            PropertyExpression _ownedValue = IterableExtensions.<ModalPropertyValue>head(pa.getOwnedValues()).getOwnedValue();
+            final String str = ((StringLiteral) _ownedValue).getValue();
+            Resource _eResource = f.eResource();
+            boolean _tripleNotEquals = (_eResource != null);
+            if (_tripleNotEquals) {
+              return this.getTypeOfString(str, f);
+            }
           }
         }
       }

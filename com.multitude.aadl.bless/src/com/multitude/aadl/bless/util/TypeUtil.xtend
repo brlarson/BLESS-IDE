@@ -175,6 +175,7 @@ def Type nullType() {BLESSFactory.eINSTANCE.createNullType}
     if (f instanceof EventPort)
       return booleanType
     val c = f.classifier 
+    if (c !== null)
     for (pa : c.ownedPropertyAssociations) 	
       if (pa.property.getQualifiedName.equalsIgnoreCase('BLESS::Typed'))
         {
