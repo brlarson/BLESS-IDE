@@ -1844,8 +1844,7 @@ def Type getType(ValueName a)
       val featureType = getType(aid)
       if (featureType === null)
       {
-        fError("BLESS::Typed properties of data components used as feature types must" +
-          " be a quantity, or the identifier of a type declared in a typedef annex library.  \"", a,
+        fError("No feature type found for feature \""+aid.name, a,
           BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.FEATURE_TYPED_ERROR)
         return booleanType
       }
