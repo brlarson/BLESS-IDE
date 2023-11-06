@@ -536,164 +536,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkPortInputTarget(final PortInput n) {
-    if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
-      this.fError("Target of port input must be a variable name.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkAssignmentToInPort(final Assignment asgn) {
-    final NamedElement vName = asgn.getLhs().getValue().getId();
-    if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
-      this.fError("May not assign to in data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventDataPort) && (!((EventDataPort) vName).isOut()))) {
-      this.fError("May not assign to in event data port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof EventPort) && (!((EventPort) vName).isOut()))) {
-      this.fError("May not assign to in event port.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-    if (((vName instanceof Parameter) && (!((Parameter) vName).isOut()))) {
-      this.fError("May not assign to in parameter.", asgn, 
-        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPortIndexIsNaturalLiteral(final ValueName vn) {
-    if ((((vn.getId() instanceof DataPort) || (vn.getId() instanceof EventPort)) || (vn.getId() instanceof EventDataPort))) {
-      if (((vn.getArray_index() != null) && (vn.getArray_index().size() > 0))) {
-        int _size = vn.getArray_index().size();
-        boolean _greaterThan = (_size > 1);
-        if (_greaterThan) {
-          this.fError("Port arrays are one dimensional.", vn, 
-            BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-        } else {
-          IndexExpressionOrRange _head = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-          if ((_head instanceof ANumber)) {
-            IndexExpressionOrRange _head_1 = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
-            final ANumber num = ((ANumber) _head_1);
-            if (((num.getLit() != null) && (num.getLit().contains(".") || num.getLit().contains("-")))) {
-              this.fError("Port array index must be natural literal.", vn, 
-                BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-            }
-          } else {
-            this.fError("Port array index must be natural literal.", vn, 
-              BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
-          }
-        }
-      }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkPElhsIsWhole(final Relation r) {
-    if (((r.getSym() != null) && r.getSym().equalsIgnoreCase("+="))) {
-      AddSub _l = r.getL();
-      if ((_l instanceof ValueName)) {
-        AddSub _l_1 = r.getL();
-        final Type ty = this.getType(((ValueName) _l_1));
-        if ((ty instanceof QuantityType)) {
-          String _whole = ((QuantityType) ty).getWhole();
-          boolean _tripleNotEquals = (_whole != null);
-          if (_tripleNotEquals) {
-            this.fError("+= only apples to whole variables.", r, 
-              BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
-          }
-        } else {
-          this.fError("+= only apples to whole variables.", r, 
-            BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
-        }
-      } else {
-        this.fError("+= only apples to whole variables.", r, 
-          BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
-      }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkNameTickValue(final NameTick n) {
-    if ((n.isTick() && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
-      this.fError("Must be a variable name to have \'.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkSubProgramParameterValue(final SubProgramParameter n) {
-    if (((n.getValue() != null) && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
-      this.fError("Subprogram parameters may not be port input.", n, 
-        BLESSPackage.eINSTANCE.getSubProgramParameter_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkInvocationNumericExpression(final Invocation i) {
-    if (((i.getActual_parameter() != null) && (!(this.getType(i.getActual_parameter()) instanceof QuantityType)))) {
-      NamedAssertion _label = i.getLabel();
-      String _name = null;
-      if (_label!=null) {
-        _name=_label.getName();
-      }
-      String _plus = ("Invocation of " + _name);
-      String _plus_1 = (_plus + " with unlabeled parameter must be quantity.  Try ");
-      NamedAssertion _label_1 = i.getLabel();
-      String _name_1 = null;
-      if (_label_1!=null) {
-        _name_1=_label_1.getName();
-      }
-      String _plus_2 = (_plus_1 + _name_1);
-      String _plus_3 = (_plus_2 + "(x:e)");
-      this.fError(_plus_3, i, 
-        BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.MUST_BE_QUANTITY);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkDuplicateTransitionLabels(final Transitions trans) {
-    final HashMap<String, BehaviorTransition> labels = new HashMap<String, BehaviorTransition>();
-    EList<BehaviorTransition> _bt = trans.getBt();
-    for (final BehaviorTransition t : _bt) {
-      boolean _containsKey = labels.containsKey(t.getName());
-      if (_containsKey) {
-        String _name = t.getName();
-        String _plus = ("Duplicate transition label \'" + _name);
-        String _plus_1 = (_plus + "\'");
-        this.fError(_plus_1, t, 
-          BLESSPackage.eINSTANCE.getBehaviorTransition_Colon(), IssueCodes.DUPLICATE_TRANSITION_LABEL);
-        String _name_1 = t.getName();
-        String _plus_2 = ("Duplicate transition label \'" + _name_1);
-        String _plus_3 = (_plus_2 + "\'");
-        this.fError(_plus_3, labels.get(t.getName()), 
-          BLESSPackage.eINSTANCE.getBehaviorTransition_Colon(), IssueCodes.DUPLICATE_TRANSITION_LABEL);
-      } else {
-        labels.put(t.getName(), t);
-      }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkProductQuantificationNumericExpression(final ProductQuantification pq) {
-    if (((pq.getNumeric_expression() != null) && (!(this.getType(pq.getNumeric_expression()) instanceof QuantityType)))) {
-      this.fError("product-of must be quantity.", pq, 
-        BLESSPackage.eINSTANCE.getProductQuantification_Numeric_expression(), IssueCodes.MUST_BE_QUANTITY);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkSumQuantificationNumericExpression(final SumQuantification sq) {
-    if (((sq.getNumeric_expression() != null) && (!(this.getType(sq.getNumeric_expression()) instanceof QuantityType)))) {
-      this.fError("sum-of must be quantity.", sq, 
-        BLESSPackage.eINSTANCE.getSumQuantification_Numeric_expression(), IssueCodes.MUST_BE_QUANTITY);
-    }
-  }
-
-  @Check(CheckType.NORMAL)
   public void checkNamedAssertionHasNoNow(final Value v) {
     String _now = v.getNow();
     boolean _tripleNotEquals = (_now != null);
@@ -976,6 +818,192 @@ public class BLESSValidator extends AbstractBLESSValidator {
                         BLESSPackage.eINSTANCE.getActualParameter_Formal(), IssueCodes.ASSERTION_INVOCATION);
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortInputTarget(final PortInput n) {
+    if ((((n.getTarget().isQ() || n.getTarget().isFresh()) || n.getTarget().isCount()) || n.getTarget().isUpdated())) {
+      this.fError("Target of port input must be a variable name.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkAssignmentToInPort(final Assignment asgn) {
+    final NamedElement vName = asgn.getLhs().getValue().getId();
+    if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
+      this.fError("May not assign to in data port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof EventDataPort) && (!((EventDataPort) vName).isOut()))) {
+      this.fError("May not assign to in event data port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof EventPort) && (!((EventPort) vName).isOut()))) {
+      this.fError("May not assign to in event port.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+    if (((vName instanceof Parameter) && (!((Parameter) vName).isOut()))) {
+      this.fError("May not assign to in parameter.", asgn, 
+        BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPortIndexIsNaturalLiteral(final ValueName vn) {
+    if ((((vn.getId() instanceof DataPort) || (vn.getId() instanceof EventPort)) || (vn.getId() instanceof EventDataPort))) {
+      if (((vn.getArray_index() != null) && (vn.getArray_index().size() > 0))) {
+        int _size = vn.getArray_index().size();
+        boolean _greaterThan = (_size > 1);
+        if (_greaterThan) {
+          this.fError("Port arrays are one dimensional.", vn, 
+            BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
+        } else {
+          IndexExpressionOrRange _head = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
+          if ((_head instanceof ANumber)) {
+            IndexExpressionOrRange _head_1 = IterableExtensions.<IndexExpressionOrRange>head(vn.getArray_index());
+            final ANumber num = ((ANumber) _head_1);
+            if (((num.getLit() != null) && (num.getLit().contains(".") || num.getLit().contains("-")))) {
+              this.fError("Port array index must be natural literal.", vn, 
+                BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
+            }
+          } else {
+            this.fError("Port array index must be natural literal.", vn, 
+              BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.PORT_ARRAY_INDEX_ERROR);
+          }
+        }
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkPElhsIsWhole(final Relation r) {
+    if (((r.getSym() != null) && r.getSym().equalsIgnoreCase("+="))) {
+      AddSub _l = r.getL();
+      if ((_l instanceof ValueName)) {
+        AddSub _l_1 = r.getL();
+        final Type ty = this.getType(((ValueName) _l_1));
+        if ((ty instanceof QuantityType)) {
+          String _whole = ((QuantityType) ty).getWhole();
+          boolean _tripleNotEquals = (_whole != null);
+          if (_tripleNotEquals) {
+            this.fError("+= only apples to whole variables.", r, 
+              BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
+          }
+        } else {
+          this.fError("+= only apples to whole variables.", r, 
+            BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
+        }
+      } else {
+        this.fError("+= only apples to whole variables.", r, 
+          BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkNameTickValue(final NameTick n) {
+    if ((n.isTick() && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
+      this.fError("Must be a variable name to have \'.", n, 
+        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkSubProgramParameterValue(final SubProgramParameter n) {
+    if (((n.getValue() != null) && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
+      this.fError("Subprogram parameters may not be port input.", n, 
+        BLESSPackage.eINSTANCE.getSubProgramParameter_Value(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkProductQuantificationNumericExpression(final ProductQuantification pq) {
+    if (((pq.getNumeric_expression() != null) && (!(this.getType(pq.getNumeric_expression()) instanceof QuantityType)))) {
+      this.fError("product-of must be quantity.", pq, 
+        BLESSPackage.eINSTANCE.getProductQuantification_Numeric_expression(), IssueCodes.MUST_BE_QUANTITY);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkSumQuantificationNumericExpression(final SumQuantification sq) {
+    if (((sq.getNumeric_expression() != null) && (!(this.getType(sq.getNumeric_expression()) instanceof QuantityType)))) {
+      this.fError("sum-of must be quantity.", sq, 
+        BLESSPackage.eINSTANCE.getSumQuantification_Numeric_expression(), IssueCodes.MUST_BE_QUANTITY);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkInvocationNumericExpression(final Invocation i) {
+    if (((i.getActual_parameter() != null) && (!(this.getType(i.getActual_parameter()) instanceof QuantityType)))) {
+      NamedAssertion _label = i.getLabel();
+      String _name = null;
+      if (_label!=null) {
+        _name=_label.getName();
+      }
+      String _plus = ("Invocation of " + _name);
+      String _plus_1 = (_plus + " with unlabeled parameter must be quantity.  Try ");
+      NamedAssertion _label_1 = i.getLabel();
+      String _name_1 = null;
+      if (_label_1!=null) {
+        _name_1=_label_1.getName();
+      }
+      String _plus_2 = (_plus_1 + _name_1);
+      String _plus_3 = (_plus_2 + "(x:e)");
+      this.fError(_plus_3, i, 
+        BLESSPackage.eINSTANCE.getInvocation_Actual_parameter(), IssueCodes.MUST_BE_QUANTITY);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkDuplicateTransitionLabels(final Transitions trans) {
+    final HashMap<String, BehaviorTransition> labels = new HashMap<String, BehaviorTransition>();
+    EList<BehaviorTransition> _bt = trans.getBt();
+    for (final BehaviorTransition t : _bt) {
+      boolean _containsKey = labels.containsKey(t.getName());
+      if (_containsKey) {
+        String _name = t.getName();
+        String _plus = ("Duplicate transition label \'" + _name);
+        String _plus_1 = (_plus + "\'");
+        this.fError(_plus_1, t, 
+          BLESSPackage.eINSTANCE.getBehaviorTransition_Colon(), IssueCodes.DUPLICATE_TRANSITION_LABEL);
+        String _name_1 = t.getName();
+        String _plus_2 = ("Duplicate transition label \'" + _name_1);
+        String _plus_3 = (_plus_2 + "\'");
+        this.fError(_plus_3, labels.get(t.getName()), 
+          BLESSPackage.eINSTANCE.getBehaviorTransition_Colon(), IssueCodes.DUPLICATE_TRANSITION_LABEL);
+      } else {
+        labels.put(t.getName(), t);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkInitialTransitions(final BLESSSubclause bsc) {
+    StatesSection _statesSection = bsc.getStatesSection();
+    boolean _tripleNotEquals = (_statesSection != null);
+    if (_tripleNotEquals) {
+      EList<BehaviorState> _states = bsc.getStatesSection().getStates();
+      for (final BehaviorState st : _states) {
+        boolean _isInitial = st.isInitial();
+        if (_isInitial) {
+          Transitions _transitions = bsc.getTransitions();
+          boolean _tripleNotEquals_1 = (_transitions != null);
+          if (_tripleNotEquals_1) {
+            EList<BehaviorTransition> _bt = bsc.getTransitions().getBt();
+            for (final BehaviorTransition tr : _bt) {
+              EList<BehaviorState> _sources = tr.getSources();
+              for (final BehaviorState src : _sources) {
+                int _compareTo = src.getName().compareTo(st.getName());
+                boolean _equals = (_compareTo == 0);
+                if (_equals) {
                 }
               }
             }

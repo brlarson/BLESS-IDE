@@ -424,194 +424,6 @@ def void checkThatNamedAssertionType(NamedAssertion n)
   }
 
 
-//@Check(CheckType.NORMAL)
-//def void checkPortValueInAssignment(ValueName n)
-//  {
-//  if (n.q && n.getAsgnInAssignment !== null)  
-//    fError('Don\'t use \'?\' for port values in assignment.',n.getAsgnInAssignment,
-//      BLESSPackage::eINSTANCE.assignment_Asgn, IssueCodes.PORT_VALUE_IN_EXPRESSION_HAS_Q)   
-//  if (n.q && n.getAsgnInSimultaneousAssignment !== null)  
-//    fError('Don\'t use \'?\' for port values in assignment.',n.getAsgnInSimultaneousAssignment,
-//      BLESSPackage::eINSTANCE.simultaneousAssignment_Asgn, IssueCodes.PORT_VALUE_IN_EXPRESSION_HAS_Q)   
-//  }
-
-
-
-@Check(CheckType.NORMAL)
-def void checkPortInputTarget(PortInput n)
-  {
-  if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
-    fError('Target of port input must be a variable name.',n,
-      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkAssignmentToInPort(Assignment asgn)
-  {
-  val vName = asgn.lhs.value.id
-  if (vName instanceof DataPort && !(vName as DataPort).out)
-    fError('May not assign to in data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
-    fError('May not assign to in event data port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof EventPort && !(vName as EventPort).out)
-    fError('May not assign to in event port.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
-  if (vName instanceof Parameter && !(vName as Parameter).out)
-    fError('May not assign to in parameter.',asgn,
-      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
-  }
-
-//@Check(CheckType.NORMAL)
-//def void checkInPortValueHasQuestionMark(ValueName vn)
-//  {
-//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort) 
-//    if (!vn.q && !vn.fresh && !vn.count && !vn.updated && vn.inBehaviorActions) 
-//        fError('Values of in ports must use ?, fresh, count, or updated.',vn,
-//          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
-//  }
-
-@Check(CheckType.NORMAL)
-def void checkPortIndexIsNaturalLiteral(ValueName vn)
-  {
-  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
-    if (vn.array_index !== null && vn.array_index.size > 0)
-      {
-      if (vn.array_index.size > 1)  
-        fError('Port arrays are one dimensional.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      else if (vn.array_index.head instanceof ANumber)
-        {
-        val num = vn.array_index.head as ANumber
-        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
-          fError('Port array index must be natural literal.',vn,
-            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-        }   
-      else
-        fError('Port array index must be natural literal.',vn,
-          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
-      }
-  }
-
-@Check(CheckType.NORMAL)
-def void checkPElhsIsWhole(Relation r)
-  {
-  if (r.sym !== null && r.sym.equalsIgnoreCase("+="))
-    {
-    if (r.l instanceof ValueName)
-      {
-      val ty = (r.l as ValueName).getType
-      if (ty instanceof QuantityType)
-        {
-        if ((ty as QuantityType).whole !== null)      
-//        if (!(ty as QuantityType).whole)      
-          fError('+= only apples to whole variables.',r,
-            BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
-        }
-      else    
-        fError('+= only apples to whole variables.',r,
-          BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
-      }
-    else    
-      fError('+= only apples to whole variables.',r,
-          BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
-    }  
-  }
-
-@Check(CheckType.NORMAL)
-def void checkNameTickValue(NameTick n)
-  {
-  if (n.tick &&(n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
-    fError('Must be a variable name to have \'.',n,
-      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkSubProgramParameterValue(SubProgramParameter n)
-  {
-  if ((n.value !== null ) && (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
-    fError('Subprogram parameters may not be port input.',n,
-      BLESSPackage::eINSTANCE.subProgramParameter_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
-
-//WHAT'S THIS SUPPOSED TO CHECK?  removed May 22, 2023
-//@Check(CheckType.NORMAL)
-//def void checkBehaviorTimeValue(BehaviorTime n)
-//  {
-//  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
-//    fError('Behavior time may not be port input.',n,
-//      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-//  }
-
-//@Check(CheckType.NORMAL)
-//def void checkValueNameInAssertion(Value n)
-//  {
-//  if (AssertionUtil.containedInAssertion(n)  && n.value_name.q)
-//    fError('Assertions may not contain port input.',n,
-//      BLESSPackage::eINSTANCE.value_Value_name, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-//  }
-
-//@Check(CheckType.NORMAL)
-//def void checkInvocationsHaveNoTimedExpression(TimedExpression te)
-//  {
-//  if ((te.tick!==null || te.at || te.caret) && te.containedInInvocation) 
-//    fError('Invocation parameters may not be timed (\' @ ^)',te,
-//      BLESSPackage::eINSTANCE.timedExpression_Subject, 
-//      IssueCodes.TIMED_INVOCATION_PARAMETERS)    
-//  }
-
-@Check(CheckType.NORMAL)
-def void checkInvocationNumericExpression(Invocation i)
-  {
-  if (i.actual_parameter !== null && !(i.actual_parameter.getType instanceof QuantityType))  
-    fError('Invocation of '+i.label?.name+' with unlabeled parameter must be quantity.  Try '+
-      i.label?.name+'(x:e)',i,
-      BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.MUST_BE_QUANTITY)    
-  }
-
-
-@Check(CheckType.NORMAL)
-def void checkDuplicateTransitionLabels(Transitions trans)
-  {
-  val labels = new HashMap<String,BehaviorTransition>()
-  for (t : trans.bt) 
-    if (labels.containsKey(t.name))
-      {
-      fError('Duplicate transition label \''+t.name+'\'',t,
-        BLESSPackage::eINSTANCE.behaviorTransition_Colon, IssueCodes.DUPLICATE_TRANSITION_LABEL)    
-      fError('Duplicate transition label \''+t.name+'\'',labels.get(t.name),
-        BLESSPackage::eINSTANCE.behaviorTransition_Colon, IssueCodes.DUPLICATE_TRANSITION_LABEL)     
-      }
-    else labels.put(t.name,t)
-  }
-
-@Check(CheckType.NORMAL)
-def void checkProductQuantificationNumericExpression(ProductQuantification pq)
-  {
-  if (pq.numeric_expression !== null && !(pq.numeric_expression.getType instanceof QuantityType))  
-    fError('product-of must be quantity.',pq,
-      BLESSPackage::eINSTANCE.productQuantification_Numeric_expression, IssueCodes.MUST_BE_QUANTITY)   
-  }
-
-@Check(CheckType.NORMAL)
-def void checkSumQuantificationNumericExpression(SumQuantification sq)
-  {
-  if (sq.numeric_expression !== null && !(sq.numeric_expression.getType instanceof QuantityType))  
-    fError('sum-of must be quantity.',sq,
-      BLESSPackage::eINSTANCE.sumQuantification_Numeric_expression, IssueCodes.MUST_BE_QUANTITY)   
-  }
-
-
-//@Check(CheckType.NORMAL)
-//def void checkNoAssertionEnumeration(Invocation i)
-//  {
-//  if (i.label.enumer && !(i.eContainer instanceof NamelessEnumeration))
-//    fError('Invocations of assertion enumerations may only be in nameless enumerations << +=> '+
-//      i.label.name+'(x) >>',i,
-//      BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.ASSERTION_ENUMERATION_INVOCATION_NOT_ALLOWED)   
-//  }
-
 @Check(CheckType.NORMAL)
 def void checkNamedAssertionHasNoNow(Value v)
   {
@@ -741,6 +553,226 @@ def void checkNamedAssertionInvocation(Invocation i)
       }             
     }
   }  //end of checkNamedAssertionInvocation
+
+
+//@Check(CheckType.NORMAL)
+//def void checkNoAssertionEnumeration(Invocation i)
+//  {
+//  if (i.label.enumer && !(i.eContainer instanceof NamelessEnumeration))
+//    fError('Invocations of assertion enumerations may only be in nameless enumerations << +=> '+
+//      i.label.name+'(x) >>',i,
+//      BLESSPackage::eINSTANCE.invocation_Label, IssueCodes.ASSERTION_ENUMERATION_INVOCATION_NOT_ALLOWED)   
+//  }
+
+/////////////////   PORTS   \\\\\\\\\\\\\\\\\\\
+
+@Check(CheckType.NORMAL)
+def void checkPortInputTarget(PortInput n)
+  {
+  if (n.target.q ||n.target.fresh ||n.target.count ||n.target.updated )
+    fError('Target of port input must be a variable name.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_MUST_TARGET_VARIABLE)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkAssignmentToInPort(Assignment asgn)
+  {
+  val vName = asgn.lhs.value.id
+  if (vName instanceof DataPort && !(vName as DataPort).out)
+    fError('May not assign to in data port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof EventDataPort && !(vName as EventDataPort).out)
+    fError('May not assign to in event data port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof EventPort && !(vName as EventPort).out)
+    fError('May not assign to in event port.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
+  if (vName instanceof Parameter && !(vName as Parameter).out)
+    fError('May not assign to in parameter.',asgn,
+      BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)  
+  }
+
+@Check(CheckType.NORMAL)
+def void checkPortIndexIsNaturalLiteral(ValueName vn)
+  {
+  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort)  
+    if (vn.array_index !== null && vn.array_index.size > 0)
+      {
+      if (vn.array_index.size > 1)  
+        fError('Port arrays are one dimensional.',vn,
+          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+      else if (vn.array_index.head instanceof ANumber)
+        {
+        val num = vn.array_index.head as ANumber
+        if (num.lit !== null && (num.lit.contains('.') || num.lit.contains('-') ))  
+          fError('Port array index must be natural literal.',vn,
+            BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+        }   
+      else
+        fError('Port array index must be natural literal.',vn,
+          BLESSPackage::eINSTANCE.valueName_Array_index, IssueCodes.PORT_ARRAY_INDEX_ERROR) 
+      }
+  }
+
+
+//@Check(CheckType.NORMAL)
+//def void checkInPortValueHasQuestionMark(ValueName vn)
+//  {
+//  if (vn.id instanceof DataPort || vn.id instanceof EventPort || vn.id instanceof EventDataPort) 
+//    if (!vn.q && !vn.fresh && !vn.count && !vn.updated && vn.inBehaviorActions) 
+//        fError('Values of in ports must use ?, fresh, count, or updated.',vn,
+//          BLESSPackage::eINSTANCE.valueName_Id, IssueCodes.NEEDS_QUESTION_MARK) 
+//  }
+
+//@Check(CheckType.NORMAL)
+//def void checkPortValueInAssignment(ValueName n)
+//  {
+//  if (n.q && n.getAsgnInAssignment !== null)  
+//    fError('Don\'t use \'?\' for port values in assignment.',n.getAsgnInAssignment,
+//      BLESSPackage::eINSTANCE.assignment_Asgn, IssueCodes.PORT_VALUE_IN_EXPRESSION_HAS_Q)   
+//  if (n.q && n.getAsgnInSimultaneousAssignment !== null)  
+//    fError('Don\'t use \'?\' for port values in assignment.',n.getAsgnInSimultaneousAssignment,
+//      BLESSPackage::eINSTANCE.simultaneousAssignment_Asgn, IssueCodes.PORT_VALUE_IN_EXPRESSION_HAS_Q)   
+//  }
+
+////////////////////////////   PARAMETERS   \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+@Check(CheckType.NORMAL)
+def void checkPElhsIsWhole(Relation r)
+  {
+  if (r.sym !== null && r.sym.equalsIgnoreCase("+="))
+    {
+    if (r.l instanceof ValueName)
+      {
+      val ty = (r.l as ValueName).getType
+      if (ty instanceof QuantityType)
+        {
+        if ((ty as QuantityType).whole !== null)      
+//        if (!(ty as QuantityType).whole)      
+          fError('+= only apples to whole variables.',r,
+            BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
+        }
+      else    
+        fError('+= only apples to whole variables.',r,
+          BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
+      }
+    else    
+      fError('+= only apples to whole variables.',r,
+          BLESSPackage::eINSTANCE.relation_L, IssueCodes.PLUS_EQUALS_ERROR) 
+    }  
+  }
+
+@Check(CheckType.NORMAL)
+def void checkNameTickValue(NameTick n)
+  {
+  if (n.tick &&(n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
+    fError('Must be a variable name to have \'.',n,
+      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkSubProgramParameterValue(SubProgramParameter n)
+  {
+  if ((n.value !== null ) && (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
+    fError('Subprogram parameters may not be port input.',n,
+      BLESSPackage::eINSTANCE.subProgramParameter_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkProductQuantificationNumericExpression(ProductQuantification pq)
+  {
+  if (pq.numeric_expression !== null && !(pq.numeric_expression.getType instanceof QuantityType))  
+    fError('product-of must be quantity.',pq,
+      BLESSPackage::eINSTANCE.productQuantification_Numeric_expression, IssueCodes.MUST_BE_QUANTITY)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkSumQuantificationNumericExpression(SumQuantification sq)
+  {
+  if (sq.numeric_expression !== null && !(sq.numeric_expression.getType instanceof QuantityType))  
+    fError('sum-of must be quantity.',sq,
+      BLESSPackage::eINSTANCE.sumQuantification_Numeric_expression, IssueCodes.MUST_BE_QUANTITY)   
+  }
+
+@Check(CheckType.NORMAL)
+def void checkInvocationNumericExpression(Invocation i)
+  {
+  if (i.actual_parameter !== null && !(i.actual_parameter.getType instanceof QuantityType))  
+    fError('Invocation of '+i.label?.name+' with unlabeled parameter must be quantity.  Try '+
+      i.label?.name+'(x:e)',i,
+      BLESSPackage::eINSTANCE.invocation_Actual_parameter, IssueCodes.MUST_BE_QUANTITY)    
+  }
+
+//WHAT'S THIS SUPPOSED TO CHECK?  removed May 22, 2023
+//@Check(CheckType.NORMAL)
+//def void checkBehaviorTimeValue(BehaviorTime n)
+//  {
+//  if (n.value.q ||n.value.fresh ||n.value.count ||n.value.updated )
+//    fError('Behavior time may not be port input.',n,
+//      BLESSPackage::eINSTANCE.behaviorTime_Value, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+//  }
+
+//@Check(CheckType.NORMAL)
+//def void checkValueNameInAssertion(Value n)
+//  {
+//  if (AssertionUtil.containedInAssertion(n)  && n.value_name.q)
+//    fError('Assertions may not contain port input.',n,
+//      BLESSPackage::eINSTANCE.value_Value_name, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+//  }
+
+//@Check(CheckType.NORMAL)
+//def void checkInvocationsHaveNoTimedExpression(TimedExpression te)
+//  {
+//  if ((te.tick!==null || te.at || te.caret) && te.containedInInvocation) 
+//    fError('Invocation parameters may not be timed (\' @ ^)',te,
+//      BLESSPackage::eINSTANCE.timedExpression_Subject, 
+//      IssueCodes.TIMED_INVOCATION_PARAMETERS)    
+//  }
+
+//////////////////////////////////   TRANSITIONS   \\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+@Check(CheckType.NORMAL)
+def void checkDuplicateTransitionLabels(Transitions trans)
+  {
+  val labels = new HashMap<String,BehaviorTransition>()
+  for (t : trans.bt) 
+    if (labels.containsKey(t.name))
+      {
+      fError('Duplicate transition label \''+t.name+'\'',t,
+        BLESSPackage::eINSTANCE.behaviorTransition_Colon, IssueCodes.DUPLICATE_TRANSITION_LABEL)    
+      fError('Duplicate transition label \''+t.name+'\'',labels.get(t.name),
+        BLESSPackage::eINSTANCE.behaviorTransition_Colon, IssueCodes.DUPLICATE_TRANSITION_LABEL)     
+      }
+    else labels.put(t.name,t)
+  }
+
+@Check(CheckType.NORMAL)
+def void checkInitialTransitions(BLESSSubclause bsc)
+  {  //find initial state
+  if (bsc.statesSection !== null)
+    for (st : bsc.statesSection.states)
+      if (st.initial)       
+        // st.name is ID of initial state 
+  //find all transitions leaving the initial state
+        if (bsc.transitions !== null)
+          for (tr : bsc.transitions.bt) 
+            for (src : tr.sources)
+              if (src.name.compareTo(st.name) == 0) 
+                {  //transition has initial state source
+                  
+    
+  //TODO are any port inputs used?
+  
+  
+  //TODO are all out data ports assigned?
+    
+                }
+          
+           
+        
+  
+  
+  }  //end of checkInitialTransitions
 
 //////////////////////////  EXPRESSION  \\\\\\\\\\\\\\\\\\\\
  
