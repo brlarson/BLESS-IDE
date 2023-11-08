@@ -777,6 +777,25 @@ def void checkInitialTransitions(BLESSSubclause bsc)
 //////////////////////////  EXPRESSION  \\\\\\\\\\\\\\\\\\\\
  
 @Check(CheckType.NORMAL)
+def void quantityLiteralsHaveDot(Quantity q)
+  {
+  if (q.whole !== null && q.number.lit !== null && q.number.lit.contains('.'))  
+     fError('Whole quantites requires whole number literals, not\"'+
+         q.number.lit+'\"' ,q,
+            BLESSPackage::eINSTANCE.quantity_Number, IssueCodes.WHOLE_QUANTITY_LITERAL)              
+  if (q.unit !== null && q.number.lit !== null && !q.number.lit.contains('.'))  
+     fError('Unit quantites requires real number literals, not\"'+
+         q.number.lit+'\"' ,q,
+            BLESSPackage::eINSTANCE.quantity_Number, IssueCodes.UNIT_QUANTITY_LITERAL)              
+  if (q.scalar !== null && q.number.lit !== null && !q.number.lit.contains('.'))  
+     fError('Scalar quantites requires real number literals, not\"'+
+         q.number.lit+'\"' ,q,
+            BLESSPackage::eINSTANCE.quantity_Number, IssueCodes.UNIT_QUANTITY_LITERAL)              
+    
+  }
+
+ 
+@Check(CheckType.NORMAL)
 def void 
 checkThatBooleanExpressionsAreBoolean(BooleanExpression be)
   {

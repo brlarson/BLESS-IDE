@@ -1014,6 +1014,31 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void quantityLiteralsHaveDot(final Quantity q) {
+    if ((((q.getWhole() != null) && (q.getNumber().getLit() != null)) && q.getNumber().getLit().contains("."))) {
+      String _lit = q.getNumber().getLit();
+      String _plus = ("Whole quantites requires whole number literals, not\"" + _lit);
+      String _plus_1 = (_plus + "\"");
+      this.fError(_plus_1, q, 
+        BLESSPackage.eINSTANCE.getQuantity_Number(), IssueCodes.WHOLE_QUANTITY_LITERAL);
+    }
+    if ((((q.getUnit() != null) && (q.getNumber().getLit() != null)) && (!q.getNumber().getLit().contains(".")))) {
+      String _lit_1 = q.getNumber().getLit();
+      String _plus_2 = ("Unit quantites requires real number literals, not\"" + _lit_1);
+      String _plus_3 = (_plus_2 + "\"");
+      this.fError(_plus_3, q, 
+        BLESSPackage.eINSTANCE.getQuantity_Number(), IssueCodes.UNIT_QUANTITY_LITERAL);
+    }
+    if ((((q.getScalar() != null) && (q.getNumber().getLit() != null)) && (!q.getNumber().getLit().contains(".")))) {
+      String _lit_2 = q.getNumber().getLit();
+      String _plus_4 = ("Scalar quantites requires real number literals, not\"" + _lit_2);
+      String _plus_5 = (_plus_4 + "\"");
+      this.fError(_plus_5, q, 
+        BLESSPackage.eINSTANCE.getQuantity_Number(), IssueCodes.UNIT_QUANTITY_LITERAL);
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkThatBooleanExpressionsAreBoolean(final BooleanExpression be) {
     final Expression le = ((Expression) be);
     if (((le.getAll() != null) && (!this._typeUtil.sameStructuralType(this.getType(le.getAll()), this._typeUtil.booleanType())))) {

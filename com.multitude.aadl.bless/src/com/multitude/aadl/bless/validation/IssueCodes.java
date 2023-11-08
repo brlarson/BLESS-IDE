@@ -60,5 +60,7 @@ public interface IssueCodes
   String UNINITIALIZED_VARIABLE = PREFIX + "UninitializedVariable";
   String UNIT_DEFINITION_NOT_FOUND = PREFIX + "UnitDefinitionNotFound";
   String VARIANT_TYPES_DISCOURAGED = PREFIX + "VariantTypesDiscouraged";
+  String WHOLE_QUANTITY_LITERAL = PREFIX + "WholeQuantityLiteral";
+  String UNIT_QUANTITY_LITERAL = PREFIX + "UnitQuantityLiteral";
 
   }
