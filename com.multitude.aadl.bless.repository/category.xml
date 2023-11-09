@@ -3,11 +3,14 @@
    <feature id="com.multitude.aadl.bless.feature">
       <category name="com.multitude.bless.category"/>
    </feature>
-   <feature id="com.multitude.bless.feature">
-      <category name="com.multitude.bless.category"/>
-   </feature>
    <feature id="com.adventium.design.exploration.feature">
       <category name="com.adventium.category"/>
+   </feature>
+   <feature id="com.multitude.bless.bless2hamr.feature">
+      <category name="com.multitude.bless.category"/>
+   </feature>
+   <feature id="com.multitude.bless.proof.feature">
+      <category name="com.multitude.bless.category"/>
    </feature>
    <category-def name="com.multitude.bless.category" label="BLESS">
       <description>
