@@ -3,7 +3,7 @@ Automatic-Module-Name: com.multitude.aadl.bless.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS user interface tests
 Bundle-Vendor: Multitude Corporation
-Bundle-Version: 3.2.1.qualifier
+Bundle-Version: 3.2.2.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.multitude.aadl.bless.ui,
@@ -14,6 +14,6 @@ Require-Bundle: com.multitude.aadl.bless.ui,
  org.eclipse.xtext.ui.testing;resolution:=optional,
  org.eclipse.xtext.xbase.junit;resolution:=optional,
  org.eclipse.xtext.xbase.testing;resolution:=optional,
- org.eclipse.xtext.xbase.ui.testing
+ org.eclipse.xtext.xbase.ui.testing;resolution:=optional
 Export-Package: com.multitude.aadl.bless.ui.tests;x-internal=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
