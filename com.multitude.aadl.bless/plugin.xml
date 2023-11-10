@@ -11,7 +11,8 @@
 			genModel = "model/generated/BLESS.genmodel" />
 	</extension>
    <extension
-        point="org.osate.pluginsupport.aadlcontribution">
+         id="bless.contributed"
+         point="org.osate.pluginsupport.aadlcontribution">
      <aadlcontribution
            file="resources/packages/BLESS_Types.aadl"
            id="com.multitude.aadl.bless.BLESS_Types"
@@ -34,6 +35,8 @@
      </aadlcontribution>
   </extension>
  <extension
+       id="bless.annexparsers"
+       name="Annex Subclause and Library Parsers for BLESS Languages"
        point="org.osate.annexsupport.parser">
     <parser
           annexName="Unit"
@@ -73,6 +76,7 @@
     </parser>
  </extension>
  <extension
+       id="bless.annexunparsers"
        point="org.osate.annexsupport.unparser">
     <unparser
           annexName="Unit"
@@ -112,6 +116,7 @@
     </unparser>
  </extension>
  <extension
+       id="bless.linkingservices"
        point="org.osate.annexsupport.linkingservice">
     <linkingservice
           annexName="BLESS"

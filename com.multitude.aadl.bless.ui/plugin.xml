@@ -80,7 +80,7 @@
 		<page
 			class="com.multitude.aadl.bless.ui.BLESSExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="com.multitude.aadl.bless.BLESS"
-			name="BLESS">
+			name="BLESS Preference Page">
 			<keywordReference id="com.multitude.aadl.bless.ui.keyword_BLESS"/>
 		</page>
 <!--		
@@ -105,7 +105,7 @@
 		<page
 			class="com.multitude.aadl.bless.ui.BLESSExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="com.multitude.aadl.bless.BLESS"
-			name="BLESS">
+			name="BLESS Properties">
 			<keywordReference id="com.multitude.aadl.bless.ui.keyword_BLESS"/>
 			<enabledWhen>
 				<adapt type="org.eclipse.core.resources.IProject"/>
@@ -117,7 +117,7 @@
 		point="org.eclipse.ui.keywords">
 		<keyword
 			id="com.multitude.aadl.bless.ui.keyword_BLESS"
-			label="BLESS"/>
+			label="BLESS Keywords"/>
 	</extension>
 	<extension
 		point="org.eclipse.ui.commands">
@@ -131,23 +131,24 @@
 			id="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
 			categoryId="org.eclipse.ui.category.edit"
 			description="Copy the qualified name for the selected element"
-			name="Copy Qualified Name">
+			name="Copy Qualified Name Editor">
 	</command>
 	<command
 			id="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
 			categoryId="org.eclipse.ui.category.edit"
 			description="Copy the qualified name for the selected element"
-			name="Copy Qualified Name">
+			name="Copy Qualified Name Outline">
 	</command>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
 			 <command
-				 commandId="com.multitude.aadl.bless.BLESS.validate"
-				 style="push"
-				 tooltip="Trigger expensive validation">
-			<visibleWhen checkEnabled="false">
+          commandId="com.multitude.aadl.bless.BLESS.validate"
+          label="Expensive (Slow) Validation"
+          style="push"
+          tooltip="Trigger expensive validation">
+			<visibleWhen checkEnabled="true">
 				<reference
 					definitionId="com.multitude.aadl.bless.BLESS.Editor.opened">
 				</reference>
@@ -155,40 +156,13 @@
 		</command>
 		</menuContribution>
 		<!-- copy qualified name -->
-		<menuContribution locationURI="popup:#TextEditorContext?after=copy">
-			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
-				style="push" tooltip="Copy Qualified Name">
-				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.multitude.aadl.bless.BLESS.Editor.opened" />
-				</visibleWhen>
-			</command>
-		</menuContribution>
-		<menuContribution locationURI="menu:edit?after=copy">
-			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.EditorCopyQualifiedName"
-				style="push" tooltip="Copy Qualified Name">
-				<visibleWhen checkEnabled="false">
-					<reference definitionId="com.multitude.aadl.bless.BLESS.Editor.opened" />
-				</visibleWhen>
-			</command>
-		</menuContribution>
-		<menuContribution locationURI="popup:org.eclipse.xtext.ui.outline?after=additions">
-			<command commandId="org.eclipse.xtext.ui.editor.copyqualifiedname.OutlineCopyQualifiedName"
-				style="push" tooltip="Copy Qualified Name">
-				<visibleWhen checkEnabled="false">
-					<and>
-						<reference definitionId="com.multitude.aadl.bless.BLESS.XtextEditor.opened" />
-						<iterate>
-							<adapt type="org.eclipse.xtext.ui.editor.outline.IOutlineNode" />
-						</iterate>
-					</and>
-				</visibleWhen>
-			</command>
-		</menuContribution>
 	</extension>
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
-			<command commandId="org.eclipse.xtext.ui.editor.FindReferences">
-				<visibleWhen checkEnabled="false">
+			<command
+         commandId="org.eclipse.xtext.ui.editor.FindReferences"
+         label="Find References">
+				<visibleWhen checkEnabled="true">
 					<reference definitionId="com.multitude.aadl.bless.BLESS.Editor.opened">
 					</reference>
 				</visibleWhen>
@@ -386,8 +360,10 @@
 	<extension point="org.eclipse.ui.menus">
 		<menuContribution
 			locationURI="popup:#TextEditorContext?after=group.edit">
-			<command commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
-				style="push">
+			<command
+         commandId="org.eclipse.xtext.ui.refactoring.RenameElement"
+         label="Rename Element"
+         style="push">
 				<visibleWhen checkEnabled="false">
 					<reference
 						definitionId="com.multitude.aadl.bless.BLESS.Editor.opened">
