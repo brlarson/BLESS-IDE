@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>com.multitude.bless.update</name>
+	<comment></comment>
+	<projects>
+		<project>com.adventium.design.exploration.feature</project>
+		<project>com.multitude.aadl.bless.feature</project>
+		<project>com.multitude.bless</project>
+		<project>com.multitude.bless.feature</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.pde.UpdateSiteBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.pde.UpdateSiteNature</nature>
+	</natures>
+</projectDescription>
