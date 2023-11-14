@@ -7,13 +7,6 @@ Bundle-Version: 3.2.2.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.multitude.aadl.bless.ui,
- org.junit.jupiter.api;resolution:=optional,
- org.eclipse.xtext.testing,
- org.eclipse.core.runtime,
- org.eclipse.ui.workbench;resolution:=optional,
- org.eclipse.xtext.ui.testing;resolution:=optional,
- org.eclipse.xtext.xbase.junit;resolution:=optional,
- org.eclipse.xtext.xbase.testing;resolution:=optional,
- org.eclipse.xtext.xbase.ui.testing;resolution:=optional
+ org.eclipse.xtext.testing
 Export-Package: com.multitude.aadl.bless.ui.tests;x-internal=true
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17

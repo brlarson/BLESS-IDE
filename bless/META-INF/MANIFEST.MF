@@ -31,9 +31,7 @@ Export-Package:
  com.multitude.bless.tree,
  com.multitude.bless.ui.preferences,
  com.multitude.bless.util
-Require-Bundle: org.osate.aadl2,
- org.osate.annexsupport,
- org.osate.xtext.aadl2,
+Require-Bundle: org.osate.xtext.aadl2,
  org.osate.xtext.aadl2.properties,
  org.osate.ui,
  org.osate.pluginsupport,
@@ -45,5 +43,5 @@ Import-Package: org.antlr.stringtemplate,
  org.antlr.stringtemplate.language
 Bundle-ClassPath: bin
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Automatic-Module-Name: com.multitude.bless

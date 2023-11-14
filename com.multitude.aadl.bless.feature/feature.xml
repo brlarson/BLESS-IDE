@@ -12,7 +12,7 @@ BLESS, Assertion, Typedef, Unit, Action, Exception
    </description>
 
    <copyright url="http://www.multitude.net/bless">
-      (C) 2020 Multitude Corporation
+      (C) 2023 Multitude Corporation
    </copyright>
 
    <license url="https://creativecommons.org/licenses/by-nd/4.0/">
@@ -105,12 +105,13 @@ Nothing in this Public License constitutes or may be interpreted as a limitation
    </license>
 
    <url>
-      <update label="BLESS Integrated Development Environment" url="https::/www.multitude.net/p2/repository"/>
-      <discovery label="BLESS Multitude P2 Repository" url="http://multitude.net/p2/repository"/>
+      <update label="BLESS Update Site" url="https::/www.multitude.net/p2/repository"/>
+      <discovery label="BLESS Update Site" url="http://multitude.net/p2/repository"/>
       <discovery label="Latest Eclipse Release" url="http://download.eclipse.org/releases/latest"/>
    </url>
 
    <requires>
+      <import plugin="org.eclipse.xtext" version="2.12.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.util"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.common"/>
@@ -122,32 +123,31 @@ Nothing in this Public License constitutes or may be interpreted as a limitation
       <import plugin="org.eclipse.uml2.codegen.ecore"/>
       <import plugin="org.eclipse.xtend.lib" version="2.14.0" match="greaterOrEqual"/>
       <import plugin="org.osate.pluginsupport" version="4.0.0" match="greaterOrEqual"/>
-      <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="2.20.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console" version="3.9.200" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.xtext.ide"/>
+      <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.xbase.ide" version="2.20.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui"/>
       <import plugin="org.eclipse.xtext.ui.codetemplates.ui"/>
       <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.115.0" match="compatible"/>
       <import plugin="org.eclipse.compare" version="3.7.0" match="compatible"/>
       <import plugin="org.eclipse.xtext.builder"/>
       <import plugin="org.eclipse.xtext.common.types.ui"/>
       <import plugin="org.osate.xtext.aadl2.properties.ui"/>
+      <import plugin="org.osate.xtext.aadl2.ui" version="6.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.e4.ui.workbench" version="1.11.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.xbase.lib" version="2.14.0" match="greaterOrEqual"/>
-      <import plugin="org.osate.ui"/>
-      <import plugin="org.eclipse.xtext.ui.shared" version="2.20.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.xbase.ide" version="2.20.0" match="greaterOrEqual"/>
-      <import plugin="org.osate.aadl2.instantiation"/>
-      <import plugin="org.eclipse.core.commands"/>
-      <import plugin="org.eclipse.xtext" version="2.12.0" match="greaterOrEqual"/>
-      <import plugin="org.osate.workspace" version="4.0.2" match="greaterOrEqual"/>
       <import plugin="org.osate.xtext.aadl2" version="6.0.1" match="greaterOrEqual"/>
-      <import plugin="org.osate.xtext.aadl2.ui" version="6.0.1" match="greaterOrEqual"/>
-      <import plugin="org.antlr.generator" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui" version="3.115.0" match="compatible"/>
+      <import plugin="org.osate.ui"/>
+      <import plugin="org.osate.aadl2.instantiation"/>
       <import plugin="org.eclipse.core.runtime" version="3.17.0" match="compatible"/>
+      <import plugin="org.eclipse.core.commands"/>
+      <import plugin="org.osate.workspace" version="4.0.2" match="greaterOrEqual"/>
+      <import plugin="org.antlr.generator" version="3.2.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
