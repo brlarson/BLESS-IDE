@@ -6,9 +6,9 @@ Bundle-Vendor: Multitude Corporation
 Bundle-Version: 3.2.2.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.multitude.aadl.bless,
- org.eclipse.xtext.ide,
- org.eclipse.xtext.xbase.lib;bundle-version="2.8.0"
+Require-Bundle: com.multitude.aadl.bless;bundle-version="[3.2.2,4.0.0)",
+ org.eclipse.xtext.ide;bundle-version="[2.30.0,3.0.0)",
+ org.eclipse.xtext.xbase.lib;bundle-version="[2.30.0,3.0.0)"
 Export-Package: com.multitude.aadl.bless.ide.contentassist.antlr.internal,
  com.multitude.aadl.bless.ide.contentassist.antlr,
  com.multitude.aadl.bless.ide
