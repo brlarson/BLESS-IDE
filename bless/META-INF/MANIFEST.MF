@@ -32,7 +32,7 @@ Export-Package:
  com.multitude.bless.ui.preferences,
  com.multitude.bless.util
 Require-Bundle: org.osate.xtext.aadl2;bundle-version="[7.0.0,8.0.0)",
- org.osate.xtext.aadl2.properties;bundle-version="[3.1.0,4.0.0)",
+ org.osate.xtext.aadl2.properties;bundle-version="[3.1.5,4.0.0)",
  org.osate.ui;bundle-version="[6.3.4,7.0.0)",
  org.osate.pluginsupport;bundle-version="[7.2.1,8.0.0)",
  com.multitude.aadl.bless;bundle-version="[3.2.2,4.0.0)",
