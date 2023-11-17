@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Vector;
 
 import org.antlr.runtime.CommonToken;
-import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.tree.CommonTree;
@@ -35,16 +34,12 @@ import org.osate.aadl2.Element;
 import org.osate.aadl2.modelsupport.util.AadlUtil;
 
 import com.multitude.bless.Activator;
-import com.multitude.bless.Parse;
-//import com.multitude.bless.Activator;
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.antlr3generated.BLESS3Parser;
 import com.multitude.bless.antlr3generated.UnparseBLESS3;
 import com.multitude.bless.app.Global;
-//import com.multitude.bless.app.Parse;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
-//import com.multitude.bless.proof.exception.ProofException;
 import com.multitude.bless.record.EntityRecord;
 import com.multitude.bless.record.ParseRecord;
 import com.multitude.bless.symbol.Scope;
@@ -2299,12 +2294,12 @@ private static int tab=0;  //tabbing for toStringTree
    *  list is the root and the last is the parent of this node.
    */
 	@Override
-	public List getAncestors()
+	public List<BAST> getAncestors()
 		{
     if ( getParent()==null ) {
 		return null;
 	}
-    List ancestors = new ArrayList<BAST>();
+    List<BAST> ancestors = new ArrayList<BAST>();
     BAST t = this;
     t = (BAST)t.getParent();
     while ( t!=null ) {

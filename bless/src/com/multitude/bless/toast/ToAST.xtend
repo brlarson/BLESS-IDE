@@ -2,7 +2,6 @@ package com.multitude.bless.toast
 
 //see README
 
-import com.multitude.aadl.bless.BlessControl
 import com.multitude.aadl.bless.bLESS.ANumber
 import com.multitude.aadl.bless.bLESS.Action
 import com.multitude.aadl.bless.bLESS.ActionSubclause
@@ -50,6 +49,7 @@ import com.multitude.aadl.bless.bLESS.DoUntilLoop
 import com.multitude.aadl.bless.bLESS.EnumerationPair
 import com.multitude.aadl.bless.bLESS.EnumerationType
 import com.multitude.aadl.bless.bLESS.EnumerationValue
+import com.multitude.aadl.bless.bLESS.EventTrigger
 import com.multitude.aadl.bless.bLESS.ExecuteCondition
 import com.multitude.aadl.bless.bLESS.ExistentialLatticeQuantification
 import com.multitude.aadl.bless.bLESS.ExistentialQuantification
@@ -60,6 +60,8 @@ import com.multitude.aadl.bless.bLESS.ForLoop
 import com.multitude.aadl.bless.bLESS.FormalActual
 import com.multitude.aadl.bless.bLESS.FormalActualList
 import com.multitude.aadl.bless.bLESS.FormalExpressionPair
+import com.multitude.aadl.bless.bLESS.GhostVariable
+import com.multitude.aadl.bless.bLESS.GhostVariables
 import com.multitude.aadl.bless.bLESS.GuardedAction
 import com.multitude.aadl.bless.bLESS.IndexExpression
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange
@@ -75,6 +77,8 @@ import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration
 import com.multitude.aadl.bless.bLESS.NamelessFunction
+import com.multitude.aadl.bless.bLESS.NonNumericProperty
+import com.multitude.aadl.bless.bLESS.NullType
 import com.multitude.aadl.bless.bLESS.ParenthesizedSubexpression
 import com.multitude.aadl.bless.bLESS.PartialName
 import com.multitude.aadl.bless.bLESS.PeriodShift
@@ -124,11 +128,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.osate.aadl2.Element
 import org.osate.aadl2.SubprogramAccess
 import org.osate.aadl2.SubprogramSubcomponent
-import com.multitude.aadl.bless.bLESS.GhostVariables
-import com.multitude.aadl.bless.bLESS.GhostVariable
-import com.multitude.aadl.bless.bLESS.NullType
-import com.multitude.aadl.bless.bLESS.EventTrigger
-import com.multitude.aadl.bless.bLESS.NonNumericProperty
 
 class ToAST {
 
