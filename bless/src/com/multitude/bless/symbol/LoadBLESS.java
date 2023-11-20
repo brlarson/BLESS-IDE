@@ -344,13 +344,15 @@ load() throws YouIdiot
             catch (RecognitionException re)
               {
               Dump.it("RecognitionException parsing " + annexName + " annex subclause");
-//								Dump.it(re);
+              if (verbose())
+								Dump.it(re);
               throw new YouIdiot(re);
               }
             catch (Exception ex)
               {
               Dump.it("Exception parsing " + annexName + " annex subclause");
-//						Dump.it(re);
+              if (verbose())
+                Dump.it(ex);
               throw new YouIdiot(ex);
               }
             }

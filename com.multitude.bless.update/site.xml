@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.adventium.design.exploration.feature_1.0.1.202311171025.jar" id="com.adventium.design.exploration.feature" version="1.0.1.202311171025">
+   <feature url="features/com.adventium.design.exploration.feature_1.0.1.202311200209.jar" id="com.adventium.design.exploration.feature" version="1.0.1.202311200209">
       <category name="com.adventium.category"/>
    </feature>
-   <feature url="features/com.multitude.aadl.bless.feature_3.2.2.202311171025.jar" id="com.multitude.aadl.bless.feature" version="3.2.2.202311171025">
+   <feature url="features/com.multitude.aadl.bless.feature_3.2.2.202311200209.jar" id="com.multitude.aadl.bless.feature" version="3.2.2.202311200209">
       <category name="com.multitude.bless.category"/>
    </feature>
-   <feature url="features/com.multitude.bless.feature_3.2.2.202311171025.jar" id="com.multitude.bless.feature" version="3.2.2.202311171025">
+   <feature url="features/com.multitude.bless.feature_3.2.2.202311200209.jar" id="com.multitude.bless.feature" version="3.2.2.202311200209">
       <category name="com.multitude.bless.category"/>
    </feature>
    <category-def name="com.multitude.bless.category" label="BLESS">
