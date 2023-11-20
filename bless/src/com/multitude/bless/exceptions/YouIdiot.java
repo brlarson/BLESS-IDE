@@ -65,38 +65,40 @@ YouIdiot(Exception ex)
   
 	public void
 handleException()
-	{
-	Long time = System.currentTimeMillis();
-	if (countYouIdiot<Global.YouIdiotReportLimit)
-		{
-		//print current time
-	Date today = new Date(time);
-	//give hint?
-	if (countYouIdiot%Global.hintRatio==3)	// 1 out of hintRatio gets HelpfulHints
-		{
-  	Dump.error("\n*********************************************");
-		HelpfulHints.giveHint();	
-		Dump.error("*********************************************\n");
-		}
-	else Dump.error("time of exception: "+today.toString()+".");
-	Dump.error("\n"+errorMessage+"\n");
-	String line1 = "";
-	String line2 = "";
-  if ((ast!=null)&&(ast.getLine()>0))
-    line1 = "("+ast.getText()+":"+Integer.toString(ast.getLine())+")";    
-  if ((otherAst!=null)&&(otherAst.getLine()>0))
-    line2 = "\n("+otherAst.getText()+":"+Integer.toString(otherAst.getLine())+")";   
-	Dump.error(line1+" "+line2);  //+line3);
-  if (ast!=null) Dump.error("ast="+ast.toStringTree());
-  if (otherAst!=null) Dump.error("ast="+otherAst.toStringTree());
-	printStackTrace(System.out);       
-      Global.stackTracePrinted=true;
-		}	//end of you idiot report
-  if ((ast!=null)&&(countYouIdiot<Global.YouIdiotShowParseTreeLimit)) 
-    ast.showParseTree("error #"+Integer.toString(countYouIdiot));
-  if ((otherAst!=null)&&(countYouIdiot<Global.YouIdiotShowParseTreeLimit)) 
-    otherAst.showParseTree("error #"+Integer.toString(countYouIdiot));
-	}	//end of handleException
+	  {
+	  Long time = System.currentTimeMillis();
+	  if (countYouIdiot<Global.YouIdiotReportLimit)
+	    {
+	    //print current time
+	    Date today = new Date(time);
+	    //give hint?
+	    if (countYouIdiot%Global.hintRatio==3)	// 1 out of hintRatio gets HelpfulHints
+	      {
+	      Dump.error("\n*********************************************");
+	      HelpfulHints.giveHint();	
+	      Dump.error("*********************************************\n");
+	      }
+	    else Dump.error("time of exception: "+today.toString()+".");
+	    Dump.error("\n"+errorMessage+"\n");
+	    String line1 = "";
+	    String line2 = "";
+	    if ((ast!=null)&&(ast.getLine()>0))
+	      line1 = "("+ast.getText()+":"+Integer.toString(ast.getLine())+")";    
+	    if ((otherAst!=null)&&(otherAst.getLine()>0))
+	      line2 = "\n("+otherAst.getText()+":"+Integer.toString(otherAst.getLine())+")";   
+	    Dump.error(line1+" "+line2);  //+line3);
+	    if (ast!=null) Dump.error("ast="+ast.toStringTree());
+	    if (otherAst!=null) Dump.error("ast="+otherAst.toStringTree());
+	    Dump.it(this);
+//      printStackTrace(System.err);       
+//      printStackTrace(System.out);       
+	    Global.stackTracePrinted=true;
+	    }	//end of you idiot report
+	  if ((ast!=null)&&(countYouIdiot<Global.YouIdiotShowParseTreeLimit)) 
+	    ast.showParseTree("error #"+Integer.toString(countYouIdiot));
+	  if ((otherAst!=null)&&(countYouIdiot<Global.YouIdiotShowParseTreeLimit)) 
+	    otherAst.showParseTree("error #"+Integer.toString(countYouIdiot));
+	  }	//end of handleException
 
 	
 }	//end of YouIdiot
