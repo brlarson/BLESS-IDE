@@ -16,7 +16,10 @@ class BLESSStandaloneSetup extends BLESSStandaloneSetupGenerated
 
 	def static void 
 doSetup() 
-  { new BLESSStandaloneSetup().createInjectorAndDoEMFRegistration() }
+  { 
+    System.out.println("BLESSStandaloneSetup.doSetup()");
+    new BLESSStandaloneSetup().createInjectorAndDoEMFRegistration()
+  }
 	
 	def  Class<? extends IJdtHelper> 
 bindIJdtHelper() 

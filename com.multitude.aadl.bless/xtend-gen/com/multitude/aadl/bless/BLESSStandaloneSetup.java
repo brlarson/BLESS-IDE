@@ -14,6 +14,7 @@ import org.eclipse.xtext.ui.util.IJdtHelper;
 @SuppressWarnings("all")
 public class BLESSStandaloneSetup extends BLESSStandaloneSetupGenerated {
   public static void doSetup() {
+    System.out.println("BLESSStandaloneSetup.doSetup()");
     new BLESSStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
 
