@@ -339,7 +339,10 @@ typeOrReference:
   | 
   ref=ID
     ->{%{$ref.text}}  
-  ;
+  |  //added 11/21/23 when ToAST.toAST(TypeOrReference e) doesn't resolve
+  dum=DUMMY
+    ->{%{$ref.text}}  
+ ;
 
 enumerationType 
   : 
