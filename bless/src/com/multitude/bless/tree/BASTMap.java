@@ -6,6 +6,8 @@ package com.multitude.bless.tree;
 
 import java.util.Vector;
 
+import com.multitude.bless.exceptions.YouIdiot;
+
 public class BASTMap
 	{
 	
@@ -34,8 +36,15 @@ public class BASTMap
 		{
 		for (BAST root : map)
 			{
-			if (key.equalsTree((BAST)root.getChild(0)))
-				return true;
+//			try
+//        {
+        if (key.equalsTree((BAST)root.getChild(0)))
+        	return true;
+//        }
+//      catch (YouIdiot e)
+//        {
+//          e.handleException();
+//        }
 			}
 		return false;
 		}  //end of containsKey
@@ -44,8 +53,15 @@ public class BASTMap
 		{
 		for (BAST root : map)
 			{
-			if (key.equalsTree((BAST)root.getChild(0)))
-				return (BAST)root.getChild(1);
+//			try
+//        {
+        if (key.equalsTree((BAST)root.getChild(0)))
+        	return (BAST)root.getChild(1);
+//        }
+//      catch (YouIdiot e)
+//        {
+//          e.handleException();
+//        }
 			}
 		return null;
 		}  //end of containsKey
@@ -68,14 +84,21 @@ public class BASTMap
 	}  //end of hasLoop
 
 	//start at element 
-	boolean hasLoop(BAST start)
-	{
-	BAST x=(BAST)start.getParent().getChild(1);
-	int count=0;
-	while ((x!=null)&&!x.equalsTree(start)&&containsKey(x)&&(count<100))
-	  {x = get(x); count++;}
-	return (x!=null)&&x.equalsTree(start);
-	}  //end of hasLoop
-	
+	boolean 
+hasLoop(BAST start)
+	  {
+	  BAST x=(BAST)start.getParent().getChild(1);
+	  int count=0;
+//	  try {
+	  while ((x!=null)&&!x.equalsTree(start)&&containsKey(x)&&(count<100))
+	    {x = get(x); count++;}
+	  return (x!=null)&&x.equalsTree(start);
+//	  }
+//	  catch (YouIdiot e)
+//	    {
+//	    e.handleException();
+//      return false;
+//	    }	
+	  }  //end of hasLoop
 	
 	}  //end of BASTMap

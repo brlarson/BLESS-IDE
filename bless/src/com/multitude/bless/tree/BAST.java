@@ -919,12 +919,21 @@ private static int tab=0;  //tabbing for toStringTree
    *
    * @param theOtherTree
    * @return boolean
+   * @throws YouIdiot 
    */
   public boolean equalsTree(BAST theOtherTree)
     {
     // quantified variable map holds mappings between #xxx# q.v. IDs
     HashMap<String, String> qvMap = new HashMap<String, String>();
-    return equalsTree(theOtherTree, qvMap);
+    try
+      {
+      return equalsTree(theOtherTree, qvMap);
+      }
+    catch (YouIdiot e)
+      {
+      e.handleException();
+      return false;
+      }
     } // end of equalsTree
 
   
@@ -937,7 +946,15 @@ private static int tab=0;  //tabbing for toStringTree
    * @return boolean
    */
   boolean equalsTree(BAST theOtherTree, HashMap<String, String> qvMap)
+    throws YouIdiot
     {
+    //input validation
+    if (theOtherTree == null)
+      throw new YouIdiot("Null BAST passed to equalsTree",this);
+    if (this.getText() == null)
+      throw new YouIdiot("Null text value for BAST (this)",this);
+    if (theOtherTree.getText() == null)
+      throw new YouIdiot("Null text value for BAST",theOtherTree); 
     //  check for numeric literals
     if (this.isNumericLiteral()
         && theOtherTree.isNumericLiteral())
@@ -1073,6 +1090,7 @@ private static int tab=0;  //tabbing for toStringTree
     } // end of lessThanTree
 
   public boolean atMostTree(BAST theOtherTree)
+    throws YouIdiot
     { // is the tree rooted in this node <= the other tree?
     return equalsTree(theOtherTree) || lessThanTree(theOtherTree);
     } // end of atMostTree
@@ -1116,35 +1134,50 @@ private static int tab=0;  //tabbing for toStringTree
       for (int i = (hasType(BLESS3Lexer.COLON)?1:0); i < getChildCount(); i++) 
         {
         // does child match?
-        if (((BAST) getChild(i)).equalsTree(ofThis)) 
-          {
-          setChild(i, withThis.dupTree());
-          // otherwise replaceOccurences on children
-          } 
-        else 
-          {
-          ((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
-          }
+//        try
+//          {
+          if (((BAST) getChild(i)).equalsTree(ofThis)) 
+            {
+            setChild(i, withThis.dupTree());
+            // otherwise replaceOccurences on children
+            } 
+          else 
+            {
+            ((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
+            }
+//          }
+//        catch (YouIdiot e)
+//          {
+//          e.handleException();
+//          }
         }
       }
     return this;
     } // end of replaceOccurances
 
-  public BAST replaceOccurrencesNotAlreadySubstituted(BAST ofThis, BAST withThis)
+  public BAST 
+replaceOccurrencesNotAlreadySubstituted(BAST ofThis, BAST withThis)
     { // replace all occurrences of ofThis, with a duplicate of withThat
     // look through children for match
     if (getChildCount() > 0)
       {
       for (int i = 0; i < getChildCount(); i++) {
-		// does child match?
+      // does child match?
+//      try
+//        {
         if (!((BAST) getChild(i)).substituted
             && ((BAST) getChild(i)).equalsTree(ofThis)) {
-			setChild(i, withThis.dupTree());
-			// otherwise replaceOccurences on children
-		} else {
-			((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
-		}
-	}
+            setChild(i, withThis.dupTree());
+            // otherwise replaceOccurences on children
+        } else {
+        ((BAST) getChild(i)).replaceOccurrences(ofThis, withThis);
+        }
+//        }
+//      catch (YouIdiot e)
+//        {
+//        e.handleException();
+//        }
+      }
       }
     return this;
     } // end of replaceOccurrencesNotAlreadySubstituted
@@ -1936,19 +1969,27 @@ private static int tab=0;  //tabbing for toStringTree
    * given n=k, do you substitute n for k, or the reverse? whichever's largest
    * gets substituted
    * */
-  public int countOccurrenceOfTree(BAST z)
+  public int 
+countOccurrenceOfTree(BAST z)
     {
     int numberOfOccurrences = 0;
-    if (z.equalsTree(this)) {
-		return 1;
-	} else if (this.getChildCount() > 0)
-	 {
-		for (int ch = 0; ch < this.getChildCount(); ch++)
-		    { // add up their counts
-		    numberOfOccurrences += ((BAST) this.getChild(ch))
-		        .countOccurrenceOfTree(z);
-		    } // end of summing children
-	}
+//    try
+//      {
+      if (z.equalsTree(this)) {
+      return 1;
+      } else if (this.getChildCount() > 0)
+        {
+        for (int ch = 0; ch < this.getChildCount(); ch++)
+          { // add up their counts
+          numberOfOccurrences += ((BAST) this.getChild(ch))
+              .countOccurrenceOfTree(z);
+          } // end of summing children
+        }
+//      }
+//    catch (YouIdiot e)
+//      {
+//      e.handleException();
+//      }
     return numberOfOccurrences;
     } // end of countOccurrenceOfTree
 

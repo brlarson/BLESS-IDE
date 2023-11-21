@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-11-21 06:45:48
+// $ANTLR 3.5.2 /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g 2023-11-21 06:51:37
 
 //copyright 2023 Multitude Corporation
 package com.multitude.bless.antlr3generated;
@@ -2107,7 +2107,7 @@ public class UnparseBLESS3 extends TreeParser {
 
 
 	// $ANTLR start "typeOrReference"
-	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:336:1: typeOrReference : (ty= type -> {$ty.st}|ref= ID -> {%{$ref.text}}|dum= DUMMY -> {%{$ref.text}});
+	// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:336:1: typeOrReference : (ty= type -> {$ty.st}|ref= ID -> {%{$ref.text}}|dum= DUMMY -> {%{$dum.text}});
 	public final UnparseBLESS3.typeOrReference_return typeOrReference() throws RecognitionException {
 		UnparseBLESS3.typeOrReference_return retval = new UnparseBLESS3.typeOrReference_return();
 		retval.start = input.LT(1);
@@ -2117,7 +2117,7 @@ public class UnparseBLESS3 extends TreeParser {
 		TreeRuleReturnScope ty =null;
 
 		try {
-			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:336:16: (ty= type -> {$ty.st}|ref= ID -> {%{$ref.text}}|dum= DUMMY -> {%{$ref.text}})
+			// /Users/brianlarson/git2/BLESS-IDE/bless/Grammars/UnparseBLESS3.g:336:16: (ty= type -> {$ty.st}|ref= ID -> {%{$ref.text}}|dum= DUMMY -> {%{$dum.text}})
 			int alt21=3;
 			switch ( input.LA(1) ) {
 			case LITERAL_array:
@@ -2184,9 +2184,9 @@ public class UnparseBLESS3 extends TreeParser {
 					{
 					dum=(BAST)match(input,DUMMY,FOLLOW_DUMMY_in_typeOrReference1004); 
 					// TEMPLATE REWRITE
-					// 344:5: -> {%{$ref.text}}
+					// 344:5: -> {%{$dum.text}}
 					{
-						retval.st = new StringTemplate(templateLib,(ref!=null?ref.getText():null));
+						retval.st = new StringTemplate(templateLib,(dum!=null?dum.getText():null));
 					}
 
 
