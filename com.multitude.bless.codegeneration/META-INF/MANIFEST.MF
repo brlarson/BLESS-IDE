@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS Code Generation
 Bundle-SymbolicName: com.multitude.bless.codegeneration;singleton:=true
-Bundle-Version: 3.2.2.qualifier
+Bundle-Version: 3.2.3.qualifier
 Bundle-Activator: com.multitude.bless.codegeneration.Activator
-Require-Bundle: com.multitude.bless;bundle-version="[3.2.2,4.0.0)",
+Require-Bundle: com.multitude.bless,
  org.osate.ui;bundle-version="[6.3.4,7.0.0)",
  org.osate.annexsupport;bundle-version="[4.0.1,5.0.0)",
- com.multitude.aadl.bless;bundle-version="[3.2.2,4.0.0)",
+ com.multitude.aadl.bless,
  org.osate.xtext.aadl2.ui;bundle-version="[7.0.1,8.0.0)",
  org.antlr.generator;bundle-version="3.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-17

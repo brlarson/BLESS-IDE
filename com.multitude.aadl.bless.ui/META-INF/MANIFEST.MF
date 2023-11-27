@@ -3,11 +3,11 @@ Automatic-Module-Name: com.multitude.aadl.bless.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS user interface
 Bundle-Vendor: Multitude Corporation
-Bundle-Version: 3.2.2.qualifier
+Bundle-Version: 3.2.3.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: com.multitude.aadl.bless;bundle-version="[3.2.2,4.0.0)",
- com.multitude.aadl.bless.ide;bundle-version="[3.2.2,4.0.0)",
+Require-Bundle: com.multitude.aadl.bless,
+ com.multitude.aadl.bless.ide,
  org.eclipse.xtext.ui.shared;bundle-version="[2.30.0,3.0.0)",
  org.eclipse.xtext.ui.codetemplates.ui;bundle-version="[2.30.0,3.0.0)",
  org.eclipse.compare;bundle-version="[3.8.0,4.0.0)",
