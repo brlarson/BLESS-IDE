@@ -10,6 +10,7 @@ import org.osate.annexsupport.AnnexParser;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.multitude.aadl.bless.BLESSStandaloneSetup;
 import com.multitude.aadl.bless.bLESS.Assertion;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
@@ -19,6 +20,7 @@ import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.parser.antlr.BLESSParser;
 import com.multitude.aadl.bless.services.BLESSGrammarAccess;
+//import com.multitude.aadl.bless.ui.internal.BlessActivator;
 
 
 public class BlessAnnexParser implements AnnexParser {
@@ -30,11 +32,32 @@ public class BlessAnnexParser implements AnnexParser {
 
 	// public static Set<String> baseUnitIDs = new HashSet<String>();
 
-	public BlessAnnexParser() {
-		Injector injector = IResourceServiceProvider.Registry.INSTANCE
-				.getResourceServiceProvider(URI.createFileURI("dummy.bless")).get(Injector.class);
-		injector.injectMembers(this);
-		eINSTANCE = this;
+	public BlessAnnexParser() 
+	  {
+	  IResourceServiceProvider irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
+		Injector injector = null;
+		if (irsp!=null)
+		  injector = irsp.get(Injector.class);
+		else
+		  {  //find a different injector
+		  System.err.println("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSStandaloneSetup.");
+		  BLESSStandaloneSetup.doSetup();
+		  //try again
+		  irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
+      if (irsp!=null)
+        injector = irsp.get(Injector.class);		  
+		  }
+//		Injector injector = BlessActivator.getInstance().getInjector("dummy.bless");
+		if (injector != null)
+		  injector.injectMembers(this);
+		else
+		  try
+		  {
+		  System.err.println("BlessAnnexParser has no injector.");
+      throw new Exception();       
+		  }
+		  catch (Exception e) {e.printStackTrace(System.err);}
+	eINSTANCE = this;
 	}
 
 	protected BLESSGrammarAccess getGrammarAccess() {
