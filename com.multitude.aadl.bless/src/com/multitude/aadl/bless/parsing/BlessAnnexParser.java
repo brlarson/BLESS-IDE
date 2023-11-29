@@ -43,12 +43,12 @@ public class BlessAnnexParser implements AnnexParser {
 		  injector = irsp.get(Injector.class);
 		else
 		  {  //find a different injector
-		  BlessLogger.log("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSRuntimeModule.");
+		  BlessLogger.log("BlessAnnexParser has no IResourceServiceProvider");  //; trying to get one from BLESSRuntimeModule.");
 //		  irsp = BlessActivator.getInstance().getInjector("dummy.bless");
 //		  BLESSStandaloneSetup.doSetup();
 		  //try again
 //		  irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
-		  injector = Guice.createInjector(new BLESSRuntimeModule());
+//		  injector = Guice.createInjector(new BLESSRuntimeModule());
 //      if (irsp!=null)
 //        {
 //        injector = irsp.get(Injector.class);		
