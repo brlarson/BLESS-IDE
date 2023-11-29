@@ -8,8 +8,10 @@ import org.osate.aadl2.modelsupport.errorreporting.ParseErrorReporter;
 import org.osate.annexsupport.AnnexParseUtil;
 import org.osate.annexsupport.AnnexParser;
 
+import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.multitude.aadl.bless.BLESSRuntimeModule;
 import com.multitude.aadl.bless.BLESSStandaloneSetup;
 import com.multitude.aadl.bless.BlessLogger;
 import com.multitude.aadl.bless.bLESS.Assertion;
@@ -21,7 +23,6 @@ import com.multitude.aadl.bless.bLESS.Type;
 import com.multitude.aadl.bless.bLESS.TypeOrReference;
 import com.multitude.aadl.bless.parser.antlr.BLESSParser;
 import com.multitude.aadl.bless.services.BLESSGrammarAccess;
-//import com.multitude.aadl.bless.ui.internal.BlessActivator;
 
 
 public class BlessAnnexParser implements AnnexParser {
@@ -42,17 +43,19 @@ public class BlessAnnexParser implements AnnexParser {
 		  injector = irsp.get(Injector.class);
 		else
 		  {  //find a different injector
-		  BlessLogger.log("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSStandaloneSetup.");
-		  BLESSStandaloneSetup.doSetup();
+		  BlessLogger.log("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSRuntimeModule.");
+//		  irsp = BlessActivator.getInstance().getInjector("dummy.bless");
+//		  BLESSStandaloneSetup.doSetup();
 		  //try again
-		  irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
-      if (irsp!=null)
-        {
-        injector = irsp.get(Injector.class);		
-        BlessLogger.log("Injector found.");
-        } 
-      else
-        BlessLogger.log("Injector found.");       
+//		  irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
+		  injector = Guice.createInjector(new BLESSRuntimeModule());
+//      if (irsp!=null)
+//        {
+//        injector = irsp.get(Injector.class);		
+//        BlessLogger.log("Injector found.");
+//        } 
+//      else
+//        BlessLogger.log("Injector not found.");       
 		  }
 //		Injector injector = BlessActivator.getInstance().getInjector("dummy.bless");
 		if (injector != null)
