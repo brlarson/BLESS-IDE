@@ -11,6 +11,7 @@ import org.osate.annexsupport.AnnexParser;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.multitude.aadl.bless.BLESSStandaloneSetup;
+import com.multitude.aadl.bless.BlessLogger;
 import com.multitude.aadl.bless.bLESS.Assertion;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
@@ -34,18 +35,24 @@ public class BlessAnnexParser implements AnnexParser {
 
 	public BlessAnnexParser() 
 	  {
+    BlessLogger.log("BlessAnnexParser starting.");
 	  IResourceServiceProvider irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
 		Injector injector = null;
 		if (irsp!=null)
 		  injector = irsp.get(Injector.class);
 		else
 		  {  //find a different injector
-		  System.err.println("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSStandaloneSetup.");
+		  BlessLogger.log("BlessAnnexParser has no IResourceServiceProvider; trying to get one from BLESSStandaloneSetup.");
 		  BLESSStandaloneSetup.doSetup();
 		  //try again
 		  irsp = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless"));
       if (irsp!=null)
-        injector = irsp.get(Injector.class);		  
+        {
+        injector = irsp.get(Injector.class);		
+        BlessLogger.log("Injector found.");
+        } 
+      else
+        BlessLogger.log("Injector found.");       
 		  }
 //		Injector injector = BlessActivator.getInstance().getInjector("dummy.bless");
 		if (injector != null)
@@ -53,10 +60,10 @@ public class BlessAnnexParser implements AnnexParser {
 		else
 		  try
 		  {
-		  System.err.println("BlessAnnexParser has no injector.");
+		  BlessLogger.log("BlessAnnexParser has no injector.");
       throw new Exception();       
 		  }
-		  catch (Exception e) {e.printStackTrace(System.err);}
+		  catch (Exception e) {BlessLogger.log("exception",e);}
 	eINSTANCE = this;
 	}
 
