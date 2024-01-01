@@ -7,6 +7,8 @@ Bundle-Version: 3.2.3.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.multitude.aadl.bless.ui,
- org.eclipse.xtext.testing
+ org.eclipse.xtext.testing,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.workbench;resolution:=optional
 Export-Package: com.multitude.aadl.bless.ui.tests;x-internal=true
 Bundle-RequiredExecutionEnvironment: JavaSE-17

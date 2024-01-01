@@ -295,6 +295,7 @@ BehaviorActions:
   )?
 ;
 
+//asserted_action
 AssertedAction:
   precondition=Assertion? action=Action postcondition=Assertion?
 ;
@@ -329,6 +330,8 @@ BasicAction:
 ;
 
 //combinable_operation
+// bnf has target_variable_name, but this is just target ID
+//  change [Variable] to ValueName
 CombinableOperation returns CombinableOperation:
 //  {CombinableOperation}
   f_add?='fetchadd' '(' target=[Variable] ',' arithmetic=Expression ',' result=[Variable] ')'
@@ -354,7 +357,7 @@ CommunicationAction:
   pause=Pause
 ;
 
-//subprogram_invocation
+//subprogram_call
 SubprogramCall:
   procedure=[aadl2::CalledSubprogram] 
   '(' parameters=FormalActualList? ')'
@@ -667,6 +670,7 @@ Relation:
 	)?
 ;  
 
+//add_subtract
 AddSub:
 	l=MultDiv
 	( 

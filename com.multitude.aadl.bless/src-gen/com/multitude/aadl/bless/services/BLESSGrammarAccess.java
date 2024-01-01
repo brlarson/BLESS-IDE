@@ -2175,6 +2175,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cPostconditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cPostconditionAssertionParserRuleCall_2_0 = (RuleCall)cPostconditionAssignment_2.eContents().get(0);
 		
+		////asserted_action
 		//AssertedAction:
 		//  precondition=Assertion? action=Action postcondition=Assertion?
 		//;
@@ -2471,6 +2472,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Keyword cRightParenthesisKeyword_2_7 = (Keyword)cGroup_2.eContents().get(7);
 		
 		////combinable_operation
+		//// bnf has target_variable_name, but this is just target ID
+		////  change [Variable] to ValueName
 		//CombinableOperation returns CombinableOperation:
 		////  {CombinableOperation}
 		//  f_add?='fetchadd' '(' target=[Variable] ',' arithmetic=Expression ',' result=[Variable] ')'
@@ -2732,7 +2735,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final RuleCall cParametersFormalActualListParserRuleCall_2_0 = (RuleCall)cParametersAssignment_2.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		////subprogram_invocation
+		////subprogram_call
 		//SubprogramCall:
 		//  procedure=[aadl2::CalledSubprogram]
 		//  '(' parameters=FormalActualList? ')'
@@ -5335,6 +5338,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final Assignment cRAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
 		private final RuleCall cRMultDivParserRuleCall_1_1_1_0 = (RuleCall)cRAssignment_1_1_1.eContents().get(0);
 		
+		////add_subtract
 		//AddSub:
 		//    l=MultDiv
 		//    (
@@ -10960,6 +10964,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getBehaviorActionsAccess().getRule();
 	}
 	
+	////asserted_action
 	//AssertedAction:
 	//  precondition=Assertion? action=Action postcondition=Assertion?
 	//;
@@ -11014,6 +11019,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	}
 	
 	////combinable_operation
+	//// bnf has target_variable_name, but this is just target ID
+	////  change [Variable] to ValueName
 	//CombinableOperation returns CombinableOperation:
 	////  {CombinableOperation}
 	//  f_add?='fetchadd' '(' target=[Variable] ',' arithmetic=Expression ',' result=[Variable] ')'
@@ -11052,7 +11059,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getCommunicationActionAccess().getRule();
 	}
 	
-	////subprogram_invocation
+	////subprogram_call
 	//SubprogramCall:
 	//  procedure=[aadl2::CalledSubprogram]
 	//  '(' parameters=FormalActualList? ')'
@@ -11682,6 +11689,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		return getRelationAccess().getRule();
 	}
 	
+	////add_subtract
 	//AddSub:
 	//    l=MultDiv
 	//    (
