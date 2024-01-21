@@ -150,7 +150,7 @@ public static int startingLine = 0; //starting line of sublanguage in AADL file
 //flags used by proof engine
 public static boolean generateSuperfluousProofObligations = false;	//make proof obligations:  <<M(a) and b>> => <true> ?
 public static boolean punishSuperfluousProofObligations = false;	//punish missing assertions on states?
-public static boolean routinelyNormalize = false;		//normalize w/o generating theorems?
+//public static boolean routinelyNormalize = false;		//normalize w/o generating theorems?
 public static boolean displayIntermediateProofObligations = false;		//show PO trees after each proof phase?
 public static boolean sortProofObligationsByLineNumber = false;		//put po's in line number order
 public static boolean sortProofObligationsBySerialNumber = true;		//put po's in serial number order
@@ -164,7 +164,7 @@ public static FileReader userStrategyFileReader = null; // file with user's sequ
 
 
 //holds reasons for normalization (temporarily)
-public static HashSet<Integer> normalizationReason = new HashSet<Integer>();	//stuffed by normalization rules when fired, must empty and copy
+//public static HashSet<Integer> normalizationReason = new HashSet<Integer>();	//stuffed by normalization rules when fired, must empty and copy
 
 //holds flags and constants
 public static int YouIdiotShowParseTreeLimit = 3;	//how many YI parse trees to show?

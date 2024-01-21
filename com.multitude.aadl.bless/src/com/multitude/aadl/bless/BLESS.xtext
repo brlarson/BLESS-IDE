@@ -535,7 +535,7 @@ LockingAction:
 //  freeze='>>'  //added for BA2015, set `freeze' flag on the port	
 //;
 
-//frosen_ports
+//frozen_ports
 @Deprecated
 FreezePort:
    'frozen' '(' frozen+=[aadl2::Port|ID] ( ','  frozen+=[aadl2::Port|ID] )* ')'
@@ -1032,7 +1032,10 @@ PropertyReference:
 
 PropertyField:
 	'[' (index=NUMBER | variable=[Variable]) ']'  //must check that number is integer
-	| '.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+	| '.'  (pf=ID 
+	       | upper='upper_bound' 
+	       | lower='lower_bound'
+	       )
 ;
 
 ///////////////////////////////////////   UNIT   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
