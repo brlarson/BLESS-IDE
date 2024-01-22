@@ -171,7 +171,7 @@ public static int YouIdiotShowParseTreeLimit = 3;	//how many YI parse trees to s
 public static int YouIdiotReportLimit = 10; //how many YI exception reports to show?
 public static int UnparserReportLimit = 2; //how many unparser exception reports to show?
 public static boolean automaticallyNormalizeAfterAssertionLabelSubstitution = false;  //automatically normalize P and Q after Assertion label substition
-public static boolean repeatedlyNormalize = true;  //cause Strategy.normalize() to put new p.o. back into unsolvedProofObligations; or copy new p.o. after all unsolved normalized once
+public static boolean repeatedlyNormalize = false;  //cause Strategy.normalize() to put new p.o. back into unsolvedProofObligations; or copy new p.o. after all unsolved normalized once
 public static boolean parsingPredeclaredProperties = false; //are files holding predeclared AADL or BLESS properties or packages being parsed?
 public static boolean replaceSubtractionWithAddingNegation = false; //flag used by Normalize.g to cause (a-b) to become (a+ -b)
 
