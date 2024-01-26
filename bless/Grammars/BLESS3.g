@@ -1087,7 +1087,7 @@ valueName:
     | t=TICK updated=LITERAL_updated
  //   | t=TICK enum=ID  //enumerationValue
     )?
-  -> {dol!=null}? ^( $id $dol $pr )
+  -> {dol!=null}? ^( $id $dol $pr? )
   -> {lb!=null&&dot!=null}? ^( $id ^( $lb $array_index+ ) ^( $dot $pn+ ) )
   -> {lb!=null&&dot==null}? ^( $id ^( $lb $array_index+ ) DOT[$id,"."] )  //to avoid unparse ambiguity
   -> {lb==null&&dot!=null}? ^( $id ^( $dot $pn+ ) )
