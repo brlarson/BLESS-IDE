@@ -1102,7 +1102,7 @@ toAST(ValueName e)
   {
   try 
     {  
-    if (e.lp) // function call
+    if (e.dol) // function call
       newBAST(e) => [
         myText = e.id.name
         token = new CommonToken(BLESS3Lexer.ID, e.id.name)

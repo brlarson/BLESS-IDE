@@ -2561,17 +2561,43 @@ public class BLESSValidator extends AbstractBLESSValidator {
       if ((_id instanceof ForallVariable)) {
         return this._typeUtil.makeWholeQuantity();
       }
-      NamedElement _id_1 = a.getId();
-      if ((_id_1 instanceof Variable)) {
-        NamedElement _id_2 = a.getId();
-        final Variable aid = ((Variable) _id_2);
+      if ((a.isLp() && (!a.isDol()))) {
+        return this._typeUtil.booleanType();
+      }
+      boolean _isDol = a.isDol();
+      if (_isDol) {
+        NamedElement _id_1 = a.getId();
+        if ((_id_1 instanceof NamedAssertion)) {
+          NamedElement _id_2 = a.getId();
+          boolean _isFunc = ((NamedAssertion) _id_2).isFunc();
+          if (_isFunc) {
+            NamedElement _id_3 = a.getId();
+            return this.getType(((NamedAssertion) _id_3).getTod());
+          }
+          NamedElement _id_4 = a.getId();
+          boolean _isEnumer = ((NamedAssertion) _id_4).isEnumer();
+          if (_isEnumer) {
+            NamedElement _id_5 = a.getId();
+            return ((NamedAssertion) _id_5).getEnumerationType().getType();
+          }
+        } else {
+          NamedElement _id_6 = a.getId();
+          String _plus = ("No type for " + _id_6);
+          String _plus_1 = (_plus + " found.  \nRefernces to subprograms not yet implemented.");
+          this.fError(_plus_1, a, BLESSPackage.eINSTANCE.getValueName_Id());
+        }
+      }
+      NamedElement _id_7 = a.getId();
+      if ((_id_7 instanceof Variable)) {
+        NamedElement _id_8 = a.getId();
+        final Variable aid = ((Variable) _id_8);
         final Type nameRootType = this.getType(aid.getTod());
         if (((a.getArray_index() != null) && (a.getArray_index().size() > 0))) {
           if ((!(nameRootType instanceof ArrayType))) {
             String _name = aid.getName();
-            String _plus = ("Variable name \'" + _name);
-            String _plus_1 = (_plus + "\' has array index, but it\'s type is not array");
-            this.fError(_plus_1, a, 
+            String _plus_2 = ("Variable name \'" + _name);
+            String _plus_3 = (_plus_2 + "\' has array index, but it\'s type is not array");
+            this.fError(_plus_3, a, 
               BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.TYPE_NOT_ARRAY);
           } else {
             int _size = a.getArray_index().size();
@@ -2579,10 +2605,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
             boolean _tripleNotEquals = (_size != _size_1);
             if (_tripleNotEquals) {
               String _name_1 = aid.getName();
-              String _plus_2 = ("Variable name \'" + _name_1);
-              String _plus_3 = (_plus_2 + 
+              String _plus_4 = ("Variable name \'" + _name_1);
+              String _plus_5 = (_plus_4 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_3, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
+              this.fError(_plus_5, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2602,18 +2628,18 @@ public class BLESSValidator extends AbstractBLESSValidator {
           return this.getType(a.getPn(), nameRootType);
         }
       }
-      NamedElement _id_3 = a.getId();
-      if ((_id_3 instanceof GhostVariable)) {
-        NamedElement _id_4 = a.getId();
-        final GhostVariable aid_1 = ((GhostVariable) _id_4);
+      NamedElement _id_9 = a.getId();
+      if ((_id_9 instanceof GhostVariable)) {
+        NamedElement _id_10 = a.getId();
+        final GhostVariable aid_1 = ((GhostVariable) _id_10);
         final Type nameRootType_1 = this.getType(aid_1.getTod());
         boolean _isLb = a.isLb();
         if (_isLb) {
           if ((!(nameRootType_1 instanceof ArrayType))) {
             String _name_2 = aid_1.getName();
-            String _plus_4 = ("Ghost Variable name \'" + _name_2);
-            String _plus_5 = (_plus_4 + "\' has array index, but it\'s type is not array");
-            this.fError(_plus_5, a, 
+            String _plus_6 = ("Ghost Variable name \'" + _name_2);
+            String _plus_7 = (_plus_6 + "\' has array index, but it\'s type is not array");
+            this.fError(_plus_7, a, 
               BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.TYPE_NOT_ARRAY);
           } else {
             int _size_2 = a.getArray_index().size();
@@ -2621,10 +2647,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
             boolean _tripleNotEquals_1 = (_size_2 != _size_3);
             if (_tripleNotEquals_1) {
               String _name_3 = aid_1.getName();
-              String _plus_6 = ("Ghost Variable name \'" + _name_3);
-              String _plus_7 = (_plus_6 + 
+              String _plus_8 = ("Ghost Variable name \'" + _name_3);
+              String _plus_9 = (_plus_8 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_7, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
+              this.fError(_plus_9, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2642,15 +2668,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
         }
         return nameRootType_1;
       }
-      NamedElement _id_5 = a.getId();
-      if ((_id_5 instanceof Feature)) {
-        NamedElement _id_6 = a.getId();
-        final Feature aid_2 = ((Feature) _id_6);
+      NamedElement _id_11 = a.getId();
+      if ((_id_11 instanceof Feature)) {
+        NamedElement _id_12 = a.getId();
+        final Feature aid_2 = ((Feature) _id_12);
         final Type featureType = this.getType(aid_2);
         if ((featureType == null)) {
           String _name_4 = aid_2.getName();
-          String _plus_8 = ("No feature type found for feature \"" + _name_4);
-          this.fError(_plus_8, a, 
+          String _plus_10 = ("No feature type found for feature \"" + _name_4);
+          this.fError(_plus_10, a, 
             BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.FEATURE_TYPED_ERROR);
           return this._typeUtil.booleanType();
         }
@@ -2658,9 +2684,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
         if (_isLb_1) {
           if ((!(featureType instanceof ArrayType))) {
             String _name_5 = aid_2.getName();
-            String _plus_9 = ("Feature name \'" + _name_5);
-            String _plus_10 = (_plus_9 + "\' has array index, but it\'s type is not array");
-            this.fError(_plus_10, a, 
+            String _plus_11 = ("Feature name \'" + _name_5);
+            String _plus_12 = (_plus_11 + "\' has array index, but it\'s type is not array");
+            this.fError(_plus_12, a, 
               BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.TYPE_NOT_ARRAY);
           } else {
             int _size_4 = a.getArray_index().size();
@@ -2668,10 +2694,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
             boolean _tripleNotEquals_2 = (_size_4 != _size_5);
             if (_tripleNotEquals_2) {
               String _name_6 = aid_2.getName();
-              String _plus_11 = ("Feature name \'" + _name_6);
-              String _plus_12 = (_plus_11 + 
+              String _plus_13 = ("Feature name \'" + _name_6);
+              String _plus_14 = (_plus_13 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_12, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
+              this.fError(_plus_14, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2692,23 +2718,23 @@ public class BLESSValidator extends AbstractBLESSValidator {
         }
       }
       Type _xifexpression = null;
-      NamedElement _id_7 = a.getId();
-      if ((_id_7 instanceof SubprogramSubcomponent)) {
+      NamedElement _id_13 = a.getId();
+      if ((_id_13 instanceof SubprogramSubcomponent)) {
         Type _xblockexpression_1 = null;
         {
-          NamedElement _id_8 = a.getId();
-          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_8);
+          NamedElement _id_14 = a.getId();
+          final SubprogramSubcomponent sub = ((SubprogramSubcomponent) _id_14);
           SubprogramSubcomponentType _subprogramSubcomponentType = sub.getSubprogramSubcomponentType();
           final SubprogramTypeImpl st = ((SubprogramTypeImpl) _subprogramSubcomponentType);
           EList<Parameter> _ownedParameters = st.getOwnedParameters();
           for (final Parameter feat : _ownedParameters) {
             if (((!Objects.equal(feat, IterableExtensions.<Parameter>last(st.getOwnedParameters()))) && ((Parameter) feat).isOut())) {
               String _name_7 = a.getId().getName();
-              String _plus_13 = ("Subprogram \'" + _name_7);
-              String _plus_14 = (_plus_13 + " feature \'");
-              String _plus_15 = (_plus_14 + 
+              String _plus_15 = ("Subprogram \'" + _name_7);
+              String _plus_16 = (_plus_15 + " feature \'");
+              String _plus_17 = (_plus_16 + 
                 "\' must be \'in\' parameter");
-              this.fError(_plus_15, a, 
+              this.fError(_plus_17, a, 
                 BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.SUBPROGRAMS_USED_AS_FUNCTIONS);
             }
           }
@@ -2717,13 +2743,13 @@ public class BLESSValidator extends AbstractBLESSValidator {
           boolean _not_5 = (!_isOut);
           if (_not_5) {
             String _name_8 = a.getId().getName();
-            String _plus_16 = ("Subprogram \'" + _name_8);
-            String _plus_17 = (_plus_16 + " feature \'");
+            String _plus_18 = ("Subprogram \'" + _name_8);
+            String _plus_19 = (_plus_18 + " feature \'");
             String _name_9 = outParameter.getName();
-            String _plus_18 = (_plus_17 + _name_9);
-            String _plus_19 = (_plus_18 + 
+            String _plus_20 = (_plus_19 + _name_9);
+            String _plus_21 = (_plus_20 + 
               "\' must be \'in\' parameter");
-            this.fError(_plus_19, a, 
+            this.fError(_plus_21, a, 
               BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.SUBPROGRAMS_USED_AS_FUNCTIONS);
           }
           _xblockexpression_1 = this.getType(outParameter);

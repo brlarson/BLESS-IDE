@@ -4143,7 +4143,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////Freeze:
 		////  freeze='>>'  //added for BA2015, set `freeze' flag on the port
 		////;
-		////frosen_ports
+		////frozen_ports
 		//@Deprecated
 		//FreezePort:
 		//   'frozen' '(' frozen+=[aadl2::Port|ID] ( ','  frozen+=[aadl2::Port|ID] )* ')'
@@ -6275,7 +6275,8 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		private final CrossReference cIdNamedElementCrossReference_0_0 = (CrossReference)cIdAssignment_0.eContents().get(0);
 		private final RuleCall cIdNamedElementIDTerminalRuleCall_0_0_1 = (RuleCall)cIdNamedElementCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cDollarSignKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cDolAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cDolDollarSignKeyword_1_0_0 = (Keyword)cDolAssignment_1_0.eContents().get(0);
 		private final Assignment cLpAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final Keyword cLpLeftParenthesisKeyword_1_1_0 = (Keyword)cLpAssignment_1_1.eContents().get(0);
 		private final Assignment cPrAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
@@ -6321,7 +6322,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//ValueName:
 		//  id=[aadl2::NamedElement|ID] //resolve as variable or feature (port)
 		//  //either function call or variable or port
-		//    ( '$' lp?='('  pr=FunctionParameters? ')' )?
+		//    ( dol?='$' lp?='('  pr=FunctionParameters? ')' )?
 		//      ( lb?='[' array_index+=IndexExpressionOrRange ']'
 		//        ( '[' array_index+=IndexExpressionOrRange ']' )* )? //optional array index
 		//      ( dot?='.' pn+=PartialName ( '.' pn+=PartialName )* )?
@@ -6335,7 +6336,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		//id=[aadl2::NamedElement|ID] //resolve as variable or feature (port)
 		////either function call or variable or port
-		//  ( '$' lp?='('  pr=FunctionParameters? ')' )?
+		//  ( dol?='$' lp?='('  pr=FunctionParameters? ')' )?
 		//    ( lb?='[' array_index+=IndexExpressionOrRange ']'
 		//      ( '[' array_index+=IndexExpressionOrRange ']' )* )? //optional array index
 		//    ( dot?='.' pn+=PartialName ( '.' pn+=PartialName )* )?
@@ -6357,11 +6358,14 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		
 		////resolve as variable or feature (port)
 		// //either function call or variable or port
-		//   ( '$' lp?='('  pr=FunctionParameters? ')' )?
+		//   ( dol?='$' lp?='('  pr=FunctionParameters? ')' )?
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//dol?='$'
+		public Assignment getDolAssignment_1_0() { return cDolAssignment_1_0; }
+		
 		//'$'
-		public Keyword getDollarSignKeyword_1_0() { return cDollarSignKeyword_1_0; }
+		public Keyword getDolDollarSignKeyword_1_0_0() { return cDolDollarSignKeyword_1_0_0; }
 		
 		//lp?='('
 		public Assignment getLpAssignment_1_1() { return cLpAssignment_1_1; }
@@ -8559,12 +8563,18 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		////    simple=[aadl2::Property|QCLREF] ;
 		//PropertyField:
 		//    '[' (index=NUMBER | variable=[Variable]) ']'  //must check that number is integer
-		//    | '.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+		//    | '.'  (pf=ID
+		//           | upper='upper_bound'
+		//           | lower='lower_bound'
+		//           )
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'[' (index=NUMBER | variable=[Variable]) ']'  //must check that number is integer
-		//| '.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+		//| '.'  (pf=ID
+		//       | upper='upper_bound'
+		//       | lower='lower_bound'
+		//       )
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'[' (index=NUMBER | variable=[Variable]) ']'
@@ -8594,13 +8604,19 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 		//']'
 		public Keyword getRightSquareBracketKeyword_0_2() { return cRightSquareBracketKeyword_0_2; }
 		
-		//'.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+		//'.'  (pf=ID
+		//          | upper='upper_bound'
+		//          | lower='lower_bound'
+		//          )
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//'.'
 		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
 		
-		//(pf=ID | upper='upper_bound' | lower='lower_bound')
+		//(pf=ID
+		//         | upper='upper_bound'
+		//         | lower='lower_bound'
+		//         )
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 		
 		//pf=ID
@@ -11418,7 +11434,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////Freeze:
 	////  freeze='>>'  //added for BA2015, set `freeze' flag on the port
 	////;
-	////frosen_ports
+	////frozen_ports
 	//@Deprecated
 	//FreezePort:
 	//   'frozen' '(' frozen+=[aadl2::Port|ID] ( ','  frozen+=[aadl2::Port|ID] )* ')'
@@ -11912,7 +11928,7 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	//ValueName:
 	//  id=[aadl2::NamedElement|ID] //resolve as variable or feature (port)
 	//  //either function call or variable or port
-	//    ( '$' lp?='('  pr=FunctionParameters? ')' )?
+	//    ( dol?='$' lp?='('  pr=FunctionParameters? ')' )?
 	//      ( lb?='[' array_index+=IndexExpressionOrRange ']'
 	//        ( '[' array_index+=IndexExpressionOrRange ']' )* )? //optional array index
 	//      ( dot?='.' pn+=PartialName ( '.' pn+=PartialName )* )?
@@ -12409,7 +12425,10 @@ public class BLESSGrammarAccess extends AbstractElementFinder.AbstractGrammarEle
 	////    simple=[aadl2::Property|QCLREF] ;
 	//PropertyField:
 	//    '[' (index=NUMBER | variable=[Variable]) ']'  //must check that number is integer
-	//    | '.'  (pf=ID | upper='upper_bound' | lower='lower_bound')
+	//    | '.'  (pf=ID
+	//           | upper='upper_bound'
+	//           | lower='lower_bound'
+	//           )
 	//;
 	public PropertyFieldElements getPropertyFieldAccess() {
 		return pPropertyField;

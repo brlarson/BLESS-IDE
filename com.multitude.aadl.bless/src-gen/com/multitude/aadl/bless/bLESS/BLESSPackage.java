@@ -6924,13 +6924,22 @@ public interface BLESSPackage extends EPackage
   int VALUE_NAME__ID = Aadl2Package.ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Dol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VALUE_NAME__DOL = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Lp</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VALUE_NAME__LP = Aadl2Package.ELEMENT_FEATURE_COUNT + 1;
+  int VALUE_NAME__LP = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Pr</b></em>' containment reference.
@@ -6939,7 +6948,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__PR = Aadl2Package.ELEMENT_FEATURE_COUNT + 2;
+  int VALUE_NAME__PR = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Lb</b></em>' attribute.
@@ -6948,7 +6957,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__LB = Aadl2Package.ELEMENT_FEATURE_COUNT + 3;
+  int VALUE_NAME__LB = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Array index</b></em>' containment reference list.
@@ -6957,7 +6966,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__ARRAY_INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 4;
+  int VALUE_NAME__ARRAY_INDEX = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Dot</b></em>' attribute.
@@ -6966,7 +6975,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__DOT = Aadl2Package.ELEMENT_FEATURE_COUNT + 5;
+  int VALUE_NAME__DOT = Aadl2Package.ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Pn</b></em>' containment reference list.
@@ -6975,7 +6984,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__PN = Aadl2Package.ELEMENT_FEATURE_COUNT + 6;
+  int VALUE_NAME__PN = Aadl2Package.ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -6984,7 +6993,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__Q = Aadl2Package.ELEMENT_FEATURE_COUNT + 7;
+  int VALUE_NAME__Q = Aadl2Package.ELEMENT_FEATURE_COUNT + 8;
 
   /**
    * The feature id for the '<em><b>Fresh</b></em>' attribute.
@@ -6993,7 +7002,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__FRESH = Aadl2Package.ELEMENT_FEATURE_COUNT + 8;
+  int VALUE_NAME__FRESH = Aadl2Package.ELEMENT_FEATURE_COUNT + 9;
 
   /**
    * The feature id for the '<em><b>Count</b></em>' attribute.
@@ -7002,7 +7011,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 9;
+  int VALUE_NAME__COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 10;
 
   /**
    * The feature id for the '<em><b>Updated</b></em>' attribute.
@@ -7011,7 +7020,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME__UPDATED = Aadl2Package.ELEMENT_FEATURE_COUNT + 10;
+  int VALUE_NAME__UPDATED = Aadl2Package.ELEMENT_FEATURE_COUNT + 11;
 
   /**
    * The number of structural features of the '<em>Value Name</em>' class.
@@ -7020,7 +7029,7 @@ public interface BLESSPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VALUE_NAME_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 11;
+  int VALUE_NAME_FEATURE_COUNT = Aadl2Package.ELEMENT_FEATURE_COUNT + 12;
 
   /**
    * The meta object id for the '{@link com.multitude.aadl.bless.bLESS.impl.PartialNameImpl <em>Partial Name</em>}' class.
@@ -14427,6 +14436,17 @@ public interface BLESSPackage extends EPackage
    * @generated
    */
   EReference getValueName_Id();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.ValueName#isDol <em>Dol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Dol</em>'.
+   * @see com.multitude.aadl.bless.bLESS.ValueName#isDol()
+   * @see #getValueName()
+   * @generated
+   */
+  EAttribute getValueName_Dol();
 
   /**
    * Returns the meta object for the attribute '{@link com.multitude.aadl.bless.bLESS.ValueName#isLp <em>Lp</em>}'.

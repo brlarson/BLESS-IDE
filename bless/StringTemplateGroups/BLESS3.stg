@@ -146,7 +146,10 @@ conditional_assertion_function(cvp) ::=
   [<cvp; wrap, anchor, separator=", ">]
 >>
 
-conditional_expression(be,t,f) ::= "(if <be> then <t> else <f>)"
+conditional_expression(be,t,f) ::= 
+<<(if <be> 
+  then <t> 
+  else <f>) >>
 
 condition_value_pair(pp,pe) ::= "(<pp>)-> <pe>" 
 
@@ -217,8 +220,7 @@ for_loop(a,lb,ub,ba,inv) ::=
   invariant <inv><endif>
   <ba> >>
 
-function_call(f,pl,p) ::= 
-<<<if(p)><p; separator="::">::<endif><f>(<pl>)>>
+function_call(pl,p) ::= "<f>$(<pl>)"
 
 ghost_variable(id,tod) ::=
   "def <id> ~ <tod>"
@@ -479,6 +481,9 @@ subprogram_behavior(ac,p1,p2,elq) ::=
 <elq>
 --end of Action annex subclause
 >>
+
+//<f> may be a fully-qualified name of a subprogram component
+subprogram_call(f,pl) ::= "<f>(<pl>)"
 
 sum(s,lv,d,pe) ::=
 <<

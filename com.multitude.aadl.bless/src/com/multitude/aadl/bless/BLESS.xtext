@@ -785,7 +785,7 @@ Variable:
 ValueName:
   id=[aadl2::NamedElement|ID] //resolve as variable or feature (port)
   //either function call or variable or port 
-    ( '$' lp?='('  pr=FunctionParameters? ')' )?
+    ( dol?='$' lp?='('  pr=FunctionParameters? ')' )?
   	( lb?='[' array_index+=IndexExpressionOrRange ']' 
   	  ( '[' array_index+=IndexExpressionOrRange ']' )* )? //optional array index
   	( dot?='.' pn+=PartialName ( '.' pn+=PartialName )* )?

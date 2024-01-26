@@ -39,7 +39,7 @@ import com.multitude.bless.tree.BAST;
 	public class
 Global	//global variables
 {
-public static String CopyrightYear = "2023";
+public static String CopyrightYear = "2024";
 public static String OsateVersion = "2.13.0";
 public static String EclipseVersion = "2023_03";
 
@@ -290,7 +290,7 @@ setUpFiles()
         Global.df = new File("dump.txt");
         Global.fw = new FileWriter(Global.df);
         Global.pw = new PrintWriter(Global.fw);
-        Dump.it("opening dump file \"" + Global.df.getAbsolutePath() + "\" " + Time.todayString);
+        Dump.it("opening dump file \"" + Global.df.getAbsolutePath() + "\" ");
         }
       catch (IOException e)
         {

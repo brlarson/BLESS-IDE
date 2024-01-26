@@ -1738,8 +1738,8 @@ public class ToAST {
     BAST _xtrycatchfinallyexpression = null;
     try {
       BAST _xifexpression = null;
-      boolean _isLp = e.isLp();
-      if (_isLp) {
+      boolean _isDol = e.isDol();
+      if (_isDol) {
         BAST _newBAST = this.newBAST(e);
         final Procedure1<BAST> _function = (BAST it) -> {
           it.myText = e.getId().getName();

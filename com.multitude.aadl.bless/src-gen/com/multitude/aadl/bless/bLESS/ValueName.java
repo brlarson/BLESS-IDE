@@ -22,6 +22,7 @@ import org.osate.aadl2.NamedElement;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.ValueName#getId <em>Id</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.ValueName#isDol <em>Dol</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.ValueName#isLp <em>Lp</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.ValueName#getPr <em>Pr</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.ValueName#isLb <em>Lb</em>}</li>
@@ -61,6 +62,28 @@ public interface ValueName extends EObject, Element
    * @generated
    */
   void setId(NamedElement value);
+
+  /**
+   * Returns the value of the '<em><b>Dol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Dol</em>' attribute.
+   * @see #setDol(boolean)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getValueName_Dol()
+   * @model
+   * @generated
+   */
+  boolean isDol();
+
+  /**
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.ValueName#isDol <em>Dol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Dol</em>' attribute.
+   * @see #isDol()
+   * @generated
+   */
+  void setDol(boolean value);
 
   /**
    * Returns the value of the '<em><b>Lp</b></em>' attribute.

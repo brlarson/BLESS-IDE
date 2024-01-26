@@ -80,7 +80,7 @@
 		<page
 			class="com.multitude.aadl.bless.ui.BLESSExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
 			id="com.multitude.aadl.bless.BLESS"
-			name="BLESS Preference Page">
+			name="BLESS">
 			<keywordReference id="com.multitude.aadl.bless.ui.keyword_BLESS"/>
 		</page>
 <!--		

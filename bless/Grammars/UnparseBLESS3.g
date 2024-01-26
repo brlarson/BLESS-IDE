@@ -1319,7 +1319,7 @@ portInput
 subprogramCall
   :
   ^( SUBPROGRAM_INVOCATION id=ID fal=formalActualList? )
-    -> function_call(f={$id.text}, pl={$fal.st})
+    -> subprogram_call(f={$id.text}, pl={$fal.st})
   ;  
   
   

@@ -3041,7 +3041,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 * Constraint:
 	 *     (
 	 *         id=[NamedElement|ID] 
-	 *         (lp?='(' pr=FunctionParameters?)? 
+	 *         (dol?='$' lp?='(' pr=FunctionParameters?)? 
 	 *         (lb?='[' array_index+=IndexExpressionOrRange array_index+=IndexExpressionOrRange*)? 
 	 *         (dot?='.' pn+=PartialName pn+=PartialName*)? 
 	 *         (q?='?' | fresh?='fresh' | count?='count' | updated?='updated')?

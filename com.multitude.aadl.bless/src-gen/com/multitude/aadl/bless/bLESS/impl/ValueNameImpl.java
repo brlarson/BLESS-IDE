@@ -40,6 +40,7 @@ import org.osate.aadl2.impl.ElementImpl;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueNameImpl#getId <em>Id</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueNameImpl#isDol <em>Dol</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueNameImpl#isLp <em>Lp</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueNameImpl#getPr <em>Pr</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueNameImpl#isLb <em>Lb</em>}</li>
@@ -65,6 +66,26 @@ public class ValueNameImpl extends ElementImpl implements ValueName
    * @ordered
    */
   protected NamedElement id;
+
+  /**
+   * The default value of the '{@link #isDol() <em>Dol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDol()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean DOL_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isDol() <em>Dol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isDol()
+   * @generated
+   * @ordered
+   */
+  protected boolean dol = DOL_EDEFAULT;
 
   /**
    * The default value of the '{@link #isLp() <em>Lp</em>}' attribute.
@@ -300,6 +321,31 @@ public class ValueNameImpl extends ElementImpl implements ValueName
     id = newId;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE_NAME__ID, oldId, id));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean isDol()
+  {
+    return dol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setDol(boolean newDol)
+  {
+    boolean oldDol = dol;
+    dol = newDol;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE_NAME__DOL, oldDol, dol));
   }
 
   /**
@@ -590,6 +636,8 @@ public class ValueNameImpl extends ElementImpl implements ValueName
       case BLESSPackage.VALUE_NAME__ID:
         if (resolve) return getId();
         return basicGetId();
+      case BLESSPackage.VALUE_NAME__DOL:
+        return isDol();
       case BLESSPackage.VALUE_NAME__LP:
         return isLp();
       case BLESSPackage.VALUE_NAME__PR:
@@ -627,6 +675,9 @@ public class ValueNameImpl extends ElementImpl implements ValueName
     {
       case BLESSPackage.VALUE_NAME__ID:
         setId((NamedElement)newValue);
+        return;
+      case BLESSPackage.VALUE_NAME__DOL:
+        setDol((Boolean)newValue);
         return;
       case BLESSPackage.VALUE_NAME__LP:
         setLp((Boolean)newValue);
@@ -677,6 +728,9 @@ public class ValueNameImpl extends ElementImpl implements ValueName
       case BLESSPackage.VALUE_NAME__ID:
         setId((NamedElement)null);
         return;
+      case BLESSPackage.VALUE_NAME__DOL:
+        setDol(DOL_EDEFAULT);
+        return;
       case BLESSPackage.VALUE_NAME__LP:
         setLp(LP_EDEFAULT);
         return;
@@ -723,6 +777,8 @@ public class ValueNameImpl extends ElementImpl implements ValueName
     {
       case BLESSPackage.VALUE_NAME__ID:
         return id != null;
+      case BLESSPackage.VALUE_NAME__DOL:
+        return dol != DOL_EDEFAULT;
       case BLESSPackage.VALUE_NAME__LP:
         return lp != LP_EDEFAULT;
       case BLESSPackage.VALUE_NAME__PR:
@@ -758,7 +814,9 @@ public class ValueNameImpl extends ElementImpl implements ValueName
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (lp: ");
+    result.append(" (dol: ");
+    result.append(dol);
+    result.append(", lp: ");
     result.append(lp);
     result.append(", lb: ");
     result.append(lb);

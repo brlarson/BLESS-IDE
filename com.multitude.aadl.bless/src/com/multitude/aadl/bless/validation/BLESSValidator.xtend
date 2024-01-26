@@ -1841,6 +1841,22 @@ def Type getType(ValueName a)
   if (a.fresh || a.updated) return booleanType
   if (a.count) return makeWholeQuantity
   if (a.id instanceof ForallVariable) return makeWholeQuantity
+  if (a.lp && !a.dol) return booleanType  //assertion (predicate
+  if (a.dol)  //function call or assertion function invocation
+    {
+    if (a.id instanceof NamedAssertion)
+      {
+      if ((a.id as NamedAssertion).func) 
+        return getType((a.id as NamedAssertion).tod)    
+      if ((a.id as NamedAssertion).enumer) 
+        return (a.id as NamedAssertion).enumerationType.type
+      }
+    else  //it's a function call
+      {
+      fError('No type for '+a.id+' found.  \nRefernces to subprograms not yet implemented.',
+        a, BLESSPackage::eINSTANCE.valueName_Id ) 
+      }      
+    }
   if (a.id instanceof Variable)
     {
       val aid = a.id as Variable
@@ -2368,7 +2384,8 @@ def UnitRecord getUnitRecord(CountingQuantification a)
 def UnitRecord getUnitRecord(ValueName a) 
   {
   var  UnitRecord retval = null
-    try {
+  try 
+  {
   if (cacheUnits && unitRecordMap.containsKey(a))
     return unitRecordMap.get(a)
   val itsType=a.getType

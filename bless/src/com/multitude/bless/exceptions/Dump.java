@@ -11,6 +11,7 @@ import org.antlr.runtime.RecognitionException;
 
 import com.multitude.aadl.bless.BlessControl;
 import com.multitude.bless.app.Global;
+import com.multitude.bless.app.Time;
 import com.multitude.bless.tree.BAST;
 
 	public class 
@@ -215,8 +216,9 @@ closeProofFile()
     if (Global.fwProof!=null)
       try
       {
-      String s = "closing proof.txt file ";
+      String s = "closing proof file \"" + Global.dfProof.getAbsolutePath() + "\" ";
       Dump.it(s);
+//      Dump.it("closing proof file \"" + Global.dfProof.getAbsolutePath() + "\" " + Time.todayString);
       if (Global.useProofFile&&(Global.fwProof!=null)&&
           (Global.dfProof!=null)&&Global.dfProof.canWrite())
         Global.fwProof.write(s,0,s.length());    

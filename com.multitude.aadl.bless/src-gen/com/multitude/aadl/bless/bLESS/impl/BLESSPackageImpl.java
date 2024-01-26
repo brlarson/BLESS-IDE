@@ -6179,7 +6179,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
-  public EAttribute getValueName_Lp()
+  public EAttribute getValueName_Dol()
   {
         return (EAttribute)getValueName().getEStructuralFeatures().get(1);
   }
@@ -6190,9 +6190,20 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
    * @generated
    */
   @Override
+  public EAttribute getValueName_Lp()
+  {
+        return (EAttribute)getValueName().getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getValueName_Pr()
   {
-        return (EReference)getValueName().getEStructuralFeatures().get(2);
+        return (EReference)getValueName().getEStructuralFeatures().get(3);
   }
 
   /**
@@ -6203,7 +6214,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Lb()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(3);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(4);
   }
 
   /**
@@ -6214,7 +6225,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EReference getValueName_Array_index()
   {
-        return (EReference)getValueName().getEStructuralFeatures().get(4);
+        return (EReference)getValueName().getEStructuralFeatures().get(5);
   }
 
   /**
@@ -6225,7 +6236,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Dot()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(5);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(6);
   }
 
   /**
@@ -6236,7 +6247,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EReference getValueName_Pn()
   {
-        return (EReference)getValueName().getEStructuralFeatures().get(6);
+        return (EReference)getValueName().getEStructuralFeatures().get(7);
   }
 
   /**
@@ -6247,7 +6258,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Q()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(7);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(8);
   }
 
   /**
@@ -6258,7 +6269,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Fresh()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(8);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(9);
   }
 
   /**
@@ -6269,7 +6280,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Count()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(9);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(10);
   }
 
   /**
@@ -6280,7 +6291,7 @@ public class BLESSPackageImpl extends EPackageImpl implements BLESSPackage
   @Override
   public EAttribute getValueName_Updated()
   {
-        return (EAttribute)getValueName().getEStructuralFeatures().get(10);
+        return (EAttribute)getValueName().getEStructuralFeatures().get(11);
   }
 
   /**

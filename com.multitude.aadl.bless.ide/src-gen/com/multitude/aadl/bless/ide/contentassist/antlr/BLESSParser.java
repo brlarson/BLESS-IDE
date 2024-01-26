@@ -729,6 +729,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getVariableAccess().getNameAssignment_0(), "rule__Variable__NameAssignment_0");
 			builder.put(grammarAccess.getVariableAccess().getTodAssignment_2(), "rule__Variable__TodAssignment_2");
 			builder.put(grammarAccess.getValueNameAccess().getIdAssignment_0(), "rule__ValueName__IdAssignment_0");
+			builder.put(grammarAccess.getValueNameAccess().getDolAssignment_1_0(), "rule__ValueName__DolAssignment_1_0");
 			builder.put(grammarAccess.getValueNameAccess().getLpAssignment_1_1(), "rule__ValueName__LpAssignment_1_1");
 			builder.put(grammarAccess.getValueNameAccess().getPrAssignment_1_2(), "rule__ValueName__PrAssignment_1_2");
 			builder.put(grammarAccess.getValueNameAccess().getLbAssignment_2_0(), "rule__ValueName__LbAssignment_2_0");
