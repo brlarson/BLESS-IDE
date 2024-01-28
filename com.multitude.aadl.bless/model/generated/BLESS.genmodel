@@ -522,6 +522,7 @@
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//ValueName">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BLESS.ecore#//ValueName/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ValueName/dol"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ValueName/lp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//ValueName/pr"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ValueName/lb"/>

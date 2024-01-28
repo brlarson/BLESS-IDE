@@ -20028,9 +20028,9 @@ rule__ValueName__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getValueNameAccess().getDollarSignKeyword_1_0()); }
-	'$'
-	{ after(grammarAccess.getValueNameAccess().getDollarSignKeyword_1_0()); }
+	{ before(grammarAccess.getValueNameAccess().getDolAssignment_1_0()); }
+	(rule__ValueName__DolAssignment_1_0)
+	{ after(grammarAccess.getValueNameAccess().getDolAssignment_1_0()); }
 )
 ;
 finally {
@@ -33050,6 +33050,25 @@ rule__ValueName__IdAssignment_0
 			{ after(grammarAccess.getValueNameAccess().getIdNamedElementIDTerminalRuleCall_0_0_1()); }
 		)
 		{ after(grammarAccess.getValueNameAccess().getIdNamedElementCrossReference_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ValueName__DolAssignment_1_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getValueNameAccess().getDolDollarSignKeyword_1_0_0()); }
+		(
+			{ before(grammarAccess.getValueNameAccess().getDolDollarSignKeyword_1_0_0()); }
+			'$'
+			{ after(grammarAccess.getValueNameAccess().getDolDollarSignKeyword_1_0_0()); }
+		)
+		{ after(grammarAccess.getValueNameAccess().getDolDollarSignKeyword_1_0_0()); }
 	)
 ;
 finally {

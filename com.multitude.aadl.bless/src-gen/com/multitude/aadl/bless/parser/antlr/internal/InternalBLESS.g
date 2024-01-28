@@ -9602,10 +9602,20 @@ ruleValueName returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_1='$'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getValueNameAccess().getDollarSignKeyword_1_0());
-			}
+			(
+				(
+					lv_dol_1_0='$'
+					{
+						newLeafNode(lv_dol_1_0, grammarAccess.getValueNameAccess().getDolDollarSignKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getValueNameRule());
+						}
+						setWithLastConsumed($current, "dol", lv_dol_1_0 != null, "\$");
+					}
+				)
+			)
 			(
 				(
 					lv_lp_2_0='('
