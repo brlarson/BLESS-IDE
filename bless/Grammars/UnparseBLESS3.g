@@ -955,6 +955,9 @@ valueName
   ^( id=ID DOLLAR pr=functionParameters )
     -> function_call(f={$id.text}, pl={$pr.st})
   |
+  ^( id=ID DOLLAR )
+    -> function_call(f={$id.text})
+  |
   ^( id=ID ^( LBRACKET array_index+=indexExpressionOrRange+ ) ^( DOT pn+=partialName* )  )
     -> name(id={$id.text}, index={$array_index}, rec={$pn})
   |
