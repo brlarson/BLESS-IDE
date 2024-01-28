@@ -62,6 +62,7 @@ import com.multitude.aadl.bless.bLESS.ForallVariable;
 import com.multitude.aadl.bless.bLESS.FormalActual;
 import com.multitude.aadl.bless.bLESS.FormalActualList;
 import com.multitude.aadl.bless.bLESS.FormalExpressionPair;
+import com.multitude.aadl.bless.bLESS.FunctionParameters;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
 import com.multitude.aadl.bless.bLESS.GhostVariables;
 import com.multitude.aadl.bless.bLESS.GuardedAction;
@@ -1754,7 +1755,11 @@ public class ToAST {
           };
           BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
           it.addChild(_doubleArrow);
-          it.addChild(this.toAST(e.getPr()));
+          FunctionParameters _pr = e.getPr();
+          boolean _tripleNotEquals = (_pr != null);
+          if (_tripleNotEquals) {
+            it.addChild(this.toAST(e.getPr()));
+          }
         };
         _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
       } else {

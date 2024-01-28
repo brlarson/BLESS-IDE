@@ -1110,7 +1110,8 @@ toAST(ValueName e)
           myText = '$'
           token = new CommonToken(BLESS3Lexer.DOLLAR, '$')
           ])
-        addChild(e.pr.toAST)
+        if (e.pr !== null)
+          addChild(e.pr.toAST)
         ] 
     else if (e.lb)  //array index
       newBAST(e) => [
