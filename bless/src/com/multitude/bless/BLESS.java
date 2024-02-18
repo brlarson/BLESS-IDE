@@ -3,5 +3,5 @@ package com.multitude.bless;
 public class BLESS {
 
 	
-	public static String versionDate = "v3.2.3";
+	public static String versionDate = "v3.2.4";
 }
