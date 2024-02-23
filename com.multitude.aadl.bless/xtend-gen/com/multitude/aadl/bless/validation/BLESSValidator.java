@@ -46,6 +46,7 @@ import com.multitude.aadl.bless.bLESS.ForallVariable;
 import com.multitude.aadl.bless.bLESS.FormalActual;
 import com.multitude.aadl.bless.bLESS.FormalActualList;
 import com.multitude.aadl.bless.bLESS.GhostVariable;
+import com.multitude.aadl.bless.bLESS.GuardedAction;
 import com.multitude.aadl.bless.bLESS.IndexExpression;
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange;
 import com.multitude.aadl.bless.bLESS.InvariantClause;
@@ -1511,6 +1512,16 @@ public class BLESSValidator extends AbstractBLESSValidator {
       } else {
         throw Exceptions.sneakyThrow(_t);
       }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
+  public void checkThatGuardsAreBoolean(final GuardedAction ga) {
+    boolean _isBoolean = this.isBoolean(this.getType(ga.getGuard()));
+    boolean _not = (!_isBoolean);
+    if (_not) {
+      this.fError("Guards in alternative (if-fi) must have boolean type.", ga, 
+        BLESSPackage.eINSTANCE.getGuardedAction_Guard(), IssueCodes.GUARDS_MUST_BE_BOOLEAN);
     }
   }
 

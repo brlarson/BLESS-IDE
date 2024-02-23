@@ -123,6 +123,7 @@ import org.osate.xtext.aadl2.properties.util.PropertyUtils
 import com.multitude.aadl.bless.bLESS.UnitName
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
 import com.multitude.aadl.bless.bLESS.NonNumericProperty
+import com.multitude.aadl.bless.bLESS.GuardedAction
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -1091,7 +1092,14 @@ def void checkPortInput(PortInput n)
   catch (ValidationException ve)
     fError(ve.getMessage(),n,
       BLESSPackage::eINSTANCE.portInput_Port, IssueCodes.PORT_INPUT_WRONG_TYPE) 
-    
+  }  // end of checkPortInput
+
+@Check(CheckType.NORMAL)
+def void checkThatGuardsAreBoolean(GuardedAction ga)
+  {
+  if ( !isBoolean(getType(ga.guard)) )
+    fError('Guards in alternative (if-fi) must have boolean type.',ga,
+      BLESSPackage::eINSTANCE.guardedAction_Guard, IssueCodes.GUARDS_MUST_BE_BOOLEAN) 
   }
 
 //@Check(CheckType.NORMAL)

@@ -11,6 +11,7 @@ public interface IssueCodes
   String DUPLICATE_TRANSITION_LABEL = PREFIX + "DuplicateTransitionLabel";
   String EXPONENTIATION_WARNING = PREFIX + "ExponentiationWarning";
   String FEATURE_TYPED_ERROR = PREFIX + "FeatureTypedError";
+  String GUARDS_MUST_BE_BOOLEAN = PREFIX + "GuardsMustBeBoolean";
   String ILLEGAL_TIME_OPERATOR = PREFIX + "IllegalTimeOperator";
   String INCOMPATIBLE_TYPES = PREFIX + "IncompatibleTypes";
   String INCOMPATIBLE_UNITS = PREFIX + "IncompatibleUnits";
