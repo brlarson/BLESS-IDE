@@ -9,9 +9,6 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: com.multitude.aadl.bless.ui,
  org.eclipse.xtext.testing,
  org.eclipse.core.runtime,
- org.eclipse.ui.workbench;resolution:=optional,
- org.eclipse.xtext.xbase.testing,
- org.eclipse.xtext.ui.testing,
- org.eclipse.xtext.xbase.ui.testing
+ org.eclipse.ui.workbench;resolution:=optional
 Export-Package: com.multitude.aadl.bless.ui.tests;x-internal=true
 Bundle-RequiredExecutionEnvironment: JavaSE-17
