@@ -6,7 +6,7 @@ Bundle-Vendor: Multitude Corporation
 Bundle-Version: 3.2.4.qualifier
 Bundle-SymbolicName: com.multitude.aadl.bless; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext.generator;bundle-version="[2.30.0,3.0.0)";resolution:=optional,
+Require-Bundle: org.eclipse.xtext.xtext.generator;bundle-version="[2.30.0,3.0.0)";resolution:=optional,
  org.eclipse.emf.mwe2.launch;bundle-version="[2.14.0,3.0.0)";resolution:=optional,
  org.osate.aadl2;bundle-version="[5.0.0,6.0.0)";visibility:=reexport,
  org.osate.xtext.aadl2.properties;bundle-version="[3.1.4,4.0.0)",
@@ -43,7 +43,7 @@ Export-Package: com.multitude.aadl.bless;uses:="com.google.inject",
    org.eclipse.emf.ecore.util",
  com.multitude.aadl.bless.exception,
  com.multitude.aadl.bless.formatting2;uses:="com.multitude.aadl.bless.bLESS,org.eclipse.xtext.formatting2",
- com.multitude.aadl.bless.generator;uses:="org.eclipse.xtext.generator,org.eclipse.emf.ecore.resource",
+ com.multitude.aadl.bless.generator;uses:="org.eclipse.xtext.xtext.generator,org.eclipse.emf.ecore.resource",
  com.multitude.aadl.bless.linking;
   uses:="org.eclipse.emf.ecore,
    org.eclipse.xtext.nodemodel,

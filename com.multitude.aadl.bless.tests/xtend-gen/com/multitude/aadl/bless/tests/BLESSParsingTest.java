@@ -5,552 +5,123 @@
  */
 package com.multitude.aadl.bless.tests;
 
-import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.testing.InjectWith;
-import org.eclipse.xtext.testing.XtextRunner;
-import org.eclipse.xtext.testing.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(XtextRunner.class)
-@InjectWith(BLESSInjectorProvider.class)
-@SuppressWarnings("all")
+/* @RunWith(_XtextRunner)
+@InjectWith(_BLESSInjectorProvider) */@SuppressWarnings("all")
 public class BLESSParsingTest {
-  @Inject
-  private ParseHelper<BLESSGrammarRoots> parseHelper;
+  /* @Inject
+   */private /* ParseHelper<BLESSGrammarRoots> */Object parseHelper;
 
   @Test
   public void emptyBlessSubclause() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void justAssertClause() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("assert       ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< notVRP: : --Ventricular Refractory Period");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(n or p)@last_beat --last beat before now,");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("and ((now-last_beat)>=vrp)>>  --older than VRP");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< VS: : --ventricular sense detected, not in VRP");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("s@now and notVRP() >>");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< VP: : --cause ventricular pace");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(n or p)@(now-lrl)  --last beat occurred LRL interval ago,");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("and --not since then");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("not (exists t~time  --there is no time  ");
-      _builder.newLine();
-      _builder.append("        ");
-      _builder.append("in (now-lrl),,now  --since then, \",,\" means open interval");
-      _builder.newLine();
-      _builder.append("        ");
-      _builder.append("that (n or p)@t) >>  --with a beat");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< PACE:x~time: --pace occurred in the previous LRL interval");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("p@last_beat and  --previous beat was a pace");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(exists t~time  --there is a time ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("in (x-lrl)..x  --in the previous LRL interval ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("that p@t) >>  --with a ventricular pace     ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< SENSE:x~time:  --sense occurred in the previous LRL interval");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("n@last_beat and  --previous beat was a sense");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("(exists t~time  --there is a time ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("in (x-lrl)..x  --in the previous LRL interval");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("that n@t) >>  --with a non-refractory sense ");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void justInvariantClause() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("invariant  ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< LRL: : --Lower Rate Limit");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("exists t~time  --there was a moment");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("in (now-lrl)..now   --within the previous LRL interval");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("that (n@t or p@t) >>  --with a pace or non-refractory sense ");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void justVariablesSection() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("variables");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("last_beat ~ time := 0 s  --useless initialization needed so Slang won\'t complain");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("--the last pace or non-refractory sense occurred at last_beat");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("<< LAST: :(n or p)@last_beat>>  ");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void justStatesSection() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("states");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("power_on : initial state  --powered-up, ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<<now=0>> --start with \"sense\"");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("pace : complete state ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--a ventricular pace has occured in the ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--previous LRL-interval milliseconds");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<< PACE(now)>> ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("sense : complete state  ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--a ventricular sense has occured in the ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--previous LRL-interval milliseconds");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<< SENSE(now)>>   ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_pace_vrp : state  ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--execute state to check if s is in vrp after pace");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<<s@now and PACE(now)>>");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_sense_vrp : state  ");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("--execute state to check if s is in vrp after sense");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<<s@now and SENSE(now)>>");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("off : final state  --upon \"stop\"");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void justTransitions() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("transitions  ");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T1_POWER_ON:  --initialization");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("power_on -[ ]-> sense ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("{");
-      _builder.newLine();
-      _builder.append("      ");
-      _builder.append("<<now=0>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("n! <<n@now>>   --first \"sense\" at initialization");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("& ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("last_beat:=now ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("<<last_beat=now>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("};    ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T2_STOP:    --turn off pacing");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("pace,sense -[on dispatch stop]-> off{}");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T3_PACE_LRL_AFTER_VP: --pace when LRL times out");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("pace -[on dispatch timeout (n or p) lrl]-> pace");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("{ << VP()>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("p! <<p@now>>   --cause pace when LRL times out");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("& last_beat:=now <<last_beat=now>>}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T4_VS_AFTER_VP: --sense after pace=>check if in VRP");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("pace -[on dispatch s]-> check_pace_vrp{}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T5_VS_AFTER_VP_IN_VRP:  -- s in VRP,  go back to \"pace\" state");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_pace_vrp -[(now-last_beat)<vrp]-> pace{}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T6_VS_AFTER_VP_IS_NR: --s after VRP, ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("--go to \"sense\" state, send n!, reset timeouts");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_pace_vrp -[(now-last_beat)>=vrp]-> sense     ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("{  << VS()>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("n! <<n@now>>  --send n! to reset timeouts");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("& last_beat:=now <<last_beat=now>>}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T7_PACE_LRL_AFTER_VS: --pace when LRL times out after VS");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("sense -[on dispatch timeout (p or n) lrl]-> pace");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("{<< VP()>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("p! <<p@now>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("& last_beat:=now <<last_beat=now>>} ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T8_VS_AFTER_VS: --check if s in VRP");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("sense -[on dispatch s]-> check_sense_vrp{}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T9_VS_AFTER_VS_IN_VRP:  -- s in VRP,  go back to \"sense\" state");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_sense_vrp -[(now-last_beat)<vrp]-> sense{}  ");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("T10_VS_AFTER_VS_IS_NR:  --s after VRP is non-refractory");
-      _builder.newLine();
-      _builder.append("  ");
-      _builder.append("check_sense_vrp -[(now-last_beat)>=vrp]-> sense ");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("--reset timeouts with n! port send");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("{  << VS()>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("n! <<n@now>>  --non-refractory ventricular sense");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("& last_beat:=now <<last_beat=now>>");
-      _builder.newLine();
-      _builder.append("    ");
-      _builder.append("}  ");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void parseDispatchConditions() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("transitions  ");
-      _builder.newLine();
-      _builder.append("T1: s -[on dispatch p]-> d");
-      _builder.newLine();
-      _builder.append("T2: s -[on dispatch p or q]-> d");
-      _builder.newLine();
-      _builder.append("T3: s -[on dispatch timeout (p or q) 10 ms]-> d");
-      _builder.newLine();
-      _builder.append("T4: s -[on dispatch timeout (p or q) 10 ms and r]-> d");
-      _builder.newLine();
-      _builder.append("T5: s -[on dispatch p or q and r]-> d");
-      _builder.newLine();
-      _builder.append("T6: s -[on dispatch p or q and r or timeout]-> d");
-      _builder.newLine();
-      _builder.append("T7: s -[on dispatch stop]-> d");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void parseMultipleSourceStates() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("transitions  ");
-      _builder.newLine();
-      _builder.append("T1: s,t,u,v -[ ]-> d");
-      _builder.newLine();
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void parseExecuteConditions() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("transitions  ");
-      _builder.newLine();
-      _builder.append("T1: s -[true]-> d");
-      _builder.newLine();
-      _builder.append("T2: s -[false]-> d");
-      _builder.newLine();
-      _builder.append("T3: s -[x=5 or not b]-> d");
-      _builder.newLine();
-      _builder.append("T4: s -[otherwise]-> d");
-      _builder.newLine();
-      _builder.append("T5: s -[a or b implies c or else d]-> d");
-      _builder.newLine();
-      _builder.append("T6: s -[a xor c and d xor e and then f]-> d");
-      _builder.newLine();
-      _builder.append("T7: s -[x=y or a<>b and f<g]-> d");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 
   @Test
   public void parseBehaviorActions() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("      ");
-      _builder.append("blesssubclause");
-      _builder.newLine();
-      _builder.append("transitions  ");
-      _builder.newLine();
-      _builder.append("T1: s -[true]-> d {skip} <<true>>;");
-      _builder.newLine();
-      _builder.append("T2: s -[false]-> d {a:=5 ; c:=d} <<c=d>>");
-      _builder.newLine();
-      _builder.append("T3: s -[x=5 or not b]-> d {skip & b:=5}");
-      _builder.newLine();
-      _builder.append("T4: s -[otherwise]-> d {<<PRE()>> x:= x+1 <<POST()>>}");
-      _builder.newLine();
-      _builder.append("T5: s -[a or b implies c or else d]-> d {<<X>> skip <<X>> ; <<X>> skip <<X>>}");
-      _builder.newLine();
-      final BLESSGrammarRoots result = this.parseHelper.parse(_builder);
-      Assert.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assert.assertTrue(_builder_1.toString(), errors.isEmpty());
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe field BLESSParsingTest.parseHelper refers to the missing type ParseHelper"
+      + "\nparse cannot be resolved"
+      + "\neResource cannot be resolved"
+      + "\nerrors cannot be resolved"
+      + "\njoin cannot be resolved"
+      + "\nisEmpty cannot be resolved");
   }
 }

@@ -14,11 +14,11 @@ output=template;
 
 @header 
 {
-//copyright 2023 Multitude Corporation
+//copyright 2024 Multitude Corporation
 package com.multitude.bless.antlr3generated;
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
-import org.antlr.stringtemplate.*;
+import org.antlr.stringtemplate.StringTemplate;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.app.Global;
