@@ -2619,7 +2619,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
               String _plus_4 = ("Variable name \'" + _name_1);
               String _plus_5 = (_plus_4 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_5, a.getArray_index().getLast(), 
+              this.fError(_plus_5, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2661,7 +2661,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
               String _plus_8 = ("Ghost Variable name \'" + _name_3);
               String _plus_9 = (_plus_8 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_9, a.getArray_index().getLast(), 
+              this.fError(_plus_9, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2708,7 +2708,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
               String _plus_13 = ("Feature name \'" + _name_6);
               String _plus_14 = (_plus_13 + 
                 "\' must have as many array indices, as the dimension of its array type");
-              this.fError(_plus_14, a.getArray_index().getLast(), 
+              this.fError(_plus_14, IterableExtensions.<IndexExpressionOrRange>last(a.getArray_index()), 
                 BLESSPackage.eINSTANCE.getValueName_Array_index(), IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
             }
           }
@@ -2739,7 +2739,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
           final SubprogramTypeImpl st = ((SubprogramTypeImpl) _subprogramSubcomponentType);
           EList<Parameter> _ownedParameters = st.getOwnedParameters();
           for (final Parameter feat : _ownedParameters) {
-            if (((!Objects.equal(feat, st.getOwnedParameters().getLast())) && ((Parameter) feat).isOut())) {
+            if (((!Objects.equal(feat, IterableExtensions.<Parameter>last(st.getOwnedParameters()))) && ((Parameter) feat).isOut())) {
               String _name_7 = a.getId().getName();
               String _plus_15 = ("Subprogram \'" + _name_7);
               String _plus_16 = (_plus_15 + " feature \'");
@@ -2749,7 +2749,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                 BLESSPackage.eINSTANCE.getValueName_Id(), IssueCodes.SUBPROGRAMS_USED_AS_FUNCTIONS);
             }
           }
-          final Parameter outParameter = st.getOwnedParameters().getLast();
+          final Parameter outParameter = IterableExtensions.<Parameter>last(st.getOwnedParameters());
           boolean _isOut = ((Parameter) outParameter).isOut();
           boolean _not_5 = (!_isOut);
           if (_not_5) {
@@ -2808,7 +2808,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                     String _plus_3 = (_plus_2 + 
                       "\' must have as many array indices, as the dimension of its array type");
                     this.fError(_plus_3, 
-                      IterableExtensions.<PartialName>head(pn).getArray_index().getLast(), BLESSPackage.eINSTANCE.getValueName_Array_index(), 
+                      IterableExtensions.<IndexExpressionOrRange>last(IterableExtensions.<PartialName>head(pn).getArray_index()), BLESSPackage.eINSTANCE.getValueName_Array_index(), 
                       IssueCodes.INDICES_DONT_MATCH_ARRAY_DIMENSION);
                   }
                 }
