@@ -613,15 +613,16 @@ public class TypeUtil {
       if (unit_record.multiplyFactor) {
         String _xblockexpression_1 = null;
         {
-          final double mf = (unit_record.conversionFactor * 1000);
-          _xblockexpression_1 = (("* s64\"" + Double.valueOf(mf)) + "\"");
+          long _longValue = Double.valueOf(unit_record.conversionFactor).longValue();
+          final long mf = (_longValue * 1000);
+          _xblockexpression_1 = (("* s64\"" + Long.valueOf(mf)) + "\"");
         }
         _xifexpression = _xblockexpression_1;
       } else {
         String _xblockexpression_2 = null;
         {
-          final double df = (unit_record.conversionFactor / 1000.0);
-          _xblockexpression_2 = (("/ s64\"" + Double.valueOf(df)) + "\"");
+          final long df = Double.valueOf((unit_record.conversionFactor / 1000.0)).longValue();
+          _xblockexpression_2 = (("/ s64\"" + Long.valueOf(df)) + "\"");
         }
         _xifexpression = _xblockexpression_2;
       }

@@ -390,12 +390,12 @@ def String convertQuantityToArtTime(Quantity q)
   val unit_record = un.toUnitRecord
   if (unit_record.multiplyFactor)
     {
-    val mf = unit_record.conversionFactor * 1000
+    val long mf = unit_record.conversionFactor.longValue * 1000
     "* s64\""+mf+"\""
     }
   else
     {
-    val df = unit_record.conversionFactor/1000.0
+    val long df = (unit_record.conversionFactor / 1000.0).longValue
     "/ s64\""+df+"\""  
     }
   }  //end of convertQuantityToArtTime

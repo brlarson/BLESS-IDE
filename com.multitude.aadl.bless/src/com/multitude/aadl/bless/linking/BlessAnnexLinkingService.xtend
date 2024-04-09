@@ -26,9 +26,13 @@ class BlessAnnexLinkingService implements AnnexLinkingService
 @Inject	IQualifiedNameProvider nameProvider
 @Inject	ResourceDescriptionsProvider rdp
 
+public static var Injector BLESSinjector = null;
+
   new() 
   {
-    val Injector injector = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless")).get(typeof(Injector));
+   val IResourceServiceProvider.Registry registry = IResourceServiceProvider.Registry.INSTANCE;
+    val Injector injector = registry.getResourceServiceProvider(URI.createFileURI("dummy.bless")).get(typeof(Injector));
+  BLESSinjector = injector; 
     injector.injectMembers(this);
   }
 

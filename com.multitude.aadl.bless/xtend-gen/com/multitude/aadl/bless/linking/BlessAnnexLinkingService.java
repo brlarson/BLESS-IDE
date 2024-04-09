@@ -27,8 +27,12 @@ public class BlessAnnexLinkingService implements AnnexLinkingService {
   @Inject
   private ResourceDescriptionsProvider rdp;
 
+  public static Injector BLESSinjector = null;
+
   public BlessAnnexLinkingService() {
-    final Injector injector = IResourceServiceProvider.Registry.INSTANCE.getResourceServiceProvider(URI.createFileURI("dummy.bless")).<Injector>get(Injector.class);
+    final IResourceServiceProvider.Registry registry = IResourceServiceProvider.Registry.INSTANCE;
+    final Injector injector = registry.getResourceServiceProvider(URI.createFileURI("dummy.bless")).<Injector>get(Injector.class);
+    BlessAnnexLinkingService.BLESSinjector = injector;
     injector.injectMembers(this);
   }
 
