@@ -4,8 +4,9 @@ group Java;
 action_subclause(no_proof,tc,ac,pre,post,inv,elq) ::=
 <<
 annex Action
-  {**  <if(no_proof)>DO_NOT_PROVE<endif>
-  <tc><ac><if(pre)>pre <pre><\n><endif><if(post)>post <post><\n><endif><if(inv)>inv <inv><\n><endif><elq>
+  {**  
+  <if(pre)>pre <pre><\n><endif><if(post)>post <post><\n><endif><if(inv)>inv <inv><\n><endif><elq>
+  <if(no_proof)>DO_NOT_PROVE<endif><tc><ac>
   **};  --end of Action annex subclause
 >>
 

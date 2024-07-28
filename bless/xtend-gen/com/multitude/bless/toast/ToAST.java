@@ -2330,16 +2330,56 @@ public class ToAST {
         it.myText = "ACTION_SUBCLAUSE";
         CommonToken _commonToken = new CommonToken(BLESS3Lexer.ACTION_SUBCLAUSE, "ACTION_SUBCLAUSE");
         it.token = _commonToken;
+        BAST _newBAST_1 = this.newBAST(e);
+        final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+          it_1.myText = "pre";
+          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_pre, "pre");
+          it_1.token = _commonToken_1;
+          Assertion _precondition = e.getPrecondition();
+          boolean _tripleNotEquals = (_precondition != null);
+          if (_tripleNotEquals) {
+            it_1.addChild(this.toAST(e.getPrecondition()));
+          }
+        };
+        BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
+        it.addChild(_doubleArrow);
+        BAST _newBAST_2 = this.newBAST(e);
+        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
+          it_1.myText = "post";
+          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_post, "post");
+          it_1.token = _commonToken_1;
+          Assertion _postcondition = e.getPostcondition();
+          boolean _tripleNotEquals = (_postcondition != null);
+          if (_tripleNotEquals) {
+            it_1.addChild(this.toAST(e.getPostcondition()));
+          }
+        };
+        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
+        it.addChild(_doubleArrow_1);
+        BAST _newBAST_3 = this.newBAST(e);
+        final Procedure1<BAST> _function_3 = (BAST it_1) -> {
+          it_1.myText = "post";
+          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant");
+          it_1.token = _commonToken_1;
+          Assertion _invariant = e.getInvariant();
+          boolean _tripleNotEquals = (_invariant != null);
+          if (_tripleNotEquals) {
+            it_1.addChild(this.toAST(e.getInvariant()));
+          }
+        };
+        BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
+        it.addChild(_doubleArrow_2);
+        it.addChild(this.toAST(e.getElq()));
         boolean _isNo_proof = e.isNo_proof();
         if (_isNo_proof) {
-          BAST _newBAST_1 = this.newBAST(e);
-          final Procedure1<BAST> _function_1 = (BAST it_1) -> {
+          BAST _newBAST_4 = this.newBAST(e);
+          final Procedure1<BAST> _function_4 = (BAST it_1) -> {
             it_1.myText = "DO_NOT_PROVE";
             CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE");
             it_1.token = _commonToken_1;
           };
-          BAST _doubleArrow = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_1, _function_1);
-          it.addChild(_doubleArrow);
+          BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
+          it.addChild(_doubleArrow_3);
         }
         ThrowsClause _throws_clause = e.getThrows_clause();
         boolean _tripleNotEquals = (_throws_clause != null);
@@ -2351,46 +2391,6 @@ public class ToAST {
         if (_tripleNotEquals_1) {
           it.addChild(this.toAST(e.getAssert_clause()));
         }
-        BAST _newBAST_2 = this.newBAST(e);
-        final Procedure1<BAST> _function_2 = (BAST it_1) -> {
-          it_1.myText = "pre";
-          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_pre, "pre");
-          it_1.token = _commonToken_1;
-          Assertion _precondition = e.getPrecondition();
-          boolean _tripleNotEquals_2 = (_precondition != null);
-          if (_tripleNotEquals_2) {
-            it_1.addChild(this.toAST(e.getPrecondition()));
-          }
-        };
-        BAST _doubleArrow_1 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_2, _function_2);
-        it.addChild(_doubleArrow_1);
-        BAST _newBAST_3 = this.newBAST(e);
-        final Procedure1<BAST> _function_3 = (BAST it_1) -> {
-          it_1.myText = "post";
-          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_post, "post");
-          it_1.token = _commonToken_1;
-          Assertion _postcondition = e.getPostcondition();
-          boolean _tripleNotEquals_2 = (_postcondition != null);
-          if (_tripleNotEquals_2) {
-            it_1.addChild(this.toAST(e.getPostcondition()));
-          }
-        };
-        BAST _doubleArrow_2 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_3, _function_3);
-        it.addChild(_doubleArrow_2);
-        BAST _newBAST_4 = this.newBAST(e);
-        final Procedure1<BAST> _function_4 = (BAST it_1) -> {
-          it_1.myText = "post";
-          CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.LITERAL_invariant, "invariant");
-          it_1.token = _commonToken_1;
-          Assertion _invariant = e.getInvariant();
-          boolean _tripleNotEquals_2 = (_invariant != null);
-          if (_tripleNotEquals_2) {
-            it_1.addChild(this.toAST(e.getInvariant()));
-          }
-        };
-        BAST _doubleArrow_3 = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST_4, _function_4);
-        it.addChild(_doubleArrow_3);
-        it.addChild(this.toAST(e.getElq()));
       };
       _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {

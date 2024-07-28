@@ -1460,15 +1460,6 @@ toAST(ActionSubclause e)
     newBAST(e) =>  [  
   	  myText = 'ACTION_SUBCLAUSE'  
       token = new CommonToken(BLESS3Lexer.ACTION_SUBCLAUSE, 'ACTION_SUBCLAUSE')
-      if (e.no_proof)
-        addChild(newBAST(e) => [  
-        myText = "DO_NOT_PROVE"
-        token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
-        ] )  
-      if (e.throws_clause!==null)
-        addChild(e.throws_clause.toAST)  
-      if (e.assert_clause!==null)
-        addChild(e.assert_clause.toAST)
       addChild( newBAST(e) => [  //make LITERAL_pre
   	    myText = 'pre'  
         token = new CommonToken(BLESS3Lexer.LITERAL_pre, 'pre')
@@ -1490,6 +1481,15 @@ toAST(ActionSubclause e)
           addChild(e.invariant.toAST) //put on invariant
         ]	)
       addChild(e.elq.toAST)  // elq=ExistentialLatticeQuantification
+      if (e.no_proof)
+        addChild(newBAST(e) => [  
+        myText = "DO_NOT_PROVE"
+        token = new CommonToken(BLESS3Lexer.DO_NOT_PROVE, "DO_NOT_PROVE")
+        ] )  
+      if (e.throws_clause!==null)
+        addChild(e.throws_clause.toAST)  
+      if (e.assert_clause!==null)
+        addChild(e.assert_clause.toAST)
       ]  
     } 
   catch (Exception ex) {ex.printStackTrace x}
