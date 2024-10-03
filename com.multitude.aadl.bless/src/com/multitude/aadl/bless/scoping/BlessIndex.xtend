@@ -230,7 +230,9 @@ def Type getTypeFromID(String id, Resource r) throws ValidationException
   {
   val td = r.getVisibleTypeDeclarations.filter[it.name==id].head
   if (td ===null)
-    throw new ValidationException("No type declaration found for \""+id+"\"")
+    throw new ValidationException("No type declaration found for \""+id+"\"."+
+      "  If \""+id+"\" is a unit identifier, try \"quantity "+id+"\"."
+    )
   td.type 
   }
   

@@ -13,7 +13,8 @@ public class ValidationException extends Exception
 
   public ValidationException(String message)
     {
-    super(message);
+    handleException(message);
+//    super(message);
     }
 
   public ValidationException(Throwable cause)
@@ -24,16 +25,26 @@ public class ValidationException extends Exception
   public ValidationException(String message, Throwable cause)
     {
     super(message, cause);
+    handleException(message);
     }
 
   public ValidationException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)
     {
     super(message, cause, enableSuppression, writableStackTrace);
+    handleException(message);
     }
 
   public void handleException()
     {
     BlessControl.println("Validation Exception:  "+getMessage());
+    printStackTrace();
+//    BlessControl.println(this.toString());
+    System.err.println(this.toString());
+    }
+
+  public void handleException(String s)
+    {
+    BlessControl.println("Validation Exception:  "+s);
     printStackTrace();
 //    BlessControl.println(this.toString());
     System.err.println(this.toString());

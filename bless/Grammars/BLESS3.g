@@ -976,7 +976,8 @@ timedExpression:
   timedSubject
   (
   AT_SIGN^ subexpression
-  | TICK
+//REMOVED 10/4/24 because you can't set things in the future!
+//  | TICK
   | CARET^ periodShift
   )?
   ;
@@ -1295,19 +1296,20 @@ basicAction:
   ;
 
 assignment:
-  nameTick ASSIGN^ expressionOrAny
+  valueName ASSIGN^ expressionOrAny
   ;
 
 simultaneousAssignment :
 	VERT 
-	lhs+=nameTick left_comma=COMMA lhs+=nameTick ( COMMA lhs+=nameTick )*
+	lhs+=valueName left_comma=COMMA lhs+=valueName ( COMMA lhs+=valueName )*
 	a=ASSIGN 
 	rhs+=expressionOrAny right_comma=COMMA rhs+=expressionOrAny ( COMMA rhs+=expressionOrAny )*
   VERT
     -> ^($a ^($left_comma $lhs+ )  ^($right_comma $rhs+ ) )
 ;
 
-nameTick: valueName ( TICK^ )? ;
+//REMOVED 10/4/24 because you can't set things in the future!
+//nameTick: valueName ( TICK^ )? ;
 
 expressionOrAny:
   expression | LITERAL_any

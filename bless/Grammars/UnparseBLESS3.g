@@ -813,9 +813,10 @@ subexpression
   
 timedExpression
   :
-  ^( TICK ts=timedSubject )
-    -> tick(tp={$ts.st})
-  |
+//REMOVED 10/4/24 because you can't set things in the future!
+//  ^( TICK ts=timedSubject )
+//    -> tick(tp={$ts.st})
+//  |
   ^( AT_SIGN ts=timedSubject se=subexpression )
     -> at(p={$ts.st}, t={$se.st})
   |
@@ -1238,18 +1239,19 @@ issueException
   
 assignment
   :
-  ^( ASSIGN n=nameTick e=expressionOrAny )
+  ^( ASSIGN n=valueName e=expressionOrAny )
     -> assignment(nt={$n.st}, eort={$e.st})
   ;
  
-nameTick
-  : 
-  ^( TICK vn=valueName )
-    -> name_tick(vn={$vn.st})
-  |
-  vn=valueName
-    -> {$vn.st}
-  ;
+//REMOVED 10/4/24 because you can't set things in the future!
+//nameTick
+//  : 
+//  ^( TICK vn=valueName )
+ //   -> name_tick(vn={$vn.st})
+//  |
+//  vn=valueName
+//    -> {$vn.st}
+//  ;
   
 expressionOrAny
   :
@@ -1262,7 +1264,7 @@ expressionOrAny
   
 simultaneousAssignment
   :
-  ^( ASSIGN ^( COMMA lhs+=nameTick+ ) ^( COMMA rhs+=expressionOrAny+ ) )
+  ^( ASSIGN ^( COMMA lhs+=valueName+ ) ^( COMMA rhs+=expressionOrAny+ ) )
     -> simultaneous_assignment(l={$lhs}, r={$rhs})
 	;  
   

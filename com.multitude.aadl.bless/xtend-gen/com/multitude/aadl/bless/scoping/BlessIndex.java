@@ -355,7 +355,9 @@ public class BlessIndex {
       };
       final TypeDeclaration td = IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function));
       if ((td == null)) {
-        throw new ValidationException((("No type declaration found for \"" + id) + "\""));
+        throw new ValidationException(
+          ((((((("No type declaration found for \"" + id) + "\".") + 
+            "  If \"") + id) + "\" is a unit identifier, try \"quantity ") + id) + "\"."));
       }
       _xblockexpression = td.getType();
     }
