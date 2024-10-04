@@ -253,10 +253,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Assignment/asgn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Assignment/rhs"/>
     </genClasses>
-    <genClasses ecoreClass="BLESS.ecore#//NameTick">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NameTick/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//NameTick/tick"/>
-    </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//ExpressionOrAny">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//ExpressionOrAny/exp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//ExpressionOrAny/any"/>
@@ -455,7 +451,6 @@
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//TimedExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//TimedExpression/subject"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//TimedExpression/tick"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//TimedExpression/at"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//TimedExpression/time"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//TimedExpression/caret"/>

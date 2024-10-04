@@ -7,8 +7,8 @@ package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.SimultaneousAssignment;
+import com.multitude.aadl.bless.bLESS.ValueName;
 
 import java.util.Collection;
 
@@ -52,7 +52,7 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
    * @generated
    * @ordered
    */
-  protected EList<NameTick> lhs;
+  protected EList<ValueName> lhs;
 
   /**
    * The default value of the '{@link #getAsgn() <em>Asgn</em>}' attribute.
@@ -111,11 +111,11 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
    * @generated
    */
   @Override
-  public EList<NameTick> getLhs()
+  public EList<ValueName> getLhs()
   {
     if (lhs == null)
     {
-      lhs = new EObjectContainmentEList<NameTick>(NameTick.class, this, BLESSPackage.SIMULTANEOUS_ASSIGNMENT__LHS);
+      lhs = new EObjectContainmentEList<ValueName>(ValueName.class, this, BLESSPackage.SIMULTANEOUS_ASSIGNMENT__LHS);
     }
     return lhs;
   }
@@ -211,7 +211,7 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
     {
       case BLESSPackage.SIMULTANEOUS_ASSIGNMENT__LHS:
         getLhs().clear();
-        getLhs().addAll((Collection<? extends NameTick>)newValue);
+        getLhs().addAll((Collection<? extends ValueName>)newValue);
         return;
       case BLESSPackage.SIMULTANEOUS_ASSIGNMENT__ASGN:
         setAsgn((String)newValue);

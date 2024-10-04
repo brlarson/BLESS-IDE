@@ -53,7 +53,6 @@ import com.multitude.aadl.bless.bLESS.InvariantClause;
 import com.multitude.aadl.bless.bLESS.Invocation;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
@@ -838,7 +837,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkAssignmentToInPort(final Assignment asgn) {
-    final NamedElement vName = asgn.getLhs().getValue().getId();
+    final NamedElement vName = asgn.getLhs().getId();
     if (((vName instanceof DataPort) && (!((DataPort) vName).isOut()))) {
       this.fError("May not assign to in data port.", asgn, 
         BLESSPackage.eINSTANCE.getAssignment_Lhs(), IssueCodes.ASSIGNMENT_TO_IN_FEATURE);
@@ -906,14 +905,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
         this.fError("+= only apples to whole variables.", r, 
           BLESSPackage.eINSTANCE.getRelation_L(), IssueCodes.PLUS_EQUALS_ERROR);
       }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
-  public void checkNameTickValue(final NameTick n) {
-    if ((n.isTick() && (((n.getValue().isQ() || n.getValue().isFresh()) || n.getValue().isCount()) || n.getValue().isUpdated()))) {
-      this.fError("Must be a variable name to have \'.", n, 
-        BLESSPackage.eINSTANCE.getPortInput_Target(), IssueCodes.PORT_INPUT_NOT_ALLOWED);
     }
   }
 
@@ -1157,7 +1148,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     boolean _isNull = this.isNull(this.getType(a.getRhs().getExp()));
     if (_isNull) {
     } else {
-      Type _type = this.getType(a.getLhs().getValue());
+      Type _type = this.getType(a.getLhs());
       Expression _exp = a.getRhs().getExp();
       Type _type_1 = null;
       if (_exp!=null) {
@@ -1166,7 +1157,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       boolean _sameStructuralType = this._typeUtil.sameStructuralType(_type, _type_1);
       boolean _not = (!_sameStructuralType);
       if (_not) {
-        String _typeString = this._typeUtil.typeString(this.getType(a.getLhs().getValue()));
+        String _typeString = this._typeUtil.typeString(this.getType(a.getLhs()));
         String _plus = ("Targets of assignment must have compatible types with their expressions.  " + _typeString);
         String _plus_1 = (_plus + " is not ");
         Expression _exp_1 = a.getRhs().getExp();
@@ -1180,10 +1171,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
           BLESSPackage.eINSTANCE.getAssignment_Asgn(), IssueCodes.INCOMPATIBLE_TYPES);
       } else {
         boolean _and = false;
-        if (!((this.getType(a.getLhs().getValue()) instanceof QuantityType) && (this.getType(a.getRhs().getExp()) instanceof QuantityType))) {
+        if (!((this.getType(a.getLhs()) instanceof QuantityType) && (this.getType(a.getRhs().getExp()) instanceof QuantityType))) {
           _and = false;
         } else {
-          UnitRecord _unitRecord = this.getUnitRecord(a.getLhs().getValue());
+          UnitRecord _unitRecord = this.getUnitRecord(a.getLhs());
           Expression _exp_2 = a.getRhs().getExp();
           UnitRecord _unitRecord_1 = null;
           if (_exp_2!=null) {
@@ -1194,7 +1185,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
           _and = _not_1;
         }
         if (_and) {
-          String _string = this.getUnitRecord(a.getLhs().getValue()).toString();
+          String _string = this.getUnitRecord(a.getLhs()).toString();
           String _plus_3 = ("Target of assignment of must have the same base units as its expression; " + _string);
           String _plus_4 = (_plus_3 + " is not ");
           String _string_1 = this.getUnitRecord(a.getRhs().getExp()).toString();
@@ -1289,7 +1280,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
     } else {
       for (int i = 0; (i < a.getLhs().size()); i++) {
         {
-          final ValueName target = a.getLhs().get(i).getValue();
+          final ValueName target = a.getLhs().get(i);
           final Expression expression = a.getRhs().get(i).getExp();
           final Type targetType = this.getType(target);
           final Type expressionType = this.getType(expression);
@@ -1560,22 +1551,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
       parent = parent.eContainer();
     }
     if ((parent instanceof ExecuteCondition)) {
-      String _tick = te.getTick();
-      boolean _tripleNotEquals = (_tick != null);
-      if (_tripleNotEquals) {
-        this.fError("Execute conditions may not have \'.", te, 
-          BLESSPackage.eINSTANCE.getTimedExpression_Tick(), IssueCodes.ILLEGAL_TIME_OPERATOR);
+      boolean _isAt = te.isAt();
+      if (_isAt) {
+        this.fError("Execute conditions may not have @.", te, 
+          BLESSPackage.eINSTANCE.getTimedExpression_At(), IssueCodes.ILLEGAL_TIME_OPERATOR);
       } else {
-        boolean _isAt = te.isAt();
-        if (_isAt) {
-          this.fError("Execute conditions may not have @.", te, 
-            BLESSPackage.eINSTANCE.getTimedExpression_At(), IssueCodes.ILLEGAL_TIME_OPERATOR);
-        } else {
-          boolean _isCaret = te.isCaret();
-          if (_isCaret) {
-            this.fError("Execute conditions may not have ^.", te, 
-              BLESSPackage.eINSTANCE.getTimedExpression_Caret(), IssueCodes.ILLEGAL_TIME_OPERATOR);
-          }
+        boolean _isCaret = te.isCaret();
+        if (_isCaret) {
+          this.fError("Execute conditions may not have ^.", te, 
+            BLESSPackage.eINSTANCE.getTimedExpression_Caret(), IssueCodes.ILLEGAL_TIME_OPERATOR);
         }
       }
     }
@@ -1586,22 +1570,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
     boolean _inAssertion = this._blessUtil.inAssertion(te);
     boolean _not = (!_inAssertion);
     if (_not) {
-      String _tick = te.getTick();
-      boolean _tripleNotEquals = (_tick != null);
-      if (_tripleNotEquals) {
-        this.fError("Actions may not have \'.", te, 
-          BLESSPackage.eINSTANCE.getTimedExpression_Tick(), IssueCodes.ILLEGAL_TIME_OPERATOR);
+      boolean _isAt = te.isAt();
+      if (_isAt) {
+        this.fError("Actions may not have @.", te, 
+          BLESSPackage.eINSTANCE.getTimedExpression_At(), IssueCodes.ILLEGAL_TIME_OPERATOR);
       } else {
-        boolean _isAt = te.isAt();
-        if (_isAt) {
-          this.fError("Actions may not have @.", te, 
-            BLESSPackage.eINSTANCE.getTimedExpression_At(), IssueCodes.ILLEGAL_TIME_OPERATOR);
-        } else {
-          boolean _isCaret = te.isCaret();
-          if (_isCaret) {
-            this.fError("Actions may not have ^.", te, 
-              BLESSPackage.eINSTANCE.getTimedExpression_Caret(), IssueCodes.ILLEGAL_TIME_OPERATOR);
-          }
+        boolean _isCaret = te.isCaret();
+        if (_isCaret) {
+          this.fError("Actions may not have ^.", te, 
+            BLESSPackage.eINSTANCE.getTimedExpression_Caret(), IssueCodes.ILLEGAL_TIME_OPERATOR);
         }
       }
     }
@@ -3689,10 +3666,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
       _elvis = _scalar;
     }
     return _elvis;
-  }
-
-  public UnitRecord getUnitRecord(final NameTick a) {
-    return this.getUnitRecord(a.getValue());
   }
 
   public boolean isWhole(final Variable v) {

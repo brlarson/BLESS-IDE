@@ -43,7 +43,7 @@ import com.multitude.aadl.bless.bLESS.IndexExpression
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange
 import com.multitude.aadl.bless.bLESS.Invocation
 import com.multitude.aadl.bless.bLESS.MultDiv
-import com.multitude.aadl.bless.bLESS.NameTick
+//import com.multitude.aadl.bless.bLESS.NameTick
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessFunction
@@ -578,7 +578,7 @@ def void checkPortInputTarget(PortInput n)
 @Check(CheckType.NORMAL)
 def void checkAssignmentToInPort(Assignment asgn)
   {
-  val vName = asgn.lhs.value.id
+  val vName = asgn.lhs.id
   if (vName instanceof DataPort && !(vName as DataPort).out)
     fError('May not assign to in data port.',asgn,
       BLESSPackage::eINSTANCE.assignment_Lhs, IssueCodes.ASSIGNMENT_TO_IN_FEATURE)   
@@ -663,13 +663,13 @@ def void checkPElhsIsWhole(Relation r)
     }  
   }
 
-@Check(CheckType.NORMAL)
-def void checkNameTickValue(NameTick n)
-  {
-  if (n.tick &&(n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
-    fError('Must be a variable name to have \'.',n,
-      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
-  }
+//@Check(CheckType.NORMAL)
+//def void checkNameTickValue(NameTick n)
+//  {
+//  if (n.tick &&(n.value.q ||n.value.fresh ||n.value.count ||n.value.updated ))
+//    fError('Must be a variable name to have \'.',n,
+//      BLESSPackage::eINSTANCE.portInput_Target, IssueCodes.PORT_INPUT_NOT_ALLOWED)   
+//  }
 
 @Check(CheckType.NORMAL)
 def void checkSubProgramParameterValue(SubProgramParameter n)
@@ -871,14 +871,14 @@ def void checkThatAssignmentHasCompatibleUnits(Assignment a)
   { 
     if (a.rhs.exp.getType.isNull)
       {}  //null matches all types
-    else if (!a.lhs.value.getType.sameStructuralType(a.rhs.exp?.getType))
+    else if (!a.lhs.getType.sameStructuralType(a.rhs.exp?.getType))
       fError('Targets of assignment must have compatible types with their expressions.  '+
-            a.lhs.value.getType.typeString+" is not "+a.rhs.exp?.getType.typeString, a,
+            a.lhs.getType.typeString+" is not "+a.rhs.exp?.getType.typeString, a,
             BLESSPackage.eINSTANCE.assignment_Asgn, IssueCodes.INCOMPATIBLE_TYPES)
-    else if ( a.lhs.value.getType instanceof QuantityType && a.rhs.exp.getType instanceof QuantityType &&
-      !a.lhs.value.getUnitRecord.matchTopAndBottom(a.rhs.exp?.getUnitRecord)) 
+    else if ( a.lhs.getType instanceof QuantityType && a.rhs.exp.getType instanceof QuantityType &&
+      !a.lhs.getUnitRecord.matchTopAndBottom(a.rhs.exp?.getUnitRecord)) 
       fError('Target of assignment of must have the same base units as its expression; '+
-        a.lhs.value.getUnitRecord.toString+' is not '+a.rhs.exp.getUnitRecord.toString, a,
+        a.lhs.getUnitRecord.toString+' is not '+a.rhs.exp.getUnitRecord.toString, a,
             BLESSPackage.eINSTANCE.assignment_Asgn, IssueCodes.INCOMPATIBLE_UNITS)              
   }
 
@@ -928,7 +928,7 @@ def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignmen
     	  BLESSPackage.eINSTANCE.simultaneousAssignment_Asgn, IssueCodes.SIMULTANEOUS_ASSIGNMENT)
   else for (var i=0;i<a.lhs.size;i++)
     {
-    val target = a.lhs.get(i).value
+    val target = a.lhs.get(i)
     val expression = a.rhs.get(i).exp
     val targetType = target.getType
     val expressionType = expression.getType
@@ -1222,10 +1222,11 @@ checkExecuteConditionsHaveNoTickAtOrCaret(TimedExpression te)
   while (parent !==null && !(parent instanceof ExecuteCondition))
     parent = parent.eContainer
   if (parent instanceof ExecuteCondition)
-    if (te.tick !== null) 
-      fError('Execute conditions may not have \'.',te,
-            BLESSPackage.eINSTANCE.timedExpression_Tick, IssueCodes.ILLEGAL_TIME_OPERATOR)             
-    else if (te.at) 
+//    if (te.tick !== null) 
+//      fError('Execute conditions may not have \'.',te,
+//            BLESSPackage.eINSTANCE.timedExpression_Tick, IssueCodes.ILLEGAL_TIME_OPERATOR)             
+//    else 
+    if (te.at) 
       fError('Execute conditions may not have @.',te,
             BLESSPackage.eINSTANCE.timedExpression_At, IssueCodes.ILLEGAL_TIME_OPERATOR)             
     else if (te.caret) 
@@ -1238,10 +1239,11 @@ def void
 checkTimedExpressionNotInAssertion(TimedExpression te)
   {  
   if (!te.inAssertion)
-    if (te.tick !== null) 
-      fError('Actions may not have \'.',te,
-            BLESSPackage.eINSTANCE.timedExpression_Tick, IssueCodes.ILLEGAL_TIME_OPERATOR)             
-    else if (te.at) 
+//    if (te.tick !== null) 
+//      fError('Actions may not have \'.',te,
+//            BLESSPackage.eINSTANCE.timedExpression_Tick, IssueCodes.ILLEGAL_TIME_OPERATOR)             
+//    else 
+    if (te.at) 
       fError('Actions may not have @.',te,
             BLESSPackage.eINSTANCE.timedExpression_At, IssueCodes.ILLEGAL_TIME_OPERATOR)             
     else if (te.caret) 
@@ -2665,10 +2667,10 @@ def UnitRecord getUnitRecord(BehaviorTime a)
   scalar
   }  
   
- def UnitRecord getUnitRecord(NameTick a) 
-  {
-  a.value.getUnitRecord  
-  } 
+// def UnitRecord getUnitRecord(NameTick a) 
+//  {
+//  a.value.getUnitRecord  
+//  } 
   
 ////////////////////   WHOLE NUMBERS   \\\\\\\\\\\\\\\\\\\\\\\\\\\  
   

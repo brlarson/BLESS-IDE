@@ -8,7 +8,7 @@ package com.multitude.aadl.bless.bLESS.impl;
 import com.multitude.aadl.bless.bLESS.Assignment;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
-import com.multitude.aadl.bless.bLESS.NameTick;
+import com.multitude.aadl.bless.bLESS.ValueName;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -45,7 +45,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    * @ordered
    */
-  protected NameTick lhs;
+  protected ValueName lhs;
 
   /**
    * The default value of the '{@link #getAsgn() <em>Asgn</em>}' attribute.
@@ -104,7 +104,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    */
   @Override
-  public NameTick getLhs()
+  public ValueName getLhs()
   {
     return lhs;
   }
@@ -114,9 +114,9 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLhs(NameTick newLhs, NotificationChain msgs)
+  public NotificationChain basicSetLhs(ValueName newLhs, NotificationChain msgs)
   {
-    NameTick oldLhs = lhs;
+    ValueName oldLhs = lhs;
     lhs = newLhs;
     if (eNotificationRequired())
     {
@@ -132,7 +132,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    */
   @Override
-  public void setLhs(NameTick newLhs)
+  public void setLhs(ValueName newLhs)
   {
     if (newLhs != lhs)
     {
@@ -272,7 +272,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
     switch (featureID)
     {
       case BLESSPackage.ASSIGNMENT__LHS:
-        setLhs((NameTick)newValue);
+        setLhs((ValueName)newValue);
         return;
       case BLESSPackage.ASSIGNMENT__ASGN:
         setAsgn((String)newValue);
@@ -295,7 +295,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
     switch (featureID)
     {
       case BLESSPackage.ASSIGNMENT__LHS:
-        setLhs((NameTick)null);
+        setLhs((ValueName)null);
         return;
       case BLESSPackage.ASSIGNMENT__ASGN:
         setAsgn(ASGN_EDEFAULT);

@@ -393,13 +393,13 @@ PortInput:
 /////////////////////  ASSIGNMENT  ///////////////////////
 
 Assignment:
-   lhs=NameTick asgn=':=' rhs=ExpressionOrAny
+   lhs=ValueName asgn=':=' rhs=ExpressionOrAny
 ;
 
-NameTick:
-	value=ValueName  
-  tick?='\''? 
-;
+//NameTick:
+//	value=ValueName  
+//  tick?='\''? 
+//;
 
 ExpressionOrAny:
 	exp=Expression | any=Any
@@ -410,7 +410,7 @@ Any: 'any';
 
 SimultaneousAssignment returns SimultaneousAssignment:
 	'|' 
-	lhs+=NameTick  ( ',' lhs+=NameTick )+
+	lhs+=ValueName  ( ',' lhs+=ValueName )+
 	asgn=':=' 
 	rhs+=ExpressionOrAny  ( ',' rhs+=ExpressionOrAny )+
   '|'
@@ -699,8 +699,9 @@ Subexpression:
 
 TimedExpression:
 	subject=TimedSubject
-  ( tick='\''
-  | at?='@' time=Subexpression  //must ensure no @ in time
+  ( 
+  //tick='\'' | 
+  at?='@' time=Subexpression  //must ensure no @ in time
   | caret?='^' shift=PeriodShift 
   )?     	
 ;
@@ -1200,7 +1201,7 @@ Element returns aadl2::Element:
 	| FunctionParameters
 	| GuardedAction
   | IssueException	
-	| NameTick
+//	| NameTick
 	| PeriodShift
 	| PortInput
 	| PortOutput

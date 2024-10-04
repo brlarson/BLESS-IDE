@@ -19,7 +19,6 @@ import org.osate.aadl2.Element;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.TimedExpression#getSubject <em>Subject</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.TimedExpression#getTick <em>Tick</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.TimedExpression#isAt <em>At</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.TimedExpression#getTime <em>Time</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.TimedExpression#isCaret <em>Caret</em>}</li>
@@ -53,28 +52,6 @@ public interface TimedExpression extends EObject, Element
    * @generated
    */
   void setSubject(TimedSubject value);
-
-  /**
-   * Returns the value of the '<em><b>Tick</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Tick</em>' attribute.
-   * @see #setTick(String)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getTimedExpression_Tick()
-   * @model
-   * @generated
-   */
-  String getTick();
-
-  /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.TimedExpression#getTick <em>Tick</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tick</em>' attribute.
-   * @see #getTick()
-   * @generated
-   */
-  void setTick(String value);
 
   /**
    * Returns the value of the '<em><b>At</b></em>' attribute.

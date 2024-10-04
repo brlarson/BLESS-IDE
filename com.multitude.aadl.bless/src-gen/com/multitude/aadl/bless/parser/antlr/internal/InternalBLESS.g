@@ -4478,9 +4478,9 @@ ruleAssignment returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssignmentAccess().getLhsNameTickParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getAssignmentAccess().getLhsValueNameParserRuleCall_0_0());
 				}
-				lv_lhs_0_0=ruleNameTick
+				lv_lhs_0_0=ruleValueName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssignmentRule());
@@ -4489,7 +4489,7 @@ ruleAssignment returns [EObject current=null]
 						$current,
 						"lhs",
 						lv_lhs_0_0,
-						"com.multitude.aadl.bless.BLESS.NameTick");
+						"com.multitude.aadl.bless.BLESS.ValueName");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4527,58 +4527,6 @@ ruleAssignment returns [EObject current=null]
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleNameTick
-entryRuleNameTick returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNameTickRule()); }
-	iv_ruleNameTick=ruleNameTick
-	{ $current=$iv_ruleNameTick.current; }
-	EOF;
-
-// Rule NameTick
-ruleNameTick returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getNameTickAccess().getValueValueNameParserRuleCall_0_0());
-				}
-				lv_value_0_0=ruleValueName
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getNameTickRule());
-					}
-					set(
-						$current,
-						"value",
-						lv_value_0_0,
-						"com.multitude.aadl.bless.BLESS.ValueName");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				lv_tick_1_0='\''
-				{
-					newLeafNode(lv_tick_1_0, grammarAccess.getNameTickAccess().getTickApostropheKeyword_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNameTickRule());
-					}
-					setWithLastConsumed($current, "tick", lv_tick_1_0 != null, "\'");
-				}
-			)
-		)?
 	)
 ;
 
@@ -4685,9 +4633,9 @@ ruleSimultaneousAssignment returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getLhsNameTickParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getLhsValueNameParserRuleCall_1_0());
 				}
-				lv_lhs_1_0=ruleNameTick
+				lv_lhs_1_0=ruleValueName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSimultaneousAssignmentRule());
@@ -4696,7 +4644,7 @@ ruleSimultaneousAssignment returns [EObject current=null]
 						$current,
 						"lhs",
 						lv_lhs_1_0,
-						"com.multitude.aadl.bless.BLESS.NameTick");
+						"com.multitude.aadl.bless.BLESS.ValueName");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4709,9 +4657,9 @@ ruleSimultaneousAssignment returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getLhsNameTickParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getLhsValueNameParserRuleCall_2_1_0());
 					}
-					lv_lhs_3_0=ruleNameTick
+					lv_lhs_3_0=ruleValueName
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSimultaneousAssignmentRule());
@@ -4720,7 +4668,7 @@ ruleSimultaneousAssignment returns [EObject current=null]
 							$current,
 							"lhs",
 							lv_lhs_3_0,
-							"com.multitude.aadl.bless.BLESS.NameTick");
+							"com.multitude.aadl.bless.BLESS.ValueName");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -8480,40 +8428,25 @@ ruleTimedExpression returns [EObject current=null]
 		(
 			(
 				(
-					lv_tick_1_0='\''
-					{
-						newLeafNode(lv_tick_1_0, grammarAccess.getTimedExpressionAccess().getTickApostropheKeyword_1_0_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTimedExpressionRule());
-						}
-						setWithLastConsumed($current, "tick", lv_tick_1_0, "\'");
-					}
-				)
-			)
-			    |
-			(
-				(
 					(
-						lv_at_2_0='@'
+						lv_at_1_0='@'
 						{
-							newLeafNode(lv_at_2_0, grammarAccess.getTimedExpressionAccess().getAtCommercialAtKeyword_1_1_0_0());
+							newLeafNode(lv_at_1_0, grammarAccess.getTimedExpressionAccess().getAtCommercialAtKeyword_1_0_0_0());
 						}
 						{
 							if ($current==null) {
 								$current = createModelElement(grammarAccess.getTimedExpressionRule());
 							}
-							setWithLastConsumed($current, "at", lv_at_2_0 != null, "@");
+							setWithLastConsumed($current, "at", lv_at_1_0 != null, "@");
 						}
 					)
 				)
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getTimedExpressionAccess().getTimeSubexpressionParserRuleCall_1_1_1_0());
+							newCompositeNode(grammarAccess.getTimedExpressionAccess().getTimeSubexpressionParserRuleCall_1_0_1_0());
 						}
-						lv_time_3_0=ruleSubexpression
+						lv_time_2_0=ruleSubexpression
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getTimedExpressionRule());
@@ -8521,7 +8454,7 @@ ruleTimedExpression returns [EObject current=null]
 							set(
 								$current,
 								"time",
-								lv_time_3_0,
+								lv_time_2_0,
 								"com.multitude.aadl.bless.BLESS.Subexpression");
 							afterParserOrEnumRuleCall();
 						}
@@ -8532,24 +8465,24 @@ ruleTimedExpression returns [EObject current=null]
 			(
 				(
 					(
-						lv_caret_4_0='^'
+						lv_caret_3_0='^'
 						{
-							newLeafNode(lv_caret_4_0, grammarAccess.getTimedExpressionAccess().getCaretCircumflexAccentKeyword_1_2_0_0());
+							newLeafNode(lv_caret_3_0, grammarAccess.getTimedExpressionAccess().getCaretCircumflexAccentKeyword_1_1_0_0());
 						}
 						{
 							if ($current==null) {
 								$current = createModelElement(grammarAccess.getTimedExpressionRule());
 							}
-							setWithLastConsumed($current, "caret", lv_caret_4_0 != null, "^");
+							setWithLastConsumed($current, "caret", lv_caret_3_0 != null, "^");
 						}
 					)
 				)
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getTimedExpressionAccess().getShiftPeriodShiftParserRuleCall_1_2_1_0());
+							newCompositeNode(grammarAccess.getTimedExpressionAccess().getShiftPeriodShiftParserRuleCall_1_1_1_0());
 						}
-						lv_shift_5_0=rulePeriodShift
+						lv_shift_4_0=rulePeriodShift
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getTimedExpressionRule());
@@ -8557,7 +8490,7 @@ ruleTimedExpression returns [EObject current=null]
 							set(
 								$current,
 								"shift",
-								lv_shift_5_0,
+								lv_shift_4_0,
 								"com.multitude.aadl.bless.BLESS.PeriodShift");
 							afterParserOrEnumRuleCall();
 						}

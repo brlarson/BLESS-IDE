@@ -89,7 +89,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -622,14 +621,6 @@ public class BLESSSwitch<T> extends Switch<T>
         Assignment assignment = (Assignment)theEObject;
         T result = caseAssignment(assignment);
         if (result == null) result = caseElement(assignment);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case BLESSPackage.NAME_TICK:
-      {
-        NameTick nameTick = (NameTick)theEObject;
-        T result = caseNameTick(nameTick);
-        if (result == null) result = caseElement(nameTick);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2217,22 +2208,6 @@ public class BLESSSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAssignment(Assignment object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Name Tick</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Name Tick</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNameTick(NameTick object)
   {
     return null;
   }

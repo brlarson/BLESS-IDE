@@ -34,12 +34,12 @@ public interface Assignment extends EObject, Element
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lhs</em>' containment reference.
-   * @see #setLhs(NameTick)
+   * @see #setLhs(ValueName)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getAssignment_Lhs()
    * @model containment="true"
    * @generated
    */
-  NameTick getLhs();
+  ValueName getLhs();
 
   /**
    * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Assignment#getLhs <em>Lhs</em>}' containment reference.
@@ -49,7 +49,7 @@ public interface Assignment extends EObject, Element
    * @see #getLhs()
    * @generated
    */
-  void setLhs(NameTick value);
+  void setLhs(ValueName value);
 
   /**
    * Returns the value of the '<em><b>Asgn</b></em>' attribute.

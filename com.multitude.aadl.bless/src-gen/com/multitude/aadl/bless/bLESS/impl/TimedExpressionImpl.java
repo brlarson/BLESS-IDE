@@ -30,7 +30,6 @@ import org.osate.aadl2.impl.ElementImpl;
  * </p>
  * <ul>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TimedExpressionImpl#getSubject <em>Subject</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TimedExpressionImpl#getTick <em>Tick</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TimedExpressionImpl#isAt <em>At</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TimedExpressionImpl#getTime <em>Time</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TimedExpressionImpl#isCaret <em>Caret</em>}</li>
@@ -50,26 +49,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
    * @ordered
    */
   protected TimedSubject subject;
-
-  /**
-   * The default value of the '{@link #getTick() <em>Tick</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTick()
-   * @generated
-   * @ordered
-   */
-  protected static final String TICK_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTick() <em>Tick</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTick()
-   * @generated
-   * @ordered
-   */
-  protected String tick = TICK_EDEFAULT;
 
   /**
    * The default value of the '{@link #isAt() <em>At</em>}' attribute.
@@ -200,31 +179,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.TIMED_EXPRESSION__SUBJECT, newSubject, newSubject));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getTick()
-  {
-    return tick;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setTick(String newTick)
-  {
-    String oldTick = tick;
-    tick = newTick;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.TIMED_EXPRESSION__TICK, oldTick, tick));
   }
 
   /**
@@ -409,8 +363,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
     {
       case BLESSPackage.TIMED_EXPRESSION__SUBJECT:
         return getSubject();
-      case BLESSPackage.TIMED_EXPRESSION__TICK:
-        return getTick();
       case BLESSPackage.TIMED_EXPRESSION__AT:
         return isAt();
       case BLESSPackage.TIMED_EXPRESSION__TIME:
@@ -435,9 +387,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
     {
       case BLESSPackage.TIMED_EXPRESSION__SUBJECT:
         setSubject((TimedSubject)newValue);
-        return;
-      case BLESSPackage.TIMED_EXPRESSION__TICK:
-        setTick((String)newValue);
         return;
       case BLESSPackage.TIMED_EXPRESSION__AT:
         setAt((Boolean)newValue);
@@ -468,9 +417,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
       case BLESSPackage.TIMED_EXPRESSION__SUBJECT:
         setSubject((TimedSubject)null);
         return;
-      case BLESSPackage.TIMED_EXPRESSION__TICK:
-        setTick(TICK_EDEFAULT);
-        return;
       case BLESSPackage.TIMED_EXPRESSION__AT:
         setAt(AT_EDEFAULT);
         return;
@@ -499,8 +445,6 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
     {
       case BLESSPackage.TIMED_EXPRESSION__SUBJECT:
         return subject != null;
-      case BLESSPackage.TIMED_EXPRESSION__TICK:
-        return TICK_EDEFAULT == null ? tick != null : !TICK_EDEFAULT.equals(tick);
       case BLESSPackage.TIMED_EXPRESSION__AT:
         return at != AT_EDEFAULT;
       case BLESSPackage.TIMED_EXPRESSION__TIME:
@@ -524,9 +468,7 @@ public class TimedExpressionImpl extends ElementImpl implements TimedExpression
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (tick: ");
-    result.append(tick);
-    result.append(", at: ");
+    result.append(" (at: ");
     result.append(at);
     result.append(", caret: ");
     result.append(caret);

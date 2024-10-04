@@ -33,7 +33,7 @@ public interface SimultaneousAssignment extends EObject, Element
 {
   /**
    * Returns the value of the '<em><b>Lhs</b></em>' containment reference list.
-   * The list contents are of type {@link com.multitude.aadl.bless.bLESS.NameTick}.
+   * The list contents are of type {@link com.multitude.aadl.bless.bLESS.ValueName}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Lhs</em>' containment reference list.
@@ -41,7 +41,7 @@ public interface SimultaneousAssignment extends EObject, Element
    * @model containment="true"
    * @generated
    */
-  EList<NameTick> getLhs();
+  EList<ValueName> getLhs();
 
   /**
    * Returns the value of the '<em><b>Asgn</b></em>' attribute.

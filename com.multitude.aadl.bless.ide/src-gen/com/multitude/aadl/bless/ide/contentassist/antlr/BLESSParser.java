@@ -183,7 +183,6 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPortOutputAccess().getGroup_2(), "rule__PortOutput__Group_2__0");
 			builder.put(grammarAccess.getPortInputAccess().getGroup(), "rule__PortInput__Group__0");
 			builder.put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
-			builder.put(grammarAccess.getNameTickAccess().getGroup(), "rule__NameTick__Group__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup(), "rule__SimultaneousAssignment__Group__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup_2(), "rule__SimultaneousAssignment__Group_2__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup_5(), "rule__SimultaneousAssignment__Group_5__0");
@@ -257,8 +256,8 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExpAccess().getGroup_1(), "rule__Exp__Group_1__0");
 			builder.put(grammarAccess.getSubexpressionAccess().getGroup(), "rule__Subexpression__Group__0");
 			builder.put(grammarAccess.getTimedExpressionAccess().getGroup(), "rule__TimedExpression__Group__0");
+			builder.put(grammarAccess.getTimedExpressionAccess().getGroup_1_0(), "rule__TimedExpression__Group_1_0__0");
 			builder.put(grammarAccess.getTimedExpressionAccess().getGroup_1_1(), "rule__TimedExpression__Group_1_1__0");
-			builder.put(grammarAccess.getTimedExpressionAccess().getGroup_1_2(), "rule__TimedExpression__Group_1_2__0");
 			builder.put(grammarAccess.getParenthesizedSubexpressionAccess().getGroup(), "rule__ParenthesizedSubexpression__Group__0");
 			builder.put(grammarAccess.getParenthesizedSubexpressionAccess().getGroup_1_0(), "rule__ParenthesizedSubexpression__Group_1_0__0");
 			builder.put(grammarAccess.getParenthesizedSubexpressionAccess().getGroup_1_0_1(), "rule__ParenthesizedSubexpression__Group_1_0_1__0");
@@ -539,8 +538,6 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAssignmentAccess().getLhsAssignment_0(), "rule__Assignment__LhsAssignment_0");
 			builder.put(grammarAccess.getAssignmentAccess().getAsgnAssignment_1(), "rule__Assignment__AsgnAssignment_1");
 			builder.put(grammarAccess.getAssignmentAccess().getRhsAssignment_2(), "rule__Assignment__RhsAssignment_2");
-			builder.put(grammarAccess.getNameTickAccess().getValueAssignment_0(), "rule__NameTick__ValueAssignment_0");
-			builder.put(grammarAccess.getNameTickAccess().getTickAssignment_1(), "rule__NameTick__TickAssignment_1");
 			builder.put(grammarAccess.getExpressionOrAnyAccess().getExpAssignment_0(), "rule__ExpressionOrAny__ExpAssignment_0");
 			builder.put(grammarAccess.getExpressionOrAnyAccess().getAnyAssignment_1(), "rule__ExpressionOrAny__AnyAssignment_1");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getLhsAssignment_1(), "rule__SimultaneousAssignment__LhsAssignment_1");
@@ -683,11 +680,10 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSubexpressionAccess().getUnaryAssignment_0(), "rule__Subexpression__UnaryAssignment_0");
 			builder.put(grammarAccess.getSubexpressionAccess().getTimed_expressionAssignment_1(), "rule__Subexpression__Timed_expressionAssignment_1");
 			builder.put(grammarAccess.getTimedExpressionAccess().getSubjectAssignment_0(), "rule__TimedExpression__SubjectAssignment_0");
-			builder.put(grammarAccess.getTimedExpressionAccess().getTickAssignment_1_0(), "rule__TimedExpression__TickAssignment_1_0");
-			builder.put(grammarAccess.getTimedExpressionAccess().getAtAssignment_1_1_0(), "rule__TimedExpression__AtAssignment_1_1_0");
-			builder.put(grammarAccess.getTimedExpressionAccess().getTimeAssignment_1_1_1(), "rule__TimedExpression__TimeAssignment_1_1_1");
-			builder.put(grammarAccess.getTimedExpressionAccess().getCaretAssignment_1_2_0(), "rule__TimedExpression__CaretAssignment_1_2_0");
-			builder.put(grammarAccess.getTimedExpressionAccess().getShiftAssignment_1_2_1(), "rule__TimedExpression__ShiftAssignment_1_2_1");
+			builder.put(grammarAccess.getTimedExpressionAccess().getAtAssignment_1_0_0(), "rule__TimedExpression__AtAssignment_1_0_0");
+			builder.put(grammarAccess.getTimedExpressionAccess().getTimeAssignment_1_0_1(), "rule__TimedExpression__TimeAssignment_1_0_1");
+			builder.put(grammarAccess.getTimedExpressionAccess().getCaretAssignment_1_1_0(), "rule__TimedExpression__CaretAssignment_1_1_0");
+			builder.put(grammarAccess.getTimedExpressionAccess().getShiftAssignment_1_1_1(), "rule__TimedExpression__ShiftAssignment_1_1_1");
 			builder.put(grammarAccess.getTimedSubjectAccess().getPsAssignment_0(), "rule__TimedSubject__PsAssignment_0");
 			builder.put(grammarAccess.getTimedSubjectAccess().getValueAssignment_1(), "rule__TimedSubject__ValueAssignment_1");
 			builder.put(grammarAccess.getTimedSubjectAccess().getConditionalAssignment_2(), "rule__TimedSubject__ConditionalAssignment_2");

@@ -87,7 +87,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -420,9 +419,6 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case BLESSPackage.MULT_DIV:
 				sequence_MultDiv(context, (MultDiv) semanticObject); 
-				return; 
-			case BLESSPackage.NAME_TICK:
-				sequence_NameTick(context, (NameTick) semanticObject); 
 				return; 
 			case BLESSPackage.NAMED_ASSERTION:
 				sequence_NamedAssertion(context, (NamedAssertion) semanticObject); 
@@ -900,7 +896,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns Assignment
 	 *
 	 * Constraint:
-	 *     (lhs=NameTick asgn=':=' rhs=ExpressionOrAny)
+	 *     (lhs=ValueName asgn=':=' rhs=ExpressionOrAny)
 	 * </pre>
 	 */
 	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
@@ -913,7 +909,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, BLESSPackage.eINSTANCE.getAssignment_Rhs()));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssignmentAccess().getLhsNameTickParserRuleCall_0_0(), semanticObject.getLhs());
+		feeder.accept(grammarAccess.getAssignmentAccess().getLhsValueNameParserRuleCall_0_0(), semanticObject.getLhs());
 		feeder.accept(grammarAccess.getAssignmentAccess().getAsgnColonEqualsSignKeyword_1_0(), semanticObject.getAsgn());
 		feeder.accept(grammarAccess.getAssignmentAccess().getRhsExpressionOrAnyParserRuleCall_2_0(), semanticObject.getRhs());
 		feeder.finish();
@@ -2089,21 +2085,6 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     NameTick returns NameTick
-	 *     Element returns NameTick
-	 *
-	 * Constraint:
-	 *     (value=ValueName tick?='''?)
-	 * </pre>
-	 */
-	protected void sequence_NameTick(ISerializationContext context, NameTick semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * <pre>
-	 * Contexts:
 	 *     NamedAssertion returns NamedAssertion
 	 *     NamedElement returns NamedAssertion
 	 *
@@ -2645,7 +2626,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns SimultaneousAssignment
 	 *
 	 * Constraint:
-	 *     (lhs+=NameTick lhs+=NameTick+ asgn=':=' rhs+=ExpressionOrAny rhs+=ExpressionOrAny+)
+	 *     (lhs+=ValueName lhs+=ValueName+ asgn=':=' rhs+=ExpressionOrAny rhs+=ExpressionOrAny+)
 	 * </pre>
 	 */
 	protected void sequence_SimultaneousAssignment(ISerializationContext context, SimultaneousAssignment semanticObject) {
@@ -2792,7 +2773,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *     Element returns TimedExpression
 	 *
 	 * Constraint:
-	 *     (subject=TimedSubject (tick=''' | (at?='@' time=Subexpression) | (caret?='^' shift=PeriodShift))?)
+	 *     (subject=TimedSubject ((at?='@' time=Subexpression) | (caret?='^' shift=PeriodShift))?)
 	 * </pre>
 	 */
 	protected void sequence_TimedExpression(ISerializationContext context, TimedExpression semanticObject) {

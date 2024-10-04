@@ -72,7 +72,7 @@ import com.multitude.aadl.bless.bLESS.IssueException
 import com.multitude.aadl.bless.bLESS.LogicVariables
 import com.multitude.aadl.bless.bLESS.ModeCondition
 import com.multitude.aadl.bless.bLESS.MultDiv
-import com.multitude.aadl.bless.bLESS.NameTick
+//import com.multitude.aadl.bless.bLESS.NameTick
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration
@@ -2442,21 +2442,21 @@ toAST(GuardedAction e)
 //nameTick : 
 //  ^( TICK vn=valueName )
 //  | vn=valueName
-  def dispatch BAST
-toAST(NameTick e)
-  {
-  try {  
-	if (e.tick)	
-    newBAST(e) =>  
-       [  
-  	   myText = "'"
-       token = new CommonToken(BLESS3Lexer.TICK, "'")
-       addChild(e.value.toAST) 	
-       ]
-  else  //just one variable
-    e.value.toAST
-    } catch (Exception ex) {ex.printStackTrace x}       
-  }  //end of NameTick
+//  def dispatch BAST
+//toAST(NameTick e)
+//  {
+//  try {  
+//	if (e.tick)	
+//    newBAST(e) =>  
+//       [  
+//  	   myText = "'"
+//       token = new CommonToken(BLESS3Lexer.TICK, "'")
+//       addChild(e.value.toAST) 	
+//       ]
+//  else  //just one variable
+//    e.value.toAST
+//    } catch (Exception ex) {ex.printStackTrace x}       
+//  }  //end of NameTick
 
 //quantity :
 //  ^( QUANTITY number=aNumber )
@@ -2884,14 +2884,15 @@ toAST(TimedExpression e)
   {
   try 
     {  
-    if (e.tick !== null)
-      newBAST(e) =>
-        [
-        myText = "\'"
-        token = new CommonToken(BLESS3Lexer.TICK, "\'")
-        addChild(e.subject.toAST)
-        ]
-    else if (e.at)
+//    if (e.tick !== null)
+//      newBAST(e) =>
+//        [
+//        myText = "\'"
+//        token = new CommonToken(BLESS3Lexer.TICK, "\'")
+//        addChild(e.subject.toAST)
+//        ]
+//    else 
+    if (e.at)
       newBAST(e) =>
         [
         myText = "@"
