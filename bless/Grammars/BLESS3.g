@@ -1062,7 +1062,7 @@ indexExpressionOrRange:
 //////////////////////////   VALUE   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 value:
-  nameTick
+  valueName
   |
   constant
   |
@@ -1296,19 +1296,23 @@ basicAction:
   ;
 
 assignment:
-  valueName ASSIGN^ expressionOrAny
+  valueName ASSIGN^ assignmentExpression
   ;
 
+assignmentExpression:
+	expressionOrAny | tickName
+	;
+	
 simultaneousAssignment :
 	VERT 
 	lhs+=valueName left_comma=COMMA lhs+=valueName ( COMMA lhs+=valueName )*
 	a=ASSIGN 
-	rhs+=expressionOrAny right_comma=COMMA rhs+=expressionOrAny ( COMMA rhs+=expressionOrAny )*
+	rhs+=assignmentExpression right_comma=COMMA rhs+=assignmentExpression ( COMMA rhs+=assignmentExpression )*
   VERT
     -> ^($a ^($left_comma $lhs+ )  ^($right_comma $rhs+ ) )
 ;
 
-nameTick: valueName ( TICK^ )? ;
+tickName: TICK^ valueName  ;
 
 expressionOrAny:
   expression | LITERAL_any

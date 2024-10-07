@@ -932,8 +932,7 @@ predicate
 
 value
   :
-  vn=nameTick
-//  vn=valueName
+  vn=valueName
     -> {$vn.st}
   |
   ev=enumerationValue
@@ -1240,17 +1239,23 @@ issueException
   
 assignment
   :
-  ^( ASSIGN n=valueName e=expressionOrAny )
-    -> assignment(nt={$n.st}, eort={$e.st})
+  ^( ASSIGN n=valueName ae=assignmentExpression )
+    -> assignment(nt={$n.st}, eort={$ae.st})
+  ;
+
+assignmentExpression
+  :
+  tn=tickName
+    -> {$tn.st}
+  |
+  e=expressionOrAny
+    -> {$e.st}  
   ;
  
-nameTick
+tickName
   : 
   ^( TICK vn=valueName )
-    -> name_tick(vn={$vn.st})
-  |
-  vn=valueName
-    -> {$vn.st}
+    -> tick_name(vn={$vn.st})
   ;
   
 expressionOrAny
@@ -1264,7 +1269,7 @@ expressionOrAny
   
 simultaneousAssignment
   :
-  ^( ASSIGN ^( COMMA lhs+=valueName+ ) ^( COMMA rhs+=expressionOrAny+ ) )
+  ^( ASSIGN ^( COMMA lhs+=valueName+ ) ^( COMMA rhs+=assignmentExpression+ ) )
     -> simultaneous_assignment(l={$lhs}, r={$rhs})
 	;  
   
