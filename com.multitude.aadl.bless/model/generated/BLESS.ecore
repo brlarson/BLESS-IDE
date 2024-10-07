@@ -351,6 +351,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" eType="#//ExpressionOrAny"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameTick" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionOrAny" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
         containment="true"/>
@@ -677,7 +682,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value_name" eType="#//ValueName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name_tick" eType="#//NameTick"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constant" eType="#//Constant"
         containment="true"/>

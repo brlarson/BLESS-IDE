@@ -53,6 +53,7 @@ import com.multitude.aadl.bless.bLESS.InvariantClause;
 import com.multitude.aadl.bless.bLESS.Invocation;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
+import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
@@ -978,34 +979,6 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkInitialTransitions(final BLESSSubclause bsc) {
-    StatesSection _statesSection = bsc.getStatesSection();
-    boolean _tripleNotEquals = (_statesSection != null);
-    if (_tripleNotEquals) {
-      EList<BehaviorState> _states = bsc.getStatesSection().getStates();
-      for (final BehaviorState st : _states) {
-        boolean _isInitial = st.isInitial();
-        if (_isInitial) {
-          Transitions _transitions = bsc.getTransitions();
-          boolean _tripleNotEquals_1 = (_transitions != null);
-          if (_tripleNotEquals_1) {
-            EList<BehaviorTransition> _bt = bsc.getTransitions().getBt();
-            for (final BehaviorTransition tr : _bt) {
-              EList<BehaviorState> _sources = tr.getSources();
-              for (final BehaviorState src : _sources) {
-                int _compareTo = src.getName().compareTo(st.getName());
-                boolean _equals = (_compareTo == 0);
-                if (_equals) {
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @Check(CheckType.NORMAL)
   public void quantityLiteralsHaveDot(final Quantity q) {
     if ((((q.getWhole() != null) && (q.getNumber().getLit() != null)) && q.getNumber().getLit().contains("."))) {
       String _lit = q.getNumber().getLit();
@@ -1517,6 +1490,22 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
+  public void checkNameTick(final NameTick nt) {
+    boolean _isTick = nt.isTick();
+    if (_isTick) {
+      boolean _inAssignment = this._blessUtil.inAssignment(nt);
+      boolean _not = (!_inAssignment);
+      if (_not) {
+        ValueName _value = nt.getValue();
+        String _plus = ("Reachback (" + _value);
+        String _plus_1 = (_plus + "\') only allowed on rhs of assignment");
+        this.fError(_plus_1, nt, 
+          BLESSPackage.eINSTANCE.getNameTick_Value(), IssueCodes.NAME_TICK_RHS_ASSIGNMENT);
+      }
+    }
+  }
+
+  @Check(CheckType.NORMAL)
   public void checkTimeoutBehaviorTimeHasTimeUnits(final DispatchTrigger dt) {
     BehaviorTime _time = dt.getTime();
     boolean _tripleNotEquals = (_time != null);
@@ -2005,12 +1994,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
       qt.setUnit(this._blessIndex.getTimeUnit(e));
       return qt;
     }
-    ValueName _value_name = e.getValue_name();
-    boolean _tripleNotEquals_1 = (_value_name != null);
+    NameTick _name_tick = e.getName_tick();
+    boolean _tripleNotEquals_1 = (_name_tick != null);
     if (_tripleNotEquals_1) {
-      final Type t = this.getType(e.getValue_name());
+      final Type t = this.getType(e.getName_tick().getValue());
       if ((t == null)) {
-        this.fError("null type for value", e, BLESSPackage.eINSTANCE.getValue_Value_name());
+        this.fError("null type for value", e, BLESSPackage.eINSTANCE.getValue_Name_tick());
       }
       return t;
     }
@@ -3295,10 +3284,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
       }
       UnitRecord retval = this._unitUtil.scalar();
       try {
-        ValueName _value_name = a.getValue_name();
-        boolean _tripleNotEquals = (_value_name != null);
+        NameTick _name_tick = a.getName_tick();
+        boolean _tripleNotEquals = (_name_tick != null);
         if (_tripleNotEquals) {
-          retval = this.getUnitRecord(a.getValue_name());
+          retval = this.getUnitRecord(a.getName_tick().getValue());
         }
         Constant _constant = a.getConstant();
         boolean _tripleNotEquals_1 = (_constant != null);
@@ -3734,12 +3723,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public boolean isWhole(final Value v) {
     boolean _xblockexpression = false;
     {
-      ValueName _value_name = v.getValue_name();
-      boolean _tripleNotEquals = (_value_name != null);
+      NameTick _name_tick = v.getName_tick();
+      boolean _tripleNotEquals = (_name_tick != null);
       if (_tripleNotEquals) {
-        Type _type = this.getType(v.getValue_name());
+        Type _type = this.getType(v.getName_tick().getValue());
         if ((_type instanceof QuantityType)) {
-          Type _type_1 = this.getType(v.getValue_name());
+          Type _type_1 = this.getType(v.getName_tick().getValue());
           String _whole = ((QuantityType) _type_1).getWhole();
           return (_whole != null);
         }

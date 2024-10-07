@@ -89,6 +89,7 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
+import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -469,6 +470,11 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAssignment(Assignment object)
       {
         return createAssignmentAdapter();
+      }
+      @Override
+      public Adapter caseNameTick(NameTick object)
+      {
+        return createNameTickAdapter();
       }
       @Override
       public Adapter caseExpressionOrAny(ExpressionOrAny object)
@@ -1733,6 +1739,21 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.multitude.aadl.bless.bLESS.NameTick <em>Name Tick</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.multitude.aadl.bless.bLESS.NameTick
+   * @generated
+   */
+  public Adapter createNameTickAdapter()
   {
     return null;
   }

@@ -165,5 +165,13 @@ class BlessUtil extends AbstractBLESSValidator {
       c = c.eContainer
     c
     }
-  	  
+  
+  def boolean inAssignment(EObject o)
+    {  //or simultaneous assignment
+    var c = o.eContainer
+    while (c !== null && !(c instanceof Assignment) && !(c instanceof SimultaneousAssignment))
+      c = c.eContainer
+    c!==null
+    }	  
+    
 }

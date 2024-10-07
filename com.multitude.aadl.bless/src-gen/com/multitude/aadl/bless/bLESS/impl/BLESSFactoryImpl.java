@@ -90,6 +90,7 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
+import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -263,6 +264,7 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
       case BLESSPackage.PORT_OUTPUT: return createPortOutput();
       case BLESSPackage.PORT_INPUT: return createPortInput();
       case BLESSPackage.ASSIGNMENT: return createAssignment();
+      case BLESSPackage.NAME_TICK: return createNameTick();
       case BLESSPackage.EXPRESSION_OR_ANY: return createExpressionOrAny();
       case BLESSPackage.SIMULTANEOUS_ASSIGNMENT: return createSimultaneousAssignment();
       case BLESSPackage.ALTERNATIVE: return createAlternative();
@@ -942,6 +944,18 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
   {
     AssignmentImpl assignment = new AssignmentImpl();
     return assignment;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NameTick createNameTick()
+  {
+    NameTickImpl nameTick = new NameTickImpl();
+    return nameTick;
   }
 
   /**

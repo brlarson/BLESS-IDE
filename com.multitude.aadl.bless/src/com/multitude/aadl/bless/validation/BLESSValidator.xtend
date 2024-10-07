@@ -43,7 +43,7 @@ import com.multitude.aadl.bless.bLESS.IndexExpression
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange
 import com.multitude.aadl.bless.bLESS.Invocation
 import com.multitude.aadl.bless.bLESS.MultDiv
-//import com.multitude.aadl.bless.bLESS.NameTick
+import com.multitude.aadl.bless.bLESS.NameTick
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessFunction
@@ -747,33 +747,28 @@ def void checkDuplicateTransitionLabels(Transitions trans)
     else labels.put(t.name,t)
   }
 
-@Check(CheckType.NORMAL)
-def void checkInitialTransitions(BLESSSubclause bsc)
-  {  //find initial state
-  if (bsc.statesSection !== null)
-    for (st : bsc.statesSection.states)
-      if (st.initial)       
-        // st.name is ID of initial state 
-  //find all transitions leaving the initial state
-        if (bsc.transitions !== null)
-          for (tr : bsc.transitions.bt) 
-            for (src : tr.sources)
-              if (src.name.compareTo(st.name) == 0) 
-                {  //transition has initial state source
-                  
-    
-  //TODO are any port inputs used?
-  
-  
-  //TODO are all out data ports assigned?
-    
-                }
-          
-           
-        
-  
-  
-  }  //end of checkInitialTransitions
+//@Check(CheckType.NORMAL)
+//def void checkInitialTransitions(BLESSSubclause bsc)
+//  {  //find initial state
+//  if (bsc.statesSection !== null)
+//    for (st : bsc.statesSection.states)
+//      if (st.initial)       
+//        // st.name is ID of initial state 
+//  //find all transitions leaving the initial state
+//        if (bsc.transitions !== null)
+//          for (tr : bsc.transitions.bt) 
+//            for (src : tr.sources)
+//              if (src.name.compareTo(st.name) == 0) 
+//                {  //transition has initial state source
+//                  
+//    
+//  //TODO are any port inputs used?
+//  
+//  
+//  //TODO are all out data ports assigned?
+//    
+//                }  
+//  }  //end of checkInitialTransitions
 
 //////////////////////////  EXPRESSION  \\\\\\\\\\\\\\\\\\\\
  
@@ -1100,6 +1095,15 @@ def void checkThatGuardsAreBoolean(GuardedAction ga)
   if ( !isBoolean(getType(ga.guard)) )
     fError('Guards in alternative (if-fi) must have boolean type.',ga,
       BLESSPackage::eINSTANCE.guardedAction_Guard, IssueCodes.GUARDS_MUST_BE_BOOLEAN) 
+  }
+
+@Check(CheckType.NORMAL)
+def void checkNameTick(NameTick nt)
+  {
+  if ( nt.tick )  //does it have assignment or simultaneous assignment ancestor?
+    if ( !nt.inAssignment )
+    fError('Reachback ('+nt.value+'\') only allowed on rhs of assignment',nt,
+      BLESSPackage::eINSTANCE.nameTick_Value, IssueCodes.NAME_TICK_RHS_ASSIGNMENT) 
   }
 
 //@Check(CheckType.NORMAL)
@@ -1526,11 +1530,11 @@ def Type getType(Value e)
     qt.unit = e.getTimeUnit
     return qt
     }   
-  if (e.value_name !== null)
+  if (e.name_tick !== null)
     {
-    val t = e.value_name.getType
+    val t = e.name_tick.value.getType
     if (t === null)
-      fError('null type for value',e,BLESSPackage::eINSTANCE.value_Value_name)
+      fError('null type for value',e,BLESSPackage::eINSTANCE.value_Name_tick)
     return t
     }
   if (e.constant !== null)
@@ -2285,8 +2289,8 @@ def UnitRecord getUnitRecord(Value a)
     var retval = scalar
     try
     {
-      if (a.value_name !== null)
-        retval = a.value_name.getUnitRecord
+      if (a.name_tick !== null)
+        retval = a.name_tick.value.getUnitRecord
       if (a.constant !== null)
         retval = a.constant.getUnitRecord
       if (a.enum_val !== null)
@@ -2714,9 +2718,9 @@ def boolean isWhole(IndexExpressionOrRange ie)
   
 def boolean isWhole(Value v)  
   {
-  if (v.value_name !== null)
-    if (v.value_name.getType instanceof QuantityType)
-      return (v.value_name.getType as QuantityType).whole !== null
+  if (v.name_tick !== null)
+    if (v.name_tick.value.getType instanceof QuantityType)
+      return (v.name_tick.value.getType as QuantityType).whole !== null
 //  if (v.q) return (v.feature as Feature).isWhole
   if (v.constant !== null) return v.constant.isWhole
   false

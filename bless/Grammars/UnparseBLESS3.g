@@ -932,7 +932,8 @@ predicate
 
 value
   :
-  vn=valueName
+  vn=nameTick
+//  vn=valueName
     -> {$vn.st}
   |
   ev=enumerationValue
@@ -1243,15 +1244,14 @@ assignment
     -> assignment(nt={$n.st}, eort={$e.st})
   ;
  
-//REMOVED 10/4/24 because you can't set things in the future!
-//nameTick
-//  : 
-//  ^( TICK vn=valueName )
- //   -> name_tick(vn={$vn.st})
-//  |
-//  vn=valueName
-//    -> {$vn.st}
-//  ;
+nameTick
+  : 
+  ^( TICK vn=valueName )
+    -> name_tick(vn={$vn.st})
+  |
+  vn=valueName
+    -> {$vn.st}
+  ;
   
 expressionOrAny
   :

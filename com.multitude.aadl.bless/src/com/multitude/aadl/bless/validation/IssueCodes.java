@@ -63,5 +63,6 @@ public interface IssueCodes
   String VARIANT_TYPES_DISCOURAGED = PREFIX + "VariantTypesDiscouraged";
   String WHOLE_QUANTITY_LITERAL = PREFIX + "WholeQuantityLiteral";
   String UNIT_QUANTITY_LITERAL = PREFIX + "UnitQuantityLiteral";
+  String NAME_TICK_RHS_ASSIGNMENT = PREFIX + "NameTickRhsAssignment";
 
   }

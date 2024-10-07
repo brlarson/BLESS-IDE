@@ -314,7 +314,7 @@ setUpFiles()
 //          Dump.it(e.getMessage());
 //          e.printStackTrace(System.out);
 //          } // done catching file making
-//        Dump.itToProofFile("This file, proof.txt, was produced the BLESS Proof Assistant " + BLESS.versionDate);
+//        Dump.itToProofFile("This file, proof.txt, was produced by the BLESS Proof Assistant " + BLESS.versionDate);
 //        Dump.itToProofFile("  at " + Time.todayString + " by " + System.getProperty("user.name") + "\n");
 //        } // done setting up dump file
       if (Global.useScriptFile)

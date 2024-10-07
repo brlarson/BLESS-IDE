@@ -72,7 +72,7 @@ import com.multitude.aadl.bless.bLESS.IssueException
 import com.multitude.aadl.bless.bLESS.LogicVariables
 import com.multitude.aadl.bless.bLESS.ModeCondition
 import com.multitude.aadl.bless.bLESS.MultDiv
-//import com.multitude.aadl.bless.bLESS.NameTick
+import com.multitude.aadl.bless.bLESS.NameTick
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration
@@ -1679,7 +1679,7 @@ toAST(AssertedAction e)
    catch (Exception ex) {ex.printStackTrace x}
    }  //end of AssertedAction
 
-//assignment : ^( ASSIGN n=nameTick e=expressionOrAny )
+//assignment : ^( ASSIGN n=valueName e=expressionOrAny )
   def dispatch BAST
 toAST(Assignment e)
   {
@@ -2442,21 +2442,21 @@ toAST(GuardedAction e)
 //nameTick : 
 //  ^( TICK vn=valueName )
 //  | vn=valueName
-//  def dispatch BAST
-//toAST(NameTick e)
-//  {
-//  try {  
-//	if (e.tick)	
-//    newBAST(e) =>  
-//       [  
-//  	   myText = "'"
-//       token = new CommonToken(BLESS3Lexer.TICK, "'")
-//       addChild(e.value.toAST) 	
-//       ]
-//  else  //just one variable
-//    e.value.toAST
-//    } catch (Exception ex) {ex.printStackTrace x}       
-//  }  //end of NameTick
+  def dispatch BAST
+toAST(NameTick e)
+  {
+  try {  
+	if (e.tick)	
+    newBAST(e) =>  
+       [  
+  	   myText = "'"
+       token = new CommonToken(BLESS3Lexer.TICK, "'")
+       addChild(e.value.toAST) 	
+       ]
+  else  //just one variable
+    e.value.toAST
+    } catch (Exception ex) {ex.printStackTrace x}       
+  }  //end of NameTick
 
 //quantity :
 //  ^( QUANTITY number=aNumber )
@@ -2984,7 +2984,7 @@ toAST(UniversalLatticeQuantification e)
   }  //end of UniversalLatticeQuantification
 
 //value :
-//  vn=valueName
+//  vn=nameTick
 //  | c=constant
 //  | to=LITERAL_timeout
 //  | n=LITERAL_now
@@ -2994,8 +2994,8 @@ toAST(Value e)
   {
   try 
     {  
-    if (e.value_name!==null)
-      e.value_name.toAST  //get BAST from Name
+    if (e.name_tick!==null)
+      e.name_tick.toAST  //get BAST from Name
     else if (e.constant!==null)
       e.constant.toAST  //Constant
     else if (e.timeout !== null) 

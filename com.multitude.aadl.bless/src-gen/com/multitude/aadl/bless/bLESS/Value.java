@@ -18,7 +18,7 @@ import org.osate.aadl2.Element;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link com.multitude.aadl.bless.bLESS.Value#getValue_name <em>Value name</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.Value#getName_tick <em>Name tick</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Value#getConstant <em>Constant</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Value#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.Value#getNow <em>Now</em>}</li>
@@ -33,26 +33,26 @@ import org.osate.aadl2.Element;
 public interface Value extends EObject, Element
 {
   /**
-   * Returns the value of the '<em><b>Value name</b></em>' containment reference.
+   * Returns the value of the '<em><b>Name tick</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value name</em>' containment reference.
-   * @see #setValue_name(ValueName)
-   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getValue_Value_name()
+   * @return the value of the '<em>Name tick</em>' containment reference.
+   * @see #setName_tick(NameTick)
+   * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getValue_Name_tick()
    * @model containment="true"
    * @generated
    */
-  ValueName getValue_name();
+  NameTick getName_tick();
 
   /**
-   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Value#getValue_name <em>Value name</em>}' containment reference.
+   * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Value#getName_tick <em>Name tick</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value name</em>' containment reference.
-   * @see #getValue_name()
+   * @param value the new value of the '<em>Name tick</em>' containment reference.
+   * @see #getName_tick()
    * @generated
    */
-  void setValue_name(ValueName value);
+  void setName_tick(NameTick value);
 
   /**
    * Returns the value of the '<em><b>Constant</b></em>' containment reference.

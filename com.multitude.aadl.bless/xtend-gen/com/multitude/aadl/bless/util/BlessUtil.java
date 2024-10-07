@@ -212,4 +212,16 @@ public class BlessUtil extends AbstractBLESSValidator {
     }
     return _xblockexpression;
   }
+
+  public boolean inAssignment(final EObject o) {
+    boolean _xblockexpression = false;
+    {
+      EObject c = o.eContainer();
+      while ((((c != null) && (!(c instanceof Assignment))) && (!(c instanceof SimultaneousAssignment)))) {
+        c = c.eContainer();
+      }
+      _xblockexpression = (c != null);
+    }
+    return _xblockexpression;
+  }
 }

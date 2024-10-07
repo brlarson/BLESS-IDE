@@ -76,6 +76,7 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
+import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -4214,6 +4215,40 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
+  protected BAST _toAST(final NameTick e) {
+    BAST _xtrycatchfinallyexpression = null;
+    try {
+      BAST _xifexpression = null;
+      boolean _isTick = e.isTick();
+      if (_isTick) {
+        BAST _newBAST = this.newBAST(e);
+        final Procedure1<BAST> _function = (BAST it) -> {
+          it.myText = "\'";
+          CommonToken _commonToken = new CommonToken(BLESS3Lexer.TICK, "\'");
+          it.token = _commonToken;
+          it.addChild(this.toAST(e.getValue()));
+        };
+        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
+      } else {
+        _xifexpression = this.toAST(e.getValue());
+      }
+      _xtrycatchfinallyexpression = _xifexpression;
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception ex = (Exception)_t;
+        BAST _xblockexpression = null;
+        {
+          ex.printStackTrace();
+          _xblockexpression = ToAST.x;
+        }
+        _xtrycatchfinallyexpression = _xblockexpression;
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    return _xtrycatchfinallyexpression;
+  }
+
   protected BAST _toAST(final Quantity e) {
     BAST _newBAST = this.newBAST(e);
     final Procedure1<BAST> _function = (BAST it) -> {
@@ -5084,10 +5119,10 @@ public class ToAST {
     BAST _xtrycatchfinallyexpression = null;
     try {
       BAST _xifexpression = null;
-      ValueName _value_name = e.getValue_name();
-      boolean _tripleNotEquals = (_value_name != null);
+      NameTick _name_tick = e.getName_tick();
+      boolean _tripleNotEquals = (_name_tick != null);
       if (_tripleNotEquals) {
-        _xifexpression = this.toAST(e.getValue_name());
+        _xifexpression = this.toAST(e.getName_tick());
       } else {
         BAST _xifexpression_1 = null;
         Constant _constant = e.getConstant();
@@ -6785,6 +6820,8 @@ public class ToAST {
       return _toAST((ModeCondition)e);
     } else if (e instanceof MultDiv) {
       return _toAST((MultDiv)e);
+    } else if (e instanceof NameTick) {
+      return _toAST((NameTick)e);
     } else if (e instanceof NamelessAssertion) {
       return _toAST((NamelessAssertion)e);
     } else if (e instanceof NamelessEnumeration) {

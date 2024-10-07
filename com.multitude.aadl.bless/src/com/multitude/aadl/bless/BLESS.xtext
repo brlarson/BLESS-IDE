@@ -396,10 +396,10 @@ Assignment:
    lhs=ValueName asgn=':=' rhs=ExpressionOrAny
 ;
 
-//NameTick:
-//	value=ValueName  
-//  tick?='\''? 
-//;
+NameTick:
+	value=ValueName  
+  tick?='\''? 
+;
 
 ExpressionOrAny:
 	exp=Expression | any=Any
@@ -746,7 +746,8 @@ ConditionalExpression:
 ///////////////////////   VALUE   ///////////////////////////////
 
 Value:
-  value_name=ValueName
+  name_tick=NameTick
+//  value_name=ValueName
   | constant=Constant
   | timeout='timeout'
   | now='now'
@@ -1201,7 +1202,7 @@ Element returns aadl2::Element:
 	| FunctionParameters
 	| GuardedAction
   | IssueException	
-//	| NameTick
+	| NameTick
 	| PeriodShift
 	| PortInput
 	| PortOutput

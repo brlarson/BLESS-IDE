@@ -4530,6 +4530,58 @@ ruleAssignment returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleNameTick
+entryRuleNameTick returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNameTickRule()); }
+	iv_ruleNameTick=ruleNameTick
+	{ $current=$iv_ruleNameTick.current; }
+	EOF;
+
+// Rule NameTick
+ruleNameTick returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNameTickAccess().getValueValueNameParserRuleCall_0_0());
+				}
+				lv_value_0_0=ruleValueName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNameTickRule());
+					}
+					set(
+						$current,
+						"value",
+						lv_value_0_0,
+						"com.multitude.aadl.bless.BLESS.ValueName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_tick_1_0='\''
+				{
+					newLeafNode(lv_tick_1_0, grammarAccess.getNameTickAccess().getTickApostropheKeyword_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getNameTickRule());
+					}
+					setWithLastConsumed($current, "tick", lv_tick_1_0 != null, "\'");
+				}
+			)
+		)?
+	)
+;
+
 // Entry rule entryRuleExpressionOrAny
 entryRuleExpressionOrAny returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getExpressionOrAnyRule()); }
@@ -9071,18 +9123,18 @@ ruleValue returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getValueAccess().getValue_nameValueNameParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getValueAccess().getName_tickNameTickParserRuleCall_0_0());
 				}
-				lv_value_name_0_0=ruleValueName
+				lv_name_tick_0_0=ruleNameTick
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getValueRule());
 					}
 					set(
 						$current,
-						"value_name",
-						lv_value_name_0_0,
-						"com.multitude.aadl.bless.BLESS.ValueName");
+						"name_tick",
+						lv_name_tick_0_0,
+						"com.multitude.aadl.bless.BLESS.NameTick");
 					afterParserOrEnumRuleCall();
 				}
 			)

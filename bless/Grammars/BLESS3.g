@@ -1062,7 +1062,7 @@ indexExpressionOrRange:
 //////////////////////////   VALUE   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 value:
-  valueName
+  nameTick
   |
   constant
   |
@@ -1308,8 +1308,7 @@ simultaneousAssignment :
     -> ^($a ^($left_comma $lhs+ )  ^($right_comma $rhs+ ) )
 ;
 
-//REMOVED 10/4/24 because you can't set things in the future!
-//nameTick: valueName ( TICK^ )? ;
+nameTick: valueName ( TICK^ )? ;
 
 expressionOrAny:
   expression | LITERAL_any

@@ -87,6 +87,7 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
+import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -419,6 +420,9 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 				return; 
 			case BLESSPackage.MULT_DIV:
 				sequence_MultDiv(context, (MultDiv) semanticObject); 
+				return; 
+			case BLESSPackage.NAME_TICK:
+				sequence_NameTick(context, (NameTick) semanticObject); 
 				return; 
 			case BLESSPackage.NAMED_ASSERTION:
 				sequence_NamedAssertion(context, (NamedAssertion) semanticObject); 
@@ -2085,6 +2089,21 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     NameTick returns NameTick
+	 *     Element returns NameTick
+	 *
+	 * Constraint:
+	 *     (value=ValueName tick?='''?)
+	 * </pre>
+	 */
+	protected void sequence_NameTick(ISerializationContext context, NameTick semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     NamedAssertion returns NamedAssertion
 	 *     NamedElement returns NamedAssertion
 	 *
@@ -3042,7 +3061,7 @@ public abstract class AbstractBLESSSemanticSequencer extends AbstractDelegatingS
 	 *
 	 * Constraint:
 	 *     (
-	 *         value_name=ValueName | 
+	 *         name_tick=NameTick | 
 	 *         constant=Constant | 
 	 *         timeout='timeout' | 
 	 *         now='now' | 
