@@ -348,13 +348,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" eType="#//ValueName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="asgn" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" eType="#//ExpressionOrAny"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" eType="#//AssignmentExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NameTick" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
+  <eClassifiers xsi:type="ecore:EClass" name="AssignmentExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ex" eType="#//ExpressionOrAny"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nt" eType="#//TickName"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TickName" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ValueName"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tick" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionOrAny" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expression"
@@ -365,7 +371,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" upperBound="-1" eType="#//ValueName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="asgn" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" upperBound="-1" eType="#//ExpressionOrAny"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" upperBound="-1" eType="#//AssignmentExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Alternative" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
@@ -682,7 +688,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="platform:/resource/org.osate.aadl2/model/aadl2.ecore#//Element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name_tick" eType="#//NameTick"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value_name" eType="#//ValueName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constant" eType="#//Constant"
         containment="true"/>

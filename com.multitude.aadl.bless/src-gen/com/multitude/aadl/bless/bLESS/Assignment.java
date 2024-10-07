@@ -78,12 +78,12 @@ public interface Assignment extends EObject, Element
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Rhs</em>' containment reference.
-   * @see #setRhs(ExpressionOrAny)
+   * @see #setRhs(AssignmentExpression)
    * @see com.multitude.aadl.bless.bLESS.BLESSPackage#getAssignment_Rhs()
    * @model containment="true"
    * @generated
    */
-  ExpressionOrAny getRhs();
+  AssignmentExpression getRhs();
 
   /**
    * Sets the value of the '{@link com.multitude.aadl.bless.bLESS.Assignment#getRhs <em>Rhs</em>}' containment reference.
@@ -93,6 +93,6 @@ public interface Assignment extends EObject, Element
    * @see #getRhs()
    * @generated
    */
-  void setRhs(ExpressionOrAny value);
+  void setRhs(AssignmentExpression value);
 
 } // Assignment

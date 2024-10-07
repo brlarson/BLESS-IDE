@@ -23,6 +23,7 @@ import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionLibrary;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BAAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSFactory;
@@ -90,7 +91,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -130,6 +130,7 @@ import com.multitude.aadl.bless.bLESS.SubprogramAccessDispatch;
 import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.bLESS.SumQuantification;
 import com.multitude.aadl.bless.bLESS.ThrowsClause;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.TimedExpression;
 import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
@@ -264,7 +265,8 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
       case BLESSPackage.PORT_OUTPUT: return createPortOutput();
       case BLESSPackage.PORT_INPUT: return createPortInput();
       case BLESSPackage.ASSIGNMENT: return createAssignment();
-      case BLESSPackage.NAME_TICK: return createNameTick();
+      case BLESSPackage.ASSIGNMENT_EXPRESSION: return createAssignmentExpression();
+      case BLESSPackage.TICK_NAME: return createTickName();
       case BLESSPackage.EXPRESSION_OR_ANY: return createExpressionOrAny();
       case BLESSPackage.SIMULTANEOUS_ASSIGNMENT: return createSimultaneousAssignment();
       case BLESSPackage.ALTERNATIVE: return createAlternative();
@@ -952,10 +954,22 @@ public class BLESSFactoryImpl extends EFactoryImpl implements BLESSFactory
    * @generated
    */
   @Override
-  public NameTick createNameTick()
+  public AssignmentExpression createAssignmentExpression()
   {
-    NameTickImpl nameTick = new NameTickImpl();
-    return nameTick;
+    AssignmentExpressionImpl assignmentExpression = new AssignmentExpressionImpl();
+    return assignmentExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public TickName createTickName()
+  {
+    TickNameImpl tickName = new TickNameImpl();
+    return tickName;
   }
 
   /**

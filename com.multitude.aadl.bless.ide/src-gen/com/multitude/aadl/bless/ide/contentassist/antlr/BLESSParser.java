@@ -50,6 +50,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCombinableOperationAccess().getAlternatives_1_0(), "rule__CombinableOperation__Alternatives_1_0");
 			builder.put(grammarAccess.getCommunicationActionAccess().getAlternatives(), "rule__CommunicationAction__Alternatives");
 			builder.put(grammarAccess.getSubProgramParameterAccess().getAlternatives(), "rule__SubProgramParameter__Alternatives");
+			builder.put(grammarAccess.getAssignmentExpressionAccess().getAlternatives(), "rule__AssignmentExpression__Alternatives");
 			builder.put(grammarAccess.getExpressionOrAnyAccess().getAlternatives(), "rule__ExpressionOrAny__Alternatives");
 			builder.put(grammarAccess.getAlternativeAccess().getAlternatives_3(), "rule__Alternative__Alternatives_3");
 			builder.put(grammarAccess.getCatchClauseTermAccess().getAlternatives_1(), "rule__CatchClauseTerm__Alternatives_1");
@@ -183,7 +184,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPortOutputAccess().getGroup_2(), "rule__PortOutput__Group_2__0");
 			builder.put(grammarAccess.getPortInputAccess().getGroup(), "rule__PortInput__Group__0");
 			builder.put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
-			builder.put(grammarAccess.getNameTickAccess().getGroup(), "rule__NameTick__Group__0");
+			builder.put(grammarAccess.getTickNameAccess().getGroup(), "rule__TickName__Group__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup(), "rule__SimultaneousAssignment__Group__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup_2(), "rule__SimultaneousAssignment__Group_2__0");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getGroup_5(), "rule__SimultaneousAssignment__Group_5__0");
@@ -539,8 +540,10 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAssignmentAccess().getLhsAssignment_0(), "rule__Assignment__LhsAssignment_0");
 			builder.put(grammarAccess.getAssignmentAccess().getAsgnAssignment_1(), "rule__Assignment__AsgnAssignment_1");
 			builder.put(grammarAccess.getAssignmentAccess().getRhsAssignment_2(), "rule__Assignment__RhsAssignment_2");
-			builder.put(grammarAccess.getNameTickAccess().getValueAssignment_0(), "rule__NameTick__ValueAssignment_0");
-			builder.put(grammarAccess.getNameTickAccess().getTickAssignment_1(), "rule__NameTick__TickAssignment_1");
+			builder.put(grammarAccess.getAssignmentExpressionAccess().getExAssignment_0(), "rule__AssignmentExpression__ExAssignment_0");
+			builder.put(grammarAccess.getAssignmentExpressionAccess().getNtAssignment_1(), "rule__AssignmentExpression__NtAssignment_1");
+			builder.put(grammarAccess.getTickNameAccess().getTickAssignment_0(), "rule__TickName__TickAssignment_0");
+			builder.put(grammarAccess.getTickNameAccess().getValueAssignment_1(), "rule__TickName__ValueAssignment_1");
 			builder.put(grammarAccess.getExpressionOrAnyAccess().getExpAssignment_0(), "rule__ExpressionOrAny__ExpAssignment_0");
 			builder.put(grammarAccess.getExpressionOrAnyAccess().getAnyAssignment_1(), "rule__ExpressionOrAny__AnyAssignment_1");
 			builder.put(grammarAccess.getSimultaneousAssignmentAccess().getLhsAssignment_1(), "rule__SimultaneousAssignment__LhsAssignment_1");
@@ -707,7 +710,7 @@ public class BLESSParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConditionalExpressionAccess().getPredAssignment_2(), "rule__ConditionalExpression__PredAssignment_2");
 			builder.put(grammarAccess.getConditionalExpressionAccess().getTAssignment_4(), "rule__ConditionalExpression__TAssignment_4");
 			builder.put(grammarAccess.getConditionalExpressionAccess().getFAssignment_6(), "rule__ConditionalExpression__FAssignment_6");
-			builder.put(grammarAccess.getValueAccess().getName_tickAssignment_0(), "rule__Value__Name_tickAssignment_0");
+			builder.put(grammarAccess.getValueAccess().getValue_nameAssignment_0(), "rule__Value__Value_nameAssignment_0");
 			builder.put(grammarAccess.getValueAccess().getConstantAssignment_1(), "rule__Value__ConstantAssignment_1");
 			builder.put(grammarAccess.getValueAccess().getTimeoutAssignment_2(), "rule__Value__TimeoutAssignment_2");
 			builder.put(grammarAccess.getValueAccess().getNowAssignment_3(), "rule__Value__NowAssignment_3");

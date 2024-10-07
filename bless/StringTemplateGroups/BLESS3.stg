@@ -326,7 +326,7 @@ nameless_enumeration(inv) ::=
 nameless_function(tod,a) ::=
 <<\<\< returns <tod> := <a> \>\>>>
 
-name_tick(vn) ::= "<vn>'"
+tick_name(vn) ::= "'<vn>"
 
 natural()::="quantity whole"
 

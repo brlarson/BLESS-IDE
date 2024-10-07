@@ -18,6 +18,7 @@ import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionLibrary;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BAAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSSubclause;
@@ -76,7 +77,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -110,6 +110,7 @@ import com.multitude.aadl.bless.bLESS.Subexpression;
 import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.bLESS.SumQuantification;
 import com.multitude.aadl.bless.bLESS.ThrowsClause;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.TimedExpression;
 import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
@@ -4215,24 +4216,17 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
-  protected BAST _toAST(final NameTick e) {
+  protected BAST _toAST(final TickName e) {
     BAST _xtrycatchfinallyexpression = null;
     try {
-      BAST _xifexpression = null;
-      boolean _isTick = e.isTick();
-      if (_isTick) {
-        BAST _newBAST = this.newBAST(e);
-        final Procedure1<BAST> _function = (BAST it) -> {
-          it.myText = "\'";
-          CommonToken _commonToken = new CommonToken(BLESS3Lexer.TICK, "\'");
-          it.token = _commonToken;
-          it.addChild(this.toAST(e.getValue()));
-        };
-        _xifexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
-      } else {
-        _xifexpression = this.toAST(e.getValue());
-      }
-      _xtrycatchfinallyexpression = _xifexpression;
+      BAST _newBAST = this.newBAST(e);
+      final Procedure1<BAST> _function = (BAST it) -> {
+        it.myText = "\'";
+        CommonToken _commonToken = new CommonToken(BLESS3Lexer.TICK, "\'");
+        it.token = _commonToken;
+        it.addChild(this.toAST(e.getValue()));
+      };
+      _xtrycatchfinallyexpression = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
     } catch (final Throwable _t) {
       if (_t instanceof Exception) {
         final Exception ex = (Exception)_t;
@@ -4808,8 +4802,8 @@ public class ToAST {
           it_1.myText = ",";
           CommonToken _commonToken_1 = new CommonToken(BLESS3Lexer.COMMA, ",");
           it_1.token = _commonToken_1;
-          EList<ExpressionOrAny> _rhs = e.getRhs();
-          for (final ExpressionOrAny right : _rhs) {
+          EList<AssignmentExpression> _rhs = e.getRhs();
+          for (final AssignmentExpression right : _rhs) {
             it_1.addChild(this.toAST(right));
           }
         };
@@ -5119,10 +5113,10 @@ public class ToAST {
     BAST _xtrycatchfinallyexpression = null;
     try {
       BAST _xifexpression = null;
-      NameTick _name_tick = e.getName_tick();
-      boolean _tripleNotEquals = (_name_tick != null);
+      ValueName _value_name = e.getValue_name();
+      boolean _tripleNotEquals = (_value_name != null);
       if (_tripleNotEquals) {
-        _xifexpression = this.toAST(e.getName_tick());
+        _xifexpression = this.toAST(e.getValue_name());
       } else {
         BAST _xifexpression_1 = null;
         Constant _constant = e.getConstant();
@@ -6820,8 +6814,6 @@ public class ToAST {
       return _toAST((ModeCondition)e);
     } else if (e instanceof MultDiv) {
       return _toAST((MultDiv)e);
-    } else if (e instanceof NameTick) {
-      return _toAST((NameTick)e);
     } else if (e instanceof NamelessAssertion) {
       return _toAST((NamelessAssertion)e);
     } else if (e instanceof NamelessEnumeration) {
@@ -6878,6 +6870,8 @@ public class ToAST {
       return _toAST((SubprogramCall)e);
     } else if (e instanceof SumQuantification) {
       return _toAST((SumQuantification)e);
+    } else if (e instanceof TickName) {
+      return _toAST((TickName)e);
     } else if (e instanceof TimedExpression) {
       return _toAST((TimedExpression)e);
     } else if (e instanceof TimedSubject) {

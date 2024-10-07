@@ -8,8 +8,8 @@ package com.multitude.aadl.bless.bLESS.impl;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
 import com.multitude.aadl.bless.bLESS.Constant;
 import com.multitude.aadl.bless.bLESS.EnumerationValue;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.Value;
+import com.multitude.aadl.bless.bLESS.ValueName;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -29,7 +29,7 @@ import org.osate.aadl2.impl.ElementImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueImpl#getName_tick <em>Name tick</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueImpl#getValue_name <em>Value name</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueImpl#getConstant <em>Constant</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueImpl#getTimeout <em>Timeout</em>}</li>
  *   <li>{@link com.multitude.aadl.bless.bLESS.impl.ValueImpl#getNow <em>Now</em>}</li>
@@ -42,14 +42,14 @@ import org.osate.aadl2.impl.ElementImpl;
 public class ValueImpl extends ElementImpl implements Value
 {
   /**
-   * The cached value of the '{@link #getName_tick() <em>Name tick</em>}' containment reference.
+   * The cached value of the '{@link #getValue_name() <em>Value name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName_tick()
+   * @see #getValue_name()
    * @generated
    * @ordered
    */
-  protected NameTick name_tick;
+  protected ValueName value_name;
 
   /**
    * The cached value of the '{@link #getConstant() <em>Constant</em>}' containment reference.
@@ -158,9 +158,9 @@ public class ValueImpl extends ElementImpl implements Value
    * @generated
    */
   @Override
-  public NameTick getName_tick()
+  public ValueName getValue_name()
   {
-    return name_tick;
+    return value_name;
   }
 
   /**
@@ -168,13 +168,13 @@ public class ValueImpl extends ElementImpl implements Value
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetName_tick(NameTick newName_tick, NotificationChain msgs)
+  public NotificationChain basicSetValue_name(ValueName newValue_name, NotificationChain msgs)
   {
-    NameTick oldName_tick = name_tick;
-    name_tick = newName_tick;
+    ValueName oldValue_name = value_name;
+    value_name = newValue_name;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE__NAME_TICK, oldName_tick, newName_tick);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE__VALUE_NAME, oldValue_name, newValue_name);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -186,20 +186,20 @@ public class ValueImpl extends ElementImpl implements Value
    * @generated
    */
   @Override
-  public void setName_tick(NameTick newName_tick)
+  public void setValue_name(ValueName newValue_name)
   {
-    if (newName_tick != name_tick)
+    if (newValue_name != value_name)
     {
       NotificationChain msgs = null;
-      if (name_tick != null)
-        msgs = ((InternalEObject)name_tick).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.VALUE__NAME_TICK, null, msgs);
-      if (newName_tick != null)
-        msgs = ((InternalEObject)newName_tick).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.VALUE__NAME_TICK, null, msgs);
-      msgs = basicSetName_tick(newName_tick, msgs);
+      if (value_name != null)
+        msgs = ((InternalEObject)value_name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.VALUE__VALUE_NAME, null, msgs);
+      if (newValue_name != null)
+        msgs = ((InternalEObject)newValue_name).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.VALUE__VALUE_NAME, null, msgs);
+      msgs = basicSetValue_name(newValue_name, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE__NAME_TICK, newName_tick, newName_tick));
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.VALUE__VALUE_NAME, newValue_name, newValue_name));
   }
 
   /**
@@ -387,8 +387,8 @@ public class ValueImpl extends ElementImpl implements Value
   {
     switch (featureID)
     {
-      case BLESSPackage.VALUE__NAME_TICK:
-        return basicSetName_tick(null, msgs);
+      case BLESSPackage.VALUE__VALUE_NAME:
+        return basicSetValue_name(null, msgs);
       case BLESSPackage.VALUE__CONSTANT:
         return basicSetConstant(null, msgs);
       case BLESSPackage.VALUE__ENUM_VAL:
@@ -407,8 +407,8 @@ public class ValueImpl extends ElementImpl implements Value
   {
     switch (featureID)
     {
-      case BLESSPackage.VALUE__NAME_TICK:
-        return getName_tick();
+      case BLESSPackage.VALUE__VALUE_NAME:
+        return getValue_name();
       case BLESSPackage.VALUE__CONSTANT:
         return getConstant();
       case BLESSPackage.VALUE__TIMEOUT:
@@ -433,8 +433,8 @@ public class ValueImpl extends ElementImpl implements Value
   {
     switch (featureID)
     {
-      case BLESSPackage.VALUE__NAME_TICK:
-        setName_tick((NameTick)newValue);
+      case BLESSPackage.VALUE__VALUE_NAME:
+        setValue_name((ValueName)newValue);
         return;
       case BLESSPackage.VALUE__CONSTANT:
         setConstant((Constant)newValue);
@@ -465,8 +465,8 @@ public class ValueImpl extends ElementImpl implements Value
   {
     switch (featureID)
     {
-      case BLESSPackage.VALUE__NAME_TICK:
-        setName_tick((NameTick)null);
+      case BLESSPackage.VALUE__VALUE_NAME:
+        setValue_name((ValueName)null);
         return;
       case BLESSPackage.VALUE__CONSTANT:
         setConstant((Constant)null);
@@ -497,8 +497,8 @@ public class ValueImpl extends ElementImpl implements Value
   {
     switch (featureID)
     {
-      case BLESSPackage.VALUE__NAME_TICK:
-        return name_tick != null;
+      case BLESSPackage.VALUE__VALUE_NAME:
+        return value_name != null;
       case BLESSPackage.VALUE__CONSTANT:
         return constant != null;
       case BLESSPackage.VALUE__TIMEOUT:

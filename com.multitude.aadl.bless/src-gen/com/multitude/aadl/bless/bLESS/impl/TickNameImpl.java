@@ -6,7 +6,7 @@
 package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
-import com.multitude.aadl.bless.bLESS.NameTick;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.ValueName;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,20 +21,40 @@ import org.osate.aadl2.impl.ElementImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Name Tick</b></em>'.
+ * An implementation of the model object '<em><b>Tick Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NameTickImpl#getValue <em>Value</em>}</li>
- *   <li>{@link com.multitude.aadl.bless.bLESS.impl.NameTickImpl#isTick <em>Tick</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TickNameImpl#getTick <em>Tick</em>}</li>
+ *   <li>{@link com.multitude.aadl.bless.bLESS.impl.TickNameImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class NameTickImpl extends ElementImpl implements NameTick
+public class TickNameImpl extends ElementImpl implements TickName
 {
+  /**
+   * The default value of the '{@link #getTick() <em>Tick</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTick()
+   * @generated
+   * @ordered
+   */
+  protected static final String TICK_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTick() <em>Tick</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTick()
+   * @generated
+   * @ordered
+   */
+  protected String tick = TICK_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -46,31 +66,11 @@ public class NameTickImpl extends ElementImpl implements NameTick
   protected ValueName value;
 
   /**
-   * The default value of the '{@link #isTick() <em>Tick</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isTick()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean TICK_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isTick() <em>Tick</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isTick()
-   * @generated
-   * @ordered
-   */
-  protected boolean tick = TICK_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NameTickImpl()
+  protected TickNameImpl()
   {
     super();
   }
@@ -83,7 +83,32 @@ public class NameTickImpl extends ElementImpl implements NameTick
   @Override
   protected EClass eStaticClass()
   {
-    return BLESSPackage.eINSTANCE.getNameTick();
+    return BLESSPackage.eINSTANCE.getTickName();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getTick()
+  {
+    return tick;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTick(String newTick)
+  {
+    String oldTick = tick;
+    tick = newTick;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.TICK_NAME__TICK, oldTick, tick));
   }
 
   /**
@@ -108,7 +133,7 @@ public class NameTickImpl extends ElementImpl implements NameTick
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.NAME_TICK__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, BLESSPackage.TICK_NAME__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -126,39 +151,14 @@ public class NameTickImpl extends ElementImpl implements NameTick
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NAME_TICK__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.TICK_NAME__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.NAME_TICK__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - BLESSPackage.TICK_NAME__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.NAME_TICK__VALUE, newValue, newValue));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean isTick()
-  {
-    return tick;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setTick(boolean newTick)
-  {
-    boolean oldTick = tick;
-    tick = newTick;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.NAME_TICK__TICK, oldTick, tick));
+      eNotify(new ENotificationImpl(this, Notification.SET, BLESSPackage.TICK_NAME__VALUE, newValue, newValue));
   }
 
   /**
@@ -171,7 +171,7 @@ public class NameTickImpl extends ElementImpl implements NameTick
   {
     switch (featureID)
     {
-      case BLESSPackage.NAME_TICK__VALUE:
+      case BLESSPackage.TICK_NAME__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -187,10 +187,10 @@ public class NameTickImpl extends ElementImpl implements NameTick
   {
     switch (featureID)
     {
-      case BLESSPackage.NAME_TICK__VALUE:
+      case BLESSPackage.TICK_NAME__TICK:
+        return getTick();
+      case BLESSPackage.TICK_NAME__VALUE:
         return getValue();
-      case BLESSPackage.NAME_TICK__TICK:
-        return isTick();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -205,11 +205,11 @@ public class NameTickImpl extends ElementImpl implements NameTick
   {
     switch (featureID)
     {
-      case BLESSPackage.NAME_TICK__VALUE:
-        setValue((ValueName)newValue);
+      case BLESSPackage.TICK_NAME__TICK:
+        setTick((String)newValue);
         return;
-      case BLESSPackage.NAME_TICK__TICK:
-        setTick((Boolean)newValue);
+      case BLESSPackage.TICK_NAME__VALUE:
+        setValue((ValueName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -225,11 +225,11 @@ public class NameTickImpl extends ElementImpl implements NameTick
   {
     switch (featureID)
     {
-      case BLESSPackage.NAME_TICK__VALUE:
-        setValue((ValueName)null);
-        return;
-      case BLESSPackage.NAME_TICK__TICK:
+      case BLESSPackage.TICK_NAME__TICK:
         setTick(TICK_EDEFAULT);
+        return;
+      case BLESSPackage.TICK_NAME__VALUE:
+        setValue((ValueName)null);
         return;
     }
     super.eUnset(featureID);
@@ -245,10 +245,10 @@ public class NameTickImpl extends ElementImpl implements NameTick
   {
     switch (featureID)
     {
-      case BLESSPackage.NAME_TICK__VALUE:
+      case BLESSPackage.TICK_NAME__TICK:
+        return TICK_EDEFAULT == null ? tick != null : !TICK_EDEFAULT.equals(tick);
+      case BLESSPackage.TICK_NAME__VALUE:
         return value != null;
-      case BLESSPackage.NAME_TICK__TICK:
-        return tick != TICK_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -270,4 +270,4 @@ public class NameTickImpl extends ElementImpl implements NameTick
     return result.toString();
   }
 
-} //NameTickImpl
+} //TickNameImpl

@@ -67,7 +67,7 @@ public interface SimultaneousAssignment extends EObject, Element
 
   /**
    * Returns the value of the '<em><b>Rhs</b></em>' containment reference list.
-   * The list contents are of type {@link com.multitude.aadl.bless.bLESS.ExpressionOrAny}.
+   * The list contents are of type {@link com.multitude.aadl.bless.bLESS.AssignmentExpression}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Rhs</em>' containment reference list.
@@ -75,6 +75,6 @@ public interface SimultaneousAssignment extends EObject, Element
    * @model containment="true"
    * @generated
    */
-  EList<ExpressionOrAny> getRhs();
+  EList<AssignmentExpression> getRhs();
 
 } // SimultaneousAssignment

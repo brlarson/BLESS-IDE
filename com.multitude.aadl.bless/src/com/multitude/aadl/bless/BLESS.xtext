@@ -393,12 +393,16 @@ PortInput:
 /////////////////////  ASSIGNMENT  ///////////////////////
 
 Assignment:
-   lhs=ValueName asgn=':=' rhs=ExpressionOrAny
+   lhs=ValueName asgn=':=' rhs=AssignmentExpression
 ;
 
-NameTick:
+AssignmentExpression:
+  ex=ExpressionOrAny | nt=TickName
+;
+
+TickName:
+  tick='\'' 
 	value=ValueName  
-  tick?='\''? 
 ;
 
 ExpressionOrAny:
@@ -412,7 +416,7 @@ SimultaneousAssignment returns SimultaneousAssignment:
 	'|' 
 	lhs+=ValueName  ( ',' lhs+=ValueName )+
 	asgn=':=' 
-	rhs+=ExpressionOrAny  ( ',' rhs+=ExpressionOrAny )+
+	rhs+=AssignmentExpression  ( ',' rhs+=AssignmentExpression )+
   '|'
 ;
 
@@ -746,8 +750,7 @@ ConditionalExpression:
 ///////////////////////   VALUE   ///////////////////////////////
 
 Value:
-  name_tick=NameTick
-//  value_name=ValueName
+  value_name=ValueName
   | constant=Constant
   | timeout='timeout'
   | now='now'
@@ -1202,7 +1205,6 @@ Element returns aadl2::Element:
 	| FunctionParameters
 	| GuardedAction
   | IssueException	
-	| NameTick
 	| PeriodShift
 	| PortInput
 	| PortOutput
@@ -1213,6 +1215,7 @@ Element returns aadl2::Element:
 	| SimultaneousAssignment
 	| SubprogramCall
 	| SubProgramParameter
+  | TickName
 	| UniversalLatticeQuantification
 	| WhenThrow
 	| WhileLoop

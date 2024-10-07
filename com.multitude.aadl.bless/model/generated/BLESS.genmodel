@@ -253,9 +253,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Assignment/asgn"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Assignment/rhs"/>
     </genClasses>
-    <genClasses ecoreClass="BLESS.ecore#//NameTick">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//NameTick/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//NameTick/tick"/>
+    <genClasses ecoreClass="BLESS.ecore#//AssignmentExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//AssignmentExpression/ex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//AssignmentExpression/nt"/>
+    </genClasses>
+    <genClasses ecoreClass="BLESS.ecore#//TickName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//TickName/tick"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//TickName/value"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//ExpressionOrAny">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//ExpressionOrAny/exp"/>
@@ -491,7 +495,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//ConditionalExpression/f"/>
     </genClasses>
     <genClasses ecoreClass="BLESS.ecore#//Value">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Value/name_tick"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Value/value_name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BLESS.ecore#//Value/constant"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Value/timeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BLESS.ecore#//Value/now"/>

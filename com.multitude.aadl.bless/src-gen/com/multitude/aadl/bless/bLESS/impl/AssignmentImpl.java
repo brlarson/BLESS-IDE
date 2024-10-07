@@ -6,8 +6,8 @@
 package com.multitude.aadl.bless.bLESS.impl;
 
 import com.multitude.aadl.bless.bLESS.Assignment;
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
-import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
 import com.multitude.aadl.bless.bLESS.ValueName;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -75,7 +75,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    * @ordered
    */
-  protected ExpressionOrAny rhs;
+  protected AssignmentExpression rhs;
 
   /**
    * <!-- begin-user-doc -->
@@ -179,7 +179,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    */
   @Override
-  public ExpressionOrAny getRhs()
+  public AssignmentExpression getRhs()
   {
     return rhs;
   }
@@ -189,9 +189,9 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRhs(ExpressionOrAny newRhs, NotificationChain msgs)
+  public NotificationChain basicSetRhs(AssignmentExpression newRhs, NotificationChain msgs)
   {
-    ExpressionOrAny oldRhs = rhs;
+    AssignmentExpression oldRhs = rhs;
     rhs = newRhs;
     if (eNotificationRequired())
     {
@@ -207,7 +207,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
    * @generated
    */
   @Override
-  public void setRhs(ExpressionOrAny newRhs)
+  public void setRhs(AssignmentExpression newRhs)
   {
     if (newRhs != rhs)
     {
@@ -278,7 +278,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
         setAsgn((String)newValue);
         return;
       case BLESSPackage.ASSIGNMENT__RHS:
-        setRhs((ExpressionOrAny)newValue);
+        setRhs((AssignmentExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -301,7 +301,7 @@ public class AssignmentImpl extends ElementImpl implements Assignment
         setAsgn(ASGN_EDEFAULT);
         return;
       case BLESSPackage.ASSIGNMENT__RHS:
-        setRhs((ExpressionOrAny)null);
+        setRhs((AssignmentExpression)null);
         return;
     }
     super.eUnset(featureID);

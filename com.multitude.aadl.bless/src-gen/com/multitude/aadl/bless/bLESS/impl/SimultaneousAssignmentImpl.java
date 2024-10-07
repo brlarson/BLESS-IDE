@@ -5,8 +5,8 @@
  */
 package com.multitude.aadl.bless.bLESS.impl;
 
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
-import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
 import com.multitude.aadl.bless.bLESS.SimultaneousAssignment;
 import com.multitude.aadl.bless.bLESS.ValueName;
 
@@ -82,7 +82,7 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
    * @generated
    * @ordered
    */
-  protected EList<ExpressionOrAny> rhs;
+  protected EList<AssignmentExpression> rhs;
 
   /**
    * <!-- begin-user-doc -->
@@ -151,11 +151,11 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
    * @generated
    */
   @Override
-  public EList<ExpressionOrAny> getRhs()
+  public EList<AssignmentExpression> getRhs()
   {
     if (rhs == null)
     {
-      rhs = new EObjectContainmentEList<ExpressionOrAny>(ExpressionOrAny.class, this, BLESSPackage.SIMULTANEOUS_ASSIGNMENT__RHS);
+      rhs = new EObjectContainmentEList<AssignmentExpression>(AssignmentExpression.class, this, BLESSPackage.SIMULTANEOUS_ASSIGNMENT__RHS);
     }
     return rhs;
   }
@@ -218,7 +218,7 @@ public class SimultaneousAssignmentImpl extends ElementImpl implements Simultane
         return;
       case BLESSPackage.SIMULTANEOUS_ASSIGNMENT__RHS:
         getRhs().clear();
-        getRhs().addAll((Collection<? extends ExpressionOrAny>)newValue);
+        getRhs().addAll((Collection<? extends AssignmentExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

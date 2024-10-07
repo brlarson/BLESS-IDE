@@ -43,7 +43,7 @@ import com.multitude.aadl.bless.bLESS.IndexExpression
 import com.multitude.aadl.bless.bLESS.IndexExpressionOrRange
 import com.multitude.aadl.bless.bLESS.Invocation
 import com.multitude.aadl.bless.bLESS.MultDiv
-import com.multitude.aadl.bless.bLESS.NameTick
+//import com.multitude.aadl.bless.bLESS.NameTick
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessFunction
@@ -124,6 +124,7 @@ import com.multitude.aadl.bless.bLESS.UnitName
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots
 import com.multitude.aadl.bless.bLESS.NonNumericProperty
 import com.multitude.aadl.bless.bLESS.GuardedAction
+import com.multitude.aadl.bless.bLESS.TickName
 
 //import com.multitude.aadl.bless.bLESS.ArrayRange
 
@@ -864,16 +865,16 @@ def void checkThatAdditionHasCompatibleUnits(AddSub a)
 @Check(CheckType.NORMAL)
 def void checkThatAssignmentHasCompatibleUnits(Assignment a)  
   { 
-    if (a.rhs.exp.getType.isNull)
+    if (a.rhs.ex.exp.getType.isNull)
       {}  //null matches all types
-    else if (!a.lhs.getType.sameStructuralType(a.rhs.exp?.getType))
+    else if (!a.lhs.getType.sameStructuralType(a.rhs.ex.exp?.getType))
       fError('Targets of assignment must have compatible types with their expressions.  '+
-            a.lhs.getType.typeString+" is not "+a.rhs.exp?.getType.typeString, a,
+            a.lhs.getType.typeString+" is not "+a.rhs.ex.exp?.getType.typeString, a,
             BLESSPackage.eINSTANCE.assignment_Asgn, IssueCodes.INCOMPATIBLE_TYPES)
-    else if ( a.lhs.getType instanceof QuantityType && a.rhs.exp.getType instanceof QuantityType &&
-      !a.lhs.getUnitRecord.matchTopAndBottom(a.rhs.exp?.getUnitRecord)) 
+    else if ( a.lhs.getType instanceof QuantityType && a.rhs.ex.exp.getType instanceof QuantityType &&
+      !a.lhs.getUnitRecord.matchTopAndBottom(a.rhs.ex.exp?.getUnitRecord)) 
       fError('Target of assignment of must have the same base units as its expression; '+
-        a.lhs.getUnitRecord.toString+' is not '+a.rhs.exp.getUnitRecord.toString, a,
+        a.lhs.getUnitRecord.toString+' is not '+a.rhs.ex.exp.getUnitRecord.toString, a,
             BLESSPackage.eINSTANCE.assignment_Asgn, IssueCodes.INCOMPATIBLE_UNITS)              
   }
 
@@ -924,7 +925,7 @@ def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignmen
   else for (var i=0;i<a.lhs.size;i++)
     {
     val target = a.lhs.get(i)
-    val expression = a.rhs.get(i).exp
+    val expression = a.rhs.get(i).ex.exp
     val targetType = target.getType
     val expressionType = expression.getType
     if (expressionType.isNull)
@@ -1098,12 +1099,11 @@ def void checkThatGuardsAreBoolean(GuardedAction ga)
   }
 
 @Check(CheckType.NORMAL)
-def void checkNameTick(NameTick nt)
+def void checkNameTick(TickName nt)
   {
-  if ( nt.tick )  //does it have assignment or simultaneous assignment ancestor?
     if ( !nt.inAssignment )
     fError('Reachback ('+nt.value+'\') only allowed on rhs of assignment',nt,
-      BLESSPackage::eINSTANCE.nameTick_Value, IssueCodes.NAME_TICK_RHS_ASSIGNMENT) 
+      BLESSPackage::eINSTANCE.tickName_Value, IssueCodes.NAME_TICK_RHS_ASSIGNMENT) 
   }
 
 //@Check(CheckType.NORMAL)
@@ -1530,11 +1530,11 @@ def Type getType(Value e)
     qt.unit = e.getTimeUnit
     return qt
     }   
-  if (e.name_tick !== null)
+  if (e.value_name !== null)
     {
-    val t = e.name_tick.value.getType
+    val t = e.value_name.getType
     if (t === null)
-      fError('null type for value',e,BLESSPackage::eINSTANCE.value_Name_tick)
+      fError('null type for value',e,BLESSPackage::eINSTANCE.value_Value_name)
     return t
     }
   if (e.constant !== null)
@@ -2289,8 +2289,8 @@ def UnitRecord getUnitRecord(Value a)
     var retval = scalar
     try
     {
-      if (a.name_tick !== null)
-        retval = a.name_tick.value.getUnitRecord
+      if (a.value_name !== null)
+        retval = a.value_name.getUnitRecord
       if (a.constant !== null)
         retval = a.constant.getUnitRecord
       if (a.enum_val !== null)
@@ -2718,9 +2718,8 @@ def boolean isWhole(IndexExpressionOrRange ie)
   
 def boolean isWhole(Value v)  
   {
-  if (v.name_tick !== null)
-    if (v.name_tick.value.getType instanceof QuantityType)
-      return (v.name_tick.value.getType as QuantityType).whole !== null
+    if (v.value_name.getType instanceof QuantityType)
+      return (v.value_name.getType as QuantityType).whole !== null
 //  if (v.q) return (v.feature as Feature).isWhole
   if (v.constant !== null) return v.constant.isWhole
   false

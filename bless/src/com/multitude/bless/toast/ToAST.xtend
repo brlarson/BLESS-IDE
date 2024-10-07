@@ -72,7 +72,7 @@ import com.multitude.aadl.bless.bLESS.IssueException
 import com.multitude.aadl.bless.bLESS.LogicVariables
 import com.multitude.aadl.bless.bLESS.ModeCondition
 import com.multitude.aadl.bless.bLESS.MultDiv
-import com.multitude.aadl.bless.bLESS.NameTick
+import com.multitude.aadl.bless.bLESS.TickName
 import com.multitude.aadl.bless.bLESS.NamedAssertion
 import com.multitude.aadl.bless.bLESS.NamelessAssertion
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration
@@ -2443,18 +2443,15 @@ toAST(GuardedAction e)
 //  ^( TICK vn=valueName )
 //  | vn=valueName
   def dispatch BAST
-toAST(NameTick e)
+toAST(TickName e)
   {
   try {  
-	if (e.tick)	
     newBAST(e) =>  
        [  
   	   myText = "'"
        token = new CommonToken(BLESS3Lexer.TICK, "'")
        addChild(e.value.toAST) 	
        ]
-  else  //just one variable
-    e.value.toAST
     } catch (Exception ex) {ex.printStackTrace x}       
   }  //end of NameTick
 
@@ -2994,8 +2991,8 @@ toAST(Value e)
   {
   try 
     {  
-    if (e.name_tick!==null)
-      e.name_tick.toAST  //get BAST from Name
+    if (e.value_name!==null)
+      e.value_name.toAST  //get BAST from Name
     else if (e.constant!==null)
       e.constant.toAST  //Constant
     else if (e.timeout !== null) 

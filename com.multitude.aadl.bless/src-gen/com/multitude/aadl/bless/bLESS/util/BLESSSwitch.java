@@ -23,6 +23,7 @@ import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionLibrary;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BAAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots;
@@ -89,7 +90,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -129,6 +129,7 @@ import com.multitude.aadl.bless.bLESS.SubprogramAccessDispatch;
 import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.bLESS.SumQuantification;
 import com.multitude.aadl.bless.bLESS.ThrowsClause;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.TimedExpression;
 import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
@@ -625,11 +626,18 @@ public class BLESSSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case BLESSPackage.NAME_TICK:
+      case BLESSPackage.ASSIGNMENT_EXPRESSION:
       {
-        NameTick nameTick = (NameTick)theEObject;
-        T result = caseNameTick(nameTick);
-        if (result == null) result = caseElement(nameTick);
+        AssignmentExpression assignmentExpression = (AssignmentExpression)theEObject;
+        T result = caseAssignmentExpression(assignmentExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case BLESSPackage.TICK_NAME:
+      {
+        TickName tickName = (TickName)theEObject;
+        T result = caseTickName(tickName);
+        if (result == null) result = caseElement(tickName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -2222,17 +2230,33 @@ public class BLESSSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Name Tick</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assignment Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Name Tick</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assignment Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNameTick(NameTick object)
+  public T caseAssignmentExpression(AssignmentExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Tick Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tick Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTickName(TickName object)
   {
     return null;
   }

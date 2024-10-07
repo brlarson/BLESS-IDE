@@ -53,7 +53,6 @@ import com.multitude.aadl.bless.bLESS.InvariantClause;
 import com.multitude.aadl.bless.bLESS.Invocation;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessFunction;
@@ -84,6 +83,7 @@ import com.multitude.aadl.bless.bLESS.SubProgramParameter;
 import com.multitude.aadl.bless.bLESS.Subexpression;
 import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.bLESS.SumQuantification;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.TimedExpression;
 import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
@@ -1118,11 +1118,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkThatAssignmentHasCompatibleUnits(final Assignment a) {
-    boolean _isNull = this.isNull(this.getType(a.getRhs().getExp()));
+    boolean _isNull = this.isNull(this.getType(a.getRhs().getEx().getExp()));
     if (_isNull) {
     } else {
       Type _type = this.getType(a.getLhs());
-      Expression _exp = a.getRhs().getExp();
+      Expression _exp = a.getRhs().getEx().getExp();
       Type _type_1 = null;
       if (_exp!=null) {
         _type_1=this.getType(_exp);
@@ -1133,7 +1133,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         String _typeString = this._typeUtil.typeString(this.getType(a.getLhs()));
         String _plus = ("Targets of assignment must have compatible types with their expressions.  " + _typeString);
         String _plus_1 = (_plus + " is not ");
-        Expression _exp_1 = a.getRhs().getExp();
+        Expression _exp_1 = a.getRhs().getEx().getExp();
         Type _type_2 = null;
         if (_exp_1!=null) {
           _type_2=this.getType(_exp_1);
@@ -1144,11 +1144,11 @@ public class BLESSValidator extends AbstractBLESSValidator {
           BLESSPackage.eINSTANCE.getAssignment_Asgn(), IssueCodes.INCOMPATIBLE_TYPES);
       } else {
         boolean _and = false;
-        if (!((this.getType(a.getLhs()) instanceof QuantityType) && (this.getType(a.getRhs().getExp()) instanceof QuantityType))) {
+        if (!((this.getType(a.getLhs()) instanceof QuantityType) && (this.getType(a.getRhs().getEx().getExp()) instanceof QuantityType))) {
           _and = false;
         } else {
           UnitRecord _unitRecord = this.getUnitRecord(a.getLhs());
-          Expression _exp_2 = a.getRhs().getExp();
+          Expression _exp_2 = a.getRhs().getEx().getExp();
           UnitRecord _unitRecord_1 = null;
           if (_exp_2!=null) {
             _unitRecord_1=this.getUnitRecord(_exp_2);
@@ -1161,7 +1161,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
           String _string = this.getUnitRecord(a.getLhs()).toString();
           String _plus_3 = ("Target of assignment of must have the same base units as its expression; " + _string);
           String _plus_4 = (_plus_3 + " is not ");
-          String _string_1 = this.getUnitRecord(a.getRhs().getExp()).toString();
+          String _string_1 = this.getUnitRecord(a.getRhs().getEx().getExp()).toString();
           String _plus_5 = (_plus_4 + _string_1);
           this.fError(_plus_5, a, 
             BLESSPackage.eINSTANCE.getAssignment_Asgn(), IssueCodes.INCOMPATIBLE_UNITS);
@@ -1254,7 +1254,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
       for (int i = 0; (i < a.getLhs().size()); i++) {
         {
           final ValueName target = a.getLhs().get(i);
-          final Expression expression = a.getRhs().get(i).getExp();
+          final Expression expression = a.getRhs().get(i).getEx().getExp();
           final Type targetType = this.getType(target);
           final Type expressionType = this.getType(expression);
           boolean _isNull = this.isNull(expressionType);
@@ -1490,18 +1490,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
   }
 
   @Check(CheckType.NORMAL)
-  public void checkNameTick(final NameTick nt) {
-    boolean _isTick = nt.isTick();
-    if (_isTick) {
-      boolean _inAssignment = this._blessUtil.inAssignment(nt);
-      boolean _not = (!_inAssignment);
-      if (_not) {
-        ValueName _value = nt.getValue();
-        String _plus = ("Reachback (" + _value);
-        String _plus_1 = (_plus + "\') only allowed on rhs of assignment");
-        this.fError(_plus_1, nt, 
-          BLESSPackage.eINSTANCE.getNameTick_Value(), IssueCodes.NAME_TICK_RHS_ASSIGNMENT);
-      }
+  public void checkNameTick(final TickName nt) {
+    boolean _inAssignment = this._blessUtil.inAssignment(nt);
+    boolean _not = (!_inAssignment);
+    if (_not) {
+      ValueName _value = nt.getValue();
+      String _plus = ("Reachback (" + _value);
+      String _plus_1 = (_plus + "\') only allowed on rhs of assignment");
+      this.fError(_plus_1, nt, 
+        BLESSPackage.eINSTANCE.getTickName_Value(), IssueCodes.NAME_TICK_RHS_ASSIGNMENT);
     }
   }
 
@@ -1994,12 +1991,12 @@ public class BLESSValidator extends AbstractBLESSValidator {
       qt.setUnit(this._blessIndex.getTimeUnit(e));
       return qt;
     }
-    NameTick _name_tick = e.getName_tick();
-    boolean _tripleNotEquals_1 = (_name_tick != null);
+    ValueName _value_name = e.getValue_name();
+    boolean _tripleNotEquals_1 = (_value_name != null);
     if (_tripleNotEquals_1) {
-      final Type t = this.getType(e.getName_tick().getValue());
+      final Type t = this.getType(e.getValue_name());
       if ((t == null)) {
-        this.fError("null type for value", e, BLESSPackage.eINSTANCE.getValue_Name_tick());
+        this.fError("null type for value", e, BLESSPackage.eINSTANCE.getValue_Value_name());
       }
       return t;
     }
@@ -3284,10 +3281,10 @@ public class BLESSValidator extends AbstractBLESSValidator {
       }
       UnitRecord retval = this._unitUtil.scalar();
       try {
-        NameTick _name_tick = a.getName_tick();
-        boolean _tripleNotEquals = (_name_tick != null);
+        ValueName _value_name = a.getValue_name();
+        boolean _tripleNotEquals = (_value_name != null);
         if (_tripleNotEquals) {
-          retval = this.getUnitRecord(a.getName_tick().getValue());
+          retval = this.getUnitRecord(a.getValue_name());
         }
         Constant _constant = a.getConstant();
         boolean _tripleNotEquals_1 = (_constant != null);
@@ -3723,19 +3720,15 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public boolean isWhole(final Value v) {
     boolean _xblockexpression = false;
     {
-      NameTick _name_tick = v.getName_tick();
-      boolean _tripleNotEquals = (_name_tick != null);
-      if (_tripleNotEquals) {
-        Type _type = this.getType(v.getName_tick().getValue());
-        if ((_type instanceof QuantityType)) {
-          Type _type_1 = this.getType(v.getName_tick().getValue());
-          String _whole = ((QuantityType) _type_1).getWhole();
-          return (_whole != null);
-        }
+      Type _type = this.getType(v.getValue_name());
+      if ((_type instanceof QuantityType)) {
+        Type _type_1 = this.getType(v.getValue_name());
+        String _whole = ((QuantityType) _type_1).getWhole();
+        return (_whole != null);
       }
       Constant _constant = v.getConstant();
-      boolean _tripleNotEquals_1 = (_constant != null);
-      if (_tripleNotEquals_1) {
+      boolean _tripleNotEquals = (_constant != null);
+      if (_tripleNotEquals) {
         return this.isWhole(v.getConstant());
       }
       _xblockexpression = false;

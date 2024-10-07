@@ -4511,9 +4511,9 @@ ruleAssignment returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getAssignmentAccess().getRhsExpressionOrAnyParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getAssignmentAccess().getRhsAssignmentExpressionParserRuleCall_2_0());
 				}
-				lv_rhs_2_0=ruleExpressionOrAny
+				lv_rhs_2_0=ruleAssignmentExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getAssignmentRule());
@@ -4522,7 +4522,7 @@ ruleAssignment returns [EObject current=null]
 						$current,
 						"rhs",
 						lv_rhs_2_0,
-						"com.multitude.aadl.bless.BLESS.ExpressionOrAny");
+						"com.multitude.aadl.bless.BLESS.AssignmentExpression");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4530,15 +4530,15 @@ ruleAssignment returns [EObject current=null]
 	)
 ;
 
-// Entry rule entryRuleNameTick
-entryRuleNameTick returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getNameTickRule()); }
-	iv_ruleNameTick=ruleNameTick
-	{ $current=$iv_ruleNameTick.current; }
+// Entry rule entryRuleAssignmentExpression
+entryRuleAssignmentExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAssignmentExpressionRule()); }
+	iv_ruleAssignmentExpression=ruleAssignmentExpression
+	{ $current=$iv_ruleAssignmentExpression.current; }
 	EOF;
 
-// Rule NameTick
-ruleNameTick returns [EObject current=null]
+// Rule AssignmentExpression
+ruleAssignmentExpression returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -4549,36 +4549,94 @@ ruleNameTick returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getNameTickAccess().getValueValueNameParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getExExpressionOrAnyParserRuleCall_0_0());
 				}
-				lv_value_0_0=ruleValueName
+				lv_ex_0_0=ruleExpressionOrAny
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getNameTickRule());
+						$current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
 					}
 					set(
 						$current,
-						"value",
-						lv_value_0_0,
-						"com.multitude.aadl.bless.BLESS.ValueName");
+						"ex",
+						lv_ex_0_0,
+						"com.multitude.aadl.bless.BLESS.ExpressionOrAny");
 					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAssignmentExpressionAccess().getNtTickNameParserRuleCall_1_0());
+				}
+				lv_nt_1_0=ruleTickName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAssignmentExpressionRule());
+					}
+					set(
+						$current,
+						"nt",
+						lv_nt_1_0,
+						"com.multitude.aadl.bless.BLESS.TickName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleTickName
+entryRuleTickName returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTickNameRule()); }
+	iv_ruleTickName=ruleTickName
+	{ $current=$iv_ruleTickName.current; }
+	EOF;
+
+// Rule TickName
+ruleTickName returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_tick_0_0='\''
+				{
+					newLeafNode(lv_tick_0_0, grammarAccess.getTickNameAccess().getTickApostropheKeyword_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getTickNameRule());
+					}
+					setWithLastConsumed($current, "tick", lv_tick_0_0, "\'");
 				}
 			)
 		)
 		(
 			(
-				lv_tick_1_0='\''
 				{
-					newLeafNode(lv_tick_1_0, grammarAccess.getNameTickAccess().getTickApostropheKeyword_1_0());
+					newCompositeNode(grammarAccess.getTickNameAccess().getValueValueNameParserRuleCall_1_0());
 				}
+				lv_value_1_0=ruleValueName
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getNameTickRule());
+						$current = createModelElementForParent(grammarAccess.getTickNameRule());
 					}
-					setWithLastConsumed($current, "tick", lv_tick_1_0 != null, "\'");
+					set(
+						$current,
+						"value",
+						lv_value_1_0,
+						"com.multitude.aadl.bless.BLESS.ValueName");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)?
+		)
 	)
 ;
 
@@ -4743,9 +4801,9 @@ ruleSimultaneousAssignment returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getRhsExpressionOrAnyParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getRhsAssignmentExpressionParserRuleCall_4_0());
 				}
-				lv_rhs_5_0=ruleExpressionOrAny
+				lv_rhs_5_0=ruleAssignmentExpression
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getSimultaneousAssignmentRule());
@@ -4754,7 +4812,7 @@ ruleSimultaneousAssignment returns [EObject current=null]
 						$current,
 						"rhs",
 						lv_rhs_5_0,
-						"com.multitude.aadl.bless.BLESS.ExpressionOrAny");
+						"com.multitude.aadl.bless.BLESS.AssignmentExpression");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -4767,9 +4825,9 @@ ruleSimultaneousAssignment returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getRhsExpressionOrAnyParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getSimultaneousAssignmentAccess().getRhsAssignmentExpressionParserRuleCall_5_1_0());
 					}
-					lv_rhs_7_0=ruleExpressionOrAny
+					lv_rhs_7_0=ruleAssignmentExpression
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getSimultaneousAssignmentRule());
@@ -4778,7 +4836,7 @@ ruleSimultaneousAssignment returns [EObject current=null]
 							$current,
 							"rhs",
 							lv_rhs_7_0,
-							"com.multitude.aadl.bless.BLESS.ExpressionOrAny");
+							"com.multitude.aadl.bless.BLESS.AssignmentExpression");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -9123,18 +9181,18 @@ ruleValue returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getValueAccess().getName_tickNameTickParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getValueAccess().getValue_nameValueNameParserRuleCall_0_0());
 				}
-				lv_name_tick_0_0=ruleNameTick
+				lv_value_name_0_0=ruleValueName
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getValueRule());
 					}
 					set(
 						$current,
-						"name_tick",
-						lv_name_tick_0_0,
-						"com.multitude.aadl.bless.BLESS.NameTick");
+						"value_name",
+						lv_value_name_0_0,
+						"com.multitude.aadl.bless.BLESS.ValueName");
 					afterParserOrEnumRuleCall();
 				}
 			)

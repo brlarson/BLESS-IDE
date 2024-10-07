@@ -458,13 +458,22 @@ public interface BLESSFactory extends EFactory
   Assignment createAssignment();
 
   /**
-   * Returns a new object of class '<em>Name Tick</em>'.
+   * Returns a new object of class '<em>Assignment Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Name Tick</em>'.
+   * @return a new object of class '<em>Assignment Expression</em>'.
    * @generated
    */
-  NameTick createNameTick();
+  AssignmentExpression createAssignmentExpression();
+
+  /**
+   * Returns a new object of class '<em>Tick Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tick Name</em>'.
+   * @generated
+   */
+  TickName createTickName();
 
   /**
    * Returns a new object of class '<em>Expression Or Any</em>'.

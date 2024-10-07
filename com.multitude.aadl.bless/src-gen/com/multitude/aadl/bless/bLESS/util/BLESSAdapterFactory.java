@@ -23,6 +23,7 @@ import com.multitude.aadl.bless.bLESS.AssertionFunctionValue;
 import com.multitude.aadl.bless.bLESS.AssertionLibrary;
 import com.multitude.aadl.bless.bLESS.AssertionNumericExpression;
 import com.multitude.aadl.bless.bLESS.Assignment;
+import com.multitude.aadl.bless.bLESS.AssignmentExpression;
 import com.multitude.aadl.bless.bLESS.BAAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSAlternative;
 import com.multitude.aadl.bless.bLESS.BLESSGrammarRoots;
@@ -89,7 +90,6 @@ import com.multitude.aadl.bless.bLESS.LogicVariables;
 import com.multitude.aadl.bless.bLESS.LogicalOperator;
 import com.multitude.aadl.bless.bLESS.ModeCondition;
 import com.multitude.aadl.bless.bLESS.MultDiv;
-import com.multitude.aadl.bless.bLESS.NameTick;
 import com.multitude.aadl.bless.bLESS.NamedAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessAssertion;
 import com.multitude.aadl.bless.bLESS.NamelessEnumeration;
@@ -129,6 +129,7 @@ import com.multitude.aadl.bless.bLESS.SubprogramAccessDispatch;
 import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.bLESS.SumQuantification;
 import com.multitude.aadl.bless.bLESS.ThrowsClause;
+import com.multitude.aadl.bless.bLESS.TickName;
 import com.multitude.aadl.bless.bLESS.TimedExpression;
 import com.multitude.aadl.bless.bLESS.TimedSubject;
 import com.multitude.aadl.bless.bLESS.Transitions;
@@ -472,9 +473,14 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
         return createAssignmentAdapter();
       }
       @Override
-      public Adapter caseNameTick(NameTick object)
+      public Adapter caseAssignmentExpression(AssignmentExpression object)
       {
-        return createNameTickAdapter();
+        return createAssignmentExpressionAdapter();
+      }
+      @Override
+      public Adapter caseTickName(TickName object)
+      {
+        return createTickNameAdapter();
       }
       @Override
       public Adapter caseExpressionOrAny(ExpressionOrAny object)
@@ -1744,16 +1750,31 @@ public class BLESSAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.multitude.aadl.bless.bLESS.NameTick <em>Name Tick</em>}'.
+   * Creates a new adapter for an object of class '{@link com.multitude.aadl.bless.bLESS.AssignmentExpression <em>Assignment Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.multitude.aadl.bless.bLESS.NameTick
+   * @see com.multitude.aadl.bless.bLESS.AssignmentExpression
    * @generated
    */
-  public Adapter createNameTickAdapter()
+  public Adapter createAssignmentExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.multitude.aadl.bless.bLESS.TickName <em>Tick Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.multitude.aadl.bless.bLESS.TickName
+   * @generated
+   */
+  public Adapter createTickNameAdapter()
   {
     return null;
   }
