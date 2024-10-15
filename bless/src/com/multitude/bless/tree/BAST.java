@@ -824,7 +824,8 @@ private static int tab=0;  //tabbing for toStringTree
     {
     if (!Global.parsingPredeclaredProperties)
       {
-      Dump.it("showing tree: " + s);
+      Dump.it("displaying tree: " + s);
+      Dump.it(toStringTree());
       if (Activator.plugin != null) // is this an Eclipse plugin?
         {
         try {
@@ -842,7 +843,7 @@ private static int tab=0;  //tabbing for toStringTree
         shell.setSize(500, 500);
         shell.open();
           } catch (Exception ex) 
-          {Dump.it("Unable to show parse tree.");}
+          {Dump.it("Unable to display parse tree.");}
         } 
       else 
 		  Dump.it("Please choose Window->Show View->Other->Absract Syntax Tree to see the tree for \""
@@ -2040,6 +2041,24 @@ countOccurrenceOfTree(BAST z)
         || ((BAST) getParent()).hasType(BLESS3Lexer.MINUS)
         || ((BAST) getParent()).hasType(BLESS3Lexer.ASSERTION_FUNCTION)
         )
+      {
+      return true;
+      }
+    return false;
+    } // end of myParentIsAddSub
+
+  public boolean myParentIsInvocation()
+    {
+    if (getParent() == null)
+      {
+      return false;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.INVOKE))
+      {
+      return true;
+      }
+    else if (((BAST) getParent()).hasType(BLESS3Lexer.COLON) &&
+        ((BAST) getParent().getParent()).hasType(BLESS3Lexer.INVOKE))
       {
       return true;
       }

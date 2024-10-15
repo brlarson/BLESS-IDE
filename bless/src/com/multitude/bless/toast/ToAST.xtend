@@ -128,6 +128,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.osate.aadl2.Element
 import org.osate.aadl2.SubprogramAccess
 import org.osate.aadl2.SubprogramSubcomponent
+import com.multitude.aadl.bless.bLESS.AssignmentExpression
 
 class ToAST {
 
@@ -1679,7 +1680,7 @@ toAST(AssertedAction e)
    catch (Exception ex) {ex.printStackTrace x}
    }  //end of AssertedAction
 
-//assignment : ^( ASSIGN n=valueName e=expressionOrAny )
+//assignment : ^( ASSIGN n=valueName ae=assignmentExpression )
   def dispatch BAST
 toAST(Assignment e)
   {
@@ -1695,6 +1696,13 @@ toAST(Assignment e)
      } catch (Exception ex) {ex.printStackTrace x}
    }  //end of Assignment
 
+  def dispatch BAST
+toAST(AssignmentExpression e)
+  {
+  e.ex?.toAST ?:
+  e.nt.toAST
+  }
+  
 //DEPRECATED
   def dispatch BAST
 toAST(BAAlternative e)

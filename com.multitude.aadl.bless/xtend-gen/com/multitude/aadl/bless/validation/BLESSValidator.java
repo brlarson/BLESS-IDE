@@ -42,6 +42,7 @@ import com.multitude.aadl.bless.bLESS.ExecuteCondition;
 import com.multitude.aadl.bless.bLESS.ExistentialQuantification;
 import com.multitude.aadl.bless.bLESS.Exp;
 import com.multitude.aadl.bless.bLESS.Expression;
+import com.multitude.aadl.bless.bLESS.ExpressionOrAny;
 import com.multitude.aadl.bless.bLESS.ForallVariable;
 import com.multitude.aadl.bless.bLESS.FormalActual;
 import com.multitude.aadl.bless.bLESS.FormalActualList;
@@ -1118,8 +1119,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
 
   @Check(CheckType.NORMAL)
   public void checkThatAssignmentHasCompatibleUnits(final Assignment a) {
-    boolean _isNull = this.isNull(this.getType(a.getRhs().getEx().getExp()));
-    if (_isNull) {
+    if (((a.getRhs().getEx() == null) || this.isNull(this.getType(a.getRhs().getEx().getExp())))) {
     } else {
       Type _type = this.getType(a.getLhs());
       Expression _exp = a.getRhs().getEx().getExp();
@@ -1254,38 +1254,42 @@ public class BLESSValidator extends AbstractBLESSValidator {
       for (int i = 0; (i < a.getLhs().size()); i++) {
         {
           final ValueName target = a.getLhs().get(i);
-          final Expression expression = a.getRhs().get(i).getEx().getExp();
-          final Type targetType = this.getType(target);
-          final Type expressionType = this.getType(expression);
-          boolean _isNull = this.isNull(expressionType);
-          if (_isNull) {
-          } else {
-            boolean _sameStructuralType = this._typeUtil.sameStructuralType(targetType, expressionType);
-            boolean _not = (!_sameStructuralType);
-            if (_not) {
-              String _typeString = this._typeUtil.typeString(targetType);
-              String _plus = ("Targets of simultaneous assignment must have compatible types with expressions.  " + _typeString);
-              String _plus_1 = (_plus + " is not ");
-              String _typeString_1 = this._typeUtil.typeString(expressionType);
-              String _plus_2 = (_plus_1 + _typeString_1);
-              this.error(_plus_2, a, 
-                BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
+          ExpressionOrAny _ex = a.getRhs().get(i).getEx();
+          boolean _tripleNotEquals_1 = (_ex != null);
+          if (_tripleNotEquals_1) {
+            final Expression expression = a.getRhs().get(i).getEx().getExp();
+            final Type targetType = this.getType(target);
+            final Type expressionType = this.getType(expression);
+            boolean _isNull = this.isNull(expressionType);
+            if (_isNull) {
             } else {
-              UnitRecord _unitRecord = this.getUnitRecord(target);
-              UnitRecord _unitRecord_1 = null;
-              if (expression!=null) {
-                _unitRecord_1=this.getUnitRecord(expression);
-              }
-              boolean _matchTopAndBottom = _unitRecord.matchTopAndBottom(_unitRecord_1);
-              boolean _not_1 = (!_matchTopAndBottom);
-              if (_not_1) {
-                String _string = this.getUnitRecord(target).toString();
-                String _plus_3 = ("Target of assignment of must have the same base units as its expression; " + _string);
-                String _plus_4 = (_plus_3 + " is not ");
-                String _string_1 = this.getUnitRecord(expression).toString();
-                String _plus_5 = (_plus_4 + _string_1);
-                this.error(_plus_5, a, 
+              boolean _sameStructuralType = this._typeUtil.sameStructuralType(targetType, expressionType);
+              boolean _not = (!_sameStructuralType);
+              if (_not) {
+                String _typeString = this._typeUtil.typeString(targetType);
+                String _plus = ("Targets of simultaneous assignment must have compatible types with expressions.  " + _typeString);
+                String _plus_1 = (_plus + " is not ");
+                String _typeString_1 = this._typeUtil.typeString(expressionType);
+                String _plus_2 = (_plus_1 + _typeString_1);
+                this.error(_plus_2, a, 
                   BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
+              } else {
+                UnitRecord _unitRecord = this.getUnitRecord(target);
+                UnitRecord _unitRecord_1 = null;
+                if (expression!=null) {
+                  _unitRecord_1=this.getUnitRecord(expression);
+                }
+                boolean _matchTopAndBottom = _unitRecord.matchTopAndBottom(_unitRecord_1);
+                boolean _not_1 = (!_matchTopAndBottom);
+                if (_not_1) {
+                  String _string = this.getUnitRecord(target).toString();
+                  String _plus_3 = ("Target of assignment of must have the same base units as its expression; " + _string);
+                  String _plus_4 = (_plus_3 + " is not ");
+                  String _string_1 = this.getUnitRecord(expression).toString();
+                  String _plus_5 = (_plus_4 + _string_1);
+                  this.error(_plus_5, a, 
+                    BLESSPackage.eINSTANCE.getSimultaneousAssignment_Lhs(), i);
+                }
               }
             }
           }
@@ -3720,10 +3724,9 @@ public class BLESSValidator extends AbstractBLESSValidator {
   public boolean isWhole(final Value v) {
     boolean _xblockexpression = false;
     {
-      Type _type = this.getType(v.getValue_name());
-      if ((_type instanceof QuantityType)) {
-        Type _type_1 = this.getType(v.getValue_name());
-        String _whole = ((QuantityType) _type_1).getWhole();
+      if (((v.getValue_name() != null) && (this.getType(v.getValue_name()) instanceof QuantityType))) {
+        Type _type = this.getType(v.getValue_name());
+        String _whole = ((QuantityType) _type).getWhole();
         return (_whole != null);
       }
       Constant _constant = v.getConstant();

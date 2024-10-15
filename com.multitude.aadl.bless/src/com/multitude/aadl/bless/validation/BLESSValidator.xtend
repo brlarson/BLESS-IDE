@@ -865,7 +865,7 @@ def void checkThatAdditionHasCompatibleUnits(AddSub a)
 @Check(CheckType.NORMAL)
 def void checkThatAssignmentHasCompatibleUnits(Assignment a)  
   { 
-    if (a.rhs.ex.exp.getType.isNull)
+    if (a.rhs.ex === null || a.rhs.ex.exp.getType.isNull)
       {}  //null matches all types
     else if (!a.lhs.getType.sameStructuralType(a.rhs.ex.exp?.getType))
       fError('Targets of assignment must have compatible types with their expressions.  '+
@@ -925,26 +925,29 @@ def void checkThatSimultaneousAssignmentHasCompatibleUnits(SimultaneousAssignmen
   else for (var i=0;i<a.lhs.size;i++)
     {
     val target = a.lhs.get(i)
-    val expression = a.rhs.get(i).ex.exp
-    val targetType = target.getType
-    val expressionType = expression.getType
-    if (expressionType.isNull)
-      {}  //null matches all types
-	  else if (!targetType.sameStructuralType(expressionType))
-	    {
-      error('Targets of simultaneous assignment must have compatible types with expressions.  '+
-        targetType.typeString+" is not "+expressionType.typeString, a,
+    if (a.rhs.get(i).ex !== null)
+      {
+      val expression = a.rhs.get(i).ex.exp
+      val targetType = target.getType
+      val expressionType = expression.getType
+      if (expressionType.isNull)
+        {}  //null matches all types
+   	  else if (!targetType.sameStructuralType(expressionType))
+	      {
+        error('Targets of simultaneous assignment must have compatible types with expressions.  '+
+          targetType.typeString+" is not "+expressionType.typeString, a,
 						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)
-//      fError('Expressions of simultaneous assignment must have compatible types with targets', a,
-//						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)			
-			}
-	  else if (!target.getUnitRecord.matchTopAndBottom(expression?.getUnitRecord))
-	    {	
-      error('Target of assignment of must have the same base units as its expression; '+
-      	target.getUnitRecord.toString+' is not '+expression.getUnitRecord.toString, a,
-						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)  	
-//      fError('Expressions too ', a,
-//						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)  	
+  //      fError('Expressions of simultaneous assignment must have compatible types with targets', a,
+  //						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)			
+	  		}
+  	  else if (!target.getUnitRecord.matchTopAndBottom(expression?.getUnitRecord))
+	      {	
+        error('Target of assignment of must have the same base units as its expression; '+
+        	target.getUnitRecord.toString+' is not '+expression.getUnitRecord.toString, a,
+  						BLESSPackage.eINSTANCE.simultaneousAssignment_Lhs, i)  	
+  //      fError('Expressions too ', a,
+  //						BLESSPackage.eINSTANCE.simultaneousAssignment_Rhs, i)  	
+  		  }		  
 		  }
 	  }		      
   }
@@ -2718,14 +2721,14 @@ def boolean isWhole(IndexExpressionOrRange ie)
   
 def boolean isWhole(Value v)  
   {
-    if (v.value_name.getType instanceof QuantityType)
-      return (v.value_name.getType as QuantityType).whole !== null
+  if (v.value_name!==null && v.value_name.getType instanceof QuantityType)
+    return (v.value_name.getType as QuantityType).whole !== null
 //  if (v.q) return (v.feature as Feature).isWhole
   if (v.constant !== null) return v.constant.isWhole
   false
   }
 
-def boolean isWhole(Feature f)
+def boolean isWhole(Feature f) 
   {
 //TODO determine isWhole for aadl2::Feature
   true    

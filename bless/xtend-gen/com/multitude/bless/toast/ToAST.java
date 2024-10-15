@@ -2809,6 +2809,22 @@ public class ToAST {
     return _xtrycatchfinallyexpression;
   }
 
+  protected BAST _toAST(final AssignmentExpression e) {
+    BAST _elvis = null;
+    ExpressionOrAny _ex = e.getEx();
+    BAST _aST = null;
+    if (_ex!=null) {
+      _aST=this.toAST(_ex);
+    }
+    if (_aST != null) {
+      _elvis = _aST;
+    } else {
+      BAST _aST_1 = this.toAST(e.getNt());
+      _elvis = _aST_1;
+    }
+    return _elvis;
+  }
+
   protected BAST _toAST(final BAAlternative e) {
     BAST _newBAST = this.newBAST(e);
     final Procedure1<BAST> _function = (BAST it) -> {
@@ -6900,6 +6916,8 @@ public class ToAST {
       return _toAST((WhenThrow)e);
     } else if (e instanceof WhileLoop) {
       return _toAST((WhileLoop)e);
+    } else if (e instanceof AssignmentExpression) {
+      return _toAST((AssignmentExpression)e);
     } else if (e instanceof Type) {
       return _toAST((Type)e);
     } else {
