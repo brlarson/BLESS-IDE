@@ -24,4 +24,4 @@ Export-Package: com.multitude.aadl.bless.ui.contentassist,
  com.multitude.aadl.bless.ui.internal,
  com.multitude.aadl.bless.ui.quickfix
 Bundle-Activator: com.multitude.aadl.bless.ui.internal.BlessActivator
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21

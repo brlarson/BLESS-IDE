@@ -4,9 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>com.multitude.bless.codegeneration</project>
-		<project>edu.ksu.bless.assertion</project>
-		<project>edu.ksu.bless.bless</project>
-		<project>edu.ksu.bless.subbless</project>
+		<project>org.osate.aadl2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

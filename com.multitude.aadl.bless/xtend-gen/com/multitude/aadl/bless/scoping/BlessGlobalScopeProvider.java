@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.scoping;
 
-import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
@@ -10,6 +9,7 @@ import com.multitude.aadl.bless.bLESS.TypeDeclaration;
 import com.multitude.aadl.bless.bLESS.UnitName;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -29,10 +29,10 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
   public IScope getScope(final Resource context, final EReference reference, final Predicate<IEObjectDescription> filter) {
     IScope _xblockexpression = null;
     {
-      if ((((((Objects.equal(reference, BLESSPackage.eINSTANCE.getQuantityType_Unit()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getUnitExtension_Root())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getQuantity_Unit())) || Objects.equal(reference, BLESSPackage.eINSTANCE.getRootDeclaration_UnitName())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getUnitFormula_Bottom())) || Objects.equal(reference, BLESSPackage.eINSTANCE.getUnitFormula_Top()))) {
+      if ((((((Objects.equals(reference, BLESSPackage.eINSTANCE.getQuantityType_Unit()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getUnitExtension_Root())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getQuantity_Unit())) || Objects.equals(reference, BLESSPackage.eINSTANCE.getRootDeclaration_UnitName())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getUnitFormula_Bottom())) || Objects.equals(reference, BLESSPackage.eINSTANCE.getUnitFormula_Top()))) {
         final List<EObject> unitNames = new ArrayList<EObject>();
         Iterable<UnitName> _visibleUnitNames = this._blessIndex.getVisibleUnitNames(context);
         for (final UnitName un : _visibleUnitNames) {
@@ -40,10 +40,10 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
         }
         return Scopes.scopeFor(unitNames);
       }
-      if ((((Objects.equal(reference, BLESSPackage.eINSTANCE.getTypeOrReference_Ref()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getRecordTerm_Record_type())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getEnumerationValue_Enumeration_type())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getNamedAssertion_EnumerationType()))) {
+      if ((((Objects.equals(reference, BLESSPackage.eINSTANCE.getTypeOrReference_Ref()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getRecordTerm_Record_type())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getEnumerationValue_Enumeration_type())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getNamedAssertion_EnumerationType()))) {
         final List<EObject> typeDeclarations = new ArrayList<EObject>();
         Iterable<TypeDeclaration> _visibleTypeDeclarations = this._blessIndex.getVisibleTypeDeclarations(context);
         for (final TypeDeclaration un_1 : _visibleTypeDeclarations) {
@@ -52,7 +52,7 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
         return Scopes.scopeFor(typeDeclarations);
       }
       EReference _invocation_Label = BLESSPackage.eINSTANCE.getInvocation_Label();
-      boolean _equals = Objects.equal(reference, _invocation_Label);
+      boolean _equals = Objects.equals(reference, _invocation_Label);
       if (_equals) {
         final List<EObject> namedAssertions = new ArrayList<EObject>();
         Iterable<NamedAssertion> _visibleNamedAssertions = this._blessIndex.getVisibleNamedAssertions(context);
@@ -62,7 +62,7 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
         return Scopes.scopeFor(namedAssertions);
       }
       EReference _valueName_Id = BLESSPackage.eINSTANCE.getValueName_Id();
-      boolean _equals_1 = Objects.equal(reference, _valueName_Id);
+      boolean _equals_1 = Objects.equals(reference, _valueName_Id);
       if (_equals_1) {
         final List<EObject> ghostVariables = new ArrayList<EObject>();
         Iterable<GhostVariable> _visibleGhostVariables = this._blessIndex.getVisibleGhostVariables(context);
@@ -71,8 +71,8 @@ public class BlessGlobalScopeProvider extends EClassGlobalScopeProvider {
         }
         return Scopes.scopeFor(ghostVariables);
       }
-      if ((Objects.equal(reference, BLESSPackage.eINSTANCE.getThrowsClause_Exceptions()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getWhenThrow_Exception()))) {
+      if ((Objects.equals(reference, BLESSPackage.eINSTANCE.getThrowsClause_Exceptions()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getWhenThrow_Exception()))) {
         final List<EObject> exceptions = new ArrayList<EObject>();
         Iterable<Exception> _visibleExceptions = this._blessIndex.getVisibleExceptions(context);
         for (final Exception ex : _visibleExceptions) {

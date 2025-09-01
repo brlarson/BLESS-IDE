@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.util;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.BLESSFactory;
 import com.multitude.aadl.bless.bLESS.QuantityType;
@@ -12,6 +11,7 @@ import com.multitude.aadl.bless.scoping.BlessIndex;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -79,7 +79,7 @@ public class UnitUtil {
   }
 
   public boolean sameUnitRoot(final UnitName u1, final UnitName u2) {
-    return ((u1.getName().compareTo(u2.getName()) == 0) || Objects.equal(this._blessIndex.getRootUnit(u1), this._blessIndex.getRootUnit(u2)));
+    return ((u1.getName().compareTo(u2.getName()) == 0) || Objects.equals(this._blessIndex.getRootUnit(u1), this._blessIndex.getRootUnit(u2)));
   }
 
   public boolean sameUnitRoot(final Iterable<UnitName> unitSet) {
@@ -91,7 +91,7 @@ public class UnitUtil {
       final Iterable<UnitName> rootSet = IterableExtensions.<UnitName, UnitName>map(unitSet, _function);
       final Function1<UnitName, Boolean> _function_1 = (UnitName r) -> {
         UnitName _last = IterableExtensions.<UnitName>last(rootSet);
-        return Boolean.valueOf(Objects.equal(_last, r));
+        return Boolean.valueOf(Objects.equals(_last, r));
       };
       _xblockexpression = IterableExtensions.<UnitName>forall(rootSet, _function_1);
     }

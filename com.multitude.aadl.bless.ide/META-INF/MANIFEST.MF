@@ -13,4 +13,4 @@ Require-Bundle: com.multitude.aadl.bless,
 Export-Package: com.multitude.aadl.bless.ide.contentassist.antlr.internal,
  com.multitude.aadl.bless.ide.contentassist.antlr,
  com.multitude.aadl.bless.ide
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21

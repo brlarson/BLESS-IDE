@@ -1,6 +1,5 @@
 package com.multitude.bless.toast;
 
-import com.google.common.base.Objects;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.Action;
 import com.multitude.aadl.bless.bLESS.ActionSubclause;
@@ -136,6 +135,7 @@ import com.multitude.bless.tree.BAST;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import org.antlr.runtime.CommonToken;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.EList;
@@ -144,6 +144,7 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 import org.osate.aadl2.CalledSubprogram;
 import org.osate.aadl2.ComponentClassifier;
 import org.osate.aadl2.Element;
@@ -6200,7 +6201,7 @@ public class ToAST {
         BAST _switchResult = null;
         LogicalOperator _op_1 = e.getOp();
         boolean _matched = false;
-        if (Objects.equal(_op_1, "and")) {
+        if (Objects.equals(_op_1, "and")) {
           _matched=true;
           BAST _newBAST = this.newBAST(e);
           final Procedure1<BAST> _function = (BAST it) -> {
@@ -6216,7 +6217,7 @@ public class ToAST {
           _switchResult = ObjectExtensions.<BAST>operator_doubleArrow(_newBAST, _function);
         }
         if (!_matched) {
-          if (Objects.equal(_op_1, "or")) {
+          if (Objects.equals(_op_1, "or")) {
             _matched=true;
             BAST _newBAST_1 = this.newBAST(e);
             final Procedure1<BAST> _function_1 = (BAST it) -> {
@@ -6233,7 +6234,7 @@ public class ToAST {
           }
         }
         if (!_matched) {
-          if (Objects.equal(_op_1, "xor")) {
+          if (Objects.equals(_op_1, "xor")) {
             _matched=true;
             BAST _newBAST_2 = this.newBAST(e);
             final Procedure1<BAST> _function_2 = (BAST it) -> {
@@ -6250,7 +6251,7 @@ public class ToAST {
           }
         }
         if (!_matched) {
-          if (Objects.equal(_op_1, "then")) {
+          if (Objects.equals(_op_1, "then")) {
             _matched=true;
             BAST _newBAST_3 = this.newBAST(e);
             final Procedure1<BAST> _function_3 = (BAST it) -> {
@@ -6267,7 +6268,7 @@ public class ToAST {
           }
         }
         if (!_matched) {
-          if (Objects.equal(_op_1, "else")) {
+          if (Objects.equals(_op_1, "else")) {
             _matched=true;
             BAST _newBAST_4 = this.newBAST(e);
             final Procedure1<BAST> _function_4 = (BAST it) -> {
@@ -6514,42 +6515,42 @@ public class ToAST {
     try {
       BAST _switchResult = null;
       boolean _matched = false;
-      if (Objects.equal(e, ArrayType.class)) {
+      if (Objects.equals(e, ArrayType.class)) {
         _matched=true;
         _switchResult = this.toAST(((ArrayType) e));
       }
       if (!_matched) {
-        if (Objects.equal(e, BooleanType.class)) {
+        if (Objects.equals(e, BooleanType.class)) {
           _matched=true;
           _switchResult = this.toAST(((BooleanType) e));
         }
       }
       if (!_matched) {
-        if (Objects.equal(e, EnumerationType.class)) {
+        if (Objects.equals(e, EnumerationType.class)) {
           _matched=true;
           _switchResult = this.toAST(((EnumerationType) e));
         }
       }
       if (!_matched) {
-        if (Objects.equal(e, NullType.class)) {
+        if (Objects.equals(e, NullType.class)) {
           _matched=true;
           _switchResult = this.toAST(((NullType) e));
         }
       }
       if (!_matched) {
-        if (Objects.equal(e, QuantityType.class)) {
+        if (Objects.equals(e, QuantityType.class)) {
           _matched=true;
           _switchResult = this.toAST(((QuantityType) e));
         }
       }
       if (!_matched) {
-        if (Objects.equal(e, RecordType.class)) {
+        if (Objects.equals(e, RecordType.class)) {
           _matched=true;
           _switchResult = this.toAST(((RecordType) e));
         }
       }
       if (!_matched) {
-        if (Objects.equal(e, StringType.class)) {
+        if (Objects.equals(e, StringType.class)) {
           _matched=true;
           _switchResult = this.toAST(((StringType) e));
         }
@@ -6687,6 +6688,7 @@ public class ToAST {
     return _elvis;
   }
 
+  @XbaseGenerated
   public BAST toAST(final Notifier e) {
     if (e instanceof ActionSubclause) {
       return _toAST((ActionSubclause)e);

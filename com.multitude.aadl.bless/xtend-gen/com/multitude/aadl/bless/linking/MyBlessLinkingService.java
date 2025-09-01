@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.linking;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.BlessControl;
 import com.multitude.aadl.bless.bLESS.BLESSPackage;
@@ -12,6 +11,7 @@ import com.multitude.aadl.bless.bLESS.SubprogramCall;
 import com.multitude.aadl.bless.util.BlessUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
@@ -51,8 +51,8 @@ public class MyBlessLinkingService extends DefaultLinkingService {
       if (_eIsProxy) {
         EcoreUtil.resolve(ref, context);
       }
-      if ((Objects.equal(ref, BLESSPackage.eINSTANCE.getNonNumericProperty_PropertyConstant()) || 
-        Objects.equal(ref, BLESSPackage.eINSTANCE.getANumber_PropertyConstant()))) {
+      if ((Objects.equals(ref, BLESSPackage.eINSTANCE.getNonNumericProperty_PropertyConstant()) || 
+        Objects.equals(ref, BLESSPackage.eINSTANCE.getANumber_PropertyConstant()))) {
         final PropertyConstant propertyConstant = GetProperties.lookupPropertyConstant(context, s);
         if ((propertyConstant != null)) {
           result.add(propertyConstant);
@@ -61,7 +61,7 @@ public class MyBlessLinkingService extends DefaultLinkingService {
         }
       } else {
         EReference _propertyReference_Pname = BLESSPackage.eINSTANCE.getPropertyReference_Pname();
-        boolean _equals = Objects.equal(ref, _propertyReference_Pname);
+        boolean _equals = Objects.equals(ref, _propertyReference_Pname);
         if (_equals) {
           final Property propertyDefinition = GetProperties.lookupPropertyDefinition(context, s);
           if ((propertyDefinition != null)) {
@@ -71,7 +71,7 @@ public class MyBlessLinkingService extends DefaultLinkingService {
           }
         } else {
           EReference _propertyReference_Cpname = BLESSPackage.eINSTANCE.getPropertyReference_Cpname();
-          boolean _equals_1 = Objects.equal(ref, _propertyReference_Cpname);
+          boolean _equals_1 = Objects.equals(ref, _propertyReference_Cpname);
           if (_equals_1) {
             final ComponentClassifier component = ((PropertyReference) context).getComponent();
             final Property componentPropertyDefinition = GetProperties.lookupPropertyDefinition(component, s);
@@ -85,7 +85,7 @@ public class MyBlessLinkingService extends DefaultLinkingService {
             }
           } else {
             EReference _propertyReference_Spname = BLESSPackage.eINSTANCE.getPropertyReference_Spname();
-            boolean _equals_2 = Objects.equal(ref, _propertyReference_Spname);
+            boolean _equals_2 = Objects.equals(ref, _propertyReference_Spname);
             if (_equals_2) {
               final Classifier me = AadlUtil.getContainingClassifier(context);
               final Property selfPropertyDefinition = GetProperties.lookupPropertyDefinition(me, s);
@@ -96,7 +96,7 @@ public class MyBlessLinkingService extends DefaultLinkingService {
               }
             } else {
               EReference _formalActual_Formal = BLESSPackage.eINSTANCE.getFormalActual_Formal();
-              boolean _equals_3 = Objects.equal(ref, _formalActual_Formal);
+              boolean _equals_3 = Objects.equals(ref, _formalActual_Formal);
               if (_equals_3) {
                 if ((context instanceof FormalActual)) {
                   final FormalActual fa = ((FormalActual) context);
@@ -165,7 +165,7 @@ public class MyBlessLinkingService extends DefaultLinkingService {
                 }
               } else {
                 EAttribute _eventTrigger_Sub = BLESSPackage.eINSTANCE.getEventTrigger_Sub();
-                boolean _equals_5 = Objects.equal(ref, _eventTrigger_Sub);
+                boolean _equals_5 = Objects.equals(ref, _eventTrigger_Sub);
                 if (_equals_5) {
                   if ((context instanceof EventTrigger)) {
                     final ComponentClassifier component_1 = this._blessUtil.getSubcomponentFromListOfIDs(context, ((EventTrigger) context).getSub());

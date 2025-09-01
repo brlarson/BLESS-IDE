@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: BLESS Code Generation
 Bundle-SymbolicName: com.multitude.bless.codegeneration;singleton:=true
+Bundle-Vendor: Multitude Corporation
 Bundle-Version: 3.2.5.qualifier
 Bundle-Activator: com.multitude.bless.codegeneration.Activator
 Require-Bundle: com.multitude.bless,
@@ -10,7 +11,7 @@ Require-Bundle: com.multitude.bless,
  com.multitude.aadl.bless,
  org.osate.xtext.aadl2.ui;bundle-version="[7.0.0,9.0.0)",
  org.antlr.generator;bundle-version="3.2.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: com.multitude.bless.codegeneration
 Export-Package: com.multitude.bless.codegeneration,

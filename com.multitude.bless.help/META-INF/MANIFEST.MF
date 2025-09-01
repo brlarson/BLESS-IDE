@@ -5,5 +5,5 @@ Bundle-SymbolicName: com.multitude.bless.help;singleton:=true
 Bundle-Version: 3.2.5.qualifier
 Bundle-Vendor: Multitude Corporation
 Automatic-Module-Name: com.multitude.bless.help
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy

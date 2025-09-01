@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.util;
 
-import com.google.common.base.Objects;
 import com.multitude.aadl.bless.bLESS.Assignment;
 import com.multitude.aadl.bless.bLESS.BehaviorActions;
 import com.multitude.aadl.bless.bLESS.Invocation;
@@ -14,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -151,7 +151,7 @@ public class BlessUtil extends AbstractBLESSValidator {
     for (final Subcomponent subcomponent : _subcomponents) {
       String _name = subcomponent.getName();
       String _head = IterableExtensions.<String>head(sub);
-      boolean _equals = Objects.equal(_name, _head);
+      boolean _equals = Objects.equals(_name, _head);
       if (_equals) {
         int _length = ((Object[])Conversions.unwrapArray(sub, Object.class)).length;
         boolean _equals_1 = (_length == 1);

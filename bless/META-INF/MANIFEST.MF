@@ -42,5 +42,5 @@ Import-Package: org.antlr.stringtemplate,
  org.antlr.stringtemplate.language
 Bundle-ClassPath: bin
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: com.multitude.bless

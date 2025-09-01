@@ -15,6 +15,7 @@ import org.eclipse.xtext.formatting2.AbstractFormatter2;
 import org.eclipse.xtext.formatting2.IFormattableDocument;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
 
 @SuppressWarnings("all")
 public class BLESSFormatter extends AbstractFormatter2 {
@@ -29,6 +30,7 @@ public class BLESSFormatter extends AbstractFormatter2 {
     }
   }
 
+  @XbaseGenerated
   public void format(final Object unitLibrary, final IFormattableDocument document) {
     if (unitLibrary instanceof UnitLibrary) {
       _format((UnitLibrary)unitLibrary, document);

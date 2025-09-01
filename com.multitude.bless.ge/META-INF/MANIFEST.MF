@@ -5,7 +5,7 @@ Bundle-SymbolicName: com.multitude.bless.ge;singleton:=true
 Bundle-Version: 3.2.5.qualifier
 Bundle-Vendor: Multitude Corporation
 Automatic-Module-Name: org.multitude.bless.ge
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.osate.ge;bundle-version="[3.1.0,4.0.0)",
  com.multitude.aadl.bless,
  org.eclipse.ui.views.properties.tabbed;bundle-version="[3.8.0,4.0.0)",

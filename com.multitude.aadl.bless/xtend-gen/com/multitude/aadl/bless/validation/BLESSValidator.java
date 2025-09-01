@@ -3,7 +3,6 @@
  */
 package com.multitude.aadl.bless.validation;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.ANumber;
 import com.multitude.aadl.bless.bLESS.ActualParameter;
@@ -111,6 +110,7 @@ import com.multitude.aadl.bless.util.UnitUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
@@ -166,7 +166,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
   @Override
   protected boolean isResponsible(final Map<Object, Object> context, final EObject eObject) {
     EPackage _ePackage = eObject.eClass().getEPackage();
-    return Objects.equal(_ePackage, BLESSPackage.eINSTANCE);
+    return Objects.equals(_ePackage, BLESSPackage.eINSTANCE);
   }
 
   @Override
@@ -616,7 +616,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         } else {
           String _name = ((EnumerationValue) vd).getEnumeration_type().getName();
           String _name_1 = i.getLabel().getEnumerationType().getName();
-          boolean _notEquals_1 = (!Objects.equal(_name, _name_1));
+          boolean _notEquals_1 = (!Objects.equals(_name, _name_1));
           if (_notEquals_1) {
             String _name_2 = ((EnumerationValue) vd).getEnumeration_type().getName();
             String _plus = ("Parameter for assertion enumeration invocation must have the same enumeration type: " + _name_2);
@@ -715,7 +715,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                     boolean found = false;
                     String _name_6 = i.getLabel().getFormals().getFirst().getName();
                     String _formal = param.getFormal();
-                    boolean _equals = Objects.equal(_name_6, _formal);
+                    boolean _equals = Objects.equals(_name_6, _formal);
                     if (_equals) {
                       found = true;
                       boolean _sameStructuralType_1 = this._typeUtil.sameStructuralType(this.getType(i.getLabel().getFormals().getFirst()), this.getType(param.getActual()));
@@ -764,7 +764,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
                     for (final Variable formal : _parameter_1) {
                       String _name_9 = formal.getName();
                       String _formal_5 = param.getFormal();
-                      boolean _equals_1 = Objects.equal(_name_9, _formal_5);
+                      boolean _equals_1 = Objects.equals(_name_9, _formal_5);
                       if (_equals_1) {
                         found = true;
                         boolean _sameStructuralType_2 = this._typeUtil.sameStructuralType(this.getType(formal.getTod()), this.getType(param.getActual()));
@@ -1407,7 +1407,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
             } else {
               List<Feature> _featuresOfComponent = this._blessUtil.getFeaturesOfComponent(sc.getProcedure());
               for (final Feature p : _featuresOfComponent) {
-                if ((((p instanceof Parameter) && Objects.equal(((Parameter) p), v.getFormal())) && (!((Parameter) p).isIn()))) {
+                if ((((p instanceof Parameter) && Objects.equals(((Parameter) p), v.getFormal())) && (!((Parameter) p).isIn()))) {
                   this.fError("Expression subprogram parameters must have \"in\" direction.", v, 
                     BLESSPackage.eINSTANCE.getFormalActual_Actual(), IssueCodes.SUBPROGRAM_CALL_EXPRESSION_PARAMETER_MUST_HAVE_FORMAL);
                 }
@@ -1670,7 +1670,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
         for (final Mode m : modes) {
           String _name = m.getName();
           String _name_1 = state.getName();
-          boolean _equals = Objects.equal(_name, _name_1);
+          boolean _equals = Objects.equals(_name, _name_1);
           if (_equals) {
             hasMode = true;
           }
@@ -2706,7 +2706,7 @@ public class BLESSValidator extends AbstractBLESSValidator {
           final SubprogramTypeImpl st = ((SubprogramTypeImpl) _subprogramSubcomponentType);
           EList<Parameter> _ownedParameters = st.getOwnedParameters();
           for (final Parameter feat : _ownedParameters) {
-            if (((!Objects.equal(feat, st.getOwnedParameters().getLast())) && ((Parameter) feat).isOut())) {
+            if (((!Objects.equals(feat, st.getOwnedParameters().getLast())) && ((Parameter) feat).isOut())) {
               String _name_7 = a.getId().getName();
               String _plus_15 = ("Subprogram \'" + _name_7);
               String _plus_16 = (_plus_15 + " feature \'");

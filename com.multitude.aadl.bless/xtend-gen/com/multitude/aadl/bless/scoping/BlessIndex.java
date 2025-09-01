@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.scoping;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -16,6 +15,7 @@ import com.multitude.aadl.bless.bLESS.UnitExtension;
 import com.multitude.aadl.bless.bLESS.UnitName;
 import com.multitude.aadl.bless.exception.ValidationException;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -351,7 +351,7 @@ public class BlessIndex {
     {
       final Function1<TypeDeclaration, Boolean> _function = (TypeDeclaration it) -> {
         String _name = it.getName();
-        return Boolean.valueOf(Objects.equal(_name, id));
+        return Boolean.valueOf(Objects.equals(_name, id));
       };
       final TypeDeclaration td = IterableExtensions.<TypeDeclaration>head(IterableExtensions.<TypeDeclaration>filter(this.getVisibleTypeDeclarations(r), _function));
       if ((td == null)) {

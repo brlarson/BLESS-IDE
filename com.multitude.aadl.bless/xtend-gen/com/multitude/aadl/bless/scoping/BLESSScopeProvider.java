@@ -1,6 +1,5 @@
 package com.multitude.aadl.bless.scoping;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.multitude.aadl.bless.bLESS.ActionSubclause;
 import com.multitude.aadl.bless.bLESS.AssertionLibrary;
@@ -23,6 +22,7 @@ import com.multitude.aadl.bless.util.AssertionUtil;
 import com.multitude.aadl.bless.util.BlessUtil;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
@@ -42,15 +42,15 @@ public class BLESSScopeProvider extends AbstractBLESSScopeProvider {
   public IScope getScope(final EObject context, final EReference reference) {
     IScope _xblockexpression = null;
     {
-      if ((Objects.equal(reference, BLESSPackage.eINSTANCE.getVariableList_First()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getVariableList_Parameter()))) {
+      if ((Objects.equals(reference, BLESSPackage.eINSTANCE.getVariableList_First()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getVariableList_Parameter()))) {
         EObject _eContainer = context.eContainer();
         if ((_eContainer instanceof NamedAssertion)) {
           return IScope.NULLSCOPE;
         }
       }
       final List<EObject> refs = new ArrayList<EObject>();
-      if (((Objects.equal(reference, BLESSPackage.eINSTANCE.getValueName_Id()) || Objects.equal(reference, BLESSPackage.eINSTANCE.getCombinableOperation_Target())) || Objects.equal(reference, BLESSPackage.eINSTANCE.getCombinableOperation_Result()))) {
+      if (((Objects.equals(reference, BLESSPackage.eINSTANCE.getValueName_Id()) || Objects.equals(reference, BLESSPackage.eINSTANCE.getCombinableOperation_Target())) || Objects.equals(reference, BLESSPackage.eINSTANCE.getCombinableOperation_Result()))) {
         EObject up = context.eContainer();
         while (((((up != null) && (!(up instanceof AssertionLibrary))) && 
           (!(up instanceof BLESSSubclause))) && (!(up instanceof ActionSubclause)))) {
@@ -136,26 +136,26 @@ public class BLESSScopeProvider extends AbstractBLESSScopeProvider {
         }
         return Scopes.scopeFor(refs, super.getScope(context, reference));
       }
-      if ((((((((Objects.equal(reference, BLESSPackage.eINSTANCE.getInternalCondition_First()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getInternalCondition_Ports())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getDispatchTrigger_Port())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getDispatchTrigger_Ports())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getFreezePort_Frozen())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getPortInput_Port())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getPortOutput_Port())) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getPortName_Port()))) {
+      if ((((((((Objects.equals(reference, BLESSPackage.eINSTANCE.getInternalCondition_First()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getInternalCondition_Ports())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getDispatchTrigger_Port())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getDispatchTrigger_Ports())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getFreezePort_Frozen())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getPortInput_Port())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getPortOutput_Port())) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getPortName_Port()))) {
         refs.addAll(this._blessUtil.getFeaturesOfComponent(context));
         return Scopes.scopeFor(refs);
       }
       EReference _subprogramCall_Procedure = BLESSPackage.eINSTANCE.getSubprogramCall_Procedure();
-      boolean _equals = Objects.equal(reference, _subprogramCall_Procedure);
+      boolean _equals = Objects.equals(reference, _subprogramCall_Procedure);
       if (_equals) {
         refs.addAll(this._blessUtil.getSubprogramAccesses(context));
         refs.addAll(this._blessUtil.getSubcomponents(context));
         return Scopes.scopeFor(refs);
       }
-      if ((Objects.equal(reference, BLESSPackage.eINSTANCE.getBehaviorTransition_Sources()) || 
-        Objects.equal(reference, BLESSPackage.eINSTANCE.getBehaviorTransition_Destination()))) {
+      if ((Objects.equals(reference, BLESSPackage.eINSTANCE.getBehaviorTransition_Sources()) || 
+        Objects.equals(reference, BLESSPackage.eINSTANCE.getBehaviorTransition_Destination()))) {
         EObject up_1 = context.eContainer();
         while (((up_1 != null) && (!(up_1 instanceof BLESSSubclause)))) {
           up_1 = up_1.eContainer();
@@ -166,7 +166,7 @@ public class BLESSScopeProvider extends AbstractBLESSScopeProvider {
         return Scopes.scopeFor(refs);
       }
       EReference _invocation_Label = BLESSPackage.eINSTANCE.getInvocation_Label();
-      boolean _equals_1 = Objects.equal(reference, _invocation_Label);
+      boolean _equals_1 = Objects.equals(reference, _invocation_Label);
       if (_equals_1) {
         final ArrayList<NamedAssertion> namedAssertions = new ArrayList<NamedAssertion>();
         final NamedElement annex = AadlUtil.getContainingAnnex(context);
