@@ -132,6 +132,7 @@ public static StringTemplateGroup JSONtemplates = null;
 public static StringTemplateGroup Slangtemplates =null;
 public static StringTemplateGroup BAtemplates =null;
 public static StringTemplateGroup DataModeltemplates =null;
+public static StringTemplateGroup SysMLtemplates =null;
 public static String componentName = "";	//name of current aadl component
 public static String fileName = "";	//name of current file being parsed
 public static String packageOrPropertySetID = "";	//used to generate BA or DataModel text for a package to hold the data component declarations

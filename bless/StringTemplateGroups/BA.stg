@@ -68,6 +68,14 @@ behavior_variable_type(d,t,p,s,con,sp,e,finl,ass) ::=
 <d> : <t><if(e)>; --:=<e><endif>;
 >>
 
+bless_subclause(n,ac,inv,vs,ss,t) ::=
+<<
+annex Behavior_Specification
+  {** 
+  <ac><inv><vs><ss><t>
+  **};
+>>
+
 boolean()::="BLESS_Types::Boolean"
 
 cand(l,r) ::= "<l> and then <r>" 
@@ -182,6 +190,9 @@ integer_literal(i) ::= "<i>"
 
 invariant_clause(a) ::=""
 
+invocation(i,p) ::=
+  "<i>(<p; separator=\", \">)"
+
 in_port_value(pn)::="<pn>?"  
 
 in_range(p,ra) ::= "<p> in <ra>"
@@ -213,6 +224,14 @@ multiply(terms) ::=
 name(p,pp) ::= "<p; separator=\".\"><pp>"
 
 name_tick(vn) ::= "<vn>'"
+
+named_assertion(id,pred,formals,tod,functionvalue) ::= ""
+
+nameless_assertion(a) ::= ""
+
+nameless_enumeration(inv) ::= ""
+
+nameless_function(tod,a) ::= ""
 
 natural()::="BLESS_Types::Natural"
 
@@ -281,6 +300,8 @@ quantified_variables(bv)::=
 << --declare <bv; anchor, separator="\n--"> 
 >>
 
+quantity(num,unit) ::= "<num>"
+
 range(rs,lb,ub)::=
   "<lb>..<ub>"  
 
@@ -314,6 +335,12 @@ simultaneous_assignment(l,r) ::=
 <l,r:{ lhs,rhs | <lhs>:=<rhs> & \n}> skip \n>>
 
 skip() ::= "skip!"
+
+states_section(bs) ::=
+<<
+states
+  <bs; separator="\n">
+>>
 
 stop() ::= "stop"
 
@@ -383,10 +410,21 @@ units_type(ul)::=
 
 universal_quantification(a,lv,d,p)::=""
 
+variable(id,tod) ::=
+  " <id> ~ <tod>"
+
 variables(bv) ::=
 <<
 variables
   <bv; wrap, anchor, separator="\n"> >>
+
+variable_declaration(v,exp,a,nv,sh,c,sp,f) ::=
+<<
+<v> <nv><sh><c><sp><f><if(exp)>:= <exp><endif><if(a)>
+  <a><endif> >>
+
+variable_list(parameter) ::=
+<<<parameter; wrap, separator=", "> >>
 
 variant_field(df,ptd,t) ::=
     "<df>:<if(t)>list of <endif><ptd>;"

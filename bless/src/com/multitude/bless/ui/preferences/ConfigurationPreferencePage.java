@@ -146,7 +146,7 @@ public static ConfigurationPreferencePage thePage=null;
 //        "Choose root directory for generated Slang code\n", getFieldEditorParent());
 //    addField(slangDirectoryField);
     baDirectoryField = new DirectoryFieldEditor(ConfigurationPreferencePage.SET_BA_FIELD,
-        "Choose root directory for generated BA behavior and Data Model types\n", getFieldEditorParent());
+        "Choose root directory for generated SysML\n", getFieldEditorParent());
     addField(baDirectoryField);
     continuumField = new BooleanFieldEditor(ConfigurationPreferencePage.CONTINUUM_FIELD,
         "Generate VC for transitions leaving complete states \n"+

@@ -39,7 +39,7 @@ import com.multitude.bless.tree.BAST;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.util.Util;
 
-public class GenerateBA extends AbstractBLESSHandler implements IHandler
+public class GenerateSysML extends AbstractBLESSHandler implements IHandler
 {
 
   private static SystemInstance si = null;
@@ -54,7 +54,7 @@ public class GenerateBA extends AbstractBLESSHandler implements IHandler
       Dialog.showError(getToolName(), "Please select a system implementation or a system instance");
       return Status.CANCEL_STATUS;
       }
-    Dump.it("Exporting BA . . .");
+    Dump.it("Exporting SysML . . .");
     // load the model, if not already loaded
     if (!LoadBLESS.haveLoaded)
       try {
@@ -64,8 +64,8 @@ public class GenerateBA extends AbstractBLESSHandler implements IHandler
       Dump.it("Problem loading architecture preceding exporting BA");
       yi.handleException();
       }
-    generateBAforAllThreads(si);
-    Dump.it("Done Exporting BA");
+    generateSysMLforAllThreads(si);
+    Dump.it("Done Exporting SysML");
     return Status.CANCEL_STATUS;
     }
 
@@ -105,16 +105,16 @@ public class GenerateBA extends AbstractBLESSHandler implements IHandler
     }
 
   
-void generateBAforAllThreads(SystemInstance si) 
+void generateSysMLforAllThreads(SystemInstance si) 
   {
   // set String Template for BA
   try
     {
-    if (Global.BAtemplates == null)
+    if (Global.SysMLtemplates == null)
       {
-      Global.BAtemplates = Util.loadStringTemplateGroup(Global.stringTemplateGroupFolder + "BA.stg");
+      Global.SysMLtemplates = Util.loadStringTemplateGroup(Global.stringTemplateGroupFolder + "SysML.stg");
       }
-    Global.templates = Global.BAtemplates;
+    Global.templates = Global.SysMLtemplates;
     }
   catch (YouIdiot e1)
     {
@@ -126,12 +126,12 @@ void generateBAforAllThreads(SystemInstance si)
   //get all components having BLESS annex subclauses
   EList<ComponentInstance> cis = si.getComponentInstances();
   for (ComponentInstance ci : cis)
-    generateBAForComponentInstance(path,ci);
+    generateSysMLForComponentInstance(path,ci);
   Global.templates = Global.BLESStemplates;
   }  //end of generateBAforAllThreads
 
 private void 
-generateBAForComponentInstance(List<String> path, ComponentInstance ci)
+generateSysMLForComponentInstance(List<String> path, ComponentInstance ci)
   {
   String componentName = ci.getName();
   path.add(componentName);
@@ -144,11 +144,11 @@ generateBAForComponentInstance(List<String> path, ComponentInstance ci)
       {
       try
         { 
-        generateBAForBLESS(bas.get(i)); 
+        generateSysMLForBLESS(bas.get(i)); 
         }
       catch (YouIdiot yi)
         {
-        Dump.it("Exception generating Slang from BLESS for "+componentName);
+        Dump.it("Exception generating SysML from BLESS for "+componentName);
         yi.handleException();
         }
       }  //done with BLESS subclause
@@ -160,21 +160,21 @@ generateBAForComponentInstance(List<String> path, ComponentInstance ci)
       for (int i=0;i<act.size();i++) 
         {
         try
-          { generateBAForAction(act.get(i)); }
+          { generateSysMLForAction(act.get(i)); }
         catch (YouIdiot yi)
           {
-          Dump.it("Exception generating Slang from Action for "+path.toString());
+          Dump.it("Exception generating SysML from Action for "+path.toString());
           yi.handleException();
           }
         } //done with Action subclause
     }
   //do subcomponents
   for (ComponentInstance sub : ci.getComponentInstances())
-    generateBAForComponentInstance(path, sub);   
+    generateSysMLForComponentInstance(path, sub);   
   }  //end of generateBAForComponentInstance
 
   private void 
-generateBAForAction(ActionSubclauseImpl actionSubclauseImpl)
+generateSysMLForAction(ActionSubclauseImpl actionSubclauseImpl)
   throws YouIdiot
   {
   
@@ -182,7 +182,7 @@ generateBAForAction(ActionSubclauseImpl actionSubclauseImpl)
   }  //end of generateBAForAction
 
   private void  
-generateBAForBLESS(BLESSSubclauseImpl blessSubclauseImpl)  
+generateSysMLForBLESS(BLESSSubclauseImpl blessSubclauseImpl)  
   throws YouIdiot
     {
     BAST ast = ToAST.TOAST.toAST(blessSubclauseImpl);
@@ -218,28 +218,27 @@ generateBAForBLESS(BLESSSubclauseImpl blessSubclauseImpl)
       classifierTypeName = c.getName().substring(0, period);
 //      classifierImplementationName = c.getName().substring(period+1);
       }
+     String name = c.getName().replace('.', '_'); 
     String baFileName =  ConfigurationPreferencePage.getBADirectory() + "/" +
 //        ResourcesPlugin.getWorkspace().getRoot().getLocation().toString() +
 //        blessSubclauseImpl.eResource().getURI().path() + "/" + 
-        c.getName().replace('.', '_') + ".aadl";
+         name + ".sysml";
 //make package text
-    sb.append("--generated on "+Time.todayString + "\n");
-    sb.append("package " + pack.getName() + "_" + c.getName().replace('.', '_') + "\n  public \n");
-    sb.append("  with " + pack.getName() + ", BLESS_Types;\n\n");
-    sb.append(classifierKind+" "+c.getName().replace('.', '_') + 
-        " extends "+pack.getName()+"::"+classifierTypeName+"\n");
-    sb.append("end "+c.getName().replace('.', '_') + 
-        ";\n\n");
-    sb.append(classifierKind+" implementation "+c.getName().replace('.', '_') + 
-        ".ba\n");
-    sb.append("annex Behavior_Specification \n{**\n");
+    sb.append("//generated on "+Time.todayString + "\n");
+    sb.append("package " + pack.getName() + "_" + name + " } \n");
+    sb.append("  import Assertion::Assert; \n  import AADL::Thread; \n");
+//    sb.append(classifierKind+" "+c.getName().replace('.', '_') + 
+//        " extends "+pack.getName()+"::"+classifierTypeName+"\n");
+//    sb.append("end "+c.getName().replace('.', '_') + 
+//        ";\n\n");
+//    sb.append(classifierKind+" implementation "+c.getName().replace('.', '_') + 
+//        ".ba\n");
+    sb.append("  part def "+name+" :> AADL::Thread {\n");
     sb.append(ast.unparse());
-    sb.append("\n**};\n");
-    sb.append("end "+c.getName().replace('.', '_') + 
-        ".ba;\n\n");
-    sb.append("end "+pack.getName() + "_" + c.getName().replace('.', '_')+";\n");
+    sb.append("  } //end of "+name+"\n");
+    sb.append("} //end of "+pack.getName() + "_" + name+"\n");
 //write to file
-    writeBA(baFileName,sb.toString());
+    writeSysML(baFileName,sb.toString());
     }  //end of generateBAForBLESS
   
   
@@ -252,7 +251,7 @@ generateBAForBLESS(BLESSSubclauseImpl blessSubclauseImpl)
   
   
   void
-writeBA(String fileName, String content)
+writeSysML(String fileName, String content)
   {
   File baFile = null;
   FileWriter baFileWriter = null;
@@ -264,14 +263,14 @@ writeBA(String fileName, String content)
     baFile.setWritable(true);
     baFileWriter = new FileWriter(baFile);
 //    baPrintWriter = new PrintWriter(baFileWriter);
-    Dump.it("opening BA file \""+baFile.getAbsolutePath()+"\" "+
+    Dump.it("opening SysML file \""+baFile.getAbsolutePath()+"\" "+
         Time.todayString);
     }
   catch (IOException e)
     {
     Global.exceptionOccurred = true;
-    Dump.it("Error while making BA file "+fileName);
-    Dump.it("Please choose root directory for generated BA behavior:  Preferences > BLESS > BLESS preferences");
+    Dump.it("Error while making SysML file "+fileName);
+    Dump.it("Please choose root directory for generated SysML:  Preferences > BLESS > BLESS preferences");
     e.printStackTrace(System.out);
     } //done catching file making
   try
@@ -296,21 +295,6 @@ writeBA(String fileName, String content)
     e.printStackTrace();
     } //done catching file closing 
   }  //end of writeBA
-
-//  @Override
-//  protected IStatus runJob(Element sel, IProgressMonitor monitor)
-//    {
-//    si = getSystemInstance(sel);
-//    if (si == null) 
-//      {
-//      Dialog.showError("BLESS", "Please right-click system instance (.aaxl2) \n"+
-//       "to Generate BA.");
-//      Dump.it("Please right-click system instance (.aaxl2)");
-//      Dump.it("to Generate BA.");
-//      return null;
-//      }
-//    return null;
-//    }
 
 
 }
