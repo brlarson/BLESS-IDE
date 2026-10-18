@@ -120,6 +120,7 @@ import com.multitude.aadl.bless.bLESS.WhenThrow
 import com.multitude.aadl.bless.bLESS.WhileLoop
 import com.multitude.bless.antlr3generated.BLESS3Lexer
 import com.multitude.bless.app.Global
+import com.multitude.bless.osate.AadlSourceRef
 import com.multitude.bless.tree.BAST
 import java.util.ArrayList
 import java.util.List
@@ -141,7 +142,7 @@ public static BAST x = new BAST('x')
   def 
 newBAST(Element e)
     {
-    new BAST(e)
+    new BAST(new AadlSourceRef(e))
     }
 
   def BAST 

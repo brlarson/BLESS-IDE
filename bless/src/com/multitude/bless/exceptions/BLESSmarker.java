@@ -2,14 +2,6 @@ package com.multitude.bless.exceptions;
 
 import java.util.Vector;
 
-import org.osate.aadl2.Connection;
-import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.instance.ConnectionInstance;
-import org.osate.aadl2.instance.ConnectionInstanceEnd;
-import org.osate.aadl2.instance.InstanceObject;
-import org.osate.aadl2.modelsupport.errorreporting.AnalysisErrorReporterManager;
-import org.osate.aadl2.modelsupport.errorreporting.MarkerAnalysisErrorReporter;
-
 import com.multitude.bless.tree.BAST;
 
 public class BLESSmarker
@@ -18,83 +10,68 @@ public class BLESSmarker
 public static Vector<String> error_messages = new Vector<String>();
 public static Vector<String> warning_messages = new Vector<String>();
 public static Vector<String> info_messages = new Vector<String>();
-public static AnalysisErrorReporterManager errManager = null;
+//places markers on the user's model; see Reporter
+private static Reporter reporter = Reporter.NONE;
 
-  public static void 	
+  public static void
+setReporter(Reporter r)
+    {
+    reporter = (r==null) ? Reporter.NONE : r;
+    }  //end of setReporter
+
+  public static Reporter
+getReporter() { return reporter; }
+
+  public static void
 setErrorMarker(String message, BAST node)
   	{
-	if (errManager==null)
-	  errManager = new AnalysisErrorReporterManager(
-				new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));  	
   	error_messages.add(message);
   	Dump.it("Error at line "+node.getLine()+" in "+
-  	  (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
+  	  (node.getSourceRef()!=null ? node.getSourceRef().getQualifiedName():"")+
   	  "\n  "+message);
-  	if (node.getElement()!=null)
-  		errManager.error(node.getElement(), message);
+  	if (node.getSourceRef()!=null)
+  		reporter.error(message, node.getSourceRef());
   	else Dump.it("No Element for message:  "+message+"\n"+node.toStringTree());
   	}  //end of setErrorMarker
 
-  public static void 	
+  public static void
 setWarningMarker(String message, BAST node)
   	{
-  	if (errManager==null)
-  	  errManager = new AnalysisErrorReporterManager(
-  				new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));  	
   	warning_messages.add(message);
   	Dump.it("Warning at line "+node.getLine()+" in "+
-    	  ((node.getElement()!=null) && (node.getElement() instanceof NamedElement) ? 
-    	      node.getElement().getElementRoot().getQualifiedName():"")+
+    	  (node.getSourceRef()!=null ? node.getSourceRef().getQualifiedName():"")+
     	  "\n  "+message);
-  	if (node.getElement()!=null)
-  		errManager.warning(node.getElement(), message);
+  	if (node.getSourceRef()!=null)
+  		reporter.warning(message, node.getSourceRef());
   	else Dump.it("No Element for message:  "+message+"\n"+node.toStringTree());
   	}  //end of setWarningMarker
 
 
-  public static void 	
+  public static void
 setInfoMarker(String message, BAST node)
   	{
-  	if (errManager==null)
-  	  errManager = new AnalysisErrorReporterManager(
-  				new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));  	
   	info_messages.add(message);
  	Dump.it("Info at line "+node.getLine()+" in "+
-    	  (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
+    	  (node.getSourceRef()!=null ? node.getSourceRef().getQualifiedName():"")+
     	  "\n  "+message);
-  	if (node.getElement()!=null)
-  		errManager.info(node.getElement(), message);
+  	if (node.getSourceRef()!=null)
+  		reporter.info(message, node.getSourceRef());
   	else Dump.it("No Element for message:  "+message+"\n"+node.toStringTree());
   	}  //end of setInfoMarker
 
-  public static void  
-setConnectionInfoMarker(String message, InstanceObject con)
+  /**
+   * info marker on a front-end model object, e.g. an AADL Connection or ConnectionInstance
+   */
+  public static void
+setConnectionInfoMarker(String message, Object con)
     {
-    if (errManager==null)
-      errManager = new AnalysisErrorReporterManager(
-          new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));   
     info_messages.add(message);
 //  Dump.it("Info at line "+con..getLine()+" in "+
 //        (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
 //        "\n  "+message);
     if (con!=null)
-      errManager.info(con, message);
+      reporter.info(message, con);
     else Dump.it("No Connection for message:  "+message);
-    }  //end of setInfoMarker
-
-  public static void  
-setConnectionInfoMarker(String message, Connection con)
-    {
-    if (errManager==null)
-      errManager = new AnalysisErrorReporterManager(
-          new MarkerAnalysisErrorReporter.Factory("com.multitude.bless.BLESSErrorMarker"));   
-    info_messages.add(message);
-//  Dump.it("Info at line "+con..getLine()+" in "+
-//        (node.getElement()!=null ? node.getElement().getElementRoot().getQualifiedName():"")+
-//        "\n  "+message);
-    if (con!=null)
-      errManager.info(con, message);
-    else Dump.it("No Connection for message:  "+message);
-    }  //end of setInfoMarker
+    }  //end of setConnectionInfoMarker
 
 }  //end of BLESSmarker.java

@@ -36,4 +36,8 @@ build() { # name srcdirs...
 }
 build bless "$IDE/bless/src" "$IDE/bless/xtend-gen"
 build proof "$PRF/com.multitude.bless.proof/src"
+# other consumers of com.multitude.bless: must keep compiling as its API changes
+GEN=$IDE/com.multitude.bless.codegeneration
+CP="$CP$GEN/lib/ST-4.3.4.jar:$GEN/lib/stringtemplate-4.0.2.jar:"
+build codegeneration "$GEN/src" "$GEN/xtend-gen"
 exit $status

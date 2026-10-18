@@ -131,6 +131,7 @@ import com.multitude.aadl.bless.bLESS.WhenThrow;
 import com.multitude.aadl.bless.bLESS.WhileLoop;
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.app.Global;
+import com.multitude.bless.osate.AadlSourceRef;
 import com.multitude.bless.tree.BAST;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -164,7 +165,7 @@ public class ToAST {
   public static BAST x = new BAST("x");
 
   public BAST newBAST(final Element e) {
-    return new BAST(e);
+    return new BAST(new AadlSourceRef(e));
   }
 
   public BAST makeBASTforID(final String id, final Element parent) {

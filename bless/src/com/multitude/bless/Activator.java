@@ -25,8 +25,10 @@ import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Settings;
 import com.multitude.bless.app.Time;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.exceptions.BLESSmarker;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
+import com.multitude.bless.osate.MarkerReporter;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -88,6 +90,7 @@ public void start(BundleContext context) throws Exception
 	Time.todayString = Time.today.toString();
 	Global.runningAsOSATEplugin=true;
 	Settings.setProvider(new ConfigurationPreferencePage.StoreProvider());
+	BLESSmarker.setReporter(new MarkerReporter());
 	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	Dump.it("\nBehavioral Language for Embedded Systems with Software Proof Tool "+
 			BLESS.versionDate+" at "+Time.todayString);

@@ -6,7 +6,7 @@ driven from SysML v2 + SFS models. These scripts check that work without startin
 
 | Script | Checks | Passing means |
 |---|---|---|
-| `compile.sh <out>` | `bless/` (src + xtend-gen) and `BLESS-proof/com.multitude.bless.proof/src` compile with `javac` against an installed OSATE's plugins | nothing broke for OSATE |
+| `compile.sh <out>` | `bless/` (src + xtend-gen), `BLESS-proof/com.multitude.bless.proof/src`, and `com.multitude.bless.codegeneration` compile with `javac` against an installed OSATE's plugins | nothing broke for OSATE |
 | `corecheck.sh <out>` | the planned core compiles with **no** `org.osate`, `com.multitude.aadl`, or Eclipse UI on the classpath | the remaining OSATE coupling is zero (it exits non-zero until A0 is finished) |
 
 Both scripts default to `/Applications/osate2.14.0.app/Contents/Eclipse/plugins` and assume
@@ -23,6 +23,7 @@ Both scripts default to `/Applications/osate2.14.0.app/Contents/Eclipse/plugins`
 |---|---|
 | baseline (`master`, 2026-10-17) | 393 |
 | cut 1: `app.Settings` replaces `ui.preferences.ConfigurationPreferencePage` reads in the core and in all tactic grammars | 277 (all 73 tactic grammars clean) |
+| cut 2: `BAST` holds a `tree.SourceRef` instead of an `aadl2.Element`; `BLESSmarker` and `ProofException` place markers through an `exceptions.Reporter` (OSATE versions in `com.multitude.bless.osate`, installed by `Activator`) | 245 (`BLESSmarker`, `ProofException` clean; `BAST` has only its SWT viewer left) |
 
 Proof-level regression (identical proofs) still requires running the proof scripts in
 `~/git3/BLESS-models` inside OSATE and comparing the output with the committed `proof/proof.txt`
