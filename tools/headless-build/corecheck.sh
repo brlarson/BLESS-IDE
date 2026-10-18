@@ -20,7 +20,7 @@ B=$IDE/bless/src/com/multitude/bless; P=$PRF/com.multitude.bless.proof/src/com/m
   find "$B/app" "$B/exceptions" "$B/record" "$B/tree" "$B/antlr3generated" "$B/toPilar" -name '*.java'
   find "$B/symbol" -name '*.java' ! -name LoadBLESS.java
   find "$B/util" -name '*.java' ! -name SelectionHelper.java
-  find "$P" -name '*.java' ! -path '*/handlers/*' ! -path '*/ui/*'
+  find "$P" -name '*.java' ! -path '*/handlers/*' ! -path '*/ui/*' ! -path '*/osate/*'
 } > "$OUT/files"
 javac --release 21 -nowarn -encoding UTF-8 -proc:none -Xmaxerrs 100000 -cp "$CP" -d "$OUT/classes" @"$OUT/files" > "$OUT/log" 2>&1
 n=$(grep -c ' error: ' "$OUT/log")
