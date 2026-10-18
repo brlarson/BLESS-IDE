@@ -8,7 +8,7 @@ import com.multitude.bless.tree.BAST;
 /**
  * @author brl
  * User-interface services the parser and proof engine call
- * (Global.showMessageBox, BAST.showParseTree).
+ * (Global.showMessageBox, BAST.showParseTree, Dump.it, Strategy.newProofStrategy).
  * Has no Eclipse dependency; Activator.start() installs com.multitude.bless.ui.SwtUiServices.
  * The default, HEADLESS, writes to Dump, as BLESS did when not running as a plugin.
  */
@@ -19,6 +19,15 @@ public interface UiServices
 
   /** show a tree (already written to Dump by BAST.showParseTree) */
   void showTree(String title, BAST tree);
+
+  /** write a line to the user's console (every Dump.it line) */
+  void println(String text);
+
+  /**
+   * ask the user for a file to open;
+   * returns {directory, file name} as an SWT FileDialog reports them (file name "" when cancelled)
+   */
+  String[] chooseFileToOpen();
 
   UiServices HEADLESS = new UiServices()
     {
@@ -33,6 +42,18 @@ public interface UiServices
       {
       Dump.it("Please choose Window->Show View->Other->Absract Syntax Tree to see the tree for \""
           + title + "\"");
+      }
+
+    @Override
+    public void println(String text)
+      {
+      System.out.println(text);
+      }
+
+    @Override
+    public String[] chooseFileToOpen()
+      {
+      return new String[] {"", ""};
       }
     };
 }  //end of UiServices

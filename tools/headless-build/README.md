@@ -25,6 +25,7 @@ Both scripts default to `/Applications/osate2.14.0.app/Contents/Eclipse/plugins`
 | cut 1: `app.Settings` replaces `ui.preferences.ConfigurationPreferencePage` reads in the core and in all tactic grammars | 277 (all 73 tactic grammars clean) |
 | cut 2: `BAST` holds a `tree.SourceRef` instead of an `aadl2.Element`; `BLESSmarker` and `ProofException` place markers through an `exceptions.Reporter` (OSATE versions in `com.multitude.bless.osate`, installed by `Activator`) | 245 (`BLESSmarker`, `ProofException` clean; `BAST` has only its SWT viewer left) |
 | cut 3: `ThreadRecord`/`PackageRecord` take a `record.ComponentContext`/`PackageContext`; `Global` uses `app.UiServices` and `app.ModelProperties`; `BAST.showParseTree` and `Global.showMessageBox` go through `UiServices` (SWT code moved to `ui.SwtUiServices`; AADL versions in `com.multitude.bless.osate`) | 177 (`BAST`, `ThreadRecord`, `PackageRecord`, `Global` clean) |
+| cut 4: unused `WriteSignalFile`/`WriteBAv1File` moved to `ui`; `Util.toIFile` → `ui.WorkspaceFiles`; templates open via `app.Resources`; `Dump` console and `Strategy` script chooser via `UiServices`; `SubprogramAccessFeature` fields typed `EObject` (now core); unused `BlessMaps` import commented out in `UnparseBLESS3` | 114, **all in `GenerateVC`** (left for its own cut) |
 
 Proof-level regression (identical proofs) still requires running the proof scripts in
 `~/git3/BLESS-models` inside OSATE and comparing the output with the committed `proof/proof.txt`

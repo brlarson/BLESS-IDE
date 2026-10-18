@@ -2,8 +2,7 @@
 
 package com.multitude.bless.symbol;
 
-import org.osate.aadl2.SubprogramAccess;
-import org.osate.aadl2.SubprogramSubcomponentType;
+import org.eclipse.emf.ecore.EObject;
 import com.multitude.bless.tree.BAST;
 import java.util.HashMap;
 
@@ -12,8 +11,8 @@ SubprogramAccessFeature
 {
 public String featureID;  //id of the subprogram access feature in the component type
 public int line=0;  //line number
-public SubprogramAccess sa;
-public SubprogramSubcomponentType sst;
+public EObject sa;   //AADL SubprogramAccess (not yet set)
+public EObject sst;  //AADL SubprogramSubcomponentType (not yet set)
 public BAST precondition;
 public BAST postcondition;
 public HashMap<String,BAST> formal_type_map = new HashMap<String,BAST>(); 

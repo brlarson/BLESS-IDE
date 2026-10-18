@@ -8,13 +8,7 @@ import java.io.InputStreamReader;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.antlr.stringtemplate.language.AngleBracketTemplateLexer;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.emf.common.util.URI;
 
-import com.multitude.bless.Activator;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
@@ -105,25 +99,6 @@ public class Util {
 //		return ret[0];
 //	}
 
-	public static IFile toIFile(URI resourceURI) {
-		/*
-		 * Ideally we'd just call OsateResourceUtil.toIFile however that is not
-		 * available in OSATE 2.4.x (which the CASE FM-IDE is based on). Workaround
-		 * is to just replicate the current behavior of that method, refer to
-		 * <a href=
-		 * "https://github.com/osate/osate2/blob/bed18dd95fe3f3bf54d657911cd5e5da1ff2718b/core/org.osate.aadl2.modelsupport/src/org/osate/aadl2/modelsupport/resources/OsateResourceUtil.java#L62"
-		 * >this</a>
-		 */
-
-		// return OsateResourceUtil.toIFile(resourceURI);
-
-		if (resourceURI.isPlatform()) {
-			return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourceURI.toPlatformString(true)));
-		} else {
-			return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(resourceURI.toFileString()));
-		}
-	}
-	
 public static StringTemplateGroup
 loadStringTemplateGroup(String templateFileName)
   throws YouIdiot
@@ -143,12 +118,11 @@ try
     if (Global.runningAsOSATEplugin)
     {  //I'm a plugin
       // code to retrieve an java.io.InputStream
-      Path stgPath =  new Path(templateFileName);
 //      if (stgPath==null) {
 //        throw new YouIdiot(templateFileName+" cannot be found!");
 //      }
-      InputStream inputStream = FileLocator.openStream(
-          Activator.getDefault().getBundle(),stgPath, false);
+      //read from the plugin bundle; see Resources
+      InputStream inputStream = Global.getResources().open(templateFileName);
       InputStreamReader isr = new InputStreamReader(inputStream);
       templates = new StringTemplateGroup(isr,AngleBracketTemplateLexer.class);
       inputStream.close();

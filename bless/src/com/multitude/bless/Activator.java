@@ -95,6 +95,7 @@ public void start(BundleContext context) throws Exception
 	BLESSmarker.setReporter(new MarkerReporter());
 	Global.setUiServices(new SwtUiServices());
 	Global.setModelProperties(new AadlModelProperties());
+	Global.setResources(path -> FileLocator.openStream(getBundle(), new Path(path), false));
 	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	Dump.it("\nBehavioral Language for Embedded Systems with Software Proof Tool "+
 			BLESS.versionDate+" at "+Time.todayString);

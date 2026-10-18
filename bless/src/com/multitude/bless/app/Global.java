@@ -200,6 +200,8 @@ public static EObject context = null;
 private static UiServices uiServices = UiServices.HEADLESS;
 //reads property values from the architecture model; see ModelProperties
 private static ModelProperties modelProperties = ModelProperties.NONE;
+//opens files shipped with BLESS (string templates); see Resources
+private static Resources resources = Resources.FILES;
 
 	public static void
 setUiServices(UiServices u) { uiServices = (u==null) ? UiServices.HEADLESS : u; }
@@ -212,6 +214,12 @@ setModelProperties(ModelProperties m) { modelProperties = (m==null) ? ModelPrope
 
 	public static ModelProperties
 getModelProperties() { return modelProperties; }
+
+	public static void
+setResources(Resources r) { resources = (r==null) ? Resources.FILES : r; }
+
+	public static Resources
+getResources() { return resources; }
 
 //migrated to here in big split 10/19/2018
 	public static String stringTemplateGroupFolder = "StringTemplateGroups/";

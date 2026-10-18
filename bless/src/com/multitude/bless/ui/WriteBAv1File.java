@@ -2,7 +2,7 @@
 
 
 
-package com.multitude.bless.tree;
+package com.multitude.bless.ui;
 
 import java.io.ByteArrayInputStream;
 import java.io.UnsupportedEncodingException;

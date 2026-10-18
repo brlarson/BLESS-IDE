@@ -46,7 +46,7 @@ import org.osate.aadl2.modelsupport.util.AadlUtil;
 import org.osate.ui.dialogs.Dialog;
 
 import com.multitude.bless.util.SelectionHelper;
-import com.multitude.bless.util.Util;
+import com.multitude.bless.ui.WorkspaceFiles;
 //import org.sireum.aadl.osate.util.Util.SerializerType;
 //import org.sireum.hamr.ir.Aadl;
 //import org.sireum.hamr.ir.JSON;
@@ -186,11 +186,11 @@ public abstract class AbstractBLESSHandler extends AbstractHandler {
 	}
 
 	protected String getInstanceFilename(ComponentInstance root) {
-		return Util.toIFile(root.eResource().getURI()).getName();
+		return WorkspaceFiles.toIFile(root.eResource().getURI()).getName();
 	}
 
 	protected IProject getProject(ComponentInstance root) {
-		return Util.toIFile(root.eResource().getURI()).getProject();
+		return WorkspaceFiles.toIFile(root.eResource().getURI()).getProject();
 	}
 
 	protected IPath getProjectPath(ComponentInstance e) {
@@ -201,7 +201,7 @@ public abstract class AbstractBLESSHandler extends AbstractHandler {
 		Element root = getComponentInstance(e);
 		Resource res = root.eResource();
 		URI uri = res.getURI();
-		IPath path = Util.toIFile(uri).getFullPath();
+		IPath path = WorkspaceFiles.toIFile(uri).getFullPath();
 		return path;
 	}
 

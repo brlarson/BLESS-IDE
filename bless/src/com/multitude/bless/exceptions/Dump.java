@@ -9,7 +9,6 @@ import java.io.IOException;
 
 import org.antlr.runtime.RecognitionException;
 
-import com.multitude.aadl.bless.BlessControl;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Time;
 import com.multitude.bless.tree.BAST;
@@ -85,7 +84,7 @@ error(String s)
   public static void
 it(String s)
   {
-  BlessControl.println(s);
+  Global.getUiServices().println(s);  //BLESS console when running as a plugin
   s += "\n";  //add a newline at the end
   if (!Global.dumpFileClosed&&!Global.suppressOutput)
   	{

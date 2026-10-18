@@ -12,7 +12,7 @@ import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.HelpfulHints;
 import com.multitude.bless.exceptions.BLESSmarker;
 import com.multitude.bless.app.Global;
-import com.multitude.aadl.bless.maps.BlessMaps;
+//import com.multitude.aadl.bless.maps.BlessMaps;  //unused
 
 
 import org.antlr.runtime.*;

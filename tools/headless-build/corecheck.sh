@@ -13,12 +13,12 @@ CP="$IDE/bless/lib/antlr-3.5.2-runtime.jar:$IDE/bless/lib/stringtemplate-3.2.1.j
 CP="$CP:$(ls "$PL"/org.eclipse.emf.common_*.jar | sort -r | head -1):$(ls "$PL"/org.eclipse.emf.ecore_*.jar | sort -r | head -1)"
 B=$IDE/bless/src/com/multitude/bless; P=$PRF/com.multitude.bless.proof/src/com/multitude/bless/proof
 
-# core = everything except the AADL front end (LoadBLESS, ToAST, ProcessComponent,
-# SubprogramAccessFeature) and the Eclipse UI (Activator, handlers, ui, util/SelectionHelper)
+# core = everything except the AADL front end (LoadBLESS, ToAST, ProcessComponent, osate/)
+# and the Eclipse UI (Activator, handlers, ui/, util/SelectionHelper)
 {
   ls "$B/BLESS.java" "$B/Parse.java"
   find "$B/app" "$B/exceptions" "$B/record" "$B/tree" "$B/antlr3generated" "$B/toPilar" -name '*.java'
-  find "$B/symbol" -name '*.java' ! -name LoadBLESS.java ! -name SubprogramAccessFeature.java
+  find "$B/symbol" -name '*.java' ! -name LoadBLESS.java
   find "$B/util" -name '*.java' ! -name SelectionHelper.java
   find "$P" -name '*.java' ! -path '*/handlers/*' ! -path '*/ui/*'
 } > "$OUT/files"

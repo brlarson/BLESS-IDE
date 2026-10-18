@@ -6,9 +6,11 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TreeItem;
 
+import com.multitude.aadl.bless.BlessControl;
 import com.multitude.bless.app.UiServices;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.tree.BAST;
@@ -48,6 +50,23 @@ public void showTree(String s, BAST t)
     } catch (Exception ex)
     {Dump.it("Unable to display parse tree.");}
   }  //end of showTree
+
+@Override
+public void println(String text)
+  {
+  BlessControl.println(text);
+  }
+
+@Override
+public String[] chooseFileToOpen()
+  {
+  Shell shell = new Shell(Display.getDefault());
+  FileDialog dialog = new FileDialog(shell, SWT.OPEN);
+  dialog.open();
+  String[] choice = {dialog.getFilterPath(), dialog.getFileName()};
+  shell.dispose();
+  return choice;
+  }  //end of chooseFileToOpen
 
 public static void addTreeItemChildren(BAST t, TreeItem rootItem)
   {
