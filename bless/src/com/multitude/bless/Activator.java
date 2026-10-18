@@ -22,7 +22,9 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
 import com.multitude.bless.app.Global;
+import com.multitude.bless.app.Settings;
 import com.multitude.bless.app.Time;
+import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
 
@@ -85,6 +87,7 @@ public void start(BundleContext context) throws Exception
 	Time.today = new Date(Time.startTime);
 	Time.todayString = Time.today.toString();
 	Global.runningAsOSATEplugin=true;
+	Settings.setProvider(new ConfigurationPreferencePage.StoreProvider());
 	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	Dump.it("\nBehavioral Language for Embedded Systems with Software Proof Tool "+
 			BLESS.versionDate+" at "+Time.todayString);

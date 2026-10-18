@@ -291,7 +291,7 @@ import org.antlr.runtime.UnwantedTokenException;
 import com.multitude.bless.exceptions.YouIdiot;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.tree.BAST;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.record.ParseRecord;
 import com.multitude.bless.record.PackageRecord;

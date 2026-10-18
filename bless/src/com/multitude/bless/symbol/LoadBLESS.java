@@ -75,7 +75,7 @@ import com.multitude.bless.record.ThreadRecord;
 import com.multitude.bless.toast.ToAST;
 import com.multitude.bless.tree.BAST;
 import com.multitude.bless.tree.BASTTreeAdaptor;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 
 public class LoadBLESS
   {
@@ -105,7 +105,7 @@ public class LoadBLESS
   public static 
 boolean verbose()
     {
-    return ConfigurationPreferencePage.getVerboseParse();
+    return Settings.getVerboseParse();
     }
 
   public static void 
@@ -408,7 +408,7 @@ load() throws YouIdiot
             componentTypeParseRecord.parameter_assertion_map = new HashMap<String, BAST>();
             // make parameter-type map (filled below)
             componentTypeParseRecord.parameter_typed_map = new HashMap<String, BAST>();
-            if (ConfigurationPreferencePage.showUnparsed())
+            if (Settings.showUnparsed())
               {
               try
                 {
@@ -1141,7 +1141,7 @@ load() throws YouIdiot
                 {
                 Dump.it(rootOfASTofBLESSbehavior.toStringTree());
                 }
-              if (ConfigurationPreferencePage.showUnparsed())
+              if (Settings.showUnparsed())
                 {
                 Dump.it("unparsed:\nannex BLESS\n{**  --" + ci.getName());
                 Dump.it(rootOfASTofBLESSbehavior.unparse());

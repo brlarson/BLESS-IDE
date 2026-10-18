@@ -15,7 +15,7 @@ import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.symbol.Scope;
 import com.multitude.bless.symbol.SubprogramAccessFeature;
 import com.multitude.bless.tree.BAST;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 
 public class ParseRecord
 {
@@ -62,7 +62,7 @@ private int startingLine=0;
 //public static boolean verbose=true;
 
 	public static boolean verbose() {
-		return ConfigurationPreferencePage.getVerboseParse();
+		return Settings.getVerboseParse();
 	}
 
 public ParseRecord(BAST cu, String id, EObject aadlContext, PackageRecord pr)

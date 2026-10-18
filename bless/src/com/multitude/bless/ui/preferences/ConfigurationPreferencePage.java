@@ -13,6 +13,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 
 import com.multitude.bless.Activator;
 import com.multitude.bless.BLESS;
+import com.multitude.bless.app.Settings;
 
 
 /**
@@ -194,5 +195,22 @@ public static String getBADirectory() {
 public static boolean getContinuum() {
   return Activator.plugin.getPreferenceStore().getBoolean(ConfigurationPreferencePage.CONTINUUM_FIELD);
 } // end of getContinuum
+
+/**
+ * supplies core Settings from the Eclipse preference store;
+ * installed by Activator.start()
+ */
+public static class StoreProvider implements Settings.Provider
+  {
+  @Override public boolean getMakeNewProjectsWhenFlattening() { return ConfigurationPreferencePage.getMakeNewProjectsWhenFlattening(); }
+  @Override public boolean getVerboseParse() { return ConfigurationPreferencePage.getVerboseParse(); }
+  @Override public boolean getVerboseProof() { return ConfigurationPreferencePage.getVerboseProof(); }
+  @Override public boolean useEpithet() { return ConfigurationPreferencePage.useEpithet(); }
+  @Override public boolean showUnparsed() { return ConfigurationPreferencePage.showUnparsed(); }
+  @Override public boolean showVC() { return ConfigurationPreferencePage.showVC(); }
+  @Override public String getSlangDirectory() { return ConfigurationPreferencePage.getSlangDirectory(); }
+  @Override public String getBADirectory() { return ConfigurationPreferencePage.getBADirectory(); }
+  @Override public boolean getContinuum() { return ConfigurationPreferencePage.getContinuum(); }
+  }  //end of StoreProvider
 
 }  //end of ConfigurationPreferencePage

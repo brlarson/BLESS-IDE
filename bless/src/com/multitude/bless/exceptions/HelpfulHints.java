@@ -2,7 +2,7 @@ package com.multitude.bless.exceptions;
 
 import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Time;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 
 
 public class
@@ -239,7 +239,7 @@ idiot = new String[]    //fool names
 getIdiot()	
 		{
 		Long time = Long.valueOf(System.currentTimeMillis());
-		if (!ConfigurationPreferencePage.useEpithet())
+		if (!Settings.useEpithet())
 		  {
 	    int i = time.intValue()%HelpfulHints.kind.length;  
 	    if (i<0) i = -i;  

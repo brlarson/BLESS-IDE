@@ -20,7 +20,7 @@ import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
 import org.antlr.stringtemplate.StringTemplate;
 import com.multitude.bless.tree.BAST;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.HelpfulHints;

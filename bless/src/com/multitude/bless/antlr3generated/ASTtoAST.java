@@ -6,7 +6,7 @@ import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
 import org.antlr.stringtemplate.*;
 import com.multitude.bless.tree.BAST;
-import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
+import com.multitude.bless.app.Settings;
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.BLESS;
 import com.multitude.bless.app.Global;
