@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Vector;
 
-import org.eclipse.core.resources.IFile;
-import org.osate.aadl2.AadlPackage;
 
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.Dump;
@@ -21,10 +19,8 @@ public class PackageRecord extends ParseRecord
 {
 public String packageID=null;	//identifier for this AADL package
 
-//OSATE object for this PackageRecord, if any
-public AadlPackage myAadlPackage = null;
-//IFile for IResource
-public IFile file = null;
+//model unit and source file this PackageRecord was loaded from (for AADL: AadlPackage and IFile), if any
+public PackageContext packageContext = null;
 
 
 //list of import declarations
@@ -41,11 +37,10 @@ public HashMap<String,ParseRecord> component_implementation_map = new HashMap<St
 //map of Assertion label to their Assertions in an Assertion annex library attached to the package
 public HashMap<String,BAST> assertions_in_library = new HashMap<String,BAST>();
 
-	public PackageRecord(BAST cu, String id, AadlPackage ir, IFile file) // cu=compilation unit root of package
+	public PackageRecord(BAST cu, String id, PackageContext pc) // cu=compilation unit root of package
 		{
-		super(cu, id, ir, null); // invoke ParseRecord constructor, null PackageRecord because we are the package
-		myAadlPackage = ir;
-		this.file = file;
+		super(cu, id, (pc==null ? null : pc.getModelElement()), null); // invoke ParseRecord constructor, null PackageRecord because we are the package
+		packageContext = pc;
 //		Model.addPackage(id, this);
 		if (cu != null)
 			{

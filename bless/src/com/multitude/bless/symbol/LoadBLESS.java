@@ -66,6 +66,8 @@ import com.multitude.bless.antlr3generated.BLESS3Parser;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
+import com.multitude.bless.osate.AadlComponentContext;
+import com.multitude.bless.osate.AadlPackageContext;
 import com.multitude.bless.record.DataRecord;
 import com.multitude.bless.record.EntityRecord;
 import com.multitude.bless.record.PackageRecord;
@@ -164,7 +166,7 @@ load() throws YouIdiot
 //      EcoreUtil.resolveAll(ir); // resolve all proxies in ModelUnit
       if (ir instanceof AadlPackage)
         {
-        PackageRecord pr = new PackageRecord(null, ir.getName(), (AadlPackage) ir, file);
+        PackageRecord pr = new PackageRecord(null, ir.getName(), new AadlPackageContext((AadlPackage) ir, file));
 
         if (verbose())
           {
@@ -199,7 +201,7 @@ load() throws YouIdiot
     {
 //Looking for all DefaultAnnexLibrary(s) in package: there most always will be just one for BLESS Assertions
     boolean found = false; // workaround for OSATE returning two copies of the same library
-    List<DefaultAnnexLibrary> dal = EcoreUtil2.eAllOfType(pr.myAadlPackage, DefaultAnnexLibrary.class);
+    List<DefaultAnnexLibrary> dal = EcoreUtil2.eAllOfType(AadlPackageContext.aadlPackageOf(pr), DefaultAnnexLibrary.class);
     for (DefaultAnnexLibrary defaultAnnexLibrary : dal)
       {
       // defaultAnnexLibrary.getName() gets you the name
@@ -266,7 +268,7 @@ load() throws YouIdiot
   static void loadComponentTypes(PackageRecord pr) throws YouIdiot
     {
     // get all component types in package
-    List<ComponentType> componentTypesInPackage = EcoreUtil2.eAllOfType(pr.myAadlPackage, ComponentType.class);
+    List<ComponentType> componentTypesInPackage = EcoreUtil2.eAllOfType(AadlPackageContext.aadlPackageOf(pr), ComponentType.class);
     if (componentTypesInPackage.size() == 0 && verbose())
       { Dump.it("There are no component types in package \"" + pr.name + "\"."); }
     for (ComponentType ct : componentTypesInPackage)
@@ -317,7 +319,7 @@ load() throws YouIdiot
               // save AST in ThreadRecord
 //              if (!(ct instanceof ThreadClassifier))
 //                throw new YouIdiot("device and system BLESS annex subclauses not yet supported");
-              ThreadRecord tr = new ThreadRecord(rootOfASTofBLESSbehavior, ct.getName(), (ComponentClassifier)ct, pr);
+              ThreadRecord tr = new ThreadRecord(rootOfASTofBLESSbehavior, ct.getName(), new AadlComponentContext((ComponentClassifier)ct), pr);
               // set context
 //							tr.context = ct;
               // make and BAST node in the tree find the ThreadRecord at the top
@@ -364,7 +366,7 @@ load() throws YouIdiot
           } // done with all annex subclauses in thread or device
         if (componentTypeParseRecord == null)
           {
-          componentTypeParseRecord = new ThreadRecord(null, ct.getName(), (ComponentClassifier)ct, pr);
+          componentTypeParseRecord = new ThreadRecord(null, ct.getName(), new AadlComponentContext((ComponentClassifier)ct), pr);
           componentTypeParseRecord.port_assertion_map = new HashMap<String, BAST>();
           componentTypeParseRecord.port_value_map = new HashMap<String, BAST>();
           pr.addComponent(ct.getName(), componentTypeParseRecord);
@@ -485,7 +487,7 @@ load() throws YouIdiot
               LocationReference lr = ct.getLocationReference();
               int line = (lr!=null?lr.getLine():1);
               int offset = (lr!=null?lr.getOffset():1);
-              rootOfTyped = LoadBLESS.parseTyped(typedText, line, offset, pr.file );
+              rootOfTyped = LoadBLESS.parseTyped(typedText, line, offset, AadlPackageContext.fileOf(pr) );
 //              rootOfTyped = LoadBLESS.parseTyped(typedText, 1, 0, pr.file );
               }
             catch (RecognitionException re)
@@ -717,7 +719,7 @@ load() throws YouIdiot
                 { Dump.it("  feature \"" + featureName + "\" has BLESS::Typed property \"" + typedText + "\"."); }
               try
                 {
-                rootOfTyped = LoadBLESS.parseTyped(typedText, featureLine, 0, pr.file );
+                rootOfTyped = LoadBLESS.parseTyped(typedText, featureLine, 0, AadlPackageContext.fileOf(pr) );
                 }
               catch (RecognitionException re)
                 {
@@ -810,7 +812,7 @@ load() throws YouIdiot
                 {
                 try
                   {
-                  er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, pr.file );
+                  er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, AadlPackageContext.fileOf(pr) );
                   componentTypeParseRecord.port_typed_map.put(featureName, er.type);
                   }
                 catch (RecognitionException e)
@@ -854,7 +856,7 @@ load() throws YouIdiot
                 typedText = LoadBLESS.getPropertyStringValue(portData, blessTyped, "");
               if (typedText.length() > 0)
                 {
-                er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, pr.file );
+                er.type = LoadBLESS.parseTyped(typedText, featureLine, 0, AadlPackageContext.fileOf(pr) );
                 componentTypeParseRecord.port_typed_map.put(featureName, er.type);
                 }
 //              else
@@ -1069,7 +1071,7 @@ load() throws YouIdiot
     {
 //get all component implementations in package
 //look through component implementations
-    List<ComponentImplementation> componentImplementationsInPackage = EcoreUtil2.eAllOfType(pr.myAadlPackage,
+    List<ComponentImplementation> componentImplementationsInPackage = EcoreUtil2.eAllOfType(AadlPackageContext.aadlPackageOf(pr),
         ComponentImplementation.class);
     if (verbose() && (componentImplementationsInPackage.size() == 0))
       {
@@ -1127,7 +1129,7 @@ load() throws YouIdiot
 //              if (!(ci instanceof ThreadClassifier))
 //                throw new YouIdiot("device and system BLESS annex subclauses not yet supported");
               tr = new ThreadRecord(rootOfASTofBLESSbehavior, ci.getTypeName(),
-                  ci.getImplementationName(), (ComponentClassifier)ci, pr);
+                  ci.getImplementationName(), new AadlComponentContext((ComponentClassifier)ci), pr);
               // set context
 //							tr.context = ci;
               // make and BAST node in the tree find the ThreadRecord at the top
@@ -1166,7 +1168,7 @@ load() throws YouIdiot
           } // done with all annex subclauses in thread or device
         if (tr == null)
           { // no BLESS annex subclause?
-          tr = new ThreadRecord(null, ci.getTypeName(), ci.getImplementationName(), (ComponentClassifier)ci, pr);
+          tr = new ThreadRecord(null, ci.getTypeName(), ci.getImplementationName(), new AadlComponentContext((ComponentClassifier)ci), pr);
           pr.addImplementation(ci.getName(), tr);
           }
         // link to its component type
@@ -1327,7 +1329,7 @@ load() throws YouIdiot
               LocationReference lr     = ci.getLocationReference();
               int               line   = (lr != null ? lr.getLine() : 1);
               int               offset = (lr != null ? lr.getOffset() : 1);
-              rootOfTyped = LoadBLESS.parseTyped(typedText, line, offset, pr.file);
+              rootOfTyped = LoadBLESS.parseTyped(typedText, line, offset, AadlPackageContext.fileOf(pr));
               }
             catch (RecognitionException re)
               {

@@ -22,13 +22,6 @@ import java.util.Vector;
 
 import org.antlr.stringtemplate.StringTemplateGroup;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.Property;
-import org.osate.xtext.aadl2.properties.util.GetProperties;
-import org.osate.xtext.aadl2.properties.util.PropertyUtils;
 
 import com.multitude.bless.BLESS;
 import com.multitude.bless.exceptions.Dump;
@@ -203,6 +196,23 @@ public static boolean unparseAssertions=true;
 
 public static EObject context = null;
 
+//user-interface services (dialogs, tree windows); see UiServices
+private static UiServices uiServices = UiServices.HEADLESS;
+//reads property values from the architecture model; see ModelProperties
+private static ModelProperties modelProperties = ModelProperties.NONE;
+
+	public static void
+setUiServices(UiServices u) { uiServices = (u==null) ? UiServices.HEADLESS : u; }
+
+	public static UiServices
+getUiServices() { return uiServices; }
+
+	public static void
+setModelProperties(ModelProperties m) { modelProperties = (m==null) ? ModelProperties.NONE : m; }
+
+	public static ModelProperties
+getModelProperties() { return modelProperties; }
+
 //migrated to here in big split 10/19/2018
 	public static String stringTemplateGroupFolder = "StringTemplateGroups/";
 public static boolean prayingHandsClicked = false;
@@ -253,10 +263,10 @@ getAadlPropertyValue(String propertySet, String propertyName)
 		{
 			return propertySet + "::" + propertyName;
 			}
-  Property prop = GetProperties.lookupPropertyDefinition(context,propertySet,propertyName);
-  if (prop!=null)
+  String value = modelProperties.getIntegerPropertyValue(context,propertySet,propertyName);
+  if (value!=null)
 		{
-			return Long.toString(PropertyUtils.getIntegerValue((NamedElement) context,prop));
+			return value;
 			}
 //    return prop.evaluateDefault((EvaluationContext) context).toString();
   return propertySet + "::" + propertyName;
@@ -269,10 +279,10 @@ getAadlPropertyValue(String propertyName)
 		{
 			return propertyName;
 			}
-  Property prop = GetProperties.lookupPropertyDefinition(context,propertyName);
-  if (prop!=null)
+  String value = modelProperties.getIntegerPropertyValue(context,null,propertyName);
+  if (value!=null)
 		{
-			return Long.toString(PropertyUtils.getIntegerValue((NamedElement) context,prop));
+			return value;
 			}
 //    return prop.evaluateDefault((EvaluationContext) context).toString();
   return propertyName;
@@ -346,8 +356,7 @@ setUpFiles()
 	public static void
 showMessageBox(String message)	
   {
-  Shell shell = new Shell(Display.getDefault());
-  MessageDialog.openInformation(shell, "BLESS Message", message); 
+  uiServices.showMessage(message);
   }
 	
 }	//end of Global

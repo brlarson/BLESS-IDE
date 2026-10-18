@@ -8,15 +8,6 @@ package com.multitude.bless.record;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.osate.aadl2.ComponentClassifier;
-import org.osate.aadl2.EnumerationLiteral;
-import org.osate.aadl2.NamedElement;
-import org.osate.aadl2.Property;
-import org.osate.aadl2.ThreadClassifier;
-import org.osate.xtext.aadl2.properties.util.GetProperties;
-
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.exceptions.YouIdiot;
 import com.multitude.bless.symbol.CompleteStateMapRecord;
@@ -38,30 +29,38 @@ public HashMap<String,BAST> execute_state_assertion_map = new HashMap<String,BAS
 //map of transition labels to following Assertions
 public HashMap<String,BAST> transition_label_assertion_map = new HashMap<String,BAST>();
 public boolean isPeriodic=false;
+//architecture properties of the component (Dispatch_Protocol, Period, BLESS::Invariant)
+public ComponentContext componentContext=null;
 
+  private static boolean
+isPeriodicProtocol(String dispatchProtocol)
+  {
+  return dispatchProtocol!=null && (dispatchProtocol.endsWith("Periodic")||dispatchProtocol.endsWith("Hybrid"));
+  }  //end of isPeriodicProtocol
 
-public ThreadRecord(BAST cu, String typeid, ComponentClassifier context, PackageRecord pr)	//cu=compilation unit root of thread
+public ThreadRecord(BAST cu, String typeid, ComponentContext cc, PackageRecord pr)	//cu=compilation unit root of thread
 {
 //this.context=context;
-super(cu,typeid,context,pr);	//invoke ParseRecord constructor
+super(cu,typeid,(cc==null ? null : cc.getModelElement()),pr);	//invoke ParseRecord constructor
+componentContext = cc;
 threadTypeID = typeid;
 if (cu!=null)
   cu.setParseRecord(this);
 myThreadType = this;
-EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(context);
-isPeriodic = (dispatchProtocol==null ? false : (dispatchProtocol.getName().endsWith("Periodic")||dispatchProtocol.getName().endsWith("Hybrid")));
+isPeriodic = isPeriodicProtocol(cc==null ? null : cc.getDispatchProtocol());
 }	//end of ThreadRecord constructor
 
 //constructor for thread implementations
-public ThreadRecord(BAST cu, String typeid, String impid, ComponentClassifier context, PackageRecord pr)	//cu=compilation unit root of thread
+public ThreadRecord(BAST cu, String typeid, String impid, ComponentContext cc, PackageRecord pr)	//cu=compilation unit root of thread
 {  //includes implementation ID
-super(cu,typeid+"."+impid,impid,context,pr);	//invoke ParseRecord constructor
+super(cu,typeid+"."+impid,impid,(cc==null ? null : cc.getModelElement()),pr);	//invoke ParseRecord constructor
+componentContext = cc;
 threadTypeID = typeid;
 threadImplementationID = impid;
 if (cu!=null)
   cu.setParseRecord(this);
-EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol(context);
-isPeriodic = (dispatchProtocol==null ? false : (dispatchProtocol.getName().endsWith("Periodic")||dispatchProtocol.getName().endsWith("Hybrid")));
+String dispatchProtocol = (cc==null ? null : cc.getDispatchProtocol());
+isPeriodic = isPeriodicProtocol(dispatchProtocol);
 if ((pr!=null)&&(pr.component_type_map!=null)&&pr.component_type_map.containsKey(typeid))
   {
   myThreadType = (ThreadRecord) pr.component_type_map.get(typeid);
@@ -139,12 +138,11 @@ getThreadPeriod()
 			{
 				throw new YouIdiot("null root ast");
 				}
-    if (context instanceof NamedElement)
+    if (componentContext!=null)
       {
-      EnumerationLiteral dispatchProtocol = GetProperties.getDispatchProtocol((NamedElement)context);
 //      if (dispatchProtocol.toString().endsWith("Periodic"))
 //        {
-        double periodInMS = GetProperties.getPeriodinMS((NamedElement)context);
+        double periodInMS = componentContext.getPeriodInMS();
         period = new BAST(String.valueOf(periodInMS),BLESS3Lexer.NUMBER,this.ast);
         period.addChild(new BAST("ms",BLESS3Lexer.ID,this.ast));
 //        }
@@ -153,7 +151,7 @@ getThreadPeriod()
       }
 		else
 			{
-				throw new YouIdiot("AADL architecture context was not instance of NamedElement,"+
+				throw new YouIdiot("no architecture properties (ComponentContext) for this component,"+
 				    " could not get thread period");
 				}
     return period;
@@ -168,20 +166,20 @@ getThreadInvariantProperty()
 			{
 				throw new YouIdiot("null AADL architecture context");
 				}
-    if (context instanceof NamedElement)
+    if (componentContext!=null)
       {
-      Property pn = GetProperties.lookupPropertyDefinition(context, "BLESS::Invariant");
+      String pn = componentContext.getInvariantPropertyDefinition();
 //      if (pn==null)
 //      	pn = GetProperties.lookupPropertyDefinition(context, "BA2015::Invariant");
       if (pn!=null)
 				{
-					return pn.toString();
+					return pn;
 					}
       }
 		else
 			{
-				throw new YouIdiot("AADL architecture context was not instance of NamedElement,"+
-				    " could not get thread period");
+				throw new YouIdiot("no architecture properties (ComponentContext) for this component,"+
+				    " could not get BLESS::Invariant");
 				}
     return null;
     }  //end of getThreadInvariantProperty

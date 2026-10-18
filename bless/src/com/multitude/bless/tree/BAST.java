@@ -25,13 +25,7 @@ import org.antlr.runtime.tree.Tree;
 import org.antlr.stringtemplate.StringTemplate;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.TreeItem;
 
-import com.multitude.bless.Activator;
 import com.multitude.bless.antlr3generated.BLESS3Lexer;
 import com.multitude.bless.antlr3generated.BLESS3Parser;
 import com.multitude.bless.antlr3generated.UnparseBLESS3;
@@ -806,46 +800,14 @@ private static int tab=0;  //tabbing for toStringTree
 //    return false;
 //    }
 
-  public void addTreeItemChildren(TreeItem rootItem)
-    {
-    for (int ch = 0; ch < getChildCount(); ch++)
-      {
-      BAST child = (BAST) getChild(ch);
-      TreeItem childItem = new TreeItem(rootItem, 0);
-      childItem.setText(child.getText());
-      // childItem.setForeground(new Color(AWT.));
-      child.addTreeItemChildren(childItem);
-      }
-    } // end of addTreeItemChildren
-
   public void showParseTree(String s)
     {
     if (!Global.parsingPredeclaredProperties)
       {
       Dump.it("displaying tree: " + s);
       Dump.it(toStringTree());
-      if (Activator.plugin != null) // is this an Eclipse plugin?
-        {
-        try {
-        Display display = Display.getDefault();  
-        Shell shell = new Shell(display);
-        shell.setLayout(new FillLayout());
-        shell.setText(s);
-        final org.eclipse.swt.widgets.Tree tree = new org.eclipse.swt.widgets.Tree(
-            shell, SWT.BORDER);
-        TreeItem fakeRootItem = new TreeItem(tree, 0);
-        fakeRootItem.setText(s);
-        TreeItem rootItem = new TreeItem(fakeRootItem, 0);
-        rootItem.setText(getText());
-        addTreeItemChildren(rootItem);
-        shell.setSize(500, 500);
-        shell.open();
-          } catch (Exception ex) 
-          {Dump.it("Unable to display parse tree.");}
-        } 
-      else 
-		  Dump.it("Please choose Window->Show View->Other->Absract Syntax Tree to see the tree for \""
-            + s + "\"");
+      // SWT window when running as an Eclipse plugin, else a hint in Dump; see UiServices
+      Global.getUiServices().showTree(s, this);
       }
     } // end of showParseTree
 

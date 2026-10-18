@@ -355,8 +355,8 @@ public void reportError(RecognitionException ex)
   {
   if ((currentPackageRecord != null) && (currentPackageRecord.packageID != null))
     Dump.it("In Package "+currentPackageRecord.packageID);
-  if ((currentPackageRecord != null) && (currentPackageRecord.file != null))
-    Dump.it("In File "+currentPackageRecord.file.getName());
+  if ((currentPackageRecord != null) && (currentPackageRecord.packageContext != null) && (currentPackageRecord.packageContext.getResourceName() != null))
+    Dump.it("In File "+currentPackageRecord.packageContext.getResourceName());
   else if (fileName != null)
     Dump.it("In File "+fileName);
   Dump.it("BLESS Syntax Error #"+

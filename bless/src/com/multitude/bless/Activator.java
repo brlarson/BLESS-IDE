@@ -24,10 +24,12 @@ import org.osgi.framework.BundleContext;
 import com.multitude.bless.app.Global;
 import com.multitude.bless.app.Settings;
 import com.multitude.bless.app.Time;
+import com.multitude.bless.ui.SwtUiServices;
 import com.multitude.bless.ui.preferences.ConfigurationPreferencePage;
 import com.multitude.bless.exceptions.BLESSmarker;
 import com.multitude.bless.exceptions.Dump;
 import com.multitude.bless.exceptions.YouIdiot;
+import com.multitude.bless.osate.AadlModelProperties;
 import com.multitude.bless.osate.MarkerReporter;
 
 /**
@@ -91,6 +93,8 @@ public void start(BundleContext context) throws Exception
 	Global.runningAsOSATEplugin=true;
 	Settings.setProvider(new ConfigurationPreferencePage.StoreProvider());
 	BLESSmarker.setReporter(new MarkerReporter());
+	Global.setUiServices(new SwtUiServices());
+	Global.setModelProperties(new AadlModelProperties());
 	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	Dump.it("\nBehavioral Language for Embedded Systems with Software Proof Tool "+
 			BLESS.versionDate+" at "+Time.todayString);
