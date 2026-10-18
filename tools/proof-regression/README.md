@@ -47,7 +47,7 @@ Run them in this order: small first, then the ones that exercise what A0 changed
 | # | Model | Top script | System implementation (its committed instance model) | Saved proof | What it exercises |
 |---|---|---|---|---|---|
 | 1 | VVI | `proof script/VVI.ps` | `aadl/packages/instances/VVI_PG_i_Instance.aaxl2` | 303 theorems, v3.2.2 | thread VCs, `BLESS::Invariant`, small |
-| 2 | Timeout | `proof script/tpwoc.ps`, then `tpwc.ps`, then `tpstamp.ps` (see note) | *(no instance committed; use the one you used before)* | 445, v3.1.5 | timeout dispatch, periodic threads |
+| 2 | Timeout | `proof script/timeout.ps` (see note) | *(no instance committed; use the one you used before)* | 445, v3.1.5 | timeout dispatch, periodic threads |
 | 3 | CTCS-3 | `proof/CTCS3.ps` | `aadl/packages/instances/Train_Train_i_Instance.aaxl2` | 391, v3.2.2 | |
 | 4 | IoMT | `proofscripts/IoMT_Master.ps` (runs 4 subscripts) | `aadl/packages/instances/IoMTwin_SysIoMT_impl_Instance.aaxl2` | 677, v3.2.4 | **composition**: connection assume-guarantee and composite invariants (`AadlComposition`) |
 | 5 | DDD | `proof script/DDD.ps` | `aadl/packages/instances/PG_Pacemaker_imp_Instance.aaxl2` | 665, v3.2.1 | timing (`@`, `now`) |
@@ -56,11 +56,11 @@ Run them in this order: small first, then the ones that exercise what A0 changed
 | 8 | Stepper | `proof scripts/stepper.ps` | `packages/instances/PositionControl_PositionControlSystem_RobustSingleStep_Instance.aaxl2` | 3443, v3.1 | subprogram Pre/Post, invocation, connections |
 | 9 | DDDRwE | `proof-scripts/DDDwE.ps` | `packages/instances/PACEMAKER_PG_imp_Instance.aaxl2` | 4369, v3.1.5 | largest; composition, `tops` |
 
-**Timeout note:** `timeout.ps` uses the old `subscript tpwoc.ps` form. v3.2.5 reads sub-script
-names as `subscript[…]` (`Strategy` takes `substring(10, length-1)`), so it would look for
-`tpwoc.p` and fail, on `master` as well as on a0. Instead, run the three scripts it lists one
-after another (**get new script** / **run proof script** for each) and collect after the last
-one reaches Q.E.D. Do the same on both branches.
+**Timeout note:** `timeout.ps` used to use the old `subscript tpwoc.ps` form. v3.2.5 reads
+sub-script names as `subscript[…]` (`Strategy` takes `substring(10, length-1)`), so it looked
+for `tpwoc.p` and failed, on `master` as well as on a0. BLESS-models now uses
+`subscript[tpwoc.ps]` and so on. If your BLESS-models checkout predates that fix, run
+`tpwoc.ps`, `tpwc.ps`, and `tpstamp.ps` one after another instead, the same way on both branches.
 
 CTCS (dumps only) and Subprograms (no saved proof) are optional. If you run them, compare
 master against a0 the same way.
